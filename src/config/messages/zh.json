@@ -1,0 +1,5030 @@
+{
+  "Index": {
+    "title": "TradeInDRC - 官方贸易门户",
+    "description": "连接经过认证的刚果企业与世界。"
+  },
+  "Nav": {
+    "home": "首页",
+    "about": "关于我们",
+    "products": "产品",
+    "companies": "公司",
+    "opportunities": "市场机会",
+    "contactPoints": "本地联系点",
+    "news": "新闻",
+    "events": "活动",
+    "blog": "博客",
+    "register": "注册公司",
+    "registerBtn": "注册",
+    "dashboard": "控制台",
+    "signin": "登录",
+    "signout": "退出登录",
+    "search": "搜索...",
+    "adminPanel": "管理面板",
+    "breadcrumb": "面包屑导航",
+    "request": "提交需求",
+    "pricing": "定价",
+    "marketplace": "交易市场",
+    "marketIntelligence": "市场情报",
+    "promote": "推广您的企业",
+    "contact": "联系我们",
+    "registerCompany": "注册您的公司",
+    "postRequest": "发布请求",
+    "poweredBy": "Power by BrandsBridge Group",
+    "menu": "菜单",
+    "services": "服务",
+    "moreMenu": "更多"
+  },
+  "Hero": {
+    "badge": "经贸易部核验",
+    "titlePrefix": "通往以下领域的官方门户：",
+    "titleHighlight": "刚果贸易",
+    "subtitle": "与经核验的供应商建立联系，探索战略投资机会，并获取刚果民主共和国的官方出口法规。",
+    "searchPlaceholder": "搜索铜、咖啡、纺织品……",
+    "searchButton": "搜索市场",
+    "cta": "浏览企业",
+    "register": "注册您的企业",
+    "browse": "浏览名录"
+  },
+  "Features": {
+    "title": "为何选择 TradeInDRC？",
+    "verification": "经核验的企业",
+    "verificationDesc": "所有企业均经贸易部核验，确保真实可信。",
+    "matchmaking": "B2B 撮合",
+    "matchmakingDesc": "通过我们的安全平台与潜在合作伙伴直接建立联系。",
+    "export": "出口就绪",
+    "exportDesc": "获取详尽的出口能力、认证及交货周期信息。"
+  },
+  "Stats": {
+    "title": "我们的影响力",
+    "companies": "注册企业",
+    "companiesDesc": "经核验的刚果企业组成的不断壮大的网络。",
+    "sectors": "覆盖的行业",
+    "sectorsDesc": "从农业到科技，涵盖广泛领域。",
+    "provinces": "省份",
+    "provincesDesc": "覆盖刚果（金）全部省份",
+    "successRate": "成功率",
+    "successRateDesc": "经核验申请的占比"
+  },
+  "Companies": {
+    "title": "查找已认证公司",
+    "subtitle": "发现已为国际贸易做好准备的可信赖刚果企业",
+    "search": "搜索公司、产品、行业...",
+    "filters": "筛选",
+    "clear": "清除",
+    "sector": "行业",
+    "province": "省份",
+    "verifiedOnly": "仅显示已认证公司",
+    "results": "找到 {count} 家公司",
+    "noResults": "未找到公司",
+    "adjustFilters": "请尝试调整筛选条件",
+    "sortBy": "排序方式",
+    "relevance": "相关性",
+    "nameAZ": "A-Z",
+    "newest": "最新"
+  },
+  "Register": {
+    "title": "注册您的公司",
+    "step1Title": "选择公司类型",
+    "step1Desc": "您是刚果（金）本地企业还是国际企业？",
+    "congolese": "刚果（金）公司",
+    "congoleseSub": "在刚果（金）注册",
+    "international": "国际企业",
+    "internationalSub": "在刚果（金）境外设立",
+    "step2Title": "基本信息",
+    "step2Desc": "请向我们介绍您的公司",
+    "companyName": "公司名称",
+    "sector": "行业",
+    "province": "省份",
+    "city": "城市",
+    "description": "简介",
+    "step3Title": "业务详情",
+    "step3Desc": "出口能力与认证",
+    "capacity": "生产能力",
+    "moq": "最低起订量",
+    "leadTime": "交货周期",
+    "certifications": "认证",
+    "step4Title": "验证文件",
+    "step4Desc": "上传供部委验证的文件",
+    "taxId": "税号 / NIF 文件",
+    "registry": "工商登记证书",
+    "fileHint": "PDF 或图片，最大 10MB",
+    "summary": "摘要",
+    "back": "返回",
+    "continue": "继续",
+    "submit": "提交审核",
+    "submitting": "正在提交……",
+    "success": "公司注册成功！等待验证。",
+    "error": "公司注册失败"
+  },
+  "Profile": {
+    "backToDirectory": "返回名录",
+    "verifiedBadge": "经部委验证",
+    "contact": "联系供应商",
+    "overview": "概览",
+    "capacity": "产能",
+    "certifications": "认证",
+    "about": "关于",
+    "quickInfo": "快速信息",
+    "companyType": "公司类型",
+    "location": "所在地",
+    "productionCapacity": "生产能力",
+    "minimumOrder": "最低订单量",
+    "noCertifications": "暂无认证。",
+    "notFound": "未找到公司",
+    "notFoundDesc": "该公司资料不存在或已被移除。"
+  },
+  "About": {
+    "title": "关于 TradeInDRC",
+    "heroEyebrow": "刚果民主共和国官方贸易门户",
+    "heroSubtitle": "一个政府支持的 B2B 平台，已认证的刚果企业在此与国际买家相遇——企业名录、搜索、询价单（RFQ）和安全消息一站集成。",
+    "heroImageAlt": "暮色中的金沙萨天际线",
+    "mission": "我们的使命",
+    "missionText": "TradeInDRC 是刚果民主共和国官方的双语贸易门户。我们将已认证的刚果企业与国际买家和合作伙伴对接，为部委提供审核和验证每一家企业的工具，并将该国的出口能力汇聚于一个可信的平台。",
+    "whoFor": "适合谁使用",
+    "audience": {
+      "exporter": {
+        "title": "刚果出口商",
+        "desc": "一次注册，即可获得部委认证徽章，列出您的产品和出口能力，并触达正在积极寻找刚果民主共和国供应商的国际买家。"
+      },
+      "buyer": {
+        "title": "国际买家",
+        "desc": "发现各行业中经过审核的刚果供应商，发送询价单（RFQ），与企业安全沟通，并在不离开平台的情况下筛选合作伙伴。"
+      },
+      "gov": {
+        "title": "部委与官员",
+        "desc": "一个集审计记录、KPI 仪表盘、分类管理和精选资料管理于一体的审核控制台——监管能力内置于平台之中。"
+      }
+    },
+    "howItWorks": "运作方式",
+    "step1": "注册您的公司",
+    "step1Desc": "创建账户，提交税号、注册编号和证书以供验证。",
+    "step2": "完成认证",
+    "step2Desc": "我们的团队依据 KYB 审查核对您的文件，并授予官方部委徽章。",
+    "step3": "开始贸易",
+    "step3Desc": "列出产品、回复询价单（RFQ），并通过我们的安全收件箱与买家沟通——绝不泄露联系方式。",
+    "capabilitiesTitle": "您今天即可实现的功能",
+    "capabilities": {
+      "directory": {
+        "title": "已认证名录",
+        "desc": "包含产能、交货周期、最小起订量（MOQ）、HS 编码、认证及部委认证徽章的详尽资料。"
+      },
+      "messaging": {
+        "title": "安全消息",
+        "desc": "联系供应商表单可对邮箱保密；消息会送达 TradeInDRC 上的私人收件箱。"
+      },
+      "rfq": {
+        "title": "迷你询价单看板",
+        "desc": "发布采购需求或产能供应；已认证的交易对手通过安全消息回复。"
+      },
+      "references": {
+        "title": "已认证的推荐关系",
+        "desc": "与平台上其他已认证的合作伙伴建立关联，打造一个可见且便于审计的信任网络。"
+      },
+      "bilingual": {
+        "title": "英语 / 法语双语",
+        "desc": "每一处界面文字和 CMS 内容均为双语。以您偏好的语言浏览与贸易。"
+      },
+      "analytics": {
+        "title": "私密分析",
+        "desc": "每家企业都可查看其资料浏览量、在搜索中的出现次数，以及带来其资料的热门搜索词。"
+      }
+    },
+    "trustTitle": "企业为何信任本平台",
+    "pillars": {
+      "ministry": "每一份注册资料在获得认证徽章之前，都会经部委审核并签字确认。",
+      "kyb": "发布前，针对税号、注册文件和行业认证进行 KYB 审查。",
+      "backed": "政府支持的基础设施，配有完整的审计记录和专门的审核队列。"
+    },
+    "ctaTitle": "准备好开始了吗？",
+    "ctaDesc": "立即加入刚果民主共和国官方贸易平台。",
+    "ctaPrimary": "注册您的公司",
+    "ctaSecondary": "浏览已认证企业"
+  },
+  "Auth": {
+    "loginTitle": "登录",
+    "loginDesc": "请在下方输入您的电子邮箱以登录账户。",
+    "registerTitle": "创建账户",
+    "registerDesc": "请在下方输入您的电子邮箱以创建账户。",
+    "email": "电子邮箱",
+    "password": "密码",
+    "signIn": "登录",
+    "signUp": "注册",
+    "or": "或",
+    "noAccount": "还没有账户？",
+    "hasAccount": "已有账户？",
+    "errorGeneric": "发生错误，请重试。",
+    "successLogin": "登录成功。",
+    "successRegister": "账户创建成功。",
+    "verifyEmail": {
+      "title": "验证您的电子邮箱",
+      "body": "我们已向 {email} 发送了一封确认链接邮件。请点击链接以激活您的账户。",
+      "resend": "重新发送邮件",
+      "resent": "邮件已发送。请查看您的收件箱。",
+      "openInbox": "打开收件箱"
+    },
+    "forgotPassword": {
+      "title": "重置您的密码",
+      "body": "请输入与您账户关联的电子邮箱，我们将向您发送一个重置链接。",
+      "submit": "发送重置链接",
+      "sent": "如果该邮箱已注册，链接即将送达。",
+      "backToLogin": "返回登录",
+      "emailPlaceholder": "you@example.com"
+    },
+    "resetPassword": {
+      "title": "设置新密码",
+      "newPassword": "新密码",
+      "confirm": "确认密码",
+      "submit": "更新密码",
+      "success": "密码已更新。您现在可以登录了。",
+      "mismatch": "两次输入的密码不一致。",
+      "weak": "请至少使用 8 个字符。"
+    },
+    "accountSettings": {
+      "title": "账户设置",
+      "email": "电子邮箱",
+      "changeEmail": "更改电子邮箱",
+      "newEmail": "新电子邮箱",
+      "password": "密码",
+      "changePassword": "更改密码",
+      "currentPassword": "当前密码",
+      "saved": "已保存。",
+      "emailChangeSent": "请从您的新收件箱中确认此项更改。",
+      "unverifiedBanner": "您的电子邮箱尚未验证，部分操作已被限制。",
+      "role": "账户角色",
+      "roleUser": "普通用户",
+      "roleAdmin": "管理员",
+      "gotoAccount": "更改电子邮箱或密码"
+    },
+    "resetEmailSent": "密码重置邮件已发送！请查看您的收件箱。",
+    "errorInvalidCredentials": "电子邮箱或密码错误。",
+    "errorAccountExists": "该电子邮箱已注册账户。",
+    "errorPasswordTooShort": "密码长度至少为 6 个字符。",
+    "forgotPasswordLink": "忘记密码？",
+    "sendResetLink": "发送重置链接",
+    "backToSignIn": "返回登录"
+  },
+  "Dashboard": {
+    "title": "控制面板",
+    "welcome": "欢迎回来",
+    "myCompanies": "我的企业",
+    "noCompanies": "您尚未注册任何企业。",
+    "registerFirst": "注册您的首家企业",
+    "registerAnother": "注册另一家企业",
+    "pendingVerification": "待审核",
+    "verified": "已认证",
+    "rejected": "已驳回",
+    "viewProfile": "查看资料",
+    "viewProfilePendingHint": "审核通过后可查看",
+    "editProfile": "编辑资料",
+    "moreInfoRequested": "需补充材料",
+    "rejectionReason": "驳回原因",
+    "resubmit": "重新提交审核",
+    "resubmitSuccess": "企业已重新提交审核",
+    "resubmitError": "企业重新提交失败",
+    "onboarding": {
+      "title": "在 TradeInDRC 开始",
+      "subtitle": "三个步骤即可开始接收报价。",
+      "steps": {
+        "company": {
+          "title": "认证您的企业",
+          "body": "注册企业并提交 KYB 文件以供审核。"
+        },
+        "product": {
+          "title": "发布产品或服务",
+          "body": "列出您的销售内容，便于买家找到您。"
+        },
+        "opportunity": {
+          "title": "发布商机",
+          "body": "招标、合作、需求——向所有已认证买家发布。"
+        }
+      }
+    },
+    "resubmitting": "正在重新提交……",
+    "signInRequired": "请登录以查看您的控制面板。",
+    "registerCompany": "注册企业",
+    "statusPending": "待处理",
+    "moreInfoNeeded": "需补充信息",
+    "view": "查看",
+    "edit": "编辑",
+    "noCompaniesYet": "暂无企业",
+    "noCompaniesYetBody": "注册您的企业以开始贸易",
+    "signOut": "退出登录",
+    "nav": {
+      "overview": "概览",
+      "companies": "我的企业",
+      "products": "产品",
+      "rfq": "询价单",
+      "opportunities": "商机",
+      "inbox": "收件箱",
+      "analytics": "数据分析",
+      "settings": "设置",
+      "expandSidebar": "展开侧边栏",
+      "collapseSidebar": "收起侧边栏",
+      "services": "服务"
+    },
+    "editCompany": {
+      "title": "编辑企业资料",
+      "backToDashboard": "返回控制面板",
+      "saveChanges": "保存更改",
+      "loadError": "加载企业数据失败",
+      "updateSuccess": "企业资料更新成功！",
+      "updateError": "企业更新失败",
+      "basicInfo": "基本信息",
+      "companyName": "企业名称",
+      "sector": "行业",
+      "hsCode": "HS 编码",
+      "hsCodePlaceholder": "例如 0901.11",
+      "description": "描述",
+      "tags": "标签（以逗号分隔）",
+      "tagsPlaceholder": "例如 有机、可供出口、公平贸易",
+      "exportCapacity": "出口能力",
+      "productionCapacity": "生产能力",
+      "minimumOrder": "最低订单量",
+      "leadTime": "交货周期",
+      "certifications": "认证",
+      "exportMarkets": "出口市场",
+      "ownershipDenied": "您无权编辑该企业。",
+      "saving": "正在保存更改……",
+      "sectorPlaceholder": "选择行业",
+      "province": "省份",
+      "city": "城市",
+      "listsHeading": "能力与覆盖范围",
+      "commaSeparatedPlaceholder": "请以逗号分隔各项",
+      "languages": "使用语言",
+      "tagsHint": "从可用标签中选择。标签由管理员管理。",
+      "noTagsAvailable": "暂无可用标签。",
+      "hsCodeHint": "选择与您产品对应的 HS 编码。HS 编码由管理员管理。",
+      "noHsCodesAvailable": "暂无可用 HS 编码。",
+      "media": "媒体",
+      "mediaHint": "添加您的徽标、画廊照片、宣传册和产品视频。这些内容会显示在您的公开企业资料中。"
+    },
+    "products": {
+      "title": "产品",
+      "addProduct": "添加产品",
+      "signInRequired": "请登录以查看产品。",
+      "noCompany": "暂未注册企业",
+      "noCompanyBody": "请先注册企业，然后再添加产品。",
+      "registerCompany": "注册企业",
+      "companyLabel": "企业：",
+      "selectCompany": "选择企业",
+      "colName": "名称",
+      "colDescription": "描述",
+      "colImages": "图片",
+      "colCreated": "创建时间",
+      "emptyTitle": "暂无产品",
+      "emptyBody": "添加您的首件产品以开始。",
+      "noDescription": "暂无描述",
+      "deleteConfirm": "删除“{name}”？此操作无法撤销。",
+      "deleting": "正在删除产品……",
+      "deleted": "产品已删除。",
+      "deleteError": "产品删除失败。",
+      "backToProducts": "返回产品",
+      "signInToAdd": "请登录以添加产品。",
+      "editProduct": "编辑产品",
+      "loadError": "无法加载产品。",
+      "ownershipDenied": "您无权编辑此产品。"
+    },
+    "productForm": {
+      "nameLabel": "产品名称",
+      "namePlaceholder": "例如 有机阿拉比卡咖啡豆",
+      "descriptionLabel": "描述",
+      "descriptionPlaceholder": "描述产品、产地、质量等级、认证……",
+      "categoryLabel": "类别 ID",
+      "optional": "（可选）",
+      "categoryPlaceholder": "类别标识符",
+      "imagesLabel": "图片",
+      "imageAlt": "产品图片 {index}",
+      "removeImage": "移除图片",
+      "addImages": "添加图片",
+      "imagesHint": "图片将在您保存产品时上传。",
+      "saveChanges": "保存更改",
+      "createProduct": "创建产品",
+      "cancel": "取消",
+      "updating": "正在更新产品……",
+      "creating": "正在创建产品……",
+      "updateSuccess": "产品更新成功。",
+      "createSuccess": "产品创建成功。",
+      "genericError": "出现错误",
+      "validation": {
+        "nameMin": "名称至少需 2 个字符",
+        "descriptionMin": "描述至少需 10 个字符",
+        "failed": "验证失败"
+      },
+      "nameEnLabel": "产品名称（英文）",
+      "nameEnPlaceholder": "例如：有机阿拉比卡咖啡豆",
+      "nameFrLabel": "产品名称（法文）",
+      "nameFrPlaceholder": "例如：Grains de café Arabica biologiques",
+      "descriptionEnLabel": "描述（英文）",
+      "descriptionEnPlaceholder": "描述产品及其产地、质量等级、认证……",
+      "descriptionFrLabel": "描述（法文）",
+      "descriptionFrPlaceholder": "Décrivez le produit, son origine, sa qualité, ses certifications...",
+      "categoryNone": "无类别",
+      "invalidType": "{name} 不是受支持的图片类型。",
+      "fileTooLarge": "{name} 超过 {max} MB 的限制。",
+      "maxImages": "您最多可以上传 {max} 张图片。"
+    },
+    "services": {
+      "title": "服务",
+      "addService": "添加服务",
+      "editService": "编辑服务",
+      "signInRequired": "请登录以查看服务。",
+      "signInToAdd": "请登录以添加服务。",
+      "noCompany": "尚未注册公司",
+      "noCompanyBody": "请先注册公司，然后再添加服务。",
+      "registerCompany": "注册公司",
+      "companyLabel": "公司：",
+      "selectCompany": "选择公司",
+      "backToServices": "返回服务",
+      "colName": "名称",
+      "colType": "类型",
+      "colDelivery": "提供方式",
+      "colStatus": "状态",
+      "colCreated": "创建时间",
+      "emptyTitle": "尚无服务",
+      "emptyBody": "添加您的第一个服务以开始。",
+      "deleteConfirm": "删除\"{name}\"吗？此操作无法撤消。",
+      "deleting": "正在删除服务……",
+      "deleted": "服务已删除。",
+      "deleteError": "无法删除服务。",
+      "loadError": "无法加载服务。",
+      "ownershipDenied": "您无权编辑此服务。",
+      "serviceTypes": {
+        "consulting": "咨询",
+        "logistics": "物流",
+        "finance": "金融",
+        "legal": "法律",
+        "custom": "定制",
+        "other": "其他"
+      },
+      "deliveryModes": {
+        "on_request": "按需",
+        "subscription": "订阅",
+        "one_off": "一次性",
+        "retainer": "长期合约"
+      },
+      "statuses": {
+        "active": "启用",
+        "paused": "已暂停",
+        "archived": "已归档"
+      }
+    },
+    "serviceForm": {
+      "nameEnLabel": "服务名称（英文）",
+      "nameEnPlaceholder": "例如：出口物流协调",
+      "nameFrLabel": "服务名称（法文）",
+      "nameFrPlaceholder": "例如：Coordination logistique d'exportation",
+      "descriptionEnLabel": "描述（英文）",
+      "descriptionEnPlaceholder": "描述服务、其范围以及所包含的内容……",
+      "descriptionFrLabel": "描述（法文）",
+      "descriptionFrPlaceholder": "Décrivez le service, sa portée et ce qui est inclus...",
+      "serviceTypeLabel": "服务类型",
+      "deliveryModeLabel": "提供方式",
+      "categoryLabel": "类别",
+      "categoryPlaceholder": "选择一个类别",
+      "categoryNone": "无类别",
+      "statusLabel": "状态",
+      "priceEnLabel": "价格说明（英文）",
+      "priceFrLabel": "价格说明（法文）",
+      "pricePlaceholder": "例如：每批货 500 美元起",
+      "optional": "（可选）",
+      "saveChanges": "保存更改",
+      "createService": "创建服务",
+      "cancel": "取消",
+      "updating": "正在更新服务……",
+      "creating": "正在创建服务……",
+      "updateSuccess": "服务更新成功。",
+      "createSuccess": "服务创建成功。",
+      "permissionError": "您无权保存此服务。",
+      "genericError": "出现错误",
+      "serviceTypes": {
+        "consulting": "咨询",
+        "logistics": "物流",
+        "finance": "金融",
+        "legal": "法律",
+        "custom": "定制",
+        "other": "其他"
+      },
+      "deliveryModes": {
+        "on_request": "按需",
+        "subscription": "订阅",
+        "one_off": "一次性",
+        "retainer": "长期合约"
+      },
+      "statuses": {
+        "active": "启用",
+        "paused": "已暂停",
+        "archived": "已归档"
+      },
+      "validation": {
+        "nameMin": "名称至少需要 2 个字符",
+        "failed": "验证失败"
+      }
+    },
+    "media": {
+      "tabs": {
+        "logo": "徽标",
+        "gallery": "画廊",
+        "brochure": "宣传册",
+        "video": "视频"
+      },
+      "count": "{count} / {max}",
+      "delete": "删除",
+      "uploading": "正在上传……",
+      "saving": "正在保存……",
+      "deleting": "正在删除……",
+      "loadError": "无法加载您的媒体。请重试。",
+      "uploadError": "上传失败。请重试。",
+      "saveError": "无法保存。请重试。",
+      "deleteError": "无法删除。请重试。",
+      "deleteSuccess": "已删除。",
+      "imageConstraints": "JPG、PNG 或 WebP。每个文件最大 {max}。",
+      "brochureConstraints": "仅限 PDF。每个文件最大 {max}。",
+      "error": {
+        "type": "不允许此文件类型。",
+        "size": "文件太大。最大尺寸为 {max}。",
+        "quota": "您已达到 {max} 个项目的上限。删除一个以添加更多。"
+      },
+      "logo": {
+        "hint": "方形徽标效果最佳。它会显示在您的资料和列表中。",
+        "alt": "公司徽标",
+        "upload": "上传徽标",
+        "replace": "更换徽标",
+        "remove": "移除徽标",
+        "uploadSuccess": "徽标已更新。",
+        "removeSuccess": "徽标已移除。"
+      },
+      "gallery": {
+        "hint": "用照片展示您的设施、团队和产品。",
+        "add": "添加照片",
+        "imageAlt": "画廊照片",
+        "uploadSuccess": "{count, plural, other {已添加 # 张照片}}。"
+      },
+      "brochure": {
+        "hint": "上传 PDF 格式的宣传册、目录或规格表。",
+        "add": "添加宣传册",
+        "fallbackName": "宣传册",
+        "uploadSuccess": "{count, plural, other {已添加 # 份宣传册}}。"
+      },
+      "video": {
+        "hint": "粘贴托管视频的链接（YouTube、Vimeo 或您自己的 URL）。",
+        "urlLabel": "视频 URL",
+        "urlPlaceholder": "https://…",
+        "add": "添加",
+        "addSuccess": "视频已添加。",
+        "invalidUrl": "请输入以 http:// 或 https:// 开头的有效视频 URL。"
+      }
+    }
+  },
+  "Footer": {
+    "portal": "门户",
+    "companies": "企业",
+    "products": "产品",
+    "howItWorks": "运作方式",
+    "verify": "验证企业",
+    "legal": "法律",
+    "terms": "服务条款",
+    "privacy": "隐私政策",
+    "cookies": "Cookie 政策",
+    "copyright": "刚果民主共和国官方门户。"
+  },
+  "Inbox": {
+    "title": "收件箱",
+    "unread": "{count} 条未读消息",
+    "noMessages": "暂无消息",
+    "selectMessage": "选择一条消息进行查看",
+    "reply": "回复",
+    "search": "搜索消息……",
+    "signInRequired": "请登录以查看您的收件箱。",
+    "signInRequiredConversation": "请登录以查看此对话。",
+    "searchConversations": "搜索对话……",
+    "unknownCompany": "未知",
+    "noSearchResults": "没有与您搜索匹配的对话",
+    "noConversations": "暂无对话",
+    "selectConversation": "选择一个对话以查看消息",
+    "conversationNotFound": "未找到对话。",
+    "backToInbox": "返回收件箱",
+    "relativeNow": "刚刚",
+    "relativeMinutes": "{count} 分钟",
+    "relativeHours": "{count} 小时",
+    "relativeDays": "{count} 天",
+    "opportunityContext": "关于：{title}"
+  },
+  "Contact": {
+    "title": "联系我们",
+    "subtitle": "有疑问吗？我们随时为您提供帮助。",
+    "sendMessage": "向我们发送留言",
+    "name": "姓名",
+    "email": "电子邮件",
+    "subject": "主题",
+    "message": "留言",
+    "send": "发送留言",
+    "success": "留言已成功发送！我们会尽快与您联系。"
+  },
+  "RisingPotential": {
+    "titlePrefix": "崛起的潜力",
+    "titleHighlight": "刚果民主共和国",
+    "description": "探索一个充满机遇、快速增长的市场。我们将国际视野与本地需求相连接，在非洲腹地开启成功合作的大门。",
+    "stats": {
+      "population": "人口",
+      "gdp": "国内生产总值（2024 年）",
+      "growth": "年增长率"
+    }
+  },
+  "ContactPoints": {
+    "title": "查找您的本地联系点",
+    "description": "选择距您企业所在地最近的国家和城市，与您当地的网络联系点取得联系。他们可以在国际合作的咨询、支持和机会方面为您提供帮助。",
+    "sidebarTitle": "城市",
+    "noResults": {
+      "title": "未找到联系点",
+      "message": "{city} 的联系点正在添加中。请稍后再来查看。"
+    }
+  },
+  "Sectors": {
+    "title": "重点经济行业",
+    "description": "探索刚果经济的驱动力量。与各大行业的已认证公司建立联系。",
+    "viewAll": "查看所有行业",
+    "companiesCount": "公司",
+    "items": {
+      "mining": {
+        "name": "战略矿产",
+        "desc": "铜、钴、锂、钽"
+      },
+      "agriculture": {
+        "name": "农业综合企业",
+        "desc": "咖啡、可可、棕榈油、橡胶"
+      },
+      "energy": {
+        "name": "可再生能源",
+        "desc": "水电（Inga）、太阳能、电网"
+      },
+      "infrastructure": {
+        "name": "基础设施",
+        "desc": "交通、港口、建筑"
+      },
+      "manufacturing": {
+        "name": "制造业",
+        "desc": "加工、纺织、组装"
+      },
+      "forestry": {
+        "name": "林业",
+        "desc": "木材、可持续采伐"
+      }
+    }
+  },
+  "Opportunities": {
+    "title": "合作机会",
+    "description": "在刚果民主共和国寻找并联系商业合作伙伴",
+    "postButton": "发布机会",
+    "filter": {
+      "title": "筛选条件",
+      "keywords": "关键词",
+      "profileType": "档案类型",
+      "partnerType": "合作伙伴类型",
+      "partnershipType": "合作类型",
+      "search": "搜索",
+      "clear": "清除筛选",
+      "options": {
+        "allTypes": "所有类型",
+        "allPartners": "所有合作伙伴",
+        "allPartnerships": "所有合作类型",
+        "business_offer": "商业供应",
+        "business_request": "商业需求",
+        "technology_offer": "技术供应",
+        "manufacturer": "制造商",
+        "distributor": "分销商",
+        "supplier": "供应商",
+        "investor": "投资者",
+        "commercial": "商业协议",
+        "outsourcing": "外包协议",
+        "investment": "投资协议"
+      }
+    },
+    "list": {
+      "title": "合作机会",
+      "results": "结果",
+      "types": {
+        "business_offer": "商业供应",
+        "business_request": "商业需求"
+      },
+      "respond": "回应"
+    },
+    "dialog": {
+      "postTitle": "发布商业机会",
+      "postDesc": "与全球社区分享您的商业需求或供应信息。",
+      "respondTitle": "回应机会",
+      "respondDesc": "表达您对“{title}”的兴趣。",
+      "submit": "提交审核",
+      "send": "发送消息",
+      "cancel": "取消"
+    },
+    "navLabel": "机会",
+    "page": {
+      "title": "机会公告板",
+      "subtitle": "来自刚果民主共和国的招标、政府与社会资本合作、投资召集和合作机会。",
+      "empty": "尚未发布任何机会。",
+      "error": "目前无法加载机会。请稍后重试。"
+    },
+    "categories": {
+      "tender": "招标",
+      "ppp": "政府与社会资本合作",
+      "investment_call": "投资召集",
+      "offer": "供应",
+      "demand": "需求",
+      "quotation": "报价",
+      "partner_search": "寻找合作伙伴",
+      "project_launch": "项目启动"
+    },
+    "filters": {
+      "category": "类别",
+      "sector": "行业",
+      "any": "全部"
+    },
+    "fields": {
+      "title": "标题",
+      "summary": "摘要（1-3 句）",
+      "body": "详情（markdown）",
+      "category": "类别",
+      "deadline": "截止日期",
+      "budget": "预算",
+      "region": "地区",
+      "sector": "行业",
+      "slug": "URL 短链接",
+      "sectorPlaceholder": "选择一个行业",
+      "sectorNone": "无行业"
+    },
+    "status": {
+      "draft": "草稿",
+      "pending_review": "待审核",
+      "published": "已发布",
+      "rejected": "已拒绝",
+      "expired": "已过期"
+    },
+    "dashboard": {
+      "title": "我的机会",
+      "new": "新建机会",
+      "submit": "提交审核",
+      "save": "保存",
+      "saved": "已保存。",
+      "submitted": "已提交。管理员将进行审核。",
+      "emptyTitle": "尚无机会",
+      "emptyBody": "发布您的第一个机会，以收到来自已认证的刚果民主共和国企业的报价。",
+      "loadError": "无法加载您的机会。请稍后重试。",
+      "responses": "回应",
+      "noResponses": "暂无",
+      "edit": "编辑机会"
+    },
+    "admin": {
+      "queue": "审核队列",
+      "approve": "批准",
+      "reject": "拒绝",
+      "rejectReason": "理由（可选）",
+      "approved": "已批准。",
+      "rejected": "已拒绝。",
+      "queueSubtitle": "审查并审核贸易机会列表。",
+      "filterAll": "全部",
+      "loadError": "无法加载审核队列。请稍后重试。",
+      "company": "公司",
+      "statusHeading": "状态",
+      "updated": "已更新",
+      "queueEmpty": "没有符合此筛选条件的机会。"
+    },
+    "contact": "联系该公司",
+    "deadlineWindows": {
+      "all": "任何截止日期",
+      "7d": "7 天内",
+      "30d": "30 天内",
+      "90d": "90 天内"
+    },
+    "validation": {
+      "companyRequired": "请选择一家公司。",
+      "titleEnRequired": "英文标题为必填项。",
+      "titleFrRequired": "法文标题为必填项。",
+      "summaryEnRequired": "英文摘要为必填项。",
+      "summaryFrRequired": "法文摘要为必填项。",
+      "slugRequired": "URL 短链接为必填项。",
+      "budgetNegative": "预算不能为负数。",
+      "budgetRange": "最高预算必须大于或等于最低预算。",
+      "fixErrors": "请修正标记的字段。"
+    },
+    "gate": {
+      "verificationRequiredTitle": "需要认证",
+      "verificationRequiredBody": "您的公司必须通过认证后才能发布机会。",
+      "checkStatus": "查看认证状态"
+    },
+    "form": {
+      "company": "公司",
+      "selectCompany": "选择公司",
+      "titleEn": "标题（EN）",
+      "titleFr": "标题（FR）",
+      "titleEnPlaceholder": "英文标题",
+      "titleFrPlaceholder": "法文标题",
+      "summaryEn": "摘要（EN）",
+      "summaryFr": "摘要（FR）",
+      "summaryEnPlaceholder": "1–3 句英文摘要",
+      "summaryFrPlaceholder": "法文摘要",
+      "bodyEn": "详情（EN，markdown）",
+      "bodyFr": "详情（FR，markdown）",
+      "bodyEnPlaceholder": "英文完整详情（支持 markdown）",
+      "bodyFrPlaceholder": "法文完整详情",
+      "slugPlaceholder": "根据标题自动生成",
+      "budgetMin": "最低预算",
+      "budgetMax": "最高预算",
+      "currency": "货币",
+      "regionPlaceholder": "例如 Kinshasa、Nord-Kivu",
+      "saveDraft": "保存草稿",
+      "submitForReview": "提交审核",
+      "savedDraft": "已保存为草稿。",
+      "saved": "已保存。",
+      "submittedReview": "已提交审核。",
+      "genericError": "发生错误。"
+    },
+    "respond": {
+      "cta": "回应此机会",
+      "title": "回应机会",
+      "description": "对“{title}”表达您的兴趣。您的留言将与发布者开启一个私密会话。",
+      "messageLabel": "您的留言",
+      "messagePlaceholder": "介绍您的公司并说明您能提供哪些帮助……",
+      "submit": "发送回应",
+      "cancel": "取消",
+      "sending": "正在发送您的回应……",
+      "success": "回应已发送。发布者现在可以在您的收件箱中回复。",
+      "error": "无法发送您的回应。请重试。",
+      "ownListing": "这是您自己发布的机会。",
+      "emailNotVerified": "回应前请先验证您的电子邮箱。",
+      "unavailable": "此机会已不再可用。"
+    },
+    "responses": {
+      "heading": "回应",
+      "empty": "暂无回应。当买家回应时将显示在此处。",
+      "anonymous": "匿名用户",
+      "openThread": "打开会话"
+    },
+    "hero": {
+      "title": "探索刚果（金）的商业机会",
+      "subtitle": "发现刚果民主共和国战略行业的招标、合作邀约、投资线索、采购公告和商业机会。",
+      "keyword": "关键词",
+      "keywordPh": "搜索机会...",
+      "type": "机会类型",
+      "sector": "行业",
+      "allSectors": "所有行业",
+      "province": "省份",
+      "allProvinces": "所有省份",
+      "search": "搜索",
+      "browse": "浏览机会",
+      "submit": "提交机会",
+      "types": {
+        "all": "所有类型",
+        "tenders": "招标",
+        "partnership": "合作",
+        "investment": "投资",
+        "supply": "供应请求",
+        "export": "出口机会"
+      }
+    },
+    "stats": {
+      "opportunities": "已发布机会",
+      "companies": "活跃企业",
+      "sectors": "战略行业",
+      "provinces": "覆盖省份"
+    },
+    "post": {
+      "title": "发布商业机会",
+      "body": "发布您的招标、采购请求、合作邀约或投资线索，与刚果（金）各地合格企业建立联系。",
+      "cta": "立即发布"
+    },
+    "board": {
+      "title": "最新机会",
+      "verified": "已认证",
+      "deadline": "截止日期",
+      "openEnded": "长期有效",
+      "viewDetails": "查看详情",
+      "expressInterest": "表达兴趣",
+      "viewMore": "查看更多机会"
+    },
+    "tabs": {
+      "all": "全部",
+      "tenders": "招标",
+      "partnership": "合作",
+      "investment": "投资",
+      "supply": "供应请求",
+      "export": "出口机会"
+    },
+    "badges": {
+      "tender": "招标",
+      "ppp": "政府和社会资本合作",
+      "investment": "投资",
+      "project": "项目",
+      "export": "出口",
+      "supply": "供应请求",
+      "procurement": "采购",
+      "partnership": "合作"
+    },
+    "need": {
+      "title": "找不到您需要的？",
+      "subtitle": "提交您的商业需求",
+      "needType": "需求类型",
+      "needTypePh": "选择类型",
+      "sector": "行业",
+      "sectorPh": "选择行业",
+      "province": "省份",
+      "provincePh": "选择省份",
+      "companyName": "公司名称",
+      "companyNamePh": "您的公司",
+      "email": "电子邮箱",
+      "emailPh": "您的电子邮箱",
+      "submit": "提交请求",
+      "submitting": "正在提交您的请求...",
+      "success": "您的商业需求已提交！",
+      "invalid": "请检查必填字段。",
+      "error": "出现错误，请重试。",
+      "types": {
+        "find_partner": "寻找合作伙伴",
+        "invest": "投资",
+        "buy": "采购/供应",
+        "sell": "销售/供货",
+        "publish_opportunity": "发布机会",
+        "other": "其他"
+      }
+    },
+    "why": {
+      "title": "为什么使用刚果（金）贸易机会板？",
+      "items": {
+        "credible": "经过验证且可信的机会信息",
+        "reach": "覆盖全部26个省份的全国范围",
+        "connections": "与买家和合作伙伴更快建立联系",
+        "visibility": "提升您企业的曝光度",
+        "sectors": "进入战略行业和项目",
+        "secure": "具备专业支持的安全平台"
+      }
+    }
+  },
+  "Products": {
+    "title": "我们的产品",
+    "titleHighlight": "交易市场",
+    "description": "浏览刚果民主共和国生产的已认证产品",
+    "searchPlaceholder": "搜索类别",
+    "tabs": {
+      "products": "产品",
+      "importers": "进口商",
+      "exporters": "出口商",
+      "databank": "数据库"
+    },
+    "categories": {
+      "clothing": "服装 - 时尚",
+      "leather": "皮革制品与鞋类",
+      "automotive": "汽车 - 车辆",
+      "metals": "金属 - 钢铁",
+      "machinery": "机械工业",
+      "agricultural": "农业机械",
+      "furniture": "家具",
+      "food": "食品工业",
+      "chemical": "化学工业",
+      "industrial": "工业产品"
+    },
+    "detail": {
+      "loading": "正在加载产品...",
+      "notFound": "未找到产品",
+      "backToProducts": "返回产品列表",
+      "location": "所在地",
+      "description": "描述",
+      "specifications": "规格参数",
+      "soldBy": "销售方",
+      "contactCompany": "联系公司",
+      "signInToContact": "登录后联系",
+      "relatedProducts": "该公司的其他产品",
+      "imageAlt": "产品图片"
+    }
+  },
+  "Investment": {
+    "badge": "战略投资",
+    "titlePrefix": "为何投资",
+    "titleHighlight": "刚果民主共和国",
+    "titleSuffix": "？",
+    "description": "刚果民主共和国在采矿、能源、农业和基础设施领域提供无与伦比的机遇。受益于持续改革的营商环境和位于非洲腹地的战略区位。",
+    "stats": {
+      "location": {
+        "title": "战略区位",
+        "desc": "通往 9 个邻国的门户"
+      },
+      "resources": {
+        "title": "资源丰富",
+        "desc": "全球最大的钴储量"
+      },
+      "energy": {
+        "title": "能源潜力",
+        "desc": "100GW 水电潜力"
+      },
+      "market": {
+        "title": "成长型市场",
+        "desc": "覆盖逾 1 亿消费者"
+      }
+    },
+    "exploreButton": "探索商机"
+  },
+  "TradeHub": {
+    "titlePrefix": "全球",
+    "titleHighlight": "贸易枢纽",
+    "description": "与经认证的供应商建立联系，获取实时市场数据，并充分利用我们全面的进出口框架。我们助力刚果民主共和国与世界之间畅通无阻的贸易合作。",
+    "buttons": {
+      "explore": "探索行业",
+      "register": "注册成为合作伙伴"
+    },
+    "fastTrack": {
+      "title": "快速通道贸易",
+      "export": "出口流程",
+      "partners": "寻找本地合作伙伴",
+      "customs": "海关与关税",
+      "guide": "投资指南"
+    }
+  },
+  "RfqFeed": {
+    "badge": "实时商机",
+    "title": "实时贸易需求",
+    "description": "即时了解当前的买卖动态。与经认证的买家和供应商直接对接，更快达成交易。",
+    "buttons": {
+      "viewAll": "查看全部商机",
+      "post": "发布商机"
+    },
+    "card": {
+      "details": "查看详情",
+      "contact": "联系",
+      "expires": "到期时间：{date}",
+      "unknownCompany": "未知公司"
+    }
+  },
+  "SupplierSpotlight": {
+    "badge": "官方认证",
+    "title": "值得信赖的市场领军者",
+    "description": "与符合部委在出口准备与合规方面最高标准的顶级认证公司建立联系。",
+    "verifiedPartner": "认证合作伙伴",
+    "viewProfile": "查看资料",
+    "browseAll": "浏览全部认证供应商"
+  },
+  "CookieConsent": {
+    "text": "我们使用 Cookie 来提升您在本官方门户上的体验。继续使用即表示您同意我们的隐私政策。",
+    "accept": "全部接受",
+    "decline": "拒绝"
+  },
+  "Admin": {
+    "notAuthorized": "您无权访问该区域。",
+    "verifications": {
+      "title": "审核队列",
+      "subtitle": "审查并批准企业注册申请",
+      "review": "审查",
+      "submitting": "正在提交决定……",
+      "backToQueue": "返回队列",
+      "loadError": "无法加载审核队列。请重试。",
+      "tabs": {
+        "all": "全部（{count}）",
+        "new": "新增（{count}）",
+        "resubmitted": "已重新提交（{count}）"
+      },
+      "columns": {
+        "company": "企业",
+        "sector": "行业",
+        "submitted": "提交时间",
+        "documents": "文件",
+        "status": "状态",
+        "action": "操作"
+      },
+      "badges": {
+        "resubmitted": "已重新提交"
+      },
+      "empty": {
+        "title": "全部处理完毕！",
+        "subtitle": "目前没有待审核的申请。"
+      },
+      "decision": {
+        "title": "决定",
+        "approve": "批准",
+        "reject": "拒绝",
+        "requestInfo": "要求补充信息",
+        "tierLabel": "认证等级",
+        "tierHint": "已认证和高级等级会显示“经部委认证”徽章。",
+        "notesRequired": "备注（必填）",
+        "notesOptional": "备注（选填）",
+        "notesPlaceholder": "添加审查备注……",
+        "submit": "提交决定"
+      },
+      "detail": {
+        "companyInfo": "企业信息",
+        "products": "产品（{count}）",
+        "noProducts": "暂无产品列表。",
+        "documents": "文件",
+        "currentTier": "当前等级",
+        "reviewHistory": "审查记录",
+        "noReviews": "暂无以往审查记录。",
+        "submittedOn": "提交于 {date}"
+      },
+      "documents": {
+        "empty": "未上传任何文件。",
+        "view": "查看",
+        "unavailable": "无法获取",
+        "uploaded": "已上传",
+        "missing": "缺失",
+        "type": {
+          "business_license": "营业执照",
+          "tax_registration": "税务登记",
+          "proof_of_address": "地址证明",
+          "logo": "标志",
+          "photo": "照片",
+          "additional_document": "补充文件"
+        },
+        "status": {
+          "pending": "待处理",
+          "approved": "已批准",
+          "rejected": "已拒绝"
+        }
+      },
+      "statusValues": {
+        "pending": "待处理",
+        "verified": "已认证",
+        "rejected": "已拒绝"
+      },
+      "decisionValues": {
+        "approved": "已批准",
+        "rejected": "已拒绝",
+        "more_info_requested": "已要求补充信息",
+        "resubmitted": "已重新提交"
+      },
+      "success": {
+        "approved": "企业已成功批准。",
+        "rejected": "企业已成功拒绝。",
+        "more_info_requested": "已向该企业要求补充信息。"
+      },
+      "errors": {
+        "notesRequired": "此操作需填写备注。",
+        "notes_required": "此操作需填写备注。",
+        "tier_required": "批准前请选择认证等级。",
+        "invalid_input": "部分信息无效。请检查后重试。",
+        "review_insert_failed": "无法记录审查。请重试。",
+        "company_update_failed": "无法更新该企业。请重试。",
+        "generic": "提交决定失败。请重试。"
+      }
+    },
+    "companies": {
+      "backToCompanies": "返回企业列表",
+      "notFound": "未找到该企业。",
+      "registeredOn": "注册于 {date}",
+      "statusValues": {
+        "pending": "待处理",
+        "verified": "已认证",
+        "rejected": "已拒绝"
+      },
+      "tier": {
+        "title": "认证等级",
+        "current": "当前等级：",
+        "verifiedOn": "认证于 {date}",
+        "save": "保存等级",
+        "saving": "正在保存等级……",
+        "saved": "认证等级已更新。",
+        "hint": "已认证和高级等级会显示“经部委认证”徽章。",
+        "errors": {
+          "invalid_input": "部分信息无效。请检查后重试。",
+          "review_insert_failed": "无法记录此次变更。请重试。",
+          "company_update_failed": "无法更新该企业。请重试。",
+          "generic": "更新等级失败。请重试。"
+        }
+      },
+      "info": {
+        "title": "企业信息",
+        "sector": "行业",
+        "owner": "负责人",
+        "city": "城市",
+        "province": "省份",
+        "address": "地址",
+        "email": "电子邮箱",
+        "phone": "电话",
+        "website": "网站",
+        "description": "简介"
+      },
+      "products": {
+        "title": "产品（{count}）",
+        "empty": "暂无产品列表。"
+      },
+      "documents": {
+        "title": "文件（{count}）"
+      },
+      "history": {
+        "title": "认证记录（{count}）",
+        "empty": "暂无认证审查记录。"
+      },
+      "decisionValues": {
+        "approved": "已批准",
+        "rejected": "已拒绝",
+        "more_info_requested": "已要求补充信息",
+        "resubmitted": "已重新提交"
+      },
+      "trustProfile": {
+        "title": "信任档案"
+      },
+      "segments": {
+        "title": "细分领域"
+      },
+      "listTitle": "企业",
+      "listSubtitle": "各种状态下的所有注册企业",
+      "searchPlaceholder": "按企业名称搜索……",
+      "filterAll": "全部",
+      "colCompany": "企业",
+      "colStatus": "状态",
+      "colOwnerEmail": "负责人邮箱",
+      "colCreated": "创建时间",
+      "colAction": "操作",
+      "view": "查看",
+      "emptyTitle": "未找到企业",
+      "emptySearch": "请尝试调整搜索条件。",
+      "emptyFilter": "没有符合所选筛选条件的企业。",
+      "loadMore": "加载更多（剩余 {count} 项）",
+      "loadError": "无法加载公司。请刷新后重试。"
+    },
+    "users": {
+      "title": "用户",
+      "subtitle": "管理平台用户账户、角色和审核",
+      "searchPlaceholder": "按邮箱或姓名搜索……",
+      "colEmail": "电子邮箱",
+      "colName": "全名",
+      "colRole": "角色",
+      "colCompanies": "企业",
+      "colStatus": "状态",
+      "colJoined": "加入时间",
+      "colActions": "操作",
+      "empty": "未找到用户",
+      "statusActive": "活跃",
+      "statusSuspended": "已停用",
+      "suspend": "停用",
+      "reactivate": "重新启用",
+      "suspending": "正在停用账户……",
+      "suspended": "账户已停用",
+      "reactivating": "正在重新启用账户……",
+      "reactivated": "账户已重新启用",
+      "moderationError": "无法更新该账户",
+      "roleUpdating": "正在更新角色……",
+      "roleUpdated": "角色已更新",
+      "roleError": "无法更新角色",
+      "loadError": "加载用户失败",
+      "auditTitle": "近期审核活动",
+      "auditWhen": "时间",
+      "auditActor": "管理员",
+      "auditAction": "操作",
+      "auditSummary": "详情",
+      "auditEmpty": "暂无审核活动",
+      "auditLoadError": "加载审计记录失败",
+      "role": {
+        "superAdmin": "超级管理员",
+        "moderator": "审核员",
+        "congoleseCompany": "刚果企业",
+        "internationalBusiness": "国际企业",
+        "user": "普通用户"
+      }
+    },
+    "dashboard": {
+      "title": "管理控制台",
+      "subtitle": "平台活动、认证状态与互动情况",
+      "loadError": "加载控制台指标失败",
+      "kpi": {
+        "total": "企业总数",
+        "pending": "待处理",
+        "verified": "已认证",
+        "rejected": "已拒绝",
+        "views": "档案浏览量",
+        "contacts": "联系请求"
+      },
+      "sectorTitle": "按行业划分的企业",
+      "sectorEmpty": "暂无行业数据",
+      "topTitle": "浏览量最高的企业",
+      "topEmpty": "暂无浏览活动"
+    },
+    "settings": {
+      "title": "设置",
+      "subtitle": "站点配置、首页轮播和精选企业",
+      "tabGeneral": "常规",
+      "tabCarousel": "轮播",
+      "tabFeatured": "精选",
+      "generalTitle": "常规设置",
+      "taglineEn": "标语（英文）",
+      "taglineFr": "标语（法文）",
+      "contactEmail": "联系邮箱",
+      "supportPhone": "支持电话",
+      "carouselToggle": "首页轮播",
+      "carouselToggleHint": "在公开首页上显示精心挑选的轮播",
+      "save": "保存",
+      "saving": "正在保存……",
+      "saved": "已保存",
+      "saveError": "无法保存更改",
+      "loadError": "加载设置失败",
+      "cancel": "取消",
+      "deleting": "正在删除……",
+      "deleted": "已删除",
+      "deleteError": "无法删除",
+      "carouselHint": "管理在首页主图下方显示的轮播主图幻灯片。",
+      "carouselEmpty": "暂无幻灯片。添加一张以填充首页轮播。",
+      "addSlide": "添加幻灯片",
+      "editSlide": "编辑幻灯片",
+      "slideTitleEn": "标题（英文）",
+      "slideTitleFr": "标题（法文）",
+      "slideSubtitleEn": "副标题（英文）",
+      "slideSubtitleFr": "副标题（法文）",
+      "slideImage": "图片网址",
+      "slideCtaEn": "按钮文字（英文）",
+      "slideCtaFr": "按钮文字（法文）",
+      "slideHref": "按钮链接",
+      "slideOrder": "排序",
+      "slideActive": "启用",
+      "slideInactive": "停用",
+      "featuredHint": "在公开首页上重点展示已认证的企业。",
+      "featuredSelectPlaceholder": "选择一家已认证的企业……",
+      "featuredNoCandidates": "没有更多可供精选的已认证企业",
+      "featuredAdd": "精选",
+      "featuredEmpty": "暂无精选企业"
+    },
+    "nav": {
+      "console": "管理控制台",
+      "administrator": "管理员",
+      "signOut": "退出登录",
+      "navDashboard": "控制台",
+      "navVerifications": "审核",
+      "navContent": "内容",
+      "navOpportunities": "商机",
+      "navDataHub": "数据中心",
+      "navCompanies": "企业",
+      "navUsers": "用户",
+      "navMessages": "消息",
+      "navTaxonomy": "分类体系",
+      "navAnalytics": "分析",
+      "navSettings": "设置",
+      "navRequests": "请求管理",
+      "navPremium": "高级会员"
+    },
+    "analytics": {
+      "title": "平台分析",
+      "subtitle": "全平台统计数据与活动概览",
+      "loadError": "加载分析数据失败",
+      "totalCompanies": "企业总数",
+      "verifiedCompanies": "已认证企业",
+      "pendingCompanies": "待认证",
+      "rejectedCompanies": "已拒绝",
+      "registeredUsers": "注册用户",
+      "activeRfqListings": "活跃询价列表"
+    }
+  },
+  "Trust": {
+    "navLabel": "信任中心",
+    "page": {
+      "title": "信任中心",
+      "subtitle": "刚果出口商登录 TradeInDRC 前，我们如何对其进行核验。",
+      "kybTitle": "了解你的企业（KYB）",
+      "kybBody": "我们核实企业的合法存续、地址及税务登记。",
+      "kypTitle": "了解你的产品（KYP）",
+      "kypBody": "我们应要求核实主打产品的原产地、质量与数量。",
+      "kycTitle": "了解你的客户（KYC）",
+      "kycBody": "我们核实参与交易的买家与合作伙伴的身份。",
+      "tiersTitle": "核验等级"
+    },
+    "report": {
+      "title": "{company} 的信任报告",
+      "viewLink": "查看信任报告",
+      "noSummary": "暂无可公开的核验详情。",
+      "lastUpdated": "最后更新于 {date}",
+      "checks": {
+        "kyb": "法律与商业身份",
+        "address": "地址核验",
+        "tax": "税务登记",
+        "license": "经营许可证",
+        "site_visit": "实地走访",
+        "audit": "独立审计"
+      },
+      "status": {
+        "passed": "通过",
+        "pending": "待处理",
+        "failed": "未通过"
+      }
+    },
+    "badge": {
+      "none": "未核验",
+      "basic": "基础",
+      "verified": "已核验",
+      "premium": "高级"
+    },
+    "admin": {
+      "tierLabel": "核验等级",
+      "summaryLabel": "公开摘要（JSON）",
+      "save": "保存信任档案",
+      "saved": "信任档案已更新。",
+      "invalidJson": "摘要不是有效的 JSON。",
+      "checklistLabel": "核验清单",
+      "notePlaceholderEn": "备注（EN）",
+      "notePlaceholderFr": "备注（FR）",
+      "notesLabelEn": "公开摘要备注（EN）",
+      "notesLabelFr": "公开摘要备注（FR）",
+      "saving": "正在保存信任档案…",
+      "saveFailed": "无法保存信任档案。",
+      "invalidSummary": "核验摘要无效。"
+    }
+  },
+  "Content": {
+    "news": {
+      "title": "新闻",
+      "subtitle": "来自 TradeInDRC 的最新动态。",
+      "empty": "暂无新闻。"
+    },
+    "events": {
+      "title": "活动",
+      "subtitle": "贸易展会、会议与商务聚会。",
+      "empty": "暂无即将举行的活动。"
+    },
+    "blog": {
+      "title": "博客",
+      "subtitle": "文章、指南与资源。",
+      "empty": "暂无文章。"
+    },
+    "admin": {
+      "title": "内容",
+      "new": "新建",
+      "delete": "删除",
+      "deleteConfirm": "确定删除该项目吗？此操作无法撤销。",
+      "save": "保存",
+      "saved": "已保存。",
+      "deleted": "已删除。",
+      "fields": {
+        "titleEn": "标题（EN）",
+        "titleFr": "标题（FR）",
+        "excerptEn": "摘要（EN）",
+        "excerptFr": "摘要（FR）",
+        "bodyEn": "正文（EN，markdown）",
+        "bodyFr": "正文（FR，markdown）",
+        "slug": "URL 别名",
+        "coverUrl": "封面图片 URL",
+        "tags": "标签（以逗号分隔）",
+        "status": "状态",
+        "eventStart": "活动开始",
+        "eventEnd": "活动结束",
+        "eventLocation": "活动地点",
+        "cover": "封面图片",
+        "title": "标题",
+        "excerpt": "摘要",
+        "body": "正文"
+      },
+      "status": {
+        "draft": "草稿",
+        "published": "已发布",
+        "archived": "已归档"
+      },
+      "tabs": {
+        "news": "新闻",
+        "events": "活动",
+        "blog": "博客"
+      },
+      "created": "创建成功。",
+      "saving": "正在保存…",
+      "deleting": "正在删除…",
+      "saveError": "保存失败。请重试。",
+      "deleteError": "删除失败。请重试。",
+      "slugPlaceholder": "根据标题自动生成",
+      "tagsPlaceholder": "采矿, 投资, drc",
+      "bodyEnLabel": "正文（EN）",
+      "bodyFrLabel": "正文（FR）",
+      "eventDetails": "活动详情",
+      "eventStartLabel": "开始日期/时间",
+      "eventEndLabel": "结束日期/时间",
+      "eventLocationLabel": "地点",
+      "eventLocationPlaceholder": "金沙萨, DRC",
+      "newKind": {
+        "news": "新建新闻文章",
+        "event": "新建活动",
+        "blog": "新建博客文章"
+      },
+      "editKind": {
+        "news": "编辑新闻文章",
+        "event": "编辑活动",
+        "blog": "编辑博客文章"
+      },
+      "addNew": "+ 新建",
+      "colTitle": "标题（EN）",
+      "colStatus": "状态",
+      "colUpdated": "更新时间",
+      "empty": "暂无项目。",
+      "slugTaken": "该 slug 已用于此内容类型。请选择另一个。",
+      "requiredLangMissing": "标题和正文必须填写英文和法文。",
+      "langHint": "其他语言为可选项——留空时将回退到英文。"
+    }
+  },
+  "Market": {
+    "navLabel": "交易市场",
+    "page": {
+      "title": "交易市场",
+      "subtitle": "按业务类别浏览刚果企业。",
+      "viewAll": "查看全部"
+    },
+    "segments": {
+      "manufacturer": "制造商",
+      "importer": "进口商",
+      "exporter": "出口商",
+      "finance": "金融与银行",
+      "logistics": "物流与运输",
+      "government": "政府机构",
+      "public_corp": "公营企业",
+      "facilitation": "贸易便利化",
+      "investors": "投资者及更多"
+    },
+    "filters": {
+      "segment": "细分领域",
+      "sector": "行业",
+      "verificationTier": "认证",
+      "any": "全部",
+      "reset": "重置筛选条件"
+    },
+    "companyProfile": {
+      "tabsOverview": "概览",
+      "tabsProducts": "产品",
+      "tabsServices": "服务",
+      "tabsSegments": "细分领域",
+      "noServices": "暂无服务列出。",
+      "noSegments": "暂无细分领域标签。",
+      "tabsReferences": "客户案例",
+      "tabsContacts": "联系人",
+      "productionCapacity": "生产与产能",
+      "capacity": "产能",
+      "minOrder": "最小起订量",
+      "leadTime": "交货周期",
+      "certifications": "认证",
+      "noDetails": "暂无更多详细信息。",
+      "noProducts": "暂无产品列出。"
+    }
+  },
+  "DataHub": {
+    "navLabel": "数据中心",
+    "page": {
+      "title": "数据中心",
+      "subtitle": "市场报告、法律指南、法规及价格走势。"
+    },
+    "pillars": {
+      "market_report": {
+        "title": "市场报告",
+        "body": "行业分析与板块概览。"
+      },
+      "legal_guide": {
+        "title": "法律指南",
+        "body": "在刚果民主共和国开展贸易的实用指引。"
+      },
+      "regulation": {
+        "title": "法规",
+        "body": "官方规则与合规须知。"
+      },
+      "prices": {
+        "title": "价格走势",
+        "body": "大宗商品价格的时间序列。"
+      }
+    },
+    "list": {
+      "empty": "暂无已发布的内容。"
+    },
+    "fields": {
+      "title": "标题",
+      "summary": "摘要",
+      "body": "正文（Markdown）",
+      "attachment": "附件网址",
+      "sector": "行业",
+      "status": "状态",
+      "slug": "网址别名",
+      "commodity": "大宗商品",
+      "unit": "单位",
+      "currency": "货币",
+      "source": "来源",
+      "observedAt": "日期",
+      "value": "数值"
+    },
+    "status": {
+      "draft": "草稿",
+      "published": "已发布",
+      "archived": "已归档"
+    },
+    "admin": {
+      "queue": "数据中心",
+      "save": "保存",
+      "saved": "已保存。",
+      "deleteConfirm": "确定删除吗？此操作无法撤销。",
+      "deleted": "已删除。",
+      "upload": "上传 CSV",
+      "uploaded": "已上传。",
+      "parseError": "无法解析该 CSV 文件。",
+      "delete": "删除",
+      "deleting": "删除中…",
+      "saving": "保存中…",
+      "uploading": "正在上传…",
+      "uploadFailed": "上传失败。",
+      "uploadedCount": "已上传 {count} 个数据点。",
+      "parseErrorLine": "第 {line} 行存在 CSV 错误，请修正后重试。",
+      "dataPoints": "数据点",
+      "pasteCsv": "粘贴 CSV（日期、数值）",
+      "csvHint": "标题行为可选。支持带引号的字段和千位分隔符。",
+      "noPoints": "暂无数据点。",
+      "none": "— 无 —",
+      "newKind": {
+        "market_report": "新建市场报告",
+        "legal_guide": "新建法律指南",
+        "regulation": "新建法规"
+      },
+      "editKind": {
+        "market_report": "编辑市场报告",
+        "legal_guide": "编辑法律指南",
+        "regulation": "编辑法规"
+      },
+      "unitPlaceholder": "千克、吨、桶…",
+      "sourcePlaceholder": "IMF、世界银行…",
+      "slugPlaceholder": "自动生成",
+      "prices": {
+        "listTitle": "价格序列",
+        "new": "+ 新建",
+        "colCommodity": "大宗商品（EN）",
+        "colUpdated": "更新时间",
+        "empty": "暂无序列。"
+      },
+      "reports": {
+        "new": "+ 新建",
+        "colTitle": "标题（EN）",
+        "colStatus": "状态",
+        "colUpdated": "更新时间",
+        "empty": "暂无条目。"
+      },
+      "newSeries": "新建价格序列",
+      "editSeries": "编辑价格序列"
+    },
+    "prices": {
+      "chartTitle": "价格走势",
+      "pointCount": "{count} 个数据点",
+      "latestPrice": "最新：{value} {currency}/{unit}"
+    },
+    "report": {
+      "download": "下载"
+    }
+  },
+  "Search": {
+    "placeholder": "搜索…",
+    "openHint": "按 ⌘K",
+    "noResults": "无匹配结果。",
+    "viewAll": "查看“{q}”的全部结果",
+    "groups": {
+      "company": "公司",
+      "product": "产品",
+      "service": "服务",
+      "opportunity": "商机",
+      "content": "新闻与文章",
+      "report": "报告"
+    },
+    "page": {
+      "title": "搜索",
+      "queryLabel": "查询",
+      "all": "全部"
+    },
+    "close": "关闭",
+    "quickActions": "快捷操作",
+    "searching": "正在搜索…",
+    "actions": {
+      "home": {
+        "title": "首页"
+      },
+      "dashboard": {
+        "title": "控制台",
+        "description": "管理您的资料和信息发布"
+      },
+      "companies": {
+        "title": "浏览公司",
+        "description": "查找刚果（金）的已认证供应商"
+      },
+      "opportunities": {
+        "title": "贸易机会",
+        "description": "查看当前的询价单和招标信息"
+      },
+      "register": {
+        "title": "注册公司",
+        "description": "启动官方注册流程"
+      },
+      "contact": {
+        "title": "联系支持"
+      }
+    },
+    "clear": "清除搜索",
+    "typeToSearch": "输入以搜索...",
+    "noResultsFor": "未找到“{query}”的结果",
+    "keyEsc": "Esc",
+    "hintSelect": "选择",
+    "hintNavigate": "导航",
+    "categories": {
+      "navigation": "导航",
+      "actions": "快捷操作",
+      "companies": "公司",
+      "resources": "资源"
+    }
+  },
+  "Design": {
+    "search": "搜索",
+    "viewAll": "查看全部",
+    "sendRfq": "发送 RFQ",
+    "addRfq": "添加免费 RFQ",
+    "noResults": "无结果。",
+    "resetFilters": "重置筛选条件",
+    "remove": "移除",
+    "subscribe": "订阅",
+    "emailPlaceholder": "you@example.com",
+    "newsletter": {
+      "headline": "保持关注",
+      "body": "每月获取来自刚果民主共和国的贸易洞察，直接发送至您的邮箱。",
+      "consent": "我同意接收来自 TradeInDRC 的电子邮件，并已阅读{privacyLink}。",
+      "privacy": "隐私政策"
+    },
+    "hero": {
+      "tabs": {
+        "importers": "进口商",
+        "exporters": "出口商",
+        "products": "产品",
+        "opportunities": "机会"
+      },
+      "placeholder": "搜索已认证的刚果出口商、产品、机会…",
+      "mockup": {
+        "title": "实时机会动态",
+        "chip": {
+          "importer": "进口商",
+          "exporter": "出口商"
+        },
+        "rows": [
+          {
+            "country": "🇫🇷 France",
+            "title": "汉堡盒采购需求",
+            "chip": "importer"
+          },
+          {
+            "country": "🇨🇩 DRC",
+            "title": "50 吨铜供应",
+            "chip": "exporter"
+          },
+          {
+            "country": "🇪🇹 Ethiopia",
+            "title": "管道清洁",
+            "chip": "importer"
+          }
+        ]
+      }
+    },
+    "rfqBanner": {
+      "title": "向本页所有已认证公司发送 RFQ",
+      "action": "提交 RFQ"
+    },
+    "previous": "上一页",
+    "next": "下一页",
+    "yearsActive": "{count, plural, one {# 年} other {# 年}}"
+  },
+  "Home": {
+    "alert": "经核验的刚果出口商 · 免费发送询价单",
+    "alertDismiss": "关闭",
+    "hero": {
+      "tagline": "刚果（金）官方贸易门户",
+      "headline": "寻找经核验的出口商，发送询价单，达成交易。",
+      "subline": "连接刚果民主共和国与世界的双语平台，服务于买家与供应商。",
+      "cta": {
+        "browse": "浏览经核验的企业",
+        "howItWorks": "运作方式",
+        "trust": {
+          "verified": "经核验的出口商",
+          "bilingual": "EN · FR",
+          "free": "免费询价单"
+        }
+      }
+    },
+    "stats": {
+      "companies": "经核验的出口商",
+      "sectors": "覆盖的行业",
+      "products": "在线产品",
+      "opportunities": "在线商机"
+    },
+    "why": {
+      "items": {
+        "verified": {
+          "title": "每一家出口商均经核验",
+          "body": "企业公开展示前须经过 KYB 文件审核与实地核查。"
+        },
+        "bilingual": {
+          "title": "默认双语",
+          "body": "以英语或法语浏览和交易——内容以两种语言存储和呈现。"
+        },
+        "rfq": {
+          "title": "询价单免费",
+          "body": "在列表页向每一家经核验的企业发送一份询价单。无需订阅。"
+        }
+      }
+    },
+    "featured": {
+      "title": "在线商机",
+      "eyebrow": "核验精选",
+      "viewAll": "查看所有企业"
+    },
+    "explorer": {
+      "title": "探索市场",
+      "sectorsHeading": "行业",
+      "tabs": {
+        "products": "产品",
+        "companies": "企业",
+        "opportunities": "商机"
+      },
+      "viewAll": "查看全部"
+    },
+    "latest": {
+      "productsTitle": "最新产品",
+      "databankTitle": "最新数据库",
+      "productsViewAll": "更多产品",
+      "databankViewAll": "更多数据库",
+      "listYourProduct": "发布您的产品",
+      "postOpportunity": "发布商机"
+    },
+    "rfqCta": "提交询价单——接收来自经核验的刚果（金）企业的报价",
+    "brands": {
+      "title": "经核验的刚果出口商"
+    },
+    "faq": {
+      "tag": "常见问题",
+      "title": "您可能想了解的一些事项",
+      "subtitle": "我们已为您解答了这些问题，无需您再发问。",
+      "items": {
+        "q1": {
+          "q": "如何成为经核验的出口商？",
+          "a": "注册账户，完善企业资料，在控制台上传 KYB 文件，我们的团队将在 5 个工作日内完成审核。"
+        },
+        "q2": {
+          "q": "如何发送询价单？",
+          "a": "登录后，打开任意企业或商机，点击“发送询价单”。您也可以向列表页中每一家经核验的企业群发询价单。"
+        },
+        "q3": {
+          "q": "该平台免费吗？",
+          "a": "是的。注册、浏览及基础询价单均免费。高级核验等级与数据分析为可选项。"
+        },
+        "q4": {
+          "q": "支持哪些语言？",
+          "a": "目前支持英语和法语。土耳其语、中文和西班牙语正在规划中。"
+        },
+        "q5": {
+          "q": "如何联系企业？",
+          "a": "打开企业资料，点击“向企业发送消息”即可开启对话。经核验的企业通常在 48 小时内回复。"
+        }
+      },
+      "helpCenter": "帮助中心"
+    },
+    "footer": {
+      "tagline": "刚果（金）双语贸易门户",
+      "columns": {
+        "platform": {
+          "title": "平台",
+          "directory": "企业",
+          "products": "产品",
+          "opportunities": "商机",
+          "marketplace": "市场"
+        },
+        "resources": {
+          "title": "资源",
+          "dataHub": "数据中心",
+          "trust": "信任中心",
+          "news": "新闻",
+          "blog": "博客"
+        },
+        "company": {
+          "title": "关于我们",
+          "about": "简介",
+          "contact": "联系我们",
+          "faq": "常见问题",
+          "help": "帮助"
+        },
+        "legal": {
+          "title": "法律",
+          "privacy": "隐私",
+          "terms": "条款",
+          "cookies": "Cookie"
+        }
+      },
+      "copyright": "© {year} TradeInDRC。保留所有权利。"
+    },
+    "carousel": {
+      "previous": "上一张幻灯片",
+      "next": "下一张幻灯片",
+      "goToSlide": "前往幻灯片"
+    },
+    "metadata": {
+      "title": "TradeInDRC — 经核验的刚果出口商与贸易门户",
+      "description": "刚果民主共和国官方双语贸易门户。寻找经核验的出口商，发送询价单，发掘贸易商机。"
+    }
+  },
+  "ListPages": {
+    "filters": {
+      "sectors": "行业",
+      "segments": "细分领域",
+      "verification": "认证",
+      "country": "国家/地区",
+      "category": "类别",
+      "tags": "标签",
+      "region": "区域",
+      "deadline": "截止日期",
+      "any": "全部",
+      "reset": "重置筛选条件",
+      "certification": "认证资质",
+      "sector": "行业"
+    },
+    "results": {
+      "title": "结果",
+      "empty": "没有符合您筛选条件的结果。"
+    },
+    "rfqCta": "向本页所有已认证公司发送 RFQ",
+    "rfqCtaAction": "发布 RFQ"
+  },
+  "AuthDesign": {
+    "panel": {
+      "title": "TradeInDRC",
+      "tagline": "刚果民主共和国官方贸易门户",
+      "checks": [
+        "经验证的刚果（金）出口商",
+        "双语平台（EN / FR）",
+        "免费询价，安全消息"
+      ]
+    },
+    "carousel": {
+      "indicatorsLabel": "幻灯片指示器",
+      "showSlide": "显示第 {number} 张幻灯片",
+      "slideAlt": {
+        "portal": "刚果（金）官方贸易门户",
+        "skyline": "金沙萨天际线",
+        "sectors": "刚果（金）各行业",
+        "opportunities": "刚果（金）的贸易机会",
+        "events": "刚果（金）贸易活动",
+        "news": "刚果（金）贸易资讯",
+        "contact": "联系刚果（金）贸易服务台"
+      }
+    }
+  },
+  "Landing": {
+    "hero": {
+      "badge": "连接 · 贸易 · 增长",
+      "titleLead": "Trade in ",
+      "titleAccent": "DRC",
+      "subtitle": "您通往刚果民主共和国可信商业的门户",
+      "body": "对接可靠的本地合作伙伴，发现市场机遇，获取战略洞察，从容投资、贸易并实现增长。",
+      "ctaPrimary": "探索机遇",
+      "ctaSecondary": "寻找合作伙伴",
+      "trust": {
+        "verified": "已认证合作伙伴",
+        "bilingual": "提供 5 种语言",
+        "free": "免费浏览"
+      },
+      "stats": {
+        "opportunities": "机遇",
+        "partners": "已认证合作伙伴",
+        "insights": "市场洞察"
+      }
+    },
+    "features": {
+      "verified": {
+        "title": "已认证合作伙伴",
+        "desc": "对接刚果民主共和国各地经过预先审核的可靠企业。"
+      },
+      "opportunities": {
+        "title": "市场机遇",
+        "desc": "发现高潜力行业与投资机遇。"
+      },
+      "intelligence": {
+        "title": "商业情报",
+        "desc": "获取数据、分析与洞察，做出更明智的决策。"
+      }
+    },
+    "ribbon": {
+      "lead": "可信的连接。真实的机遇。",
+      "accent": "可持续的增长。"
+    },
+    "about": {
+      "eyebrow": "关于我们",
+      "titleLead": "让刚果民主共和国连接世界。",
+      "titleAccent": "创造本地价值。",
+      "body": "Trade in DRC 是连接刚果民主共和国与全球商业的数字平台。我们促进刚果企业、国际合作伙伴、投资者、供应商和买家之间的对接，让刚果民主共和国的贸易更简单、更可靠、更有条理。我们的目标十分明确：打造一个可信的空间，让机遇、企业和市场信息变得触手可及、清晰可见、切实可用。"
+    },
+    "mission": {
+      "label": "我们的使命",
+      "text": "通过可信的数字平台，推动刚果民主共和国的贸易、投资与合作。"
+    },
+    "values": {
+      "who": {
+        "title": "我们是谁",
+        "desc": "一个旨在连接刚果民主共和国各地企业、机遇与市场参与者的商业平台。"
+      },
+      "vision": {
+        "title": "我们的愿景",
+        "desc": "成为在刚果民主共和国开展业务的领先数字门户，将本地潜力与区域及全球市场连接起来。"
+      },
+      "coreTitle": "我们的价值观",
+      "core": {
+        "trust": "信任",
+        "transparency": "透明",
+        "professionalism": "专业",
+        "innovation": "创新",
+        "commitment": "致力于刚果民主共和国的发展"
+      },
+      "enableTitle": "我们助您实现",
+      "enable": {
+        "partnerships": "可信的合作关系",
+        "opportunities": "商业机遇",
+        "intelligence": "市场情报",
+        "growth": "本地经济增长"
+      }
+    },
+    "transform": {
+      "lead": "Trade in DRC 将商业关系转化为切实的机遇，助力",
+      "accent": "刚果民主共和国的增长。"
+    },
+    "join": {
+      "cta": "加入平台",
+      "tagline": "连接。贸易。在刚果民主共和国增长。"
+    },
+    "panel": {
+      "overview": "概览",
+      "drc": "刚果民主共和国",
+      "nav": {
+        "overview": "概览",
+        "opportunities": "机遇",
+        "partners": "合作伙伴",
+        "sectors": "行业",
+        "insights": "洞察",
+        "watchlist": "关注列表"
+      },
+      "stats": {
+        "opportunities": "机遇",
+        "partners": "已认证合作伙伴",
+        "insights": "市场洞察"
+      },
+      "topOpportunities": "热门机遇",
+      "marketActivity": "市场动态",
+      "highPotential": "高潜力",
+      "top": {
+        "infrastructure": "基础设施建设",
+        "mining": "矿业与资源",
+        "agriculture": "农业与农业综合产业",
+        "energy": "能源与可再生能源"
+      },
+      "oppTypes": {
+        "tender": "招标",
+        "partnership": "合作",
+        "investment": "投资",
+        "distribution": "分销"
+      },
+      "statusOpen": "开放",
+      "verified": "已验证",
+      "sector": {
+        "mining": "采矿",
+        "agriculture": "农业",
+        "energy": "能源",
+        "ict": "数字与信息技术",
+        "manufacturing": "制造业",
+        "logistics": "物流"
+      },
+      "companies": "家企业",
+      "kpi": {
+        "volume": "贸易额",
+        "growth": "同比增长",
+        "listings": "新列表"
+      },
+      "saved": "已收藏",
+      "viewAll": "查看全部",
+      "notifTitle": "通知",
+      "notif1": "采矿业新增认证合作伙伴",
+      "notif2": "本周新增3个机会",
+      "notif3": "第二季度市场报告已就绪",
+      "scopeRegion": "中部非洲",
+      "scopeGlobal": "全球"
+    },
+    "sectors": {
+      "eyebrow": "重点行业",
+      "title": "投资刚果民主共和国的优势领域",
+      "subtitle": "从关键矿产到农业和清洁能源，刚果民主共和国蕴藏着全球最重要的一些尚未开发的机遇。",
+      "cta": "探索所有机遇",
+      "items": {
+        "mining": {
+          "title": "矿业与关键矿产",
+          "desc": "钴、铜、黄金、钶钽铁矿和锂——刚果民主共和国拥有全球最大的一些储量，这些矿产正为能源转型提供动力。"
+        },
+        "agriculture": {
+          "title": "农业与农业综合产业",
+          "desc": "辽阔的耕地以及适宜咖啡、可可、棕榈油和主粮作物生长的气候——这是一片在很大程度上尚未开发的农业前沿。"
+        },
+        "energy": {
+          "title": "能源与水电",
+          "desc": "巨大的水电潜力，以刚果河上的英加（Inga）项目为代表——是全球最大的水电机遇之一。"
+        },
+        "infrastructure": {
+          "title": "基础设施",
+          "desc": "公路、桥梁、港口、住房和数字网络——连接刚果民主共和国各城市与贸易走廊的大型项目。"
+        },
+        "forestry": {
+          "title": "林业与木材",
+          "desc": "刚果盆地——全球第二大热带雨林——提供可持续木材，并是对全球至关重要的碳汇。"
+        },
+        "manufacturing": {
+          "title": "制造业与工业",
+          "desc": "本地加工与价值提升，从矿产精炼到农产品加工，将原材料转化为成品。"
+        }
+      }
+    },
+    "whyDrc": {
+      "eyebrow": "为何选择刚果民主共和国",
+      "title": "位于非洲中心的市场",
+      "subtitle": "鲜有国家能同时兼具刚果民主共和国的自然财富、规模与战略地位。基本面足以说明一切。",
+      "items": {
+        "cobalt": {
+          "label": "全球钴产量占比",
+          "context": "刚果民主共和国是全球领先的钴生产国，钴对电池和能源转型至关重要。"
+        },
+        "hydropower": {
+          "label": "水电潜力",
+          "context": "全球最大的水电潜力之一，以刚果河上的英加（Inga）项目为代表。"
+        },
+        "population": {
+          "label": "人口",
+          "context": "位于非洲大陆中心、年轻且快速增长的国内市场。"
+        },
+        "land": {
+          "label": "可耕地",
+          "context": "横跨多样气候、辽阔且在很大程度上尚未开发的农业前沿。"
+        }
+      }
+    },
+    "howItWorks": {
+      "eyebrow": "运作方式",
+      "title": "三步开启贸易",
+      "steps": {
+        "register": {
+          "title": "注册您的公司",
+          "desc": "几分钟内即可免费创建公司资料。"
+        },
+        "verify": {
+          "title": "完成认证",
+          "desc": "我们的团队验证您的企业，让合作伙伴信赖。"
+        },
+        "connect": {
+          "title": "对接并贸易",
+          "desc": "触达刚果民主共和国及更广范围的买家、合作伙伴和投资者。"
+        }
+      }
+    }
+  },
+  "Messaging": {
+    "empty": "暂无消息。开始对话吧。",
+    "inputPlaceholder": "输入消息…",
+    "contact": {
+      "title": "联系 {company}",
+      "description": "向该公司发送消息。对方将在其安全的平台收件箱中收到此消息。",
+      "subjectLabel": "主题",
+      "subjectPlaceholder": "例如：关于贵公司产品的咨询",
+      "messageLabel": "消息",
+      "messagePlaceholder": "在此撰写您的消息…",
+      "cancel": "取消",
+      "send": "发送消息",
+      "sending": "正在向 {company} 发送消息…",
+      "success": "消息发送成功。",
+      "signInRequired": "请登录后联系公司。",
+      "cannotSelfMessage": "您不能向自己的公司发送消息。"
+    },
+    "errors": {
+      "rateLimited": "您发送消息的速度过快。请稍候片刻后重试。",
+      "captchaRequired": "请完成验证挑战。",
+      "captchaFailed": "验证失败。请重新完成挑战。",
+      "notParticipant": "您不是此会话的参与者。",
+      "notAuthenticated": "您的会话已过期。请重新登录。",
+      "validationFailed": "请检查您的消息后重试。",
+      "sendFailed": "消息发送失败。请重试。",
+      "tooLong": "消息过长（最多 {max} 个字符）。"
+    },
+    "report": {
+      "action": "举报消息",
+      "title": "举报此消息",
+      "description": "请告诉我们此消息存在什么问题。我们的审核员将进行核查。",
+      "reasonLabel": "原因",
+      "reasons": {
+        "spam": "垃圾信息或广告",
+        "harassment": "骚扰或辱骂",
+        "scam": "诈骗或欺诈",
+        "inappropriate": "不当内容",
+        "other": "其他"
+      },
+      "detailsLabel": "详情（可选）",
+      "detailsPlaceholder": "补充任何有助于审核员的背景信息…",
+      "cancel": "取消",
+      "submit": "提交举报",
+      "submitting": "正在提交举报…",
+      "success": "举报已提交。谢谢。",
+      "error": "无法提交举报。请重试。"
+    }
+  },
+  "AdminMessages": {
+    "title": "消息举报",
+    "subtitle": "审核被举报的消息并查看会话记录。",
+    "columns": {
+      "message": "被举报的消息",
+      "reason": "原因",
+      "reporter": "举报人",
+      "reported": "举报时间",
+      "status": "状态",
+      "actions": "操作"
+    },
+    "reasons": {
+      "spam": "垃圾信息或广告",
+      "harassment": "骚扰或辱骂",
+      "scam": "诈骗或欺诈",
+      "inappropriate": "不当内容",
+      "other": "其他"
+    },
+    "statuses": {
+      "open": "待处理",
+      "reviewed": "已审核",
+      "dismissed": "已驳回",
+      "actioned": "已处理"
+    },
+    "reporterNote": "备注",
+    "deletedMessage": "（消息已不可用）",
+    "unknownUser": "未知用户",
+    "viewThread": "查看会话",
+    "emptyQueue": "暂无被举报的消息。队列已清空。",
+    "viewer": {
+      "heading": "会话查看器",
+      "noSubject": "（无主题）",
+      "selectPrompt": "在某条举报上选择“查看会话”，即可在此阅读完整对话。",
+      "empty": "此会话没有任何消息。"
+    },
+    "triage": {
+      "saving": "正在更新状态…",
+      "saved": "状态已更新。",
+      "error": "无法更新状态。请重试。",
+      "notAuthorized": "您无权审核举报。"
+    }
+  },
+  "Taxonomy": {
+    "title": "分类体系管理",
+    "subtitle": "管理平台所使用的行业、类别、HS 编码与标签。",
+    "sectorsHeading": "行业",
+    "sectorsDescription": "最高层级的行业分类。",
+    "categoriesHeading": "类别",
+    "categoriesDescription": "归属于某一上级行业的子分类。",
+    "hsCodesHeading": "HS 编码",
+    "hsCodesDescription": "协调制度商品编码，可选择性地映射到某一行业。",
+    "tagsHeading": "标签",
+    "tagsDescription": "用于筛选和发现的自由格式标签。",
+    "loadingSectors": "正在加载行业……",
+    "errorLoadSectors": "加载行业失败",
+    "add": "添加",
+    "edit": "编辑",
+    "delete": "删除",
+    "save": "保存",
+    "cancel": "取消",
+    "retry": "重试",
+    "newEntry": "新条目",
+    "empty": "暂无项目。",
+    "loading": "加载中……",
+    "saving": "正在保存更改……",
+    "saved": "保存成功。",
+    "adding": "正在添加……",
+    "added": "添加成功。",
+    "deleting": "正在删除……",
+    "deleted": "删除成功。",
+    "confirmDelete": "确定删除“{name}”吗？此操作无法撤销。",
+    "errorLoad": "加载项目失败",
+    "errorSave": "保存失败",
+    "errorAdd": "添加失败",
+    "errorDelete": "删除失败",
+    "noSector": "— 无行业 —",
+    "placeholderCode": "编码",
+    "placeholderNameEn": "名称（EN）",
+    "placeholderNameFr": "名称（FR）",
+    "placeholderSlug": "Slug",
+    "placeholderParentCode": "上级编码（可选）",
+    "colCode": "编码",
+    "colNameEn": "名称（EN）",
+    "colNameFr": "名称（FR）",
+    "colSlug": "Slug",
+    "colSector": "行业",
+    "colActions": "操作",
+    "placeholderNameTr": "名称 (TR)",
+    "placeholderNameZh": "名称 (ZH)",
+    "placeholderNameEs": "名称 (ES)"
+  },
+  "Faq": {
+    "title": "常见问题",
+    "description": "查找有关使用 TradeInDRC 的最常见问题的解答。",
+    "searchPlaceholder": "搜索问题…",
+    "noResults": "未找到匹配的问题。",
+    "empty": "暂无可用问题。请稍后再来查看。"
+  },
+  "SectorsPage": {
+    "title": "行业领域",
+    "description": "探索各主要行业领域中经过验证的刚果企业。",
+    "browse": "浏览企业",
+    "companiesCount": "{count, plural, =0 {暂无企业} one {# 家企业} other {# 家企业}}",
+    "empty": "暂无可用的行业领域。"
+  },
+  "ContactPage": {
+    "getInTouch": "与我们联系",
+    "getInTouchBody": "无论您对功能、验证还是其他任何方面有疑问，我们的团队都随时准备解答您的所有问题。",
+    "phone": "电话",
+    "address": "地址",
+    "namePlaceholder": "您的姓名",
+    "emailPlaceholder": "your@email.com",
+    "subjectPlaceholder": "我们能为您做些什么？",
+    "messagePlaceholder": "请填写您的留言……",
+    "honeypotLabel": "公司（请将此栏留空）",
+    "sending": "正在发送您的留言……",
+    "sendError": "无法发送您的留言。请重试。",
+    "rateLimited": "您近期已发送多条留言。请稍候片刻再发送新留言。",
+    "validationError": "请更正高亮显示的字段。",
+    "nameError": "请输入您的姓名。",
+    "emailError": "请输入有效的电子邮件地址。",
+    "messageError": "您的留言至少需包含 10 个字符。"
+  },
+  "Help": {
+    "title": "帮助中心",
+    "description": "帮助您充分利用 TradeInDRC 的指南与文章。",
+    "searchPlaceholder": "搜索帮助文章…",
+    "noResults": "未找到匹配的文章。",
+    "empty": "暂无可用的帮助文章。",
+    "backToHelp": "返回帮助中心",
+    "articleEmpty": "此文章尚无内容。"
+  },
+  "AdminCms": {
+    "tabs": {
+      "pages": "页面",
+      "faqs": "常见问题",
+      "help": "帮助文章"
+    },
+    "addNew": "+ 新建",
+    "save": "保存",
+    "savingShort": "保存中…",
+    "saving": "正在保存更改…",
+    "saved": "保存成功。",
+    "created": "创建成功。",
+    "delete": "删除",
+    "deletingShort": "删除中…",
+    "deleting": "正在删除…",
+    "deleted": "已删除。",
+    "confirmDelete": "确定删除此项？此操作无法撤销。",
+    "addParagraph": "添加段落",
+    "noParagraphs": "暂无段落——请在下方添加。",
+    "paragraphPlaceholder": "撰写段落…",
+    "pages": {
+      "title": "静态页面"
+    },
+    "faqs": {
+      "title": "常见问题",
+      "new": "新建常见问题",
+      "edit": "编辑常见问题",
+      "empty": "暂无常见问题。请添加第一条。"
+    },
+    "help": {
+      "title": "帮助文章",
+      "new": "新建帮助文章",
+      "edit": "编辑帮助文章",
+      "empty": "暂无帮助文章。请添加第一篇。"
+    },
+    "columns": {
+      "page": "页面",
+      "status": "状态",
+      "updated": "更新时间",
+      "question": "问题（EN）",
+      "title": "标题（EN）",
+      "category": "类别",
+      "order": "排序"
+    },
+    "status": {
+      "draft": "草稿",
+      "published": "已发布"
+    },
+    "fields": {
+      "status": "状态",
+      "titleEn": "标题（英文）",
+      "titleFr": "标题（法文）",
+      "bodyEn": "正文（英文）",
+      "bodyFr": "正文（法文）",
+      "questionEn": "问题（英文）",
+      "questionFr": "问题（法文）",
+      "answerEn": "答案（英文）",
+      "answerFr": "答案（法文）",
+      "category": "类别",
+      "categoryPlaceholder": "可选分组",
+      "sortOrder": "排序顺序",
+      "published": "已发布",
+      "slug": "URL 标识"
+    },
+    "pageSlugs": {
+      "about": "关于我们",
+      "how-it-works": "运作方式",
+      "sectors-intro": "行业介绍",
+      "terms": "服务条款",
+      "privacy": "隐私政策",
+      "cookies": "Cookie 政策"
+    },
+    "errors": {
+      "titleRequired": "英文标题和法文标题均为必填项。",
+      "faqRequired": "所有问题和答案字段均为必填项。",
+      "helpRequired": "URL 标识和两个标题均为必填项。",
+      "saveFailed": "保存失败。请重试。",
+      "deleteFailed": "删除失败。请重试。"
+    },
+    "moveUp": "上移",
+    "moveDown": "下移",
+    "removeParagraph": "移除段落"
+  },
+  "AdminUpload": {
+    "chooseFile": "上传文件",
+    "uploading": "正在上传…",
+    "uploaded": "文件已上传。",
+    "remove": "移除",
+    "urlPlaceholder": "https://… 或在上方上传文件",
+    "previewAlt": "已上传文件预览",
+    "error": {
+      "invalid_folder": "上传目标无效。",
+      "no_file": "未选择任何文件。",
+      "too_large": "文件过大（最大 25 MB）。",
+      "invalid_type": "不支持的文件类型。",
+      "unauthenticated": "您必须先登录。",
+      "profile_lookup_failed": "无法验证您的账户。",
+      "not_authorized": "您无权在此处上传。",
+      "upload_failed": "上传失败，请重试。"
+    }
+  },
+  "Marketplace": {
+    "references": {
+      "empty": "暂无已发布的合作伙伴案例。",
+      "error": "无法加载客户案例，请重试。",
+      "unnamedPartner": "合作伙伴"
+    },
+    "contacts": {
+      "empty": "暂无联系人列出。",
+      "error": "无法加载联系人，请重试。"
+    },
+    "profile": {
+      "notFoundTitle": "未找到企业",
+      "notFoundBody": "此企业资料不存在或尚未通过认证。",
+      "backToDirectory": "返回目录",
+      "targetMarkets": "目标市场",
+      "thisIsYou": "这是您的企业",
+      "contact": "联系",
+      "loginToContact": "登录以联系",
+      "contactLoginRequired": "登录后即可安全地与该企业沟通。"
+    }
+  },
+  "Analytics": {
+    "title": "数据分析",
+    "subtitle": "您在 TradeInDRC 上各家企业的绩效概览",
+    "profileViews": "资料浏览量",
+    "productViews": "产品浏览量",
+    "contactRequests": "联系请求",
+    "searchAppearances": "搜索展示次数",
+    "trendUp": "较前 30 天 +{pct}%",
+    "trendDown": "较前 30 天 -{pct}%",
+    "trendFlat": "较前 30 天无变化",
+    "trendNoBaseline": "没有可比较的历史数据",
+    "error": "目前无法加载您的数据分析。请重试。",
+    "topSearchTitle": "热门搜索结果",
+    "topSearchSubtitle": "买家通过搜索最常找到的您的企业和产品。",
+    "appearancesCount": "{count} 次展示",
+    "topSearchEmptyTitle": "尚无搜索活动",
+    "topSearchEmptyBody": "一旦买家通过搜索找到您的列表，他们最常访问的条目将显示在此处。",
+    "newsFeedTitle": "贸易新闻与活动",
+    "newsFeedSubtitle": "TradeInDRC 上最新发布的动态和活动。",
+    "newsTag": "新闻",
+    "eventTag": "活动",
+    "newsFeedEmptyTitle": "尚无发布内容",
+    "newsFeedEmptyBody": "新的贸易新闻和活动将在发布后显示在此处。"
+  },
+  "Settings": {
+    "title": "设置",
+    "subtitle": "管理您的个人资料",
+    "fullName": "全名",
+    "fullNamePlaceholder": "请输入您的全名",
+    "saveChanges": "保存更改",
+    "updateSuccess": "资料已更新",
+    "updateError": "资料更新失败"
+  },
+  "RfqBoard": {
+    "title": "询价单（RFQ）",
+    "subtitle": "管理您的供应与需求信息",
+    "createListing": "创建信息",
+    "selectCompany": "选择公司",
+    "verificationRequired": "需要认证",
+    "verificationRequiredBody": "创建询价单前，您的公司必须先通过认证。",
+    "checkVerificationStatus": "查看认证状态",
+    "inboundInterest": "收到的意向",
+    "emptyListings": "暂无询价单",
+    "close": "关闭",
+    "closing": "正在关闭询价单……",
+    "closeSuccess": "询价单已关闭。",
+    "closeError": "关闭询价单失败。",
+    "colTitle": "标题",
+    "colType": "类型",
+    "colStatus": "状态",
+    "colExpires": "到期时间",
+    "colActions": "操作",
+    "type": {
+      "supply": "供应",
+      "demand": "需求"
+    },
+    "status": {
+      "active": "进行中",
+      "expired": "已过期",
+      "closed": "已关闭"
+    },
+    "form": {
+      "title": "标题",
+      "titlePlaceholder": "例如：寻找铜供应商",
+      "description": "描述",
+      "descriptionPlaceholder": "请描述您所提供或所需求的内容……",
+      "type": "类型",
+      "selectType": "选择类型",
+      "typeSupply": "供应",
+      "typeDemand": "需求",
+      "expiresAt": "到期日期",
+      "createListing": "创建信息",
+      "creatingShort": "创建中……",
+      "creating": "正在创建询价单……",
+      "createSuccess": "询价单已创建。",
+      "createError": "创建询价单失败。",
+      "validation": {
+        "titleMin": "标题至少需包含 5 个字符",
+        "descriptionMin": "描述至少需包含 20 个字符",
+        "expiresRequired": "到期日期为必填项",
+        "expiresFuture": "到期日期必须晚于当前日期",
+        "typeRequired": "请选择一种类型"
+      }
+    },
+    "createTitle": "创建询价单",
+    "createSubtitle": "为您的公司发布一条供应或需求信息",
+    "backToListings": "返回询价单列表"
+  },
+  "Metadata": {
+    "siteTitle": "TradeInDRC",
+    "siteDescription": "刚果民主共和国官方双语在线贸易门户，连接国际买家与已认证的刚果出口商。"
+  },
+  "Terms": {
+    "title": "服务条款",
+    "lastUpdated": "最后更新：2026 年 1 月",
+    "sections": {
+      "acceptance": {
+        "heading": "{number}. 条款的接受",
+        "body": "访问并使用 TradeInDRC，即表示您接受并同意受本协议的条款和规定以及刚果民主共和国法律的约束。如果您不同意遵守这些条款，请勿使用本服务。"
+      },
+      "description": {
+        "heading": "{number}. 服务说明",
+        "body": "TradeInDRC 是一个官方 B2B 贸易门户，连接经过验证的刚果企业与国际买家和合作伙伴。该平台提供企业目录服务、安全消息传递以及贸易机会信息。"
+      },
+      "registration": {
+        "heading": "{number}. 用户注册",
+        "body": "要使用某些功能，您必须注册账户。您同意在注册时提供准确、最新且完整的信息，并对此类信息进行更新以确保其准确性。"
+      },
+      "verification": {
+        "heading": "{number}. 验证流程",
+        "body": "企业验证由商务部授权代表执行。“已验证”徽章是政府颁发的状态。提交虚假文件将导致账户被立即终止、列入黑名单，并可能根据《刚果民主共和国刑法典》引发法律诉讼。"
+      },
+      "conduct": {
+        "heading": "{number}. 用户行为",
+        "body": "用户同意不将本平台用于任何非法目的、不向其他用户发送垃圾信息，亦不虚假陈述其身份或企业资质。"
+      },
+      "intellectualProperty": {
+        "heading": "{number}. 知识产权",
+        "body": "TradeInDRC 上的所有内容，包括徽标、文字和图像，均为刚果民主共和国政府或其内容供应商的财产，并受适用的知识产权法律保护。"
+      },
+      "liability": {
+        "heading": "{number}. 责任限制",
+        "body": "对于因您使用本服务而导致的任何间接、附带、特殊、后果性或惩罚性损害，TradeInDRC 概不负责。"
+      },
+      "contact": {
+        "heading": "{number}. 联系方式",
+        "body": "如对本条款有任何疑问，请通过 legal@tradeindrc.com 与我们联系"
+      }
+    }
+  },
+  "Privacy": {
+    "title": "隐私政策",
+    "lastUpdated": "最后更新：2026 年 1 月",
+    "sections": {
+      "collect": {
+        "heading": "{number}. 我们收集的信息",
+        "body": "我们会收集您直接向我们提供的信息，例如当您创建账户、注册企业或联系我们寻求支持时。这包括您的姓名、电子邮件地址、企业信息和验证文件。"
+      },
+      "use": {
+        "heading": "{number}. 我们如何使用您的信息",
+        "body": "我们使用所收集的信息来提供、维护和改进我们的服务，处理验证申请，向您发送技术通知和支持消息，并回复您的咨询。"
+      },
+      "sharing": {
+        "heading": "{number}. 信息共享",
+        "body": "我们可能会与平台的其他用户共享您的公开企业资料信息。验证文件仅出于审核目的与商务部授权代表共享。"
+      },
+      "security": {
+        "heading": "{number}. 数据安全",
+        "body": "我们采取合理措施，帮助保护有关您的信息免遭丢失、盗窃、滥用和未经授权的访问。然而，没有任何安全系统是绝对无法攻破的。"
+      },
+      "retention": {
+        "heading": "{number}. 数据保留",
+        "body": "只要您的账户处于活跃状态，或为向您提供服务所需，我们便会保留您的信息。您可以随时请求删除您的账户。"
+      },
+      "rights": {
+        "heading": "{number}. 您的权利（刚果民主共和国《数字法典》）",
+        "body": "根据 2020 年 11 月 25 日关于电信及信息与通信技术的第 20/017 号法律（《数字法典》），您有权访问、更正或删除您的个人信息。请通过 privacy@tradeindrc.com 与我们联系以行使这些权利。"
+      },
+      "governmentSharing": {
+        "heading": "{number}. 政府数据共享",
+        "body": "使用本平台即表示您确认 TradeInDRC 为官方倡议。企业注册过程中提供的数据，包括税号和法律文件，将仅出于验证和认证目的，直接与商务部及相关政府机构共享。我们不会将此类数据出售给商业第三方。"
+      },
+      "changes": {
+        "heading": "{number}. 本政策的变更",
+        "body": "我们可能会不时更新本隐私政策。如有任何变更，我们将通过在本页面发布新政策的方式通知您。"
+      }
+    }
+  },
+  "Cookies": {
+    "title": "Cookie 政策",
+    "lastUpdated": "最后更新：2026 年 1 月",
+    "intro": "本 Cookie 政策说明 TradeInDRC（“我们”“我们的”）在您访问我们网站时如何使用 Cookie 及类似技术来识别您。本政策阐明了这些技术的含义、我们使用它们的原因，以及您对我们使用这些技术进行管控的权利。",
+    "sections": {
+      "what": {
+        "heading": "1. 什么是 Cookie？",
+        "body": "Cookie 是您访问网站时存放在您的计算机或移动设备上的小型数据文件。网站所有者广泛使用 Cookie 来使其网站正常运行或更高效地运行，并提供报告信息。"
+      },
+      "why": {
+        "heading": "2. 我们为何使用 Cookie？",
+        "body": "我们出于多种原因使用第一方和第三方 Cookie。某些 Cookie 出于技术原因为我们网站的运行所必需，我们将其称为“必要”或“严格必要”Cookie。其他 Cookie 还使我们能够跟踪并定位用户的兴趣，以提升您在我们在线平台上的体验。"
+      },
+      "types": {
+        "heading": "3. 我们使用的 Cookie 类型"
+      },
+      "control": {
+        "heading": "4. 我如何控制 Cookie？",
+        "body": "您有权决定接受或拒绝 Cookie。您可以设置或修改网络浏览器的控制项，以接受或拒绝 Cookie。如果您选择拒绝 Cookie，您仍可使用我们的网站，但您对网站某些功能和区域的访问可能会受到限制。"
+      },
+      "updates": {
+        "heading": "5. 本政策的更新",
+        "body": "我们可能会不时更新本 Cookie 政策，例如以反映我们所使用 Cookie 的变化，或出于其他运营、法律或监管方面的原因。因此，请您定期重新查阅本 Cookie 政策，以及时了解我们对 Cookie 及相关技术的使用情况。"
+      },
+      "contact": {
+        "heading": "6. 联系我们",
+        "body": "如果您对我们使用 Cookie 有任何具体疑问，请发送电子邮件至 privacy@tradeindrc.com 与我们联系。"
+      }
+    },
+    "types": {
+      "essential": {
+        "title": "必要 Cookie",
+        "body": "这些 Cookie 是为您提供本网站所含服务以及使用其部分功能（例如访问安全区域）所严格必需的。"
+      },
+      "analytics": {
+        "title": "性能与分析 Cookie",
+        "body": "这些 Cookie 用于提升我们网站的性能和功能，但并非使用网站所必需。然而，若没有这些 Cookie，某些功能（例如视频）可能无法使用。"
+      },
+      "functionality": {
+        "title": "功能 Cookie",
+        "body": "这些 Cookie 使我们能够记住您在使用本网站时所做的选择，例如记住您的语言偏好或登录信息。"
+      }
+    }
+  },
+  "CTASection": {
+    "companies": {
+      "eyebrow": "致刚果企业",
+      "title": "向世界展示您的企业",
+      "benefitVerified": "获得部委认证",
+      "benefitConnect": "对接国际买家",
+      "benefitInquiries": "接收安全询盘",
+      "cta": "立即注册"
+    },
+    "buyers": {
+      "eyebrow": "致国际买家",
+      "title": "在刚果民主共和国寻找认证供应商",
+      "benefitVerified": "所有公司均经政府认证",
+      "benefitAccess": "直接对接出口商",
+      "benefitSecure": "安全的沟通平台",
+      "cta": "浏览公司"
+    }
+  },
+  "LatestOffers": {
+    "heading": "最新<accent>报盘</accent>",
+    "badgeSearching": "求购",
+    "badgeOpportunity": "机会",
+    "contact": "联系 {name}",
+    "viewAll": "查看所有报盘"
+  },
+  "FeaturedCompanies": {
+    "title": "精选公司",
+    "subtitle": "已认证、可开展贸易的刚果企业",
+    "viewAll": "查看全部",
+    "empty": "暂无精选公司"
+  },
+  "Construction": {
+    "defaultDescription": "官方 TradeInDRC 门户的此部分目前正在建设中。请稍后再来查看经验证的信息。",
+    "returnHome": "返回首页",
+    "exportGuide": "出口指南",
+    "exportStandards": "出口标准"
+  },
+  "HomeSearch": {
+    "title": "告诉我们您在寻找什么",
+    "subtitle": "搜索市场，在刚果民主共和国各地与可信赖的合作伙伴、投资机会和市场情报建立联系。",
+    "placeholder": "搜索公司、产品或机会……",
+    "tabs": {
+      "all": "全部",
+      "companies": "公司",
+      "products": "产品",
+      "opportunities": "机会"
+    },
+    "submitCta": "搜索市场",
+    "signedIn": {
+      "greeting": "欢迎回来，{name}",
+      "quickActions": {
+        "myCompanies": "我的公司",
+        "submitRequest": "提交请求",
+        "myRequests": "我的请求",
+        "inbox": "收件箱",
+        "getPremium": "升级高级版"
+      },
+      "greetingNoName": "欢迎回来"
+    },
+    "searching": "正在搜索…",
+    "noResults": "未找到结果。请尝试其他搜索。"
+  },
+  "Request": {
+    "hero": {
+      "title": "告诉我们您在寻找什么",
+      "subtitle": "在刚果民主共和国与可信赖的合作伙伴、投资机会和市场情报建立联系。",
+      "submitCta": "提交商务请求",
+      "exploreCta": "探索选项"
+    },
+    "intents": {
+      "heading": "是什么吸引您来到刚果（金）？",
+      "find_partner": {
+        "title": "寻找本地合作伙伴",
+        "description": "与刚果（金）值得信赖的公司和供应商建立联系。"
+      },
+      "invest": {
+        "title": "投资刚果（金）",
+        "description": "发掘关键行业的投资机会。"
+      },
+      "sell": {
+        "title": "在刚果（金）销售产品",
+        "description": "探索分销渠道，扩大您在刚果（金）市场的影响力。"
+      },
+      "buy": {
+        "title": "从刚果（金）采购",
+        "description": "从刚果供应商处采购优质产品和服务。"
+      },
+      "publish_opportunity": {
+        "title": "发布机会",
+        "description": "分享您的商业机会，触达合格的合作伙伴。"
+      },
+      "register_company": {
+        "title": "注册我的公司",
+        "description": "获取指导，注册公司并在刚果（金）开展业务。"
+      },
+      "market_report": {
+        "title": "申请市场报告",
+        "description": "获取可靠的市场情报和行业洞察。"
+      },
+      "business_mission": {
+        "title": "组织商务考察",
+        "description": "规划您的商务行程，与合适的相关方建立联系。"
+      },
+      "partner_search": {
+        "title": "合作伙伴搜寻",
+        "description": "识别与您目标一致的本地或国际合作伙伴。"
+      },
+      "market_entry": {
+        "title": "市场进入支持",
+        "description": "获得本地指导和战略支持，清晰地进入刚果（金）市场。"
+      },
+      "business_verification": {
+        "title": "企业核实",
+        "description": "通过核实潜在合作伙伴的可信度和资料来降低不确定性。"
+      },
+      "b2b_meeting": {
+        "title": "B2B 会议安排",
+        "description": "通过结构化会议与供应商、投资者、机构和决策者建立联系。"
+      },
+      "local_representation": {
+        "title": "本地代表",
+        "description": "通过商务便利化和代表支持，建立可信的本地存在。"
+      },
+      "delegation": {
+        "title": "代表团",
+        "description": "组织商务考察、会议、参访和合作项目。"
+      },
+      "other": {
+        "title": "其他需求",
+        "description": "请告诉我们您的具体需求，我们会将其转交给合适的团队。"
+      }
+    },
+    "form": {
+      "heading": "提交您的商务请求",
+      "subheading": "请提供您的信息，以便我们为您对接合适的机会。",
+      "fullName": "全名",
+      "company": "公司",
+      "country": "国家",
+      "email": "电子邮箱",
+      "phone": "WhatsApp / 电话",
+      "sector": "关注行业",
+      "intent": "我正在寻找",
+      "preferredLocation": "刚果（金）首选地点",
+      "timeline": "预期时间安排",
+      "message": "详细信息",
+      "submit": "提交商务请求",
+      "securityNote": "您的信息是安全的，仅用于为您对接相关机会。",
+      "selectPlaceholder": "请选择一项",
+      "intentRequired": "请选择请求类型。",
+      "timelineRequired": "请选择时间范围。",
+      "timelineOptions": {
+        "immediate": "立即",
+        "m_1_3": "1–3 个月内",
+        "m_3_6": "3–6 个月内",
+        "m_6_12": "6–12 个月内",
+        "flexible": "灵活"
+      },
+      "countrySearchPlaceholder": "搜索国家…",
+      "countryNoResults": "未找到国家。"
+    },
+    "whoIsThisFor": {
+      "heading": "适合谁使用？",
+      "intlCompanies": {
+        "title": "国际公司",
+        "description": "希望在刚果（金）拓展、采购或建立合作伙伴关系。"
+      },
+      "congoleseCompanies": {
+        "title": "刚果公司",
+        "description": "寻求合作、市场准入和增长机会。"
+      },
+      "investors": {
+        "title": "投资者",
+        "description": "探索可行项目和高潜力行业。"
+      },
+      "institutions": {
+        "title": "机构",
+        "description": "支持贸易、投资和经济发展。"
+      }
+    },
+    "howItWorks": {
+      "heading": "运作方式",
+      "step1": {
+        "title": "提交您的意向",
+        "description": "通过我们的表单告诉我们您在寻找什么。"
+      },
+      "step2": {
+        "title": "请求审核",
+        "description": "我们的团队审核并分析您的需求。"
+      },
+      "step3": {
+        "title": "商务对接",
+        "description": "我们为您对接可信赖的合作伙伴和机会。"
+      },
+      "step4": {
+        "title": "合作发展",
+        "description": "建立长期关系并发展您的业务。"
+      }
+    },
+    "signInRequired": {
+      "title": "请登录以提交请求",
+      "body": "创建免费账户或登录，即可发送您的商务请求并跟踪进度。",
+      "signInCta": "登录以继续"
+    },
+    "successToast": "您的请求已提交。我们的团队将尽快与您联系。",
+    "errorToast": "无法提交您的请求，请重试。",
+    "kindBusiness": "商务请求",
+    "kindService": "服务请求"
+  },
+  "Pricing": {
+    "hero": {
+      "title": "为您的企业选择合适的资料档案",
+      "subtitle": "从免费注册开始，或升级以提升您的市场曝光度、吸引合格合作伙伴，并解锁刚果（金）更多商业机会。",
+      "registerFreeCta": "免费注册",
+      "getPremiumCta": "升级高级版"
+    },
+    "recommendedBadge": "推荐",
+    "plans": {
+      "free": {
+        "name": "免费注册",
+        "price": "免费",
+        "tagline": "为加入市场的公司提供的基础入门方案。",
+        "features": [
+          "基础公司列表",
+          "公司名称、行业和国家",
+          "有限的目录曝光",
+          "公开联系方式展示",
+          "访问公开机会"
+        ],
+        "cta": "免费开始"
+      },
+      "premiumCongolese": {
+        "name": "高级资料档案 — 刚果公司",
+        "price": "$3,000",
+        "per": "/年",
+        "tagline": "专为寻求更强曝光度和合作关系的本地企业设计。",
+        "features": [
+          "已验证高级徽章",
+          "搜索和行业优先排位",
+          "增强的公司资料页面",
+          "展示您的产品和服务",
+          "直接询盘 / 潜在客户表单",
+          "机会发布权限",
+          "通讯和精选曝光",
+          "B2B 引荐支持"
+        ],
+        "cta": "选择刚果高级版"
+      },
+      "premiumInternational": {
+        "name": "高级资料档案 — 国际公司",
+        "price": "$3,600",
+        "per": "/年",
+        "tagline": "专为面向刚果（金）市场准入和商业联系的外国公司打造。",
+        "features": [
+          "已验证国际高级徽章",
+          "优先目录排位",
+          "增强的资料和公司展示",
+          "面向刚果（金）合作伙伴的市场进入曝光",
+          "直接潜在客户采集表单",
+          "发布机会和报价",
+          "精选业务曝光",
+          "B2B 引荐支持"
+        ],
+        "cta": "选择国际高级版"
+      }
+    },
+    "whyPremium": {
+      "heading": "为何选择高级版？",
+      "items": [
+        {
+          "title": "更强的市场曝光度",
+          "description": "在目录中脱颖而出，触达更多潜在合作伙伴。"
+        },
+        {
+          "title": "通过验证提升信任",
+          "description": "获得已验证徽章，赢得买家和投资者的信任。"
+        },
+        {
+          "title": "搜索中更佳定位",
+          "description": "在全平台的搜索和行业结果中排名更靠前。"
+        },
+        {
+          "title": "合格潜在客户生成",
+          "description": "接收来自认真、合格潜在客户的直接询盘。"
+        },
+        {
+          "title": "更丰富的公司展示",
+          "description": "全面展示您的产品、服务和能力。"
+        },
+        {
+          "title": "获得增强推广",
+          "description": "在通讯和推广位中获得精选展示。"
+        }
+      ]
+    },
+    "customPackage": {
+      "heading": "需要定制方案？",
+      "body": "我们为机构、赞助商和战略合作伙伴提供量身定制的解决方案。请联系我们的团队，设计符合您目标的方案。",
+      "cta": "联系我们的团队"
+    },
+    "signInRequired": {
+      "title": "请登录以选择方案",
+      "body": "创建免费账户或登录，即可注册公司并申请高级资料档案。",
+      "cta": "登录以继续"
+    },
+    "selectCompany": {
+      "title": "选择一家公司",
+      "body": "选择您的哪家公司将享受此高级方案。",
+      "placeholder": "选择一家公司",
+      "confirmCta": "申请高级版"
+    },
+    "requestSentToast": "您的高级版申请已发送。我们的团队将尽快审核。",
+    "alreadyPremium": "该公司已拥有有效的高级资料档案。",
+    "pendingRequest": "该公司的高级版申请已在审核中。",
+    "requestingToast": "正在发送您的请求…",
+    "cancelConfirm": "取消您待处理的高级会员请求？",
+    "cancelledToast": "高级会员请求已取消。",
+    "cancelErrorToast": "无法取消请求。请重试。"
+  },
+  "AdminRequests": {
+    "title": "已收到的请求",
+    "subtitle": "实时跟踪潜在客户、需求、指派经理和请求进度。",
+    "newRequestCta": "新建请求",
+    "filters": {
+      "search": "搜索……",
+      "sector": "行业",
+      "country": "国家",
+      "status": "状态",
+      "owner": "负责人",
+      "date": "日期",
+      "all": "全部"
+    },
+    "stats": {
+      "total": "请求总数",
+      "new": "新增",
+      "inProgress": "进行中",
+      "converted": "已转化",
+      "pending": "待处理",
+      "responseRate": "响应率"
+    },
+    "table": {
+      "name": "姓名",
+      "company": "公司",
+      "country": "国家",
+      "sector": "行业",
+      "need": "需求",
+      "status": "状态",
+      "date": "日期",
+      "followUpOwner": "跟进负责人",
+      "actions": "操作"
+    },
+    "statusLabels": {
+      "new": "新增",
+      "in_progress": "进行中",
+      "converted": "已转化",
+      "pending": "待处理",
+      "closed": "已关闭",
+      "rejected": "已拒绝"
+    },
+    "kindLabels": {
+      "business": "商务",
+      "service": "服务"
+    },
+    "assignOwner": "指派负责人",
+    "ownerPlaceholder": "选择负责人",
+    "addNote": "添加备注",
+    "save": "保存",
+    "empty": "暂无符合筛选条件的请求。",
+    "howItWorks": {
+      "heading": "运作方式",
+      "step1": {
+        "title": "请求受理",
+        "description": "通过门户或电子邮件接收请求。"
+      },
+      "step2": {
+        "title": "资格审核",
+        "description": "需求分析、核实和优先级排序。"
+      },
+      "step3": {
+        "title": "负责人指派",
+        "description": "请求被指派给合适的负责人。"
+      },
+      "step4": {
+        "title": "跟进与转化",
+        "description": "持续运营跟进，直至转化或关闭。"
+      }
+    },
+    "detail": {
+      "submittedBy": "提交人",
+      "submittedAt": "提交时间",
+      "contact": "联系方式",
+      "message": "信息",
+      "intent": "请求意图",
+      "promotionRequested": "申请的推广方案",
+      "promotionGranted": "已授予高级权限 — 此申请已处理。",
+      "grantPromotion": "授予此方案"
+    },
+    "savingToast": "正在保存…",
+    "savedToast": "已保存。",
+    "saveErrorToast": "无法保存更改。请重试。",
+    "deleteLabel": "删除",
+    "deleteConfirm": "永久删除此请求？此操作无法撤销。",
+    "deletingToast": "正在删除…",
+    "deletedToast": "请求已删除。",
+    "deleteErrorToast": "无法删除请求。",
+    "fulfil": {
+      "title": "授予推广方案",
+      "description": "将此申请关联到公司并启用 {plan}（{price} / 年）。",
+      "noPlan": "此请求不是推广申请。",
+      "searchPlaceholder": "按名称搜索公司",
+      "searching": "搜索中…",
+      "noResults": "没有匹配的公司。",
+      "alreadyPremium": "已是高级",
+      "cancel": "取消",
+      "confirm": "授予高级权限",
+      "granting": "正在授予…",
+      "granted": "高级权限已启用一年。",
+      "plans": {
+        "congolese": "高级本地伙伴",
+        "international": "国际业务曝光",
+        "international_strategic": "战略市场推广"
+      },
+      "errors": {
+        "validation_failed": "选择无效。",
+        "not_authorized": "您无权执行此操作。",
+        "not_found": "未找到请求。",
+        "no_plan": "此请求没有推广方案。",
+        "already_converted": "已处理。",
+        "update_failed": "无法授予高级权限，请重试。"
+      }
+    }
+  },
+  "AdminPremium": {
+    "title": "高级版申请",
+    "subtitle": "审核并批准来自公司的高级资料档案申请。",
+    "table": {
+      "company": "公司",
+      "requestedBy": "申请人",
+      "plan": "方案",
+      "amount": "金额",
+      "status": "状态",
+      "date": "日期",
+      "actions": "操作"
+    },
+    "planCongolese": "刚果高级版",
+    "planInternational": "国际高级版",
+    "statusLabels": {
+      "pending": "待处理",
+      "approved": "已批准",
+      "rejected": "已拒绝",
+      "cancelled": "已取消"
+    },
+    "approve": "批准",
+    "reject": "拒绝",
+    "approveConfirm": "批准此高级版申请并激活资料档案？",
+    "rejectConfirm": "拒绝此高级版申请？",
+    "notes": "管理员备注",
+    "empty": "暂无高级版申请。",
+    "approvedToast": "高级版申请已批准，资料档案已激活。",
+    "rejectedToast": "高级版申请已拒绝。"
+  },
+  "DashboardPremium": {
+    "cardTitle": "高级资料档案",
+    "statusFree": "免费方案",
+    "statusPending": "高级版审核中",
+    "statusPremium": "高级版已激活",
+    "planLabel": "方案",
+    "expiresLabel": "到期时间",
+    "upgradeCta": "升级至高级版",
+    "cancelPendingCta": "取消待处理申请",
+    "planCongolese": "高级会员 — 刚果企业",
+    "planInternational": "高级会员 — 国际企业",
+    "cancelling": "正在取消…"
+  },
+  "AdminSegments": {
+    "save": "保存细分",
+    "saving": "正在保存细分…",
+    "saved": "细分已更新。",
+    "noChanges": "没有需要保存的更改。",
+    "saveFailed": "保存细分失败"
+  },
+  "MarketHome": {
+    "hero": {
+      "title": "探索刚果（金）贸易市场",
+      "subtitle": "发现来自刚果民主共和国的优质产品、可信赖的供应商和真实的商业机会。",
+      "searchPlaceholder": "搜索产品...",
+      "category": "类别",
+      "province": "省份",
+      "supplierType": "供应商类型",
+      "tiers": {
+        "verified": "已认证",
+        "premium": "高级"
+      },
+      "searchBtn": "搜索",
+      "browseProducts": "浏览产品",
+      "findSuppliers": "寻找供应商"
+    },
+    "stats": {
+      "products": "已上架产品",
+      "companies": "企业",
+      "verifiedSuppliers": "认证供应商",
+      "provinces": "覆盖省份",
+      "categories": "类别"
+    },
+    "showcase": {
+      "categoriesTitle": "按类别探索产品",
+      "featuredTitle": "精选产品",
+      "viewAllProducts": "查看全部产品",
+      "verified": "已认证",
+      "viewProduct": "查看产品",
+      "requestQuote": "询价",
+      "suppliersTitle": "认识认证供应商",
+      "viewAllSuppliers": "查看全部供应商",
+      "productCount": "{count} 个产品",
+      "viewSupplier": "查看供应商",
+      "contactSupplier": "联系供应商",
+      "cats": {
+        "agriculture": "农业与农产品",
+        "mining": "矿产品与矿物",
+        "construction": "建筑材料",
+        "industrial": "工业设备",
+        "energy": "能源与电气用品",
+        "textiles": "纺织与时尚",
+        "fmcg": "快消品/消费品",
+        "pharma": "制药与健康产品",
+        "logistics": "物流与包装",
+        "machinery": "机械与备件",
+        "digital": "数字与技术解决方案",
+        "furniture": "家具与办公用品"
+      }
+    },
+    "banners": {
+      "buyersTitle": "买家专区",
+      "buyersBody": "在刚果（金）全国寻找优质产品和可靠供应商。与认证企业建立联系，拓展您的网络。",
+      "buyersCta": "开始采购",
+      "sellersTitle": "卖家专区",
+      "sellersBody": "上架您的产品，展示您的企业，与本地和国际潜在买家建立联系。",
+      "sellersCta": "上架您的产品"
+    },
+    "rail": {
+      "formTitle": "找不到您需要的产品？",
+      "formSubtitle": "提交采购请求，我们的团队将帮助您找到合适的供应商。",
+      "whyTitle": "为什么使用刚果（金）贸易市场？",
+      "items": {
+        "verifiedProfiles": {
+          "title": "认证企业档案",
+          "body": "仅限可信赖的认证供应商。"
+        },
+        "localAccess": {
+          "title": "本地市场准入",
+          "body": "与26个省份的企业建立联系。"
+        },
+        "b2bSupport": {
+          "title": "B2B咨询支持",
+          "body": "获得寻找合适合作伙伴的支持。"
+        },
+        "visibility": {
+          "title": "供应商曝光",
+          "body": "提高知名度，触达更多买家。"
+        },
+        "exportPotential": {
+          "title": "出口与合作潜力",
+          "body": "出口和合资机会。"
+        },
+        "facilitation": {
+          "title": "商务促进",
+          "body": "我们帮助促成有意义的联系。"
+        }
+      },
+      "form": {
+        "productNeeded": "所需产品",
+        "productNeededPh": "您在寻找什么产品？",
+        "category": "类别",
+        "categoryPh": "选择类别",
+        "quantity": "数量",
+        "quantityPh": "输入数量",
+        "country": "国家",
+        "countryPh": "输入您的国家",
+        "companyName": "公司名称",
+        "companyNamePh": "输入您的公司名称",
+        "email": "电子邮箱",
+        "emailPh": "输入您的邮箱",
+        "phone": "电话 / WhatsApp",
+        "phonePh": "输入您的号码",
+        "additional": "其他要求",
+        "additionalPh": "请注明细节、规格、包装、交货条款等。",
+        "submit": "提交采购请求",
+        "submitting": "正在提交您的请求...",
+        "success": "您的采购请求已提交！",
+        "invalid": "请检查必填字段。",
+        "error": "出现错误，请重试。"
+      }
+    },
+    "footer": {
+      "tagline": "在刚果民主共和国连接国际企业与本地机会。",
+      "stayConnected": "保持联系",
+      "upgradePremium": "升级至高级版",
+      "copyright": "© {year} BrandsBridge Group。保留所有权利。",
+      "taglineBar": "Trade in DRC – 连接国际企业与本地机会。",
+      "columns": {
+        "quickLinks": {
+          "title": "快速链接",
+          "home": "首页",
+          "companies": "企业",
+          "opportunities": "商机",
+          "marketplace": "交易市场",
+          "events": "活动"
+        },
+        "resources": {
+          "title": "资源",
+          "marketIntelligence": "市场情报",
+          "localContacts": "本地联系人",
+          "services": "我们的服务",
+          "pricing": "定价"
+        },
+        "about": {
+          "title": "公司",
+          "aboutUs": "关于我们",
+          "register": "注册您的公司",
+          "requestPartner": "请求合作伙伴",
+          "contactUs": "联系我们"
+        },
+        "support": {
+          "title": "支持",
+          "helpCenter": "帮助中心",
+          "faq": "常见问题",
+          "terms": "使用条款",
+          "privacy": "隐私政策"
+        }
+      }
+    }
+  },
+  "VerifiedDirectory": {
+    "breadcrumbHome": "首页",
+    "breadcrumbLocalContacts": "本地联系人目录",
+    "breadcrumbCurrent": "已认证企业目录",
+    "heroTitle": "已认证企业目录",
+    "heroSubtitle1": "与刚果民主共和国经过审核和认证的企业档案建立联系。",
+    "heroSubtitle2": "此处列出的每家企业都经过合法性、可信度和业务活动的审核，帮助您放心建立值得信赖的合作伙伴关系。",
+    "badgesTitle": "了解我们的认证徽章",
+    "badgeRegisteredTitle": "已注册企业",
+    "badgeRegisteredDesc": "企业已在平台注册并提供了基本的业务信息。",
+    "badgeRegisteredPill": "基础档案",
+    "badgeVerifiedTitle": "已认证企业",
+    "badgeVerifiedDesc": "企业的合法性和业务活动已经过审核和认证。",
+    "badgeVerifiedPill": "已认证",
+    "badgePremiumTitle": "高级认证本地合作伙伴",
+    "badgePremiumDesc": "经过更深入认证且业绩可靠的高信任度本地合作伙伴。",
+    "badgePremiumPill": "高级合作伙伴",
+    "filterSectorLabel": "选择行业",
+    "filterAllSectors": "所有行业",
+    "filterProvinceLabel": "选择省份",
+    "filterAllProvinces": "所有省份",
+    "filterTypeLabel": "合作类型",
+    "filterAllTypes": "所有类型",
+    "typeDistributor": "分销商",
+    "typeSupplier": "供应商",
+    "typeManufacturer": "制造商",
+    "typeServiceProvider": "服务提供商",
+    "premiumOnly": "仅限高级",
+    "intlReady": "具备国际业务能力",
+    "searchCompanies": "搜索企业",
+    "showingResults": "显示 {total} 家已认证企业中的第 {from}-{to} 家",
+    "sortBy": "排序：",
+    "sortRecent": "最近添加",
+    "sortNameAZ": "名称 A-Z",
+    "verifiedPill": "已认证",
+    "premiumPill": "高级合作伙伴",
+    "viewProfile": "查看档案",
+    "noResults": "没有符合您筛选条件的已认证企业。",
+    "approachTitle": "我们的认证流程",
+    "step1Title": "提交文件",
+    "step1Caption": "企业提交所需的文件和信息。",
+    "step2Title": "确认官方联系方式",
+    "step2Caption": "我们通过官方渠道核实企业联系方式。",
+    "step3Title": "审核文件",
+    "step3Caption": "我们的团队审核并验证业务文件。",
+    "step4Title": "分类行业与地点",
+    "step4Caption": "企业按行业和运营地点进行分类。",
+    "step5Title": "发布档案",
+    "step5Caption": "已认证的档案将带有相应徽章发布。"
+  },
+  "BySector": {
+    "breadcrumb": {
+      "home": "首页",
+      "localContacts": "本地联系人",
+      "title": "按行业探索"
+    },
+    "hero": {
+      "title": "按行业探索企业",
+      "subtitle": "探索在推动刚果民主共和国商业和投资机会的行业中运营的本地公司、服务提供商和潜在合作伙伴。"
+    },
+    "stats": {
+      "companies": "公司",
+      "verifiedPartners": "已认证合作伙伴"
+    },
+    "exploreSector": "探索行业",
+    "sectors": {
+      "mining": {
+        "name": "采矿与矿产",
+        "desc": "发现采矿公司、设备供应商、勘探企业和矿物加工专家。"
+      },
+      "energy": {
+        "name": "能源与电力",
+        "desc": "与发电企业、能源服务提供商、EPC 承包商和可再生能源专家建立联系。"
+      },
+      "construction": {
+        "name": "建筑与基础设施",
+        "desc": "寻找建筑公司、工程顾问、建筑材料供应商和基础设施开发商。"
+      },
+      "logistics": {
+        "name": "物流与运输",
+        "desc": "探索运输运营商、货运代理、仓储提供商和物流服务公司。"
+      },
+      "agriculture": {
+        "name": "农业与农产品加工",
+        "desc": "结识整个价值链中的农产品加工商、农场供应商、出口商和农业服务提供商。"
+      },
+      "digital": {
+        "name": "数字、电信与科技",
+        "desc": "与信息通信技术公司、电信运营商、软件开发商和技术解决方案提供商建立联系。"
+      }
+    },
+    "featured": {
+      "eyebrow": "特色行业",
+      "name": "采矿与矿产",
+      "desc": "刚果民主共和国是世界上矿产最丰富的国家之一，拥有铜、钴、金、钻石等丰富储量。我们经过认证的采矿行业合作伙伴支持从勘探、开采到加工和出口的整个价值链。",
+      "cta": "申请认证采矿合作伙伴",
+      "categories": {
+        "miningEquipment": "采矿设备供应商",
+        "safetyEquipment": "安全设备供应商",
+        "engineering": "工程公司",
+        "logisticsMining": "采矿物流",
+        "laboratories": "实验室与检测服务"
+      }
+    }
+  },
+  "CompanyProfile": {
+    "stepper": {
+      "label": "贸易流程",
+      "step1": "着陆页 - 本地企业联系人",
+      "step2": "搜索目录",
+      "step3": "公司简介",
+      "step4": "寻找本地合作伙伴"
+    },
+    "tabs": {
+      "overview": "概览",
+      "products": "产品与服务",
+      "partnership": "合作意向",
+      "verification": "认证",
+      "contact": "联系请求"
+    },
+    "hero": {
+      "premiumBadge": "高级认证本地合作伙伴",
+      "verifiedBadge": "已认证企业",
+      "docsReviewed": "文件已审核",
+      "availableIntl": "可开展国际合作",
+      "facilityAlt": "公司设施",
+      "subtitleSuffix": "供应商",
+      "requestIntro": "申请引荐",
+      "scheduleMeeting": "安排B2B会议",
+      "saveCompany": "收藏公司",
+      "saved": "已收藏"
+    },
+    "about": {
+      "title": "关于 {name}",
+      "yearEstablished": "成立年份",
+      "companyType": "公司类型",
+      "employees": "员工人数",
+      "headquarters": "总部",
+      "serviceAreas": "服务区域",
+      "languages": "语言",
+      "intlExperience": "国际经验"
+    },
+    "products": {
+      "title": "主要产品与服务",
+      "empty": "暂无产品。"
+    },
+    "partnership": {
+      "title": "合作意向",
+      "distributorship": "经销协议",
+      "oem": "OEM合作",
+      "technologyTransfer": "技术转让",
+      "jointVentures": "合资企业",
+      "supplierPartnerships": "供应商合作"
+    },
+    "snapshot": {
+      "title": "公司概况",
+      "duns": "DUNS编号",
+      "taxId": "税号 (RCCM)",
+      "industrySector": "所属行业",
+      "businessRegistrations": "工商注册",
+      "businessRegistrationsValue": "RCCM、NIF、CNSS",
+      "qualityCertifications": "质量认证"
+    },
+    "verification": {
+      "title": "认证摘要",
+      "overall": "整体认证：已认证",
+      "area": "认证项目",
+      "status": "状态",
+      "verifiedBy": "认证方",
+      "dateVerified": "认证日期",
+      "verifiedByValue": "Trade in DRC",
+      "statusVerified": "已认证",
+      "statusReviewed": "文件已审核",
+      "areas": {
+        "businessRegistration": "工商注册 (RCCM)",
+        "taxCompliance": "税务合规 (NIF)",
+        "physicalAddress": "实际地址",
+        "bankReference": "银行资信",
+        "companyDocuments": "公司文件"
+      }
+    },
+    "contact": {
+      "title": "联系 / 引荐请求",
+      "intro": "发送请求以联系 {name}。您的请求将由我们的团队审核后再进行引荐。",
+      "fullName": "您的姓名",
+      "fullNamePlaceholder": "请输入您的姓名",
+      "companyName": "公司名称",
+      "companyNamePlaceholder": "请输入您的公司名称",
+      "email": "电子邮箱",
+      "emailPlaceholder": "请输入您的邮箱",
+      "phone": "电话号码",
+      "phonePlaceholder": "请输入电话号码",
+      "interest": "您的意向",
+      "interestPlaceholder": "选择您的意向",
+      "interestOptions": {
+        "distribution": "分销",
+        "investment": "投资",
+        "partnership": "合作",
+        "sourcing": "采购",
+        "other": "其他"
+      },
+      "message": "留言（可选）",
+      "messagePlaceholder": "请告诉我们更多关于您的需求...",
+      "submit": "提交联系请求",
+      "submitting": "正在提交您的请求...",
+      "success": "请求已提交，我们的团队将与您联系。",
+      "error": "出现问题，请重试。",
+      "errorRequired": "请填写所有必填项。",
+      "privacy": "我们尊重您的隐私。您的信息仅用于促成此次引荐。"
+    }
+  },
+  "LocalContacts": {
+    "hero": {
+      "title": "在刚果民主共和国寻找值得信赖的本地商业联系人",
+      "subtitle": "与刚果民主共和国各地经过验证的供应商、分销商、代表、服务提供商和机构联系人建立联系。"
+    },
+    "search": {
+      "keywordPlaceholder": "输入关键词、公司名称、产品或服务",
+      "sectorLabel": "选择行业",
+      "provinceLabel": "选择省份",
+      "typeLabel": "联系人类型",
+      "submit": "搜索联系人",
+      "types": {
+        "suppliers": "供应商",
+        "distributors": "分销商",
+        "representatives": "本地代表",
+        "serviceProviders": "服务提供商",
+        "institutional": "机构联系人",
+        "investment": "投资伙伴"
+      }
+    },
+    "heroCta": {
+      "requestPartner": "申请本地合作伙伴",
+      "registerContact": "注册为本地联系人"
+    },
+    "contactTypes": {
+      "heading": "您在寻找哪类本地联系人？",
+      "suppliers": "供应商",
+      "distributors": "分销商",
+      "representatives": "本地代表",
+      "serviceProviders": "服务提供商",
+      "institutional": "机构联系人",
+      "investment": "投资伙伴"
+    },
+    "sectors": {
+      "heading": "按战略行业探索本地联系人",
+      "companies": "家公司",
+      "explore": "探索行业",
+      "mining": "采矿与矿产",
+      "energy": "能源与电力",
+      "construction": "建筑与基础设施",
+      "agriculture": "农业与农工业",
+      "logistics": "物流与运输",
+      "digital": "数字与电信",
+      "viewAllSectors": "按行业浏览",
+      "viewByProvince": "按省份浏览"
+    },
+    "value": {
+      "discover": {
+        "title": "发现",
+        "desc": "通过高级搜索和智能筛选，轻松找到各省份和行业的本地联系人。"
+      },
+      "verify": {
+        "title": "验证",
+        "desc": "所有联系人均经过合法性、信誉度和经营活动的验证。"
+      },
+      "connect": {
+        "title": "连接",
+        "desc": "直接联系并建立值得信赖的关系，推动真正的商业成果。"
+      }
+    },
+    "band": {
+      "title": "进入刚果民主共和国市场？从正确的本地联系人开始。",
+      "subtitle": "申请本地合作伙伴，获取市场洞察、引荐和落地支持。",
+      "cta": "申请本地合作伙伴"
+    }
+  },
+  "Institutions": {
+    "breadcrumbHome": "首页",
+    "breadcrumbDirectory": "本地联系人目录",
+    "breadcrumbCurrent": "机构联系点",
+    "heading": "借助合适的机构联系点，畅行刚果（金）营商环境",
+    "subtitle": "获取有关公共机构、专业组织、商会及其他与刚果（金）投资和商业活动相关的支持机构的重要指引。",
+    "searchPlaceholder": "搜索机构、代理机构、组织…",
+    "allCategories": "所有类别",
+    "sidebarTitle": "类别",
+    "allInstitutions": "所有机构",
+    "viewDetails": "查看联系方式",
+    "bannerTitle": "在刚果（金）营商环境中需要帮助吗？",
+    "bannerSubtitle": "我们的团队可为您对接合适的机构或支持服务。",
+    "requestGuidance": "申请指导",
+    "emptyTitle": "未找到机构",
+    "emptySubtitle": "请尝试调整搜索或类别筛选。",
+    "category": {
+      "investment_promotion": "投资促进",
+      "business_registration": "企业注册",
+      "chambers_networks": "商会与网络",
+      "sector_regulators": "行业监管机构",
+      "provincial_support": "省级支持",
+      "export_trade": "出口与贸易支持",
+      "finance_tax": "财税",
+      "legal_judicial": "法律与司法",
+      "education_training": "教育与培训",
+      "other": "其他"
+    }
+  },
+  "ByProvince": {
+    "breadcrumbHome": "首页",
+    "breadcrumbLocalContacts": "本地联系人",
+    "breadcrumbCurrent": "按省份浏览",
+    "title": "按省份探索本地联系人",
+    "subtitle": "在刚果民主共和国主要经济省份中搜索本地公司和专业联系人",
+    "browseTitle": "浏览省份",
+    "browseHint": "在地图上选择一个省份，或从列表中选择以探索本地联系人。",
+    "legendFeatured": "重点省份",
+    "legendOther": "其他省份",
+    "legendNotAvailable": "暂不可用",
+    "companiesListedLabel": "已收录公司",
+    "verifiedContactsLabel": "已验证联系人",
+    "acrossAllProvinces": "覆盖所有省份",
+    "viewAllProvinces": "查看所有省份",
+    "keyProvincesTitle": "重点经济省份",
+    "dominantSectors": "主导行业",
+    "companiesUnit": "家公司",
+    "exploreProvince": "探索省份",
+    "featuredBadge": "重点省份",
+    "featuredTitle": "卢阿拉巴的商业联系人与本地合作伙伴",
+    "featuredDescription": "卢阿拉巴是刚果民主共和国采矿业的核心，铜和钴资源丰富，并拥有快速发展的工业与物流枢纽科卢韦齐。",
+    "statCompanies": "公司",
+    "statVerifiedContacts": "已验证联系人",
+    "statStrategicSectors": "战略行业",
+    "statInvestmentPotential": "投资潜力",
+    "investmentHigh": "高",
+    "keySectorsTitle": "卢阿拉巴的重点行业",
+    "sectorMining": "采矿与矿产",
+    "sectorConstruction": "建筑与基础设施",
+    "sectorEnergy": "能源与电力",
+    "sectorAgriculture": "农业与农产品加工",
+    "sectorLogistics": "物流与运输",
+    "sectorManufacturing": "工业制造",
+    "recommendedTitle": "推荐公司",
+    "viewAll": "查看全部",
+    "verified": "已验证",
+    "needTitle": "需要卢阿拉巴的已验证联系人吗？",
+    "needDescription": "与卢阿拉巴值得信赖的供应商、分销商和服务提供商建立联系。",
+    "requestCta": "在卢阿拉巴申请本地联系人"
+  },
+  "FindPartner": {
+    "breadcrumb": {
+      "home": "首页",
+      "current": "寻找本地合作伙伴"
+    },
+    "hero": {
+      "title": "在刚果民主共和国寻找本地合作伙伴",
+      "subtitle": "告诉我们您的业务需求，Trade in DRC 将帮助您找到与您的项目相匹配的合适本地公司、代表、经销商或服务提供商。",
+      "submitCta": "提交您的需求",
+      "browseCta": "先浏览目录"
+    },
+    "step1": {
+      "title": "您需要什么？",
+      "subtitle": "选择您正在寻找的合作伙伴或联系人类型。",
+      "footnote": "每个请求只能选择一个主要需求。"
+    },
+    "needs": {
+      "supplier": "寻找供应商",
+      "distributor": "寻找经销商",
+      "representative": "寻找本地代表",
+      "jv_partner": "寻找合资伙伴",
+      "service_provider": "寻找专业服务提供商",
+      "institutional": "寻找机构联系人",
+      "enter_market": "进入刚果民主共和国市场",
+      "source_products": "从刚果民主共和国采购产品"
+    },
+    "step2": {
+      "title": "告诉我们您的业务需求",
+      "subtitle": "请提供详细信息，以便我们为您匹配合适的本地联系人。"
+    },
+    "form": {
+      "companyName": "公司名称",
+      "companyNamePlaceholder": "输入您的公司名称",
+      "country": "国家",
+      "countryPlaceholder": "选择您的国家",
+      "countrySearch": "搜索国家...",
+      "countryNoResults": "未找到国家。",
+      "website": "网站",
+      "websitePlaceholder": "www.yourcompany.com",
+      "contactPerson": "联系人",
+      "contactPersonPlaceholder": "全名",
+      "email": "电子邮件",
+      "emailPlaceholder": "name@yourcompany.com",
+      "phone": "电话",
+      "phonePlaceholder": "(555) 123-4567",
+      "sector": "行业",
+      "selectPlaceholder": "选择一个选项",
+      "sectorPlaceholder": "选择您的行业",
+      "contactType": "所需联系人类型",
+      "contactTypePlaceholder": "选择联系人类型",
+      "targetProvince": "刚果民主共和国目标省份",
+      "targetProvincePlaceholder": "选择目标省份",
+      "productService": "感兴趣的产品或服务",
+      "productServicePlaceholder": "输入产品或服务",
+      "volume": "预计业务量（美元）",
+      "volumePlaceholder": "选择范围",
+      "timeline": "预期时间表",
+      "timelinePlaceholder": "选择时间表",
+      "requirement": "详细需求",
+      "requirementPlaceholder": "描述您的项目、需求以及任何具体要求……",
+      "uploadTitle": "点击上传或拖放",
+      "uploadHint": "PDF、DOC、DOCX、PPTX（最大 10MB）",
+      "uploadLabel": "上传支持文件（可选）",
+      "submit": "提交请求",
+      "submitting": "提交中...",
+      "privacy": "您的信息是安全的，仅用于为您匹配相关的本地合作伙伴。"
+    },
+    "contactTypes": {
+      "supplier": "供应商",
+      "distributor": "经销商",
+      "representative": "本地代表",
+      "jv_partner": "合资伙伴",
+      "service_provider": "专业服务提供商",
+      "institutional": "机构联系人",
+      "buyer": "买家",
+      "agent": "商业代理",
+      "other": "其他"
+    },
+    "volumes": {
+      "under_10k": "低于 $10,000",
+      "k10_50k": "$10,000 - $50,000",
+      "k50_250k": "$50,000 - $250,000",
+      "k250k_1m": "$250,000 - $1,000,000",
+      "over_1m": "超过 $1,000,000"
+    },
+    "timelines": {
+      "immediate": "立即",
+      "m_1_3": "1 - 3 个月",
+      "m_3_6": "3 - 6 个月",
+      "m_6_12": "6 - 12 个月",
+      "flexible": "灵活"
+    },
+    "checkboxes": {
+      "verified_only": "仅限已验证公司",
+      "b2b_meetings": "安排 B2B 会议",
+      "market_entry_support": "市场进入支持",
+      "sponsorship": "赞助意向"
+    },
+    "step3": {
+      "title": "请求已提交",
+      "subtitle": "您的请求确认将显示在此处。",
+      "placeholder": "提交后，您的请求确认将显示在此处。",
+      "thankYou": "谢谢！您的业务请求已提交。",
+      "requestId": "请求编号",
+      "info1": "我们的团队将审核您的请求并确定合适的本地联系人。",
+      "info2": "您将很快收到确认电子邮件。",
+      "info3": "我们通常在 2-3 个工作日内回复。",
+      "another": "提交另一个请求",
+      "browse": "先浏览目录"
+    },
+    "toast": {
+      "loading": "正在提交您的请求...",
+      "success": "您的业务请求已提交。",
+      "error": "出了点问题。请重试。"
+    },
+    "validation": {
+      "selectNeed": "请先选择您的需求。",
+      "required": "请填写所有必填字段。",
+      "fileTooLarge": "文件太大（最大 10MB）。",
+      "fileType": "不支持的文件类型。请使用 PDF、DOC、DOCX 或 PPTX。"
+    }
+  },
+  "Premium": {
+    "meta": {
+      "title": "高级本地合作伙伴会员",
+      "description": "成为 TradeInDRC 的高级本地合作伙伴。提升您的曝光度，展示您的能力，并从寻找刚果民主共和国可靠合作伙伴的企业获得优质业务请求。"
+    },
+    "hero": {
+      "title": "成为高级本地合作伙伴，拓展国际业务",
+      "subtitle": "提升您的曝光度，展示您的能力，并从寻找刚果民主共和国可靠合作伙伴的企业获得优质业务请求。",
+      "startingFrom": "起价",
+      "price": "3,000 美元",
+      "per": "/ 年",
+      "applyCta": "申请高级会员"
+    },
+    "compare": {
+      "title": "比较会员方案",
+      "featuresLabel": "功能",
+      "cols": {
+        "free": "免费列表",
+        "verified": "已验证企业",
+        "verifiedNote": "一次性费用",
+        "premium": "高级本地合作伙伴",
+        "premiumNote": "3,000 美元 / 年"
+      },
+      "rows": [
+        "目录列表",
+        "基本企业信息",
+        "联系方式",
+        "验证徽章",
+        "搜索结果优先展示",
+        "双语资料（法语 / 英语）",
+        "产品 / 服务展示",
+        "合作请求",
+        "B2B 会议邀请",
+        "曝光报告",
+        "赞助展示位",
+        "BrandsBridge 介绍支持"
+      ]
+    },
+    "benefits": [
+      {
+        "title": "搜索结果优先展示",
+        "description": "让国际买家优先看到您。"
+      },
+      {
+        "title": "获得优质业务请求",
+        "description": "来自寻找合作伙伴的已验证企业。"
+      },
+      {
+        "title": "双语资料（法语/英语）",
+        "description": "专业地展示您的企业。"
+      },
+      {
+        "title": "B2B 会议",
+        "description": "受邀参加专属商务会议。"
+      },
+      {
+        "title": "BrandsBridge 支持",
+        "description": "受益于我们的网络和市场专业知识。"
+      },
+      {
+        "title": "曝光报告",
+        "description": "跟踪您的表现和触达情况。"
+      }
+    ],
+    "whatYouGet": {
+      "title": "作为高级本地合作伙伴，您将获得",
+      "items": [
+        "在刚果民主共和国不断壮大的投资者和企业网络中获得更高曝光度。",
+        "获取优质的国际业务请求。",
+        "在搜索排名中以高级展示位呈现。",
+        "介绍参与 B2B 会议和战略合作伙伴。",
+        "展示您的产品、服务和能力。",
+        "赞助行业或市场报告的机会（可选）。"
+      ]
+    },
+    "howItWorks": {
+      "title": "运作方式",
+      "steps": [
+        {
+          "title": "在线申请",
+          "description": "填写申请表并选择高级会员。"
+        },
+        {
+          "title": "资料审核",
+          "description": "我们的团队审核并验证您的文件和企业信息。"
+        },
+        {
+          "title": "资料激活",
+          "description": "审核通过后，您的高级资料将在目录中上线。"
+        },
+        {
+          "title": "接收商机",
+          "description": "开始接收优质业务请求和国际联系。"
+        }
+      ]
+    },
+    "assistance": {
+      "title": "需要帮助吗？",
+      "body": "联系我们的团队，获取有关高级会员的帮助。",
+      "bookCta": "预约通话"
+    },
+    "form": {
+      "title": "申请高级会员",
+      "subtitle": "请告诉我们如何联系您，我们的团队将就您的高级本地合作伙伴申请与您联系。",
+      "fields": {
+        "fullName": "全名",
+        "companyName": "公司名称",
+        "email": "电子邮箱",
+        "phone": "电话"
+      },
+      "placeholders": {
+        "fullName": "例如 Jean Mukendi",
+        "companyName": "例如 Kivu Trading SARL",
+        "email": "you@company.com",
+        "phone": "+243 ..."
+      },
+      "submit": "提交申请",
+      "submitting": "正在提交您的申请...",
+      "errors": {
+        "invalid": "请检查表单后重试。",
+        "server": "出现问题，请重试。"
+      },
+      "success": {
+        "toast": "申请已提交",
+        "title": "已收到申请",
+        "body": "谢谢。我们的团队将审核您的申请并尽快与您联系。",
+        "reference": "您的参考编号",
+        "done": "完成"
+      }
+    },
+    "promote": {
+      "option": "方案 {n}",
+      "perYear": "/ 年",
+      "bestFor": "适合：",
+      "tabs": {
+        "local": {
+          "title": "本地公司",
+          "body": "面向刚果公司"
+        },
+        "international": {
+          "title": "国际公司",
+          "body": "面向国际企业的推广方案"
+        },
+        "compare": {
+          "title": "方案对比",
+          "body": "并排比较各项功能"
+        }
+      },
+      "panels": {
+        "local": {
+          "heading": "本地推广方案",
+          "body": "为在刚果（金）寻求曝光度、买家、合作伙伴与机构接触的刚果公司而设计。"
+        },
+        "international": {
+          "heading": "国际推广方案",
+          "body": "为在刚果（金）寻求曝光度、合作、分销商、买家、机构接触、投资机会与市场进入支持的国际公司而设计。"
+        }
+      },
+      "compare": {
+        "heading": "方案对比"
+      },
+      "plans": {
+        "congolese": {
+          "name": "高级本地伙伴",
+          "body": "在刚果市场的买家、伙伴与机构中建立曝光度。",
+          "cta": "选择本地伙伴方案",
+          "bestFor": "刚果制造商、出口商、供应商、服务提供商与中小企业。",
+          "bullets": [
+            "高级公司资料",
+            "已认证公司徽章",
+            "公司目录优先展示",
+            "出现在相关市场类别中",
+            "产品与服务展示",
+            "直接联系与询价按钮",
+            "在选定行业中的曝光",
+            "发布商业机会",
+            "纳入 Trade in DRC 曝光活动",
+            "季度曝光报告"
+          ]
+        },
+        "international": {
+          "name": "国际业务曝光",
+          "body": "建立曝光度，展示您的产品与服务，并在刚果（金）市场获得优质商业联系。",
+          "cta": "选择国际曝光方案",
+          "bestFor": "探索刚果（金）市场的制造商、出口商、科技公司、供应商、咨询公司、物流公司与中小企业。",
+          "bullets": [
+            "国际公司高级资料",
+            "已认证国际公司徽章",
+            "公司目录优先展示",
+            "出现在相关市场类别中",
+            "产品与服务展示",
+            "直接联系与询价按钮",
+            "在选定行业中的曝光",
+            "每年最多发布 3 个商业机会",
+            "纳入曝光活动",
+            "季度曝光报告",
+            "访问优质商业需求",
+            "基础引荐支持"
+          ]
+        },
+        "international_strategic": {
+          "name": "战略市场推广",
+          "body": "在刚果（金）获得更强的定位、精准推广与更深入的市场进入曝光。",
+          "cta": "选择战略推广方案",
+          "bestFor": "国际品牌、工业供应商、基础设施与能源公司、矿业服务商、银行、投资者与项目发起人。",
+          "bullets": [
+            "包含国际曝光方案的全部内容",
+            "首页或市场推荐位",
+            "赞助机会发布",
+            "精选公司聚焦",
+            "行业页面优先曝光",
+            "访问精选合作请求",
+            "邮件通讯与动态推广",
+            "每年最多发布 6 个商业机会",
+            "赞助市场类别曝光",
+            "进阶 B2B 引荐支持",
+            "半年度曝光与线索报告",
+            "商务考察或 B2B 项目的可选支持"
+          ]
+        }
+      },
+      "ctaBar": {
+        "heading": "需要帮助选择合适的方案？",
+        "body": "我们的团队随时为您提供指导。",
+        "requestPackage": "申请推广方案",
+        "registerCompany": "注册您的公司",
+        "contactUs": "联系我们"
+      },
+      "compareRows": {
+        "premiumProfile": "高级国际资料",
+        "verifiedBadge": "已认证国际徽章",
+        "priorityDirectory": "目录优先展示",
+        "categoryVisibility": "市场类别曝光",
+        "productsShowcase": "产品与服务展示",
+        "leadCapture": "直接线索获取",
+        "opportunitiesPerYear": "每年商业机会数",
+        "sponsoredOpportunity": "赞助机会",
+        "homepageFeature": "首页 / 市场推荐位",
+        "newsletterVisibility": "邮件通讯曝光",
+        "sectorPagePromotion": "行业页面推广",
+        "introductionSupport": "引荐支持",
+        "performanceReport": "曝光与效果报告",
+        "marketEntrySupport": "市场进入支持"
+      },
+      "compareValues": {
+        "standard": "标准",
+        "featured": "精选",
+        "upTo3": "最多 3 个",
+        "upTo6": "最多 6 个",
+        "limited": "有限",
+        "priority": "优先",
+        "basic": "基础",
+        "advanced": "进阶",
+        "quarterly": "每季度",
+        "semiAnnualLeads": "每半年 + 线索",
+        "basicGuidance": "基础指导",
+        "priorityGuidance": "优先指导"
+      }
+    }
+  },
+  "RegisterCompany": {
+    "meta": {
+      "title": "注册您的公司",
+      "description": "让您的公司出现在寻求刚果民主共和国商机的商业伙伴面前。"
+    },
+    "signedOutPrompt": {
+      "title": "提交前需要一个账户",
+      "body": "登录或创建账户——您的进度会被保存,登录后您将直接返回此处继续完成。",
+      "cta": "登录"
+    },
+    "hero": {
+      "title": "将您的公司注册为本地商业联系人",
+      "subtitle": "让您的公司出现在寻求刚果民主共和国商机的商业伙伴面前。",
+      "valueProps": [
+        {
+          "title": "提升曝光度",
+          "body": "被经过验证的买家和合作伙伴发现。"
+        },
+        {
+          "title": "建立信任",
+          "body": "通过验证，在市场中脱颖而出。"
+        },
+        {
+          "title": "在刚果民主共和国发展",
+          "body": "获得优质需求和新业务。"
+        }
+      ]
+    },
+    "tiers": {
+      "selected": "已选择",
+      "selectedToast": "已选择 {tier} 方案",
+      "free": {
+        "name": "基础注册",
+        "price": "免费",
+        "blurb": "基础公司信息，帮助本地和国际合作伙伴发现您。",
+        "cta": "选择免费方案",
+        "bullets": [
+          "基础公司资料",
+          "列入目录搜索",
+          "接收合作请求"
+        ]
+      },
+      "verified": {
+        "name": "已验证公司",
+        "price": "250 美元",
+        "blurb": "验证徽章建立信任，并通过更多详情提升曝光度。",
+        "cta": "选择验证方案",
+        "bullets": [
+          "包含基础注册的全部权益",
+          "验证徽章",
+          "增强资料曝光度",
+          "搜索结果优先"
+        ]
+      },
+      "premium": {
+        "name": "高级本地合作伙伴",
+        "price": "3,000 美元",
+        "period": "/年",
+        "blurb": "最大曝光度、潜在客户访问权限和推荐展示位置。",
+        "cta": "选择高级方案",
+        "bullets": [
+          "包含已验证公司的全部权益",
+          "推荐展示位置",
+          "潜在客户洞察与分析",
+          "专属支持"
+        ]
+      },
+      "subheading": "选择适合贵公司的展示等级。"
+    },
+    "stepper": {
+      "aria": "注册步骤",
+      "counter": "第 {current} 步，共 {total} 步",
+      "jumpTo": "返回{step}",
+      "steps": {
+        "legal": "法律信息",
+        "professional": "专业信息",
+        "positioning": "合作定位",
+        "documents": "文件",
+        "review": "确认并提交",
+        "company_info": "公司信息",
+        "business_profile": "业务概况",
+        "market_interest": "刚果市场意向",
+        "contact_person": "联系人",
+        "plan": "套餐"
+      }
+    },
+    "sections": {
+      "legal": "1. 法律信息",
+      "professional": "2. 专业信息",
+      "positioning": "3. 合作定位",
+      "documents": "4. 上传文件",
+      "plan": "5. 选择您的套餐",
+      "review": "6. 审核并提交"
+    },
+    "fields": {
+      "companyLegalName": "公司法定名称",
+      "companyProfile": "公司类型",
+      "interestOther": "其他兴趣（请说明）",
+      "tradingName": "商号（如不同）",
+      "rccmNumber": "RCCM 编号",
+      "nationalId": "国家识别号码",
+      "nif": "税务识别号 (NIF)",
+      "yearEstablished": "成立年份",
+      "legalForm": "法律形式",
+      "employees": "员工人数",
+      "sector": "行业",
+      "productsServices": "产品 / 服务",
+      "province": "省份",
+      "city": "城市",
+      "website": "网站",
+      "officialEmail": "官方邮箱",
+      "phone": "电话号码",
+      "altPhone": "备用电话",
+      "contactPerson": "联系人",
+      "jobTitle": "职务",
+      "preferredContact": "首选联系方式",
+      "languages": "使用语言",
+      "interests": "感兴趣的国际机会",
+      "rccmCertificate": "RCCM 证书",
+      "nifDocument": "税务识别 (NIF)",
+      "companyLogo": "公司徽标（可选）",
+      "additionalDocs": "附加文件（可选）",
+      "country": "注册国家",
+      "registrationNumber": "公司注册号",
+      "nationalIdIntl": "国家/公司识别号（如有）",
+      "taxIdIntl": "税号 / 增值税号",
+      "region": "州 / 地区 / 省"
+    },
+    "ph": {
+      "companyLegalName": "输入法定名称",
+      "tradingName": "输入商号",
+      "rccmNumber": "RCCM 编号",
+      "nationalId": "国家识别号码",
+      "nif": "NIF 编号",
+      "yearEstablished": "选择年份",
+      "legalForm": "选择法律形式",
+      "employees": "选择范围",
+      "sector": "选择行业",
+      "productsServices": "输入您的主要产品 / 服务",
+      "province": "选择省份",
+      "city": "选择城市",
+      "website": "http://www.yourcompany.cd",
+      "officialEmail": "contact@yourcompany.cd",
+      "phone": "810 123 456",
+      "preferredContact": "选择偏好",
+      "interestOther": "请说明其他兴趣",
+      "country": "选择国家",
+      "registrationNumber": "例如：商业登记号",
+      "nationalIdIntl": "选填",
+      "taxIdIntl": "选填",
+      "region": "例如：伦巴第、德克萨斯、安大略",
+      "contactPerson": "联系人全名",
+      "jobTitle": "例如：出口经理"
+    },
+    "legalForms": {
+      "sarl": "SARL",
+      "sa": "SA",
+      "sarlu": "SARLU",
+      "scs": "SCS",
+      "sole": "独资企业",
+      "cooperative": "合作社",
+      "other": "其他"
+    },
+    "employeeRanges": {
+      "1-10": "1 - 10",
+      "11-50": "11 - 50",
+      "51-200": "51 - 200",
+      "201-500": "201 - 500",
+      "500plus": "500+"
+    },
+    "languages": {
+      "french": "法语",
+      "english": "英语",
+      "swahili": "斯瓦希里语",
+      "lingala": "林加拉语",
+      "kikongo": "刚果语",
+      "tshiluba": "卢巴语"
+    },
+    "interests": {
+      "investment": "投资合作",
+      "distribution": "分销协议",
+      "supply": "供应与采购",
+      "jointVentures": "合资企业",
+      "technology": "技术转让",
+      "other": "其他（请说明）"
+    },
+    "preferredContacts": {
+      "email": "邮箱",
+      "phone": "电话",
+      "whatsapp": "WhatsApp"
+    },
+    "documents": {
+      "helper": "上传清晰、易读的文件（PDF、JPG 或 PNG，每个文件最大 5MB）。",
+      "dragDrop": "拖放或",
+      "browse": "浏览",
+      "uploading": "正在上传文件…",
+      "uploadSuccess": "文件已上传。",
+      "uploadPartialFailure": "有 {count} 份文件上传失败，您可以稍后在仪表盘中重新添加。",
+      "invalidType": "不支持的文件类型，请上传 PDF、JPG 或 PNG 文件。",
+      "tooLarge": "文件过大，每个文件最大 {max}MB。"
+    },
+    "review": {
+      "hint": "请在下方核对您的信息，然后提交审核。",
+      "plan": "所选方案",
+      "changePlan": "更改"
+    },
+    "nav": {
+      "back": "返回",
+      "next": "下一步",
+      "submit": "提交审核",
+      "submitting": "正在提交您的公司..."
+    },
+    "success": {
+      "title": "您的公司已提交审核",
+      "body": "我们的团队将审核您的提交并与您联系。您可以在仪表板中跟踪其状态。",
+      "cta": "前往我的公司"
+    },
+    "errors": {
+      "required": "请填写所有必填字段。",
+      "auth": "请登录以提交您的公司。",
+      "server": "出现错误，请重试。",
+      "invalid": "部分字段无效，请检查后重试。",
+      "bannerTitle": "请在提交前完成以下内容："
+    },
+    "benefits": {
+      "items": [
+        {
+          "title": "高曝光度",
+          "body": "出现在成千上万的买家和投资者面前。"
+        },
+        {
+          "title": "已验证且值得信赖",
+          "body": "通过验证和可信的资料徽章建立信誉。"
+        },
+        {
+          "title": "接收机会",
+          "body": "获得来自认真合作伙伴和买家的联系请求。"
+        },
+        {
+          "title": "发展您的业务",
+          "body": "进入新市场并在刚果民主共和国内扩展。"
+        }
+      ]
+    },
+    "profileChooser": {
+      "heading": "选择您的公司类型",
+      "subheading": "此选择决定您接下来要填写的注册表单——您可以随时更改。",
+      "continue": "继续",
+      "freeNote": "刊登您的公司信息是免费的。您可以稍后添加付费方案。",
+      "change": "更改",
+      "congolese": {
+        "title": "我是刚果公司",
+        "body": "适用于在刚果民主共和国合法注册的公司。"
+      },
+      "international": {
+        "title": "我是国际公司",
+        "body": "适用于在刚果（金）寻求合作伙伴、曝光度与商机的外国公司。"
+      }
+    },
+    "intl": {
+      "heroTitleLead": "注册您的",
+      "heroTitleAccent": "国际公司",
+      "heroBody": "加入 Trade in DRC，提升您的曝光度，与刚果合作伙伴建立联系，获取商业机会，并探索进入刚果民主共和国市场的可能性。",
+      "formTitle": "国际公司注册表",
+      "requiredNote": "所有标有 * 的字段均为必填",
+      "steps": {
+        "company_info": "公司信息",
+        "business_profile": "业务概况",
+        "market_interest": "刚果市场意向",
+        "contact_person": "联系人",
+        "profile_plan": "资料与方案",
+        "documents": "文件",
+        "review": "确认并提交"
+      },
+      "sections": {
+        "companyInfo": "公司识别信息",
+        "businessProfile": "业务概况",
+        "marketInterest": "刚果（金）市场意向",
+        "contactPerson": "联系人"
+      },
+      "fields": {
+        "tradingName": "商号 / 品牌名称",
+        "website": "公司网站",
+        "companyEmail": "公司邮箱",
+        "companyPhone": "公司电话 / WhatsApp",
+        "dialCode": "国家代码",
+        "headOffice": "总部地址",
+        "annualTurnover": "年营业额",
+        "currentMarkets": "目前服务的市场",
+        "productsServices": "提供的产品与服务",
+        "certifications": "认证与标准",
+        "drcInterests": "您在刚果（金）寻求什么？",
+        "targetProvinces": "目标省份",
+        "entryTimeline": "时间安排",
+        "marketInterestNotes": "请进一步说明您的需求",
+        "directPhone": "直线电话 / WhatsApp"
+      },
+      "ph": {
+        "tradingName": "商号或品牌名称",
+        "taxId": "税号或增值税号（如适用）",
+        "website": "https://www.company.com",
+        "companyEmail": "info@company.com",
+        "companyPhone": "请包含国家代码",
+        "headOffice": "街道、城市、国家",
+        "annualTurnover": "选择区间",
+        "currentMarkets": "例如：比利时、阿联酋、南非",
+        "productsServices": "请描述贵公司提供的内容",
+        "certifications": "例如：ISO 9001、HACCP、CE",
+        "entryTimeline": "选择时间安排",
+        "marketInterestNotes": "请描述您在刚果（金）寻找的合作伙伴、产品、服务或机会。",
+        "directPhone": "直线电话（选填）"
+      },
+      "turnoverRanges": {
+        "under_500k": "低于 50 万美元",
+        "500k_2m": "50 万 – 200 万美元",
+        "2m_10m": "200 万 – 1000 万美元",
+        "10m_50m": "1000 万 – 5000 万美元",
+        "over_50m": "5000 万美元以上"
+      },
+      "drcInterests": {
+        "export_to_drc": "出口至刚果（金）",
+        "import_from_drc": "从刚果（金）进口",
+        "distribution": "分销与经销",
+        "investment": "投资",
+        "joint_venture": "合资",
+        "local_representation": "本地代表",
+        "services": "提供服务"
+      },
+      "entryTimelines": {
+        "immediately": "立即",
+        "under_3_months": "3 个月内",
+        "three_to_six_months": "3 – 6 个月",
+        "six_to_twelve_months": "6 – 12 个月",
+        "exploratory": "暂作了解"
+      },
+      "plan": {
+        "heading": "选择您的套餐",
+        "subheading": "两种方案都会收录贵公司。高级方案额外提供曝光度、客户线索获取与市场进入支持。",
+        "perYear": "/ 年",
+        "note": "高级资料将在您的申请获批后由我们团队审核并启用。",
+        "free": {
+          "name": "标准收录",
+          "price": "免费",
+          "bullets": [
+            "目录中的公司资料",
+            "出现在相关市场类别中",
+            "接收商业咨询",
+            "访问已发布的机会"
+          ],
+          "cta": "选择标准展示"
+        },
+        "premium": {
+          "name": "高级国际资料",
+          "bullets": [
+            "已认证国际公司徽章",
+            "搜索结果优先展示",
+            "增强版公司资料页",
+            "直接获取刚果公司的线索",
+            "发布商业机会",
+            "面向机构与公共企业的曝光"
+          ],
+          "cta": "选择高级国际资料"
+        },
+        "selected": "已选择"
+      },
+      "premiumCard": {
+        "title": "高级国际资料",
+        "price": "3,600 美元",
+        "perYear": "/ 年",
+        "cta": "获取高级国际资料",
+        "bullets": [
+          "已认证国际公司徽章",
+          "搜索结果优先展示",
+          "增强版公司资料页",
+          "产品与服务展示",
+          "直接获取刚果公司的线索",
+          "可发布商业机会",
+          "访问精选合作请求",
+          "面向机构与公共企业的曝光",
+          "B2B 引荐支持",
+          "提升进入刚果（金）市场的可信度"
+        ],
+        "selectedCta": "已选择高级国际资料"
+      },
+      "help": {
+        "title": "需要帮助入门？",
+        "body": "我们的团队随时协助您完成注册并进入刚果（金）市场。",
+        "cta": "联系我们"
+      },
+      "why": {
+        "heading": "为何在 Trade in DRC 注册？",
+        "body": "一个值得信赖的平台，连接国际公司与刚果（金）的机会、伙伴和增长。",
+        "items": {
+          "opportunities": {
+            "title": "获取机会",
+            "body": "发现刚果（金）关键行业的商业机会。"
+          },
+          "partners": {
+            "title": "寻找伙伴",
+            "body": "与可靠的伙伴、供应商和买家建立联系。"
+          },
+          "intelligence": {
+            "title": "市场情报",
+            "body": "获取市场数据、报告与商业洞察。"
+          },
+          "grow": {
+            "title": "发展业务",
+            "body": "扩大影响力，在刚果市场实现增长。"
+          }
+        }
+      },
+      "safe": {
+        "title": "您的数据安全无虞",
+        "body": "我们承诺保护您的信息，未经您的同意绝不共享您的数据。",
+        "items": {
+          "secure": {
+            "title": "安全平台",
+            "body": "高级加密"
+          },
+          "verified": {
+            "title": "已核实网络",
+            "body": "值得信赖"
+          },
+          "privacy": {
+            "title": "隐私保障",
+            "body": "您的隐私是我们的首要任务"
+          }
+        }
+      }
+    }
+  },
+  "Services": {
+    "hero": {
+      "title": "我们的服务",
+      "subtitle": "为寻求在刚果民主共和国运营、合作或扩展的企业和机构提供切实支持。",
+      "requestCta": "申请服务",
+      "exploreCta": "探索解决方案"
+    },
+    "items": {
+      "partnerSearch": {
+        "title": "合作伙伴搜索",
+        "body": "根据您的行业和目标，识别相关的本地或国际合作伙伴。"
+      },
+      "marketEntry": {
+        "title": "市场进入支持",
+        "body": "获得本地指导和战略支持，清晰地进入刚果（金）市场。"
+      },
+      "verification": {
+        "title": "企业核实",
+        "body": "通过核查潜在合作伙伴的信誉和背景，降低不确定性。"
+      },
+      "b2bMeeting": {
+        "title": "B2B会议促成",
+        "body": "通过结构化会议与供应商、投资者、机构和决策者建立联系。"
+      },
+      "marketReports": {
+        "title": "市场报告",
+        "body": "获取行业情报、市场简报和定制化商业洞察。"
+      },
+      "localRepresentation": {
+        "title": "本地代表",
+        "body": "通过业务便利和代表支持建立可信的本地存在。"
+      },
+      "delegation": {
+        "title": "代表团组织",
+        "body": "组织商务考察、会议、访问和合作项目。"
+      }
+    },
+    "form": {
+      "title": "申请服务",
+      "subtitle": "告诉我们您的需求。我们的团队将为您对接合适的专家和解决方案。",
+      "fullName": "全名",
+      "fullNamePh": "输入您的全名",
+      "company": "公司",
+      "companyPh": "输入您的公司名称",
+      "country": "国家",
+      "countryPh": "选择您的国家",
+      "email": "电子邮箱",
+      "emailPh": "youremail@example.com",
+      "phone": "WhatsApp / 电话",
+      "phonePh": "输入您的WhatsApp或电话号码",
+      "sector": "感兴趣的行业",
+      "sectorPh": "选择您的行业",
+      "serviceNeeded": "所需服务",
+      "serviceNeededPh": "选择您需要的服务",
+      "services": {
+        "partnerSearch": "合作伙伴搜索",
+        "marketEntry": "市场进入支持",
+        "verification": "企业核实",
+        "b2bMeeting": "B2B会议促成",
+        "marketReports": "市场报告",
+        "localRepresentation": "本地代表",
+        "delegation": "代表团组织"
+      },
+      "location": "刚果（金）首选地点",
+      "locationPh": "选择省份或城市",
+      "timeline": "预期时间",
+      "timelinePh": "选择时间",
+      "timelines": {
+        "immediate": "立即",
+        "1_3_months": "1–3个月",
+        "3_6_months": "3–6个月",
+        "6_plus_months": "6个月以上"
+      },
+      "message": "详细信息",
+      "messagePh": "请描述您的请求、目标和任何具体细节……",
+      "submit": "提交服务申请",
+      "submitting": "正在提交您的申请……",
+      "success": "您的服务申请已提交！",
+      "invalid": "请检查必填字段。",
+      "error": "出现错误，请重试。",
+      "privacy": "您的信息是安全的，仅用于处理您的服务申请。",
+      "successTitle": "谢谢！您的服务申请已提交。",
+      "successBody": "我们的团队将审核您的申请并为您对接合适的专家。",
+      "requestId": "申请编号",
+      "another": "提交另一份申请"
+    },
+    "audience": {
+      "title": "我们服务的对象",
+      "international": {
+        "title": "国际企业",
+        "body": "凭借可信的本地情报和人脉进入刚果（金）市场。"
+      },
+      "congolese": {
+        "title": "刚果企业",
+        "body": "提升知名度，与国际买家、投资者和合作伙伴建立联系。"
+      },
+      "investors": {
+        "title": "投资者",
+        "body": "发现刚果（金）战略行业中结构化的机会。"
+      },
+      "institutions": {
+        "title": "机构",
+        "body": "通过结构化生态系统推广行业、项目和国家商业机会。"
+      }
+    },
+    "sectors": {
+      "title": "我们覆盖的战略行业",
+      "chips": {
+        "mining": "采矿与关键矿产",
+        "energy": "能源与电力",
+        "agriculture": "农业与农产品加工",
+        "infrastructure": "基础设施与建筑",
+        "digital": "数字经济与信息通信技术",
+        "logistics": "物流与运输",
+        "healthcare": "医疗与制药",
+        "finance": "金融与专业服务",
+        "tourism": "旅游与酒店",
+        "oilGas": "石油与天然气",
+        "manufacturing": "制造与工业"
+      }
+    },
+    "how": {
+      "title": "运作方式",
+      "steps": {
+        "submit": {
+          "title": "提交您的服务申请",
+          "body": "通过我们的表单分享您的需求。"
+        },
+        "review": {
+          "title": "申请审核",
+          "body": "我们的团队审核并分析您的申请。"
+        },
+        "connect": {
+          "title": "商业对接",
+          "body": "我们为您对接可信的专家和合作伙伴。"
+        },
+        "deliver": {
+          "title": "方案交付",
+          "body": "获得量身定制的支持和成果，实现您的目标。"
+        }
+      }
+    }
+  },
+  "EventsHub": {
+    "hero": {
+      "title": "探索刚果(金)及周边的商业活动",
+      "subtitle": "发现与刚果民主共和国相关的会议、贸易论坛、B2B 洽谈、展会、培训项目和投资活动。",
+      "keyword": "关键词",
+      "eventTypeAll": "活动类型",
+      "sectorAll": "行业",
+      "locationAll": "地点",
+      "datePlaceholder": "日期",
+      "search": "搜索活动",
+      "browse": "浏览活动",
+      "submit": "提交活动"
+    },
+    "eventTypes": {
+      "conference": "会议",
+      "summit": "峰会",
+      "forum": "论坛",
+      "b2b_meeting": "B2B 洽谈",
+      "exhibition": "展会",
+      "training": "培训",
+      "webinar": "网络研讨会",
+      "trade_mission": "贸易代表团"
+    },
+    "stats": {
+      "upcoming": "即将举行的活动",
+      "sectors": "战略行业",
+      "provinces": "覆盖省份",
+      "partners": "国际合作伙伴"
+    },
+    "featured": {
+      "heading": "精选活动",
+      "viewEvent": "查看活动",
+      "register": "立即注册"
+    },
+    "upcoming": {
+      "heading": "即将举行的活动",
+      "viewDetails": "查看详情",
+      "attend": "参加",
+      "empty": "没有符合筛选条件的活动。请调整您的搜索。"
+    },
+    "tabs": {
+      "all": "全部",
+      "conferences": "会议",
+      "b2b": "B2B 洽谈",
+      "exhibitions": "展会",
+      "training": "培训",
+      "webinars": "网络研讨会",
+      "trademissions": "贸易代表团"
+    },
+    "bySector": {
+      "heading": "按行业分类的活动",
+      "eventsSuffix": "个活动",
+      "tiles": {
+        "mining": "采矿",
+        "agriculture": "农业",
+        "energy": "能源",
+        "infrastructure": "基础设施",
+        "digital": "数字与电信",
+        "finance": "金融",
+        "manufacturing": "制造业",
+        "healthcare": "医疗"
+      }
+    },
+    "host": {
+      "heading": "在 Trade in DRC 举办或推广您的活动",
+      "body": "触达数千家企业、投资者和专业人士。在我们的平台上发布您的会议、贸易展会、B2B 洽谈和培训项目。",
+      "cta": "提交活动"
+    },
+    "past": {
+      "heading": "过往精彩回顾"
+    },
+    "rail": {
+      "submit": {
+        "title": "提交活动",
+        "subtitle": "在 Trade in DRC 上发布您的活动。",
+        "name": "活动名称",
+        "namePh": "例如：2026 刚果(金)投资论坛",
+        "type": "活动类型",
+        "typePh": "选择类型",
+        "sector": "行业",
+        "sectorPh": "选择行业",
+        "date": "日期",
+        "location": "地点",
+        "locationPh": "城市，国家",
+        "organizer": "主办方",
+        "organizerPh": "主办机构",
+        "email": "邮箱",
+        "emailPh": "you@example.com",
+        "button": "提交活动",
+        "submitting": "正在提交您的活动…",
+        "success": "活动已提交，我们的团队将尽快审核。",
+        "error": "出现问题，请重试。",
+        "invalid": "请检查标注的字段。"
+      },
+      "why": {
+        "title": "为什么选择 Trade in DRC 活动？",
+        "i1": "经过验证的商业受众",
+        "i2": "聚焦行业的曝光",
+        "i3": "B2B 连接机会",
+        "i4": "覆盖国内外",
+        "i5": "活动推广支持"
+      },
+      "cities": {
+        "title": "热门城市"
+      },
+      "news": {
+        "title": "订阅通讯",
+        "body": "及时了解即将举行的活动和商业机会。",
+        "placeholder": "输入您的邮箱",
+        "subscribe": "订阅",
+        "success": "订阅成功，请留意您的收件箱。"
+      }
+    }
+  },
+  "MarketIntel": {
+    "hero": {
+      "title": "探索刚果（金）贸易数据中心",
+      "subtitle": "获取刚果民主共和国的市场情报、行业数据、商业洞察、贸易信息和战略指标。",
+      "search": "搜索数据",
+      "filters": {
+        "sector": "行业",
+        "sectorAll": "所有行业",
+        "province": "省份",
+        "provinceAll": "所有省份",
+        "dataType": "数据类型",
+        "dataTypeAll": "所有数据类型",
+        "timeRange": "时间范围",
+        "active": "筛选条件：",
+        "clear": "清除筛选"
+      },
+      "dataType": {
+        "reports": "报告",
+        "datasets": "数据集",
+        "prices": "价格"
+      },
+      "timeRange": {
+        "m12": "最近12个月",
+        "m24": "最近24个月",
+        "all": "全部时间"
+      }
+    },
+    "stats": {
+      "companiesMapped": "已收录企业",
+      "provincesCovered": "覆盖省份",
+      "strategicSectors": "战略行业",
+      "reportsDatasets": "报告与数据集"
+    },
+    "dashboard": {
+      "title": "市场概览仪表板"
+    },
+    "charts": {
+      "trend": {
+        "title": "贸易额趋势（美元）",
+        "exports": "出口",
+        "imports": "进口"
+      },
+      "bar": {
+        "title": "行业活动（贸易额，美元）"
+      },
+      "donut": {
+        "title": "按行业划分的企业",
+        "center": "企业",
+        "other": "其他"
+      },
+      "choropleth": {
+        "title": "省份覆盖",
+        "high": "高",
+        "medium": "中",
+        "low": "低"
+      },
+      "legend": {
+        "high": "高",
+        "medium": "中",
+        "low": "低"
+      }
+    },
+    "reports": {
+      "title": "最新报告与数据集",
+      "viewAll": "查看所有报告",
+      "col": {
+        "report": "报告 / 数据集",
+        "category": "类别",
+        "coverage": "覆盖范围",
+        "published": "发布日期",
+        "type": "类型"
+      },
+      "viewReport": "查看报告",
+      "downloadSummary": "下载摘要",
+      "coverage": {
+        "national": "全国",
+        "regional": "地区",
+        "provinces": "26 省"
+      },
+      "type": {
+        "report": "报告",
+        "dataset": "数据集"
+      },
+      "category": {
+        "investment": "投资"
+      },
+      "empty": "没有符合筛选条件的报告。"
+    },
+    "browse": {
+      "title": "按数据类别浏览",
+      "sectorReports": {
+        "title": "行业报告",
+        "body": "关键行业的洞察与分析"
+      },
+      "companyData": {
+        "title": "企业名录数据",
+        "body": "浏览企业档案与数据"
+      },
+      "provincialProfiles": {
+        "title": "省份概况",
+        "body": "按省份的详细数据"
+      },
+      "tradeFlows": {
+        "title": "贸易流向",
+        "body": "进出口数据与趋势"
+      },
+      "investmentOpps": {
+        "title": "投资机会",
+        "body": "发现刚果（金）各地的机会"
+      },
+      "marketSignals": {
+        "title": "市场信号",
+        "body": "关键指标与早期信号"
+      }
+    },
+    "form": {
+      "title": "申请定制市场情报",
+      "fullName": "全名",
+      "company": "公司",
+      "sector": "关注行业",
+      "sectorPlaceholder": "关注行业",
+      "email": "电子邮箱",
+      "message": "告诉我们您需要哪些洞察……",
+      "submit": "提交申请",
+      "submitting": "提交中……",
+      "success": "已收到您的申请，我们的团队将与您联系。",
+      "successRef": "您的参考编号：{reference}",
+      "error": "出现问题，请重试。",
+      "loading": "正在提交您的申请……"
+    },
+    "why": {
+      "title": "为什么使用刚果（金）贸易数据中心？",
+      "items": {
+        "verified": "来自可信来源的经核实市场信息",
+        "depth": "对战略行业的深入洞察",
+        "province": "用于精准决策的省级数据",
+        "discovery": "支持企业发现与合作伙伴关系",
+        "investor": "面向投资者的情报与报告",
+        "growth": "以数据驱动的增长决策支持"
+      }
+    },
+    "promo": {
+      "investors": {
+        "title": "面向投资者",
+        "body": "获取投资级数据和市场情报，做出自信的决策。",
+        "cta": "探索投资者数据"
+      },
+      "business": {
+        "title": "面向企业",
+        "body": "寻找市场洞察、合作伙伴和机会，助力业务增长。",
+        "cta": "探索企业数据"
+      }
+    }
+  },
+  "MarketplacePage": {
+    "hero": {
+      "titleLead": "刚果（金）",
+      "titleAccent": "商业市场",
+      "tagline": "一个平台。无限连接。真实机遇。",
+      "body": "Trade in DRC 汇聚贸易与投资生态中值得信赖的参与者。在非洲腹地建立联系、开展合作、发展业务。",
+      "imageAlt": "黄昏时分停靠在刚果港口的集装箱船",
+      "ctaJoin": "加入市场",
+      "ctaExplore": "探索机遇",
+      "ctaHowItWorks": "运作方式",
+      "stats": {
+        "companies": "已认证企业",
+        "provinces": "覆盖省份",
+        "opportunities": "商业机遇",
+        "secure": "认证且安全"
+      },
+      "hub": {
+        "title": "刚果（金）全球贸易中心枢纽",
+        "discover": "发现已认证企业",
+        "find": "寻找产品、服务与合作伙伴",
+        "intelligence": "获取市场情报",
+        "facilitate": "促进贸易与投资",
+        "network": "拓展全球人脉"
+      }
+    },
+    "categories": {
+      "heading": "按类别探索市场",
+      "subheading": "在贸易生态的各个关键领域，与合适的合作伙伴建立联系。",
+      "count": "{count, plural, =0 {暂无条目} other {# 条}}",
+      "manufacturer": {
+        "title": "制造商",
+        "desc": "与各行业本地优质产品制造商建立联系。",
+        "cta": "查看制造商"
+      },
+      "importer": {
+        "title": "进口商",
+        "desc": "寻找为刚果（金）市场采购产品与解决方案的可靠进口商。",
+        "cta": "查看进口商"
+      },
+      "exporter": {
+        "title": "出口商",
+        "desc": "结识向全球市场供应刚果制造产品的出口商。",
+        "cta": "查看出口商"
+      },
+      "finance": {
+        "title": "金融与银行",
+        "desc": "获取支持业务增长的金融机构与银行服务。",
+        "cta": "查看金融伙伴"
+      },
+      "logistics": {
+        "title": "物流与航运",
+        "desc": "寻找物流、航运与货运代理，推动业务前行。",
+        "cta": "查看物流伙伴"
+      },
+      "government": {
+        "title": "政府机构",
+        "desc": "与促进贸易和投资的政府机构及监管部门建立联系。",
+        "cta": "查看政府机构"
+      },
+      "public_corp": {
+        "title": "公共企业",
+        "desc": "与推动发展和经济增长的公共企业合作。",
+        "cta": "查看公共企业"
+      },
+      "facilitation": {
+        "title": "贸易便利化与服务提供商",
+        "desc": "获取贸易便利化及合规、单证、咨询等专业服务提供商。",
+        "cta": "查看服务提供商"
+      },
+      "investors": {
+        "title": "投资者及更多",
+        "desc": "与投资者、基金及更多机遇对接，为项目融资并实现规模化。",
+        "cta": "查看投资者"
+      }
+    },
+    "why": {
+      "heading": "为何选择 Trade in DRC 市场？",
+      "verified": {
+        "title": "认证可信",
+        "desc": "我们对企业进行认证，确保信任与可信度。"
+      },
+      "growth": {
+        "title": "业务增长",
+        "desc": "发现新机遇，拓展人脉网络。"
+      },
+      "targeted": {
+        "title": "精准连接",
+        "desc": "与相关合作伙伴和决策者建立联系。"
+      },
+      "secure": {
+        "title": "安全平台",
+        "desc": "您的数据和交易受到保护。"
+      },
+      "intelligence": {
+        "title": "市场情报",
+        "desc": "获取真实数据、洞察与商业报告。"
+      },
+      "reach": {
+        "title": "全球触达",
+        "desc": "与世界各地的合作伙伴建立联系。"
+      }
+    },
+    "opportunities": {
+      "heading": "热门商业机遇",
+      "viewAll": "查看全部机遇",
+      "empty": "暂无已发布的机遇，请稍后再来。",
+      "sector": "行业",
+      "need": "需求",
+      "location": "地点",
+      "countryWide": "刚果（金）",
+      "open": "开放中",
+      "viewDetails": "查看详情",
+      "needs": {
+        "tender": "招标",
+        "offer": "供应商",
+        "demand": "采购方",
+        "quotation": "报价",
+        "project_launch": "项目伙伴",
+        "investment_call": "投资者",
+        "partner_search": "合作伙伴",
+        "ppp": "PPP 伙伴"
+      }
+    },
+    "join": {
+      "heading": "立即加入市场",
+      "body": "创建免费账户，开始与数千家企业和机遇建立联系。",
+      "benefits": {
+        "profile": "创建公司资料",
+        "browse": "浏览机遇与伙伴",
+        "connect": "建立联系并发展业务",
+        "intelligence": "获取市场情报"
+      },
+      "ctaRegister": "免费注册",
+      "ctaPremium": "了解高级资料"
+    },
+    "strip": {
+      "companies": "注册企业",
+      "provinces": "覆盖省份",
+      "categories": "产品类别",
+      "opportunities": "商业机遇",
+      "access": "平台访问",
+      "secure": "认证且安全"
+    }
+  }
+}

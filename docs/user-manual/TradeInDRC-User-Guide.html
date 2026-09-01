@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TradeInDRC — User Guide</title>
+<style>
+  :root {
+    --blue: #0047AB;
+    --blue-light: #007FFF;
+    --yellow: #F7D618;
+    --red: #CE1021;
+    --ink: #16234D;
+    --slate: #475569;
+    --line: #e2e8f0;
+    --bg: #f8fafc;
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  header.hero {
+    background: linear-gradient(135deg, #0E1C44 0%, #10204A 55%, #1B2F5E 100%);
+    color: #fff;
+    padding: 56px 0 48px;
+    border-bottom: 4px solid var(--yellow);
+  }
+  header.hero .flag {
+    display: inline-flex; gap: 6px; margin-bottom: 18px;
+  }
+  header.hero .flag span { width: 26px; height: 6px; border-radius: 3px; display: block; }
+  header.hero h1 { margin: 0 0 8px; font-size: 2.4rem; letter-spacing: -0.5px; }
+  header.hero p { margin: 0; color: #c7d2e8; font-size: 1.05rem; max-width: 640px; }
+  header.hero .meta { margin-top: 22px; font-size: .82rem; color: #93a4c8; }
+
+  /* Layout */
+  main { padding: 40px 0 80px; }
+  .toc {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 22px 26px; margin-bottom: 40px;
+  }
+  .toc h2 { margin: 0 0 12px; font-size: 1rem; text-transform: uppercase; letter-spacing: .08em; color: var(--slate); }
+  .toc ol { margin: 0; padding-left: 20px; columns: 2; column-gap: 40px; }
+  .toc a { color: var(--blue); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  section.part { margin-bottom: 56px; }
+  .part-label {
+    display: inline-block; font-size: .75rem; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; color: #fff; background: var(--blue);
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .part-label.admin { background: var(--red); }
+  h2.section-title { font-size: 1.8rem; margin: 0 0 6px; }
+  h3 {
+    font-size: 1.2rem; margin: 34px 0 10px; padding-top: 10px;
+    border-top: 1px solid var(--line); color: var(--ink);
+  }
+  h3 .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 26px; height: 26px; border-radius: 8px; background: #eaf1ff; color: var(--blue);
+    font-size: .85rem; font-weight: 700; margin-right: 10px;
+  }
+  .admin h3 .num { background: #fdecec; color: var(--red); }
+  p { margin: 10px 0; }
+  ul, ol.steps { margin: 10px 0; padding-left: 22px; }
+  li { margin: 5px 0; }
+  ol.steps li { margin: 8px 0; }
+  code, .ui {
+    background: #eef2f7; border: 1px solid var(--line); border-radius: 5px;
+    padding: 1px 6px; font-size: .9em; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: var(--ink); white-space: nowrap;
+  }
+  .ui { font-family: inherit; font-weight: 600; background: #eaf1ff; border-color: #d4e2ff; color: var(--blue); }
+  .admin .ui { background: #fdecec; border-color: #f7d4d4; color: var(--red); }
+
+  .callout {
+    border-left: 4px solid var(--blue-light); background: #f0f6ff;
+    padding: 12px 18px; border-radius: 0 10px 10px 0; margin: 16px 0; font-size: .95rem;
+  }
+  .callout.tip { border-color: #16a34a; background: #f0fdf4; }
+  .callout.warn { border-color: var(--yellow); background: #fffbeb; }
+  .callout strong { display: block; margin-bottom: 2px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: .94rem; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: #f1f5f9; font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--slate); }
+
+  .pill { display:inline-block; padding:2px 9px; border-radius:999px; font-size:.78rem; font-weight:600; }
+  .pill.new { background:#eaf1ff; color:#1d4ed8; }
+  .pill.prog { background:#eef2ff; color:#4338ca; }
+  .pill.conv { background:#f0fdf4; color:#15803d; }
+  .pill.pend { background:#fffbeb; color:#b45309; }
+  .pill.closed { background:#f1f5f9; color:#475569; }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--slate); font-size: .85rem; }
+
+  @media (max-width: 640px) {
+    .toc ol { columns: 1; }
+    header.hero h1 { font-size: 1.8rem; }
+  }
+  @media print {
+    body { background: #fff; }
+    header.hero { background: #10204A !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .toc { break-inside: avoid; }
+    h3 { break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="flag" aria-hidden="true">
+      <span style="background:#007FFF"></span><span style="background:#F7D618"></span><span style="background:#CE1021"></span>
+    </div>
+    <h1>TradeInDRC — User Guide</h1>
+    <p>How to use the official trade portal of the Democratic Republic of Congo, for company users and platform administrators.</p>
+    <div class="meta">High-level usage manual &middot; Version 1.0 &middot; English (the platform itself is available in English, French, Turkish, Chinese and Spanish)</div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#about">About this guide</a></li>
+      <li><a href="#basics">The basics</a></li>
+      <li><a href="#company">Part A — Company user guide</a></li>
+      <li><a href="#a-account">Creating an account</a></li>
+      <li><a href="#a-explore">Exploring the marketplace</a></li>
+      <li><a href="#a-profile">Your company profile</a></li>
+      <li><a href="#a-catalog">Products &amp; services</a></li>
+      <li><a href="#a-opps">Opportunities &amp; tenders</a></li>
+      <li><a href="#a-request">Submitting a request</a></li>
+      <li><a href="#a-messages">Messages &amp; inbox</a></li>
+      <li><a href="#a-premium">Going Premium</a></li>
+      <li><a href="#a-dashboard">Dashboard &amp; analytics</a></li>
+      <li><a href="#admin">Part B — Administrator guide</a></li>
+      <li><a href="#b-access">Accessing the admin panel</a></li>
+      <li><a href="#b-requests">Received requests</a></li>
+      <li><a href="#b-premium">Premium requests</a></li>
+      <li><a href="#b-verify">Company verifications</a></li>
+      <li><a href="#b-manage">Companies, users &amp; content</a></li>
+      <li><a href="#b-moderate">Moderation &amp; messages</a></li>
+      <li><a href="#support">Support</a></li>
+    </ol>
+  </nav>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2 class="section-title">About this guide</h2>
+    <p>TradeInDRC connects international buyers, investors and partners with Congolese companies. This guide explains the main tasks for the two types of people who use the platform every day:</p>
+    <ul>
+      <li><strong>Company users</strong> — businesses (Congolese or international) that create a profile, list products, publish opportunities, send requests and message partners.</li>
+      <li><strong>Administrators</strong> — the platform team that reviews requests, verifies companies, approves Premium memberships and keeps the marketplace clean.</li>
+    </ul>
+    <div class="callout">
+      <strong>Five languages</strong>
+      Every page is available in English, French, Turkish, Chinese and Spanish. Use the language switcher in the top navigation bar to change language at any time. Your choice is remembered as you move around the site.
+    </div>
+  </section>
+
+  <!-- BASICS -->
+  <section id="basics">
+    <h2 class="section-title">The basics</h2>
+    <table>
+      <tr><th>Element</th><th>What it does</th></tr>
+      <tr><td><span class="ui">Top navigation</span></td><td>Links to the main areas: Marketplace, Opportunities, Request, Pricing and more.</td></tr>
+      <tr><td><span class="ui">Search (⌘K / Ctrl+K)</span></td><td>A global search that finds companies, products, services and opportunities from anywhere on the site.</td></tr>
+      <tr><td><span class="ui">Sign In / Register</span></td><td>Top-right. Required before you can send a request, contact a company, or manage a profile.</td></tr>
+      <tr><td><span class="ui">Dashboard</span></td><td>Your private workspace once signed in — company profile, listings, messages and account settings.</td></tr>
+    </table>
+    <div class="callout tip">
+      <strong>The home page works for everyone</strong>
+      Whether or not you are signed in, the home page puts a search panel front and centre so you can look up companies, products and opportunities straight away. Signed-in users also see quick links to their own workspace.
+    </div>
+  </section>
+
+  <!-- ===================== PART A ===================== -->
+  <section id="company" class="part">
+    <span class="part-label">Part A</span>
+    <h2 class="section-title">Company user guide</h2>
+    <p>For businesses using TradeInDRC to gain visibility, find partners and grow in the DRC market.</p>
+
+    <h3 id="a-account"><span class="num">1</span>Creating an account &amp; signing in</h3>
+    <ol class="steps">
+      <li>Click <span class="ui">Register</span> in the top-right corner.</li>
+      <li>Enter your email and a password, then confirm. You can also sign in again later with <span class="ui">Sign In</span>.</li>
+      <li>Check your inbox and confirm your email address. Some actions (such as publishing) require a verified email.</li>
+    </ol>
+    <div class="callout warn">
+      <strong>Why sign in matters</strong>
+      You can browse the marketplace freely without an account. But to <em>send a request</em>, <em>contact a supplier</em>, <em>register a company</em> or <em>request Premium</em>, you must be signed in first. If you try one of these while signed out, the platform takes you to the sign-in page and brings you back afterwards.
+    </div>
+
+    <h3 id="a-explore"><span class="num">2</span>Exploring the marketplace</h3>
+    <ul>
+      <li><strong>Search</strong> — press <code>⌘K</code> / <code>Ctrl+K</code>, or use the search panel on the home page, to find companies, products, services and opportunities.</li>
+      <li><strong>Companies</strong> — browse the directory, filter by sector and location, and open any company to see its profile and contact options.</li>
+      <li><strong>Products</strong> — browse listings, filter by sector and category.</li>
+      <li><strong>Opportunities</strong> — view current tenders, partner searches and investment opportunities.</li>
+      <li><strong>Market &amp; sectors</strong> — explore the DRC's strategic sectors (mining, energy, agriculture, ICT and more) and market information.</li>
+    </ul>
+
+    <h3 id="a-profile"><span class="num">3</span>Creating &amp; managing your company profile</h3>
+    <ol class="steps">
+      <li>Sign in, then open your <span class="ui">Dashboard</span>.</li>
+      <li>Go to <span class="ui">Companies</span> and create your company profile: name, sector, description, location and contact details.</li>
+      <li>Add richer details where available — logo, certifications, markets served, production capacity and languages spoken.</li>
+      <li>Submit your company for <strong>verification</strong>. An administrator reviews it and assigns a trust level. Verified companies appear more credible to buyers and partners.</li>
+    </ol>
+    <div class="callout tip">
+      <strong>Keep it complete</strong>
+      A complete, verified profile with a logo and clear description ranks better in search and earns more trust. You can edit your profile at any time from the dashboard.
+    </div>
+
+    <h3 id="a-catalog"><span class="num">4</span>Adding products &amp; services</h3>
+    <ol class="steps">
+      <li>From the dashboard, open <span class="ui">Products</span> (or <span class="ui">Services</span>) and choose <span class="ui">New</span>.</li>
+      <li>Fill in the name, description, sector/category and images.</li>
+      <li>Save. Your listing appears in the public catalogue and in search results.</li>
+      <li>Edit or remove listings at any time from the same screen.</li>
+    </ol>
+
+    <h3 id="a-opps"><span class="num">5</span>Publishing opportunities &amp; tenders</h3>
+    <p>Use opportunities to advertise a tender, a partner search or an investment opportunity.</p>
+    <ol class="steps">
+      <li>From the dashboard, open <span class="ui">Opportunities</span> &rarr; <span class="ui">New</span>.</li>
+      <li>Describe what you are looking for, choose a category, and submit.</li>
+      <li>The opportunity is reviewed by an administrator before it goes live. You can track its status in your dashboard.</li>
+      <li>When other businesses respond, you receive their interest through your inbox.</li>
+    </ol>
+
+    <h3 id="a-request"><span class="num">6</span>Submitting a request</h3>
+    <p>The <span class="ui">Request</span> page (in the top navigation) is the fastest way to tell the TradeInDRC team exactly what you need — find a local partner, invest, sell, buy, register a company, request a market report, organise a business mission and more.</p>
+    <ol class="steps">
+      <li>Open <span class="ui">Request</span> from the navigation bar.</li>
+      <li>Pick the card that matches your need (for example, <em>Find a Local Partner</em> or <em>Invest in the DRC</em>). This pre-selects the request type.</li>
+      <li>Fill in the form: your name, company, country, email, phone, sector, preferred location, timeline and a detailed message.</li>
+      <li>Click <span class="ui">Submit Business Request</span>. If you are not signed in, you will be asked to sign in first, then returned to the form.</li>
+      <li>You receive a confirmation, and the TradeInDRC team follows up with you.</li>
+    </ol>
+    <div class="callout">
+      <strong>What happens next</strong>
+      Every request lands in the administrators' <em>Received Requests</em> dashboard, where the team qualifies it, assigns an owner and follows up until it is resolved.
+    </div>
+
+    <h3 id="a-messages"><span class="num">7</span>Messages &amp; inbox</h3>
+    <ul>
+      <li>When you contact a supplier or someone responds to your opportunity, the conversation appears in your <span class="ui">Inbox</span> (in the dashboard).</li>
+      <li>Open a conversation to read and reply.</li>
+      <li>If a message is inappropriate, you can report it; administrators review reports.</li>
+    </ul>
+
+    <h3 id="a-premium"><span class="num">8</span>Going Premium</h3>
+    <p>The <span class="ui">Pricing</span> page explains the membership options. Premium boosts your visibility, adds a verified premium badge, priority placement, lead capture and more.</p>
+    <table>
+      <tr><th>Plan</th><th>Who it's for</th><th>Price</th></tr>
+      <tr><td>Free Registration</td><td>Any company joining the marketplace</td><td>Free</td></tr>
+      <tr><td>Premium — Congolese</td><td>Companies based in the DRC</td><td>$3,000 / year</td></tr>
+      <tr><td>Premium — International</td><td>Companies based outside the DRC</td><td>$3,600 / year</td></tr>
+    </table>
+    <p>Both Premium plans include the <strong>same features</strong> — the price differs only by company location.</p>
+    <ol class="steps">
+      <li>Open <span class="ui">Pricing</span> and choose the Premium plan that matches your company.</li>
+      <li>If you are signed in and own one company, your request is sent for that company. If you own several, you choose which one.</li>
+      <li>Your request is submitted for review. You will see a <strong>Premium Pending Review</strong> status on your dashboard.</li>
+      <li>An administrator approves the request. Once approved, your dashboard shows <strong>Premium Active</strong> with your plan and renewal date.</li>
+    </ol>
+    <div class="callout tip">
+      <strong>Changed your mind?</strong>
+      While a Premium request is still pending, you can cancel it from the Premium card on your dashboard, then request a different plan if you wish.
+    </div>
+
+    <h3 id="a-dashboard"><span class="num">9</span>Your dashboard &amp; account</h3>
+    <ul>
+      <li><strong>Overview</strong> — quick view of your company, Premium status and recent activity.</li>
+      <li><strong>Analytics</strong> — see how your profile and listings are performing.</li>
+      <li><strong>Settings</strong> — manage your account. If your email is unverified, a reminder banner appears here; verify it to unlock all actions.</li>
+    </ul>
+  </section>
+
+  <!-- ===================== PART B ===================== -->
+  <section id="admin" class="part admin">
+    <span class="part-label admin">Part B</span>
+    <h2 class="section-title">Administrator guide</h2>
+    <p>For the TradeInDRC team. Administrators see an extra <span class="ui">Admin Panel</span> link and have access to tools the public never sees.</p>
+
+    <h3 id="b-access"><span class="num">1</span>Accessing the admin panel</h3>
+    <ol class="steps">
+      <li>Sign in with an administrator account.</li>
+      <li>Open the user menu (top-right) and choose <span class="ui">Admin Panel</span>, or go directly to the admin area.</li>
+      <li>The left sidebar lists every admin section: Dashboard, Verifications, Content, Opportunities, Requests, Premium, Data Hub, Companies, Users, Messages, Taxonomy, Analytics and Settings.</li>
+    </ol>
+    <div class="callout warn">
+      <strong>Access is protected</strong>
+      Only accounts with an administrator role can open the admin panel. Anyone else is redirected to sign in. Administrator rights are granted at the database level, not self-service.
+    </div>
+
+    <h3 id="b-requests"><span class="num">2</span>Received requests</h3>
+    <p>The <span class="ui">Requests</span> section is the heart of day-to-day operations — every request submitted from the public Request page lands here.</p>
+    <ul>
+      <li><strong>Summary cards</strong> show totals at a glance: Total, New, In Progress, Converted, Pending and the overall response rate.</li>
+      <li><strong>The table</strong> lists each request with the sender's name, company, country, sector, what they need, status, date and the assigned follow-up owner.</li>
+      <li><strong>Filters</strong> let you narrow by search term, sector, country, status, owner or date.</li>
+    </ul>
+    <p>To work a request:</p>
+    <ol class="steps">
+      <li>Open the request to read the full details (contact information and the message).</li>
+      <li>Update its <strong>status</strong> as you progress it:
+        <span class="pill new">New</span>
+        <span class="pill prog">In Progress</span>
+        <span class="pill conv">Converted</span>
+        <span class="pill pend">Pending</span>
+        <span class="pill closed">Closed</span>.
+      </li>
+      <li>Assign a <strong>follow-up owner</strong> so it is clear who handles it.</li>
+      <li>Add internal notes as needed. Changes are saved immediately.</li>
+    </ol>
+
+    <h3 id="b-premium"><span class="num">3</span>Premium requests</h3>
+    <p>The <span class="ui">Premium</span> section lists every company that has requested a Premium membership.</p>
+    <ol class="steps">
+      <li>Review the pending requests — each shows the company, who requested it, the plan (Congolese or International), the amount and the date.</li>
+      <li>Click <span class="ui">Approve</span> to grant Premium. The company immediately becomes Premium, with the plan and a one-year renewal date recorded.</li>
+      <li>Click <span class="ui">Reject</span> if the request should not proceed. You can add a note explaining the decision.</li>
+    </ol>
+    <div class="callout">
+      <strong>Safe by design</strong>
+      Only a pending request can be approved, so a request cannot be approved twice or accidentally revived. Companies can never grant themselves Premium — only an administrator can.
+    </div>
+
+    <h3 id="b-verify"><span class="num">4</span>Company verifications</h3>
+    <p>The <span class="ui">Verifications</span> section is the queue of companies awaiting review.</p>
+    <ol class="steps">
+      <li>Open a company to review its details and any submitted documents.</li>
+      <li>Approve and assign a trust level, or reject with feedback.</li>
+      <li>Companies that resubmit appear again in the queue for another review.</li>
+    </ol>
+
+    <h3 id="b-manage"><span class="num">5</span>Companies, users &amp; content</h3>
+    <ul>
+      <li><strong>Companies</strong> — view and manage every company on the platform.</li>
+      <li><strong>Users</strong> — manage user accounts and roles.</li>
+      <li><strong>Taxonomy</strong> — maintain the sectors and categories used across the site.</li>
+      <li><strong>Content &amp; Pages</strong> — manage news, resources, help articles and editable page content.</li>
+      <li><strong>Data Hub</strong> — manage market data and price information.</li>
+      <li><strong>Settings</strong> — control the home page (carousel, featured companies) and other platform options.</li>
+      <li><strong>Analytics</strong> — platform-wide usage and performance.</li>
+    </ul>
+
+    <h3 id="b-moderate"><span class="num">6</span>Moderation &amp; messages</h3>
+    <ul>
+      <li><strong>Opportunities</strong> — review opportunities submitted by companies before they go live; approve or reject each one.</li>
+      <li><strong>Messages</strong> — review reported messages and take action to keep conversations safe.</li>
+    </ul>
+  </section>
+
+  <!-- SUPPORT -->
+  <section id="support">
+    <h2 class="section-title">Support</h2>
+    <p>For help, use the <span class="ui">Contact</span> page on the platform or the support details published in the site footer. Administrators can manage published contact and help content from the admin <em>Content</em> section.</p>
+    <div class="callout tip">
+      <strong>Quick reference</strong>
+      Company users live mostly in the <em>Dashboard</em>; administrators live in the <em>Admin Panel</em>. Both start by signing in from the top-right of any page.
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    TradeInDRC — Official trade portal of the Democratic Republic of Congo. &middot; User Guide v1.0 &middot; This document describes high-level usage; screens may evolve as the platform improves.
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Explore Local Contacts by Province — TradeInDRC (design 8 mockup)</title>
+<style>
+  /* ── App tokens (from globals.css) blended with design-8 palette ── */
+  :root {
+    --primary: #0047AB;          /* app primary (cobalt) */
+    --navy: #0B2447;             /* design chrome navy */
+    --navy-deep: #061229;        /* footer bottom bar */
+    --blue-featured: #1E5AA8;    /* choropleth featured */
+    --blue-other: #A9C4E4;       /* choropleth other */
+    --blue-na: #DDE6F0;          /* choropleth not-available */
+    --yellow: #F5B700;           /* CTA / pins / badge */
+    --yellow-soft: #FBF6EC;      /* featured band cream */
+    --red: #D64545;
+    --green: #2E9E5B;
+    --bg: #F4F6F9;
+    --card: #FFFFFF;
+    --border: #E3E8EF;
+    --fg: #0F172A;
+    --muted: #5B6B7C;
+    --radius: 0.5rem;
+    --radius-sm: 0.25rem;
+    --radius-lg: 0.75rem;
+    --shadow-sm: 0 1px 2px rgba(15,23,42,.06);
+    --shadow-md: 0 2px 8px rgba(15,23,42,.08);
+    --font: "Geist", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-display: "Sora", var(--font);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 16px; }
+  body { font-family: var(--font); background: var(--bg); color: var(--fg); line-height: 1.5; }
+  a { text-decoration: none; color: inherit; }
+  button { font-family: inherit; cursor: pointer; border: none; }
+  .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+  /* Emil-style restraint: fast, quiet hovers only */
+  a, button, .prov-row, .rec-row { transition: background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+  /* ── Topbar ── */
+  .topbar { background: var(--navy); color: #fff; font-size: .8rem; }
+  .topbar-in { display: flex; align-items: center; justify-content: space-between; height: 52px; }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-flag { width: 30px; height: 30px; border-radius: 6px; background: linear-gradient(135deg, #1E5AA8 55%, #F5B700 55%, #F5B700 62%, #D64545 62%); position: relative; flex: none; }
+  .brand-flag::after { content: "★"; position: absolute; top: 1px; left: 4px; color: var(--yellow); font-size: .6rem; }
+  .brand-name { font-family: var(--font-display); font-weight: 700; font-size: .95rem; letter-spacing: .01em; }
+  .brand-tag { color: var(--yellow); font-size: .68rem; font-weight: 600; letter-spacing: .04em; }
+  .powered { display: flex; align-items: center; gap: 8px; font-size: .72rem; color: #B9C6D8; }
+  .bb-mark { width: 26px; height: 26px; border-radius: 50%; background: conic-gradient(#D64545 0 25%, #1E5AA8 25% 50%, #F5B700 50% 75%, #fff 75%); }
+  .powered strong { color: #fff; font-weight: 600; }
+
+  /* ── Nav ── */
+  .nav { background: #0E2E5C; color: #fff; border-top: 1px solid rgba(255,255,255,.08); }
+  .nav-in { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
+  .nav-links { display: flex; gap: 4px; font-size: .84rem; font-weight: 500; flex-wrap: wrap; }
+  .nav-links a { padding: 8px 11px; border-radius: var(--radius-sm); color: #DCE6F2; }
+  .nav-links a:hover { background: rgba(255,255,255,.08); color: #fff; }
+  .nav-links a.active { color: #fff; background: rgba(255,255,255,.12); }
+  .nav-ctas { display: flex; gap: 10px; flex: none; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-size: .82rem; font-weight: 600; border-radius: var(--radius); padding: 9px 16px; }
+  .btn-yellow { background: var(--yellow); color: #21211a; }
+  .btn-yellow:hover { background: #E0A800; }
+  .btn-blue { background: var(--primary); color: #fff; border: 1px solid rgba(255,255,255,.25); }
+  .btn-blue:hover { background: #003E95; }
+  .btn-navy { background: var(--navy); color: #fff; }
+  .btn-navy:hover { background: #123667; }
+  .btn-outline { background: #fff; color: var(--fg); border: 1px solid var(--border); }
+  .btn-outline:hover { border-color: #C4CEDA; background: #F8FAFC; }
+
+  /* ── Breadcrumb + heading ── */
+  .crumbs { display: flex; align-items: center; gap: 10px; font-size: .8rem; color: var(--muted); padding: 18px 0 6px; }
+  .crumbs .sep { color: var(--primary); font-size: .65rem; }
+  .crumbs .current { color: var(--fg); font-weight: 500; }
+  h1 { font-family: var(--font-display); font-size: 1.9rem; font-weight: 700; letter-spacing: -0.01em; color: var(--navy); }
+  .page-sub { font-size: .95rem; color: var(--muted); margin: 6px 0 22px; }
+
+  /* ── Main two-column ── */
+  .main-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 20px; align-items: start; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+
+  /* Map panel */
+  .map-panel { padding: 22px; }
+  .panel-title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--navy); }
+  .panel-hint { font-size: .8rem; color: var(--muted); margin-top: 4px; max-width: 180px; }
+  .map-wrap { position: relative; margin: 4px 0 8px; }
+  .map-wrap svg { width: 100%; height: auto; display: block; }
+  .legend { display: grid; gap: 7px; font-size: .76rem; color: var(--muted); margin: 6px 0 16px; }
+  .legend li { display: flex; align-items: center; gap: 8px; list-style: none; }
+  .swatch { width: 13px; height: 13px; border-radius: 3px; flex: none; }
+  .map-stats { display: grid; gap: 10px; margin-bottom: 14px; }
+  .stat-tile { display: flex; align-items: center; gap: 12px; border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; background: #FBFCFE; }
+  .stat-icon { width: 36px; height: 36px; border-radius: var(--radius-sm); background: #E8F0FB; color: var(--primary); display: grid; place-items: center; font-size: 1rem; flex: none; }
+  .stat-num { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--navy); line-height: 1.15; }
+  .stat-label { font-size: .74rem; color: var(--muted); }
+  .map-cols { display: grid; grid-template-columns: 190px 1fr; gap: 10px; align-items: start; }
+
+  /* Pin */
+  .pin { filter: drop-shadow(0 1px 1px rgba(0,0,0,.3)); }
+  .pin-label { font-size: 10px; font-weight: 600; fill: #fff; paint-order: stroke; stroke: rgba(11,36,71,.85); stroke-width: 3px; }
+
+  /* Province rows */
+  .prov-panel { padding: 18px 18px 10px; }
+  .prov-panel h2 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+  .prov-row { display: grid; grid-template-columns: 64px 1fr auto auto; gap: 14px; align-items: center; border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 14px 10px 10px; margin-bottom: 10px; background: #fff; }
+  .prov-row:hover { border-color: #C9D6E6; box-shadow: var(--shadow-md); }
+  .prov-thumb { width: 64px; height: 48px; border-radius: var(--radius-sm); flex: none; background: linear-gradient(135deg, #35507A, #7E9CC4); position: relative; overflow: hidden; }
+  .prov-thumb::after { content: ""; position: absolute; inset: auto 0 0 0; height: 45%; background: linear-gradient(180deg, transparent, rgba(11,36,71,.55)); }
+  .prov-name { font-weight: 700; font-size: .92rem; color: var(--navy); line-height: 1.25; }
+  .prov-loc { display: flex; align-items: center; gap: 4px; font-size: .74rem; color: var(--muted); margin-top: 2px; }
+  .prov-mid { text-align: left; }
+  .prov-sectors-label { font-size: .68rem; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+  .sector-icons { display: flex; gap: 6px; color: var(--primary); font-size: .85rem; }
+  .sector-icons .more { color: var(--muted); letter-spacing: 1px; }
+  .prov-count { font-family: var(--font-display); font-weight: 700; font-size: .95rem; color: var(--navy); white-space: nowrap; }
+  .prov-count small { font-family: var(--font); font-weight: 400; font-size: .72rem; color: var(--muted); }
+  .prov-cta { white-space: nowrap; font-size: .76rem; padding: 8px 12px; }
+
+  /* ── Featured province band ── */
+  .featured { margin-top: 22px; background: var(--yellow-soft); border: 1px solid #EDDDB4; border-radius: var(--radius-lg); padding: 22px; display: grid; grid-template-columns: 1.25fr 1fr 1fr .9fr; gap: 22px; }
+  .badge-featured { display: inline-block; background: var(--yellow); color: #21211a; font-size: .66rem; font-weight: 700; letter-spacing: .08em; padding: 4px 10px; border-radius: var(--radius-sm); margin-bottom: 10px; }
+  .featured h2 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; color: var(--navy); line-height: 1.3; }
+  .featured p { font-size: .82rem; color: var(--muted); margin: 8px 0 14px; }
+  .feat-stats { display: grid; grid-template-columns: repeat(4, auto); gap: 8px; }
+  .feat-stat { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 10px; text-align: left; }
+  .feat-stat .n { font-family: var(--font-display); font-weight: 700; font-size: .88rem; color: var(--navy); display: flex; align-items: center; gap: 5px; }
+  .feat-stat .l { font-size: .64rem; color: var(--muted); }
+  .feat-col h3 { font-size: .86rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+  .sector-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 14px; }
+  .sector-item { display: flex; align-items: center; gap: 8px; font-size: .76rem; font-weight: 500; color: var(--fg); }
+  .sector-glyph { width: 26px; height: 26px; border-radius: var(--radius-sm); display: grid; place-items: center; font-size: .8rem; flex: none; background: #FDF0CC; }
+  .rec-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; }
+  .rec-head a { font-size: .72rem; font-weight: 600; color: var(--primary); text-decoration: underline; }
+  .rec-row { display: flex; align-items: center; gap: 10px; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 10px; margin-bottom: 8px; }
+  .rec-row:hover { border-color: #C9D6E6; }
+  .rec-logo { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--border); background: #F1F5F9; display: grid; place-items: center; font-weight: 700; font-size: .7rem; color: var(--navy); flex: none; }
+  .rec-name { font-size: .78rem; font-weight: 600; color: var(--fg); line-height: 1.2; }
+  .rec-cat { font-size: .66rem; color: var(--muted); }
+  .badge-verified { margin-left: auto; display: inline-flex; align-items: center; gap: 4px; background: #E8F6EC; color: var(--green); font-size: .66rem; font-weight: 700; border-radius: 999px; padding: 3px 8px; flex: none; }
+  .need-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px; display: flex; flex-direction: column; gap: 10px; align-self: stretch; }
+  .need-icon { width: 42px; height: 42px; border-radius: 50%; background: #E8F0FB; color: var(--primary); display: grid; place-items: center; font-size: 1.1rem; }
+  .need-card h3 { font-family: var(--font-display); font-size: .98rem; font-weight: 700; color: var(--navy); line-height: 1.35; }
+  .need-card p { font-size: .76rem; color: var(--muted); flex: 1; }
+  .need-card .btn-yellow { width: 100%; text-align: center; font-size: .8rem; }
+
+  /* ── Footer ── */
+  footer { margin-top: 34px; background: var(--navy); color: #C7D2E1; }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr .9fr; gap: 28px; padding: 36px 0 28px; font-size: .8rem; }
+  .foot-blurb { margin-top: 12px; max-width: 300px; line-height: 1.6; }
+  .foot-col h4 { color: #fff; font-size: .84rem; font-weight: 700; margin-bottom: 12px; }
+  .foot-col a { display: block; padding: 3px 0; color: #AFBDD0; }
+  .foot-col a:hover { color: #fff; }
+  .socials { display: flex; gap: 10px; margin-top: 14px; }
+  .soc { width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(255,255,255,.25); display: grid; place-items: center; font-size: .8rem; color: #fff; }
+  .soc:hover { background: rgba(255,255,255,.1); }
+  .foot-bottom { background: var(--navy-deep); font-size: .74rem; }
+  .foot-bottom-in { display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; flex-wrap: wrap; }
+
+  @media (max-width: 1024px) {
+    .main-grid, .featured { grid-template-columns: 1fr; }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+    .prov-row { grid-template-columns: 56px 1fr auto; }
+    .prov-mid { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ Topbar ══ -->
+<div class="topbar">
+  <div class="container topbar-in">
+    <div class="brand">
+      <div class="brand-flag" aria-hidden="true"></div>
+      <div>
+        <div class="brand-name">Trade in DRC</div>
+        <div class="brand-tag">Connect – invest – Grow</div>
+      </div>
+    </div>
+    <div class="powered">Power by <span class="bb-mark" aria-hidden="true"></span> <strong>BrandsBridge<br/>Group</strong></div>
+  </div>
+</div>
+
+<!-- ══ Nav ══ -->
+<nav class="nav">
+  <div class="container nav-in">
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Companies</a>
+      <a href="#">Opportunities</a>
+      <a href="#">Marketplace</a>
+      <a href="#" class="active">Local Contacts</a>
+      <a href="#">Market intelligence</a>
+      <a href="#">Promote Your Business</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="nav-ctas">
+      <a class="btn btn-yellow" href="#">Register Your Company</a>
+      <a class="btn btn-blue" href="#">Request a Partner</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- ══ Breadcrumb + heading ══ -->
+  <div class="crumbs">
+    <a href="#">Home</a><span class="sep">▶</span>
+    <a href="#">Local Contacts</a><span class="sep">▶</span>
+    <span class="current">Explore by Province</span>
+  </div>
+  <h1>Explore Local Contacts by Province</h1>
+  <p class="page-sub">Search local companies and professional contacts across the key economic provinces of the DRC</p>
+
+  <!-- ══ Map + province list ══ -->
+  <div class="main-grid">
+
+    <!-- Browse Provinces (map) -->
+    <section class="card map-panel" aria-label="Browse provinces map">
+      <div class="map-cols">
+        <div>
+          <div class="panel-title">Browse Provinces</div>
+          <p class="panel-hint">Select a province on the map or choose from the list to explore local contacts.</p>
+          <ul class="legend">
+            <li><span class="swatch" style="background:var(--blue-featured)"></span>Featured Provinces</li>
+            <li><span class="swatch" style="background:var(--blue-other)"></span>Other Provinces</li>
+            <li><span class="swatch" style="background:var(--blue-na)"></span>Not Available</li>
+          </ul>
+          <div class="map-stats">
+            <div class="stat-tile">
+              <div class="stat-icon">🏛</div>
+              <div><div class="stat-num">156,432</div><div class="stat-label">Companies Listed<br/>Across All Provinces</div></div>
+            </div>
+            <div class="stat-tile">
+              <div class="stat-icon">👥</div>
+              <div><div class="stat-num">78,965</div><div class="stat-label">Verified Contacts<br/>Across All Provinces</div></div>
+            </div>
+          </div>
+          <button class="btn btn-outline" style="width:100%; font-size:.78rem;">☰ &nbsp;View All Provinces</button>
+        </div>
+
+        <!-- Simplified DRC choropleth (stylised; real impl would use GeoJSON) -->
+        <div class="map-wrap">
+          <svg viewBox="0 0 400 380" role="img" aria-label="Map of DRC provinces with featured provinces highlighted">
+            <!-- country silhouette -->
+            <path d="M115 40 L175 22 L235 30 L268 55 L295 60 L308 92 L330 118 L338 160 L352 200 L340 250 L318 292 L288 320 L255 342 L215 352 L175 344 L148 322 L118 330 L92 310 L78 272 L60 240 L52 200 L62 160 L54 120 L80 84 L96 62 Z" fill="var(--blue-na)" stroke="#fff" stroke-width="2"/>
+            <!-- other provinces (light blue patches) -->
+            <path d="M115 40 L175 22 L235 30 L240 80 L190 110 L140 96 L96 62 Z" fill="var(--blue-other)" stroke="#fff" stroke-width="2"/>
+            <path d="M62 160 L54 120 L80 84 L96 62 L140 96 L128 150 L96 168 Z" fill="var(--blue-other)" stroke="#fff" stroke-width="2"/>
+            <path d="M190 110 L240 80 L268 55 L295 60 L308 92 L282 122 L240 140 Z" fill="var(--blue-other)" stroke="#fff" stroke-width="2"/>
+            <path d="M128 150 L190 110 L240 140 L232 196 L168 210 L120 196 Z" fill="var(--blue-other)" stroke="#fff" stroke-width="2"/>
+            <!-- Tshopo (featured, north-centre) -->
+            <path d="M170 62 L226 52 L238 92 L196 108 L158 92 Z" fill="var(--blue-featured)" stroke="#fff" stroke-width="2"/>
+            <!-- Nord-Kivu (featured, east) -->
+            <path d="M296 78 L322 92 L330 118 L308 132 L288 112 Z" fill="var(--blue-featured)" stroke="#fff" stroke-width="2"/>
+            <!-- Sud-Kivu (featured, east below) -->
+            <path d="M300 136 L332 138 L338 168 L314 180 L296 158 Z" fill="var(--blue-featured)" stroke="#fff" stroke-width="2"/>
+            <!-- Kinshasa (featured, small west) -->
+            <path d="M86 176 L112 168 L120 190 L98 200 L84 190 Z" fill="var(--blue-featured)" stroke="#fff" stroke-width="2"/>
+            <!-- Kongo Central (featured, far west) -->
+            <path d="M52 200 L62 160 L96 168 L84 190 L98 200 L88 222 L64 224 Z" fill="var(--blue-featured)" stroke="#fff" stroke-width="2"/>
+            <!-- Haut-Katanga (featured, south-east) -->
+            <path d="M262 232 L318 214 L340 250 L318 292 L288 320 L262 296 L252 258 Z" fill="var(--blue-featured)" stroke="#fff" stroke-width="2"/>
+            <!-- Lualaba (featured, south-centre) -->
+            <path d="M196 258 L252 258 L262 296 L236 318 L198 306 L186 278 Z" fill="var(--blue-featured)" stroke="#fff" stroke-width="2"/>
+
+            <!-- pins -->
+            <g class="pin"><circle cx="198" cy="76" r="9" fill="var(--yellow)"/><path d="M198 92 L192 78 L204 78 Z" fill="var(--yellow)"/><circle cx="198" cy="76" r="3.5" fill="var(--navy)"/><text class="pin-label" x="198" y="106" text-anchor="middle">Tshopo</text></g>
+            <g class="pin"><circle cx="310" cy="102" r="9" fill="var(--yellow)"/><path d="M310 118 L304 104 L316 104 Z" fill="var(--yellow)"/><circle cx="310" cy="102" r="3.5" fill="var(--navy)"/><text class="pin-label" x="310" y="132" text-anchor="middle">Nord-Kivu</text></g>
+            <g class="pin"><circle cx="316" cy="154" r="9" fill="var(--yellow)"/><path d="M316 170 L310 156 L322 156 Z" fill="var(--yellow)"/><circle cx="316" cy="154" r="3.5" fill="var(--navy)"/><text class="pin-label" x="316" y="184" text-anchor="middle">Sud-Kivu</text></g>
+            <g class="pin"><circle cx="102" cy="182" r="9" fill="var(--yellow)"/><path d="M102 198 L96 184 L108 184 Z" fill="var(--yellow)"/><circle cx="102" cy="182" r="3.5" fill="var(--navy)"/><text class="pin-label" x="102" y="212" text-anchor="middle">Kinshasa</text></g>
+            <g class="pin"><circle cx="70" cy="206" r="9" fill="var(--yellow)"/><path d="M70 222 L64 208 L76 208 Z" fill="var(--yellow)"/><circle cx="70" cy="206" r="3.5" fill="var(--navy)"/><text class="pin-label" x="70" y="236" text-anchor="middle">Kongo Central</text></g>
+            <g class="pin"><circle cx="292" cy="266" r="9" fill="var(--yellow)"/><path d="M292 282 L286 268 L298 268 Z" fill="var(--yellow)"/><circle cx="292" cy="266" r="3.5" fill="var(--navy)"/><text class="pin-label" x="292" y="296" text-anchor="middle">Haut-Katanga</text></g>
+            <g class="pin"><circle cx="222" cy="282" r="9" fill="var(--yellow)"/><path d="M222 298 L216 284 L228 284 Z" fill="var(--yellow)"/><circle cx="222" cy="282" r="3.5" fill="var(--navy)"/><text class="pin-label" x="222" y="312" text-anchor="middle">Lualaba</text></g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Economic Provinces -->
+    <section class="card prov-panel" aria-label="Key economic provinces">
+      <h2>Key Economic Provinces</h2>
+
+      <div class="prov-row">
+        <div class="prov-thumb" style="background:linear-gradient(135deg,#274C7F,#6FA0D8)"></div>
+        <div><div class="prov-name">Kinshasa</div><div class="prov-loc">📍 Kinshasa City</div></div>
+        <div class="prov-mid"><div class="prov-sectors-label">Dominant Sectors</div><div class="sector-icons">🏦 🏭 ✈️ <span class="more">···</span></div></div>
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div class="prov-count">23,894 <small>Companies</small></div>
+          <a class="btn btn-navy prov-cta" href="#">Explore Province →</a>
+        </div>
+      </div>
+
+      <div class="prov-row">
+        <div class="prov-thumb" style="background:linear-gradient(135deg,#4E4634,#A08B5E)"></div>
+        <div><div class="prov-name">Haut-Katanga / Lubumbashi</div><div class="prov-loc">📍 Haut-Katanga</div></div>
+        <div class="prov-mid"><div class="prov-sectors-label">Dominant Sectors</div><div class="sector-icons">⛏️ 🛒 🚚 <span class="more">···</span></div></div>
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div class="prov-count">18,752 <small>Companies</small></div>
+          <a class="btn btn-navy prov-cta" href="#">Explore Province →</a>
+        </div>
+      </div>
+
+      <div class="prov-row">
+        <div class="prov-thumb" style="background:linear-gradient(135deg,#6B5A3C,#C4A46A)"></div>
+        <div><div class="prov-name">Lualaba / Kolwezi</div><div class="prov-loc">📍 Lualaba</div></div>
+        <div class="prov-mid"><div class="prov-sectors-label">Dominant Sectors</div><div class="sector-icons">⛏️ 🏗️ ⚡ <span class="more">···</span></div></div>
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div class="prov-count">9,846 <small>Companies</small></div>
+          <a class="btn btn-navy prov-cta" href="#">Explore Province →</a>
+        </div>
+      </div>
+
+      <div class="prov-row">
+        <div class="prov-thumb" style="background:linear-gradient(135deg,#33566B,#7FA8BC)"></div>
+        <div><div class="prov-name">Kongo Central / Matadi</div><div class="prov-loc">📍 Kongo Central</div></div>
+        <div class="prov-mid"><div class="prov-sectors-label">Dominant Sectors</div><div class="sector-icons">🚢 ⚓ 🏭 <span class="more">···</span></div></div>
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div class="prov-count">6,712 <small>Companies</small></div>
+          <a class="btn btn-navy prov-cta" href="#">Explore Province →</a>
+        </div>
+      </div>
+
+      <div class="prov-row">
+        <div class="prov-thumb" style="background:linear-gradient(135deg,#3F6647,#8CB894)"></div>
+        <div><div class="prov-name">Nord-Kivu / Goma</div><div class="prov-loc">📍 Nord Kivu</div></div>
+        <div class="prov-mid"><div class="prov-sectors-label">Dominant Sectors</div><div class="sector-icons">🌾 ☕ 🧭 <span class="more">···</span></div></div>
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div class="prov-count">7,684 <small>Companies</small></div>
+          <a class="btn btn-navy prov-cta" href="#">Explore Province →</a>
+        </div>
+      </div>
+
+      <div class="prov-row">
+        <div class="prov-thumb" style="background:linear-gradient(135deg,#2F5E63,#7FAEB2)"></div>
+        <div><div class="prov-name">Sud-Kivu / Bukavu</div><div class="prov-loc">📍 Sud-Kivu</div></div>
+        <div class="prov-mid"><div class="prov-sectors-label">Dominant Sectors</div><div class="sector-icons">🌱 🐟 ⛰️ <span class="more">···</span></div></div>
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div class="prov-count">6,233 <small>Companies</small></div>
+          <a class="btn btn-navy prov-cta" href="#">Explore Province →</a>
+        </div>
+      </div>
+
+      <div class="prov-row" style="margin-bottom:6px;">
+        <div class="prov-thumb" style="background:linear-gradient(135deg,#4C6136,#95B36E)"></div>
+        <div><div class="prov-name">Tshopo / Kisangani</div><div class="prov-loc">📍 Tshopo</div></div>
+        <div class="prov-mid"><div class="prov-sectors-label">Dominant Sectors</div><div class="sector-icons">🌲 🌾 🛒 <span class="more">···</span></div></div>
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div class="prov-count">5,311 <small>Companies</small></div>
+          <a class="btn btn-navy prov-cta" href="#">Explore Province →</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ══ Featured Province band ══ -->
+  <section class="featured" aria-label="Featured province: Lualaba">
+    <div>
+      <span class="badge-featured">FEATURED PROVINCE</span>
+      <h2>Business Contacts and Local Partners in Lualaba</h2>
+      <p>Lualaba is the heart of the DRC's mining industry, rich in copper and cobalt resources and home to Kolwezi, a fast-growing industrial and logistics hub.</p>
+      <div class="feat-stats">
+        <div class="feat-stat"><div class="n">🏢 9,846</div><div class="l">Companies</div></div>
+        <div class="feat-stat"><div class="n">👤 6,215</div><div class="l">Verified Contacts</div></div>
+        <div class="feat-stat"><div class="n">🎯 12</div><div class="l">Strategic Sectors</div></div>
+        <div class="feat-stat"><div class="n">📈 High</div><div class="l">Investment Potential</div></div>
+      </div>
+    </div>
+
+    <div class="feat-col">
+      <h3>Key Sectors in Lualaba</h3>
+      <div class="sector-list">
+        <div class="sector-item"><span class="sector-glyph">⛏️</span>Mining &amp; Minerals</div>
+        <div class="sector-item"><span class="sector-glyph">🏗️</span>Construction &amp; Infrastructure</div>
+        <div class="sector-item"><span class="sector-glyph">⚡</span>Energy &amp; Electricity</div>
+        <div class="sector-item"><span class="sector-glyph">🌾</span>Agriculture &amp; Agro-Industry</div>
+        <div class="sector-item"><span class="sector-glyph">🚚</span>Logistics &amp; Transport</div>
+        <div class="sector-item"><span class="sector-glyph">🏭</span>Industrial Manufacturing</div>
+      </div>
+    </div>
+
+    <div class="feat-col">
+      <div class="rec-head"><h3>Recommended Companies</h3><a href="#">View All</a></div>
+      <div class="rec-row">
+        <div class="rec-logo">KC</div>
+        <div><div class="rec-name">Kamoa Copper SA</div><div class="rec-cat">Mining &amp; Minerals</div></div>
+        <span class="badge-verified">✓ Verified</span>
+      </div>
+      <div class="rec-row">
+        <div class="rec-logo">TF</div>
+        <div><div class="rec-name">Tenke Fungurume Mining</div><div class="rec-cat">Mining &amp; Minerals</div></div>
+        <span class="badge-verified">✓ Verified</span>
+      </div>
+      <div class="rec-row">
+        <div class="rec-logo">LC</div>
+        <div><div class="rec-name">Lualaba Cement SAS</div><div class="rec-cat">Construction &amp; Materials</div></div>
+        <span class="badge-verified">✓ Verified</span>
+      </div>
+    </div>
+
+    <div class="need-card">
+      <div class="need-icon">👥</div>
+      <h3>Need Verified Contacts in Lualaba?</h3>
+      <p>Get connected with trusted suppliers, distributors, and service providers in Lualaba.</p>
+      <a class="btn btn-yellow" href="#">Request a Local Contact in Lualaba</a>
+    </div>
+  </section>
+</div>
+
+<!-- ══ Footer ══ -->
+<footer>
+  <div class="container foot-grid">
+    <div>
+      <div class="brand">
+        <div class="brand-flag" aria-hidden="true"></div>
+        <div>
+          <div class="brand-name" style="color:#fff">Trade in DRC</div>
+          <div class="brand-tag">Connect – invest – Grow</div>
+        </div>
+      </div>
+      <p class="foot-blurb">Trade in DRC is your gateway to verified local business contacts, market opportunities and strategic partnerships across the Democratic Republic of Congo.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Quick Links</h4>
+      <a href="#">Companies</a><a href="#">Opportunities</a><a href="#">Products</a><a href="#">Local Contacts</a>
+    </div>
+    <div class="foot-col">
+      <h4>Resources</h4>
+      <a href="#">Market Intelligence</a><a href="#">Promote Your Business</a><a href="#">News &amp; Insights</a><a href="#">Help Center</a>
+    </div>
+    <div class="foot-col">
+      <h4>Company</h4>
+      <a href="#">About Us</a><a href="#">Terms of Use</a><a href="#">Privacy Policy</a><a href="#">Contact Us</a>
+    </div>
+    <div>
+      <div class="powered">Power by <span class="bb-mark" aria-hidden="true"></span> <strong>BrandsBridge<br/>Group</strong></div>
+      <div class="socials">
+        <a class="soc" href="#" aria-label="LinkedIn">in</a>
+        <a class="soc" href="#" aria-label="Twitter">𝕏</a>
+        <a class="soc" href="#" aria-label="YouTube">▶</a>
+        <a class="soc" href="#" aria-label="Email">✉</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="container foot-bottom-in">
+      <span>© 2024 Trade in DRC. All rights reserved.</span>
+      <span>Trade in DRC — Connecting international business with local opportunities.</span>
+      <span>www.tradeindrc.com</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

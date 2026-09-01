@@ -1,0 +1,5030 @@
+{
+  "Index": {
+    "title": "TradeInDRC - Official Trade Portal",
+    "description": "Connecting Verified Congolese Companies with the World."
+  },
+  "Nav": {
+    "home": "Home",
+    "about": "About Us",
+    "products": "Products",
+    "companies": "Companies",
+    "opportunities": "Market Opportunities",
+    "contactPoints": "Local Contact Points",
+    "news": "News",
+    "events": "Events",
+    "blog": "Blog",
+    "register": "Register Company",
+    "registerBtn": "Register",
+    "dashboard": "Dashboard",
+    "signin": "Log in",
+    "signout": "Sign Out",
+    "search": "Search...",
+    "adminPanel": "Admin Panel",
+    "breadcrumb": "Breadcrumb",
+    "request": "Request",
+    "pricing": "Pricing",
+    "marketplace": "Marketplace",
+    "marketIntelligence": "Market Intelligence",
+    "promote": "Promote Your Business",
+    "contact": "Contact",
+    "registerCompany": "Register Your Company",
+    "postRequest": "Post a Request",
+    "poweredBy": "Power by BrandsBridge Group",
+    "menu": "Menu",
+    "services": "Services",
+    "moreMenu": "More"
+  },
+  "Hero": {
+    "badge": "Verified by Ministry of Trade",
+    "titlePrefix": "The Official Gateway to",
+    "titleHighlight": "Congolese Trade",
+    "subtitle": "Connect with verified suppliers, explore strategic investment opportunities, and access official export regulations of the Democratic Republic of the Congo.",
+    "searchPlaceholder": "Search for Copper, Coffee, Textiles...",
+    "searchButton": "Search Market",
+    "cta": "Browse Companies",
+    "register": "Register Your Company",
+    "browse": "Browse Directory"
+  },
+  "Features": {
+    "title": "Why Choose TradeInDRC?",
+    "verification": "Verified Companies",
+    "verificationDesc": "All businesses are verified by the Ministry for authenticity and trust.",
+    "matchmaking": "B2B Matchmaking",
+    "matchmakingDesc": "Connect directly with potential partners through our secure platform.",
+    "export": "Export Ready",
+    "exportDesc": "Access detailed export capacities, certifications, and lead times."
+  },
+  "Stats": {
+    "title": "Our Impact",
+    "companies": "Registered Companies",
+    "companiesDesc": "A growing network of verified Congolese businesses.",
+    "sectors": "Sectors Covered",
+    "sectorsDesc": "From agriculture to technology and beyond.",
+    "provinces": "Provinces",
+    "provincesDesc": "Coverage across all DRC provinces",
+    "successRate": "Success Rate",
+    "successRateDesc": "Of verified applications"
+  },
+  "Companies": {
+    "title": "Find Verified Companies",
+    "subtitle": "Discover trusted Congolese businesses ready for international trade",
+    "search": "Search companies, products, sectors...",
+    "filters": "Filters",
+    "clear": "Clear",
+    "sector": "Sector",
+    "province": "Province",
+    "verifiedOnly": "Verified companies only",
+    "results": "{count} companies found",
+    "noResults": "No companies found",
+    "adjustFilters": "Try adjusting your filters",
+    "sortBy": "Sort by",
+    "relevance": "Relevance",
+    "nameAZ": "A-Z",
+    "newest": "Newest"
+  },
+  "Register": {
+    "title": "Register Your Company",
+    "step1Title": "Select Company Type",
+    "step1Desc": "Are you a Congolese or International business?",
+    "congolese": "Congolese Company",
+    "congoleseSub": "Registered in the DRC",
+    "international": "International Business",
+    "internationalSub": "Based outside the DRC",
+    "step2Title": "Basic Information",
+    "step2Desc": "Tell us about your company",
+    "companyName": "Company Name",
+    "sector": "Sector",
+    "province": "Province",
+    "city": "City",
+    "description": "Description",
+    "step3Title": "Business Details",
+    "step3Desc": "Export capacity and certifications",
+    "capacity": "Production Capacity",
+    "moq": "Minimum Order Qty",
+    "leadTime": "Lead Time",
+    "certifications": "Certifications",
+    "step4Title": "Verification Documents",
+    "step4Desc": "Upload documents for Ministry verification",
+    "taxId": "Tax ID / NIF Document",
+    "registry": "Business Registry Certificate",
+    "fileHint": "PDF or Image, max 10MB",
+    "summary": "Summary",
+    "back": "Back",
+    "continue": "Continue",
+    "submit": "Submit for Verification",
+    "submitting": "Submitting...",
+    "success": "Company registered successfully! Awaiting verification.",
+    "error": "Failed to register company"
+  },
+  "Profile": {
+    "backToDirectory": "Back to Directory",
+    "verifiedBadge": "Verified by Ministry",
+    "contact": "Contact Supplier",
+    "overview": "Overview",
+    "capacity": "Capacity",
+    "certifications": "Certifications",
+    "about": "About",
+    "quickInfo": "Quick Info",
+    "companyType": "Company Type",
+    "location": "Location",
+    "productionCapacity": "Production Capacity",
+    "minimumOrder": "Minimum Order",
+    "noCertifications": "No certifications listed.",
+    "notFound": "Company Not Found",
+    "notFoundDesc": "This company profile does not exist or has been removed."
+  },
+  "About": {
+    "title": "About TradeInDRC",
+    "heroEyebrow": "The official DRC trade portal",
+    "heroSubtitle": "A government-backed B2B platform where verified Congolese companies meet international buyers — directory, search, RFQs, and secure messaging in one place.",
+    "heroImageAlt": "Kinshasa skyline at dusk",
+    "mission": "Our mission",
+    "missionText": "TradeInDRC is the official bilingual trade portal of the Democratic Republic of the Congo. We connect verified Congolese businesses with international buyers and partners, give the Ministry the tools to moderate and verify every company, and put the country's export capacity in one trusted place.",
+    "whoFor": "Who it's for",
+    "audience": {
+      "exporter": {
+        "title": "Congolese exporters",
+        "desc": "Register once, get the Ministry-verified badge, list products and export capacity, and reach international buyers actively looking for DRC suppliers."
+      },
+      "buyer": {
+        "title": "International buyers",
+        "desc": "Discover vetted Congolese suppliers across sectors, send RFQs, message companies securely, and shortlist partners without leaving the platform."
+      },
+      "gov": {
+        "title": "Ministry & officials",
+        "desc": "A moderation console with audit trails, KPI dashboards, taxonomy controls, and featured-profile management — oversight built into the platform."
+      }
+    },
+    "howItWorks": "How it works",
+    "step1": "Register your company",
+    "step1Desc": "Create an account and submit tax ID, registration number, and certificates for verification.",
+    "step2": "Get verified",
+    "step2Desc": "Our team reviews your documents against KYB checks and grants the official Ministry badge.",
+    "step3": "Start trading",
+    "step3Desc": "List products, respond to RFQs, and message buyers through our secure inbox — no contact leaks.",
+    "capabilitiesTitle": "What you can do today",
+    "capabilities": {
+      "directory": {
+        "title": "Verified directory",
+        "desc": "Rich profiles with capacity, lead time, MOQ, HS codes, certifications, and Ministry-verified badge."
+      },
+      "messaging": {
+        "title": "Secure messaging",
+        "desc": "Contact-supplier form keeps emails private; messages land in a private inbox on TradeInDRC."
+      },
+      "rfq": {
+        "title": "Mini RFQ board",
+        "desc": "Post a sourcing need or capacity offer; verified counterparties respond through secure messaging."
+      },
+      "references": {
+        "title": "Verified references",
+        "desc": "Link to other verified partners on the platform to build a visible, audit-friendly network of trust."
+      },
+      "bilingual": {
+        "title": "Bilingual EN / FR",
+        "desc": "Every UI string and CMS surface is dual-language. Browse and trade in the language you prefer."
+      },
+      "analytics": {
+        "title": "Private analytics",
+        "desc": "Each company sees profile views, search appearances, and the top queries that surfaced their profile."
+      }
+    },
+    "trustTitle": "Why companies trust this platform",
+    "pillars": {
+      "ministry": "Every listing is reviewed and signed off by the Ministry before the verified badge is granted.",
+      "kyb": "KYB checks against tax ID, registration documents, and sector certifications before publication.",
+      "backed": "Government-backed infrastructure with full audit trails and dedicated moderation queues."
+    },
+    "ctaTitle": "Ready to get started?",
+    "ctaDesc": "Join the official DRC trade platform today.",
+    "ctaPrimary": "Register your company",
+    "ctaSecondary": "Browse verified companies"
+  },
+  "Auth": {
+    "loginTitle": "Sign In",
+    "loginDesc": "Enter your email below to sign in to your account.",
+    "registerTitle": "Create an Account",
+    "registerDesc": "Enter your email below to create your account.",
+    "email": "Email",
+    "password": "Password",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "or": "OR",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "errorGeneric": "Something went wrong. Please try again.",
+    "successLogin": "Logged in successfully.",
+    "successRegister": "Account created successfully.",
+    "verifyEmail": {
+      "title": "Verify your email",
+      "body": "We sent a confirmation link to {email}. Click it to activate your account.",
+      "resend": "Resend email",
+      "resent": "Email sent. Check your inbox.",
+      "openInbox": "Open inbox"
+    },
+    "forgotPassword": {
+      "title": "Reset your password",
+      "body": "Enter the email tied to your account and we'll send you a reset link.",
+      "submit": "Send reset link",
+      "sent": "If that email exists, a link is on the way.",
+      "backToLogin": "Back to login",
+      "emailPlaceholder": "you@example.com"
+    },
+    "resetPassword": {
+      "title": "Choose a new password",
+      "newPassword": "New password",
+      "confirm": "Confirm password",
+      "submit": "Update password",
+      "success": "Password updated. You can log in now.",
+      "mismatch": "Passwords don't match.",
+      "weak": "Use at least 8 characters."
+    },
+    "accountSettings": {
+      "title": "Account settings",
+      "email": "Email",
+      "changeEmail": "Change email",
+      "newEmail": "New email",
+      "password": "Password",
+      "changePassword": "Change password",
+      "currentPassword": "Current password",
+      "saved": "Saved.",
+      "emailChangeSent": "Confirm the change from your new inbox.",
+      "unverifiedBanner": "Your email isn't verified yet. Some actions are blocked.",
+      "role": "Account role",
+      "roleUser": "Standard user",
+      "roleAdmin": "Administrator",
+      "gotoAccount": "Change email or password"
+    },
+    "resetEmailSent": "Password reset email sent! Check your inbox.",
+    "errorInvalidCredentials": "Incorrect email or password.",
+    "errorAccountExists": "An account already exists with this email.",
+    "errorPasswordTooShort": "Password should be at least 6 characters.",
+    "forgotPasswordLink": "Forgot password?",
+    "sendResetLink": "Send Reset Link",
+    "backToSignIn": "Back to Sign In"
+  },
+  "Dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back",
+    "myCompanies": "My Companies",
+    "noCompanies": "You haven't registered any companies yet.",
+    "registerFirst": "Register Your First Company",
+    "registerAnother": "Register Another Company",
+    "pendingVerification": "Pending Verification",
+    "verified": "Verified",
+    "rejected": "Rejected",
+    "viewProfile": "View Profile",
+    "viewProfilePendingHint": "Visible once verified",
+    "editProfile": "Edit Profile",
+    "moreInfoRequested": "Additional information requested",
+    "rejectionReason": "Rejection reason",
+    "resubmit": "Resubmit for Review",
+    "resubmitSuccess": "Company resubmitted for review",
+    "resubmitError": "Failed to resubmit company",
+    "onboarding": {
+      "title": "Get started on TradeInDRC",
+      "subtitle": "Three steps to start receiving offers.",
+      "steps": {
+        "company": {
+          "title": "Verify your company",
+          "body": "Register a company and submit KYB documents for review."
+        },
+        "product": {
+          "title": "Publish a product or service",
+          "body": "List what you sell so buyers can find you."
+        },
+        "opportunity": {
+          "title": "Post an opportunity",
+          "body": "Tenders, partnerships, demands — broadcast to all verified buyers."
+        }
+      }
+    },
+    "resubmitting": "Resubmitting...",
+    "signInRequired": "Please sign in to view your dashboard.",
+    "registerCompany": "Register Company",
+    "statusPending": "Pending",
+    "moreInfoNeeded": "More Info Needed",
+    "view": "View",
+    "edit": "Edit",
+    "noCompaniesYet": "No companies yet",
+    "noCompaniesYetBody": "Register your company to start trading",
+    "signOut": "Sign out",
+    "nav": {
+      "overview": "Overview",
+      "companies": "My Companies",
+      "products": "Products",
+      "rfq": "RFQ Listings",
+      "opportunities": "Opportunities",
+      "inbox": "Inbox",
+      "analytics": "Analytics",
+      "settings": "Settings",
+      "expandSidebar": "Expand sidebar",
+      "collapseSidebar": "Collapse sidebar",
+      "services": "Services"
+    },
+    "editCompany": {
+      "title": "Edit Company Profile",
+      "backToDashboard": "Back to Dashboard",
+      "saveChanges": "Save Changes",
+      "loadError": "Failed to load company data",
+      "updateSuccess": "Company profile updated successfully!",
+      "updateError": "Failed to update company",
+      "basicInfo": "Basic Information",
+      "companyName": "Company Name",
+      "sector": "Sector",
+      "hsCode": "HS Code",
+      "hsCodePlaceholder": "e.g., 0901.11",
+      "description": "Description",
+      "tags": "Tags (comma-separated)",
+      "tagsPlaceholder": "e.g., organic, export-ready, fair-trade",
+      "exportCapacity": "Export Capacity",
+      "productionCapacity": "Production Capacity",
+      "minimumOrder": "Minimum Order",
+      "leadTime": "Lead Time",
+      "certifications": "Certifications",
+      "exportMarkets": "Export Markets",
+      "ownershipDenied": "You do not have permission to edit this company.",
+      "saving": "Saving changes...",
+      "sectorPlaceholder": "Select a sector",
+      "province": "Province",
+      "city": "City",
+      "listsHeading": "Capabilities & Reach",
+      "commaSeparatedPlaceholder": "Separate entries with commas",
+      "languages": "Spoken Languages",
+      "tagsHint": "Pick from available tags. Tags are managed by administrators.",
+      "noTagsAvailable": "No tags available yet.",
+      "hsCodeHint": "Pick the HS codes that match your products. HS codes are managed by administrators.",
+      "noHsCodesAvailable": "No HS codes available yet.",
+      "media": "Media",
+      "mediaHint": "Add your logo, gallery photos, brochures, and product videos. These appear on your public company profile."
+    },
+    "products": {
+      "title": "Products",
+      "addProduct": "Add Product",
+      "signInRequired": "Please sign in to view products.",
+      "noCompany": "No company registered yet",
+      "noCompanyBody": "Register a company first before adding products.",
+      "registerCompany": "Register a company",
+      "companyLabel": "Company:",
+      "selectCompany": "Select company",
+      "colName": "Name",
+      "colDescription": "Description",
+      "colImages": "Images",
+      "colCreated": "Created",
+      "emptyTitle": "No products yet",
+      "emptyBody": "Add your first product to get started.",
+      "noDescription": "No description",
+      "deleteConfirm": "Delete \"{name}\"? This action cannot be undone.",
+      "deleting": "Deleting product...",
+      "deleted": "Product deleted.",
+      "deleteError": "Failed to delete product.",
+      "backToProducts": "Back to Products",
+      "signInToAdd": "Please sign in to add products.",
+      "editProduct": "Edit Product",
+      "loadError": "Failed to load product.",
+      "ownershipDenied": "You don't have permission to edit this product."
+    },
+    "productForm": {
+      "nameLabel": "Product Name",
+      "namePlaceholder": "e.g. Organic Arabica Coffee Beans",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "Describe the product, its origin, quality grade, certifications...",
+      "categoryLabel": "Category ID",
+      "optional": "(optional)",
+      "categoryPlaceholder": "Category identifier",
+      "imagesLabel": "Images",
+      "imageAlt": "Product image {index}",
+      "removeImage": "Remove image",
+      "addImages": "Add images",
+      "imagesHint": "Images are uploaded when you save the product.",
+      "saveChanges": "Save Changes",
+      "createProduct": "Create Product",
+      "cancel": "Cancel",
+      "updating": "Updating product...",
+      "creating": "Creating product...",
+      "updateSuccess": "Product updated successfully.",
+      "createSuccess": "Product created successfully.",
+      "genericError": "Something went wrong",
+      "validation": {
+        "nameMin": "Name must be at least 2 characters",
+        "descriptionMin": "Description must be at least 10 characters",
+        "failed": "Validation failed"
+      },
+      "nameEnLabel": "Product Name (English)",
+      "nameEnPlaceholder": "e.g. Organic Arabica Coffee Beans",
+      "nameFrLabel": "Product Name (French)",
+      "nameFrPlaceholder": "e.g. Grains de café Arabica biologiques",
+      "descriptionEnLabel": "Description (English)",
+      "descriptionEnPlaceholder": "Describe the product, its origin, quality grade, certifications...",
+      "descriptionFrLabel": "Description (French)",
+      "descriptionFrPlaceholder": "Décrivez le produit, son origine, sa qualité, ses certifications...",
+      "categoryNone": "No category",
+      "invalidType": "{name} is not a supported image type.",
+      "fileTooLarge": "{name} exceeds the {max} MB limit.",
+      "maxImages": "You can upload at most {max} images."
+    },
+    "services": {
+      "title": "Services",
+      "addService": "Add Service",
+      "editService": "Edit Service",
+      "signInRequired": "Please sign in to view services.",
+      "signInToAdd": "Please sign in to add services.",
+      "noCompany": "No company registered yet",
+      "noCompanyBody": "Register a company first before adding services.",
+      "registerCompany": "Register a company",
+      "companyLabel": "Company:",
+      "selectCompany": "Select company",
+      "backToServices": "Back to Services",
+      "colName": "Name",
+      "colType": "Type",
+      "colDelivery": "Delivery",
+      "colStatus": "Status",
+      "colCreated": "Created",
+      "emptyTitle": "No services yet",
+      "emptyBody": "Add your first service to get started.",
+      "deleteConfirm": "Delete \"{name}\"? This action cannot be undone.",
+      "deleting": "Deleting service...",
+      "deleted": "Service deleted.",
+      "deleteError": "Failed to delete service.",
+      "loadError": "Failed to load service.",
+      "ownershipDenied": "You don't have permission to edit this service.",
+      "serviceTypes": {
+        "consulting": "Consulting",
+        "logistics": "Logistics",
+        "finance": "Finance",
+        "legal": "Legal",
+        "custom": "Custom",
+        "other": "Other"
+      },
+      "deliveryModes": {
+        "on_request": "On request",
+        "subscription": "Subscription",
+        "one_off": "One-off",
+        "retainer": "Retainer"
+      },
+      "statuses": {
+        "active": "Active",
+        "paused": "Paused",
+        "archived": "Archived"
+      }
+    },
+    "serviceForm": {
+      "nameEnLabel": "Service Name (English)",
+      "nameEnPlaceholder": "e.g. Export logistics coordination",
+      "nameFrLabel": "Service Name (French)",
+      "nameFrPlaceholder": "e.g. Coordination logistique d'exportation",
+      "descriptionEnLabel": "Description (English)",
+      "descriptionEnPlaceholder": "Describe the service, its scope, and what's included...",
+      "descriptionFrLabel": "Description (French)",
+      "descriptionFrPlaceholder": "Décrivez le service, sa portée et ce qui est inclus...",
+      "serviceTypeLabel": "Service Type",
+      "deliveryModeLabel": "Delivery Mode",
+      "categoryLabel": "Category",
+      "categoryPlaceholder": "Select a category",
+      "categoryNone": "No category",
+      "statusLabel": "Status",
+      "priceEnLabel": "Price Indication (English)",
+      "priceFrLabel": "Price Indication (French)",
+      "pricePlaceholder": "e.g. From $500 / shipment",
+      "optional": "(optional)",
+      "saveChanges": "Save Changes",
+      "createService": "Create Service",
+      "cancel": "Cancel",
+      "updating": "Updating service...",
+      "creating": "Creating service...",
+      "updateSuccess": "Service updated successfully.",
+      "createSuccess": "Service created successfully.",
+      "permissionError": "You don't have permission to save this service.",
+      "genericError": "Something went wrong",
+      "serviceTypes": {
+        "consulting": "Consulting",
+        "logistics": "Logistics",
+        "finance": "Finance",
+        "legal": "Legal",
+        "custom": "Custom",
+        "other": "Other"
+      },
+      "deliveryModes": {
+        "on_request": "On request",
+        "subscription": "Subscription",
+        "one_off": "One-off",
+        "retainer": "Retainer"
+      },
+      "statuses": {
+        "active": "Active",
+        "paused": "Paused",
+        "archived": "Archived"
+      },
+      "validation": {
+        "nameMin": "Name must be at least 2 characters",
+        "failed": "Validation failed"
+      }
+    },
+    "media": {
+      "tabs": {
+        "logo": "Logo",
+        "gallery": "Gallery",
+        "brochure": "Brochures",
+        "video": "Videos"
+      },
+      "count": "{count} / {max}",
+      "delete": "Delete",
+      "uploading": "Uploading…",
+      "saving": "Saving…",
+      "deleting": "Deleting…",
+      "loadError": "We couldn't load your media. Please try again.",
+      "uploadError": "The upload failed. Please try again.",
+      "saveError": "We couldn't save that. Please try again.",
+      "deleteError": "We couldn't delete that. Please try again.",
+      "deleteSuccess": "Deleted.",
+      "imageConstraints": "JPG, PNG or WebP. Max {max} per file.",
+      "brochureConstraints": "PDF only. Max {max} per file.",
+      "error": {
+        "type": "That file type isn't allowed.",
+        "size": "File is too large. Maximum size is {max}.",
+        "quota": "You've reached the limit of {max} items. Delete one to add more."
+      },
+      "logo": {
+        "hint": "A square logo works best. It shows on your profile and in listings.",
+        "alt": "Company logo",
+        "upload": "Upload logo",
+        "replace": "Replace logo",
+        "remove": "Remove logo",
+        "uploadSuccess": "Logo updated.",
+        "removeSuccess": "Logo removed."
+      },
+      "gallery": {
+        "hint": "Showcase your facilities, team, and products with photos.",
+        "add": "Add photos",
+        "imageAlt": "Gallery photo",
+        "uploadSuccess": "{count, plural, one {# photo added} other {# photos added}}."
+      },
+      "brochure": {
+        "hint": "Upload PDF brochures, catalogues, or spec sheets.",
+        "add": "Add brochure",
+        "fallbackName": "Brochure",
+        "uploadSuccess": "{count, plural, one {# brochure added} other {# brochures added}}."
+      },
+      "video": {
+        "hint": "Paste a link to a hosted video (YouTube, Vimeo, or your own URL).",
+        "urlLabel": "Video URL",
+        "urlPlaceholder": "https://…",
+        "add": "Add",
+        "addSuccess": "Video added.",
+        "invalidUrl": "Enter a valid video URL starting with http:// or https://."
+      }
+    }
+  },
+  "Footer": {
+    "portal": "Portal",
+    "companies": "Companies",
+    "products": "Products",
+    "howItWorks": "How It Works",
+    "verify": "Verify Business",
+    "legal": "Legal",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookie Policy",
+    "copyright": "Official portal of the DRC."
+  },
+  "Inbox": {
+    "title": "Inbox",
+    "unread": "{count} unread message(s)",
+    "noMessages": "No messages yet",
+    "selectMessage": "Select a message to view",
+    "reply": "Reply",
+    "search": "Search messages...",
+    "signInRequired": "Please sign in to view your inbox.",
+    "signInRequiredConversation": "Please sign in to view this conversation.",
+    "searchConversations": "Search conversations...",
+    "unknownCompany": "Unknown",
+    "noSearchResults": "No conversations match your search",
+    "noConversations": "No conversations yet",
+    "selectConversation": "Select a conversation to view messages",
+    "conversationNotFound": "Conversation not found.",
+    "backToInbox": "Back to Inbox",
+    "relativeNow": "now",
+    "relativeMinutes": "{count}m",
+    "relativeHours": "{count}h",
+    "relativeDays": "{count}d",
+    "opportunityContext": "Re: {title}"
+  },
+  "Contact": {
+    "title": "Contact Us",
+    "subtitle": "Have questions? We're here to help.",
+    "sendMessage": "Send us a Message",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send Message",
+    "success": "Message sent successfully! We'll get back to you soon."
+  },
+  "RisingPotential": {
+    "titlePrefix": "THE RISING POTENTIAL",
+    "titleHighlight": "OF THE DRC",
+    "description": "Discover a rapidly growing market ripe with opportunities. We connect international vision with local demands, opening doors to successful partnerships in the heart of Africa.",
+    "stats": {
+      "population": "Population",
+      "gdp": "GDP (2024)",
+      "growth": "Annual Growth"
+    }
+  },
+  "ContactPoints": {
+    "title": "Find Your Local Contact Point",
+    "description": "Get in touch with your local Network contact point by selecting the country and city closest to where your business is based. They can help you with advice, support and opportunities for international partnerships.",
+    "sidebarTitle": "CITIES",
+    "noResults": {
+      "title": "No contact points found",
+      "message": "Contact points for {city} are being added. Please check back soon."
+    }
+  },
+  "Sectors": {
+    "title": "Key Economic Sectors",
+    "description": "Explore the driving forces of the Congolese economy. Connect with verified companies across major industries.",
+    "viewAll": "View All Sectors",
+    "companiesCount": "Companies",
+    "items": {
+      "mining": {
+        "name": "Strategic Minerals",
+        "desc": "Copper, Cobalt, Lithium, Tantalum"
+      },
+      "agriculture": {
+        "name": "Agribusiness",
+        "desc": "Coffee, Cocoa, Palm Oil, Rubber"
+      },
+      "energy": {
+        "name": "Renewable Energy",
+        "desc": "Hydroelectric (Inga), Solar, Grid"
+      },
+      "infrastructure": {
+        "name": "Infrastructure",
+        "desc": "Transport, Ports, Construction"
+      },
+      "manufacturing": {
+        "name": "Manufacturing",
+        "desc": "Processing, Textiles, Assembly"
+      },
+      "forestry": {
+        "name": "Forestry",
+        "desc": "Timber, Sustainable Logging"
+      }
+    }
+  },
+  "Opportunities": {
+    "title": "Partnering Opportunities",
+    "description": "Find and connect with business partners across the DRC",
+    "postButton": "Post an Opportunity",
+    "filter": {
+      "title": "Filter By",
+      "keywords": "Keywords",
+      "profileType": "Type of profile",
+      "partnerType": "Type of partner",
+      "partnershipType": "Type of partnership",
+      "search": "Search",
+      "clear": "Clear Filters",
+      "options": {
+        "allTypes": "All types",
+        "allPartners": "All partners",
+        "allPartnerships": "All partnerships",
+        "business_offer": "Business Offer",
+        "business_request": "Business Request",
+        "technology_offer": "Technology Offer",
+        "manufacturer": "Manufacturer",
+        "distributor": "Distributor",
+        "supplier": "Supplier",
+        "investor": "Investor",
+        "commercial": "Commercial agreement",
+        "outsourcing": "Outsourcing agreement",
+        "investment": "Investment agreement"
+      }
+    },
+    "list": {
+      "title": "Partnering Opportunities",
+      "results": "Results",
+      "types": {
+        "business_offer": "Business Offer",
+        "business_request": "Business Request"
+      },
+      "respond": "Respond"
+    },
+    "dialog": {
+      "postTitle": "Post a Business Opportunity",
+      "postDesc": "Share your business needs or offers with the global community.",
+      "respondTitle": "Respond to Opportunity",
+      "respondDesc": "Express your interest in \"{title}\".",
+      "submit": "Submit for Review",
+      "send": "Send Message",
+      "cancel": "Cancel"
+    },
+    "navLabel": "Opportunities",
+    "page": {
+      "title": "Opportunities Board",
+      "subtitle": "Tenders, PPPs, investment calls and partnerships from DRC.",
+      "empty": "No opportunities published yet.",
+      "error": "We couldn't load opportunities right now. Please try again later."
+    },
+    "categories": {
+      "tender": "Tenders",
+      "ppp": "PPP",
+      "investment_call": "Investment calls",
+      "offer": "Offers",
+      "demand": "Demands",
+      "quotation": "Quotations",
+      "partner_search": "Partner search",
+      "project_launch": "Project launches"
+    },
+    "filters": {
+      "category": "Category",
+      "sector": "Sector",
+      "any": "Any"
+    },
+    "fields": {
+      "title": "Title",
+      "summary": "Summary (1-3 sentences)",
+      "body": "Details (markdown)",
+      "category": "Category",
+      "deadline": "Deadline",
+      "budget": "Budget",
+      "region": "Region",
+      "sector": "Sector",
+      "slug": "URL slug",
+      "sectorPlaceholder": "Select a sector",
+      "sectorNone": "No sector"
+    },
+    "status": {
+      "draft": "Draft",
+      "pending_review": "Pending review",
+      "published": "Published",
+      "rejected": "Rejected",
+      "expired": "Expired"
+    },
+    "dashboard": {
+      "title": "My opportunities",
+      "new": "New opportunity",
+      "submit": "Submit for review",
+      "save": "Save",
+      "saved": "Saved.",
+      "submitted": "Submitted. Admin will review.",
+      "emptyTitle": "No opportunities yet",
+      "emptyBody": "Post your first opportunity to receive offers from verified DRC companies.",
+      "loadError": "We couldn't load your opportunities. Please try again later.",
+      "responses": "Responses",
+      "noResponses": "None yet",
+      "edit": "Edit opportunity"
+    },
+    "admin": {
+      "queue": "Moderation queue",
+      "approve": "Approve",
+      "reject": "Reject",
+      "rejectReason": "Reason (optional)",
+      "approved": "Approved.",
+      "rejected": "Rejected.",
+      "queueSubtitle": "Review and moderate trade opportunity listings.",
+      "filterAll": "All",
+      "loadError": "We couldn't load the moderation queue. Please try again later.",
+      "company": "Company",
+      "statusHeading": "Status",
+      "updated": "Updated",
+      "queueEmpty": "No opportunities match this filter."
+    },
+    "contact": "Contact the company",
+    "deadlineWindows": {
+      "all": "Any deadline",
+      "7d": "Within 7 days",
+      "30d": "Within 30 days",
+      "90d": "Within 90 days"
+    },
+    "validation": {
+      "companyRequired": "Select a company.",
+      "titleEnRequired": "English title is required.",
+      "titleFrRequired": "French title is required.",
+      "summaryEnRequired": "English summary is required.",
+      "summaryFrRequired": "French summary is required.",
+      "slugRequired": "A URL slug is required.",
+      "budgetNegative": "Budget cannot be negative.",
+      "budgetRange": "Maximum budget must be greater than or equal to the minimum.",
+      "fixErrors": "Please fix the highlighted fields."
+    },
+    "gate": {
+      "verificationRequiredTitle": "Verification required",
+      "verificationRequiredBody": "Your company must be verified before you can post an opportunity.",
+      "checkStatus": "Check verification status"
+    },
+    "form": {
+      "company": "Company",
+      "selectCompany": "Select company",
+      "titleEn": "Title (EN)",
+      "titleFr": "Title (FR)",
+      "titleEnPlaceholder": "English title",
+      "titleFrPlaceholder": "French title",
+      "summaryEn": "Summary (EN)",
+      "summaryFr": "Summary (FR)",
+      "summaryEnPlaceholder": "1–3 sentence English summary",
+      "summaryFrPlaceholder": "French summary",
+      "bodyEn": "Details (EN, markdown)",
+      "bodyFr": "Details (FR, markdown)",
+      "bodyEnPlaceholder": "Full details in English (markdown supported)",
+      "bodyFrPlaceholder": "Full details in French",
+      "slugPlaceholder": "auto-generated-from-title",
+      "budgetMin": "Budget min",
+      "budgetMax": "Budget max",
+      "currency": "Currency",
+      "regionPlaceholder": "e.g. Kinshasa, Nord-Kivu",
+      "saveDraft": "Save draft",
+      "submitForReview": "Submit for review",
+      "savedDraft": "Saved as draft.",
+      "saved": "Saved.",
+      "submittedReview": "Submitted for review.",
+      "genericError": "An error occurred."
+    },
+    "respond": {
+      "cta": "Respond to this opportunity",
+      "title": "Respond to opportunity",
+      "description": "Share your interest in \"{title}\". Your message opens a private thread with the poster.",
+      "messageLabel": "Your message",
+      "messagePlaceholder": "Introduce your company and explain how you can help...",
+      "submit": "Send response",
+      "cancel": "Cancel",
+      "sending": "Sending your response...",
+      "success": "Response sent. The poster can now reply in your inbox.",
+      "error": "Could not send your response. Please try again.",
+      "ownListing": "This is your own opportunity.",
+      "emailNotVerified": "Please verify your email before responding.",
+      "unavailable": "This opportunity is no longer available."
+    },
+    "responses": {
+      "heading": "Responses",
+      "empty": "No responses yet. They will appear here when buyers respond.",
+      "anonymous": "Anonymous user",
+      "openThread": "Open conversation"
+    },
+    "hero": {
+      "title": "Explore Business Opportunities in the DRC",
+      "subtitle": "Discover tenders, partnership calls, investment leads, procurement notices, and commercial opportunities across strategic sectors in the Democratic Republic of Congo.",
+      "keyword": "Keyword",
+      "keywordPh": "Search opportunities...",
+      "type": "Opportunity Type",
+      "sector": "Sector",
+      "allSectors": "All Sectors",
+      "province": "Province",
+      "allProvinces": "All Provinces",
+      "search": "Search",
+      "browse": "Browse Opportunities",
+      "submit": "Submit Opportunity",
+      "types": {
+        "all": "All Types",
+        "tenders": "Tenders",
+        "partnership": "Partnership",
+        "investment": "Investment",
+        "supply": "Supply Requests",
+        "export": "Export Opportunities"
+      }
+    },
+    "stats": {
+      "opportunities": "Opportunities Listed",
+      "companies": "Companies Active",
+      "sectors": "Strategic Sectors",
+      "provinces": "Provinces Covered"
+    },
+    "post": {
+      "title": "Post a Business Opportunity",
+      "body": "Publish your tenders, sourcing requests, partnership calls, or investment leads and connect with qualified businesses across the DRC.",
+      "cta": "Post Now"
+    },
+    "board": {
+      "title": "Latest Opportunities",
+      "verified": "Verified",
+      "deadline": "Deadline",
+      "openEnded": "Open-ended",
+      "viewDetails": "View Details",
+      "expressInterest": "Express Interest",
+      "viewMore": "View More Opportunities"
+    },
+    "tabs": {
+      "all": "All",
+      "tenders": "Tenders",
+      "partnership": "Partnership",
+      "investment": "Investment",
+      "supply": "Supply Requests",
+      "export": "Export Opportunities"
+    },
+    "badges": {
+      "tender": "Tender",
+      "ppp": "PPP",
+      "investment": "Investment",
+      "project": "Project",
+      "export": "Export",
+      "supply": "Supply Request",
+      "procurement": "Procurement",
+      "partnership": "Partnership"
+    },
+    "need": {
+      "title": "Can't Find What You're Looking For?",
+      "subtitle": "Submit Your Business Need",
+      "needType": "Need Type",
+      "needTypePh": "Select type",
+      "sector": "Sector",
+      "sectorPh": "Select sector",
+      "province": "Province",
+      "provincePh": "Select province",
+      "companyName": "Company Name",
+      "companyNamePh": "Your company",
+      "email": "Email",
+      "emailPh": "Your email address",
+      "submit": "Submit Request",
+      "submitting": "Submitting your request...",
+      "success": "Your business need has been submitted!",
+      "invalid": "Please check the required fields.",
+      "error": "Something went wrong. Please try again.",
+      "types": {
+        "find_partner": "Find a Partner",
+        "invest": "Investment",
+        "buy": "Sourcing / Supply",
+        "sell": "Sell / Offer",
+        "publish_opportunity": "Publish an Opportunity",
+        "other": "Other"
+      }
+    },
+    "why": {
+      "title": "Why Use the Trade in DRC Opportunities Board?",
+      "items": {
+        "credible": "Verified and credible opportunity listings",
+        "reach": "Nationwide reach across all 26 provinces",
+        "connections": "Faster connections with buyers and partners",
+        "visibility": "Increased visibility for your business",
+        "sectors": "Access to strategic sectors and projects",
+        "secure": "Secure platform with professional support"
+      }
+    }
+  },
+  "Products": {
+    "title": "OUR PRODUCTS",
+    "titleHighlight": "MARKETPLACE",
+    "description": "Browse verified products made in DRC",
+    "searchPlaceholder": "Search For Category",
+    "tabs": {
+      "products": "Products",
+      "importers": "Importers",
+      "exporters": "Exporters",
+      "databank": "Databank"
+    },
+    "categories": {
+      "clothing": "Clothing - Fashion",
+      "leather": "Leather Products & Shoes",
+      "automotive": "Automotive - Vehicles",
+      "metals": "Metals - Iron - Steel",
+      "machinery": "Machinery Industry",
+      "agricultural": "Agricultural Machinery",
+      "furniture": "Furniture",
+      "food": "Food Industry",
+      "chemical": "Chemical Industry",
+      "industrial": "Industrial Products"
+    },
+    "detail": {
+      "loading": "Loading product...",
+      "notFound": "Product not found",
+      "backToProducts": "Back to Products",
+      "location": "Location",
+      "description": "Description",
+      "specifications": "Specifications",
+      "soldBy": "Sold by",
+      "contactCompany": "Contact Company",
+      "signInToContact": "Sign in to Contact",
+      "relatedProducts": "Other products from this company",
+      "imageAlt": "Product image"
+    }
+  },
+  "Investment": {
+    "badge": "Strategic Investment",
+    "titlePrefix": "Why Invest in",
+    "titleHighlight": "DRC",
+    "titleSuffix": "?",
+    "description": "The Democratic Republic of the Congo offers unparalleled opportunities in mining, energy, agriculture, and infrastructure. Benefit from a reforming business climate and a strategic location in the heart of Africa.",
+    "stats": {
+      "location": {
+        "title": "Strategic Location",
+        "desc": "Gateway to 9 neighboring countries"
+      },
+      "resources": {
+        "title": "Abundant Resources",
+        "desc": "World's largest cobalt reserves"
+      },
+      "energy": {
+        "title": "Energy Potential",
+        "desc": "100GW hydropower potential"
+      },
+      "market": {
+        "title": "Growing Market",
+        "desc": "Access to 100M+ consumers"
+      }
+    },
+    "exploreButton": "Explore Opportunities"
+  },
+  "TradeHub": {
+    "titlePrefix": "The Global",
+    "titleHighlight": "Trade Hub",
+    "description": "Connect with verified suppliers, access real-time market data, and leverage our comprehensive export-import framework. We facilitate seamless trade partnerships between the DRC and the world.",
+    "buttons": {
+      "explore": "Explorer Sectors",
+      "register": "Register as Partner"
+    },
+    "fastTrack": {
+      "title": "Fast Track Trade",
+      "export": "Export Procedures",
+      "partners": "Find Local Partners",
+      "customs": "Customs & Tariffs",
+      "guide": "Investment Guide"
+    }
+  },
+  "RfqFeed": {
+    "badge": "Live Opportunities",
+    "title": "Real-Time Trade Demand",
+    "description": "See what's being bought and sold right now. Connect directly with verified buyers and suppliers to close deals faster.",
+    "buttons": {
+      "viewAll": "View All Opportunities",
+      "post": "Post an Opportunity"
+    },
+    "card": {
+      "details": "View Details",
+      "contact": "Contact",
+      "expires": "Expires {date}",
+      "unknownCompany": "Unknown company"
+    }
+  },
+  "SupplierSpotlight": {
+    "badge": "Officially Verified",
+    "title": "Trusted Market Leaders",
+    "description": "Connect with top-tier verified companies that meet the Ministry's highest standards for export readiness and compliance.",
+    "verifiedPartner": "Verified Partner",
+    "viewProfile": "View Profile",
+    "browseAll": "Browse all verified suppliers"
+  },
+  "CookieConsent": {
+    "text": "We use cookies to improve your experience on our official portal. By continuing, you agree to our privacy policy.",
+    "accept": "Accept All",
+    "decline": "Decline"
+  },
+  "Admin": {
+    "notAuthorized": "You don't have access to that area.",
+    "verifications": {
+      "title": "Verification Queue",
+      "subtitle": "Review and approve company registrations",
+      "review": "Review",
+      "submitting": "Submitting decision...",
+      "backToQueue": "Back to Queue",
+      "loadError": "We couldn't load the verification queue. Please try again.",
+      "tabs": {
+        "all": "All ({count})",
+        "new": "New ({count})",
+        "resubmitted": "Resubmitted ({count})"
+      },
+      "columns": {
+        "company": "Company",
+        "sector": "Sector",
+        "submitted": "Submitted",
+        "documents": "Documents",
+        "status": "Status",
+        "action": "Action"
+      },
+      "badges": {
+        "resubmitted": "RESUBMITTED"
+      },
+      "empty": {
+        "title": "All caught up!",
+        "subtitle": "No pending verifications at the moment."
+      },
+      "decision": {
+        "title": "Decision",
+        "approve": "Approve",
+        "reject": "Reject",
+        "requestInfo": "Request More Info",
+        "tierLabel": "Verification tier",
+        "tierHint": "Verified and Premium tiers display the \"Verified by Ministry\" badge.",
+        "notesRequired": "Notes (required)",
+        "notesOptional": "Notes (optional)",
+        "notesPlaceholder": "Add review notes...",
+        "submit": "Submit Decision"
+      },
+      "detail": {
+        "companyInfo": "Company Information",
+        "products": "Products ({count})",
+        "noProducts": "No products listed.",
+        "documents": "Documents",
+        "currentTier": "Current tier",
+        "reviewHistory": "Review History",
+        "noReviews": "No previous reviews.",
+        "submittedOn": "Submitted {date}"
+      },
+      "documents": {
+        "empty": "No documents uploaded.",
+        "view": "View",
+        "unavailable": "Unavailable",
+        "uploaded": "uploaded",
+        "missing": "missing",
+        "type": {
+          "business_license": "Business License",
+          "tax_registration": "Tax Registration",
+          "proof_of_address": "Proof of Address",
+          "logo": "Logo",
+          "photo": "Photo",
+          "additional_document": "Additional document"
+        },
+        "status": {
+          "pending": "Pending",
+          "approved": "Approved",
+          "rejected": "Rejected"
+        }
+      },
+      "statusValues": {
+        "pending": "Pending",
+        "verified": "Verified",
+        "rejected": "Rejected"
+      },
+      "decisionValues": {
+        "approved": "Approved",
+        "rejected": "Rejected",
+        "more_info_requested": "More info requested",
+        "resubmitted": "Resubmitted"
+      },
+      "success": {
+        "approved": "Company approved successfully.",
+        "rejected": "Company rejected successfully.",
+        "more_info_requested": "More information requested from the company."
+      },
+      "errors": {
+        "notesRequired": "Notes are required for this action.",
+        "notes_required": "Notes are required for this action.",
+        "tier_required": "Select a verification tier before approving.",
+        "invalid_input": "Some details were invalid. Please review and try again.",
+        "review_insert_failed": "Couldn't record the review. Please try again.",
+        "company_update_failed": "Couldn't update the company. Please try again.",
+        "generic": "Failed to submit the decision. Please try again."
+      }
+    },
+    "companies": {
+      "backToCompanies": "Back to Companies",
+      "notFound": "Company not found.",
+      "registeredOn": "Registered {date}",
+      "statusValues": {
+        "pending": "Pending",
+        "verified": "Verified",
+        "rejected": "Rejected"
+      },
+      "tier": {
+        "title": "Verification tier",
+        "current": "Current tier:",
+        "verifiedOn": "verified {date}",
+        "save": "Save Tier",
+        "saving": "Saving tier...",
+        "saved": "Verification tier updated.",
+        "hint": "Verified and Premium tiers display the \"Verified by Ministry\" badge.",
+        "errors": {
+          "invalid_input": "Some details were invalid. Please review and try again.",
+          "review_insert_failed": "Couldn't record the change. Please try again.",
+          "company_update_failed": "Couldn't update the company. Please try again.",
+          "generic": "Failed to update the tier. Please try again."
+        }
+      },
+      "info": {
+        "title": "Company Information",
+        "sector": "Sector",
+        "owner": "Owner",
+        "city": "City",
+        "province": "Province",
+        "address": "Address",
+        "email": "Email",
+        "phone": "Phone",
+        "website": "Website",
+        "description": "Description"
+      },
+      "products": {
+        "title": "Products ({count})",
+        "empty": "No products listed."
+      },
+      "documents": {
+        "title": "Documents ({count})"
+      },
+      "history": {
+        "title": "Verification History ({count})",
+        "empty": "No verification reviews yet."
+      },
+      "decisionValues": {
+        "approved": "Approved",
+        "rejected": "Rejected",
+        "more_info_requested": "More info requested",
+        "resubmitted": "Resubmitted"
+      },
+      "trustProfile": {
+        "title": "Trust profile"
+      },
+      "segments": {
+        "title": "Segments"
+      },
+      "listTitle": "Companies",
+      "listSubtitle": "All registered companies across all statuses",
+      "searchPlaceholder": "Search by company name...",
+      "filterAll": "All",
+      "colCompany": "Company",
+      "colStatus": "Status",
+      "colOwnerEmail": "Owner Email",
+      "colCreated": "Created",
+      "colAction": "Action",
+      "view": "View",
+      "emptyTitle": "No companies found",
+      "emptySearch": "Try adjusting your search.",
+      "emptyFilter": "No companies match the selected filter.",
+      "loadMore": "Load more ({count} remaining)",
+      "loadError": "Couldn't load companies. Please refresh and try again."
+    },
+    "users": {
+      "title": "Users",
+      "subtitle": "Manage platform user accounts, roles and moderation",
+      "searchPlaceholder": "Search by email or name...",
+      "colEmail": "Email",
+      "colName": "Full name",
+      "colRole": "Role",
+      "colCompanies": "Companies",
+      "colStatus": "Status",
+      "colJoined": "Joined",
+      "colActions": "Actions",
+      "empty": "No users found",
+      "statusActive": "Active",
+      "statusSuspended": "Suspended",
+      "suspend": "Suspend",
+      "reactivate": "Reactivate",
+      "suspending": "Suspending account...",
+      "suspended": "Account suspended",
+      "reactivating": "Reactivating account...",
+      "reactivated": "Account reactivated",
+      "moderationError": "Could not update the account",
+      "roleUpdating": "Updating role...",
+      "roleUpdated": "Role updated",
+      "roleError": "Could not update the role",
+      "loadError": "Failed to load users",
+      "auditTitle": "Recent moderation activity",
+      "auditWhen": "When",
+      "auditActor": "Admin",
+      "auditAction": "Action",
+      "auditSummary": "Details",
+      "auditEmpty": "No moderation activity yet",
+      "auditLoadError": "Failed to load the audit trail",
+      "role": {
+        "superAdmin": "Super-Admin",
+        "moderator": "Moderator",
+        "congoleseCompany": "Congolese Company",
+        "internationalBusiness": "International Business",
+        "user": "Standard user"
+      }
+    },
+    "dashboard": {
+      "title": "Admin Dashboard",
+      "subtitle": "Platform activity, verification status and engagement",
+      "loadError": "Failed to load dashboard metrics",
+      "kpi": {
+        "total": "Total companies",
+        "pending": "Pending",
+        "verified": "Verified",
+        "rejected": "Rejected",
+        "views": "Profile views",
+        "contacts": "Contact requests"
+      },
+      "sectorTitle": "Companies by sector",
+      "sectorEmpty": "No sector data yet",
+      "topTitle": "Top companies by views",
+      "topEmpty": "No view activity yet"
+    },
+    "settings": {
+      "title": "Settings",
+      "subtitle": "Site configuration, homepage carousel and featured companies",
+      "tabGeneral": "General",
+      "tabCarousel": "Carousel",
+      "tabFeatured": "Featured",
+      "generalTitle": "General settings",
+      "taglineEn": "Tagline (English)",
+      "taglineFr": "Tagline (French)",
+      "contactEmail": "Contact email",
+      "supportPhone": "Support phone",
+      "carouselToggle": "Homepage carousel",
+      "carouselToggleHint": "Show the curated carousel on the public homepage",
+      "save": "Save",
+      "saving": "Saving...",
+      "saved": "Saved",
+      "saveError": "Could not save changes",
+      "loadError": "Failed to load settings",
+      "cancel": "Cancel",
+      "deleting": "Deleting...",
+      "deleted": "Deleted",
+      "deleteError": "Could not delete",
+      "carouselHint": "Curate the rotating hero slides shown below the homepage hero.",
+      "carouselEmpty": "No slides yet. Add one to populate the homepage carousel.",
+      "addSlide": "Add slide",
+      "editSlide": "Edit slide",
+      "slideTitleEn": "Title (English)",
+      "slideTitleFr": "Title (French)",
+      "slideSubtitleEn": "Subtitle (English)",
+      "slideSubtitleFr": "Subtitle (French)",
+      "slideImage": "Image URL",
+      "slideCtaEn": "Button label (English)",
+      "slideCtaFr": "Button label (French)",
+      "slideHref": "Button link",
+      "slideOrder": "Sort order",
+      "slideActive": "Active",
+      "slideInactive": "Inactive",
+      "featuredHint": "Spotlight verified companies on the public homepage.",
+      "featuredSelectPlaceholder": "Select a verified company...",
+      "featuredNoCandidates": "No more verified companies to feature",
+      "featuredAdd": "Feature",
+      "featuredEmpty": "No featured companies yet"
+    },
+    "nav": {
+      "console": "Admin Console",
+      "administrator": "Administrator",
+      "signOut": "Sign Out",
+      "navDashboard": "Dashboard",
+      "navVerifications": "Verifications",
+      "navContent": "Content",
+      "navOpportunities": "Opportunities",
+      "navDataHub": "Data Hub",
+      "navCompanies": "Companies",
+      "navUsers": "Users",
+      "navMessages": "Messages",
+      "navTaxonomy": "Taxonomy",
+      "navAnalytics": "Analytics",
+      "navSettings": "Settings",
+      "navRequests": "Requests",
+      "navPremium": "Premium"
+    },
+    "analytics": {
+      "title": "Platform Analytics",
+      "subtitle": "Platform-wide statistics and activity overview",
+      "loadError": "Failed to load analytics",
+      "totalCompanies": "Total Companies",
+      "verifiedCompanies": "Verified Companies",
+      "pendingCompanies": "Pending Verification",
+      "rejectedCompanies": "Rejected",
+      "registeredUsers": "Registered Users",
+      "activeRfqListings": "Active RFQ Listings"
+    }
+  },
+  "Trust": {
+    "navLabel": "Trust Center",
+    "page": {
+      "title": "Trust Center",
+      "subtitle": "How we verify Congolese exporters before they appear on TradeInDRC.",
+      "kybTitle": "Know Your Business (KYB)",
+      "kybBody": "We confirm a company's legal existence, address, and tax registration.",
+      "kypTitle": "Know Your Product (KYP)",
+      "kypBody": "We verify origin, quality, and quantity of headline products on request.",
+      "kycTitle": "Know Your Customer (KYC)",
+      "kycBody": "We verify the identity of buyers and partners involved in deals.",
+      "tiersTitle": "Verification tiers"
+    },
+    "report": {
+      "title": "Trust report for {company}",
+      "viewLink": "View trust report",
+      "noSummary": "No public verification details are available yet.",
+      "lastUpdated": "Last updated {date}",
+      "checks": {
+        "kyb": "Legal & business identity",
+        "address": "Address verification",
+        "tax": "Tax registration",
+        "license": "Operating license",
+        "site_visit": "On-site visit",
+        "audit": "Independent audit"
+      },
+      "status": {
+        "passed": "Passed",
+        "pending": "Pending",
+        "failed": "Failed"
+      }
+    },
+    "badge": {
+      "none": "Not verified",
+      "basic": "Basic",
+      "verified": "Verified",
+      "premium": "Premium"
+    },
+    "admin": {
+      "tierLabel": "Verification tier",
+      "summaryLabel": "Public summary (JSON)",
+      "save": "Save trust profile",
+      "saved": "Trust profile updated.",
+      "invalidJson": "Summary is not valid JSON.",
+      "checklistLabel": "Verification checklist",
+      "notePlaceholderEn": "Note (EN)",
+      "notePlaceholderFr": "Note (FR)",
+      "notesLabelEn": "Public summary note (EN)",
+      "notesLabelFr": "Public summary note (FR)",
+      "saving": "Saving trust profile…",
+      "saveFailed": "Could not save the trust profile.",
+      "invalidSummary": "The verification summary is invalid."
+    }
+  },
+  "Content": {
+    "news": {
+      "title": "News",
+      "subtitle": "Latest updates from TradeInDRC.",
+      "empty": "No news yet."
+    },
+    "events": {
+      "title": "Events",
+      "subtitle": "Trade fairs, conferences, and gatherings.",
+      "empty": "No upcoming events."
+    },
+    "blog": {
+      "title": "Blog",
+      "subtitle": "Articles, guides, and resources.",
+      "empty": "No posts yet."
+    },
+    "admin": {
+      "title": "Content",
+      "new": "New",
+      "delete": "Delete",
+      "deleteConfirm": "Delete this item? This cannot be undone.",
+      "save": "Save",
+      "saved": "Saved.",
+      "deleted": "Deleted.",
+      "fields": {
+        "titleEn": "Title (EN)",
+        "titleFr": "Title (FR)",
+        "excerptEn": "Excerpt (EN)",
+        "excerptFr": "Excerpt (FR)",
+        "bodyEn": "Body (EN, markdown)",
+        "bodyFr": "Body (FR, markdown)",
+        "slug": "Slug",
+        "coverUrl": "Cover image URL",
+        "tags": "Tags (comma-separated)",
+        "status": "Status",
+        "eventStart": "Event start",
+        "eventEnd": "Event end",
+        "eventLocation": "Event location",
+        "cover": "Cover image",
+        "title": "Title",
+        "excerpt": "Excerpt",
+        "body": "Body"
+      },
+      "status": {
+        "draft": "Draft",
+        "published": "Published",
+        "archived": "Archived"
+      },
+      "tabs": {
+        "news": "News",
+        "events": "Events",
+        "blog": "Blog"
+      },
+      "created": "Created successfully.",
+      "saving": "Saving…",
+      "deleting": "Deleting…",
+      "saveError": "Failed to save. Please try again.",
+      "deleteError": "Failed to delete. Please try again.",
+      "slugPlaceholder": "auto-generated from title",
+      "tagsPlaceholder": "mining, investment, drc",
+      "bodyEnLabel": "Body (EN)",
+      "bodyFrLabel": "Body (FR)",
+      "eventDetails": "Event details",
+      "eventStartLabel": "Start date/time",
+      "eventEndLabel": "End date/time",
+      "eventLocationLabel": "Location",
+      "eventLocationPlaceholder": "Kinshasa, DRC",
+      "newKind": {
+        "news": "New news article",
+        "event": "New event",
+        "blog": "New blog post"
+      },
+      "editKind": {
+        "news": "Edit news article",
+        "event": "Edit event",
+        "blog": "Edit blog post"
+      },
+      "addNew": "+ New",
+      "colTitle": "Title (EN)",
+      "colStatus": "Status",
+      "colUpdated": "Updated",
+      "empty": "No items yet.",
+      "slugTaken": "That slug is already in use for this content type. Please choose a different one.",
+      "requiredLangMissing": "Title and body are required in English and French.",
+      "langHint": "Other languages are optional — empty fields fall back to English."
+    }
+  },
+  "Market": {
+    "navLabel": "Marketplace",
+    "page": {
+      "title": "Marketplace",
+      "subtitle": "Browse Congolese companies by what they do.",
+      "viewAll": "View all"
+    },
+    "segments": {
+      "manufacturer": "Manufacturers",
+      "importer": "Importers",
+      "exporter": "Exporters",
+      "finance": "Finance & Banking",
+      "logistics": "Logistics & Shipping",
+      "government": "Government bodies",
+      "public_corp": "Public corporations",
+      "facilitation": "Trade facilitation",
+      "investors": "Investors & More"
+    },
+    "filters": {
+      "segment": "Segment",
+      "sector": "Sector",
+      "verificationTier": "Verification",
+      "any": "Any",
+      "reset": "Reset filters"
+    },
+    "companyProfile": {
+      "tabsOverview": "Overview",
+      "tabsProducts": "Products",
+      "tabsServices": "Services",
+      "tabsSegments": "Segments",
+      "noServices": "No services listed yet.",
+      "noSegments": "No segments tagged yet.",
+      "tabsReferences": "References",
+      "tabsContacts": "Contacts",
+      "productionCapacity": "Production & Capacity",
+      "capacity": "Capacity",
+      "minOrder": "Min. Order",
+      "leadTime": "Lead Time",
+      "certifications": "Certifications",
+      "noDetails": "No additional details available.",
+      "noProducts": "No products listed yet."
+    }
+  },
+  "DataHub": {
+    "navLabel": "Data Hub",
+    "page": {
+      "title": "Data Hub",
+      "subtitle": "Market reports, legal guides, regulations, and price trends."
+    },
+    "pillars": {
+      "market_report": {
+        "title": "Market reports",
+        "body": "Industry analysis and sector overviews."
+      },
+      "legal_guide": {
+        "title": "Legal guides",
+        "body": "Practical guidance for trading in DRC."
+      },
+      "regulation": {
+        "title": "Regulations",
+        "body": "Official rules and compliance notes."
+      },
+      "prices": {
+        "title": "Price trends",
+        "body": "Commodity price series over time."
+      }
+    },
+    "list": {
+      "empty": "Nothing published yet."
+    },
+    "fields": {
+      "title": "Title",
+      "summary": "Summary",
+      "body": "Body (markdown)",
+      "attachment": "Attachment URL",
+      "sector": "Sector",
+      "status": "Status",
+      "slug": "URL slug",
+      "commodity": "Commodity",
+      "unit": "Unit",
+      "currency": "Currency",
+      "source": "Source",
+      "observedAt": "Date",
+      "value": "Value"
+    },
+    "status": {
+      "draft": "Draft",
+      "published": "Published",
+      "archived": "Archived"
+    },
+    "admin": {
+      "queue": "Data Hub",
+      "save": "Save",
+      "saved": "Saved.",
+      "deleteConfirm": "Delete this? Cannot be undone.",
+      "deleted": "Deleted.",
+      "upload": "Upload CSV",
+      "uploaded": "Uploaded.",
+      "parseError": "CSV could not be parsed.",
+      "delete": "Delete",
+      "deleting": "Deleting…",
+      "saving": "Saving…",
+      "uploading": "Uploading…",
+      "uploadFailed": "Upload failed.",
+      "uploadedCount": "{count} data points uploaded.",
+      "parseErrorLine": "CSV error on line {line} — please fix and retry.",
+      "dataPoints": "Data points",
+      "pasteCsv": "Paste CSV (date, value)",
+      "csvHint": "Optional header row. Quoted fields and thousands separators are supported.",
+      "noPoints": "No data points yet.",
+      "none": "— none —",
+      "newKind": {
+        "market_report": "New market report",
+        "legal_guide": "New legal guide",
+        "regulation": "New regulation"
+      },
+      "editKind": {
+        "market_report": "Edit market report",
+        "legal_guide": "Edit legal guide",
+        "regulation": "Edit regulation"
+      },
+      "unitPlaceholder": "kg, ton, barrel…",
+      "sourcePlaceholder": "IMF, World Bank…",
+      "slugPlaceholder": "auto-generated",
+      "prices": {
+        "listTitle": "Price Series",
+        "new": "+ New",
+        "colCommodity": "Commodity (EN)",
+        "colUpdated": "Updated",
+        "empty": "No series yet."
+      },
+      "reports": {
+        "new": "+ New",
+        "colTitle": "Title (EN)",
+        "colStatus": "Status",
+        "colUpdated": "Updated",
+        "empty": "No items yet."
+      },
+      "newSeries": "New Price Series",
+      "editSeries": "Edit Price Series"
+    },
+    "prices": {
+      "chartTitle": "Price over time",
+      "pointCount": "{count} data points",
+      "latestPrice": "Latest: {value} {currency}/{unit}"
+    },
+    "report": {
+      "download": "Download"
+    }
+  },
+  "Search": {
+    "placeholder": "Search…",
+    "openHint": "Press ⌘K",
+    "noResults": "No matches.",
+    "viewAll": "See all results for \"{q}\"",
+    "groups": {
+      "company": "Companies",
+      "product": "Products",
+      "service": "Services",
+      "opportunity": "Opportunities",
+      "content": "News & Articles",
+      "report": "Reports"
+    },
+    "page": {
+      "title": "Search",
+      "queryLabel": "Query",
+      "all": "All"
+    },
+    "close": "Close",
+    "quickActions": "Quick actions",
+    "searching": "Searching…",
+    "actions": {
+      "home": {
+        "title": "Home"
+      },
+      "dashboard": {
+        "title": "Dashboard",
+        "description": "Manage your profile and listings"
+      },
+      "companies": {
+        "title": "Browse companies",
+        "description": "Find verified suppliers in the DRC"
+      },
+      "opportunities": {
+        "title": "Trade opportunities",
+        "description": "View current RFQs and tenders"
+      },
+      "register": {
+        "title": "Register a company",
+        "description": "Start the official registration process"
+      },
+      "contact": {
+        "title": "Contact support"
+      }
+    },
+    "clear": "Clear search",
+    "typeToSearch": "Type to search...",
+    "noResultsFor": "No results found for “{query}”",
+    "keyEsc": "Esc",
+    "hintSelect": "Select",
+    "hintNavigate": "Navigate",
+    "categories": {
+      "navigation": "Navigation",
+      "actions": "Quick actions",
+      "companies": "Companies",
+      "resources": "Resources"
+    }
+  },
+  "Design": {
+    "search": "Search",
+    "viewAll": "View all",
+    "sendRfq": "Send RFQ",
+    "addRfq": "Add free RFQ",
+    "noResults": "No results.",
+    "resetFilters": "Reset filters",
+    "remove": "Remove",
+    "subscribe": "Subscribe",
+    "emailPlaceholder": "you@example.com",
+    "newsletter": {
+      "headline": "Stay updated",
+      "body": "Get monthly trade insights from DRC, delivered to your inbox.",
+      "consent": "I agree to receive emails from TradeInDRC and have read the {privacyLink}.",
+      "privacy": "Privacy Policy"
+    },
+    "hero": {
+      "tabs": {
+        "importers": "Importers",
+        "exporters": "Exporters",
+        "products": "Products",
+        "opportunities": "Opportunities"
+      },
+      "placeholder": "Search verified Congolese exporters, products, opportunities…",
+      "mockup": {
+        "title": "Live opportunity feed",
+        "chip": {
+          "importer": "Importer",
+          "exporter": "Exporter"
+        },
+        "rows": [
+          {
+            "country": "🇫🇷 France",
+            "title": "Burger Box request",
+            "chip": "importer"
+          },
+          {
+            "country": "🇨🇩 DRC",
+            "title": "Copper offer 50T",
+            "chip": "exporter"
+          },
+          {
+            "country": "🇪🇹 Ethiopia",
+            "title": "Drain cleaning",
+            "chip": "importer"
+          }
+        ]
+      }
+    },
+    "rfqBanner": {
+      "title": "Send an RFQ to every verified company on this page",
+      "action": "Submit RFQ"
+    },
+    "previous": "Previous",
+    "next": "Next",
+    "yearsActive": "{count, plural, one {# yr} other {# yrs}}"
+  },
+  "Home": {
+    "alert": "Verified Congolese exporters · Send RFQs free",
+    "alertDismiss": "Dismiss",
+    "hero": {
+      "tagline": "The official DRC trade portal",
+      "headline": "Find verified exporters, send RFQs, close deals.",
+      "subline": "Bilingual platform for buyers and suppliers connecting the Democratic Republic of Congo to the world.",
+      "cta": {
+        "browse": "Browse verified companies",
+        "howItWorks": "How it works",
+        "trust": {
+          "verified": "Verified exporters",
+          "bilingual": "EN · FR",
+          "free": "RFQs free"
+        }
+      }
+    },
+    "stats": {
+      "companies": "Verified exporters",
+      "sectors": "Sectors covered",
+      "products": "Live products",
+      "opportunities": "Live opportunities"
+    },
+    "why": {
+      "items": {
+        "verified": {
+          "title": "Every exporter verified",
+          "body": "KYB document review + on-site checks before companies appear publicly."
+        },
+        "bilingual": {
+          "title": "Bilingual by default",
+          "body": "Browse and trade in English or French — content stored and rendered in both languages."
+        },
+        "rfq": {
+          "title": "RFQs are free",
+          "body": "Send a single RFQ to every verified company on a list page. No subscription required."
+        }
+      }
+    },
+    "featured": {
+      "title": "Live opportunities",
+      "eyebrow": "Verified spotlight",
+      "viewAll": "View all companies"
+    },
+    "explorer": {
+      "title": "Explore the marketplace",
+      "sectorsHeading": "Sectors",
+      "tabs": {
+        "products": "Products",
+        "companies": "Companies",
+        "opportunities": "Opportunities"
+      },
+      "viewAll": "View all"
+    },
+    "latest": {
+      "productsTitle": "Latest products",
+      "databankTitle": "Latest databank",
+      "productsViewAll": "More products",
+      "databankViewAll": "More databank",
+      "listYourProduct": "List your product",
+      "postOpportunity": "Post an opportunity"
+    },
+    "rfqCta": "Submit an RFQ — receive offers from verified DRC companies",
+    "brands": {
+      "title": "Verified Congolese exporters"
+    },
+    "faq": {
+      "tag": "FAQ",
+      "title": "Some things you might want to know",
+      "subtitle": "We answered the questions so you don't have to ask.",
+      "items": {
+        "q1": {
+          "q": "How do I become a verified exporter?",
+          "a": "Register, complete your company profile, upload KYB documents in the dashboard, and our team reviews within 5 business days."
+        },
+        "q2": {
+          "q": "How do I send an RFQ?",
+          "a": "Log in, open any company or opportunity, and click 'Send RFQ'. You can also broadcast an RFQ to every verified company on a list page."
+        },
+        "q3": {
+          "q": "Is the platform free?",
+          "a": "Yes. Registration, browsing, and basic RFQs are free. Premium verification tiers and analytics are optional."
+        },
+        "q4": {
+          "q": "What languages are supported?",
+          "a": "English and French today. Turkish, Chinese, and Spanish are planned."
+        },
+        "q5": {
+          "q": "How do I contact a company?",
+          "a": "Open the company profile and click 'Message company' to start a conversation thread. Verified companies typically respond within 48 hours."
+        }
+      },
+      "helpCenter": "Help center"
+    },
+    "footer": {
+      "tagline": "DRC bilingual trade portal",
+      "columns": {
+        "platform": {
+          "title": "Platform",
+          "directory": "Companies",
+          "products": "Products",
+          "opportunities": "Opportunities",
+          "marketplace": "Marketplace"
+        },
+        "resources": {
+          "title": "Resources",
+          "dataHub": "Data Hub",
+          "trust": "Trust Center",
+          "news": "News",
+          "blog": "Blog"
+        },
+        "company": {
+          "title": "Company",
+          "about": "About",
+          "contact": "Contact",
+          "faq": "FAQ",
+          "help": "Help"
+        },
+        "legal": {
+          "title": "Legal",
+          "privacy": "Privacy",
+          "terms": "Terms",
+          "cookies": "Cookies"
+        }
+      },
+      "copyright": "© {year} TradeInDRC. All rights reserved."
+    },
+    "carousel": {
+      "previous": "Previous slide",
+      "next": "Next slide",
+      "goToSlide": "Go to slide"
+    },
+    "metadata": {
+      "title": "TradeInDRC — Verified Congolese exporters & trade portal",
+      "description": "The official bilingual trade portal of the Democratic Republic of Congo. Find verified exporters, send RFQs, and discover trade opportunities."
+    }
+  },
+  "ListPages": {
+    "filters": {
+      "sectors": "Sectors",
+      "segments": "Segments",
+      "verification": "Verification",
+      "country": "Country",
+      "category": "Category",
+      "tags": "Tags",
+      "region": "Region",
+      "deadline": "Deadline",
+      "any": "Any",
+      "reset": "Reset filters",
+      "certification": "Certification",
+      "sector": "Sector"
+    },
+    "results": {
+      "title": "Results",
+      "empty": "No results match your filters."
+    },
+    "rfqCta": "Send an RFQ to every verified company on this page",
+    "rfqCtaAction": "Post RFQ"
+  },
+  "AuthDesign": {
+    "panel": {
+      "title": "TradeInDRC",
+      "tagline": "The official trade portal for the Democratic Republic of Congo",
+      "checks": [
+        "Verified Congolese exporters",
+        "Bilingual platform (EN / FR)",
+        "Free RFQs, secure messaging"
+      ]
+    },
+    "carousel": {
+      "indicatorsLabel": "Slide indicators",
+      "showSlide": "Show slide {number}",
+      "slideAlt": {
+        "portal": "DRC official trade portal",
+        "skyline": "Kinshasa skyline",
+        "sectors": "DRC sectors",
+        "opportunities": "Trade opportunities in DRC",
+        "events": "DRC trade events",
+        "news": "DRC trade news",
+        "contact": "Contact DRC trade desk"
+      }
+    }
+  },
+  "Landing": {
+    "hero": {
+      "badge": "Connect · Trade · Grow",
+      "titleLead": "Trade in ",
+      "titleAccent": "DRC",
+      "subtitle": "Your Gateway to Trusted Business in the Democratic Republic of Congo",
+      "body": "Connect with reliable local partners, discover market opportunities, and access strategic insights to invest, trade, and grow with confidence.",
+      "ctaPrimary": "Explore Opportunities",
+      "ctaSecondary": "Find Partners",
+      "trust": {
+        "verified": "Verified partners",
+        "bilingual": "Available in 5 languages",
+        "free": "Free to browse"
+      },
+      "stats": {
+        "opportunities": "Opportunities",
+        "partners": "Verified partners",
+        "insights": "Market insights"
+      }
+    },
+    "features": {
+      "verified": {
+        "title": "Verified Partners",
+        "desc": "Connect with pre-vetted, reliable businesses across the DRC."
+      },
+      "opportunities": {
+        "title": "Market Opportunities",
+        "desc": "Discover high-potential sectors and investment opportunities."
+      },
+      "intelligence": {
+        "title": "Business Intelligence",
+        "desc": "Access data, analytics, and insights to make smarter decisions."
+      }
+    },
+    "ribbon": {
+      "lead": "Trusted Connections. Real Opportunities.",
+      "accent": "Sustainable Growth."
+    },
+    "about": {
+      "eyebrow": "About Us",
+      "titleLead": "Connect DRC to the world.",
+      "titleAccent": "Create local value.",
+      "body": "Trade in DRC is the digital platform that connects the DRC to the world of business. We facilitate connections between Congolese companies, international partners, investors, suppliers, and buyers, making trade in the Democratic Republic of Congo simpler, more reliable, and more structured. Our goal is clear: to create a trusted space where opportunities, businesses, and market information become accessible, visible, and actionable."
+    },
+    "mission": {
+      "label": "Our Mission",
+      "text": "Drive trade, investment, and partnerships in the DRC through a trusted digital platform."
+    },
+    "values": {
+      "who": {
+        "title": "Who We Are",
+        "desc": "A business platform designed to connect companies, opportunities, and market actors across the Democratic Republic of Congo."
+      },
+      "vision": {
+        "title": "Our Vision",
+        "desc": "To become the leading digital gateway for doing business in the Democratic Republic of Congo, connecting local potential with regional and global markets."
+      },
+      "coreTitle": "Our Values",
+      "core": {
+        "trust": "Trust",
+        "transparency": "Transparency",
+        "professionalism": "Professionalism",
+        "innovation": "Innovation",
+        "commitment": "Commitment to the development of the DRC"
+      },
+      "enableTitle": "What We Enable",
+      "enable": {
+        "partnerships": "Trusted Partnerships",
+        "opportunities": "Business Opportunities",
+        "intelligence": "Market Intelligence",
+        "growth": "Local Economic Growth"
+      }
+    },
+    "transform": {
+      "lead": "Trade in DRC transforms business relationships into concrete opportunities for the ",
+      "accent": "growth of the DRC."
+    },
+    "join": {
+      "cta": "Join the platform",
+      "tagline": "Connect. Trade. Grow in DRC."
+    },
+    "panel": {
+      "overview": "Overview",
+      "drc": "DRC",
+      "nav": {
+        "overview": "Overview",
+        "opportunities": "Opportunities",
+        "partners": "Partners",
+        "sectors": "Sectors",
+        "insights": "Insights",
+        "watchlist": "Watchlist"
+      },
+      "stats": {
+        "opportunities": "Opportunities",
+        "partners": "Verified Partners",
+        "insights": "Market Insights"
+      },
+      "topOpportunities": "Top Opportunities",
+      "marketActivity": "Market Activity",
+      "highPotential": "High Potential",
+      "top": {
+        "infrastructure": "Infrastructure Development",
+        "mining": "Mining & Resources",
+        "agriculture": "Agriculture & Agri-business",
+        "energy": "Energy & Renewables"
+      },
+      "oppTypes": {
+        "tender": "Tender",
+        "partnership": "Partnership",
+        "investment": "Investment",
+        "distribution": "Distribution"
+      },
+      "statusOpen": "Open",
+      "verified": "Verified",
+      "sector": {
+        "mining": "Mining",
+        "agriculture": "Agriculture",
+        "energy": "Energy",
+        "ict": "Digital & ICT",
+        "manufacturing": "Manufacturing",
+        "logistics": "Logistics"
+      },
+      "companies": "companies",
+      "kpi": {
+        "volume": "Trade volume",
+        "growth": "YoY growth",
+        "listings": "New listings"
+      },
+      "saved": "Saved",
+      "viewAll": "View all",
+      "notifTitle": "Notifications",
+      "notif1": "New verified partner in Mining",
+      "notif2": "3 new opportunities this week",
+      "notif3": "Q2 market report is ready",
+      "scopeRegion": "Central Africa",
+      "scopeGlobal": "Global"
+    },
+    "sectors": {
+      "eyebrow": "Key Sectors",
+      "title": "Invest in the DRC's strengths",
+      "subtitle": "From critical minerals to agriculture and clean energy, the Democratic Republic of Congo offers some of the world's most significant untapped opportunities.",
+      "cta": "Explore all opportunities",
+      "items": {
+        "mining": {
+          "title": "Mining & Critical Minerals",
+          "desc": "Cobalt, copper, gold, coltan and lithium — the DRC holds some of the world's largest reserves of the minerals powering the energy transition."
+        },
+        "agriculture": {
+          "title": "Agriculture & Agri-business",
+          "desc": "Vast arable land and a favorable climate for coffee, cocoa, palm oil and staple crops — a largely untapped agricultural frontier."
+        },
+        "energy": {
+          "title": "Energy & Hydropower",
+          "desc": "Immense hydropower potential, led by the Inga site on the Congo River — among the largest hydroelectric opportunities on the planet."
+        },
+        "infrastructure": {
+          "title": "Infrastructure",
+          "desc": "Roads, bridges, ports, housing and digital networks — large-scale projects connecting the DRC's cities and trade corridors."
+        },
+        "forestry": {
+          "title": "Forestry & Timber",
+          "desc": "The Congo Basin — the world's second-largest rainforest — offers sustainable timber and a globally vital carbon sink."
+        },
+        "manufacturing": {
+          "title": "Manufacturing & Industry",
+          "desc": "Local processing and value addition, from mineral refining to agri-processing, turning raw resources into finished goods."
+        }
+      }
+    },
+    "whyDrc": {
+      "eyebrow": "Why the DRC",
+      "title": "A market at the heart of Africa",
+      "subtitle": "Few countries combine the DRC's natural wealth, scale and strategic position. The fundamentals make the case.",
+      "items": {
+        "cobalt": {
+          "label": "of global cobalt",
+          "context": "The DRC is the world's leading producer of cobalt, critical to batteries and the energy transition."
+        },
+        "hydropower": {
+          "label": "hydropower potential",
+          "context": "Among the largest hydroelectric potential on earth, led by the Inga site on the Congo River."
+        },
+        "population": {
+          "label": "people",
+          "context": "A young, fast-growing domestic market at the center of the continent."
+        },
+        "land": {
+          "label": "of arable land",
+          "context": "A vast, largely untapped agricultural frontier across diverse climates."
+        }
+      }
+    },
+    "howItWorks": {
+      "eyebrow": "How it works",
+      "title": "Start trading in three steps",
+      "steps": {
+        "register": {
+          "title": "Register your company",
+          "desc": "Create your free company profile in minutes."
+        },
+        "verify": {
+          "title": "Get verified",
+          "desc": "Our team validates your business so partners can trust it."
+        },
+        "connect": {
+          "title": "Connect & trade",
+          "desc": "Reach buyers, partners and investors across the DRC and beyond."
+        }
+      }
+    }
+  },
+  "Messaging": {
+    "empty": "No messages yet. Start the conversation.",
+    "inputPlaceholder": "Type a message...",
+    "contact": {
+      "title": "Contact {company}",
+      "description": "Send a message to this company. They will receive it in their secure platform inbox.",
+      "subjectLabel": "Subject",
+      "subjectPlaceholder": "e.g., Inquiry about your products",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Write your message here...",
+      "cancel": "Cancel",
+      "send": "Send Message",
+      "sending": "Sending message to {company}...",
+      "success": "Message sent successfully.",
+      "signInRequired": "Please sign in to contact companies.",
+      "cannotSelfMessage": "You cannot message your own company."
+    },
+    "errors": {
+      "rateLimited": "You're sending messages too quickly. Please wait a moment and try again.",
+      "captchaRequired": "Please complete the verification challenge.",
+      "captchaFailed": "Verification failed. Please try the challenge again.",
+      "notParticipant": "You are not a participant in this conversation.",
+      "notAuthenticated": "Your session has expired. Please sign in again.",
+      "validationFailed": "Please check your message and try again.",
+      "sendFailed": "Failed to send message. Please try again.",
+      "tooLong": "Message is too long (maximum {max} characters)."
+    },
+    "report": {
+      "action": "Report message",
+      "title": "Report this message",
+      "description": "Tell us why this message is a problem. Our moderators will review it.",
+      "reasonLabel": "Reason",
+      "reasons": {
+        "spam": "Spam or advertising",
+        "harassment": "Harassment or abuse",
+        "scam": "Scam or fraud",
+        "inappropriate": "Inappropriate content",
+        "other": "Other"
+      },
+      "detailsLabel": "Details (optional)",
+      "detailsPlaceholder": "Add any context that will help moderators...",
+      "cancel": "Cancel",
+      "submit": "Submit Report",
+      "submitting": "Submitting report...",
+      "success": "Report submitted. Thank you.",
+      "error": "Could not submit the report. Please try again."
+    }
+  },
+  "AdminMessages": {
+    "title": "Message Reports",
+    "subtitle": "Review reported messages and inspect conversation threads.",
+    "columns": {
+      "message": "Reported message",
+      "reason": "Reason",
+      "reporter": "Reporter",
+      "reported": "Reported",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "reasons": {
+      "spam": "Spam or advertising",
+      "harassment": "Harassment or abuse",
+      "scam": "Scam or fraud",
+      "inappropriate": "Inappropriate content",
+      "other": "Other"
+    },
+    "statuses": {
+      "open": "Open",
+      "reviewed": "Reviewed",
+      "dismissed": "Dismissed",
+      "actioned": "Actioned"
+    },
+    "reporterNote": "Note",
+    "deletedMessage": "(message no longer available)",
+    "unknownUser": "Unknown user",
+    "viewThread": "View thread",
+    "emptyQueue": "No reported messages. The queue is clear.",
+    "viewer": {
+      "heading": "Conversation viewer",
+      "noSubject": "(no subject)",
+      "selectPrompt": "Select \"View thread\" on a report to read the full conversation here.",
+      "empty": "This conversation has no messages."
+    },
+    "triage": {
+      "saving": "Updating status...",
+      "saved": "Status updated.",
+      "error": "Could not update the status. Please try again.",
+      "notAuthorized": "You don't have permission to moderate reports."
+    }
+  },
+  "Taxonomy": {
+    "title": "Taxonomy Management",
+    "subtitle": "Manage sectors, categories, HS codes and tags used across the platform.",
+    "sectorsHeading": "Sectors",
+    "sectorsDescription": "Top-level industry classifications.",
+    "categoriesHeading": "Categories",
+    "categoriesDescription": "Sub-classifications linked to a parent sector.",
+    "hsCodesHeading": "HS Codes",
+    "hsCodesDescription": "Harmonized System commodity codes, optionally mapped to a sector.",
+    "tagsHeading": "Tags",
+    "tagsDescription": "Free-form labels for filtering and discovery.",
+    "loadingSectors": "Loading sectors...",
+    "errorLoadSectors": "Failed to load sectors",
+    "add": "Add",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "retry": "Retry",
+    "newEntry": "New entry",
+    "empty": "No items yet.",
+    "loading": "Loading...",
+    "saving": "Saving changes...",
+    "saved": "Saved successfully.",
+    "adding": "Adding...",
+    "added": "Added successfully.",
+    "deleting": "Deleting...",
+    "deleted": "Deleted successfully.",
+    "confirmDelete": "Delete \"{name}\"? This action cannot be undone.",
+    "errorLoad": "Failed to load items",
+    "errorSave": "Failed to save",
+    "errorAdd": "Failed to add",
+    "errorDelete": "Failed to delete",
+    "noSector": "— No sector —",
+    "placeholderCode": "Code",
+    "placeholderNameEn": "Name (EN)",
+    "placeholderNameFr": "Name (FR)",
+    "placeholderSlug": "Slug",
+    "placeholderParentCode": "Parent code (optional)",
+    "colCode": "Code",
+    "colNameEn": "Name (EN)",
+    "colNameFr": "Name (FR)",
+    "colSlug": "Slug",
+    "colSector": "Sector",
+    "colActions": "Actions",
+    "placeholderNameTr": "Name (TR)",
+    "placeholderNameZh": "Name (ZH)",
+    "placeholderNameEs": "Name (ES)"
+  },
+  "Faq": {
+    "title": "Frequently Asked Questions",
+    "description": "Find answers to the most common questions about using TradeInDRC.",
+    "searchPlaceholder": "Search questions...",
+    "noResults": "No matching questions found.",
+    "empty": "No questions are available yet. Please check back soon."
+  },
+  "SectorsPage": {
+    "title": "Industry Sectors",
+    "description": "Explore verified Congolese companies across all major industry sectors.",
+    "browse": "Browse companies",
+    "companiesCount": "{count, plural, =0 {No companies} one {# company} other {# companies}}",
+    "empty": "No sectors are available yet."
+  },
+  "ContactPage": {
+    "getInTouch": "Get in Touch",
+    "getInTouchBody": "Whether you have a question about features, verification, or anything else, our team is ready to answer all your questions.",
+    "phone": "Phone",
+    "address": "Address",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "your@email.com",
+    "subjectPlaceholder": "How can we help?",
+    "messagePlaceholder": "Write your message...",
+    "honeypotLabel": "Company (leave this field empty)",
+    "sending": "Sending your message...",
+    "sendError": "Could not send your message. Please try again.",
+    "rateLimited": "You've sent several messages recently. Please wait a while before sending another.",
+    "validationError": "Please correct the highlighted fields.",
+    "nameError": "Please enter your name.",
+    "emailError": "Please enter a valid email address.",
+    "messageError": "Your message must be at least 10 characters."
+  },
+  "Help": {
+    "title": "Help Center",
+    "description": "Guides and articles to help you make the most of TradeInDRC.",
+    "searchPlaceholder": "Search help articles...",
+    "noResults": "No matching articles found.",
+    "empty": "No help articles are available yet.",
+    "backToHelp": "Back to Help Center",
+    "articleEmpty": "This article has no content yet."
+  },
+  "AdminCms": {
+    "tabs": {
+      "pages": "Pages",
+      "faqs": "FAQs",
+      "help": "Help Articles"
+    },
+    "addNew": "+ New",
+    "save": "Save",
+    "savingShort": "Saving…",
+    "saving": "Saving changes...",
+    "saved": "Saved successfully.",
+    "created": "Created successfully.",
+    "delete": "Delete",
+    "deletingShort": "Deleting…",
+    "deleting": "Deleting...",
+    "deleted": "Deleted.",
+    "confirmDelete": "Delete this item? This cannot be undone.",
+    "addParagraph": "Add paragraph",
+    "noParagraphs": "No paragraphs yet — add one below.",
+    "paragraphPlaceholder": "Write a paragraph...",
+    "pages": {
+      "title": "Static Pages"
+    },
+    "faqs": {
+      "title": "FAQs",
+      "new": "New FAQ",
+      "edit": "Edit FAQ",
+      "empty": "No FAQs yet. Add the first one."
+    },
+    "help": {
+      "title": "Help Articles",
+      "new": "New Help Article",
+      "edit": "Edit Help Article",
+      "empty": "No help articles yet. Add the first one."
+    },
+    "columns": {
+      "page": "Page",
+      "status": "Status",
+      "updated": "Updated",
+      "question": "Question (EN)",
+      "title": "Title (EN)",
+      "category": "Category",
+      "order": "Order"
+    },
+    "status": {
+      "draft": "Draft",
+      "published": "Published"
+    },
+    "fields": {
+      "status": "Status",
+      "titleEn": "Title (English)",
+      "titleFr": "Title (French)",
+      "bodyEn": "Body (English)",
+      "bodyFr": "Body (French)",
+      "questionEn": "Question (English)",
+      "questionFr": "Question (French)",
+      "answerEn": "Answer (English)",
+      "answerFr": "Answer (French)",
+      "category": "Category",
+      "categoryPlaceholder": "Optional group",
+      "sortOrder": "Sort order",
+      "published": "Published",
+      "slug": "Slug"
+    },
+    "pageSlugs": {
+      "about": "About",
+      "how-it-works": "How It Works",
+      "sectors-intro": "Sectors Intro",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy",
+      "cookies": "Cookie Policy"
+    },
+    "errors": {
+      "titleRequired": "Both English and French titles are required.",
+      "faqRequired": "All question and answer fields are required.",
+      "helpRequired": "Slug and both titles are required.",
+      "saveFailed": "Failed to save. Please try again.",
+      "deleteFailed": "Failed to delete. Please try again."
+    },
+    "moveUp": "Move up",
+    "moveDown": "Move down",
+    "removeParagraph": "Remove paragraph"
+  },
+  "AdminUpload": {
+    "chooseFile": "Upload file",
+    "uploading": "Uploading…",
+    "uploaded": "File uploaded.",
+    "remove": "Remove",
+    "urlPlaceholder": "https://… or upload a file above",
+    "previewAlt": "Uploaded asset preview",
+    "error": {
+      "invalid_folder": "Invalid upload target.",
+      "no_file": "No file selected.",
+      "too_large": "File is too large (max 25 MB).",
+      "invalid_type": "Unsupported file type.",
+      "unauthenticated": "You must be signed in.",
+      "profile_lookup_failed": "Could not verify your account.",
+      "not_authorized": "You are not allowed to upload here.",
+      "upload_failed": "Upload failed. Please try again."
+    }
+  },
+  "Marketplace": {
+    "references": {
+      "empty": "No partnership references published yet.",
+      "error": "Could not load references. Please try again.",
+      "unnamedPartner": "Partner"
+    },
+    "contacts": {
+      "empty": "No contact persons listed yet.",
+      "error": "Could not load contacts. Please try again."
+    },
+    "profile": {
+      "notFoundTitle": "Company not found",
+      "notFoundBody": "This company profile does not exist or has not been verified.",
+      "backToDirectory": "Back to directory",
+      "targetMarkets": "Target markets",
+      "thisIsYou": "This is your company",
+      "contact": "Contact",
+      "loginToContact": "Sign in to contact",
+      "contactLoginRequired": "Sign in to message this company securely."
+    }
+  },
+  "Analytics": {
+    "title": "Analytics",
+    "subtitle": "Performance overview for your companies on TradeInDRC",
+    "profileViews": "Profile Views",
+    "productViews": "Product Views",
+    "contactRequests": "Contact Requests",
+    "searchAppearances": "Search Appearances",
+    "trendUp": "+{pct}% vs prior 30 days",
+    "trendDown": "-{pct}% vs prior 30 days",
+    "trendFlat": "No change vs prior 30 days",
+    "trendNoBaseline": "No prior data to compare",
+    "error": "We couldn't load your analytics right now. Please try again.",
+    "topSearchTitle": "Top search results",
+    "topSearchSubtitle": "Your companies and products that buyers reached most often through search.",
+    "appearancesCount": "{count} appearances",
+    "topSearchEmptyTitle": "No search activity yet",
+    "topSearchEmptyBody": "Once buyers find your listings through search, the entries they reach most will appear here.",
+    "newsFeedTitle": "Trade news & events",
+    "newsFeedSubtitle": "The latest published updates and gatherings across TradeInDRC.",
+    "newsTag": "News",
+    "eventTag": "Event",
+    "newsFeedEmptyTitle": "Nothing published yet",
+    "newsFeedEmptyBody": "New trade news and events will show up here as they're published."
+  },
+  "Settings": {
+    "title": "Settings",
+    "subtitle": "Manage your profile",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Enter your full name",
+    "saveChanges": "Save Changes",
+    "updateSuccess": "Profile updated",
+    "updateError": "Failed to update profile"
+  },
+  "RfqBoard": {
+    "title": "RFQ Listings",
+    "subtitle": "Manage your supply and demand listings",
+    "createListing": "Create Listing",
+    "selectCompany": "Select company",
+    "verificationRequired": "Verification required",
+    "verificationRequiredBody": "Your company must be verified before creating RFQ listings.",
+    "checkVerificationStatus": "Check verification status",
+    "inboundInterest": "Inbound interest",
+    "emptyListings": "No RFQ listings yet",
+    "close": "Close",
+    "closing": "Closing RFQ listing...",
+    "closeSuccess": "RFQ listing closed.",
+    "closeError": "Failed to close RFQ listing.",
+    "colTitle": "Title",
+    "colType": "Type",
+    "colStatus": "Status",
+    "colExpires": "Expires",
+    "colActions": "Actions",
+    "type": {
+      "supply": "Supply",
+      "demand": "Demand"
+    },
+    "status": {
+      "active": "Active",
+      "expired": "Expired",
+      "closed": "Closed"
+    },
+    "form": {
+      "title": "Title",
+      "titlePlaceholder": "e.g. Looking for copper suppliers",
+      "description": "Description",
+      "descriptionPlaceholder": "Describe what you are offering or requesting...",
+      "type": "Type",
+      "selectType": "Select type",
+      "typeSupply": "Supply",
+      "typeDemand": "Demand",
+      "expiresAt": "Expires At",
+      "createListing": "Create Listing",
+      "creatingShort": "Creating...",
+      "creating": "Creating RFQ listing...",
+      "createSuccess": "RFQ listing created.",
+      "createError": "Failed to create RFQ listing.",
+      "validation": {
+        "titleMin": "Title must be at least 5 characters",
+        "descriptionMin": "Description must be at least 20 characters",
+        "expiresRequired": "Expiry date is required",
+        "expiresFuture": "Expiry date must be in the future",
+        "typeRequired": "Please select a type"
+      }
+    },
+    "createTitle": "Create RFQ Listing",
+    "createSubtitle": "Post a supply or demand listing for your company",
+    "backToListings": "Back to RFQ Listings"
+  },
+  "Metadata": {
+    "siteTitle": "TradeInDRC",
+    "siteDescription": "The official bilingual online trade portal of the Democratic Republic of the Congo, connecting international buyers with verified Congolese exporters."
+  },
+  "Terms": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: January 2026",
+    "sections": {
+      "acceptance": {
+        "heading": "{number}. Acceptance of Terms",
+        "body": "By accessing and using TradeInDRC, you accept and agree to be bound by the terms and provisions of this agreement and the laws of the Democratic Republic of the Congo. If you do not agree to abide by these terms, please do not use this service."
+      },
+      "description": {
+        "heading": "{number}. Description of Service",
+        "body": "TradeInDRC is an official B2B trade portal connecting verified Congolese businesses with international buyers and partners. The platform provides company directory services, secure messaging, and trade opportunity listings."
+      },
+      "registration": {
+        "heading": "{number}. User Registration",
+        "body": "To access certain features, you must register for an account. You agree to provide accurate, current, and complete information during registration and to update such information to keep it accurate."
+      },
+      "verification": {
+        "heading": "{number}. Verification Process",
+        "body": "Company verification is conducted by authorized Ministry of Trade representatives. The \"Verified\" badge is a government-issued status. Submission of fraudulent documents will result in immediate account termination, blacklisting, and may lead to legal action under the DRC Penal Code."
+      },
+      "conduct": {
+        "heading": "{number}. User Conduct",
+        "body": "Users agree not to use the platform for any unlawful purpose, to spam other users, or to misrepresent their identity or business credentials."
+      },
+      "intellectualProperty": {
+        "heading": "{number}. Intellectual Property",
+        "body": "All content on TradeInDRC, including logos, text, and images, is the property of the DRC government or its content suppliers and is protected by applicable intellectual property laws."
+      },
+      "liability": {
+        "heading": "{number}. Limitation of Liability",
+        "body": "TradeInDRC shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of the service."
+      },
+      "contact": {
+        "heading": "{number}. Contact",
+        "body": "For questions about these Terms, please contact us at legal@tradeindrc.com"
+      }
+    }
+  },
+  "Privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: January 2026",
+    "sections": {
+      "collect": {
+        "heading": "{number}. Information We Collect",
+        "body": "We collect information you provide directly to us, such as when you create an account, register a company, or contact us for support. This includes your name, email address, company information, and verification documents."
+      },
+      "use": {
+        "heading": "{number}. How We Use Your Information",
+        "body": "We use the information we collect to provide, maintain, and improve our services, process verification applications, send you technical notices and support messages, and respond to your inquiries."
+      },
+      "sharing": {
+        "heading": "{number}. Information Sharing",
+        "body": "We may share your public company profile information with other users of the platform. Verification documents are shared only with authorized Ministry representatives for review purposes."
+      },
+      "security": {
+        "heading": "{number}. Data Security",
+        "body": "We take reasonable measures to help protect information about you from loss, theft, misuse, and unauthorized access. However, no security system is impenetrable."
+      },
+      "retention": {
+        "heading": "{number}. Data Retention",
+        "body": "We store your information for as long as your account is active or as needed to provide you services. You may request deletion of your account at any time."
+      },
+      "rights": {
+        "heading": "{number}. Your Rights (DRC Digital Code)",
+        "body": "In accordance with Law No. 20/017 of November 25, 2020 on Telecommunications and Information and Communication Technologies (Digital Code), you have the right to access, correct, or delete your personal information. Contact us at privacy@tradeindrc.com to exercise these rights."
+      },
+      "governmentSharing": {
+        "heading": "{number}. Government Data Sharing",
+        "body": "By using this platform, you acknowledge that TradeInDRC is an official initiative. Data provided during the company registration process, including tax IDs and legal documents, is shared directly with the Ministry of Trade and relevant government bodies solely for the purpose of verification and accreditation. We do not sell this data to commercial third parties."
+      },
+      "changes": {
+        "heading": "{number}. Changes to This Policy",
+        "body": "We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page."
+      }
+    }
+  },
+  "Cookies": {
+    "title": "Cookie Policy",
+    "lastUpdated": "Last updated: January 2026",
+    "intro": "This Cookie Policy explains how TradeInDRC (\"we\", \"us\", and \"our\") uses cookies and similar technologies to recognize you when you visit our website. It explains what these technologies are and why we use them, as well as your rights to control our use of them.",
+    "sections": {
+      "what": {
+        "heading": "1. What are cookies?",
+        "body": "Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners in order to make their websites work, or to work more efficiently, as well as to provide reporting information."
+      },
+      "why": {
+        "heading": "2. Why do we use cookies?",
+        "body": "We use first-party and third-party cookies for several reasons. Some cookies are required for technical reasons in order for our Website to operate, and we refer to these as \"essential\" or \"strictly necessary\" cookies. Other cookies also enable us to track and target the interests of our users to enhance the experience on our Online Properties."
+      },
+      "types": {
+        "heading": "3. Types of Cookies We Use"
+      },
+      "control": {
+        "heading": "4. How can I control cookies?",
+        "body": "You have the right to decide whether to accept or reject cookies. You can set or amend your web browser controls to accept or refuse cookies. If you choose to reject cookies, you may still use our website though your access to some functionality and areas of our website may be restricted."
+      },
+      "updates": {
+        "heading": "5. Updates to this Policy",
+        "body": "We may update this Cookie Policy from time to time in order to reflect, for example, changes to the cookies we use or for other operational, legal, or regulatory reasons. Please therefore re-visit this Cookie Policy regularly to stay informed about our use of cookies and related technologies."
+      },
+      "contact": {
+        "heading": "6. Contact Us",
+        "body": "If you have specific questions about our use of cookies, please email us at privacy@tradeindrc.com."
+      }
+    },
+    "types": {
+      "essential": {
+        "title": "Essential Cookies",
+        "body": "These cookies are strictly necessary to provide you with services available through our Website and to use some of its features, such as access to secure areas."
+      },
+      "analytics": {
+        "title": "Performance & Analytics Cookies",
+        "body": "These cookies are used to enhance the performance and functionality of our Website but are non-essential to their use. However, without these cookies, certain functionality (like videos) may become unavailable."
+      },
+      "functionality": {
+        "title": "Functionality Cookies",
+        "body": "These cookies allow us to remember choices you make when you use our Website, such as remembering your language preference or login details."
+      }
+    }
+  },
+  "CTASection": {
+    "companies": {
+      "eyebrow": "For Congolese Companies",
+      "title": "Showcase Your Business to the World",
+      "benefitVerified": "Get verified by the Ministry",
+      "benefitConnect": "Connect with international buyers",
+      "benefitInquiries": "Receive secure inquiries",
+      "cta": "Register Now"
+    },
+    "buyers": {
+      "eyebrow": "For International Buyers",
+      "title": "Find Verified Suppliers in the DRC",
+      "benefitVerified": "All companies verified by government",
+      "benefitAccess": "Direct access to exporters",
+      "benefitSecure": "Secure communication platform",
+      "cta": "Browse Companies"
+    }
+  },
+  "LatestOffers": {
+    "heading": "LATEST <accent>OFFERS</accent>",
+    "badgeSearching": "SEARCHING",
+    "badgeOpportunity": "OPPORTUNITY",
+    "contact": "Contact {name}",
+    "viewAll": "View All Offers"
+  },
+  "FeaturedCompanies": {
+    "title": "Featured Companies",
+    "subtitle": "Verified Congolese businesses ready for trade",
+    "viewAll": "View All",
+    "empty": "No featured companies yet"
+  },
+  "Construction": {
+    "defaultDescription": "This section of the official TradeInDRC portal is currently being established. Please check back soon for verified information.",
+    "returnHome": "Return Home",
+    "exportGuide": "Export Guide",
+    "exportStandards": "Export Standards"
+  },
+  "HomeSearch": {
+    "title": "Tell Us What You Are Looking For",
+    "subtitle": "Search the marketplace to connect with credible partners, investment opportunities, and market intelligence across the Democratic Republic of Congo.",
+    "placeholder": "Search companies, products, or opportunities...",
+    "tabs": {
+      "all": "All",
+      "companies": "Companies",
+      "products": "Products",
+      "opportunities": "Opportunities"
+    },
+    "submitCta": "Search the Marketplace",
+    "signedIn": {
+      "greeting": "Welcome back, {name}",
+      "quickActions": {
+        "myCompanies": "My Companies",
+        "submitRequest": "Submit a Request",
+        "myRequests": "My Requests",
+        "inbox": "Inbox",
+        "getPremium": "Get Premium"
+      },
+      "greetingNoName": "Welcome back"
+    },
+    "searching": "Searching…",
+    "noResults": "No results found. Try a different search."
+  },
+  "Request": {
+    "hero": {
+      "title": "Tell Us What You Are Looking For",
+      "subtitle": "Connect with credible partners, investment opportunities, and market intelligence in the Democratic Republic of Congo.",
+      "submitCta": "Submit Business Request",
+      "exploreCta": "Explore Options"
+    },
+    "intents": {
+      "heading": "What brings you to the DRC?",
+      "find_partner": {
+        "title": "Find a Local Partner",
+        "description": "Connect with trusted companies and suppliers in the DRC."
+      },
+      "invest": {
+        "title": "Invest in the DRC",
+        "description": "Discover investment opportunities across key sectors."
+      },
+      "sell": {
+        "title": "Sell Products in the DRC",
+        "description": "Explore distribution channels and grow your presence in the DRC market."
+      },
+      "buy": {
+        "title": "Buy from the DRC",
+        "description": "Source quality products and services from Congolese suppliers."
+      },
+      "publish_opportunity": {
+        "title": "Publish an Opportunity",
+        "description": "Share your business opportunities and reach qualified partners."
+      },
+      "register_company": {
+        "title": "Register My Company",
+        "description": "Get guidance to register your company and operate in the DRC."
+      },
+      "market_report": {
+        "title": "Request a Market Report",
+        "description": "Access reliable market intelligence and sector insights."
+      },
+      "business_mission": {
+        "title": "Organize a Business Mission",
+        "description": "Plan your business trip and connect with the right stakeholders."
+      },
+      "partner_search": {
+        "title": "Partner Search",
+        "description": "Identify relevant local or international partners aligned with your objectives."
+      },
+      "market_entry": {
+        "title": "Market Entry Support",
+        "description": "Receive local guidance and strategy support to enter the DRC market with clarity."
+      },
+      "business_verification": {
+        "title": "Business Verification",
+        "description": "Reduce uncertainty by checking the credibility and profile of potential partners."
+      },
+      "b2b_meeting": {
+        "title": "B2B Meeting Facilitation",
+        "description": "Connect with suppliers, investors, institutions, and decision-makers through structured meetings."
+      },
+      "local_representation": {
+        "title": "Local Representation",
+        "description": "Build a credible local presence through business facilitation and representation support."
+      },
+      "delegation": {
+        "title": "Delegation",
+        "description": "Organize business missions, conferences, visits, and partnership programs."
+      },
+      "other": {
+        "title": "Something Else",
+        "description": "Tell us about your specific need and we will route it to the right team."
+      }
+    },
+    "form": {
+      "heading": "Submit Your Business Request",
+      "subheading": "Please provide your details so we can connect you with the right opportunities.",
+      "fullName": "Full Name",
+      "company": "Company",
+      "country": "Country",
+      "email": "Email",
+      "phone": "WhatsApp / Phone",
+      "sector": "Sector of Interest",
+      "intent": "I am looking for",
+      "preferredLocation": "Preferred Location in the DRC",
+      "timeline": "Expected Timeline",
+      "message": "Detailed Message",
+      "submit": "Submit Business Request",
+      "securityNote": "Your information is secure and will only be used to connect you with relevant opportunities.",
+      "selectPlaceholder": "Select an option",
+      "intentRequired": "Please select a request type.",
+      "timelineRequired": "Please select a timeline.",
+      "timelineOptions": {
+        "immediate": "Immediate",
+        "m_1_3": "Within 1–3 months",
+        "m_3_6": "Within 3–6 months",
+        "m_6_12": "Within 6–12 months",
+        "flexible": "Flexible"
+      },
+      "countrySearchPlaceholder": "Search countries…",
+      "countryNoResults": "No country found."
+    },
+    "whoIsThisFor": {
+      "heading": "Who Is This For?",
+      "intlCompanies": {
+        "title": "International Companies",
+        "description": "Looking to expand, source, or partner in the DRC."
+      },
+      "congoleseCompanies": {
+        "title": "Congolese Companies",
+        "description": "Seeking partnerships, market access, and growth opportunities."
+      },
+      "investors": {
+        "title": "Investors",
+        "description": "Exploring viable projects and high-potential sectors."
+      },
+      "institutions": {
+        "title": "Institutions",
+        "description": "Supporting trade, investment, and economic development."
+      }
+    },
+    "howItWorks": {
+      "heading": "How It Works",
+      "step1": {
+        "title": "Submit Your Interest",
+        "description": "Tell us what you are looking for through our form."
+      },
+      "step2": {
+        "title": "Request Review",
+        "description": "Our team reviews and analyzes your needs."
+      },
+      "step3": {
+        "title": "Business Connection",
+        "description": "We connect you with trusted partners and opportunities."
+      },
+      "step4": {
+        "title": "Partnership Development",
+        "description": "Build lasting relationships and grow your business."
+      }
+    },
+    "signInRequired": {
+      "title": "Sign in to submit a request",
+      "body": "Create a free account or sign in to send your business request and track its progress.",
+      "signInCta": "Sign In to Continue"
+    },
+    "successToast": "Your request has been submitted. Our team will be in touch soon.",
+    "errorToast": "We couldn't submit your request. Please try again.",
+    "kindBusiness": "Business Request",
+    "kindService": "Service Request"
+  },
+  "Pricing": {
+    "hero": {
+      "title": "Choose the Right Profile for Your Business",
+      "subtitle": "Start with free registration or upgrade to boost your marketplace visibility, attract qualified partners, and unlock more business opportunities in the DRC.",
+      "registerFreeCta": "Register Free",
+      "getPremiumCta": "Get Premium"
+    },
+    "recommendedBadge": "Recommended",
+    "plans": {
+      "free": {
+        "name": "Free Registration",
+        "price": "Free",
+        "tagline": "A basic entry point for companies joining the marketplace.",
+        "features": [
+          "Basic company listing",
+          "Company name, sector and country",
+          "Limited directory visibility",
+          "Public contact display",
+          "Access to public opportunities"
+        ],
+        "cta": "Start Free"
+      },
+      "premiumCongolese": {
+        "name": "Premium Profile — Congolese Companies",
+        "price": "$3,000",
+        "per": "/year",
+        "tagline": "Designed for local businesses seeking stronger visibility and partnerships.",
+        "features": [
+          "Verified premium badge",
+          "Priority search and sector placement",
+          "Enhanced company profile page",
+          "Showcase products and services",
+          "Direct inquiry / lead form",
+          "Opportunity publishing access",
+          "Newsletter and featured visibility",
+          "B2B introduction support"
+        ],
+        "cta": "Choose Congolese Premium"
+      },
+      "premiumInternational": {
+        "name": "Premium Profile — International Companies",
+        "price": "$3,600",
+        "per": "/year",
+        "tagline": "Built for foreign companies targeting market access and business connections in the DRC.",
+        "features": [
+          "Verified premium international badge",
+          "Priority directory placement",
+          "Enhanced profile and company presentation",
+          "Market-entry visibility to DRC partners",
+          "Direct lead capture form",
+          "Publish opportunities and offers",
+          "Featured business exposure",
+          "B2B introduction support"
+        ],
+        "cta": "Choose International Premium"
+      }
+    },
+    "whyPremium": {
+      "heading": "Why Go Premium?",
+      "items": [
+        {
+          "title": "Stronger Marketplace Visibility",
+          "description": "Stand out in the directory and reach more potential partners."
+        },
+        {
+          "title": "Higher Trust Through Verification",
+          "description": "Earn a verified badge that builds confidence with buyers and investors."
+        },
+        {
+          "title": "Better Positioning in Search",
+          "description": "Rank higher in search and sector results across the platform."
+        },
+        {
+          "title": "Qualified Lead Generation",
+          "description": "Receive direct inquiries from serious, qualified prospects."
+        },
+        {
+          "title": "Richer Company Presentation",
+          "description": "Showcase your products, services, and capabilities in full."
+        },
+        {
+          "title": "Access to Enhanced Promotion",
+          "description": "Get featured in newsletters and promotional placements."
+        }
+      ]
+    },
+    "customPackage": {
+      "heading": "Need a Custom Package?",
+      "body": "We offer tailored solutions for institutions, sponsors, and strategic partners. Contact our team to design a plan that fits your goals.",
+      "cta": "Contact Our Team"
+    },
+    "signInRequired": {
+      "title": "Sign in to choose a plan",
+      "body": "Create a free account or sign in to register your company and request a Premium profile.",
+      "cta": "Sign In to Continue"
+    },
+    "selectCompany": {
+      "title": "Select a company",
+      "body": "Choose which of your companies should receive this Premium plan.",
+      "placeholder": "Select a company",
+      "confirmCta": "Request Premium"
+    },
+    "requestSentToast": "Your Premium request has been sent. Our team will review it shortly.",
+    "alreadyPremium": "This company already has an active Premium profile.",
+    "pendingRequest": "A Premium request for this company is already pending review.",
+    "requestingToast": "Sending your request…",
+    "cancelConfirm": "Cancel your pending Premium request?",
+    "cancelledToast": "Premium request cancelled.",
+    "cancelErrorToast": "Could not cancel the request. Please try again."
+  },
+  "AdminRequests": {
+    "title": "Received Requests",
+    "subtitle": "Track leads, needs, assigned managers and request progress in real time.",
+    "newRequestCta": "New Request",
+    "filters": {
+      "search": "Search...",
+      "sector": "Sector",
+      "country": "Country",
+      "status": "Status",
+      "owner": "Owner",
+      "date": "Date",
+      "all": "All"
+    },
+    "stats": {
+      "total": "Total Requests",
+      "new": "New",
+      "inProgress": "In Progress",
+      "converted": "Converted",
+      "pending": "Pending",
+      "responseRate": "Response Rate"
+    },
+    "table": {
+      "name": "Name",
+      "company": "Company",
+      "country": "Country",
+      "sector": "Sector",
+      "need": "Need",
+      "status": "Status",
+      "date": "Date",
+      "followUpOwner": "Follow-up Owner",
+      "actions": "Actions"
+    },
+    "statusLabels": {
+      "new": "New",
+      "in_progress": "In Progress",
+      "converted": "Converted",
+      "pending": "Pending",
+      "closed": "Closed",
+      "rejected": "Rejected"
+    },
+    "kindLabels": {
+      "business": "Business",
+      "service": "Service"
+    },
+    "assignOwner": "Assign Owner",
+    "ownerPlaceholder": "Select an owner",
+    "addNote": "Add a note",
+    "save": "Save",
+    "empty": "No requests match your filters yet.",
+    "howItWorks": {
+      "heading": "How It Works",
+      "step1": {
+        "title": "Request Intake",
+        "description": "The request is received through the portal or by email."
+      },
+      "step2": {
+        "title": "Qualification",
+        "description": "Needs analysis, verification and prioritization."
+      },
+      "step3": {
+        "title": "Owner Assignment",
+        "description": "The request is assigned to the appropriate owner."
+      },
+      "step4": {
+        "title": "Follow-up & Conversion",
+        "description": "Operational follow-up until conversion or closure."
+      }
+    },
+    "detail": {
+      "submittedBy": "Submitted By",
+      "submittedAt": "Submitted At",
+      "contact": "Contact",
+      "message": "Message",
+      "intent": "Intent",
+      "promotionRequested": "Promotion package requested",
+      "promotionGranted": "Premium granted — this application has been fulfilled.",
+      "grantPromotion": "Grant this package"
+    },
+    "savingToast": "Saving…",
+    "savedToast": "Saved.",
+    "saveErrorToast": "Could not save changes. Please try again.",
+    "deleteLabel": "Delete",
+    "deleteConfirm": "Permanently delete this request? This cannot be undone.",
+    "deletingToast": "Deleting…",
+    "deletedToast": "Request deleted.",
+    "deleteErrorToast": "Could not delete the request.",
+    "fulfil": {
+      "title": "Grant promotion package",
+      "description": "Attach this application to a company and activate {plan} ({price} / year).",
+      "noPlan": "This request is not a promotion application.",
+      "searchPlaceholder": "Search companies by name",
+      "searching": "Searching…",
+      "noResults": "No companies match that search.",
+      "alreadyPremium": "Already premium",
+      "cancel": "Cancel",
+      "confirm": "Grant premium",
+      "granting": "Granting premium…",
+      "granted": "Premium activated for one year.",
+      "plans": {
+        "congolese": "Premium Local Partner",
+        "international": "International Business Visibility",
+        "international_strategic": "Strategic Market Promotion"
+      },
+      "errors": {
+        "validation_failed": "Invalid selection.",
+        "not_authorized": "You are not allowed to do that.",
+        "not_found": "Request not found.",
+        "no_plan": "This request has no promotion package.",
+        "already_converted": "Already fulfilled.",
+        "update_failed": "Could not grant premium. Please try again."
+      }
+    }
+  },
+  "AdminPremium": {
+    "title": "Premium Requests",
+    "subtitle": "Review and approve Premium profile requests from companies.",
+    "table": {
+      "company": "Company",
+      "requestedBy": "Requested By",
+      "plan": "Plan",
+      "amount": "Amount",
+      "status": "Status",
+      "date": "Date",
+      "actions": "Actions"
+    },
+    "planCongolese": "Congolese Premium",
+    "planInternational": "International Premium",
+    "statusLabels": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "rejected": "Rejected",
+      "cancelled": "Cancelled"
+    },
+    "approve": "Approve",
+    "reject": "Reject",
+    "approveConfirm": "Approve this Premium request and activate the profile?",
+    "rejectConfirm": "Reject this Premium request?",
+    "notes": "Admin notes",
+    "empty": "No Premium requests yet.",
+    "approvedToast": "Premium request approved and profile activated.",
+    "rejectedToast": "Premium request rejected."
+  },
+  "DashboardPremium": {
+    "cardTitle": "Premium Profile",
+    "statusFree": "Free Plan",
+    "statusPending": "Premium Pending Review",
+    "statusPremium": "Premium Active",
+    "planLabel": "Plan",
+    "expiresLabel": "Expires",
+    "upgradeCta": "Upgrade to Premium",
+    "cancelPendingCta": "Cancel Pending Request",
+    "planCongolese": "Premium — Congolese",
+    "planInternational": "Premium — International",
+    "cancelling": "Cancelling…"
+  },
+  "AdminSegments": {
+    "save": "Save Segments",
+    "saving": "Saving segments…",
+    "saved": "Segments updated.",
+    "noChanges": "No changes to save.",
+    "saveFailed": "Failed to save segments"
+  },
+  "MarketHome": {
+    "hero": {
+      "title": "Explore the Trade in DRC Marketplace",
+      "subtitle": "Discover quality products, trusted suppliers, and real business opportunities from the Democratic Republic of Congo.",
+      "searchPlaceholder": "Search products...",
+      "category": "Category",
+      "province": "Province",
+      "supplierType": "Supplier type",
+      "tiers": {
+        "verified": "Verified",
+        "premium": "Premium"
+      },
+      "searchBtn": "Search",
+      "browseProducts": "Browse Products",
+      "findSuppliers": "Find Suppliers"
+    },
+    "stats": {
+      "products": "Products Listed",
+      "companies": "Companies",
+      "verifiedSuppliers": "Verified Suppliers",
+      "provinces": "Provinces Covered",
+      "categories": "Categories"
+    },
+    "showcase": {
+      "categoriesTitle": "Explore Products by Category",
+      "featuredTitle": "Featured Products",
+      "viewAllProducts": "View All Products",
+      "verified": "Verified",
+      "viewProduct": "View Product",
+      "requestQuote": "Request Quote",
+      "suppliersTitle": "Meet Verified Suppliers",
+      "viewAllSuppliers": "View All Suppliers",
+      "productCount": "{count} Products",
+      "viewSupplier": "View Supplier",
+      "contactSupplier": "Contact Supplier",
+      "cats": {
+        "agriculture": "Agriculture & Agro-products",
+        "mining": "Mining Products & Minerals",
+        "construction": "Construction Materials",
+        "industrial": "Industrial Equipment",
+        "energy": "Energy & Electrical Supplies",
+        "textiles": "Textiles & Fashion",
+        "fmcg": "FMCG / Consumer Goods",
+        "pharma": "Pharmaceuticals & Health Products",
+        "logistics": "Logistics & Packaging",
+        "machinery": "Machinery & Spare Parts",
+        "digital": "Digital & Technology Solutions",
+        "furniture": "Furniture & Office Supplies"
+      }
+    },
+    "banners": {
+      "buyersTitle": "For Buyers",
+      "buyersBody": "Find quality products and reliable suppliers from across the DRC. Connect with verified businesses and grow your network.",
+      "buyersCta": "Start Sourcing",
+      "sellersTitle": "For Sellers",
+      "sellersBody": "List your products, showcase your business, and connect with potential buyers locally and internationally.",
+      "sellersCta": "List Your Products"
+    },
+    "rail": {
+      "formTitle": "Can't Find What You're Looking For?",
+      "formSubtitle": "Submit a buying request and our team will help you find the right supplier.",
+      "whyTitle": "Why Use the Trade in DRC Marketplace?",
+      "items": {
+        "verifiedProfiles": {
+          "title": "Verified Business Profiles",
+          "body": "Trusted & verified suppliers only."
+        },
+        "localAccess": {
+          "title": "Local Market Access",
+          "body": "Connect with businesses across 26 provinces."
+        },
+        "b2bSupport": {
+          "title": "B2B Inquiry Support",
+          "body": "Get support in finding the right partners."
+        },
+        "visibility": {
+          "title": "Supplier Visibility",
+          "body": "Increase visibility and reach more buyers."
+        },
+        "exportPotential": {
+          "title": "Export & Partnership Potential",
+          "body": "Opportunities for export and joint ventures."
+        },
+        "facilitation": {
+          "title": "Business Facilitation",
+          "body": "We help facilitate meaningful connections."
+        }
+      },
+      "form": {
+        "productNeeded": "Product Needed",
+        "productNeededPh": "What product are you looking for?",
+        "category": "Category",
+        "categoryPh": "Select category",
+        "quantity": "Quantity",
+        "quantityPh": "Enter quantity",
+        "country": "Country",
+        "countryPh": "Enter your country",
+        "companyName": "Company Name",
+        "companyNamePh": "Enter your company name",
+        "email": "Email",
+        "emailPh": "Enter your email",
+        "phone": "Phone / WhatsApp",
+        "phonePh": "Enter your number",
+        "additional": "Additional Requirements",
+        "additionalPh": "Specify any details, specifications, packaging, delivery terms, etc.",
+        "submit": "Submit Buying Request",
+        "submitting": "Submitting your request...",
+        "success": "Your buying request has been submitted!",
+        "invalid": "Please check the required fields.",
+        "error": "Something went wrong. Please try again."
+      }
+    },
+    "footer": {
+      "tagline": "Connecting international business with local opportunities in the Democratic Republic of Congo.",
+      "stayConnected": "Stay Connected",
+      "upgradePremium": "Upgrade to Premium",
+      "copyright": "© {year} BrandsBridge Group. All rights reserved.",
+      "taglineBar": "Trade in DRC – Connecting international business with local opportunities.",
+      "columns": {
+        "quickLinks": {
+          "title": "Quick Links",
+          "home": "Home",
+          "companies": "Companies",
+          "opportunities": "Opportunities",
+          "marketplace": "Marketplace",
+          "events": "Events"
+        },
+        "resources": {
+          "title": "Resources",
+          "marketIntelligence": "Market Intelligence",
+          "localContacts": "Local Contacts",
+          "services": "Our Services",
+          "pricing": "Pricing"
+        },
+        "about": {
+          "title": "Company",
+          "aboutUs": "About Us",
+          "register": "Register Your Company",
+          "requestPartner": "Request a Partner",
+          "contactUs": "Contact Us"
+        },
+        "support": {
+          "title": "Support",
+          "helpCenter": "Help Center",
+          "faq": "FAQ",
+          "terms": "Terms of Use",
+          "privacy": "Privacy Policy"
+        }
+      }
+    }
+  },
+  "VerifiedDirectory": {
+    "breadcrumbHome": "Home",
+    "breadcrumbLocalContacts": "Local Contacts Directory",
+    "breadcrumbCurrent": "Verified Companies Directory",
+    "heroTitle": "Verified Companies Directory",
+    "heroSubtitle1": "Connect with reviewed and verified business profiles in the DRC.",
+    "heroSubtitle2": "Every company listed here has been reviewed for legitimacy, credibility and business activity to help you build trusted partnerships with confidence.",
+    "badgesTitle": "Understanding Our Verification Badges",
+    "badgeRegisteredTitle": "Registered Company",
+    "badgeRegisteredDesc": "Company has registered on the platform and provided basic business information.",
+    "badgeRegisteredPill": "Basic Profile",
+    "badgeVerifiedTitle": "Verified Company",
+    "badgeVerifiedDesc": "Company has been reviewed and verified for legitimacy and business activity.",
+    "badgeVerifiedPill": "Verified",
+    "badgePremiumTitle": "Premium Verified Local Partner",
+    "badgePremiumDesc": "High-trust local partner with deeper verification and proven track record.",
+    "badgePremiumPill": "Premium Partner",
+    "filterSectorLabel": "Select a sector",
+    "filterAllSectors": "All Sectors",
+    "filterProvinceLabel": "Select a province",
+    "filterAllProvinces": "All Provinces",
+    "filterTypeLabel": "Type of partnership",
+    "filterAllTypes": "All Types",
+    "typeDistributor": "Distributor",
+    "typeSupplier": "Supplier",
+    "typeManufacturer": "Manufacturer",
+    "typeServiceProvider": "Service Provider",
+    "premiumOnly": "Premium Only",
+    "intlReady": "International Business Ready",
+    "searchCompanies": "Search Companies",
+    "showingResults": "Showing {from}-{to} of {total} verified companies",
+    "sortBy": "Sort by:",
+    "sortRecent": "Recently Added",
+    "sortNameAZ": "Name A-Z",
+    "verifiedPill": "Verified",
+    "premiumPill": "Premium Partner",
+    "viewProfile": "View Profile",
+    "noResults": "No verified companies match your filters.",
+    "approachTitle": "Our Verification Approach",
+    "step1Title": "Documents Submitted",
+    "step1Caption": "Company submits required documents and information.",
+    "step2Title": "Official Contact Confirmed",
+    "step2Caption": "We verify company contact via official communication.",
+    "step3Title": "Documentation Reviewed",
+    "step3Caption": "Our team reviews and validates business documentation.",
+    "step4Title": "Sector & Location Classified",
+    "step4Caption": "Company is classified by sector and operational location.",
+    "step5Title": "Profile Published",
+    "step5Caption": "Verified profile is published with appropriate badge."
+  },
+  "BySector": {
+    "breadcrumb": {
+      "home": "Home",
+      "localContacts": "Local Contacts",
+      "title": "Explore by Sector"
+    },
+    "hero": {
+      "title": "Explore Companies by Sector",
+      "subtitle": "Discover local companies, service providers and potential partners operating in sectors that drive business and investment opportunities in the Democratic Republic of Congo."
+    },
+    "stats": {
+      "companies": "Companies",
+      "verifiedPartners": "Verified Partners"
+    },
+    "exploreSector": "Explore Sector",
+    "sectors": {
+      "mining": {
+        "name": "Mining & Minerals",
+        "desc": "Discover mining companies, equipment suppliers, exploration firms and mineral processing specialists."
+      },
+      "energy": {
+        "name": "Energy & Electricity",
+        "desc": "Connect with power generators, energy service providers, EPC contractors and renewable energy specialists."
+      },
+      "construction": {
+        "name": "Construction & Infrastructure",
+        "desc": "Find construction firms, engineering consultants, building material suppliers and infrastructure developers."
+      },
+      "logistics": {
+        "name": "Logistics & Transport",
+        "desc": "Explore transport operators, freight forwarders, warehousing providers and logistics service companies."
+      },
+      "agriculture": {
+        "name": "Agriculture & Agro-Industry",
+        "desc": "Meet agro-processors, farm suppliers, exporters and agribusiness service providers across the value chain."
+      },
+      "digital": {
+        "name": "Digital, Telecom & Technology",
+        "desc": "Connect with ICT companies, telecom operators, software developers and technology solution providers."
+      }
+    },
+    "featured": {
+      "eyebrow": "Featured Sector",
+      "name": "Mining & Minerals",
+      "desc": "The DRC is one of the world's most mineral-rich countries, with vast reserves of copper, cobalt, gold, diamonds and more. Our verified mining sector partners support the entire value chain from exploration and extraction to processing and export.",
+      "cta": "Request a Verified Mining Partner",
+      "categories": {
+        "miningEquipment": "Mining Equipment Suppliers",
+        "safetyEquipment": "Safety Equipment Providers",
+        "engineering": "Engineering Firms",
+        "logisticsMining": "Logistics for Mining",
+        "laboratories": "Laboratories & Testing Services"
+      }
+    }
+  },
+  "CompanyProfile": {
+    "stepper": {
+      "label": "Trade journey",
+      "step1": "Landing Page - Local Business Contacts",
+      "step2": "Search Directory",
+      "step3": "Company Profile",
+      "step4": "Find a Local Partner"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "products": "Products & Services",
+      "partnership": "Partnership Interests",
+      "verification": "Verification",
+      "contact": "Contact Request"
+    },
+    "hero": {
+      "premiumBadge": "Premium Verified Local Partner",
+      "verifiedBadge": "Verified Company",
+      "docsReviewed": "Documents Reviewed",
+      "availableIntl": "Available for International Partnerships",
+      "facilityAlt": "Company facility",
+      "subtitleSuffix": "Supplier",
+      "requestIntro": "Request Introduction",
+      "scheduleMeeting": "Schedule a B2B Meeting",
+      "saveCompany": "Save Company",
+      "saved": "Saved"
+    },
+    "about": {
+      "title": "About {name}",
+      "yearEstablished": "Year Established",
+      "companyType": "Company Type",
+      "employees": "Number of Employees",
+      "headquarters": "Headquarters",
+      "serviceAreas": "Service Areas",
+      "languages": "Languages",
+      "intlExperience": "International Experience"
+    },
+    "products": {
+      "title": "Key Products & Services",
+      "empty": "No products listed yet."
+    },
+    "partnership": {
+      "title": "Partnership Interests",
+      "distributorship": "Distributorship Agreements",
+      "oem": "OEM Partnerships",
+      "technologyTransfer": "Technology Transfer",
+      "jointVentures": "Joint Ventures",
+      "supplierPartnerships": "Supplier Partnerships"
+    },
+    "snapshot": {
+      "title": "Company Snapshot",
+      "duns": "DUNS Number",
+      "taxId": "Tax ID (RCCM)",
+      "industrySector": "Industry Sector",
+      "businessRegistrations": "Business Registrations",
+      "businessRegistrationsValue": "RCCM, NIF, CNSS",
+      "qualityCertifications": "Quality Certifications"
+    },
+    "verification": {
+      "title": "Verification Summary",
+      "overall": "Overall Verification: Verified",
+      "area": "Verification Area",
+      "status": "Status",
+      "verifiedBy": "Verified By",
+      "dateVerified": "Date Verified",
+      "verifiedByValue": "Trade in DRC",
+      "statusVerified": "Verified",
+      "statusReviewed": "Documents Reviewed",
+      "areas": {
+        "businessRegistration": "Business Registration (RCCM)",
+        "taxCompliance": "Tax Compliance (NIF)",
+        "physicalAddress": "Physical Address",
+        "bankReference": "Bank Reference",
+        "companyDocuments": "Company Documents"
+      }
+    },
+    "contact": {
+      "title": "Request Contact / Introduction",
+      "intro": "Send a request to connect with {name}. Your request will be reviewed by our team before an introduction is made.",
+      "fullName": "Your Full Name",
+      "fullNamePlaceholder": "Enter your full name",
+      "companyName": "Company Name",
+      "companyNamePlaceholder": "Enter your company name",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email",
+      "phone": "Phone Number",
+      "phonePlaceholder": "Enter phone number",
+      "interest": "Your Interest",
+      "interestPlaceholder": "Select your interest",
+      "interestOptions": {
+        "distribution": "Distribution",
+        "investment": "Investment",
+        "partnership": "Partnership",
+        "sourcing": "Sourcing",
+        "other": "Other"
+      },
+      "message": "Message (Optional)",
+      "messagePlaceholder": "Tell us more about your request...",
+      "submit": "Submit Contact Request",
+      "submitting": "Submitting your request...",
+      "success": "Request submitted. Our team will be in touch.",
+      "error": "Something went wrong. Please try again.",
+      "errorRequired": "Please fill in all required fields.",
+      "privacy": "We respect your privacy. Your information will only be used to facilitate this introduction."
+    }
+  },
+  "LocalContacts": {
+    "hero": {
+      "title": "Find Trusted Local Business Contacts in the Democratic Republic of Congo",
+      "subtitle": "Connect with verified suppliers, distributors, representatives, service providers and institutional contacts across the DRC."
+    },
+    "search": {
+      "keywordPlaceholder": "Enter keywords, company name, product or service",
+      "sectorLabel": "Select a sector",
+      "provinceLabel": "Select a province",
+      "typeLabel": "Type of contact",
+      "submit": "Search contacts",
+      "types": {
+        "suppliers": "Suppliers",
+        "distributors": "Distributors",
+        "representatives": "Local Representatives",
+        "serviceProviders": "Service Providers",
+        "institutional": "Institutional Contacts",
+        "investment": "Investment Partners"
+      }
+    },
+    "heroCta": {
+      "requestPartner": "Request a Local Partner",
+      "registerContact": "Register as a Local Contact"
+    },
+    "contactTypes": {
+      "heading": "What Type of Local Contact Are You Looking For?",
+      "suppliers": "Suppliers",
+      "distributors": "Distributors",
+      "representatives": "Local Representatives",
+      "serviceProviders": "Service Providers",
+      "institutional": "Institutional Contacts",
+      "investment": "Investment Partners"
+    },
+    "sectors": {
+      "heading": "Explore Local Contacts by Strategic Sector",
+      "companies": "Companies",
+      "explore": "Explore Sector",
+      "mining": "Mining & Minerals",
+      "energy": "Energy & Electricity",
+      "construction": "Construction & Infrastructure",
+      "agriculture": "Agriculture & Agro-Industry",
+      "logistics": "Logistics & Transport",
+      "digital": "Digital & Telecom",
+      "viewAllSectors": "Explore by Sector",
+      "viewByProvince": "Explore by Province"
+    },
+    "value": {
+      "discover": {
+        "title": "Discover",
+        "desc": "Easily find local contacts across provinces and sectors with advanced search and smart filters."
+      },
+      "verify": {
+        "title": "Verify",
+        "desc": "All contacts are verified for legitimacy, credibility and business activity."
+      },
+      "connect": {
+        "title": "Connect",
+        "desc": "Connect directly and build trusted relationships that drive real business outcomes."
+      }
+    },
+    "band": {
+      "title": "Entering the DRC Market? Start with the Right Local Contact.",
+      "subtitle": "Request a local partner to get market insights, introductions and on-the-ground support.",
+      "cta": "Request a Local Partner"
+    }
+  },
+  "Institutions": {
+    "breadcrumbHome": "Home",
+    "breadcrumbDirectory": "Local Contacts Directory",
+    "breadcrumbCurrent": "Institutional Contacts",
+    "heading": "Navigate the DRC Business Environment with the Right Institutional Contacts",
+    "subtitle": "Access essential orientation on public agencies, professional organizations, chambers and other support structures relevant to investment and commercial activity in the DRC.",
+    "searchPlaceholder": "Search institution, agency, organization…",
+    "allCategories": "All Categories",
+    "sidebarTitle": "Categories",
+    "allInstitutions": "All Institutions",
+    "viewDetails": "View Contact Details",
+    "bannerTitle": "Need help navigating the DRC business environment?",
+    "bannerSubtitle": "Our team can connect you with the right institution or support service.",
+    "requestGuidance": "Request Guidance",
+    "emptyTitle": "No institutions found",
+    "emptySubtitle": "Try adjusting your search or category filter.",
+    "category": {
+      "investment_promotion": "Investment Promotion",
+      "business_registration": "Business Registration",
+      "chambers_networks": "Chambers & Networks",
+      "sector_regulators": "Sector Regulators",
+      "provincial_support": "Provincial Support",
+      "export_trade": "Export & Trade Support",
+      "finance_tax": "Finance & Tax",
+      "legal_judicial": "Legal & Judicial",
+      "education_training": "Education & Training",
+      "other": "Other"
+    }
+  },
+  "ByProvince": {
+    "breadcrumbHome": "Home",
+    "breadcrumbLocalContacts": "Local Contacts",
+    "breadcrumbCurrent": "Explore by Province",
+    "title": "Explore Local Contacts by Province",
+    "subtitle": "Search local companies and professional contacts across the key economic provinces of the DRC",
+    "browseTitle": "Browse Provinces",
+    "browseHint": "Select a province on the map or choose from the list to explore local contacts.",
+    "legendFeatured": "Featured Provinces",
+    "legendOther": "Other Provinces",
+    "legendNotAvailable": "Not Available",
+    "companiesListedLabel": "Companies Listed",
+    "verifiedContactsLabel": "Verified Contacts",
+    "acrossAllProvinces": "Across All Provinces",
+    "viewAllProvinces": "View All Provinces",
+    "keyProvincesTitle": "Key Economic Provinces",
+    "dominantSectors": "Dominant Sectors",
+    "companiesUnit": "Companies",
+    "exploreProvince": "Explore Province",
+    "featuredBadge": "FEATURED PROVINCE",
+    "featuredTitle": "Business Contacts and Local Partners in Lualaba",
+    "featuredDescription": "Lualaba is the heart of the DRC's mining industry, rich in copper and cobalt resources and home to Kolwezi, a fast-growing industrial and logistics hub.",
+    "statCompanies": "Companies",
+    "statVerifiedContacts": "Verified Contacts",
+    "statStrategicSectors": "Strategic Sectors",
+    "statInvestmentPotential": "Investment Potential",
+    "investmentHigh": "High",
+    "keySectorsTitle": "Key Sectors in Lualaba",
+    "sectorMining": "Mining & Minerals",
+    "sectorConstruction": "Construction & Infrastructure",
+    "sectorEnergy": "Energy & Electricity",
+    "sectorAgriculture": "Agriculture & Agro-Industry",
+    "sectorLogistics": "Logistics & Transport",
+    "sectorManufacturing": "Industrial Manufacturing",
+    "recommendedTitle": "Recommended Companies",
+    "viewAll": "View All",
+    "verified": "Verified",
+    "needTitle": "Need Verified Contacts in Lualaba?",
+    "needDescription": "Get connected with trusted suppliers, distributors, and service providers in Lualaba.",
+    "requestCta": "Request a Local Contact in Lualaba"
+  },
+  "FindPartner": {
+    "breadcrumb": {
+      "home": "Home",
+      "current": "Find a Local Partner"
+    },
+    "hero": {
+      "title": "Find a Local Partner in the DRC",
+      "subtitle": "Tell us what your business needs, Trade in DRC will help identify suitable local companies, representatives, distributors or service providers aligned with your project.",
+      "submitCta": "Submit Your Need",
+      "browseCta": "Browse the Directory First"
+    },
+    "step1": {
+      "title": "What do you need?",
+      "subtitle": "Select the type of partner or contact you are looking for.",
+      "footnote": "You can select only one primary need per request."
+    },
+    "needs": {
+      "supplier": "Find a Supplier",
+      "distributor": "Find a Distributor",
+      "representative": "Find a Local Representative",
+      "jv_partner": "Find a Joint-Venture Partner",
+      "service_provider": "Find a Professional Service Provider",
+      "institutional": "Find an Institutional Contact",
+      "enter_market": "Enter the DRC Market",
+      "source_products": "Source Products from the DRC"
+    },
+    "step2": {
+      "title": "Tell us about your business need",
+      "subtitle": "Provide details so we can match you with the right local contacts."
+    },
+    "form": {
+      "companyName": "Company Name",
+      "companyNamePlaceholder": "Enter your company name",
+      "country": "Country",
+      "countryPlaceholder": "Select your country",
+      "countrySearch": "Search countries...",
+      "countryNoResults": "No countries found.",
+      "website": "Website",
+      "websitePlaceholder": "www.yourcompany.com",
+      "contactPerson": "Contact Person",
+      "contactPersonPlaceholder": "Full name",
+      "email": "Email",
+      "emailPlaceholder": "name@yourcompany.com",
+      "phone": "Phone",
+      "phonePlaceholder": "(555) 123-4567",
+      "sector": "Sector",
+      "selectPlaceholder": "Select an option",
+      "sectorPlaceholder": "Select your sector",
+      "contactType": "Type of Contact Needed",
+      "contactTypePlaceholder": "Select contact type",
+      "targetProvince": "Target Province in DRC",
+      "targetProvincePlaceholder": "Select target province",
+      "productService": "Product or Service of Interest",
+      "productServicePlaceholder": "Enter product or service",
+      "volume": "Estimated Business Volume (USD)",
+      "volumePlaceholder": "Select range",
+      "timeline": "Expected Timeline",
+      "timelinePlaceholder": "Select timeline",
+      "requirement": "Detailed Requirement",
+      "requirementPlaceholder": "Describe your project, needs, and any specific requirements...",
+      "uploadTitle": "Click to upload or drag and drop",
+      "uploadHint": "PDF, DOC, DOCX, PPTX (Max 10MB)",
+      "uploadLabel": "Upload Supporting Document (Optional)",
+      "submit": "Submit Request",
+      "submitting": "Submitting...",
+      "privacy": "Your information is secure and will only be used to match you with relevant local partners."
+    },
+    "contactTypes": {
+      "supplier": "Supplier",
+      "distributor": "Distributor",
+      "representative": "Local Representative",
+      "jv_partner": "Joint-Venture Partner",
+      "service_provider": "Professional Service Provider",
+      "institutional": "Institutional Contact",
+      "buyer": "Buyer",
+      "agent": "Commercial Agent",
+      "other": "Other"
+    },
+    "volumes": {
+      "under_10k": "Under $10,000",
+      "k10_50k": "$10,000 - $50,000",
+      "k50_250k": "$50,000 - $250,000",
+      "k250k_1m": "$250,000 - $1,000,000",
+      "over_1m": "Over $1,000,000"
+    },
+    "timelines": {
+      "immediate": "Immediate",
+      "m_1_3": "1 - 3 months",
+      "m_3_6": "3 - 6 months",
+      "m_6_12": "6 - 12 months",
+      "flexible": "Flexible"
+    },
+    "checkboxes": {
+      "verified_only": "Verified companies only",
+      "b2b_meetings": "Arrange B2B meetings",
+      "market_entry_support": "Market-entry support",
+      "sponsorship": "Sponsorship interest"
+    },
+    "step3": {
+      "title": "Request Submitted",
+      "subtitle": "Your request confirmation will appear here.",
+      "placeholder": "Your request confirmation will appear here after you submit.",
+      "thankYou": "Thank you! Your business request has been submitted.",
+      "requestId": "Request ID",
+      "info1": "Our team will review your request and identify suitable local contacts.",
+      "info2": "You will receive a confirmation email shortly.",
+      "info3": "We typically respond within 2-3 business days.",
+      "another": "Submit Another Request",
+      "browse": "Browse the Directory First"
+    },
+    "toast": {
+      "loading": "Submitting your request...",
+      "success": "Your business request has been submitted.",
+      "error": "Something went wrong. Please try again."
+    },
+    "validation": {
+      "selectNeed": "Please select what you need first.",
+      "required": "Please complete all required fields.",
+      "fileTooLarge": "File is too large (max 10MB).",
+      "fileType": "Unsupported file type. Use PDF, DOC, DOCX or PPTX."
+    }
+  },
+  "Premium": {
+    "meta": {
+      "title": "Premium Local Partner Membership",
+      "description": "Become a Premium Local Partner on TradeInDRC. Increase your visibility, showcase your capabilities and receive qualified business requests from companies looking for reliable partners in the DRC."
+    },
+    "hero": {
+      "title": "Become a Premium Local Partner and Grow Internationally",
+      "subtitle": "Increase your visibility, demonstrate your capabilities and receive qualified business requests from companies looking for reliable partners in the DRC.",
+      "startingFrom": "Starting from",
+      "price": "USD 3,000",
+      "per": "/ year",
+      "applyCta": "Apply for Premium Membership"
+    },
+    "compare": {
+      "title": "Compare Membership Plans",
+      "featuresLabel": "Features",
+      "cols": {
+        "free": "Free Listing",
+        "verified": "Verified Company",
+        "verifiedNote": "One-time Fee",
+        "premium": "Premium Local Partner",
+        "premiumNote": "USD 3,000 / year"
+      },
+      "rows": [
+        "Directory Listing",
+        "Basic Company Information",
+        "Contact Details",
+        "Verified Badge",
+        "Priority in Search Results",
+        "Bilingual Profile (French / EN)",
+        "Product / Service Showcase",
+        "Partnership Requests",
+        "B2B Meeting Invitations",
+        "Visibility Reports",
+        "Sponsored Placement",
+        "BrandsBridge Introduction Support"
+      ]
+    },
+    "benefits": [
+      {
+        "title": "Priority in Search Results",
+        "description": "Get seen by international buyers first."
+      },
+      {
+        "title": "Receive Qualified Business Requests",
+        "description": "From verified companies seeking partners."
+      },
+      {
+        "title": "Bilingual Profile (FR/EN)",
+        "description": "Present your company professionally."
+      },
+      {
+        "title": "B2B Meetings",
+        "description": "Get invited to exclusive business meetings."
+      },
+      {
+        "title": "BrandsBridge Support",
+        "description": "Benefit from our network and market expertise."
+      },
+      {
+        "title": "Visibility Reports",
+        "description": "Track your performance and reach."
+      }
+    ],
+    "whatYouGet": {
+      "title": "What You Get as a Premium Local Partner",
+      "items": [
+        "Enhanced visibility across the DRC's growing network of investors and companies.",
+        "Access to qualified international business requests.",
+        "Inclusion in search rankings with premium placement.",
+        "Introduction to B2B meetings and strategic partners.",
+        "Ability to showcase your products, services and capabilities.",
+        "Opportunity to sponsor sector or market reports (optional)."
+      ]
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "steps": [
+        {
+          "title": "Apply Online",
+          "description": "Complete the application form and select the Premium membership."
+        },
+        {
+          "title": "Profile Review",
+          "description": "Our team reviews and verifies your documents and company information."
+        },
+        {
+          "title": "Profile Activation",
+          "description": "Once approved, your premium profile goes live on the directory."
+        },
+        {
+          "title": "Receive Opportunities",
+          "description": "Start receiving qualified business requests and international connections."
+        }
+      ]
+    },
+    "assistance": {
+      "title": "Need Assistance?",
+      "body": "Contact our team for help with your Premium membership.",
+      "bookCta": "Book a Call"
+    },
+    "form": {
+      "title": "Apply for Premium Membership",
+      "subtitle": "Tell us how to reach you and our team will get in touch about your Premium Local Partner application.",
+      "fields": {
+        "fullName": "Full Name",
+        "companyName": "Company Name",
+        "email": "Email",
+        "phone": "Phone"
+      },
+      "placeholders": {
+        "fullName": "e.g. Jean Mukendi",
+        "companyName": "e.g. Kivu Trading SARL",
+        "email": "you@company.com",
+        "phone": "+243 ..."
+      },
+      "submit": "Submit Application",
+      "submitting": "Submitting your application...",
+      "errors": {
+        "invalid": "Please check the form and try again.",
+        "server": "Something went wrong. Please try again."
+      },
+      "success": {
+        "toast": "Application submitted",
+        "title": "Application Received",
+        "body": "Thank you. Our team will review your application and contact you shortly.",
+        "reference": "Your reference",
+        "done": "Done"
+      }
+    },
+    "promote": {
+      "option": "Option {n}",
+      "perYear": "/ year",
+      "bestFor": "Best for:",
+      "tabs": {
+        "local": {
+          "title": "Local Companies",
+          "body": "For Congolese companies"
+        },
+        "international": {
+          "title": "International Companies",
+          "body": "Promotion plans for international businesses"
+        },
+        "compare": {
+          "title": "Compare Plans",
+          "body": "Compare features side by side"
+        }
+      },
+      "panels": {
+        "local": {
+          "heading": "Local Promotion Plans",
+          "body": "Designed for Congolese companies seeking visibility, buyers, partners and institutional exposure across the DRC."
+        },
+        "international": {
+          "heading": "International Promotion Plans",
+          "body": "Designed for international companies seeking visibility, partnerships, distributors, buyers, institutional exposure, investment opportunities and market-entry support in the DRC."
+        }
+      },
+      "compare": {
+        "heading": "Compare Plans"
+      },
+      "plans": {
+        "congolese": {
+          "name": "Premium Local Partner",
+          "body": "Build visibility with buyers, partners and institutions across the Congolese market.",
+          "cta": "Choose Local Partner Plan",
+          "bestFor": "Congolese manufacturers, exporters, suppliers, service providers and SMEs.",
+          "bullets": [
+            "Premium company profile",
+            "Verified company badge",
+            "Priority placement in company directory",
+            "Display in relevant marketplace categories",
+            "Products & services showcase",
+            "Direct contact & lead request button",
+            "Company visibility in selected sectors",
+            "Publish business opportunities",
+            "Inclusion in Trade in DRC visibility campaigns",
+            "Quarterly visibility report"
+          ]
+        },
+        "international": {
+          "name": "International Business Visibility",
+          "body": "Build visibility, showcase your offerings and attract qualified business contacts in the DRC market.",
+          "cta": "Choose International Visibility Plan",
+          "bestFor": "Manufacturers, Exporters, Technology companies, Suppliers, Consulting firms, Logistics companies and SMEs exploring the DRC market.",
+          "bullets": [
+            "International company premium profile",
+            "Verified international company badge",
+            "Priority placement in company directory",
+            "Display in relevant marketplace categories",
+            "Products & services showcase",
+            "Direct contact & lead request button",
+            "Company visibility in selected sectors",
+            "Publish up to 3 business opportunities / year",
+            "Inclusion in Trade in DRC visibility campaigns",
+            "Quarterly visibility report",
+            "Access to qualified business requests",
+            "Basic introduction support"
+          ]
+        },
+        "international_strategic": {
+          "name": "Strategic Market Promotion",
+          "body": "Get stronger positioning, targeted promotion and deeper market-entry visibility across the DRC.",
+          "cta": "Choose Strategic Promotion Plan",
+          "bestFor": "International brands, industrial suppliers, infrastructure & energy companies, mining service providers, banks, investors and project promoters.",
+          "bullets": [
+            "Everything in International Visibility",
+            "Featured placement on homepage or marketplace",
+            "Sponsored opportunity publication",
+            "Featured company spotlight",
+            "Priority visibility in sector pages",
+            "Access to selected partner requests",
+            "Promotion in newsletter & updates",
+            "Publish up to 6 business opportunities / year",
+            "Sponsored marketplace category visibility",
+            "Advanced B2B introduction support",
+            "Semi-annual visibility & lead report",
+            "Optional support for business mission or B2B program"
+          ]
+        }
+      },
+      "ctaBar": {
+        "heading": "Need help choosing the right plan?",
+        "body": "Our team is here to guide you.",
+        "requestPackage": "Request Promotion Package",
+        "registerCompany": "Register Your Company",
+        "contactUs": "Contact Us"
+      },
+      "compareRows": {
+        "premiumProfile": "Premium International Profile",
+        "verifiedBadge": "Verified International Badge",
+        "priorityDirectory": "Priority Placement in Directory",
+        "categoryVisibility": "Marketplace Category Visibility",
+        "productsShowcase": "Products & Services Showcase",
+        "leadCapture": "Direct Lead Capture",
+        "opportunitiesPerYear": "Business Opportunities / Year",
+        "sponsoredOpportunity": "Sponsored Opportunity",
+        "homepageFeature": "Homepage / Marketplace Feature",
+        "newsletterVisibility": "Newsletter Visibility",
+        "sectorPagePromotion": "Sector Page Promotion",
+        "introductionSupport": "Introduction Support",
+        "performanceReport": "Visibility & Performance Report",
+        "marketEntrySupport": "Market-entry Support"
+      },
+      "compareValues": {
+        "standard": "Standard",
+        "featured": "Featured",
+        "upTo3": "Up to 3",
+        "upTo6": "Up to 6",
+        "limited": "Limited",
+        "priority": "Priority",
+        "basic": "Basic",
+        "advanced": "Advanced",
+        "quarterly": "Quarterly",
+        "semiAnnualLeads": "Semi-Annual + Leads",
+        "basicGuidance": "Basic Guidance",
+        "priorityGuidance": "Priority Guidance"
+      }
+    }
+  },
+  "RegisterCompany": {
+    "meta": {
+      "title": "Register Your Company",
+      "description": "Put your company in front of business partners looking for opportunities in the DRC."
+    },
+    "signedOutPrompt": {
+      "title": "You'll need an account to submit",
+      "body": "Sign in or create one — your progress is saved, and you'll come right back here to finish.",
+      "cta": "Sign in"
+    },
+    "hero": {
+      "title": "Register Your Company as a Local Business Contact",
+      "subtitle": "Put your Company in front of business partners looking for opportunities in the DRC.",
+      "valueProps": [
+        {
+          "title": "Increase visibility",
+          "body": "Be found by verified buyers and partners."
+        },
+        {
+          "title": "Build Trust",
+          "body": "Get verified and stand out in the marketplace."
+        },
+        {
+          "title": "Grow in DRC",
+          "body": "Generate qualified requests and new business."
+        }
+      ]
+    },
+    "tiers": {
+      "selected": "Selected",
+      "selectedToast": "{tier} plan selected",
+      "free": {
+        "name": "Registered Listing",
+        "price": "FREE",
+        "blurb": "Basic company listing to get discovered by local and international partners.",
+        "cta": "Select Free Listing",
+        "bullets": [
+          "Basic company profile",
+          "Listed in directory search",
+          "Receive partnership requests"
+        ]
+      },
+      "verified": {
+        "name": "Verified Company",
+        "price": "USD 250",
+        "blurb": "Verified badge builds trust and increases visibility with more details.",
+        "cta": "Choose Verified",
+        "bullets": [
+          "All Registered Listing benefits",
+          "Verified badge",
+          "Enhanced profile visibility",
+          "Priority in search results"
+        ]
+      },
+      "premium": {
+        "name": "Premium Local Partner",
+        "price": "USD 3,000",
+        "period": "/year",
+        "blurb": "Maximum visibility, lead access and featured placement.",
+        "cta": "Choose Premium",
+        "bullets": [
+          "All Verified Company benefits",
+          "Featured placement",
+          "Lead insights & analytics",
+          "Dedicated support"
+        ]
+      },
+      "subheading": "Choose the listing tier that fits your company."
+    },
+    "stepper": {
+      "aria": "Registration steps",
+      "counter": "Step {current} of {total}",
+      "jumpTo": "Go back to {step}",
+      "steps": {
+        "legal": "Legal Information",
+        "professional": "Professional Information",
+        "positioning": "Partnership Positioning",
+        "documents": "Documents",
+        "review": "Review & Submit",
+        "company_info": "Company Info",
+        "business_profile": "Business Profile",
+        "market_interest": "DRC Market Interest",
+        "contact_person": "Contact Person",
+        "plan": "Plan"
+      }
+    },
+    "sections": {
+      "legal": "1. Legal Information",
+      "professional": "2. Professional Information",
+      "positioning": "3. Partnership Positioning",
+      "documents": "4. Documents Upload",
+      "plan": "5. Choose Your Plan",
+      "review": "6. Review & Submit"
+    },
+    "fields": {
+      "companyLegalName": "Company Legal Name",
+      "companyProfile": "Company Type",
+      "interestOther": "Other Interest (please specify)",
+      "tradingName": "Trading Name (if different)",
+      "rccmNumber": "RCCM Number",
+      "nationalId": "National Identification Number",
+      "nif": "Tax Identification Number (NIF)",
+      "yearEstablished": "Year Established",
+      "legalForm": "Legal Form",
+      "employees": "Number of Employees",
+      "sector": "Sector",
+      "productsServices": "Products / Services",
+      "province": "Province",
+      "city": "City",
+      "website": "Website",
+      "officialEmail": "Official Email",
+      "phone": "Phone Number",
+      "altPhone": "Alternative Phone",
+      "contactPerson": "Contact Person",
+      "jobTitle": "Job Title",
+      "preferredContact": "Preferred Contact",
+      "languages": "Languages Spoken",
+      "interests": "International Opportunities of Interest",
+      "rccmCertificate": "RCCM Certificate",
+      "nifDocument": "Tax Identification (NIF)",
+      "companyLogo": "Company Logo (Optional)",
+      "additionalDocs": "Additional Documents (Optional)",
+      "country": "Country of Registration",
+      "registrationNumber": "Company Registration Number",
+      "nationalIdIntl": "National / Company ID (if any)",
+      "taxIdIntl": "Tax ID / VAT Number",
+      "region": "State / Region / Province"
+    },
+    "ph": {
+      "companyLegalName": "Enter legal name",
+      "tradingName": "Enter trading name",
+      "rccmNumber": "RCCM number",
+      "nationalId": "National ID number",
+      "nif": "NIF number",
+      "yearEstablished": "Select year",
+      "legalForm": "Select legal form",
+      "employees": "Select range",
+      "sector": "Select sector",
+      "productsServices": "Enter main products / services",
+      "province": "Select province",
+      "city": "Select city",
+      "website": "http://www.yourcompany.cd",
+      "officialEmail": "contact@yourcompany.cd",
+      "phone": "810 123 456",
+      "preferredContact": "Select preference",
+      "interestOther": "Specify other interest",
+      "country": "Select country",
+      "registrationNumber": "e.g. company register number",
+      "nationalIdIntl": "Optional",
+      "taxIdIntl": "Optional",
+      "region": "e.g. Lombardy, Texas, Ontario",
+      "contactPerson": "Full name of the contact person",
+      "jobTitle": "e.g. Export Manager"
+    },
+    "legalForms": {
+      "sarl": "SARL",
+      "sa": "SA",
+      "sarlu": "SARLU",
+      "scs": "SCS",
+      "sole": "Sole Proprietorship",
+      "cooperative": "Cooperative",
+      "other": "Other"
+    },
+    "employeeRanges": {
+      "1-10": "1 - 10",
+      "11-50": "11 - 50",
+      "51-200": "51 - 200",
+      "201-500": "201 - 500",
+      "500plus": "500+"
+    },
+    "languages": {
+      "french": "French",
+      "english": "English",
+      "swahili": "Swahili",
+      "lingala": "Lingala",
+      "kikongo": "Kikongo",
+      "tshiluba": "Tshiluba"
+    },
+    "interests": {
+      "investment": "Investment Partnerships",
+      "distribution": "Distribution Agreements",
+      "supply": "Supply & Procurement",
+      "jointVentures": "Joint Ventures",
+      "technology": "Technology Transfer",
+      "other": "Other (please specify)"
+    },
+    "preferredContacts": {
+      "email": "Email",
+      "phone": "Phone",
+      "whatsapp": "WhatsApp"
+    },
+    "documents": {
+      "helper": "Upload clear, legible documents (PDF, JPG or PNG, Max 5MB per file).",
+      "dragDrop": "Drag & drop or",
+      "browse": "Browse",
+      "uploading": "Uploading documents…",
+      "uploadSuccess": "Documents uploaded.",
+      "uploadPartialFailure": "{count} document(s) couldn't be uploaded. You can add them later from your dashboard.",
+      "invalidType": "Unsupported file type. Please upload a PDF, JPG or PNG.",
+      "tooLarge": "File is too large. Maximum {max}MB per file."
+    },
+    "review": {
+      "hint": "Review your information below, then submit for review.",
+      "plan": "Selected plan",
+      "changePlan": "Change"
+    },
+    "nav": {
+      "back": "Back",
+      "next": "Next",
+      "submit": "Submit for Review",
+      "submitting": "Submitting your company..."
+    },
+    "success": {
+      "title": "Your company has been submitted for review",
+      "body": "Our team will review your submission and get back to you. You can track its status from your dashboard.",
+      "cta": "Go to My Companies"
+    },
+    "errors": {
+      "required": "Please fill in all required fields.",
+      "auth": "Please sign in to submit your company.",
+      "server": "Something went wrong. Please try again.",
+      "invalid": "Some fields are invalid. Please check and try again.",
+      "bannerTitle": "Please complete the following before submitting:"
+    },
+    "benefits": {
+      "items": [
+        {
+          "title": "High Visibility",
+          "body": "Appear in front of thousands of buyers and investors."
+        },
+        {
+          "title": "Verified & Trusted",
+          "body": "Build credibility with verification and trusted profile badges."
+        },
+        {
+          "title": "Receive Opportunities",
+          "body": "Get connection requests from serious partners and buyers."
+        },
+        {
+          "title": "Grow Your Business",
+          "body": "Access new markets and scale within the DRC."
+        }
+      ]
+    },
+    "profileChooser": {
+      "heading": "Choose your company profile",
+      "subheading": "This decides which registration form you'll fill in next — you can change it at any time.",
+      "continue": "Continue",
+      "freeNote": "Listing your company is free. You can add a paid plan later.",
+      "change": "Change",
+      "congolese": {
+        "title": "I am a Congolese Company",
+        "body": "For companies legally registered in the Democratic Republic of Congo."
+      },
+      "international": {
+        "title": "I am an International Company",
+        "body": "For foreign companies seeking partners, visibility and opportunities in the DRC."
+      }
+    },
+    "intl": {
+      "heroTitleLead": "Register Your ",
+      "heroTitleAccent": "International Company",
+      "heroBody": "Join Trade in DRC to increase your visibility, connect with Congolese partners, access business opportunities and explore market-entry possibilities in the Democratic Republic of Congo.",
+      "formTitle": "International Company Registration Form",
+      "requiredNote": "All fields marked with * are required",
+      "steps": {
+        "company_info": "Company Info",
+        "business_profile": "Business Profile",
+        "market_interest": "DRC Market Interest",
+        "contact_person": "Contact Person",
+        "profile_plan": "Profile & Plan",
+        "documents": "Documents",
+        "review": "Review & Submit"
+      },
+      "sections": {
+        "companyInfo": "Company Identification",
+        "businessProfile": "Business Profile",
+        "marketInterest": "DRC Market Interest",
+        "contactPerson": "Contact Person"
+      },
+      "fields": {
+        "tradingName": "Trading Name / Brand Name",
+        "website": "Company Website",
+        "companyEmail": "Company Email",
+        "companyPhone": "Company Phone / WhatsApp",
+        "dialCode": "Country Code",
+        "headOffice": "Head Office Address",
+        "annualTurnover": "Annual Turnover",
+        "currentMarkets": "Markets Currently Served",
+        "productsServices": "Products & Services Offered",
+        "certifications": "Certifications & Standards",
+        "drcInterests": "What are you looking for in the DRC?",
+        "targetProvinces": "Target Provinces",
+        "entryTimeline": "Timeline",
+        "marketInterestNotes": "Tell us more about what you are looking for",
+        "directPhone": "Direct Phone / WhatsApp"
+      },
+      "ph": {
+        "tradingName": "Enter commercial or brand name",
+        "taxId": "Enter tax or VAT number (if applicable)",
+        "website": "https://www.company.com",
+        "companyEmail": "info@company.com",
+        "companyPhone": "Include country code",
+        "headOffice": "Street, city, country",
+        "annualTurnover": "Select a range",
+        "currentMarkets": "e.g. Belgium, UAE, South Africa",
+        "productsServices": "Describe what your company offers",
+        "certifications": "e.g. ISO 9001, HACCP, CE",
+        "entryTimeline": "Select a timeline",
+        "marketInterestNotes": "Describe the partners, products, services or opportunities you are looking for in the DRC.",
+        "directPhone": "Direct line (optional)"
+      },
+      "turnoverRanges": {
+        "under_500k": "Under USD 500,000",
+        "500k_2m": "USD 500,000 – 2M",
+        "2m_10m": "USD 2M – 10M",
+        "10m_50m": "USD 10M – 50M",
+        "over_50m": "Over USD 50M"
+      },
+      "drcInterests": {
+        "export_to_drc": "Export to the DRC",
+        "import_from_drc": "Import from the DRC",
+        "distribution": "Distribution & resellers",
+        "investment": "Investment",
+        "joint_venture": "Joint venture",
+        "local_representation": "Local representation",
+        "services": "Provide services"
+      },
+      "entryTimelines": {
+        "immediately": "Immediately",
+        "under_3_months": "Within 3 months",
+        "three_to_six_months": "3 – 6 months",
+        "six_to_twelve_months": "6 – 12 months",
+        "exploratory": "Exploring for now"
+      },
+      "plan": {
+        "heading": "Choose your plan",
+        "subheading": "Both options list your company. Premium adds visibility, lead capture and market-entry support.",
+        "perYear": "/ year",
+        "note": "Premium is reviewed and activated by our team after your application is approved.",
+        "free": {
+          "name": "Standard Listing",
+          "price": "Free",
+          "bullets": [
+            "Company profile in the directory",
+            "Appear in relevant marketplace categories",
+            "Receive business inquiries",
+            "Access published opportunities"
+          ],
+          "cta": "Select Standard Listing"
+        },
+        "premium": {
+          "name": "Premium International Profile",
+          "bullets": [
+            "Verified international company badge",
+            "Priority placement in search results",
+            "Enhanced company profile page",
+            "Direct lead capture from Congolese companies",
+            "Publish business opportunities",
+            "Visibility to institutions & public corporations"
+          ],
+          "cta": "Select Premium International Profile"
+        },
+        "selected": "Selected"
+      },
+      "premiumCard": {
+        "title": "Premium International Profile",
+        "price": "USD 3,600",
+        "perYear": "/ year",
+        "cta": "Get Premium International Profile",
+        "bullets": [
+          "Verified international company badge",
+          "Priority placement in search results",
+          "Enhanced company profile page",
+          "Products & services showcase",
+          "Direct lead capture from Congolese companies",
+          "Ability to publish business opportunities",
+          "Access to selected partnership requests",
+          "Visibility to institutions & public corporations",
+          "B2B introduction support",
+          "Better credibility for market entry in the DRC"
+        ],
+        "selectedCta": "Premium International Profile Selected"
+      },
+      "help": {
+        "title": "Need Help Getting Started?",
+        "body": "Our team is ready to assist you with your registration and market entry in the DRC.",
+        "cta": "Contact Us"
+      },
+      "why": {
+        "heading": "Why Register on Trade in DRC?",
+        "body": "A trusted platform connecting international companies with opportunities, partners and growth in the DRC.",
+        "items": {
+          "opportunities": {
+            "title": "Access Opportunities",
+            "body": "Discover business opportunities across key sectors in the DRC."
+          },
+          "partners": {
+            "title": "Find Partners",
+            "body": "Connect with reliable partners, suppliers and buyers."
+          },
+          "intelligence": {
+            "title": "Market Intelligence",
+            "body": "Access market data, reports and business insights."
+          },
+          "grow": {
+            "title": "Grow Your Business",
+            "body": "Expand your presence and grow in the Congolese market."
+          }
+        }
+      },
+      "safe": {
+        "title": "Your Data is Safe with Us",
+        "body": "We are committed to protecting your information and will never share your data without your consent.",
+        "items": {
+          "secure": {
+            "title": "Secure Platform",
+            "body": "Advanced encryption"
+          },
+          "verified": {
+            "title": "Verified Network",
+            "body": "Trusted & reliable"
+          },
+          "privacy": {
+            "title": "Privacy Guaranteed",
+            "body": "Your privacy is our priority"
+          }
+        }
+      }
+    }
+  },
+  "Services": {
+    "hero": {
+      "title": "Our Services",
+      "subtitle": "Practical support for companies and institutions seeking to operate, partner or expand in the Democratic Republic of Congo.",
+      "requestCta": "Request a Service",
+      "exploreCta": "Explore Solutions"
+    },
+    "items": {
+      "partnerSearch": {
+        "title": "Partner Search",
+        "body": "Identify relevant local or international partners based on your sector and objectives."
+      },
+      "marketEntry": {
+        "title": "Market Entry Support",
+        "body": "Receive local guidance and strategic support to enter the DRC market with clarity."
+      },
+      "verification": {
+        "title": "Business Verification",
+        "body": "Reduce uncertainty by checking the credibility and profile of potential business partners."
+      },
+      "b2bMeeting": {
+        "title": "B2B Meeting Facilitation",
+        "body": "Connect with suppliers, investors, institutions and decision-makers through structured meetings."
+      },
+      "marketReports": {
+        "title": "Market Reports",
+        "body": "Access sector intelligence, market briefs and customized business insights."
+      },
+      "localRepresentation": {
+        "title": "Local Representation",
+        "body": "Build a credible local presence through business facilitation and representation support."
+      },
+      "delegation": {
+        "title": "Delegation Organization",
+        "body": "Organize business missions, conferences, visits and partnership programs."
+      }
+    },
+    "form": {
+      "title": "Request a Service",
+      "subtitle": "Tell us what you need. Our team will connect you with the right experts and solutions.",
+      "fullName": "Full Name",
+      "fullNamePh": "Enter your full name",
+      "company": "Company",
+      "companyPh": "Enter your company name",
+      "country": "Country",
+      "countryPh": "Select your country",
+      "email": "Email",
+      "emailPh": "youremail@example.com",
+      "phone": "WhatsApp / Phone",
+      "phonePh": "Enter WhatsApp or phone number",
+      "sector": "Sector of Interest",
+      "sectorPh": "Select your sector",
+      "serviceNeeded": "Service Needed",
+      "serviceNeededPh": "Select the service you need",
+      "services": {
+        "partnerSearch": "Partner Search",
+        "marketEntry": "Market Entry Support",
+        "verification": "Business Verification",
+        "b2bMeeting": "B2B Meeting Facilitation",
+        "marketReports": "Market Reports",
+        "localRepresentation": "Local Representation",
+        "delegation": "Delegation Organization"
+      },
+      "location": "Preferred Location in the DRC",
+      "locationPh": "Select province or city",
+      "timeline": "Expected Timeline",
+      "timelinePh": "Select timeline",
+      "timelines": {
+        "immediate": "Immediate",
+        "1_3_months": "1–3 months",
+        "3_6_months": "3–6 months",
+        "6_plus_months": "6+ months"
+      },
+      "message": "Detailed Message",
+      "messagePh": "Please describe your request, objectives and any specific details...",
+      "submit": "Submit Service Request",
+      "submitting": "Submitting your request...",
+      "success": "Your service request has been submitted!",
+      "invalid": "Please check the required fields.",
+      "error": "Something went wrong. Please try again.",
+      "privacy": "Your information is secure and will only be used to process your service request.",
+      "successTitle": "Thank you! Your service request has been submitted.",
+      "successBody": "Our team will review your request and connect you with the right experts.",
+      "requestId": "Request ID",
+      "another": "Submit Another Request"
+    },
+    "audience": {
+      "title": "Who We Serve",
+      "international": {
+        "title": "International Companies",
+        "body": "Enter the DRC market with trusted local intelligence and connections."
+      },
+      "congolese": {
+        "title": "Congolese Companies",
+        "body": "Increase visibility and connect with international buyers, investors and partners."
+      },
+      "investors": {
+        "title": "Investors",
+        "body": "Discover structured opportunities across strategic sectors in the DRC."
+      },
+      "institutions": {
+        "title": "Institutions",
+        "body": "Promote sectors, programs and national business opportunities through a structured ecosystem."
+      }
+    },
+    "sectors": {
+      "title": "Strategic Sectors We Cover",
+      "chips": {
+        "mining": "Mining & Critical Minerals",
+        "energy": "Energy & Power",
+        "agriculture": "Agriculture & Agro-processing",
+        "infrastructure": "Infrastructure & Construction",
+        "digital": "Digital Economy & ICT",
+        "logistics": "Logistics & Transport",
+        "healthcare": "Healthcare & Pharmaceuticals",
+        "finance": "Finance & Professional Services",
+        "tourism": "Tourism & Hospitality",
+        "oilGas": "Oil & Gas",
+        "manufacturing": "Manufacturing & Industry"
+      }
+    },
+    "how": {
+      "title": "How It Works",
+      "steps": {
+        "submit": {
+          "title": "Submit your service request",
+          "body": "Share your needs through our form."
+        },
+        "review": {
+          "title": "Request review",
+          "body": "Our team reviews and analyzes your request."
+        },
+        "connect": {
+          "title": "Business connection",
+          "body": "We connect you with trusted experts and partners."
+        },
+        "deliver": {
+          "title": "Solution delivery",
+          "body": "Receive tailored support and results to achieve your objectives."
+        }
+      }
+    }
+  },
+  "EventsHub": {
+    "hero": {
+      "title": "Explore Business Events in the DRC and Beyond",
+      "subtitle": "Discover conferences, trade forums, B2B meetings, expos, training programs and investment events connected to the Democratic Republic of Congo.",
+      "keyword": "Keyword",
+      "eventTypeAll": "Event Type",
+      "sectorAll": "Sector",
+      "locationAll": "Location",
+      "datePlaceholder": "Date",
+      "search": "Search Events",
+      "browse": "Browse Events",
+      "submit": "Submit an Event"
+    },
+    "eventTypes": {
+      "conference": "Conference",
+      "summit": "Summit",
+      "forum": "Forum",
+      "b2b_meeting": "B2B Meeting",
+      "exhibition": "Exhibition",
+      "training": "Training",
+      "webinar": "Webinar",
+      "trade_mission": "Trade Mission"
+    },
+    "stats": {
+      "upcoming": "Upcoming Events",
+      "sectors": "Strategic Sectors",
+      "provinces": "Provinces Covered",
+      "partners": "International Partners"
+    },
+    "featured": {
+      "heading": "Featured Events",
+      "viewEvent": "View Event",
+      "register": "Register Now"
+    },
+    "upcoming": {
+      "heading": "Upcoming Events",
+      "viewDetails": "View Details",
+      "attend": "Attend",
+      "empty": "No events match your filters yet. Try adjusting your search."
+    },
+    "tabs": {
+      "all": "All",
+      "conferences": "Conferences",
+      "b2b": "B2B Meetings",
+      "exhibitions": "Exhibitions",
+      "training": "Training",
+      "webinars": "Webinars",
+      "trademissions": "Trade Missions"
+    },
+    "bySector": {
+      "heading": "Events by Sector",
+      "eventsSuffix": "Events",
+      "tiles": {
+        "mining": "Mining",
+        "agriculture": "Agriculture",
+        "energy": "Energy",
+        "infrastructure": "Infrastructure",
+        "digital": "Digital & Telecom",
+        "finance": "Finance",
+        "manufacturing": "Manufacturing",
+        "healthcare": "Healthcare"
+      }
+    },
+    "host": {
+      "heading": "Host or Promote Your Event on Trade in DRC",
+      "body": "Reach thousands of businesses, investors and professionals. List your conferences, trade fairs, B2B meetings, and training programs on our platform.",
+      "cta": "Submit an Event"
+    },
+    "past": {
+      "heading": "Past Highlights"
+    },
+    "rail": {
+      "submit": {
+        "title": "Submit an Event",
+        "subtitle": "List your event on Trade in DRC.",
+        "name": "Event Name",
+        "namePh": "e.g. DRC Investment Forum 2026",
+        "type": "Event Type",
+        "typePh": "Select a type",
+        "sector": "Sector",
+        "sectorPh": "Select a sector",
+        "date": "Date",
+        "location": "Location",
+        "locationPh": "City, Country",
+        "organizer": "Organizer",
+        "organizerPh": "Organizing body",
+        "email": "Email",
+        "emailPh": "you@example.com",
+        "button": "Submit Event",
+        "submitting": "Submitting your event…",
+        "success": "Event submitted. Our team will review it shortly.",
+        "error": "Something went wrong. Please try again.",
+        "invalid": "Please check the highlighted fields."
+      },
+      "why": {
+        "title": "Why Use Trade in DRC Events?",
+        "i1": "Verified business audience",
+        "i2": "Sector-focused visibility",
+        "i3": "B2B connection opportunities",
+        "i4": "National and international reach",
+        "i5": "Event promotion support"
+      },
+      "cities": {
+        "title": "Popular Cities"
+      },
+      "news": {
+        "title": "Newsletter",
+        "body": "Stay updated on upcoming events and business opportunities.",
+        "placeholder": "Enter your email",
+        "subscribe": "Subscribe",
+        "success": "Subscribed. Watch your inbox for upcoming events."
+      }
+    }
+  },
+  "MarketIntel": {
+    "hero": {
+      "title": "Explore the Trade in DRC Data Hub",
+      "subtitle": "Access market intelligence, sector data, business insights, trade information and strategic indicators for the Democratic Republic of Congo.",
+      "search": "Search Data",
+      "filters": {
+        "sector": "Sector",
+        "sectorAll": "All Sectors",
+        "province": "Province",
+        "provinceAll": "All Provinces",
+        "dataType": "Data Type",
+        "dataTypeAll": "All Data Types",
+        "timeRange": "Time Range",
+        "active": "Filtered by:",
+        "clear": "Clear filters"
+      },
+      "dataType": {
+        "reports": "Reports",
+        "datasets": "Datasets",
+        "prices": "Prices"
+      },
+      "timeRange": {
+        "m12": "Last 12 Months",
+        "m24": "Last 24 Months",
+        "all": "All Time"
+      }
+    },
+    "stats": {
+      "companiesMapped": "Companies Mapped",
+      "provincesCovered": "Provinces Covered",
+      "strategicSectors": "Strategic Sectors",
+      "reportsDatasets": "Reports & Datasets"
+    },
+    "dashboard": {
+      "title": "Market Overview Dashboard"
+    },
+    "charts": {
+      "trend": {
+        "title": "Trade Value Trend (USD)",
+        "exports": "Exports",
+        "imports": "Imports"
+      },
+      "bar": {
+        "title": "Sector Activity (Trade Value in USD)"
+      },
+      "donut": {
+        "title": "Companies by Sector",
+        "center": "Companies",
+        "other": "Other"
+      },
+      "choropleth": {
+        "title": "Provincial Coverage",
+        "high": "High",
+        "medium": "Medium",
+        "low": "Low"
+      },
+      "legend": {
+        "high": "High",
+        "medium": "Medium",
+        "low": "Low"
+      }
+    },
+    "reports": {
+      "title": "Latest Reports & Datasets",
+      "viewAll": "View All Reports",
+      "col": {
+        "report": "Report / Dataset",
+        "category": "Category",
+        "coverage": "Coverage",
+        "published": "Published",
+        "type": "Type"
+      },
+      "viewReport": "View Report",
+      "downloadSummary": "Download Summary",
+      "coverage": {
+        "national": "National",
+        "regional": "Regional",
+        "provinces": "26 Provinces"
+      },
+      "type": {
+        "report": "Report",
+        "dataset": "Dataset"
+      },
+      "category": {
+        "investment": "Investment"
+      },
+      "empty": "No reports match your filters."
+    },
+    "browse": {
+      "title": "Browse by Data Category",
+      "sectorReports": {
+        "title": "Sector Reports",
+        "body": "Insights and analysis on key sectors"
+      },
+      "companyData": {
+        "title": "Company Directory Data",
+        "body": "Explore company profiles and data"
+      },
+      "provincialProfiles": {
+        "title": "Provincial Profiles",
+        "body": "Detailed data by province"
+      },
+      "tradeFlows": {
+        "title": "Trade Flows",
+        "body": "Import/export data and trends"
+      },
+      "investmentOpps": {
+        "title": "Investment Opportunities",
+        "body": "Discover opportunities across DRC"
+      },
+      "marketSignals": {
+        "title": "Market Signals",
+        "body": "Key indicators and early signals"
+      }
+    },
+    "form": {
+      "title": "Request Custom Market Intelligence",
+      "fullName": "Full Name",
+      "company": "Company",
+      "sector": "Sector of Interest",
+      "sectorPlaceholder": "Sector of Interest",
+      "email": "Email Address",
+      "message": "Tell us what insights you need...",
+      "submit": "Submit Request",
+      "submitting": "Submitting...",
+      "success": "Request received. Our team will be in touch.",
+      "successRef": "Your reference: {reference}",
+      "error": "Something went wrong. Please try again.",
+      "loading": "Submitting your request..."
+    },
+    "why": {
+      "title": "Why Use the Trade in DRC Data Hub?",
+      "items": {
+        "verified": "Verified market information from trusted sources",
+        "depth": "In-depth insights on strategic sectors",
+        "province": "Province-level data for targeted decisions",
+        "discovery": "Support for business discovery and partnerships",
+        "investor": "Investor-ready intelligence and reports",
+        "growth": "Data-driven decision support for growth"
+      }
+    },
+    "promo": {
+      "investors": {
+        "title": "For Investors",
+        "body": "Access investor-grade data and market intelligence to make confident decisions.",
+        "cta": "Explore Investor Data"
+      },
+      "business": {
+        "title": "For Businesses",
+        "body": "Find market insights, partners, and opportunities to grow your business.",
+        "cta": "Explore Business Data"
+      }
+    }
+  },
+  "MarketplacePage": {
+    "hero": {
+      "titleLead": "The DRC Business",
+      "titleAccent": "Marketplace",
+      "tagline": "One Platform. Endless Connections. Real Opportunities.",
+      "body": "Trade in DRC brings together trusted players across the entire trade and investment ecosystem. Connect, collaborate and grow your business in the heart of Africa.",
+      "imageAlt": "Container ship berthed at a Congolese port at dusk",
+      "ctaJoin": "Join the Marketplace",
+      "ctaExplore": "Explore Opportunities",
+      "ctaHowItWorks": "How it Works",
+      "stats": {
+        "companies": "Verified Companies",
+        "provinces": "Provinces Covered",
+        "opportunities": "Business Opportunities",
+        "secure": "Verified & Secure"
+      },
+      "hub": {
+        "title": "A Central Hub for Global Trade in DRC",
+        "discover": "Discover verified businesses",
+        "find": "Find products, services & partners",
+        "intelligence": "Access market intelligence",
+        "facilitate": "Facilitate trade & investment",
+        "network": "Grow your network globally"
+      }
+    },
+    "categories": {
+      "heading": "Explore the Marketplace by Category",
+      "subheading": "Connect with the right partners across all key sectors of the trade ecosystem.",
+      "count": "{count, plural, =0 {No listings yet} one {# listing} other {# listings}}",
+      "manufacturer": {
+        "title": "Manufacturers",
+        "desc": "Connect with local manufacturers of quality products across all industries.",
+        "cta": "View Manufacturers"
+      },
+      "importer": {
+        "title": "Importers",
+        "desc": "Find reliable importers sourcing products and solutions for the DRC market.",
+        "cta": "View Importers"
+      },
+      "exporter": {
+        "title": "Exporters",
+        "desc": "Meet exporters offering DRC-made products to global markets.",
+        "cta": "View Exporters"
+      },
+      "finance": {
+        "title": "Finance & Banking",
+        "desc": "Access financial institutions and banking services that support your business growth.",
+        "cta": "View Finance Partners"
+      },
+      "logistics": {
+        "title": "Logistics & Shipping",
+        "desc": "Find logistics, shipping and freight forwarders to move your business forward.",
+        "cta": "View Logistics Partners"
+      },
+      "government": {
+        "title": "Government Bodies",
+        "desc": "Connect with government agencies and regulatory bodies facilitating trade and investment.",
+        "cta": "View Government Bodies"
+      },
+      "public_corp": {
+        "title": "Public Corporations",
+        "desc": "Engage with public corporations driving development and economic growth.",
+        "cta": "View Corporations"
+      },
+      "facilitation": {
+        "title": "Trade Facilitation & Services Providers",
+        "desc": "Access trade facilitation and professional service providers supporting compliance, documentation, consulting and more.",
+        "cta": "View Service Providers"
+      },
+      "investors": {
+        "title": "Investors & More",
+        "desc": "Connect with investors, funds and more opportunities to finance and scale your projects.",
+        "cta": "View Investors"
+      }
+    },
+    "why": {
+      "heading": "Why Use Trade in DRC Marketplace?",
+      "verified": {
+        "title": "Verified & Trusted",
+        "desc": "We verify companies to ensure trust and credibility."
+      },
+      "growth": {
+        "title": "Business Growth",
+        "desc": "Discover new opportunities and grow your network."
+      },
+      "targeted": {
+        "title": "Targeted Connections",
+        "desc": "Connect with relevant partners and decision-makers."
+      },
+      "secure": {
+        "title": "Secure Platform",
+        "desc": "Your data and transactions are protected."
+      },
+      "intelligence": {
+        "title": "Market Intelligence",
+        "desc": "Access real data, insights and business reports."
+      },
+      "reach": {
+        "title": "Global Reach",
+        "desc": "Connect with partners from across the world."
+      }
+    },
+    "opportunities": {
+      "heading": "Popular Business Opportunities",
+      "viewAll": "View all opportunities",
+      "empty": "No opportunities are published yet. Check back soon.",
+      "sector": "Sector",
+      "need": "Need",
+      "location": "Location",
+      "countryWide": "DRC",
+      "open": "Open",
+      "viewDetails": "View Details",
+      "needs": {
+        "tender": "Tender",
+        "offer": "Supplier",
+        "demand": "Buyer",
+        "quotation": "Quotation",
+        "project_launch": "Project Partner",
+        "investment_call": "Investor",
+        "partner_search": "Partner",
+        "ppp": "PPP Partner"
+      }
+    },
+    "join": {
+      "heading": "Join the Marketplace Today",
+      "body": "Create your free account and start connecting with thousands of businesses and opportunities.",
+      "benefits": {
+        "profile": "Create your company profile",
+        "browse": "Browse opportunities & partners",
+        "connect": "Connect and grow your business",
+        "intelligence": "Access market intelligence"
+      },
+      "ctaRegister": "Register Free",
+      "ctaPremium": "Learn about Premium Profile"
+    },
+    "strip": {
+      "companies": "Registered Companies",
+      "provinces": "Provinces Covered",
+      "categories": "Product Categories",
+      "opportunities": "Business Opportunities",
+      "access": "Platform Access",
+      "secure": "Verified & Secure"
+    }
+  }
+}

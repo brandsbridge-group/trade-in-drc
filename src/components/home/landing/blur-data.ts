@@ -1,0 +1,15 @@
+// Auto-generated LQIP blur placeholders for landing imagery (tiny base64 previews).
+// Shown instantly under next/image placeholder="blur" so images never pop in on slow links.
+export const BLUR = {
+  "heroBg": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAQBACdASoUAAsAPu1iqU2ppaOiMAgBMB2JQBOl6RC1JtX6PeXX26fyNAD+/Z49qVL++XsqR97xOsubHqBFt35GuMMxQK168/TPZjesZ+qOniWYmxBz295gAAA=",
+  "drcMap": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAwCdASoUABQAPu1wr1IppiQiqAgBMB2JZQDNwBEdumsYZlxQcuDAAP7ujo0866svx/rLbI8pty9Xo3kQEFCfCAA=",
+  "whyDrcBg": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAwBACdASoUAAsAPu1kqU2ppaOiMAgBMB2JZACdMoADTsL1bVPsIO8nAIAA/r6D9AS9lSmHvwVNv7tDeHOWgTlVADelQrxEX16b0FHWL8grnYIhzt10csHRMf7xxk4UtgNrudwAAAA=",
+  "aboutComposite": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAwBACdASoUAA8APu1iqU2ppaOiMAgBMB2JYgCdMoADSwNf24hQ078NHwAA/u6DPiKMCogPq0GDiAaLO8GXpApcTw+6bpb2reqLO+sjUqYWg+3QrlbLJLzpvVr/2tfaqT6LjjpzEuqRcWLZjEq1VAAA",
+  "aboutHeroBg": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAwBACdASoUAAsAPu1mq04ppaQiMAgBMB2JZACdMoADT0BGXEtREjgiBUAA/u6JtWZPdGd6L/in1Qg2fzEYgXrZ85qqLotyk3dIJBz62OFnOkEdN856p1qAVK0MQEONa6GrleRbGlm4Jjzlj04AAA==",
+  "mining": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAQBQCdASoUAA8APu1iqU2ppaOiMAgBMB2JaACdMoMYPX/KAAN8YzFziekQuTrHcucAAP5mwEvmSvl7vH9MD5V24b1c2jo7uIiho0RPz7IUvQH0WmcE6Vmhqwc0fJtXs2p8qI4CbxKQjg/yRdaCzdnDQnRBWRxHLZaqAAAA",
+  "agriculture": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADwAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JaAC7AB52W6zoKkvNe0dAAP7XlMJujo+hKbL4VrWn4Ynw0bMVUPrAh2Wyuze8x2eLQM4m2mY03ch0EI+1i+21KSGjNZG/ng/oM2GMewQuJXoNW7DFORuZkH/uneF4mIAAAA==",
+  "energy": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAwBACdASoUAA8APu1iqU2ppaOiMAgBMB2JQBdkGQhwBJmbxKhQQZypsjgA/lrU5JwPgRqmUQMRHIOrM8fbXghRCK5/mxUXdaTlsxXmloWVYy3bCcdU1YbBCAieBrYVkVrbrkfvPtz5eBrvvkGZNJAB6oAucGVp9hyMUZt32jLM9CX77oAAAA==",
+  "infrastructure": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAABwBACdASoUAA8APu1iqU2ppaOiMAgBMB2JYwCdMoADYH6ZlemvHQHJFSJOAAD+52ObFzWEjfJMvjal3Ig9C+LCPGB7PrjrnVtjMvYl597uwPDoQytjXnG0Kwjlk9hrtMpiz+H+r6LGzCDgi4iuRbF9pU7pMxwP7zCrNHPAAAA=",
+  "forestry": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAACQAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JQBOgBFJisjt1gB7gAP7I+/ir4oNjV0TAZfRKJPu6txoEhBf5+wH1B0KejGGr/F9rqpMNBOfqkrF+VUDe5AUyRlLRRyllFud0AA==",
+  "manufacturing": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAADQAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JQBfnAsz53hSOMDpswwAA9q/ySCj3pUsYk2k6Rp+dNaYyqRSNPXO2IDdeyM2PuxQD2MYW+d1LLVbLxlR6/O36/CuBfSbU8tXR4i0fcx89NIoNwnc7P8lJI8S6acRxj1+10vE4XkVTCZMiGJofYLGgAAA="
+} as const;

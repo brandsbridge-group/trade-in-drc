@@ -1,0 +1,46 @@
+{
+ "meta": {
+  "prepared_by": "Mehmet Semih Babacan, delivering engineer and architect (contact@lumiostudio.co)",
+  "date": "27 August 2026",
+  "version": "Commit e6cf152 on branch main, dated 29 July 2026. There is no release tag, and package.json still reads version 0.1.0.",
+  "application": "Trade in DRC, the national trade portal. English and French are live and three further locales have message files. Built with Next.js 16 (App Router) on Supabase.",
+  "repository": "github.com/its-meseba/trade-in-drc-com-web-app. Everything lives in this one repository, currently under a personal account. It should move to an account the client owns."
+ },
+ "checklist": [
+  {
+   "item": "Receiving team has read access to all repositories and documentation.",
+   "status": "Pending",
+   "evidence": "The repository is github.com/its-meseba/trade-in-drc-com-web-app. Access is granted per named GitHub account, after which the repository should be transferred to the client. The documentation sits inside the repository. See answers 2.1 and 2.5."
+  },
+  {
+   "item": "Receiving team has appropriate, least-privilege access to hosting, DNS, monitoring, CI/CD and secret-management systems.",
+   "status": "Pending",
+   "evidence": "This means the Vercel project that hosts the site and the Supabase project named tradeindrc. There's no monitoring stack and no domain registrar account yet, so those two have nothing to hand over. Credentials go through the password manager, never through this document."
+  },
+  {
+   "item": "A clean local setup and a staging deployment were successfully demonstrated.",
+   "status": "Pending",
+   "evidence": "Answer 2.3 has the setup steps: clone, install, fill in .env, run supabase db push over the 41 migrations, then npm run dev. There's no staging project. Vercel gives every branch a preview URL, which is the closest thing we have until someone builds one."
+  },
+  {
+   "item": "Production deployment and rollback procedures were reviewed and tested or simulated.",
+   "status": "Pending",
+   "evidence": "Vercel builds and deploys every push to main, and rollback is promoting a previous deployment from the Vercel dashboard. Database migrations only run forwards. See answers 6.1, 6.3 and 6.4. A rollback should be rehearsed before acceptance."
+  },
+  {
+   "item": "Backup location and restoration procedure were verified.",
+   "status": "Pending",
+   "evidence": "The Supabase project is on the free plan, so there is no point-in-time recovery and only minimal retention. Either move to a paid plan or self-host Supabase before go-live, then name a restoration owner and rehearse a restore. Nothing has been tested. See answers 7.3 and 7.4."
+  },
+  {
+   "item": "Critical third-party integrations, renewal responsibilities and support contacts were verified.",
+   "status": "Pending",
+   "evidence": "The list of connected services is in answers 4.1 and 4.2. Who owns each account, and when each one renews, is settled at sign-off and recorded there."
+  },
+  {
+   "item": "Known risks, technical debt and open actions were acknowledged.",
+   "status": "Pending",
+   "evidence": "The open items are listed in answers 8.5 and 9.3. The Supabase token kept in the local .mcp.json file needs rotating. The Supabase project is still on the free plan, with no backups worth the name. No production domain has been bought. There is no CI and no monitoring, two lockfiles are committed, and .env.example is out of date."
+  }
+ ]
+}

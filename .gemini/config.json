@@ -1,0 +1,35 @@
+{
+  "rules": {
+    "continuity-ledger": true,
+    "separation-of-concerns": true,
+    "error-learning": true,
+    "error-prevention": true,
+    "implementation-tracking": true,
+    "task-management": true,
+    "product-documentation": true,
+    "no-speculation": true,
+    "skill-updating": true,
+    "architecture-documentation": true,
+    "small-atomic-commits": false,
+    "test-driven-validation": true,
+    "incremental-tasks": true,
+    "context-hygiene": true,
+    "security-sensitive-data": true,
+    "decision-records": true,
+    "checkpoint-strategy": true,
+    "subagent-patterns": true
+  },
+  "project": {
+    "name": "tradeindrc",
+    "type": "web",
+    "techStack": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Framer Motion",
+      "Firebase",
+      "next-intl"
+    ]
+  }
+}

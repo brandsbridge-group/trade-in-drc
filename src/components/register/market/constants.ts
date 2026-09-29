@@ -53,44 +53,23 @@ export const REGISTRATION_PROFILES = ["congolese", "international"] as const;
 export type RegistrationProfile = (typeof REGISTRATION_PROFILES)[number];
 
 /**
- * Congolese wizard steps, in order. P2-2: a single "plan" step was inserted
- * second-to-last — the pricing panel used to sit above the wizard on every
- * step (`tier-cards.tsx`, now deleted) and simply vanished for international
- * applicants (P1-4); it's now an explicit, validated step both paths share.
+ * Short company form (brief v2, signed-in only): identify and contact the
+ * company, nothing else. Verification fields, profile details and the plan
+ * moved to voluntary dashboard actions; the step-*.tsx components that
+ * collect them are kept for those actions.
  */
-export const CONGOLESE_STEPS = [
-  "legal",
-  "professional",
-  "positioning",
-  "documents",
-  "plan",
-  "review",
-] as const;
+export const CONGOLESE_STEPS = ["company", "contact"] as const;
 
-/**
- * International wizard steps (customer design 2026-07-28,
- * latest-designs/2026-07-28/register-international-company.ai). P2-2: "plan"
- * (formerly "profile_plan", step 5 of 7) moved to second-to-last so both
- * paths choose their plan right before Review, in the same relative spot.
- */
-export const INTERNATIONAL_STEPS = [
-  "company_info",
-  "business_profile",
-  "market_interest",
-  "contact_person",
-  "documents",
-  "plan",
-  "review",
-] as const;
+/** International adds one OPTIONAL step ("Skip this step" submits without it). */
+export const INTERNATIONAL_STEPS = ["company", "contact", "market_interest"] as const;
 
-/**
- * Every step name either path can show. Not an ordered list — the two paths
- * share `documents` and `review`, so concatenating them would repeat entries.
- * Use stepsForProfile() for the ordered list.
- */
+/** Every step name either path can show. */
 export type WizardStep =
   | (typeof CONGOLESE_STEPS)[number]
   | (typeof INTERNATIONAL_STEPS)[number];
+
+/** Steps that never block submission and offer a "Skip this step" button. */
+export const OPTIONAL_STEPS: readonly WizardStep[] = ["market_interest"];
 
 /** The ordered step list a given profile walks through. */
 export function stepsForProfile(profile: RegistrationProfile): readonly WizardStep[] {
@@ -176,20 +155,12 @@ export const YEAR_OPTIONS: number[] = (() => {
 export const FIELD_CLS =
   "h-10 w-full rounded-[0.5rem] border border-slate-300 bg-white px-3 text-sm text-slate-800 outline-none transition-colors duration-150 placeholder:text-slate-400 focus:border-market-navy";
 
-/**
- * sessionStorage key holding an in-progress registration draft. Bumped
- * (v1 -> v2) by P2-2's step reorder: `stepIndex` is restored blindly
- * (register-wizard.tsx), so a draft saved under the old step order would
- * land a returning applicant on the wrong step under the new one.
- *
- * Bumped again (v2 -> v3) by P2-1's Profile Gate: the draft now also carries
- * a `phase` ("profile" | "form"). A v2 draft has no `phase` field, and the
- * restore logic in register-wizard.tsx infers one from `stepIndex` — but
- * bumping the key means that inference only ever has to handle drafts this
- * version of the wizard itself wrote, not a stale shape from before the gate
- * existed.
- */
-export const DRAFT_KEY = "tidrc.register-company.draft.v3";
-
 /** Route users are sent to when they submit while unauthenticated. */
 export const LOGIN_REDIRECT = "/login?redirect=/register-company";
+
+/**
+ * Where a signed-out visitor goes from the profile gate: account creation
+ * first, with `context=company` (account-benefits panel on /signup) and a
+ * return here once their e-mail is confirmed.
+ */
+export const SIGNUP_REDIRECT = "/signup?redirect=%2Fregister-company&context=company";

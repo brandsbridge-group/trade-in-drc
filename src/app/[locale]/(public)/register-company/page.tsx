@@ -5,7 +5,10 @@ import type { Locale } from "@/config/locales";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { listSectorOptions } from "@/lib/opportunities/queries";
 import { RegisterHero } from "@/components/register/market/register-hero";
-import { RegisterWizard } from "@/components/register/market/register-wizard";
+import {
+  RegisterWizard,
+  type RegisterAccount,
+} from "@/components/register/market/register-wizard";
 import { BenefitsStrip } from "@/components/register/market/benefits-strip";
 import type { SectorOption } from "@/components/register/market/types";
 
@@ -28,9 +31,10 @@ export async function generateMetadata({
 }
 
 /**
- * Register Your Company (customer design 6): navy marketing hero → 3 pricing
- * tiers → 5-step registration wizard → benefits strip. The wizard is a client
- * component; sector options are resolved server-side (bilingual labels).
+ * Add a company: hero → profile gate → short 2–3 step form → benefits strip.
+ * The form itself only renders for a signed-in account (brief v2): signed-out
+ * visitors are sent from the gate to /signup and come back here afterwards.
+ * The account's e-mail, name and phone prefill the contact step.
  */
 export default async function RegisterCompanyPage({
   params,
@@ -40,7 +44,25 @@ export default async function RegisterCompanyPage({
   const { locale } = await params;
 
   const supabase = await createServerSupabaseClient();
-  const rawSectors = await listSectorOptions(supabase);
+  const [rawSectors, { data: auth }] = await Promise.all([
+    listSectorOptions(supabase),
+    supabase.auth.getUser(),
+  ]);
+
+  let account: RegisterAccount | null = null;
+  if (auth.user) {
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("full_name, phone")
+      .eq("id", auth.user.id)
+      .maybeSingle();
+    account = {
+      id: auth.user.id,
+      email: auth.user.email ?? "",
+      fullName: profile?.full_name ?? null,
+      phone: profile?.phone ?? null,
+    };
+  }
   const sectors: SectorOption[] = rawSectors.map((s) => ({
     id: s.id,
     label: pickLocalized(s, "name", locale as Locale),
@@ -49,7 +71,7 @@ export default async function RegisterCompanyPage({
   return (
     <main className="bg-slate-50/60">
       <RegisterHero />
-      <RegisterWizard sectors={sectors} />
+      <RegisterWizard sectors={sectors} account={account} />
       <BenefitsStrip />
     </main>
   );

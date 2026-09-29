@@ -21,6 +21,7 @@ import {
     Eye,
     Edit,
     RefreshCw,
+    FileText,
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { resubmitCompanyVerification } from "@/lib/verifications/actions";
@@ -131,6 +132,13 @@ export default function DashboardPage() {
                     <Badge className="badge-verified">
                         <CheckCircle className="w-3 h-3 mr-1" />
                         {t("verified")}
+                    </Badge>
+                );
+            case "pending_documents":
+                return (
+                    <Badge variant="outline">
+                        <FileText className="w-3 h-3 mr-1" />
+                        {t("statusPendingDocuments")}
                     </Badge>
                 );
             case "pending":

@@ -134,6 +134,15 @@ viewport — the exiting phase fully unmounts before the entering one mounts.
 Reduced motion collapses to a flat 0.15s opacity fade on both enter and
 exit (see §4.2) — no translate, no blur.
 
+### 2.8 Full-bleed photo carousel (Jakub, justified overage) — auth panel
+
+For `CongoAuthCarousel`: crossfade + settle-in scale (`scale 1.04 → 1`,
+opacity) at **900 ms**, ease `[0.22, 1, 0.36, 1]`. Exceeds the 500 ms
+marketing cap on purpose — a full-bleed photo swap faster than ~0.8 s reads as
+a jump cut. Active indicator shows a linear `scaleX 0 → 1` progress fill over
+the rotation interval (a timer readout, not a transition). Autoplay pauses on
+hover; reduced motion disables autoplay, scale and fill.
+
 ---
 
 ## 3. Forbidden patterns

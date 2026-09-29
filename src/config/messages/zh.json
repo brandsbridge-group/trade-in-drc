@@ -139,7 +139,7 @@
     "heroSubtitle": "一个政府支持的 B2B 平台，已认证的刚果企业在此与国际买家相遇——企业名录、搜索、询价单（RFQ）和安全消息一站集成。",
     "heroImageAlt": "暮色中的金沙萨天际线",
     "mission": "我们的使命",
-    "missionText": "TradeInDRC 是刚果民主共和国官方的双语贸易门户。我们将已认证的刚果企业与国际买家和合作伙伴对接，为部委提供审核和验证每一家企业的工具，并将该国的出口能力汇聚于一个可信的平台。",
+    "missionText": "TradeInDRC 是刚果民主共和国官方的多语言贸易门户。我们将已认证的刚果企业与国际买家和合作伙伴对接，为部委提供审核和验证每一家企业的工具，并将该国的出口能力汇聚于一个可信的平台。",
     "whoFor": "适合谁使用",
     "audience": {
       "exporter": {
@@ -181,8 +181,8 @@
         "desc": "与平台上其他已认证的合作伙伴建立关联，打造一个可见且便于审计的信任网络。"
       },
       "bilingual": {
-        "title": "英语 / 法语双语",
-        "desc": "每一处界面文字和 CMS 内容均为双语。以您偏好的语言浏览与贸易。"
+        "title": "5 种语言",
+        "desc": "界面提供中文、英语、法语、土耳其语和西班牙语版本。以您偏好的语言浏览与贸易。"
       },
       "analytics": {
         "title": "私密分析",
@@ -217,10 +217,20 @@
     "successRegister": "账户创建成功。",
     "verifyEmail": {
       "title": "验证您的电子邮箱",
-      "body": "我们已向 {email} 发送了一封确认链接邮件。请点击链接以激活您的账户。",
+      "body": "我们已向 <b>{email}</b> 发送确认链接。点击链接即可激活您的账户。",
       "resend": "重新发送邮件",
       "resent": "邮件已发送。请查看您的收件箱。",
-      "openInbox": "打开收件箱"
+      "openInbox": "打开我的收件箱",
+      "bodyNoEmail": "我们已向您的邮箱发送确认链接。点击链接即可激活您的账户。",
+      "resendIn": "{seconds} 秒后可重新发送",
+      "notReceived": "没有收到？请检查垃圾邮件，或",
+      "wrongEmail": "邮箱地址有误？",
+      "changeEmail": "重新注册",
+      "backToLogin": "返回登录",
+      "missingEmail": "没有可重新发送的邮箱地址。",
+      "step1": "打开邮件",
+      "step2": "点击链接",
+      "step3": "进入您的空间"
     },
     "forgotPassword": {
       "title": "重置您的密码",
@@ -237,7 +247,14 @@
       "submit": "更新密码",
       "success": "密码已更新。您现在可以登录了。",
       "mismatch": "两次输入的密码不一致。",
-      "weak": "请至少使用 8 个字符。"
+      "weak": "请至少使用 8 个字符。",
+      "body": "请设置一个未在其他地方使用过的强密码。",
+      "ruleLength": "至少 {min} 个字符",
+      "ruleCase": "包含大写和小写字母",
+      "ruleNumber": "至少一个数字",
+      "match": "两次输入的密码一致",
+      "expired": "此重置链接已失效，请重新申请。",
+      "requestNew": "重新申请链接"
     },
     "accountSettings": {
       "title": "账户设置",
@@ -260,8 +277,24 @@
     "errorAccountExists": "该电子邮箱已注册账户。",
     "errorPasswordTooShort": "密码长度至少为 6 个字符。",
     "forgotPasswordLink": "忘记密码？",
+    "showPassword": "显示密码",
+    "hidePassword": "隐藏密码",
     "sendResetLink": "发送重置链接",
-    "backToSignIn": "返回登录"
+    "backToSignIn": "返回登录",
+    "fullName": "全名",
+    "fullNamePlaceholder": "Jean Mukendi",
+    "phone": "电话",
+    "phonePlaceholder": "81 234 5678",
+    "optional": "选填",
+    "errorPhoneInvalid": "请输入有效的电话号码。",
+    "signupContext": {
+      "company": {
+        "title": "创建账户以注册您的企业",
+        "track": "跟踪您的需求和消息",
+        "manage": "管理您的企业主页",
+        "alerts": "接收新商机提醒"
+      }
+    }
   },
   "Dashboard": {
     "title": "控制面板",
@@ -573,7 +606,8 @@
         "addSuccess": "视频已添加。",
         "invalidUrl": "请输入以 http:// 或 https:// 开头的有效视频 URL。"
       }
-    }
+    },
+    "statusPendingDocuments": "待提交文件"
   },
   "Footer": {
     "portal": "门户",
@@ -1169,7 +1203,8 @@
       "statusValues": {
         "pending": "待处理",
         "verified": "已认证",
-        "rejected": "已拒绝"
+        "rejected": "已拒绝",
+        "pending_documents": "等待提交文件"
       },
       "tier": {
         "title": "认证等级",
@@ -1779,13 +1814,13 @@
     "hero": {
       "tagline": "刚果（金）官方贸易门户",
       "headline": "寻找经核验的出口商，发送询价单，达成交易。",
-      "subline": "连接刚果民主共和国与世界的双语平台，服务于买家与供应商。",
+      "subline": "连接刚果民主共和国与世界的多语言平台，服务于买家与供应商。",
       "cta": {
         "browse": "浏览经核验的企业",
         "howItWorks": "运作方式",
         "trust": {
           "verified": "经核验的出口商",
-          "bilingual": "EN · FR",
+          "bilingual": "EN · FR · TR · ES · ZH",
           "free": "免费询价单"
         }
       }
@@ -1803,8 +1838,8 @@
           "body": "企业公开展示前须经过 KYB 文件审核与实地核查。"
         },
         "bilingual": {
-          "title": "默认双语",
-          "body": "以英语或法语浏览和交易——内容以两种语言存储和呈现。"
+          "title": "默认多语言",
+          "body": "以中文、英语、法语、土耳其语或西班牙语浏览和交易。"
         },
         "rfq": {
           "title": "询价单免费",
@@ -1868,7 +1903,7 @@
       "helpCenter": "帮助中心"
     },
     "footer": {
-      "tagline": "刚果（金）双语贸易门户",
+      "tagline": "刚果（金）多语言贸易门户",
       "columns": {
         "platform": {
           "title": "平台",
@@ -1907,7 +1942,7 @@
     },
     "metadata": {
       "title": "TradeInDRC — 经核验的刚果出口商与贸易门户",
-      "description": "刚果民主共和国官方双语贸易门户。寻找经核验的出口商，发送询价单，发掘贸易商机。"
+      "description": "刚果民主共和国官方多语言贸易门户。寻找经核验的出口商，发送询价单，发掘贸易商机。"
     }
   },
   "ListPages": {
@@ -1938,7 +1973,7 @@
       "tagline": "刚果民主共和国官方贸易门户",
       "checks": [
         "经验证的刚果（金）出口商",
-        "双语平台（EN / FR）",
+        "5 种语言平台（EN / FR / TR / ES / ZH）",
         "免费询价，安全消息"
       ]
     },
@@ -2559,7 +2594,7 @@
   },
   "Metadata": {
     "siteTitle": "TradeInDRC",
-    "siteDescription": "刚果民主共和国官方双语在线贸易门户，连接国际买家与已认证的刚果出口商。"
+    "siteDescription": "刚果民主共和国官方多语言在线贸易门户，连接国际买家与已认证的刚果出口商。"
   },
   "Terms": {
     "title": "服务条款",
@@ -4124,8 +4159,11 @@
         "business_profile": "业务概况",
         "market_interest": "刚果市场意向",
         "contact_person": "联系人",
-        "plan": "套餐"
-      }
+        "plan": "套餐",
+        "company": "企业",
+        "contact": "联系方式"
+      },
+      "optional": "选填"
     },
     "sections": {
       "legal": "1. 法律信息",
@@ -4250,12 +4288,13 @@
     "nav": {
       "back": "返回",
       "next": "下一步",
-      "submit": "提交审核",
-      "submitting": "正在提交您的公司..."
+      "submit": "创建我的企业",
+      "submitting": "正在提交您的公司...",
+      "skip": "跳过此步骤"
     },
     "success": {
-      "title": "您的公司已提交审核",
-      "body": "我们的团队将审核您的提交并与您联系。您可以在仪表板中跟踪其状态。",
+      "title": "您的企业已创建",
+      "body": "企业已添加到您的控制台。请在控制台完善资料并上传文件以完成认证。",
       "cta": "前往我的公司"
     },
     "errors": {
@@ -4298,7 +4337,9 @@
       "international": {
         "title": "我是国际公司",
         "body": "适用于在刚果（金）寻求合作伙伴、曝光度与商机的外国公司。"
-      }
+      },
+      "accountNeeded": "您将先创建免费账户（约 1 分钟），然后直接返回此处。",
+      "createAccountToContinue": "创建账户以继续"
     },
     "intl": {
       "heroTitleLead": "注册您的",
@@ -4470,6 +4511,20 @@
           }
         }
       }
+    },
+    "quick": {
+      "sections": {
+        "company": "您的企业",
+        "contact": "企业联系方式"
+      },
+      "fields": {
+        "companyEmail": "企业联系邮箱",
+        "headOfficeCity": "总部所在城市"
+      },
+      "hints": {
+        "companyEmail": "将显示在您的公开主页上，可与登录邮箱不同。"
+      },
+      "marketInterestIntro": "选填——告诉我们您在刚果（金）寻找什么，以便为您推荐合适的商机。"
     }
   },
   "Services": {

@@ -4,11 +4,11 @@ import * as React from "react";
 import { useTranslations } from "next-intl";
 import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { stepsForProfile, type RegistrationProfile } from "./constants";
+import { OPTIONAL_STEPS, stepsForProfile, type RegistrationProfile } from "./constants";
 
 interface Props {
   current: number;
-  /** Which path's steps to render — 6 for Congolese, 7 for international. */
+  /** Which path's steps to render — 2 for Congolese, 3 for international. */
   profile: RegistrationProfile;
   /** P2-7: jump back to any already-completed step. Omitted step circles
    *  render as plain (non-interactive) text — used for the current step and
@@ -59,6 +59,9 @@ export function Stepper({ current, profile, onStepClick }: Props) {
               )}
             >
               {t(`stepper.steps.${step}`)}
+              {OPTIONAL_STEPS.includes(step) && (
+                <span className="ml-1 font-normal text-slate-400">({t("stepper.optional")})</span>
+              )}
             </span>
           );
           return (

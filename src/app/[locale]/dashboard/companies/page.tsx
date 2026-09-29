@@ -15,6 +15,7 @@ import {
   Eye,
   Edit,
   Plus,
+  FileText,
 } from "lucide-react";
 import {
   canViewPublicProfile,
@@ -47,6 +48,13 @@ export default function DashboardCompaniesPage() {
           <Badge className="badge-verified">
             <CheckCircle className="w-3 h-3 mr-1" />
             {t("verified")}
+          </Badge>
+        );
+      case "pending_documents":
+        return (
+          <Badge variant="outline">
+            <FileText className="w-3 h-3 mr-1" />
+            {t("statusPendingDocuments")}
           </Badge>
         );
       case "pending":

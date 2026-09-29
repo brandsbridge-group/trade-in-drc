@@ -139,7 +139,7 @@
     "heroSubtitle": "Una plataforma B2B respaldada por el gobierno donde las empresas congoleñas verificadas se encuentran con compradores internacionales: directorio, búsqueda, solicitudes de cotización (RFQ) y mensajería segura en un solo lugar.",
     "heroImageAlt": "Horizonte de Kinshasa al atardecer",
     "mission": "Nuestra misión",
-    "missionText": "TradeInDRC es el portal comercial bilingüe oficial de la República Democrática del Congo. Conectamos a empresas congoleñas verificadas con compradores y socios internacionales, brindamos al Ministerio las herramientas para moderar y verificar cada empresa, y reunimos la capacidad exportadora del país en un espacio de confianza.",
+    "missionText": "TradeInDRC es el portal comercial multilingüe oficial de la República Democrática del Congo. Conectamos a empresas congoleñas verificadas con compradores y socios internacionales, brindamos al Ministerio las herramientas para moderar y verificar cada empresa, y reunimos la capacidad exportadora del país en un espacio de confianza.",
     "whoFor": "Para quién es",
     "audience": {
       "exporter": {
@@ -181,8 +181,8 @@
         "desc": "Vincúlese con otros socios verificados de la plataforma para construir una red de confianza visible y apta para auditoría."
       },
       "bilingual": {
-        "title": "Bilingüe EN / FR",
-        "desc": "Toda la interfaz y el contenido del CMS son bilingües. Navegue y comercie en el idioma que prefiera."
+        "title": "5 idiomas",
+        "desc": "La interfaz está disponible en español, inglés, francés, turco y chino. Navegue y comercie en el idioma que prefiera."
       },
       "analytics": {
         "title": "Análisis privados",
@@ -217,10 +217,20 @@
     "successRegister": "Cuenta creada correctamente.",
     "verifyEmail": {
       "title": "Verifique su correo electrónico",
-      "body": "Hemos enviado un enlace de confirmación a {email}. Haga clic en él para activar su cuenta.",
+      "body": "Enviamos un enlace de confirmación a <b>{email}</b>. Haga clic en él para activar su cuenta.",
       "resend": "Reenviar correo",
       "resent": "Correo enviado. Revise su bandeja de entrada.",
-      "openInbox": "Abrir bandeja de entrada"
+      "openInbox": "Abrir mi bandeja de entrada",
+      "bodyNoEmail": "Enviamos un enlace de confirmación a su correo electrónico. Haga clic en él para activar su cuenta.",
+      "resendIn": "Reenviar en {seconds}s",
+      "notReceived": "¿No lo recibió? Revise su carpeta de spam o",
+      "wrongEmail": "¿Dirección incorrecta?",
+      "changeEmail": "Registrarse de nuevo",
+      "backToLogin": "Volver a iniciar sesión",
+      "missingEmail": "No hay dirección de correo a la que reenviar.",
+      "step1": "Abra el correo",
+      "step2": "Haga clic en el enlace",
+      "step3": "Acceda a su espacio"
     },
     "forgotPassword": {
       "title": "Restablecer su contraseña",
@@ -237,7 +247,14 @@
       "submit": "Actualizar contraseña",
       "success": "Contraseña actualizada. Ya puede iniciar sesión.",
       "mismatch": "Las contraseñas no coinciden.",
-      "weak": "Utilice al menos 8 caracteres."
+      "weak": "Utilice al menos 8 caracteres.",
+      "body": "Elija una contraseña segura que no use en ningún otro sitio.",
+      "ruleLength": "Al menos {min} caracteres",
+      "ruleCase": "Mayúsculas y minúsculas",
+      "ruleNumber": "Al menos un número",
+      "match": "Las contraseñas coinciden",
+      "expired": "Este enlace ha caducado. Solicite uno nuevo.",
+      "requestNew": "Solicitar un nuevo enlace"
     },
     "accountSettings": {
       "title": "Configuración de la cuenta",
@@ -260,8 +277,24 @@
     "errorAccountExists": "Ya existe una cuenta con este correo electrónico.",
     "errorPasswordTooShort": "La contraseña debe tener al menos 6 caracteres.",
     "forgotPasswordLink": "¿Olvidó su contraseña?",
+    "showPassword": "Mostrar contraseña",
+    "hidePassword": "Ocultar contraseña",
     "sendResetLink": "Enviar enlace de restablecimiento",
-    "backToSignIn": "Volver al inicio de sesión"
+    "backToSignIn": "Volver al inicio de sesión",
+    "fullName": "Nombre completo",
+    "fullNamePlaceholder": "Jean Mukendi",
+    "phone": "Teléfono",
+    "phonePlaceholder": "81 234 5678",
+    "optional": "opcional",
+    "errorPhoneInvalid": "Introduzca un número de teléfono válido.",
+    "signupContext": {
+      "company": {
+        "title": "Cree su cuenta para registrar su empresa",
+        "track": "Siga sus solicitudes y mensajes",
+        "manage": "Gestione la ficha de su empresa",
+        "alerts": "Reciba alertas de nuevas oportunidades"
+      }
+    }
   },
   "Dashboard": {
     "title": "Panel de control",
@@ -573,7 +606,8 @@
         "addSuccess": "Vídeo añadido.",
         "invalidUrl": "Introduzca una URL de vídeo válida que comience con http:// o https://."
       }
-    }
+    },
+    "statusPendingDocuments": "Documentos pendientes"
   },
   "Footer": {
     "portal": "Portal",
@@ -1169,7 +1203,8 @@
       "statusValues": {
         "pending": "Pendiente",
         "verified": "Verificada",
-        "rejected": "Rechazada"
+        "rejected": "Rechazada",
+        "pending_documents": "En espera de documentos"
       },
       "tier": {
         "title": "Nivel de verificación",
@@ -1779,13 +1814,13 @@
     "hero": {
       "tagline": "El portal oficial de comercio de la RDC",
       "headline": "Encuentre exportadores verificados, envíe solicitudes de cotización y cierre acuerdos.",
-      "subline": "Plataforma bilingüe para compradores y proveedores que conecta a la República Democrática del Congo con el mundo.",
+      "subline": "Plataforma multilingüe para compradores y proveedores que conecta a la República Democrática del Congo con el mundo.",
       "cta": {
         "browse": "Explorar empresas verificadas",
         "howItWorks": "Cómo funciona",
         "trust": {
           "verified": "Exportadores verificados",
-          "bilingual": "EN · FR",
+          "bilingual": "EN · FR · TR · ES · ZH",
           "free": "Solicitudes de cotización gratis"
         }
       }
@@ -1803,8 +1838,8 @@
           "body": "Revisión de documentos KYB y comprobaciones in situ antes de que las empresas aparezcan públicamente."
         },
         "bilingual": {
-          "title": "Bilingüe por defecto",
-          "body": "Explore y comercie en inglés o francés: el contenido se almacena y se muestra en ambos idiomas."
+          "title": "Multilingüe por defecto",
+          "body": "Explore y comercie en español, inglés, francés, turco o chino."
         },
         "rfq": {
           "title": "Las solicitudes de cotización son gratuitas",
@@ -1868,7 +1903,7 @@
       "helpCenter": "Centro de ayuda"
     },
     "footer": {
-      "tagline": "Portal de comercio bilingüe de la RDC",
+      "tagline": "Portal de comercio multilingüe de la RDC",
       "columns": {
         "platform": {
           "title": "Plataforma",
@@ -1907,7 +1942,7 @@
     },
     "metadata": {
       "title": "TradeInDRC — Exportadores congoleños verificados y portal de comercio",
-      "description": "El portal oficial de comercio bilingüe de la República Democrática del Congo. Encuentre exportadores verificados, envíe solicitudes de cotización y descubra oportunidades comerciales."
+      "description": "El portal oficial de comercio multilingüe de la República Democrática del Congo. Encuentre exportadores verificados, envíe solicitudes de cotización y descubra oportunidades comerciales."
     }
   },
   "ListPages": {
@@ -1938,7 +1973,7 @@
       "tagline": "El portal oficial de comercio de la República Democrática del Congo",
       "checks": [
         "Exportadores congoleños verificados",
-        "Plataforma bilingüe (EN / FR)",
+        "Plataforma en 5 idiomas (EN / FR / TR / ES / ZH)",
         "Solicitudes de cotización gratuitas, mensajería segura"
       ]
     },
@@ -2559,7 +2594,7 @@
   },
   "Metadata": {
     "siteTitle": "TradeInDRC",
-    "siteDescription": "El portal comercial en línea bilingüe oficial de la República Democrática del Congo, que conecta a los compradores internacionales con exportadores congoleños verificados."
+    "siteDescription": "El portal comercial en línea multilingüe oficial de la República Democrática del Congo, que conecta a los compradores internacionales con exportadores congoleños verificados."
   },
   "Terms": {
     "title": "Condiciones del servicio",
@@ -4124,8 +4159,11 @@
         "business_profile": "Perfil de negocio",
         "market_interest": "Interés en la RDC",
         "contact_person": "Persona de contacto",
-        "plan": "Plan"
-      }
+        "plan": "Plan",
+        "company": "Empresa",
+        "contact": "Contacto"
+      },
+      "optional": "opcional"
     },
     "sections": {
       "legal": "1. Información legal",
@@ -4250,12 +4288,13 @@
     "nav": {
       "back": "Atrás",
       "next": "Siguiente",
-      "submit": "Enviar para revisión",
-      "submitting": "Enviando su empresa..."
+      "submit": "Crear mi empresa",
+      "submitting": "Enviando su empresa...",
+      "skip": "Omitir este paso"
     },
     "success": {
-      "title": "Su empresa ha sido enviada para revisión",
-      "body": "Nuestro equipo revisará su envío y se pondrá en contacto con usted. Puede seguir su estado desde su panel.",
+      "title": "Su empresa ha sido creada",
+      "body": "Ya está en su panel. Complete su perfil y añada sus documentos allí para verificarla.",
       "cta": "Ir a mis empresas"
     },
     "errors": {
@@ -4298,7 +4337,9 @@
       "international": {
         "title": "Soy una empresa internacional",
         "body": "Para empresas extranjeras que buscan socios, visibilidad y oportunidades en la RDC."
-      }
+      },
+      "accountNeeded": "Primero creará su cuenta gratuita (1 minuto) y luego volverá directamente aquí.",
+      "createAccountToContinue": "Crear mi cuenta para continuar"
     },
     "intl": {
       "heroTitleLead": "Registre su ",
@@ -4470,6 +4511,20 @@
           }
         }
       }
+    },
+    "quick": {
+      "sections": {
+        "company": "Su empresa",
+        "contact": "Contacto de la empresa"
+      },
+      "fields": {
+        "companyEmail": "Correo de contacto de la empresa",
+        "headOfficeCity": "Ciudad de la sede"
+      },
+      "hints": {
+        "companyEmail": "Se muestra en su ficha pública. Puede ser distinto de su correo de acceso."
+      },
+      "marketInterestIntro": "Opcional: díganos qué busca en la RDC para proponerle las oportunidades adecuadas."
     }
   },
   "Services": {

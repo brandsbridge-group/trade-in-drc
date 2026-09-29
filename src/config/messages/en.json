@@ -139,7 +139,7 @@
     "heroSubtitle": "A government-backed B2B platform where verified Congolese companies meet international buyers — directory, search, RFQs, and secure messaging in one place.",
     "heroImageAlt": "Kinshasa skyline at dusk",
     "mission": "Our mission",
-    "missionText": "TradeInDRC is the official bilingual trade portal of the Democratic Republic of the Congo. We connect verified Congolese businesses with international buyers and partners, give the Ministry the tools to moderate and verify every company, and put the country's export capacity in one trusted place.",
+    "missionText": "TradeInDRC is the official multilingual trade portal of the Democratic Republic of the Congo. We connect verified Congolese businesses with international buyers and partners, give the Ministry the tools to moderate and verify every company, and put the country's export capacity in one trusted place.",
     "whoFor": "Who it's for",
     "audience": {
       "exporter": {
@@ -181,8 +181,8 @@
         "desc": "Link to other verified partners on the platform to build a visible, audit-friendly network of trust."
       },
       "bilingual": {
-        "title": "Bilingual EN / FR",
-        "desc": "Every UI string and CMS surface is dual-language. Browse and trade in the language you prefer."
+        "title": "5 languages",
+        "desc": "The interface is available in English, French, Turkish, Spanish and Chinese. Browse and trade in the language you prefer."
       },
       "analytics": {
         "title": "Private analytics",
@@ -217,10 +217,20 @@
     "successRegister": "Account created successfully.",
     "verifyEmail": {
       "title": "Verify your email",
-      "body": "We sent a confirmation link to {email}. Click it to activate your account.",
+      "body": "We sent a confirmation link to <b>{email}</b>. Click it to activate your account.",
       "resend": "Resend email",
       "resent": "Email sent. Check your inbox.",
-      "openInbox": "Open inbox"
+      "openInbox": "Open my inbox",
+      "bodyNoEmail": "We sent a confirmation link to your e-mail address. Click it to activate your account.",
+      "resendIn": "Resend in {seconds}s",
+      "notReceived": "Didn't get it? Check your spam folder or",
+      "wrongEmail": "Wrong address?",
+      "changeEmail": "Sign up again",
+      "backToLogin": "Back to sign in",
+      "missingEmail": "No e-mail address to resend to.",
+      "step1": "Open the e-mail",
+      "step2": "Click the link",
+      "step3": "Access your space"
     },
     "forgotPassword": {
       "title": "Reset your password",
@@ -237,7 +247,14 @@
       "submit": "Update password",
       "success": "Password updated. You can log in now.",
       "mismatch": "Passwords don't match.",
-      "weak": "Use at least 8 characters."
+      "weak": "Use at least 8 characters.",
+      "body": "Choose a strong password you don't use anywhere else.",
+      "ruleLength": "At least {min} characters",
+      "ruleCase": "Upper- and lower-case letters",
+      "ruleNumber": "At least one number",
+      "match": "Passwords match",
+      "expired": "This reset link has expired. Request a new one.",
+      "requestNew": "Request a new link"
     },
     "accountSettings": {
       "title": "Account settings",
@@ -260,8 +277,24 @@
     "errorAccountExists": "An account already exists with this email.",
     "errorPasswordTooShort": "Password should be at least 6 characters.",
     "forgotPasswordLink": "Forgot password?",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
     "sendResetLink": "Send Reset Link",
-    "backToSignIn": "Back to Sign In"
+    "backToSignIn": "Back to Sign In",
+    "fullName": "Full name",
+    "fullNamePlaceholder": "Jean Mukendi",
+    "phone": "Phone",
+    "phonePlaceholder": "81 234 5678",
+    "optional": "optional",
+    "errorPhoneInvalid": "Please enter a valid phone number.",
+    "signupContext": {
+      "company": {
+        "title": "Create your account to register your company",
+        "track": "Track your requests and messages",
+        "manage": "Manage your company listing",
+        "alerts": "Get alerts on new opportunities"
+      }
+    }
   },
   "Dashboard": {
     "title": "Dashboard",
@@ -573,7 +606,8 @@
         "addSuccess": "Video added.",
         "invalidUrl": "Enter a valid video URL starting with http:// or https://."
       }
-    }
+    },
+    "statusPendingDocuments": "Documents needed"
   },
   "Footer": {
     "portal": "Portal",
@@ -1169,7 +1203,8 @@
       "statusValues": {
         "pending": "Pending",
         "verified": "Verified",
-        "rejected": "Rejected"
+        "rejected": "Rejected",
+        "pending_documents": "Awaiting documents"
       },
       "tier": {
         "title": "Verification tier",
@@ -1779,13 +1814,13 @@
     "hero": {
       "tagline": "The official DRC trade portal",
       "headline": "Find verified exporters, send RFQs, close deals.",
-      "subline": "Bilingual platform for buyers and suppliers connecting the Democratic Republic of Congo to the world.",
+      "subline": "Multilingual platform for buyers and suppliers connecting the Democratic Republic of Congo to the world.",
       "cta": {
         "browse": "Browse verified companies",
         "howItWorks": "How it works",
         "trust": {
           "verified": "Verified exporters",
-          "bilingual": "EN · FR",
+          "bilingual": "EN · FR · TR · ES · ZH",
           "free": "RFQs free"
         }
       }
@@ -1803,8 +1838,8 @@
           "body": "KYB document review + on-site checks before companies appear publicly."
         },
         "bilingual": {
-          "title": "Bilingual by default",
-          "body": "Browse and trade in English or French — content stored and rendered in both languages."
+          "title": "Multilingual by default",
+          "body": "Browse and trade in English, French, Turkish, Spanish or Chinese."
         },
         "rfq": {
           "title": "RFQs are free",
@@ -1868,7 +1903,7 @@
       "helpCenter": "Help center"
     },
     "footer": {
-      "tagline": "DRC bilingual trade portal",
+      "tagline": "DRC multilingual trade portal",
       "columns": {
         "platform": {
           "title": "Platform",
@@ -1907,7 +1942,7 @@
     },
     "metadata": {
       "title": "TradeInDRC — Verified Congolese exporters & trade portal",
-      "description": "The official bilingual trade portal of the Democratic Republic of Congo. Find verified exporters, send RFQs, and discover trade opportunities."
+      "description": "The official multilingual trade portal of the Democratic Republic of Congo. Find verified exporters, send RFQs, and discover trade opportunities."
     }
   },
   "ListPages": {
@@ -1938,7 +1973,7 @@
       "tagline": "The official trade portal for the Democratic Republic of Congo",
       "checks": [
         "Verified Congolese exporters",
-        "Bilingual platform (EN / FR)",
+        "Platform in 5 languages (EN / FR / TR / ES / ZH)",
         "Free RFQs, secure messaging"
       ]
     },
@@ -2559,7 +2594,7 @@
   },
   "Metadata": {
     "siteTitle": "TradeInDRC",
-    "siteDescription": "The official bilingual online trade portal of the Democratic Republic of the Congo, connecting international buyers with verified Congolese exporters."
+    "siteDescription": "The official multilingual online trade portal of the Democratic Republic of the Congo, connecting international buyers with verified Congolese exporters."
   },
   "Terms": {
     "title": "Terms of Service",
@@ -4124,8 +4159,11 @@
         "business_profile": "Business Profile",
         "market_interest": "DRC Market Interest",
         "contact_person": "Contact Person",
-        "plan": "Plan"
-      }
+        "plan": "Plan",
+        "company": "Company",
+        "contact": "Contact"
+      },
+      "optional": "optional"
     },
     "sections": {
       "legal": "1. Legal Information",
@@ -4250,12 +4288,13 @@
     "nav": {
       "back": "Back",
       "next": "Next",
-      "submit": "Submit for Review",
-      "submitting": "Submitting your company..."
+      "submit": "Create my company",
+      "submitting": "Submitting your company...",
+      "skip": "Skip this step"
     },
     "success": {
-      "title": "Your company has been submitted for review",
-      "body": "Our team will review your submission and get back to you. You can track its status from your dashboard.",
+      "title": "Your company has been created",
+      "body": "It is now in your dashboard. Complete its profile and add your documents there to get it verified.",
       "cta": "Go to My Companies"
     },
     "errors": {
@@ -4298,7 +4337,9 @@
       "international": {
         "title": "I am an International Company",
         "body": "For foreign companies seeking partners, visibility and opportunities in the DRC."
-      }
+      },
+      "accountNeeded": "You'll first create your free account (1 minute), then come straight back here.",
+      "createAccountToContinue": "Create my account to continue"
     },
     "intl": {
       "heroTitleLead": "Register Your ",
@@ -4470,6 +4511,20 @@
           }
         }
       }
+    },
+    "quick": {
+      "sections": {
+        "company": "Your company",
+        "contact": "Company contact"
+      },
+      "fields": {
+        "companyEmail": "Company contact e-mail",
+        "headOfficeCity": "Head office city"
+      },
+      "hints": {
+        "companyEmail": "Shown on your public listing. Can differ from your sign-in e-mail."
+      },
+      "marketInterestIntro": "Optional — tell us what you're looking for in the DRC so we can suggest the right opportunities."
     }
   },
   "Services": {

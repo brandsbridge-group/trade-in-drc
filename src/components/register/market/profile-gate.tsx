@@ -9,6 +9,8 @@ interface Props {
   selected: RegistrationProfile;
   onSelect: (profile: RegistrationProfile) => void;
   onContinue: () => void;
+  /** Signed out → Continue leads to account creation first (SIGNUP_REDIRECT). */
+  signedIn: boolean;
 }
 
 /**
@@ -22,7 +24,7 @@ interface Props {
  * `congolese` is preselected (`types.ts` EMPTY_FORM.profile), so Continue is
  * always live on first paint — nobody is blocked by an unmade choice.
  */
-export function ProfileGate({ selected, onSelect, onContinue }: Props) {
+export function ProfileGate({ selected, onSelect, onContinue, signedIn }: Props) {
   const t = useTranslations("RegisterCompany.profileChooser");
 
   return (
@@ -37,13 +39,16 @@ export function ProfileGate({ selected, onSelect, onContinue }: Props) {
       <ProfileChooser selected={selected} onSelect={onSelect} />
 
       <div className="mt-6 flex flex-col-reverse items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm text-slate-500">{t("freeNote")}</p>
+        <div className="text-sm text-slate-500">
+          <p>{t("freeNote")}</p>
+          {!signedIn && <p className="mt-1 font-medium text-slate-600">{t("accountNeeded")}</p>}
+        </div>
         <button
           type="button"
           onClick={onContinue}
           className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-[0.5rem] bg-market-navy px-6 text-sm font-bold text-white transition-colors duration-150 ease-out hover:bg-market-navy-deep sm:w-auto"
         >
-          {t("continue")} <ArrowRight className="size-4" aria-hidden />
+          {signedIn ? t("continue") : t("createAccountToContinue")} <ArrowRight className="size-4" aria-hidden />
         </button>
       </div>
     </section>

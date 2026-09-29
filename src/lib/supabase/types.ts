@@ -6,7 +6,8 @@ export type Json = string | number | boolean | null | { [key: string]: Json | un
 export type ProfileRole = "user" | "admin";
 export type AccountType = "congolese_company" | "international_business";
 export type StaffRole = "moderator" | "super_admin";
-export type CompanyStatus = "pending" | "verified" | "rejected";
+// 00047: pending_documents = created by the short form, not yet in admin review.
+export type CompanyStatus = "pending_documents" | "pending" | "verified" | "rejected";
 export type VerificationTier = "none" | "basic" | "verified" | "premium";
 export type ContactVisibility = "direct" | "obfuscated" | "login_required";
 export type CompanyDocumentType =
@@ -116,6 +117,8 @@ export interface Database {
           // 00013_rbac_roles
           account_type: AccountType | null;
           staff_role: StaffRole | null;
+          // 00046_profiles_phone
+          phone: string | null;
           created_at: string;
           updated_at: string;
         };
@@ -126,6 +129,7 @@ export interface Database {
           avatar_url?: string | null;
           account_type?: AccountType | null;
           staff_role?: StaffRole | null;
+          phone?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -136,6 +140,7 @@ export interface Database {
           avatar_url?: string | null;
           account_type?: AccountType | null;
           staff_role?: StaffRole | null;
+          phone?: string | null;
           created_at?: string;
           updated_at?: string;
         };

@@ -1,0 +1,72 @@
+{{ $l := "en" }}{{ with .Data.locale }}{{ $l = . }}{{ end }}<!DOCTYPE html>
+<html lang="{{ $l }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>{{ if eq $l "fr" }}Confirmez votre compte TradeInDRC{{ else if eq $l "es" }}Confirme su cuenta de TradeInDRC{{ else if eq $l "tr" }}TradeInDRC hesabınızı onaylayın{{ else if eq $l "zh" }}确认您的 TradeInDRC 账户{{ else }}Confirm your TradeInDRC account{{ end }}</title>
+</head>
+<body style="margin:0;padding:0;background:#07142A;font-family:'Poppins',Segoe UI,Helvetica,Arial,sans-serif;color:#334155;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#07142A;padding:40px 16px;">
+<tr><td align="center">
+
+  <!-- Logo on navy, above the card -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;">
+    <tr><td align="center" style="padding:0 0 28px;">
+      <img src="{{ .SiteURL }}/images/brand/logo-mark.png" alt="Trade in DRC" width="228" height="50" style="display:block;width:228px;height:50px;border:0;">
+    </td></tr>
+  </table>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#FFFFFF;border-radius:16px;overflow:hidden;border-top:4px solid #D9A441;">
+    <tr><td style="padding:44px 40px 8px;" align="center">
+      <!-- Gold icon badge (t.icon) -->
+      <table role="presentation" cellpadding="0" cellspacing="0"><tr>
+        <td align="center" valign="middle" style="width:68px;height:68px;border-radius:34px;background:#0B1B33;border:3px solid #D9A441;font-size:28px;line-height:62px;color:#D9A441;">&#9993;</td>
+      </tr></table>
+      <h1 style="margin:24px 0 0;font-size:25px;line-height:1.3;font-weight:700;color:#0B1B33;">{{ if eq $l "fr" }}Vérifiez votre adresse e-mail{{ else if eq $l "es" }}Verifique su dirección de correo{{ else if eq $l "tr" }}E-posta adresinizi doğrulayın{{ else if eq $l "zh" }}验证您的邮箱地址{{ else }}Verify your e-mail address{{ end }}</h1>
+      <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:14px;"><tr>
+        <td style="width:48px;height:3px;line-height:3px;font-size:0;border-radius:2px;background:#D9A441;">&nbsp;</td>
+      </tr></table>
+    </td></tr>
+
+    <tr><td style="padding:20px 44px 0;font-size:15px;line-height:1.7;color:#475569;">
+      <p style="margin:0 0 12px;">{{ with .Data.full_name }}{{ if eq $l "fr" }}Bonjour {{ . }},{{ else if eq $l "es" }}Hola {{ . }}:{{ else if eq $l "tr" }}Merhaba {{ . }},{{ else if eq $l "zh" }}{{ . }}，您好：{{ else }}Hello {{ . }},{{ end }}{{ else }}{{ if eq $l "fr" }}Bonjour,{{ else if eq $l "es" }}Hola:{{ else if eq $l "tr" }}Merhaba,{{ else if eq $l "zh" }}您好：{{ else }}Hello,{{ end }}{{ end }}</p>
+      <p style="margin:0;">{{ if eq $l "fr" }}Merci de rejoindre TradeInDRC. Vous avez indiqué <strong style="color:#0B1B33;">{{ .Email }}</strong> comme adresse de votre compte. Confirmez-la en cliquant sur le bouton ci-dessous.{{ else if eq $l "es" }}Gracias por unirse a TradeInDRC. Indicó <strong style="color:#0B1B33;">{{ .Email }}</strong> como dirección de su cuenta. Confírmela haciendo clic en el botón de abajo.{{ else if eq $l "tr" }}TradeInDRC'ye katıldığınız için teşekkürler. Hesabınız için <strong style="color:#0B1B33;">{{ .Email }}</strong> adresini girdiniz. Lütfen aşağıdaki düğmeye tıklayarak onaylayın.{{ else if eq $l "zh" }}感谢您加入 TradeInDRC。您填写的账户邮箱为 <strong style="color:#0B1B33;">{{ .Email }}</strong>。请点击下方按钮进行确认。{{ else }}Thanks for joining TradeInDRC. You entered <strong style="color:#0B1B33;">{{ .Email }}</strong> as the address for your account. Please confirm it by clicking the button below.{{ end }}</p>
+    </td></tr>
+
+    <!-- Gold CTA with navy text -->
+    <tr><td style="padding:32px 40px;" align="center">
+      <table role="presentation" cellpadding="0" cellspacing="0"><tr>
+        <td align="center" style="border-radius:10px;background:#D9A441;background-image:linear-gradient(135deg,#E7C173,#D9A441 55%,#C8941F);box-shadow:0 8px 20px -8px rgba(200,148,31,0.6);">
+          <a href="{{ .ConfirmationURL }}" style="display:inline-block;padding:15px 36px;font-size:15px;font-weight:700;color:#0B1B33;text-decoration:none;border-radius:10px;letter-spacing:0.2px;">{{ if eq $l "fr" }}Vérifier mon e-mail{{ else if eq $l "es" }}Verificar mi correo{{ else if eq $l "tr" }}E-postamı doğrula{{ else if eq $l "zh" }}验证我的邮箱{{ else }}Verify my e-mail{{ end }}</a>
+        </td>
+      </tr></table>
+    </td></tr>
+
+    <tr><td style="padding:0 40px 32px;font-size:12px;line-height:1.6;color:#64748B;" align="center">
+      <p style="margin:0 0 6px;">{{ if eq $l "fr" }}Le bouton ne fonctionne pas ? Copiez et collez ce lien dans votre navigateur :{{ else if eq $l "es" }}¿El botón no funciona? Copie y pegue este enlace en su navegador:{{ else if eq $l "tr" }}Düğme çalışmıyor mu? Bu bağlantıyı kopyalayıp tarayıcınıza yapıştırın:{{ else if eq $l "zh" }}按钮无法使用？请将以下链接复制并粘贴到浏览器中：{{ else }}Button not working? Copy and paste this link into your browser:{{ end }}</p>
+      <p style="margin:0;word-break:break-all;"><a href="{{ .ConfirmationURL }}" style="color:#0B1B33;text-decoration:underline;">{{ .ConfirmationURL }}</a></p>
+    </td></tr>
+
+    <!-- Security note on a soft gold tint -->
+    <tr><td style="padding:0 40px 36px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+        <td style="padding:14px 18px;border-radius:10px;background:#FBF5E8;border-left:3px solid #D9A441;font-size:12px;line-height:1.6;color:#6B5320;">
+          {{ if eq $l "fr" }}Si vous n'avez pas créé de compte TradeInDRC, vous pouvez ignorer cet e-mail.{{ else if eq $l "es" }}Si no creó una cuenta de TradeInDRC, puede ignorar este correo.{{ else if eq $l "tr" }}TradeInDRC hesabı oluşturmadıysanız bu e-postayı yok sayabilirsiniz.{{ else if eq $l "zh" }}如果您没有创建 TradeInDRC 账户，请忽略此邮件。{{ else }}If you didn't create a TradeInDRC account, you can safely ignore this e-mail.{{ end }}
+        </td>
+      </tr></table>
+    </td></tr>
+  </table>
+
+  <!-- Navy footer -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;">
+    <tr><td align="center" style="padding:28px 24px 0;font-size:12px;line-height:1.6;color:#94A3B8;">
+      <p style="margin:0 0 6px;color:#D9A441;font-weight:600;letter-spacing:1.5px;font-size:11px;">TRADEINDRC</p>
+      <p style="margin:0;">{{ if eq $l "fr" }}TradeInDRC — le portail officiel du commerce de la République démocratique du Congo.{{ else if eq $l "es" }}TradeInDRC — el portal comercial oficial de la República Democrática del Congo.{{ else if eq $l "tr" }}TradeInDRC — Kongo Demokratik Cumhuriyeti'nin resmî ticaret portalı.{{ else if eq $l "zh" }}TradeInDRC — 刚果民主共和国官方贸易门户。{{ else }}TradeInDRC — the official trade portal of the Democratic Republic of the Congo.{{ end }}</p>
+    </td></tr>
+  </table>
+
+</td></tr>
+</table>
+</body>
+</html>

@@ -139,7 +139,7 @@
     "heroSubtitle": "Doğrulanmış Kongolu şirketlerin uluslararası alıcılarla buluştuğu, devlet destekli bir B2B platformu — rehber, arama, teklif talepleri (RFQ) ve güvenli mesajlaşma tek bir yerde.",
     "heroImageAlt": "Alacakaranlıkta Kinshasa silueti",
     "mission": "Misyonumuz",
-    "missionText": "TradeInDRC, Demokratik Kongo Cumhuriyeti'nin resmî çift dilli ticaret portalıdır. Doğrulanmış Kongolu işletmeleri uluslararası alıcılar ve ortaklarla buluşturur, her şirketi denetlemesi ve doğrulaması için Bakanlığa araçlar sunar ve ülkenin ihracat kapasitesini güvenilir tek bir yerde toplar.",
+    "missionText": "TradeInDRC, Demokratik Kongo Cumhuriyeti'nin resmî çok dilli ticaret portalıdır. Doğrulanmış Kongolu işletmeleri uluslararası alıcılar ve ortaklarla buluşturur, her şirketi denetlemesi ve doğrulaması için Bakanlığa araçlar sunar ve ülkenin ihracat kapasitesini güvenilir tek bir yerde toplar.",
     "whoFor": "Kimler için",
     "audience": {
       "exporter": {
@@ -181,8 +181,8 @@
         "desc": "Görünür ve denetime uygun bir güven ağı oluşturmak için platformdaki diğer doğrulanmış ortaklara bağlantı verin."
       },
       "bilingual": {
-        "title": "Çift dilli EN / FR",
-        "desc": "Her arayüz metni ve CMS yüzeyi iki dillidir. Tercih ettiğiniz dilde göz atın ve ticaret yapın."
+        "title": "5 dil",
+        "desc": "Arayüz Türkçe, İngilizce, Fransızca, İspanyolca ve Çince olarak sunulur. Tercih ettiğiniz dilde göz atın ve ticaret yapın."
       },
       "analytics": {
         "title": "Özel analizler",
@@ -217,10 +217,20 @@
     "successRegister": "Hesap başarıyla oluşturuldu.",
     "verifyEmail": {
       "title": "E-postanızı doğrulayın",
-      "body": "{email} adresine bir onay bağlantısı gönderdik. Hesabınızı etkinleştirmek için bağlantıya tıklayın.",
+      "body": "<b>{email}</b> adresine bir onay bağlantısı gönderdik. Hesabınızı etkinleştirmek için bağlantıya tıklayın.",
       "resend": "E-postayı tekrar gönder",
       "resent": "E-posta gönderildi. Gelen kutunuzu kontrol edin.",
-      "openInbox": "Gelen kutusunu aç"
+      "openInbox": "Gelen kutumu aç",
+      "bodyNoEmail": "E-posta adresinize bir onay bağlantısı gönderdik. Hesabınızı etkinleştirmek için bağlantıya tıklayın.",
+      "resendIn": "{seconds} sn sonra yeniden gönder",
+      "notReceived": "Almadınız mı? Spam klasörünüzü kontrol edin veya",
+      "wrongEmail": "Yanlış adres mi?",
+      "changeEmail": "Yeniden kaydolun",
+      "backToLogin": "Girişe dön",
+      "missingEmail": "Yeniden gönderilecek e-posta adresi yok.",
+      "step1": "E-postayı açın",
+      "step2": "Bağlantıya tıklayın",
+      "step3": "Alanınıza erişin"
     },
     "forgotPassword": {
       "title": "Parolanızı sıfırlayın",
@@ -237,7 +247,14 @@
       "submit": "Parolayı güncelle",
       "success": "Parola güncellendi. Artık giriş yapabilirsiniz.",
       "mismatch": "Parolalar eşleşmiyor.",
-      "weak": "En az 8 karakter kullanın."
+      "weak": "En az 8 karakter kullanın.",
+      "body": "Başka hiçbir yerde kullanmadığınız güçlü bir parola seçin.",
+      "ruleLength": "En az {min} karakter",
+      "ruleCase": "Büyük ve küçük harf",
+      "ruleNumber": "En az bir rakam",
+      "match": "Parolalar eşleşiyor",
+      "expired": "Bu sıfırlama bağlantısının süresi doldu. Yeni bir tane isteyin.",
+      "requestNew": "Yeni bağlantı iste"
     },
     "accountSettings": {
       "title": "Hesap ayarları",
@@ -260,8 +277,24 @@
     "errorAccountExists": "Bu e-posta ile zaten bir hesap mevcut.",
     "errorPasswordTooShort": "Parola en az 6 karakter olmalıdır.",
     "forgotPasswordLink": "Parolanızı mı unuttunuz?",
+    "showPassword": "Parolayı göster",
+    "hidePassword": "Parolayı gizle",
     "sendResetLink": "Sıfırlama Bağlantısı Gönder",
-    "backToSignIn": "Girişe Dön"
+    "backToSignIn": "Girişe Dön",
+    "fullName": "Ad soyad",
+    "fullNamePlaceholder": "Jean Mukendi",
+    "phone": "Telefon",
+    "phonePlaceholder": "81 234 5678",
+    "optional": "isteğe bağlı",
+    "errorPhoneInvalid": "Lütfen geçerli bir telefon numarası girin.",
+    "signupContext": {
+      "company": {
+        "title": "Şirketinizi kaydetmek için hesabınızı oluşturun",
+        "track": "Taleplerinizi ve mesajlarınızı takip edin",
+        "manage": "Şirket profilinizi yönetin",
+        "alerts": "Yeni fırsatlar için uyarı alın"
+      }
+    }
   },
   "Dashboard": {
     "title": "Kontrol Paneli",
@@ -573,7 +606,8 @@
         "addSuccess": "Video eklendi.",
         "invalidUrl": "http:// veya https:// ile başlayan geçerli bir video URL'si girin."
       }
-    }
+    },
+    "statusPendingDocuments": "Belge bekleniyor"
   },
   "Footer": {
     "portal": "Portal",
@@ -1169,7 +1203,8 @@
       "statusValues": {
         "pending": "Beklemede",
         "verified": "Doğrulandı",
-        "rejected": "Reddedildi"
+        "rejected": "Reddedildi",
+        "pending_documents": "Belge bekleniyor"
       },
       "tier": {
         "title": "Doğrulama seviyesi",
@@ -1779,13 +1814,13 @@
     "hero": {
       "tagline": "DRC resmi ticaret portalı",
       "headline": "Doğrulanmış ihracatçıları bulun, teklif talebi gönderin, anlaşmaları tamamlayın.",
-      "subline": "Demokratik Kongo Cumhuriyeti'ni dünyaya bağlayan, alıcılar ve tedarikçiler için iki dilli platform.",
+      "subline": "Demokratik Kongo Cumhuriyeti'ni dünyaya bağlayan, alıcılar ve tedarikçiler için çok dilli platform.",
       "cta": {
         "browse": "Doğrulanmış şirketlere göz atın",
         "howItWorks": "Nasıl çalışır",
         "trust": {
           "verified": "Doğrulanmış ihracatçılar",
-          "bilingual": "EN · FR",
+          "bilingual": "EN · FR · TR · ES · ZH",
           "free": "Ücretsiz teklif talepleri"
         }
       }
@@ -1803,8 +1838,8 @@
           "body": "Şirketler herkese açık olarak görünmeden önce KYB belge incelemesi ve yerinde kontroller yapılır."
         },
         "bilingual": {
-          "title": "Varsayılan olarak iki dilli",
-          "body": "İngilizce veya Fransızca olarak göz atın ve ticaret yapın — içerik her iki dilde de saklanır ve görüntülenir."
+          "title": "Varsayılan olarak çok dilli",
+          "body": "Türkçe, İngilizce, Fransızca, İspanyolca veya Çince olarak göz atın ve ticaret yapın."
         },
         "rfq": {
           "title": "Teklif talepleri ücretsizdir",
@@ -1868,7 +1903,7 @@
       "helpCenter": "Yardım merkezi"
     },
     "footer": {
-      "tagline": "DRC iki dilli ticaret portalı",
+      "tagline": "DRC çok dilli ticaret portalı",
       "columns": {
         "platform": {
           "title": "Platform",
@@ -1907,7 +1942,7 @@
     },
     "metadata": {
       "title": "TradeInDRC — Doğrulanmış Kongolu ihracatçılar ve ticaret portalı",
-      "description": "Demokratik Kongo Cumhuriyeti'nin resmi iki dilli ticaret portalı. Doğrulanmış ihracatçıları bulun, teklif talepleri gönderin ve ticaret fırsatlarını keşfedin."
+      "description": "Demokratik Kongo Cumhuriyeti'nin resmi çok dilli ticaret portalı. Doğrulanmış ihracatçıları bulun, teklif talepleri gönderin ve ticaret fırsatlarını keşfedin."
     }
   },
   "ListPages": {
@@ -1938,7 +1973,7 @@
       "tagline": "Demokratik Kongo Cumhuriyeti'nin resmi ticaret portalı",
       "checks": [
         "Doğrulanmış Kongolu ihracatçılar",
-        "İki dilli platform (EN / FR)",
+        "5 dilde platform (EN / FR / TR / ES / ZH)",
         "Ücretsiz teklif talepleri, güvenli mesajlaşma"
       ]
     },
@@ -2559,7 +2594,7 @@
   },
   "Metadata": {
     "siteTitle": "TradeInDRC",
-    "siteDescription": "Kongo Demokratik Cumhuriyeti'nin resmi iki dilli çevrimiçi ticaret portalı; uluslararası alıcıları doğrulanmış Kongolu ihracatçılarla buluşturur."
+    "siteDescription": "Kongo Demokratik Cumhuriyeti'nin resmi çok dilli çevrimiçi ticaret portalı; uluslararası alıcıları doğrulanmış Kongolu ihracatçılarla buluşturur."
   },
   "Terms": {
     "title": "Hizmet Koşulları",
@@ -4124,8 +4159,11 @@
         "business_profile": "İş Profili",
         "market_interest": "DRC Pazar İlgisi",
         "contact_person": "İlgili Kişi",
-        "plan": "Plan"
-      }
+        "plan": "Plan",
+        "company": "Şirket",
+        "contact": "İletişim"
+      },
+      "optional": "isteğe bağlı"
     },
     "sections": {
       "legal": "1. Yasal Bilgiler",
@@ -4250,12 +4288,13 @@
     "nav": {
       "back": "Geri",
       "next": "İleri",
-      "submit": "İnceleme için Gönder",
-      "submitting": "Şirketiniz gönderiliyor..."
+      "submit": "Şirketimi oluştur",
+      "submitting": "Şirketiniz gönderiliyor...",
+      "skip": "Bu adımı atla"
     },
     "success": {
-      "title": "Şirketiniz inceleme için gönderildi",
-      "body": "Ekibimiz başvurunuzu inceleyecek ve size geri dönecektir. Durumunu kontrol panelinizden takip edebilirsiniz.",
+      "title": "Şirketiniz oluşturuldu",
+      "body": "Artık panelinizde. Doğrulanması için profilini tamamlayın ve belgelerinizi oradan ekleyin.",
       "cta": "Şirketlerime Git"
     },
     "errors": {
@@ -4298,7 +4337,9 @@
       "international": {
         "title": "Uluslararası bir şirketim",
         "body": "DRC'de iş ortağı, görünürlük ve fırsat arayan yabancı şirketler için."
-      }
+      },
+      "accountNeeded": "Önce ücretsiz hesabınızı oluşturacaksınız (1 dakika), ardından doğrudan buraya döneceksiniz.",
+      "createAccountToContinue": "Devam etmek için hesabımı oluştur"
     },
     "intl": {
       "heroTitleLead": "Uluslararası ",
@@ -4470,6 +4511,20 @@
           }
         }
       }
+    },
+    "quick": {
+      "sections": {
+        "company": "Şirketiniz",
+        "contact": "Şirket iletişimi"
+      },
+      "fields": {
+        "companyEmail": "Şirket iletişim e-postası",
+        "headOfficeCity": "Merkez ofis şehri"
+      },
+      "hints": {
+        "companyEmail": "Herkese açık profilinizde gösterilir. Giriş e-postanızdan farklı olabilir."
+      },
+      "marketInterestIntro": "İsteğe bağlı — size doğru fırsatları önerebilmemiz için DKC'de ne aradığınızı belirtin."
     }
   },
   "Services": {

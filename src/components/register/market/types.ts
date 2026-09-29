@@ -2,10 +2,9 @@ import { HOME_COUNTRY, DEFAULT_DIAL_CODE } from "@/config/geo";
 import { stepsForProfile } from "./constants";
 import type { PlanId, RegistrationProfile, WizardStep } from "./constants";
 
-/** All fields collected across the wizard. Documents hold file NAMES only —
- *  the real File objects live in RegisterWizard's `documentFiles` state
- *  (not persisted here / in the sessionStorage draft) and are uploaded to
- *  Storage after the company row exists; see upload-documents.ts. */
+/** Every company field. The short form fills only the company/contact ones;
+ *  the rest (legal, profile, documents — file NAMES only) are collected later
+ *  by the dashboard actions that reuse the step-*.tsx components. */
 export interface RegisterFormData {
   /** Declared on the "Choose your company profile" cards. */
   profile: RegistrationProfile;
@@ -40,7 +39,7 @@ export interface RegisterFormData {
   interestOther: string;
   // International-only fields (customer design 2026-07-28). Congolese
   // applicants never see these and leave them empty.
-  /** Step 1 — Head Office Address (street, city, country). */
+  /** Head office, stored as "City, Country" (composed from `city` + `country` by the short form). */
   headOffice: string;
   /** Step 2 — Business Profile. */
   annualTurnover: string;
@@ -127,86 +126,32 @@ export function isHomeCountry(data: RegisterFormData): boolean {
 }
 
 /**
- * Required-field keys per step. Congolese registries (RCCM, National ID, NIF)
- * and the province list only exist for DRC-registered companies, so foreign
- * applicants get the international equivalents instead of being blocked —
- * the portal accepts international registrations too.
+ * Required-field keys per step of the short form.
+ *
+ * - company: Congolese = name, country (locked to the DRC), sector, province,
+ *   city; international = name, country, sector, head-office city (`city`).
+ * - contact: company e-mail, contact person, phone (dialCode travels with it).
+ * - market_interest: optional — never blocks, even once touched.
  */
 export function requiredForStep(
   step: WizardStep,
   data: RegisterFormData
 ): (keyof RegisterFormData)[] {
-  // The DECLARED PROFILE decides which documents and registries apply — not the
-  // country. A foreign group's DRC-registered subsidiary may legitimately
-  // declare "international" (migration 00038 says so explicitly); keying off
-  // country would then demand a Congolese NIF document it does not have.
-  // `country` is geography only: it picks the province list vs a free-text
-  // region, and the dial code.
-  const congolese = !isInternational(data);
-  const home = isHomeCountry(data);
-
-  /** Keys that only apply to the Congolese path. Typed, so a typo won't compile. */
-  const congoleseOnly = (
-    ...keys: (keyof RegisterFormData)[]
-  ): (keyof RegisterFormData)[] => (congolese ? keys : []);
-
   switch (step) {
-    case "legal":
-      return [
-        "country",
-        "companyLegalName",
-        // Every jurisdiction issues some registration number; only the DRC-specific
-        // national ID and NIF are dropped for foreign companies.
-        "rccmNumber",
-        ...congoleseOnly("nationalId", "nif"),
-        "yearEstablished",
-        "legalForm",
-        "employees",
-      ];
-    case "professional":
-      // Province is the one genuinely geographic requirement: the 26-province
-      // list only exists for DRC-based companies.
-      return [
-        "sectorId",
-        ...((home ? ["province"] : []) as (keyof RegisterFormData)[]),
-        "city",
-        "officialEmail",
-        "phone",
-      ];
-    case "positioning":
-      return ["contactPerson", "jobTitle", "languages", "interests"];
-    case "documents":
-      // Shared by both paths — the NIF document is Congolese-only.
-      return ["rccmCertName", ...congoleseOnly("nifDocName")];
-
-    // ── International path (customer design 2026-07-28) ──
-    case "company_info":
-      return [
-        "companyLegalName",
-        "country",
-        "rccmNumber",
-        "yearEstablished",
-        "legalForm",
-        "website",
-        "officialEmail",
-        "phone",
-        "dialCode",
-        "headOffice",
-      ];
-    case "business_profile":
-      return ["sectorId", "productsServices", "employees"];
+    case "company":
+      return isInternational(data)
+        ? ["companyLegalName", "country", "sectorId", "city"]
+        : [
+            "companyLegalName",
+            "country",
+            "sectorId",
+            // The 26-province list only exists for DRC-based companies.
+            ...((isHomeCountry(data) ? ["province"] : []) as (keyof RegisterFormData)[]),
+            "city",
+          ];
+    case "contact":
+      return ["officialEmail", "contactPerson", "phone"];
     case "market_interest":
-      return ["drcInterests", "entryTimeline", "marketInterestNotes"];
-    case "contact_person":
-      return ["contactPerson", "jobTitle", "languages"];
-
-    // P2-2: one plan step, shared by both paths. The plan itself lives in
-    // wizard state and always has a value (defaulting to "free"), so it
-    // never blocks Next.
-    case "plan":
-      return [];
-
-    case "review":
       return [];
   }
 }
@@ -234,22 +179,21 @@ export function coercePlanForProfile(
 /**
  * Given the field names the server rejected (P0-5), pick the first step —
  * in this profile's own order — whose `requiredForStep` list contains one
- * of them, so the wizard can jump the applicant straight to the problem
- * instead of leaving them stuck on Review with a dead-end toast. Falls back
- * to "review" when nothing maps (e.g. a DB-level rejection with no matching
- * field), where the generic error toast is still shown.
+ * of them, so the wizard can jump the applicant straight to the problem.
+ * `null` when nothing maps (e.g. a DB-level rejection): the wizard then only
+ * shows the generic error toast.
  */
 export function stepForInvalidFields(
   profile: RegistrationProfile,
   fields: string[],
   data: RegisterFormData
-): WizardStep {
-  if (fields.length === 0) return "review";
+): WizardStep | null {
+  if (fields.length === 0) return null;
   for (const step of stepsForProfile(profile)) {
     const required = requiredForStep(step, data);
     if (required.some((key) => fields.includes(key))) return step;
   }
-  return "review";
+  return null;
 }
 
 /**

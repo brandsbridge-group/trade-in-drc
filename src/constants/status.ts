@@ -1,4 +1,6 @@
 export const COMPANY_STATUS = {
+  /** 00047 — created by the short form; not in the admin queue until the owner submits documents. */
+  PENDING_DOCUMENTS: 'pending_documents',
   PENDING: 'pending',
   VERIFIED: 'verified',
   REJECTED: 'rejected',

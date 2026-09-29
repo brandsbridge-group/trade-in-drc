@@ -20,16 +20,18 @@ import { cn } from "@/lib/utils";
 import { PageHeader } from "@/components/design";
 import { listCompaniesForAdmin, type AdminCompanyRow } from "./actions";
 
-type CompanyStatus = "all" | "pending" | "verified" | "rejected";
+type CompanyStatus = "all" | "pending_documents" | "pending" | "verified" | "rejected";
 
 const STATUS_FILTER_TABS: { value: CompanyStatus; labelKey: string }[] = [
     { value: "all", labelKey: "filterAll" },
+    { value: "pending_documents", labelKey: "statusValues.pending_documents" },
     { value: "pending", labelKey: "statusValues.pending" },
     { value: "verified", labelKey: "statusValues.verified" },
     { value: "rejected", labelKey: "statusValues.rejected" },
 ];
 
 const STATUS_BADGE_CLASSES: Record<string, string> = {
+    pending_documents: "bg-slate-50 text-slate-600 border-slate-200",
     pending: "bg-amber-50 text-amber-700 border-amber-200",
     verified: "bg-green-50 text-green-700 border-green-200",
     rejected: "bg-red-50 text-red-700 border-red-200",
@@ -104,6 +106,7 @@ export default function AdminCompaniesPage() {
 
     const statusCounts = React.useMemo(() => ({
         all: companies.length,
+        pending_documents: companies.filter((c) => c.status === "pending_documents").length,
         pending: companies.filter((c) => c.status === "pending").length,
         verified: companies.filter((c) => c.status === "verified").length,
         rejected: companies.filter((c) => c.status === "rejected").length,

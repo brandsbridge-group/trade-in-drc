@@ -1,8 +1,10 @@
 import { Suspense } from "react";
 import { Check } from "lucide-react";
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
+import { resolvePostAuthRedirect } from "@/lib/auth/redirect-guard";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { AuthShell } from "@/components/auth-design/auth-shell";
 import { AuthPageHeading } from "@/components/auth-design/auth-page-heading";
@@ -29,14 +31,15 @@ export default async function SignupPage({
   const { redirect: redirectTarget, context } = await searchParams;
   const t = await getTranslations({ locale, namespace: "Auth" });
 
-  // Already signed in? There is nothing to create.
+  // Already signed in? Nothing to create — go where they were headed (e.g.
+  // /register-company) through the same guard as login and /callback.
   const supabase = await createServerSupabaseClient();
   const { data: auth } = await supabase.auth.getUser();
-  // Already signed in? Nothing to create — go where they were headed (e.g.
-  // /register-company), same-origin paths only.
   if (auth.user) {
-    const safe = redirectTarget?.startsWith("/") && !redirectTarget.startsWith("//");
-    redirect(safe ? `/${locale}${redirectTarget}` : `/${locale}/dashboard`);
+    const headerList = await headers();
+    const host = headerList.get("x-forwarded-host") ?? headerList.get("host");
+    const proto = headerList.get("x-forwarded-proto") ?? "https";
+    redirect(resolvePostAuthRedirect(redirectTarget, locale, `${proto}://${host}`));
   }
 
   // Mirror the same `?redirect=` carry-through as the /login page, so hopping

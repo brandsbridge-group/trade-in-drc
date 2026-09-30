@@ -25,6 +25,7 @@ import {
     deleteCarouselSlide,
 } from "./actions";
 import {
+    CAROUSEL_PLACEMENTS,
     type CarouselSlideRow,
     type CarouselSlideInput,
 } from "./constants";
@@ -40,6 +41,7 @@ const EMPTY_SLIDE: CarouselSlideInput = {
     cta_href: "",
     sort_order: 0,
     active: true,
+    placement: "home",
 };
 
 export function CarouselManager({ locale }: { locale: string }) {
@@ -135,6 +137,11 @@ export function CarouselManager({ locale }: { locale: string }) {
                                 href={t("slideHref")}
                                 order={t("slideOrder")}
                                 activeLabel={t("slideActive")}
+                                placementLabel={t("slidePlacement")}
+                                placementOptions={CAROUSEL_PLACEMENTS.map((p) => ({
+                                    value: p,
+                                    label: t(`placements.${p}`),
+                                }))}
                             />
                         )}
                         <DialogFooter>
@@ -186,6 +193,9 @@ export function CarouselManager({ locale }: { locale: string }) {
                                     {slide.subtitle_en || slide.cta_href || "—"}
                                 </p>
                             </div>
+                            <Badge variant="outline" className="text-xs">
+                                {t(`placements.${slide.placement}`)}
+                            </Badge>
                             <Badge
                                 variant={slide.active ? "secondary" : "outline"}
                                 className="text-xs"
@@ -232,6 +242,8 @@ function SlideForm({
     href,
     order,
     activeLabel,
+    placementLabel,
+    placementOptions,
 }: {
     value: CarouselSlideInput;
     onChange: (v: CarouselSlideInput) => void;
@@ -245,6 +257,8 @@ function SlideForm({
     href: string;
     order: string;
     activeLabel: string;
+    placementLabel: string;
+    placementOptions: { value: CarouselSlideInput["placement"]; label: string }[];
 }) {
     const set = <K extends keyof CarouselSlideInput>(
         key: K,
@@ -253,6 +267,21 @@ function SlideForm({
 
     return (
         <div className="grid gap-3 sm:grid-cols-2">
+            <Field label={placementLabel} className="sm:col-span-2">
+                <select
+                    value={value.placement}
+                    onChange={(e) =>
+                        set("placement", e.target.value as CarouselSlideInput["placement"])
+                    }
+                    className="h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm shadow-xs outline-none focus-visible:border-ring"
+                >
+                    {placementOptions.map((o) => (
+                        <option key={o.value} value={o.value}>
+                            {o.label}
+                        </option>
+                    ))}
+                </select>
+            </Field>
             <Field label={tEn}>
                 <Input value={value.title_en} onChange={(e) => set("title_en", e.target.value)} />
             </Field>

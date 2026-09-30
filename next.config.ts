@@ -11,6 +11,15 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Marketing photos hosted on the project's Vercel Blob store (marketplace
+    // direction cards). One exact host — no wildcard.
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "gkhs3jykmxksb2uk.public.blob.vercel-storage.com",
+        pathname: "/**",
+      },
+    ],
   },
 };
 

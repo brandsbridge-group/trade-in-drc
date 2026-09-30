@@ -24,6 +24,7 @@ export type VerificationDecision =
   | "more_info_requested"
   | "resubmitted";
 export type RfqType = "supply" | "demand";
+export type CarouselPlacement = "home" | "market";
 export type RfqStatus = "active" | "expired" | "closed";
 export type AnalyticsEntityType = "company" | "product" | "rfq";
 export type AnalyticsEventType =
@@ -814,16 +815,23 @@ export interface Database {
           company_id: string;
           segment_key: SegmentKey;
           created_at: string;
+          // 00049_chain_provider_profiles
+          specialties: string[];
+          attributes: Json;
         };
         Insert: {
           company_id: string;
           segment_key: SegmentKey;
           created_at?: string;
+          specialties?: string[];
+          attributes?: Json;
         };
         Update: {
           company_id?: string;
           segment_key?: SegmentKey;
           created_at?: string;
+          specialties?: string[];
+          attributes?: Json;
         };
         Relationships: [];
       };
@@ -907,6 +915,10 @@ export interface Database {
           status: OpportunityStatus;
           rejected_reason: string | null;
           published_at: string | null;
+          // 00050_opportunity_sources_and_alerts
+          source_name: string | null;
+          source_url: string | null;
+          document_url: string | null;
           // 00009_global_search
           search_en: string | null;
           search_fr: string | null;
@@ -933,6 +945,9 @@ export interface Database {
           status?: OpportunityStatus;
           rejected_reason?: string | null;
           published_at?: string | null;
+          source_name?: string | null;
+          source_url?: string | null;
+          document_url?: string | null;
           search_en?: string | null;
           search_fr?: string | null;
           created_at?: string;
@@ -958,8 +973,45 @@ export interface Database {
           status?: OpportunityStatus;
           rejected_reason?: string | null;
           published_at?: string | null;
+          source_name?: string | null;
+          source_url?: string | null;
+          document_url?: string | null;
           search_en?: string | null;
           search_fr?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
+      // -- 00050_opportunity_sources_and_alerts ---------------------------
+      opportunity_alerts: {
+        Row: {
+          id: string;
+          email: string;
+          sector_ids: string[];
+          provinces: string[];
+          locale: string;
+          unsubscribed_at: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          email: string;
+          sector_ids?: string[];
+          provinces?: string[];
+          locale?: string;
+          unsubscribed_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          email?: string;
+          sector_ids?: string[];
+          provinces?: string[];
+          locale?: string;
+          unsubscribed_at?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -1311,6 +1363,8 @@ export interface Database {
           cta_href: string | null;
           sort_order: number;
           active: boolean;
+          // 00048_carousel_slides_placement
+          placement: CarouselPlacement;
           created_at: string;
           updated_at: string;
         };
@@ -1326,6 +1380,7 @@ export interface Database {
           cta_href?: string | null;
           sort_order?: number;
           active?: boolean;
+          placement?: CarouselPlacement;
           created_at?: string;
           updated_at?: string;
         };
@@ -1341,6 +1396,7 @@ export interface Database {
           cta_href?: string | null;
           sort_order?: number;
           active?: boolean;
+          placement?: CarouselPlacement;
           created_at?: string;
           updated_at?: string;
         };
@@ -1736,6 +1792,8 @@ export interface Database {
           status: BusinessRequestStatus;
           follow_up_owner: string | null;
           admin_notes: string | null;
+          // 00030_business_request_reference (DB default: TIDRC-PR-YYYY-NNNNNN)
+          reference: string | null;
           created_at: string;
           updated_at: string;
         };
@@ -1757,6 +1815,7 @@ export interface Database {
           status?: BusinessRequestStatus;
           follow_up_owner?: string | null;
           admin_notes?: string | null;
+          reference?: string | null;
           created_at?: string;
           updated_at?: string;
         };

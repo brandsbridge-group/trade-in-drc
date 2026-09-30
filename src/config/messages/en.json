@@ -32,7 +32,22 @@
     "poweredBy": "Power by BrandsBridge Group",
     "menu": "Menu",
     "services": "Services",
-    "moreMenu": "More"
+    "moreMenu": "More",
+    "data": "Data",
+    "searchShort": "Search",
+    "moreDesc": {
+      "contactPoints": "Institutions and local relays, province by province.",
+      "services": "End-to-end support from our team.",
+      "events": "Trade fairs, forums and business missions.",
+      "contact": "A question? Let’s talk."
+    },
+    "featured": {
+      "body": "Get in front of international buyers.",
+      "cta": "See the plans"
+    },
+    "language": "Language",
+    "changeLanguage": "Change language",
+    "publishOffer": "Post an offer"
   },
   "Hero": {
     "badge": "Verified by Ministry of Trade",
@@ -1370,7 +1385,12 @@
       "featuredSelectPlaceholder": "Select a verified company...",
       "featuredNoCandidates": "No more verified companies to feature",
       "featuredAdd": "Feature",
-      "featuredEmpty": "No featured companies yet"
+      "featuredEmpty": "No featured companies yet",
+      "slidePlacement": "Placement",
+      "placements": {
+        "home": "Homepage",
+        "market": "Marketplace hero (ads)"
+      }
     },
     "nav": {
       "console": "Admin Console",
@@ -4938,148 +4958,580 @@
       }
     }
   },
-  "MarketplacePage": {
+  "MarketLanding": {
     "hero": {
-      "titleLead": "The DRC Business",
-      "titleAccent": "Marketplace",
-      "tagline": "One Platform. Endless Connections. Real Opportunities.",
-      "body": "Trade in DRC brings together trusted players across the entire trade and investment ecosystem. Connect, collaborate and grow your business in the heart of Africa.",
-      "imageAlt": "Container ship berthed at a Congolese port at dusk",
-      "ctaJoin": "Join the Marketplace",
-      "ctaExplore": "Explore Opportunities",
-      "ctaHowItWorks": "How it Works",
-      "stats": {
-        "companies": "Verified Companies",
-        "provinces": "Provinces Covered",
-        "opportunities": "Business Opportunities",
-        "secure": "Verified & Secure"
+      "eyebrow": "Official marketplace · DR Congo",
+      "titleLead": "The business marketplace",
+      "titleAccent": "of the DRC",
+      "lead": "Verified offers, qualified buyers and every trade that turns a deal into a delivery — in one place.",
+      "publishOffer": "Publish an offer",
+      "publishNeed": "Publish a need",
+      "searchLabel": "Search the marketplace",
+      "searchPlaceholder": "A product, a company, a service",
+      "searchCta": "Search"
+    },
+    "trust": {
+      "coverage": {
+        "title": "{count} provinces",
+        "body": "Nationwide coverage, from Kongo-Central to Haut-Katanga.",
+        "value": "{count}",
+        "label": "provinces covered"
       },
-      "hub": {
-        "title": "A Central Hub for Global Trade in DRC",
-        "discover": "Discover verified businesses",
-        "find": "Find products, services & partners",
-        "intelligence": "Access market intelligence",
-        "facilitate": "Facilitate trade & investment",
-        "network": "Grow your network globally"
+      "verification": {
+        "title": "4-point verification",
+        "body": "Legal existence, capacity, references, and a site visit where possible.",
+        "value": "4-point",
+        "label": "verification"
+      },
+      "response": {
+        "title": "Reply within 48 h",
+        "body": "Every request is qualified by a person, not a robot.",
+        "value": "48 h",
+        "label": "to get back to you"
       }
     },
-    "categories": {
-      "heading": "Explore the Marketplace by Category",
-      "subheading": "Connect with the right partners across all key sectors of the trade ecosystem.",
-      "count": "{count, plural, =0 {No listings yet} one {# listing} other {# listings}}",
-      "manufacturer": {
-        "title": "Manufacturers",
-        "desc": "Connect with local manufacturers of quality products across all industries.",
-        "cta": "View Manufacturers"
-      },
-      "importer": {
-        "title": "Importers",
-        "desc": "Find reliable importers sourcing products and solutions for the DRC market.",
-        "cta": "View Importers"
-      },
-      "exporter": {
-        "title": "Exporters",
-        "desc": "Meet exporters offering DRC-made products to global markets.",
-        "cta": "View Exporters"
+    "services": {
+      "heading": "Complete your operation",
+      "lead": "A cross-border sale only holds with the chain that carries it. These trades are on the platform, just like the products.",
+      "cta": "See providers",
+      "logistics": {
+        "eyebrow": "Ship",
+        "title": "Logistics and transit",
+        "body": "Freight forwarders, carriers, consolidators, bonded warehouses."
       },
       "finance": {
-        "title": "Finance & Banking",
-        "desc": "Access financial institutions and banking services that support your business growth.",
-        "cta": "View Finance Partners"
+        "eyebrow": "Finance",
+        "title": "Finance and payment",
+        "body": "Banks, letters of credit, cargo insurance, foreign exchange."
       },
+      "compliance": {
+        "eyebrow": "Comply",
+        "title": "Compliance and documentation",
+        "body": "Quality control, customs, certificates of origin, standards."
+      },
+      "institutions": {
+        "eyebrow": "Get oriented",
+        "title": "Institutions and contacts",
+        "body": "Public agencies, state-owned companies, chambers and federations."
+      }
+    },
+    "demands": {
+      "heading": "Open requests",
+      "lead": "Buyers are already looking. Answering an existing request converts better than waiting to be found.",
+      "viewAll": "All requests",
+      "filterLabel": "Filter requests by direction",
+      "filters": {
+        "all": "All",
+        "import": "Import",
+        "export": "Export"
+      },
+      "buyer": "Buyer",
+      "buyerVerified": "Verified buyer",
+      "closesIn": "{days, plural, =0 {Closes today} one {Closes in # day} other {Closes in # days}}",
+      "respond": "Respond",
+      "empty": "No open requests right now. Check back soon.",
+      "columns": {
+        "demand": "Request",
+        "direction": "Direction",
+        "location": "Location",
+        "deadline": "Deadline"
+      },
+      "publish": "Post a request",
+      "noDeadline": "Open-ended",
+      "kinds": {
+        "demand": "Purchase request",
+        "quotation": "Request for quotation"
+      }
+    },
+    "cta": {
+      "heading": "Selling, or sourcing?",
+      "body": "Publishing an offer is free. Publishing a need triggers a search by our team.",
+      "publishOffer": "Publish an offer",
+      "publishNeed": "Publish a need"
+    },
+    "directions": {
+      "heading": "Two directions of trade",
+      "lead": "One market, two directions: what comes into the DRC and what leaves it. Pick yours.",
+      "import": {
+        "title": "Import into the DRC",
+        "body": "What foreign companies offer to sell on the Congolese market.",
+        "badge": "Import"
+      },
+      "export": {
+        "title": "Export from the DRC",
+        "body": "What Congolese companies offer to foreign markets.",
+        "badge": "Export"
+      },
+      "offers": "{count, plural, =0 {No offers yet} one {# offer} other {# offers}}"
+    },
+    "carousel": {
+      "roledescription": "carousel",
+      "label": "Featured on the marketplace",
+      "slide": "slide",
+      "position": "{n} of {total}",
+      "goTo": "Go to slide {n}",
+      "previous": "Previous slide",
+      "next": "Next slide",
+      "pause": "Pause the carousel",
+      "play": "Play the carousel",
+      "sponsored": "Sponsored",
+      "house": "Trade in DRC",
+      "houseSlides": {
+        "offer": {
+          "title": "Publish your offer for free",
+          "body": "Reach international buyers and Congolese importers from one listing.",
+          "cta": "Publish an offer"
+        },
+        "verify": {
+          "title": "Get your company verified",
+          "body": "A 4-point verification that buyers trust — and that sets your offers apart.",
+          "cta": "Register your company"
+        },
+        "advertise": {
+          "title": "Your advertisement here",
+          "body": "Put your brand in front of the buyers and investors who visit the marketplace every day.",
+          "cta": "Advertise with us"
+        }
+      }
+    }
+  },
+  "MarketProducts": {
+    "header": {
+      "title": "Marketplace",
+      "lead": "One market, two directions of trade. Choose the one that concerns you.",
+      "breadcrumb": "Breadcrumb",
+      "crumbMarket": "Marketplace"
+    },
+    "directions": {
+      "import": {
+        "title": "Import into the DRC",
+        "body": "Offers from foreign companies that want to sell in the DRC."
+      },
+      "export": {
+        "title": "Export from the DRC",
+        "body": "Offers from Congolese companies that want to sell abroad."
+      }
+    },
+    "search": {
+      "label": "Search offers",
+      "placeholder": "E.g. cement, transformer, generic",
+      "cta": "Search"
+    },
+    "filters": {
+      "country": "Country of origin",
+      "province": "Province of origin",
+      "sector": "Sector",
+      "verification": "Verification",
+      "tiers": {
+        "full": "Fully verified",
+        "docs": "Documents checked"
+      },
+      "clear": "Clear filters",
+      "chain": "Supply chain",
+      "showMore": "Show {count} more",
+      "showLess": "Show less",
+      "title": "Filters",
+      "removeFilter": "Remove filter: {label}"
+    },
+    "chain": {
+      "logistics": "Forwarders and logistics",
+      "finance": "Financing and insurance",
+      "compliance": "Compliance and customs"
+    },
+    "results": {
+      "heading": {
+        "import": "Products offered for import into the DRC",
+        "export": "Products offered for export from the DRC",
+        "all": "All products"
+      },
+      "count": "{count, plural, =0 {No offers} one {# offer} other {# offers}}",
+      "sortRelevance": "sorted by relevance",
+      "sortNewest": "newest first",
+      "empty": "No offers match these criteria yet."
+    },
+    "card": {
+      "verified": "Verified",
+      "pending": "Under review",
+      "moq": "Min. quantity",
+      "leadTime": "Lead time",
+      "request": "Request a quote",
+      "illustrative": "Illustration"
+    },
+    "banner": {
+      "title": "Can’t find your supplier?",
+      "body": "Publish your need: our team identifies and vets the supplier for you.",
+      "cta": "Publish a need"
+    },
+    "empty": {
+      "title": "No offers here yet",
+      "body": "No supplier has published an offer in this direction yet. Publish your need — our team will find and vet one for you.",
+      "bodyFiltered": "No offer matches your search or filters. Loosen them, or let our team source it for you.",
+      "see": {
+        "import": "See import offers",
+        "export": "See export offers"
+      }
+    }
+  },
+  "OfferDetail": {
+    "breadcrumb": "Breadcrumb",
+    "crumbMarket": "Marketplace",
+    "verifiedOn": "Verified on {date}",
+    "direction": {
+      "import": "Direction: import into the DRC",
+      "export": "Direction: export from the DRC"
+    },
+    "memberSince": "On the platform since {year}",
+    "showImage": "Show image {n}",
+    "verify": {
+      "title": "What we verified",
+      "statusOk": "verified",
+      "statusTodo": "not verified yet",
+      "legal": {
+        "title": "Legal existence",
+        "ok": "Registered in the commercial register of its home country.",
+        "todo": "Registration check in progress."
+      },
+      "export": {
+        "title": "Trading capacity",
+        "ok": "Licence and shipping record checked.",
+        "todo": "Licence not checked yet."
+      },
+      "references": {
+        "title": "Client references",
+        "ok": "{count, plural, one {# reference contacted} other {# references contacted}}",
+        "todo": "No reference verified yet."
+      },
+      "site": {
+        "title": "Site visit",
+        "ok": "Site visit carried out by our team.",
+        "todo": "Not carried out yet.",
+        "todoAbroad": "Not carried out — supplier based outside the DRC."
+      },
+      "scope": "Verification covers the company, not each transaction.",
+      "report": "See the verification report",
+      "method": "Our method in detail",
+      "progress": "{done} of {total} points verified",
+      "done": "Verified",
+      "pending": "To do"
+    },
+    "terms": {
+      "title": "Commercial terms",
+      "moq": "Minimum quantity",
+      "leadTime": "Lead time",
+      "capacity": "Production capacity",
+      "languages": "Languages",
+      "markets": "Markets served",
+      "certifications": "Certifications",
+      "empty": "The supplier has not listed its terms yet. Our team will obtain them with your request."
+    },
+    "related": "More offers from {company}",
+    "request": {
+      "title": "Request a quote",
+      "step1": "Step 1 of 2 — no sign-up needed to start.",
+      "step2": "Step 2 of 2 — how can we reach you?",
+      "quantity": "Quantity wanted",
+      "quantityPlaceholder": "E.g. 12 units",
+      "deliveryPlace": "Delivery place",
+      "deliveryPlacePlaceholder": "E.g. Lubumbashi, Haut-Katanga",
+      "deadline": "Deadline",
+      "deadlinePlaceholder": "Within 30 days",
+      "details": "Details (optional)",
+      "detailsPlaceholder": "Technical specs, standards expected…",
+      "continue": "Continue",
+      "fullName": "Full name",
+      "companyName": "Company (optional)",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "country": "Country",
+      "countryPlaceholder": "Select a country",
+      "back": "Back",
+      "send": "Send request",
+      "sending": "Sending…",
+      "errorInvalid": "Please check the fields and try again.",
+      "errorServer": "Your request could not be sent. Please try again in a moment.",
+      "doneTitle": "Request sent",
+      "doneBody": "Our team qualifies your request and passes it to the supplier. Reply within 48 business hours.",
+      "reference": "Reference:",
+      "privacy": "The supplier’s contact details are not published. Your request is qualified by our team, then passed on. Reply within 48 business hours.",
+      "messageSupplier": "Message the supplier directly",
+      "support": "Need end-to-end support: customs, transit, local representation?",
+      "supportCta": "See our support services",
+      "responseTime": "Reply within 48 business hours",
+      "stepNeed": "Your need",
+      "stepContact": "Your details"
+    },
+    "about": "About this offer",
+    "supplier": {
+      "title": "The supplier",
+      "profile": "View profile",
+      "report": "Verification report"
+    }
+  },
+  "MarketChain": {
+    "breadcrumbLabel": "Breadcrumb",
+    "breadcrumb": {
+      "market": "Marketplace",
+      "chain": "Chain"
+    },
+    "choose": {
+      "title": "Choose yourself",
+      "body": "Browse verified providers, compare their coverage and contact them through the platform.",
+      "cta": "See the list below"
+    },
+    "delegate": {
+      "title": "Hand the operation to our team",
+      "body": "We select, vet and coordinate every party through to delivery. Paid service.",
+      "cta": "See our support"
+    },
+    "context": {
+      "title": "For your operation: {name} ({direction})",
+      "import": "import",
+      "export": "export",
+      "body": "The form at the bottom of the page is pre-filled with this operation.",
+      "clear": "Remove context"
+    },
+    "filterLabel": "Filter providers",
+    "all": "All",
+    "count": "{count, plural, =0 {No providers} one {# provider} other {# providers}}",
+    "countInstitutions": "{count, plural, =0 {No institutions} one {# institution} other {# institutions}}",
+    "sorted": "Sorted by coverage",
+    "badges": {
+      "verified": "Verified",
+      "pending": "Under review",
+      "official": "Official"
+    },
+    "actions": {
+      "contact": "Contact via the platform",
+      "introduce": "Request an introduction",
+      "procedure": "See the procedure",
+      "add": "Add to my operation",
+      "added": "In my operation"
+    },
+    "empty": {
+      "title": "No results for this filter",
+      "body": "The list grows as verifications complete. Describe your need: our team finds and vets the right partner.",
+      "reset": "Clear filter",
+      "ask": "Describe my need",
+      "noneTitle": "This list is being built"
+    },
+    "request": {
+      "title": "Can’t find the right partner?",
+      "body": "Describe the operation: our team identifies and vets the provider, then introduces you. If the list is still short for this trade, it’s the fastest route.",
+      "sla": "Reply within 48 business hours",
+      "nature": "Type of operation",
+      "naturePh": "E.g. cement import, 5,000 t",
+      "route": "Route or scope",
+      "routePh": "E.g. Ankara → Matadi → Kinshasa",
+      "deadline": "Deadline",
+      "deadlinePh": "Within 30 days",
+      "name": "Full name",
+      "email": "Email",
+      "attached": "{count, plural, one {# provider attached} other {# providers attached}}",
+      "remove": "Remove {name}",
+      "submit": "Send request",
+      "submitting": "Sending…",
+      "successTitle": "Request sent",
+      "successBody": "Our team will get back to you within 48 business hours.",
+      "reference": "Reference: {ref}",
+      "invalid": "Please check: type of operation, a name and a valid email.",
+      "error": "Something went wrong. Please try again."
+    },
+    "basket": {
+      "label": "My operation",
+      "count": "{count, plural, one {# provider set aside} other {# providers set aside}}",
+      "send": "Send to the team",
+      "sendShort": "Send",
+      "clear": "Clear my operation"
+    },
+    "segments": {
       "logistics": {
-        "title": "Logistics & Shipping",
-        "desc": "Find logistics, shipping and freight forwarders to move your business forward.",
-        "cta": "View Logistics Partners"
+        "eyebrow": "Move",
+        "title": "Logistics and transit",
+        "question": "Who gets your goods out of the port and delivers them?",
+        "lead": "Freight forwarders, hauliers, consolidators and bonded warehouses — corridor by corridor.",
+        "chips": {
+          "corridor_matadi": "Matadi corridor",
+          "corridor_kasumbalesa": "Kasumbalesa corridor",
+          "corridor_kigali": "Kigali corridor",
+          "sea": "Sea",
+          "road": "Road",
+          "bonded": "Customs-licensed"
+        },
+        "facts": {
+          "corridors": "Corridors",
+          "modes": "Modes",
+          "licence": "Licence",
+          "storage": "Storage"
+        }
       },
-      "government": {
-        "title": "Government Bodies",
-        "desc": "Connect with government agencies and regulatory bodies facilitating trade and investment.",
-        "cta": "View Government Bodies"
-      },
-      "public_corp": {
-        "title": "Public Corporations",
-        "desc": "Engage with public corporations driving development and economic growth.",
-        "cta": "View Corporations"
+      "finance": {
+        "eyebrow": "Finance",
+        "title": "Finance and payment",
+        "question": "Who secures the payment and covers the risk?",
+        "lead": "Banks, letters of credit, guarantees, cargo insurance and FX hedging.",
+        "chips": {
+          "documentary_credit": "Letter of credit",
+          "bank_guarantee": "Bank guarantee",
+          "cargo_insurance": "Cargo insurance",
+          "fx": "USD/CDF exchange",
+          "import_finance": "Import finance"
+        },
+        "facts": {
+          "instruments": "Instruments",
+          "currencies": "Currencies",
+          "sectors": "Sectors financed",
+          "lead_time": "Processing time"
+        }
       },
       "facilitation": {
-        "title": "Trade Facilitation & Services Providers",
-        "desc": "Access trade facilitation and professional service providers supporting compliance, documentation, consulting and more.",
-        "cta": "View Service Providers"
+        "eyebrow": "Comply",
+        "title": "Compliance and documentation",
+        "question": "Who gets you compliant before the goods leave?",
+        "lead": "Quality control, pre-shipment inspection, certificates of origin, tariff classification and standards.",
+        "chips": {
+          "pre_inspection": "Pre-shipment inspection",
+          "origin_certificate": "Certificate of origin",
+          "tariff_classification": "Tariff classification",
+          "standards_testing": "Standards and testing",
+          "health_products": "Health products"
+        },
+        "facts": {
+          "accreditations": "Accreditations",
+          "controls": "Controls",
+          "documents": "Documents issued",
+          "lead_time": "Average lead time"
+        }
       },
-      "investors": {
-        "title": "Investors & More",
-        "desc": "Connect with investors, funds and more opportunities to finance and scale your projects.",
-        "cta": "View Investors"
+      "institutions": {
+        "eyebrow": "Find your way",
+        "title": "Institutions and contact points",
+        "question": "Which door to knock on, and what to get there?",
+        "lead": "Public agencies, state-owned companies, chambers and federations — province by province.",
+        "facts": {
+          "competence": "Remit",
+          "obtain": "What you get there",
+          "province": "Province",
+          "access": "Access"
+        }
       }
+    }
+  },
+  "Notices": {
+    "breadcrumbLabel": "Breadcrumb",
+    "breadcrumbHome": "Home",
+    "breadcrumbCurrent": "Market opportunities",
+    "hero": {
+      "eyebrow": "Market opportunities",
+      "titleLead": "Tenders and investment",
+      "titleAccent": "opportunities in the DRC",
+      "lead": "Public and private tenders, partnership calls and projects seeking finance, republished with their source and deadline."
     },
-    "why": {
-      "heading": "Why Use Trade in DRC Marketplace?",
-      "verified": {
-        "title": "Verified & Trusted",
-        "desc": "We verify companies to ensure trust and credibility."
-      },
-      "growth": {
-        "title": "Business Growth",
-        "desc": "Discover new opportunities and grow your network."
-      },
-      "targeted": {
-        "title": "Targeted Connections",
-        "desc": "Connect with relevant partners and decision-makers."
-      },
-      "secure": {
-        "title": "Secure Platform",
-        "desc": "Your data and transactions are protected."
-      },
-      "intelligence": {
-        "title": "Market Intelligence",
-        "desc": "Access real data, insights and business reports."
-      },
-      "reach": {
-        "title": "Global Reach",
-        "desc": "Connect with partners from across the world."
-      }
-    },
-    "opportunities": {
-      "heading": "Popular Business Opportunities",
-      "viewAll": "View all opportunities",
-      "empty": "No opportunities are published yet. Check back soon.",
+    "search": {
+      "keyword": "Keyword",
+      "placeholder": "Keyword: road, medical equipment, cobalt…",
       "sector": "Sector",
-      "need": "Need",
-      "location": "Location",
-      "countryWide": "DRC",
-      "open": "Open",
-      "viewDetails": "View Details",
-      "needs": {
-        "tender": "Tender",
-        "offer": "Supplier",
-        "demand": "Buyer",
-        "quotation": "Quotation",
-        "project_launch": "Project Partner",
-        "investment_call": "Investor",
-        "partner_search": "Partner",
-        "ppp": "PPP Partner"
+      "province": "Province",
+      "deadline": "Deadline",
+      "within": {
+        "7d": "Within 7 days",
+        "30d": "Within 30 days",
+        "90d": "Within 90 days"
+      },
+      "submit": "Search"
+    },
+    "trust": {
+      "source": {
+        "title": "Source cited on every notice",
+        "body": "A link to the original publication — never an anonymous copy."
+      },
+      "weekly": {
+        "title": "Updated weekly",
+        "body": "Monitored by our team, with the date each notice was recorded."
+      },
+      "provinces": {
+        "title": "{count} provinces",
+        "body": "National and provincial markets, public and private."
       }
     },
-    "join": {
-      "heading": "Join the Marketplace Today",
-      "body": "Create your free account and start connecting with thousands of businesses and opportunities.",
-      "benefits": {
-        "profile": "Create your company profile",
-        "browse": "Browse opportunities & partners",
-        "connect": "Connect and grow your business",
-        "intelligence": "Access market intelligence"
-      },
-      "ctaRegister": "Register Free",
-      "ctaPremium": "Learn about Premium Profile"
+    "tabsLabel": "Notice types",
+    "tabs": {
+      "all": "All",
+      "tenders": "Tenders",
+      "partnership": "Partnership",
+      "investment": "Investment"
     },
-    "strip": {
-      "companies": "Registered Companies",
-      "provinces": "Provinces Covered",
-      "categories": "Product Categories",
-      "opportunities": "Business Opportunities",
-      "access": "Platform Access",
-      "secure": "Verified & Secure"
+    "clearCategory": "Remove this filter",
+    "count": "{count, plural, =0 {No open notices} one {# open notice} other {# open notices}}",
+    "sorted": "Sorted by closest deadline",
+    "removeFilter": "Remove filter: {label}",
+    "clearAll": "Clear all",
+    "empty": {
+      "title": "No open notices match these criteria",
+      "body": "Broaden your search, or get your sector’s new notices every Monday.",
+      "cta": "Get the alerts"
+    },
+    "card": {
+      "facts": {
+        "estimate": "Estimate",
+        "province": "Province",
+        "documents": "Documents",
+        "source": "Source"
+      },
+      "sought": "{amount} sought",
+      "undisclosed": "Not disclosed",
+      "dossier": "Notice dossier",
+      "onRequest": "On request",
+      "originalNotice": "Original notice",
+      "recorded": "recorded {date}",
+      "direct": "Published on Trade in DRC",
+      "openEnded": "No deadline",
+      "closesIn": "{days, plural, =0 {Closes today} one {Closes in # day} other {Closes in # days}}",
+      "issuerUnknown": "Issuer not specified",
+      "verified": "Verified company",
+      "view": "View dossier",
+      "alert": "Get alerts for this sector",
+      "support": "Get support"
+    },
+    "alerts": {
+      "title": "Get your sector’s notices every Monday",
+      "body": "One email a week with the open notices in your sectors.",
+      "points": {
+        "one": "One email a week, no more",
+        "noAccount": "No account needed",
+        "unsubscribe": "One-click unsubscribe"
+      },
+      "email": "Work email",
+      "emailPh": "you@company.com",
+      "sectors": "Followed sectors",
+      "sectorsHint": "all if none selected",
+      "submit": "Get the alerts",
+      "legal": "Your address is only used to send these alerts.",
+      "successTitle": "You’re subscribed",
+      "successBody": "{count, plural, =0 {Every Monday you’ll get notices from all sectors.} one {Every Monday you’ll get your sector’s notices.} other {Every Monday you’ll get notices from your # sectors.}}",
+      "invalid": "Please check the email address.",
+      "error": "Something went wrong. Please try again."
+    },
+    "submit": {
+      "title": "Launching a tender?",
+      "body": "Send us the notice and dossier: we republish it within 24 hours, free, with your logo and contact details. No account needed.",
+      "cta": "Submit a notice",
+      "dialogTitle": "Submit a notice",
+      "dialogBody": "Our team checks the notice and republishes it within 24 hours, free of charge.",
+      "organisation": "Organisation",
+      "email": "Email",
+      "noticeTitle": "Notice subject",
+      "noticeTitlePh": "E.g. Rehabilitation of 40 km of road",
+      "link": "Link to the notice or dossier",
+      "deadline": "Deadline",
+      "details": "Details",
+      "detailsPh": "Lots, estimated budget, eligibility…",
+      "send": "Send the notice",
+      "submitting": "Sending…",
+      "successTitle": "Notice received",
+      "successBody": "We’ll get back to you before publishing, within 24 business hours.",
+      "reference": "Reference: {ref}",
+      "invalid": "Please check: organisation, email, subject (and a link starting with https://).",
+      "error": "Something went wrong. Please try again."
     }
   }
 }

@@ -7,13 +7,28 @@
  * emitted as an if/else chain on the user's `locale` metadata (sent by the
  * signup form; falls back to English). Edit the copy here, never the .html.
  *
- * Variables used: {{ .ConfirmationURL }}, {{ .SiteURL }}, {{ .Email }},
- * {{ .Data.full_name }}, {{ .Data.locale }}.
+ * Variables used: {{ .SiteURL }}, {{ .TokenHash }}, {{ .RedirectTo }},
+ * {{ .Email }}, {{ .Data.full_name }}, {{ .Data.locale }}.
+ *
+ * Links deliberately avoid {{ .ConfirmationURL }}: with @supabase/ssr that is a
+ * PKCE link whose code can only be exchanged in the browser that asked for it,
+ * so opening the e-mail on another device failed. Instead the link carries the
+ * token hash to /[locale]/confirm, which calls verifyOtp() — works anywhere.
+ * `next` is the emailRedirectTo (our /callback URL carrying `?redirect=`) and
+ * stays last in the query string, since Supabase inserts it unencoded.
  */
 const fs = require("fs");
 const path = require("path");
 
 const LOCALES = ["fr", "es", "tr", "zh"]; // + "en" as the fallback
+
+/** Template prelude: resolves $l (locale) and $url (the action link). */
+function prelude(t) {
+  return (
+    `{{ $l := "en" }}{{ with .Data.locale }}{{ $l = . }}{{ end }}` +
+    `{{ $url := printf "%s/%s/confirm?token_hash=%s&type=${t.otpType}&next=%s" .SiteURL $l .TokenHash .RedirectTo }}`
+  );
+}
 
 // `--preview fr` renders plain HTML in one language (sample data) to
 // supabase/templates/preview/ so the design can be opened in a browser.
@@ -60,6 +75,7 @@ const COMMON = {
 const TEMPLATES = {
   "confirm-signup.html": {
     design: "navy-gold",
+    otpType: "email",
     icon: "&#9993;", // envelope
     subject: {
       en: "Confirm your TradeInDRC account", fr: "Confirmez votre compte TradeInDRC", es: "Confirme su cuenta de TradeInDRC",
@@ -89,6 +105,7 @@ const TEMPLATES = {
   },
   "reset-password.html": {
     design: "navy-gold",
+    otpType: "recovery",
     icon: "&#128274;", // lock
     subject: {
       en: "Reset your TradeInDRC password", fr: "Réinitialisez votre mot de passe TradeInDRC", es: "Restablezca su contraseña de TradeInDRC",
@@ -121,7 +138,7 @@ const TEMPLATES = {
 
 // E-mail HTML: tables + inline styles only (no <style> reliance, no Tailwind).
 function render(t) {
-  return `{{ $l := "en" }}{{ with .Data.locale }}{{ $l = . }}{{ end }}<!DOCTYPE html>
+  return `${prelude(t)}<!DOCTYPE html>
 <html lang="{{ $l }}">
 <head>
 <meta charset="utf-8">
@@ -155,14 +172,14 @@ function render(t) {
     <tr><td style="padding:32px 40px;" align="center">
       <table role="presentation" cellpadding="0" cellspacing="0"><tr>
         <td align="center" style="border-radius:10px;background:#0047AB;box-shadow:0 6px 16px -6px rgba(0,71,171,0.5);">
-          <a href="{{ .ConfirmationURL }}" style="display:inline-block;padding:14px 32px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:10px;">${tr(t.cta)}</a>
+          <a href="{{ $url }}" style="display:inline-block;padding:14px 32px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:10px;">${tr(t.cta)}</a>
         </td>
       </tr></table>
     </td></tr>
 
     <tr><td style="padding:0 40px 32px;font-size:12px;line-height:1.6;color:#64748B;" align="center">
       <p style="margin:0 0 6px;">${tr(COMMON.fallback)}</p>
-      <p style="margin:0;word-break:break-all;"><a href="{{ .ConfirmationURL }}" style="color:#0047AB;">{{ .ConfirmationURL }}</a></p>
+      <p style="margin:0;word-break:break-all;"><a href="{{ $url }}" style="color:#0047AB;">{{ $url }}</a></p>
     </td></tr>
 
     <tr><td style="padding:20px 40px;background:#F8FAFC;border-top:1px solid #E2E8F0;font-size:12px;line-height:1.6;color:#64748B;" align="center">
@@ -187,7 +204,7 @@ const GOLD_LIGHT = "#E7C173";
 const GOLD_DARK = "#C8941F";
 
 function renderNavyGold(t) {
-  return `{{ $l := "en" }}{{ with .Data.locale }}{{ $l = . }}{{ end }}<!DOCTYPE html>
+  return `${prelude(t)}<!DOCTYPE html>
 <html lang="{{ $l }}">
 <head>
 <meta charset="utf-8">
@@ -227,14 +244,14 @@ function renderNavyGold(t) {
     <tr><td style="padding:32px 40px;" align="center">
       <table role="presentation" cellpadding="0" cellspacing="0"><tr>
         <td align="center" style="border-radius:10px;background:${GOLD};background-image:linear-gradient(135deg,${GOLD_LIGHT},${GOLD} 55%,${GOLD_DARK});box-shadow:0 8px 20px -8px rgba(200,148,31,0.6);">
-          <a href="{{ .ConfirmationURL }}" style="display:inline-block;padding:15px 36px;font-size:15px;font-weight:700;color:${NAVY};text-decoration:none;border-radius:10px;letter-spacing:0.2px;">${tr(t.cta)}</a>
+          <a href="{{ $url }}" style="display:inline-block;padding:15px 36px;font-size:15px;font-weight:700;color:${NAVY};text-decoration:none;border-radius:10px;letter-spacing:0.2px;">${tr(t.cta)}</a>
         </td>
       </tr></table>
     </td></tr>
 
     <tr><td style="padding:0 40px 32px;font-size:12px;line-height:1.6;color:#64748B;" align="center">
       <p style="margin:0 0 6px;">${tr(COMMON.fallback)}</p>
-      <p style="margin:0;word-break:break-all;"><a href="{{ .ConfirmationURL }}" style="color:${NAVY};text-decoration:underline;">{{ .ConfirmationURL }}</a></p>
+      <p style="margin:0;word-break:break-all;"><a href="{{ $url }}" style="color:${NAVY};text-decoration:underline;">{{ $url }}</a></p>
     </td></tr>
 
     <!-- Security note on a soft gold tint -->
@@ -271,10 +288,10 @@ if (PREVIEW) {
   fs.mkdirSync(previewDir, { recursive: true });
   for (const [file, t] of Object.entries(TEMPLATES)) {
     const html = RENDERERS[t.design ?? "default"](t)
-      .replace(/^\{\{ \$l := "en" \}\}\{\{ with \.Data\.locale \}\}\{\{ \$l = \. \}\}\{\{ end \}\}/, "")
+      .replace(prelude(t), "")
       .replaceAll("{{ $l }}", PREVIEW)
       .replaceAll("{{ .Email }}", "jean@exemple.com")
-      .replaceAll("{{ .ConfirmationURL }}", "https://tradeindrc.com/fr/callback?type=recovery")
+      .replaceAll("{{ $url }}", `https://tradeindrc.com/${PREVIEW}/confirm?token_hash=0123abcd&type=${t.otpType}&next=https://tradeindrc.com/${PREVIEW}/callback`)
       .replaceAll("{{ .SiteURL }}", "http://localhost:3000");
     const out = path.join(previewDir, file.replace(".html", `.${PREVIEW}.html`));
     fs.writeFileSync(out, html);

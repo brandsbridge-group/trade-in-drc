@@ -1,7 +1,10 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { isSegmentKey } from "@/lib/marketplace/segments";
+import { isChainKey } from "@/lib/marketplace/chain";
+import { ChainPage } from "@/components/marketplace/chain/chain-page";
 import { ListPageShell, FilterSidebar, PageHeader, CompanyRow, EmptyState } from "@/components/design";
 import { SectorsFilter } from "@/components/list-pages/sectors-filter";
 import { VerificationFilter } from "@/components/list-pages/verification-filter";
@@ -12,6 +15,21 @@ import { isSortOption, type SortOption } from "@/components/list-pages/sort-opti
 import type { VerificationTier } from "@/lib/trust/types";
 
 const NO_MATCH_UUID = "00000000-0000-0000-0000-000000000000";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; segment: string }>;
+}): Promise<Metadata> {
+  const { locale, segment } = await params;
+  if (isChainKey(segment)) {
+    const t = await getTranslations({ locale, namespace: `MarketChain.segments.${segment}` });
+    return { title: t("title"), description: t("lead") };
+  }
+  if (!isSegmentKey(segment)) return {};
+  const t = await getTranslations({ locale, namespace: "Market" });
+  return { title: t(`segments.${segment}`) };
+}
 
 interface CompanyData {
   id: string;
@@ -31,8 +49,10 @@ export default async function SegmentListPage({
   searchParams: Promise<Record<string, string | undefined>>;
 }) {
   const { locale, segment } = await params;
-  if (!isSegmentKey(segment)) notFound();
   const sp = await searchParams;
+  // "Complete your operation" trades have their own page (wireframe v2).
+  if (isChainKey(segment)) return <ChainPage segment={segment} searchParams={sp} />;
+  if (!isSegmentKey(segment)) notFound();
   const t = await getTranslations({ locale, namespace: "Market" });
   const tList = await getTranslations({ locale, namespace: "ListPages" });
   const basePath = `/${locale}/market/${segment}`;

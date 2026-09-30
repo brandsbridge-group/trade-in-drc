@@ -32,7 +32,22 @@
     "poweredBy": "Power by BrandsBridge Group",
     "menu": "Menü",
     "services": "Hizmetler",
-    "moreMenu": "Daha Fazla"
+    "moreMenu": "Daha Fazla",
+    "data": "Veriler",
+    "searchShort": "Ara",
+    "moreDesc": {
+      "contactPoints": "Kurumlar ve yerel temas noktaları, il il.",
+      "services": "Ekibimizden uçtan uca destek.",
+      "events": "Fuarlar, forumlar ve iş heyetleri.",
+      "contact": "Bir sorunuz mu var? Konuşalım."
+    },
+    "featured": {
+      "body": "Uluslararası alıcıların gözüne girin.",
+      "cta": "Planları görün"
+    },
+    "language": "Dil",
+    "changeLanguage": "Dili değiştir",
+    "publishOffer": "Teklif yayınla"
   },
   "Hero": {
     "badge": "Ticaret Bakanlığı tarafından doğrulandı",
@@ -1370,7 +1385,12 @@
       "featuredSelectPlaceholder": "Doğrulanmış bir şirket seçin...",
       "featuredNoCandidates": "Öne çıkarılacak başka doğrulanmış şirket yok",
       "featuredAdd": "Öne Çıkar",
-      "featuredEmpty": "Henüz öne çıkan şirket yok"
+      "featuredEmpty": "Henüz öne çıkan şirket yok",
+      "slidePlacement": "Yerleşim",
+      "placements": {
+        "home": "Ana sayfa",
+        "market": "Pazaryeri hero alanı (reklamlar)"
+      }
     },
     "nav": {
       "console": "Yönetim Konsolu",
@@ -4938,148 +4958,580 @@
       }
     }
   },
-  "MarketplacePage": {
+  "MarketLanding": {
     "hero": {
-      "titleLead": "DRC İş",
-      "titleAccent": "Pazar Yeri",
-      "tagline": "Tek platform. Sınırsız bağlantı. Gerçek fırsatlar.",
-      "body": "Trade in DRC, ticaret ve yatırım ekosistemindeki güvenilir oyuncuları bir araya getirir. Afrika'nın kalbinde bağlantı kurun, iş birliği yapın ve işinizi büyütün.",
-      "imageAlt": "Gün batımında bir Kongo limanına yanaşmış konteyner gemisi",
-      "ctaJoin": "Pazar Yerine Katıl",
-      "ctaExplore": "Fırsatları Keşfet",
-      "ctaHowItWorks": "Nasıl Çalışır",
-      "stats": {
-        "companies": "Doğrulanmış Şirket",
-        "provinces": "Kapsanan İl",
-        "opportunities": "İş Fırsatı",
-        "secure": "Doğrulanmış ve Güvenli"
+      "eyebrow": "Resmî pazaryeri · DK Kongo",
+      "titleLead": "DKC’nin",
+      "titleAccent": "iş pazaryeri",
+      "lead": "Doğrulanmış teklifler, nitelikli alıcılar ve bir anlaşmayı teslimata dönüştüren tüm meslekler — tek bir yerde.",
+      "publishOffer": "Teklif yayınla",
+      "publishNeed": "İhtiyaç yayınla",
+      "searchLabel": "Pazaryerinde ara",
+      "searchPlaceholder": "Bir ürün, bir şirket, bir hizmet",
+      "searchCta": "Ara"
+    },
+    "trust": {
+      "coverage": {
+        "title": "{count} eyalet",
+        "body": "Kongo-Central’dan Haut-Katanga’ya ülke çapında kapsama.",
+        "value": "{count}",
+        "label": "eyalet kapsamında"
       },
-      "hub": {
-        "title": "DRC'de Küresel Ticaret için Merkez",
-        "discover": "Doğrulanmış işletmeleri keşfedin",
-        "find": "Ürün, hizmet ve iş ortağı bulun",
-        "intelligence": "Pazar istihbaratına erişin",
-        "facilitate": "Ticaret ve yatırımı kolaylaştırın",
-        "network": "Ağınızı küresel olarak büyütün"
+      "verification": {
+        "title": "4 noktada doğrulama",
+        "body": "Yasal varlık, kapasite, referanslar ve mümkün olduğunda saha ziyareti.",
+        "value": "4 noktalı",
+        "label": "doğrulama"
+      },
+      "response": {
+        "title": "48 saat içinde yanıt",
+        "body": "Her talep bir robot tarafından değil, bir kişi tarafından değerlendirilir.",
+        "value": "48 saat",
+        "label": "içinde yanıt"
       }
     },
-    "categories": {
-      "heading": "Pazar Yerini Kategoriye Göre Keşfedin",
-      "subheading": "Ticaret ekosisteminin tüm önemli sektörlerinde doğru iş ortaklarıyla bağlantı kurun.",
-      "count": "{count, plural, =0 {Kayıt yok} other {# kayıt}}",
-      "manufacturer": {
-        "title": "Üreticiler",
-        "desc": "Tüm sektörlerde kaliteli ürünler sunan yerel üreticilerle bağlantı kurun.",
-        "cta": "Üreticileri Gör"
-      },
-      "importer": {
-        "title": "İthalatçılar",
-        "desc": "DRC pazarına ürün ve çözüm tedarik eden güvenilir ithalatçıları bulun.",
-        "cta": "İthalatçıları Gör"
-      },
-      "exporter": {
-        "title": "İhracatçılar",
-        "desc": "Kongo yapımı ürünleri küresel pazarlara sunan ihracatçılarla tanışın.",
-        "cta": "İhracatçıları Gör"
+    "services": {
+      "heading": "İşleminizi tamamlayın",
+      "lead": "Sınır ötesi bir satış, onu taşıyan zincir olmadan ayakta kalmaz. Bu meslekler de ürünler gibi platformda.",
+      "cta": "Hizmet sağlayıcıları gör",
+      "logistics": {
+        "eyebrow": "Taşıma",
+        "title": "Lojistik ve transit",
+        "body": "Nakliye komisyoncuları, taşıyıcılar, konsolidatörler, antrepolar."
       },
       "finance": {
-        "title": "Finans ve Bankacılık",
-        "desc": "İşletmenizin büyümesini destekleyen finans kurumlarına ve bankacılık hizmetlerine erişin.",
-        "cta": "Finans Ortaklarını Gör"
+        "eyebrow": "Finansman",
+        "title": "Finans ve ödeme",
+        "body": "Bankalar, akreditif, kargo sigortası, döviz."
       },
+      "compliance": {
+        "eyebrow": "Uyum",
+        "title": "Uyum ve belgeler",
+        "body": "Kalite kontrol, gümrük, menşe şahadetnamesi, standartlar."
+      },
+      "institutions": {
+        "eyebrow": "Yön bulma",
+        "title": "Kurumlar ve irtibatlar",
+        "body": "Kamu kurumları, kamu şirketleri, odalar ve federasyonlar."
+      }
+    },
+    "demands": {
+      "heading": "Açık talepler",
+      "lead": "Alıcılar şimdiden arıyor. Mevcut bir talebe yanıt vermek, bulunmayı beklemekten daha iyi sonuç verir.",
+      "viewAll": "Tüm talepler",
+      "filterLabel": "Talepleri yöne göre filtrele",
+      "filters": {
+        "all": "Tümü",
+        "import": "İthalat",
+        "export": "İhracat"
+      },
+      "buyer": "Alıcı",
+      "buyerVerified": "Doğrulanmış alıcı",
+      "closesIn": "{days, plural, =0 {Bugün kapanıyor} other {# gün içinde kapanıyor}}",
+      "respond": "Yanıtla",
+      "empty": "Şu anda açık talep yok. Yakında tekrar bakın.",
+      "columns": {
+        "demand": "Talep",
+        "direction": "Yön",
+        "location": "Konum",
+        "deadline": "Son tarih"
+      },
+      "publish": "İhtiyaç yayınla",
+      "noDeadline": "Süresiz",
+      "kinds": {
+        "demand": "Satın alma talebi",
+        "quotation": "Teklif talebi"
+      }
+    },
+    "cta": {
+      "heading": "Satıyor musunuz, arıyor musunuz?",
+      "body": "Teklif yayınlamak ücretsizdir. İhtiyaç yayınlamak ekibimizin bir arama başlatmasını sağlar.",
+      "publishOffer": "Teklif yayınla",
+      "publishNeed": "İhtiyaç yayınla"
+    },
+    "directions": {
+      "heading": "İki ticaret yönü",
+      "lead": "Tek pazar, iki yön: DKC’ye girenler ve DKC’den çıkanlar. Sizinkini seçin.",
+      "import": {
+        "title": "DKC’ye ithalat",
+        "body": "Yabancı şirketlerin Kongo pazarında satmayı teklif ettikleri.",
+        "badge": "İthalat"
+      },
+      "export": {
+        "title": "DKC’den ihracat",
+        "body": "Kongolu şirketlerin dış pazarlara sundukları.",
+        "badge": "İhracat"
+      },
+      "offers": "{count, plural, =0 {Henüz teklif yok} other {# teklif}}"
+    },
+    "carousel": {
+      "roledescription": "karusel",
+      "label": "Pazaryerinde öne çıkanlar",
+      "slide": "slayt",
+      "position": "{n} / {total}",
+      "goTo": "{n}. slayta git",
+      "previous": "Önceki slayt",
+      "next": "Sonraki slayt",
+      "pause": "Karuseli duraklat",
+      "play": "Karuseli oynat",
+      "sponsored": "Sponsorlu",
+      "house": "Trade in DRC",
+      "houseSlides": {
+        "offer": {
+          "title": "Teklifinizi ücretsiz yayınlayın",
+          "body": "Tek bir ilanla uluslararası alıcılara ve Kongolu ithalatçılara ulaşın.",
+          "cta": "Teklif yayınla"
+        },
+        "verify": {
+          "title": "Şirketinizi doğrulatın",
+          "body": "Alıcılara güven veren ve tekliflerinizi öne çıkaran 4 noktalı doğrulama.",
+          "cta": "Şirketinizi kaydedin"
+        },
+        "advertise": {
+          "title": "Reklamınız burada",
+          "body": "Markanızı her gün pazaryerini ziyaret eden alıcı ve yatırımcılara gösterin.",
+          "cta": "Bizimle reklam verin"
+        }
+      }
+    }
+  },
+  "MarketProducts": {
+    "header": {
+      "title": "Pazaryeri",
+      "lead": "Tek pazar, iki ticaret yönü. Size uygun olanı seçin.",
+      "breadcrumb": "Gezinti yolu",
+      "crumbMarket": "Pazaryeri"
+    },
+    "directions": {
+      "import": {
+        "title": "DKC’ye ithalat",
+        "body": "DKC’de satış yapmak isteyen yabancı şirketlerin teklifleri."
+      },
+      "export": {
+        "title": "DKC’den ihracat",
+        "body": "Yurt dışına satış yapmak isteyen Kongolu şirketlerin teklifleri."
+      }
+    },
+    "search": {
+      "label": "Teklif ara",
+      "placeholder": "Örn. çimento, trafo, jenerik",
+      "cta": "Ara"
+    },
+    "filters": {
+      "country": "Menşe ülke",
+      "province": "Menşe eyalet",
+      "sector": "Sektör",
+      "verification": "Doğrulama",
+      "tiers": {
+        "full": "Tam doğrulama",
+        "docs": "Belgeler kontrol edildi"
+      },
+      "clear": "Filtreleri temizle",
+      "chain": "Tedarik zinciri",
+      "showMore": "{count} tane daha göster",
+      "showLess": "Daha az göster",
+      "title": "Filtreler",
+      "removeFilter": "Filtreyi kaldır: {label}"
+    },
+    "chain": {
+      "logistics": "Nakliye ve lojistik",
+      "finance": "Finansman ve sigorta",
+      "compliance": "Uyum ve gümrük"
+    },
+    "results": {
+      "heading": {
+        "import": "DKC’ye ithalat için sunulan ürünler",
+        "export": "DKC’den ihracat için sunulan ürünler",
+        "all": "Tüm ürünler"
+      },
+      "count": "{count, plural, =0 {Teklif yok} other {# teklif}}",
+      "sortRelevance": "alaka düzeyine göre",
+      "sortNewest": "en yeniler önce",
+      "empty": "Şu anda bu kriterlere uyan teklif yok."
+    },
+    "card": {
+      "verified": "Doğrulandı",
+      "pending": "İncelemede",
+      "moq": "Min. miktar",
+      "leadTime": "Teslim süresi",
+      "request": "Teklif iste",
+      "illustrative": "Temsilî görsel"
+    },
+    "banner": {
+      "title": "Tedarikçinizi bulamıyor musunuz?",
+      "body": "İhtiyacınızı yayınlayın: ekibimiz tedarikçiyi sizin için bulup doğrular.",
+      "cta": "İhtiyaç yayınla"
+    },
+    "empty": {
+      "title": "Burada henüz teklif yok",
+      "body": "Bu yönde henüz hiçbir tedarikçi teklif yayınlamadı. İhtiyacınızı yayınlayın: ekibimiz sizin için bir tedarikçi bulup doğrular.",
+      "bodyFiltered": "Aramanıza veya filtrelerinize uyan teklif yok. Filtreleri genişletin ya da ekibimizin sizin için aramasına izin verin.",
+      "see": {
+        "import": "İthalat tekliflerini gör",
+        "export": "İhracat tekliflerini gör"
+      }
+    }
+  },
+  "OfferDetail": {
+    "breadcrumb": "Gezinti yolu",
+    "crumbMarket": "Pazaryeri",
+    "verifiedOn": "{date} tarihinde doğrulandı",
+    "direction": {
+      "import": "Yön: DKC’ye ithalat",
+      "export": "Yön: DKC’den ihracat"
+    },
+    "memberSince": "{year} yılından beri platformda",
+    "showImage": "{n}. görseli göster",
+    "verify": {
+      "title": "Neleri doğruladık",
+      "statusOk": "doğrulandı",
+      "statusTodo": "henüz doğrulanmadı",
+      "legal": {
+        "title": "Yasal varlık",
+        "ok": "Menşe ülkesinin ticaret siciline kayıtlı.",
+        "todo": "Sicil kontrolü sürüyor."
+      },
+      "export": {
+        "title": "Ticari kapasite",
+        "ok": "Lisans ve sevkiyat geçmişi kontrol edildi.",
+        "todo": "Lisans henüz kontrol edilmedi."
+      },
+      "references": {
+        "title": "Müşteri referansları",
+        "ok": "{count, plural, other {# referansla iletişime geçildi}}",
+        "todo": "Henüz doğrulanmış referans yok."
+      },
+      "site": {
+        "title": "Saha ziyareti",
+        "ok": "Ekibimiz saha ziyareti yaptı.",
+        "todo": "Henüz yapılmadı.",
+        "todoAbroad": "Yapılmadı — tedarikçi DKC dışında."
+      },
+      "scope": "Doğrulama her işlemi değil, şirketi kapsar.",
+      "report": "Doğrulama raporunu gör",
+      "method": "Yöntemimiz ayrıntılı olarak",
+      "progress": "{total} noktadan {done} tanesi doğrulandı",
+      "done": "Doğrulandı",
+      "pending": "Yapılacak"
+    },
+    "terms": {
+      "title": "Ticari koşullar",
+      "moq": "Minimum miktar",
+      "leadTime": "Teslim süresi",
+      "capacity": "Üretim kapasitesi",
+      "languages": "Diller",
+      "markets": "Hizmet verilen pazarlar",
+      "certifications": "Sertifikalar",
+      "empty": "Tedarikçi henüz koşullarını belirtmedi. Ekibimiz talebinizle birlikte bunları sizin için alır."
+    },
+    "related": "{company} firmasının diğer teklifleri",
+    "request": {
+      "title": "Teklif iste",
+      "step1": "Adım 1/2 — başlamak için kayıt gerekmez.",
+      "step2": "Adım 2/2 — size nasıl ulaşalım?",
+      "quantity": "İstenen miktar",
+      "quantityPlaceholder": "Örn. 12 adet",
+      "deliveryPlace": "Teslim yeri",
+      "deliveryPlacePlaceholder": "Örn. Lubumbashi, Haut-Katanga",
+      "deadline": "Son tarih",
+      "deadlinePlaceholder": "30 gün içinde",
+      "details": "Ayrıntılar (isteğe bağlı)",
+      "detailsPlaceholder": "Teknik özellikler, beklenen standartlar…",
+      "continue": "Devam",
+      "fullName": "Ad soyad",
+      "companyName": "Şirket (isteğe bağlı)",
+      "email": "E-posta",
+      "phone": "Telefon (isteğe bağlı)",
+      "country": "Ülke",
+      "countryPlaceholder": "Bir ülke seçin",
+      "back": "Geri",
+      "send": "Talebi gönder",
+      "sending": "Gönderiliyor…",
+      "errorInvalid": "Alanları kontrol edip tekrar deneyin.",
+      "errorServer": "Talebiniz gönderilemedi. Birazdan tekrar deneyin.",
+      "doneTitle": "Talep gönderildi",
+      "doneBody": "Ekibimiz talebinizi değerlendirip tedarikçiye iletir. 48 iş saati içinde yanıt.",
+      "reference": "Referans:",
+      "privacy": "Tedarikçinin iletişim bilgileri yayınlanmaz. Talebiniz ekibimizce değerlendirilir, ardından iletilir. 48 iş saati içinde yanıt.",
+      "messageSupplier": "Tedarikçiye doğrudan yaz",
+      "support": "Kapsamlı destek mi gerekiyor: gümrük, transit, yerel temsil?",
+      "supportCta": "Destek hizmetlerini gör",
+      "responseTime": "48 iş saati içinde yanıt",
+      "stepNeed": "İhtiyacınız",
+      "stepContact": "Bilgileriniz"
+    },
+    "about": "Teklif hakkında",
+    "supplier": {
+      "title": "Tedarikçi",
+      "profile": "Profili gör",
+      "report": "Doğrulama raporu"
+    }
+  },
+  "MarketChain": {
+    "breadcrumbLabel": "İçerik yolu",
+    "breadcrumb": {
+      "market": "Pazar yeri",
+      "chain": "Zincir"
+    },
+    "choose": {
+      "title": "Kendiniz seçin",
+      "body": "Doğrulanmış hizmet sağlayıcılara göz atın, kapsamlarını karşılaştırın ve platform üzerinden iletişime geçin.",
+      "cta": "Aşağıdaki listeyi görün"
+    },
+    "delegate": {
+      "title": "Operasyonu ekibimize bırakın",
+      "body": "Teslimata kadar tüm tarafları seçer, doğrular ve koordine ederiz. Ücretli hizmet.",
+      "cta": "Desteği görün"
+    },
+    "context": {
+      "title": "Operasyonunuz için: {name} ({direction})",
+      "import": "ithalat",
+      "export": "ihracat",
+      "body": "Sayfanın altındaki form bu operasyonla önceden doldurulmuştur.",
+      "clear": "Bağlamı kaldır"
+    },
+    "filterLabel": "Sağlayıcıları filtrele",
+    "all": "Tümü",
+    "count": "{count, plural, =0 {Sağlayıcı yok} other {# sağlayıcı}}",
+    "countInstitutions": "{count, plural, =0 {Kurum yok} other {# kurum}}",
+    "sorted": "Kapsama göre sıralı",
+    "badges": {
+      "verified": "Doğrulandı",
+      "pending": "İnceleniyor",
+      "official": "Resmî"
+    },
+    "actions": {
+      "contact": "Platform üzerinden iletişim",
+      "introduce": "Tanıştırma talep et",
+      "procedure": "Prosedürü gör",
+      "add": "Operasyonuma ekle",
+      "added": "Operasyonumda"
+    },
+    "empty": {
+      "title": "Bu filtre için sonuç yok",
+      "body": "Liste doğrulamalar tamamlandıkça büyüyor. İhtiyacınızı anlatın: ekibimiz doğru ortağı bulur ve doğrular.",
+      "reset": "Filtreyi kaldır",
+      "ask": "İhtiyacımı anlat",
+      "noneTitle": "Liste hazırlanıyor"
+    },
+    "request": {
+      "title": "Doğru ortağı bulamıyor musunuz?",
+      "body": "Operasyonu anlatın: ekibimiz sağlayıcıyı belirler, doğrular ve sizi tanıştırır. Bu alanda liste henüz kısaysa en hızlı yol budur.",
+      "sla": "48 iş saati içinde yanıt",
+      "nature": "Operasyon türü",
+      "naturePh": "Örn. çimento ithalatı, 5.000 t",
+      "route": "Güzergâh veya kapsam",
+      "routePh": "Örn. Ankara → Matadi → Kinşasa",
+      "deadline": "Son tarih",
+      "deadlinePh": "30 gün içinde",
+      "name": "Ad soyad",
+      "email": "E-posta",
+      "attached": "{count, plural, other {# sağlayıcı eklendi}}",
+      "remove": "{name} kaldır",
+      "submit": "Talebi gönder",
+      "submitting": "Gönderiliyor…",
+      "successTitle": "Talep gönderildi",
+      "successBody": "Ekibimiz 48 iş saati içinde size dönecek.",
+      "reference": "Referans: {ref}",
+      "invalid": "Lütfen kontrol edin: operasyon türü, ad ve geçerli bir e-posta.",
+      "error": "Bir hata oluştu. Lütfen tekrar deneyin."
+    },
+    "basket": {
+      "label": "Operasyonum",
+      "count": "{count, plural, other {# sağlayıcı ayrıldı}}",
+      "send": "Ekibe gönder",
+      "sendShort": "Gönder",
+      "clear": "Operasyonumu temizle"
+    },
+    "segments": {
       "logistics": {
-        "title": "Lojistik ve Taşımacılık",
-        "desc": "İşinizi ileri taşıyacak lojistik, nakliye ve taşıma acentelerini bulun.",
-        "cta": "Lojistik Ortaklarını Gör"
+        "eyebrow": "Taşımak",
+        "title": "Lojistik ve transit",
+        "question": "Malınızı limandan kim çıkarır ve teslim eder?",
+        "lead": "Nakliye komisyoncuları, taşıyıcılar, konsolidatörler ve antrepolar — koridor koridor.",
+        "chips": {
+          "corridor_matadi": "Matadi koridoru",
+          "corridor_kasumbalesa": "Kasumbalesa koridoru",
+          "corridor_kigali": "Kigali koridoru",
+          "sea": "Deniz yolu",
+          "road": "Kara yolu",
+          "bonded": "Gümrük yetkili"
+        },
+        "facts": {
+          "corridors": "Koridorlar",
+          "modes": "Taşıma türleri",
+          "licence": "Yetki",
+          "storage": "Depolama"
+        }
       },
-      "government": {
-        "title": "Kamu Kurumları",
-        "desc": "Ticaret ve yatırımı kolaylaştıran kamu kurumları ve düzenleyici kuruluşlarla bağlantı kurun.",
-        "cta": "Kamu Kurumlarını Gör"
-      },
-      "public_corp": {
-        "title": "Kamu İşletmeleri",
-        "desc": "Kalkınmayı ve ekonomik büyümeyi yönlendiren kamu işletmeleriyle çalışın.",
-        "cta": "Kamu İşletmelerini Gör"
+      "finance": {
+        "eyebrow": "Finanse etmek",
+        "title": "Finans ve ödeme",
+        "question": "Ödemeyi kim güvenceye alır ve riski kim karşılar?",
+        "lead": "Bankalar, akreditif, teminatlar, kargo sigortası ve kur riskinden korunma.",
+        "chips": {
+          "documentary_credit": "Akreditif",
+          "bank_guarantee": "Banka teminatı",
+          "cargo_insurance": "Kargo sigortası",
+          "fx": "USD/CDF döviz",
+          "import_finance": "İthalat finansmanı"
+        },
+        "facts": {
+          "instruments": "Araçlar",
+          "currencies": "Para birimleri",
+          "sectors": "Finanse edilen sektörler",
+          "lead_time": "İnceleme süresi"
+        }
       },
       "facilitation": {
-        "title": "Ticaret Kolaylaştırma ve Hizmet Sağlayıcılar",
-        "desc": "Uyum, belgelendirme, danışmanlık ve daha fazlasında destek veren profesyonel hizmet sağlayıcılara erişin.",
-        "cta": "Hizmet Sağlayıcıları Gör"
+        "eyebrow": "Uyum sağlamak",
+        "title": "Uyum ve belgeler",
+        "question": "Mal yola çıkmadan sizi kim mevzuata uygun hâle getirir?",
+        "lead": "Kalite kontrol, yükleme öncesi denetim, menşe şahadetnamesi, tarife sınıflandırması ve standartlar.",
+        "chips": {
+          "pre_inspection": "Yükleme öncesi denetim",
+          "origin_certificate": "Menşe şahadetnamesi",
+          "tariff_classification": "Tarife sınıflandırması",
+          "standards_testing": "Standartlar ve testler",
+          "health_products": "Sağlık ürünleri"
+        },
+        "facts": {
+          "accreditations": "Akreditasyonlar",
+          "controls": "Kontrol türleri",
+          "documents": "Düzenlenen belgeler",
+          "lead_time": "Ortalama süre"
+        }
       },
-      "investors": {
-        "title": "Yatırımcılar ve Daha Fazlası",
-        "desc": "Projelerinizi finanse etmek ve büyütmek için yatırımcılar, fonlar ve daha fazla fırsatla bağlantı kurun.",
-        "cta": "Yatırımcıları Gör"
+      "institutions": {
+        "eyebrow": "Yön bulmak",
+        "title": "Kurumlar ve iletişim noktaları",
+        "question": "Hangi kapıyı çalmalı, orada ne alınır?",
+        "lead": "Kamu kurumları, kamu şirketleri, odalar ve federasyonlar — il il.",
+        "facts": {
+          "competence": "Yetki alanı",
+          "obtain": "Orada ne alınır",
+          "province": "İl",
+          "access": "Erişim"
+        }
       }
+    }
+  },
+  "Notices": {
+    "breadcrumbLabel": "İçerik yolu",
+    "breadcrumbHome": "Ana sayfa",
+    "breadcrumbCurrent": "Pazar fırsatları",
+    "hero": {
+      "eyebrow": "Pazar fırsatları",
+      "titleLead": "KDC’de ihaleler ve",
+      "titleAccent": "yatırım fırsatları",
+      "lead": "Kamu ve özel ihaleler, ortaklık çağrıları ve finansman arayan projeler; kaynağı ve son tarihiyle yeniden yayımlanır."
     },
-    "why": {
-      "heading": "Neden Trade in DRC Pazar Yeri?",
-      "verified": {
-        "title": "Doğrulanmış ve Güvenilir",
-        "desc": "Güven ve itibarı sağlamak için şirketleri doğruluyoruz."
-      },
-      "growth": {
-        "title": "İş Büyümesi",
-        "desc": "Yeni fırsatlar keşfedin ve ağınızı genişletin."
-      },
-      "targeted": {
-        "title": "Hedefli Bağlantılar",
-        "desc": "İlgili iş ortakları ve karar vericilerle bağlantı kurun."
-      },
-      "secure": {
-        "title": "Güvenli Platform",
-        "desc": "Verileriniz ve işlemleriniz korunur."
-      },
-      "intelligence": {
-        "title": "Pazar İstihbaratı",
-        "desc": "Gerçek verilere, içgörülere ve iş raporlarına erişin."
-      },
-      "reach": {
-        "title": "Küresel Erişim",
-        "desc": "Dünyanın her yerinden iş ortaklarıyla bağlantı kurun."
-      }
-    },
-    "opportunities": {
-      "heading": "Popüler İş Fırsatları",
-      "viewAll": "Tüm fırsatları gör",
-      "empty": "Henüz yayımlanmış fırsat yok. Kısa süre sonra tekrar bakın.",
+    "search": {
+      "keyword": "Anahtar kelime",
+      "placeholder": "Anahtar kelime: yol, tıbbi ekipman, kobalt…",
       "sector": "Sektör",
-      "need": "İhtiyaç",
-      "location": "Konum",
-      "countryWide": "DRC",
-      "open": "Açık",
-      "viewDetails": "Detayları Gör",
-      "needs": {
-        "tender": "İhale",
-        "offer": "Tedarikçi",
-        "demand": "Alıcı",
-        "quotation": "Teklif",
-        "project_launch": "Proje Ortağı",
-        "investment_call": "Yatırımcı",
-        "partner_search": "İş Ortağı",
-        "ppp": "KÖİ Ortağı"
+      "province": "İl",
+      "deadline": "Son tarih",
+      "within": {
+        "7d": "7 gün içinde",
+        "30d": "30 gün içinde",
+        "90d": "90 gün içinde"
+      },
+      "submit": "Ara"
+    },
+    "trust": {
+      "source": {
+        "title": "Her ilanda kaynak belirtilir",
+        "body": "Asıl yayına bağlantı; asla anonim kopya değil."
+      },
+      "weekly": {
+        "title": "Haftalık güncelleme",
+        "body": "Ekibimiz takip eder, kayıt tarihi gösterilir."
+      },
+      "provinces": {
+        "title": "{count} il",
+        "body": "Ulusal ve il düzeyinde, kamu ve özel pazarlar."
       }
     },
-    "join": {
-      "heading": "Bugün Pazar Yerine Katılın",
-      "body": "Ücretsiz hesabınızı oluşturun ve binlerce işletme ve fırsatla bağlantı kurmaya başlayın.",
-      "benefits": {
-        "profile": "Şirket profilinizi oluşturun",
-        "browse": "Fırsatlara ve ortaklara göz atın",
-        "connect": "Bağlantı kurun ve işinizi büyütün",
-        "intelligence": "Pazar istihbaratına erişin"
-      },
-      "ctaRegister": "Ücretsiz Kaydol",
-      "ctaPremium": "Premium Profili İnceleyin"
+    "tabsLabel": "İlan türleri",
+    "tabs": {
+      "all": "Tümü",
+      "tenders": "İhaleler",
+      "partnership": "Ortaklık",
+      "investment": "Yatırım"
     },
-    "strip": {
-      "companies": "Kayıtlı Şirket",
-      "provinces": "Kapsanan İl",
-      "categories": "Ürün Kategorisi",
-      "opportunities": "İş Fırsatı",
-      "access": "Platform Erişimi",
-      "secure": "Doğrulanmış ve Güvenli"
+    "clearCategory": "Bu filtreyi kaldır",
+    "count": "{count, plural, =0 {Açık ilan yok} other {# açık ilan}}",
+    "sorted": "En yakın son tarihe göre sıralı",
+    "removeFilter": "Filtreyi kaldır: {label}",
+    "clearAll": "Tümünü temizle",
+    "empty": {
+      "title": "Bu kriterlere uyan açık ilan yok",
+      "body": "Aramanızı genişletin veya sektörünüzün yeni ilanlarını her pazartesi alın.",
+      "cta": "Uyarıları al"
+    },
+    "card": {
+      "facts": {
+        "estimate": "Tahmini tutar",
+        "province": "İl",
+        "documents": "Belgeler",
+        "source": "Kaynak"
+      },
+      "sought": "{amount} aranıyor",
+      "undisclosed": "Açıklanmadı",
+      "dossier": "İlan dosyası",
+      "onRequest": "Talep üzerine",
+      "originalNotice": "Asıl ilan",
+      "recorded": "{date} tarihinde kaydedildi",
+      "direct": "Trade in DRC’de yayımlandı",
+      "openEnded": "Son tarih yok",
+      "closesIn": "{days, plural, =0 {Bugün kapanıyor} other {# gün içinde kapanıyor}}",
+      "issuerUnknown": "İlan sahibi belirtilmemiş",
+      "verified": "Doğrulanmış şirket",
+      "view": "Dosyayı gör",
+      "alert": "Bu sektör için uyarı al",
+      "support": "Destek al"
+    },
+    "alerts": {
+      "title": "Sektörünüzün ilanlarını her pazartesi alın",
+      "body": "Sektörlerinizdeki açık ilanlarla haftada tek bir e-posta.",
+      "points": {
+        "one": "Haftada bir e-posta, fazlası değil",
+        "noAccount": "Hesap gerekmez",
+        "unsubscribe": "Tek tıkla abonelikten çıkış"
+      },
+      "email": "İş e-postası",
+      "emailPh": "siz@sirket.com",
+      "sectors": "Takip edilen sektörler",
+      "sectorsHint": "seçilmezse tümü",
+      "submit": "Uyarıları al",
+      "legal": "Adresiniz yalnızca bu uyarıları göndermek için kullanılır.",
+      "successTitle": "Abone oldunuz",
+      "successBody": "{count, plural, =0 {Her pazartesi tüm sektörlerin ilanlarını alacaksınız.} other {Her pazartesi # sektörünüzün ilanlarını alacaksınız.}}",
+      "invalid": "Lütfen e-posta adresini kontrol edin.",
+      "error": "Bir hata oluştu. Lütfen tekrar deneyin."
+    },
+    "submit": {
+      "title": "İhale mi açıyorsunuz?",
+      "body": "İlanı ve dosyayı bize gönderin: 24 saat içinde, ücretsiz olarak logonuz ve iletişim bilgilerinizle yeniden yayımlarız. Hesap gerekmez.",
+      "cta": "İlan gönder",
+      "dialogTitle": "İlan gönder",
+      "dialogBody": "Ekibimiz ilanı kontrol eder ve 24 saat içinde ücretsiz yeniden yayımlar.",
+      "organisation": "Kuruluş",
+      "email": "E-posta",
+      "noticeTitle": "İlanın konusu",
+      "noticeTitlePh": "Örn. 40 km yolun rehabilitasyonu",
+      "link": "İlana veya dosyaya bağlantı",
+      "deadline": "Son tarih",
+      "details": "Ayrıntılar",
+      "detailsPh": "Lotlar, tahmini bütçe, katılım koşulları…",
+      "send": "İlanı gönder",
+      "submitting": "Gönderiliyor…",
+      "successTitle": "İlan alındı",
+      "successBody": "Yayımlamadan önce 24 iş saati içinde size döneceğiz.",
+      "reference": "Referans: {ref}",
+      "invalid": "Lütfen kontrol edin: kuruluş, e-posta, konu (ve https:// ile başlayan bir bağlantı).",
+      "error": "Bir hata oluştu. Lütfen tekrar deneyin."
     }
   }
 }

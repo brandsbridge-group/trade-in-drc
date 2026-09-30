@@ -138,6 +138,7 @@ export async function listCarouselSlides(locale: string): Promise<CarouselSlideR
     cta_href: s.cta_href ?? "",
     sort_order: s.sort_order,
     active: s.active,
+    placement: s.placement,
   }));
 }
 
@@ -165,6 +166,7 @@ export async function saveCarouselSlide(
     cta_href: fields.cta_href || null,
     sort_order: fields.sort_order,
     active: fields.active,
+    placement: fields.placement,
   };
 
   const { error } = id
@@ -185,6 +187,7 @@ export async function saveCarouselSlide(
 
   revalidatePath(`/${locale}/admin/settings`);
   revalidatePath(`/${locale}`);
+  revalidatePath(`/${locale}/market`);
   return { ok: true };
 }
 
@@ -211,6 +214,7 @@ export async function deleteCarouselSlide(
   });
   revalidatePath(`/${locale}/admin/settings`);
   revalidatePath(`/${locale}`);
+  revalidatePath(`/${locale}/market`);
   return { ok: true };
 }
 

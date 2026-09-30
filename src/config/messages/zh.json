@@ -32,7 +32,22 @@
     "poweredBy": "Power by BrandsBridge Group",
     "menu": "菜单",
     "services": "服务",
-    "moreMenu": "更多"
+    "moreMenu": "更多",
+    "data": "数据",
+    "searchShort": "搜索",
+    "moreDesc": {
+      "contactPoints": "各省的机构与本地联络点。",
+      "services": "我们团队提供的全程支持。",
+      "events": "展会、论坛与商务考察。",
+      "contact": "有问题？欢迎联系。"
+    },
+    "featured": {
+      "body": "让国际买家看到您的企业。",
+      "cta": "查看方案"
+    },
+    "language": "语言",
+    "changeLanguage": "切换语言",
+    "publishOffer": "发布供应"
   },
   "Hero": {
     "badge": "经贸易部核验",
@@ -1370,7 +1385,12 @@
       "featuredSelectPlaceholder": "选择一家已认证的企业……",
       "featuredNoCandidates": "没有更多可供精选的已认证企业",
       "featuredAdd": "精选",
-      "featuredEmpty": "暂无精选企业"
+      "featuredEmpty": "暂无精选企业",
+      "slidePlacement": "投放位置",
+      "placements": {
+        "home": "首页",
+        "market": "交易市场首屏（广告）"
+      }
     },
     "nav": {
       "console": "管理控制台",
@@ -4938,148 +4958,580 @@
       }
     }
   },
-  "MarketplacePage": {
+  "MarketLanding": {
     "hero": {
+      "eyebrow": "官方交易市场 · 刚果（金）",
       "titleLead": "刚果（金）",
-      "titleAccent": "商业市场",
-      "tagline": "一个平台。无限连接。真实机遇。",
-      "body": "Trade in DRC 汇聚贸易与投资生态中值得信赖的参与者。在非洲腹地建立联系、开展合作、发展业务。",
-      "imageAlt": "黄昏时分停靠在刚果港口的集装箱船",
-      "ctaJoin": "加入市场",
-      "ctaExplore": "探索机遇",
-      "ctaHowItWorks": "运作方式",
-      "stats": {
-        "companies": "已认证企业",
-        "provinces": "覆盖省份",
-        "opportunities": "商业机遇",
-        "secure": "认证且安全"
+      "titleAccent": "商业交易市场",
+      "lead": "经核验的供应、合格的买家，以及让交易落地交付的所有服务——尽在一处。",
+      "publishOffer": "发布供应",
+      "publishNeed": "发布需求",
+      "searchLabel": "搜索市场",
+      "searchPlaceholder": "产品、企业或服务",
+      "searchCta": "搜索"
+    },
+    "trust": {
+      "coverage": {
+        "title": "{count} 个省",
+        "body": "覆盖全国，从中刚果省到上加丹加省。",
+        "value": "{count}",
+        "label": "个省全覆盖"
       },
-      "hub": {
-        "title": "刚果（金）全球贸易中心枢纽",
-        "discover": "发现已认证企业",
-        "find": "寻找产品、服务与合作伙伴",
-        "intelligence": "获取市场情报",
-        "facilitate": "促进贸易与投资",
-        "network": "拓展全球人脉"
+      "verification": {
+        "title": "四项核验",
+        "body": "合法存续、产能、客户参考，并在可能时实地考察。",
+        "value": "4 项",
+        "label": "核验"
+      },
+      "response": {
+        "title": "48 小时内回复",
+        "body": "每项需求均由专人审核，而非机器人。",
+        "value": "48 小时",
+        "label": "内回复"
       }
     },
-    "categories": {
-      "heading": "按类别探索市场",
-      "subheading": "在贸易生态的各个关键领域，与合适的合作伙伴建立联系。",
-      "count": "{count, plural, =0 {暂无条目} other {# 条}}",
-      "manufacturer": {
-        "title": "制造商",
-        "desc": "与各行业本地优质产品制造商建立联系。",
-        "cta": "查看制造商"
-      },
-      "importer": {
-        "title": "进口商",
-        "desc": "寻找为刚果（金）市场采购产品与解决方案的可靠进口商。",
-        "cta": "查看进口商"
-      },
-      "exporter": {
-        "title": "出口商",
-        "desc": "结识向全球市场供应刚果制造产品的出口商。",
-        "cta": "查看出口商"
+    "services": {
+      "heading": "完善您的交易",
+      "lead": "跨境销售离不开支撑它的整条链条。这些服务与产品一样都在平台上。",
+      "cta": "查看服务商",
+      "logistics": {
+        "eyebrow": "运输",
+        "title": "物流与转运",
+        "body": "货代、承运商、拼箱商、保税仓库。"
       },
       "finance": {
-        "title": "金融与银行",
-        "desc": "获取支持业务增长的金融机构与银行服务。",
-        "cta": "查看金融伙伴"
+        "eyebrow": "融资",
+        "title": "金融与支付",
+        "body": "银行、跟单信用证、货物保险、外汇。"
       },
+      "compliance": {
+        "eyebrow": "合规",
+        "title": "合规与单证",
+        "body": "质量检验、海关、原产地证书、标准。"
+      },
+      "institutions": {
+        "eyebrow": "指引",
+        "title": "机构与联络",
+        "body": "政府机构、国有企业、商会与行业协会。"
+      }
+    },
+    "demands": {
+      "heading": "进行中的需求",
+      "lead": "买家已经在寻找。回应现有需求，比等待被发现更有效。",
+      "viewAll": "全部需求",
+      "filterLabel": "按方向筛选需求",
+      "filters": {
+        "all": "全部",
+        "import": "进口",
+        "export": "出口"
+      },
+      "buyer": "买家",
+      "buyerVerified": "已认证买家",
+      "closesIn": "{days, plural, =0 {今天截止} other {# 天后截止}}",
+      "respond": "回应",
+      "empty": "目前没有进行中的需求，请稍后再来。",
+      "columns": {
+        "demand": "需求",
+        "direction": "方向",
+        "location": "地点",
+        "deadline": "截止日期"
+      },
+      "publish": "发布需求",
+      "noDeadline": "无截止日期",
+      "kinds": {
+        "demand": "采购需求",
+        "quotation": "询价请求"
+      }
+    },
+    "cta": {
+      "heading": "您是卖家，还是买家？",
+      "body": "发布供应免费。发布需求后，我们的团队将为您搜寻。",
+      "publishOffer": "发布供应",
+      "publishNeed": "发布需求"
+    },
+    "directions": {
+      "heading": "两个贸易方向",
+      "lead": "一个市场，两个方向：进入刚果（金）的与从刚果（金）输出的。请选择您的方向。",
+      "import": {
+        "title": "进口到刚果（金）",
+        "body": "外国企业计划在刚果市场销售的产品。",
+        "badge": "进口"
+      },
+      "export": {
+        "title": "从刚果（金）出口",
+        "body": "刚果企业面向海外市场提供的产品。",
+        "badge": "出口"
+      },
+      "offers": "{count, plural, =0 {暂无供应} other {# 条供应}}"
+    },
+    "carousel": {
+      "roledescription": "轮播",
+      "label": "交易市场精选",
+      "slide": "幻灯片",
+      "position": "第 {n} 张，共 {total} 张",
+      "goTo": "转到第 {n} 张",
+      "previous": "上一张",
+      "next": "下一张",
+      "pause": "暂停轮播",
+      "play": "播放轮播",
+      "sponsored": "赞助",
+      "house": "Trade in DRC",
+      "houseSlides": {
+        "offer": {
+          "title": "免费发布您的供应",
+          "body": "一条信息即可触达国际买家和刚果进口商。",
+          "cta": "发布供应"
+        },
+        "verify": {
+          "title": "让您的企业通过核验",
+          "body": "四项核验赢得买家信任，让您的供应脱颖而出。",
+          "cta": "注册您的企业"
+        },
+        "advertise": {
+          "title": "您的广告位",
+          "body": "让每天访问交易市场的买家和投资者看到您的品牌。",
+          "cta": "在此投放广告"
+        }
+      }
+    }
+  },
+  "MarketProducts": {
+    "header": {
+      "title": "交易市场",
+      "lead": "一个市场，两个贸易方向。请选择与您相关的方向。",
+      "breadcrumb": "导航路径",
+      "crumbMarket": "交易市场"
+    },
+    "directions": {
+      "import": {
+        "title": "进口到刚果（金）",
+        "body": "希望在刚果（金）销售的外国企业的供应。"
+      },
+      "export": {
+        "title": "从刚果（金）出口",
+        "body": "希望向海外销售的刚果企业的供应。"
+      }
+    },
+    "search": {
+      "label": "搜索供应",
+      "placeholder": "例如：水泥、变压器、仿制药",
+      "cta": "搜索"
+    },
+    "filters": {
+      "country": "原产国",
+      "province": "原产省份",
+      "sector": "行业",
+      "verification": "核验",
+      "tiers": {
+        "full": "全面核验",
+        "docs": "文件已审核"
+      },
+      "clear": "清除筛选",
+      "chain": "供应链",
+      "showMore": "再显示 {count} 项",
+      "showLess": "收起",
+      "title": "筛选",
+      "removeFilter": "移除筛选：{label}"
+    },
+    "chain": {
+      "logistics": "货代与物流",
+      "finance": "融资与保险",
+      "compliance": "合规与海关"
+    },
+    "results": {
+      "heading": {
+        "import": "进口到刚果（金）的产品",
+        "export": "从刚果（金）出口的产品",
+        "all": "全部产品"
+      },
+      "count": "{count, plural, =0 {暂无供应} other {# 条供应}}",
+      "sortRelevance": "按相关度排序",
+      "sortNewest": "最新优先",
+      "empty": "目前没有符合这些条件的供应。"
+    },
+    "card": {
+      "verified": "已核验",
+      "pending": "核验中",
+      "moq": "最小起订量",
+      "leadTime": "交货期",
+      "request": "询价",
+      "illustrative": "示意图"
+    },
+    "banner": {
+      "title": "找不到您的供应商？",
+      "body": "发布您的需求：我们的团队将为您寻找并核验供应商。",
+      "cta": "发布需求"
+    },
+    "empty": {
+      "title": "这里暂无供应",
+      "body": "该方向暂无供应商发布供应。发布您的需求，我们的团队将为您寻找并核验供应商。",
+      "bodyFiltered": "没有符合您搜索或筛选条件的供应。请放宽条件，或让我们的团队为您寻找。",
+      "see": {
+        "import": "查看进口供应",
+        "export": "查看出口供应"
+      }
+    }
+  },
+  "OfferDetail": {
+    "breadcrumb": "导航路径",
+    "crumbMarket": "交易市场",
+    "verifiedOn": "{date} 已核验",
+    "direction": {
+      "import": "方向：进口到刚果（金）",
+      "export": "方向：从刚果（金）出口"
+    },
+    "memberSince": "{year} 年起入驻平台",
+    "showImage": "显示第 {n} 张图片",
+    "verify": {
+      "title": "我们核验了什么",
+      "statusOk": "已核验",
+      "statusTodo": "尚未核验",
+      "legal": {
+        "title": "合法存续",
+        "ok": "已在其所在国商业登记处注册。",
+        "todo": "注册信息核查中。"
+      },
+      "export": {
+        "title": "贸易能力",
+        "ok": "已核查许可证及发货记录。",
+        "todo": "许可证尚未核查。"
+      },
+      "references": {
+        "title": "客户参考",
+        "ok": "{count, plural, other {已联系 # 位参考客户}}",
+        "todo": "暂无已核验的参考客户。"
+      },
+      "site": {
+        "title": "实地考察",
+        "ok": "我们的团队已完成实地考察。",
+        "todo": "尚未进行。",
+        "todoAbroad": "未进行——供应商位于刚果（金）境外。"
+      },
+      "scope": "核验针对企业本身，而非每笔交易。",
+      "report": "查看核验报告",
+      "method": "详细了解我们的方法",
+      "progress": "已核验 {done}/{total} 项",
+      "done": "已核验",
+      "pending": "待完成"
+    },
+    "terms": {
+      "title": "商业条款",
+      "moq": "最小起订量",
+      "leadTime": "交货期",
+      "capacity": "产能",
+      "languages": "语言",
+      "markets": "服务市场",
+      "certifications": "认证",
+      "empty": "供应商尚未填写其条款。我们的团队会随您的需求一并为您获取。"
+    },
+    "related": "{company} 的其他供应",
+    "request": {
+      "title": "询价",
+      "step1": "第 1 步，共 2 步——无需注册即可开始。",
+      "step2": "第 2 步，共 2 步——我们如何联系您？",
+      "quantity": "需求数量",
+      "quantityPlaceholder": "例如：12 台",
+      "deliveryPlace": "交货地点",
+      "deliveryPlacePlaceholder": "例如：卢本巴希，上加丹加省",
+      "deadline": "期限",
+      "deadlinePlaceholder": "30 天内",
+      "details": "补充说明（可选）",
+      "detailsPlaceholder": "技术规格、期望标准……",
+      "continue": "继续",
+      "fullName": "姓名",
+      "companyName": "公司（可选）",
+      "email": "电子邮箱",
+      "phone": "电话（可选）",
+      "country": "国家",
+      "countryPlaceholder": "选择国家",
+      "back": "返回",
+      "send": "发送需求",
+      "sending": "发送中……",
+      "errorInvalid": "请检查填写内容后重试。",
+      "errorServer": "需求未能发送，请稍后重试。",
+      "doneTitle": "需求已发送",
+      "doneBody": "我们的团队将审核您的需求并转交供应商。48 个工作小时内回复。",
+      "reference": "编号：",
+      "privacy": "供应商的联系方式不会公开。您的需求由我们的团队审核后转交。48 个工作小时内回复。",
+      "messageSupplier": "直接联系供应商",
+      "support": "需要全程服务：清关、转运、本地代表？",
+      "supportCta": "查看配套服务",
+      "responseTime": "48 个工作小时内回复",
+      "stepNeed": "您的需求",
+      "stepContact": "您的联系方式"
+    },
+    "about": "关于此供应",
+    "supplier": {
+      "title": "供应商",
+      "profile": "查看简介",
+      "report": "核验报告"
+    }
+  },
+  "MarketChain": {
+    "breadcrumbLabel": "面包屑导航",
+    "breadcrumb": {
+      "market": "市场",
+      "chain": "服务链"
+    },
+    "choose": {
+      "title": "自行选择",
+      "body": "浏览经过验证的服务商，比较其覆盖范围，并通过平台联系他们。",
+      "cta": "查看下方列表"
+    },
+    "delegate": {
+      "title": "将业务交给我们的团队",
+      "body": "我们负责挑选、核实并协调各方直至交付。此为收费服务。",
+      "cta": "查看陪同服务"
+    },
+    "context": {
+      "title": "您的业务：{name}（{direction}）",
+      "import": "进口",
+      "export": "出口",
+      "body": "页面底部的表单已按此业务预先填写。",
+      "clear": "移除此上下文"
+    },
+    "filterLabel": "筛选服务商",
+    "all": "全部",
+    "count": "{count, plural, =0 {暂无服务商} other {# 家服务商}}",
+    "countInstitutions": "{count, plural, =0 {暂无机构} other {# 个机构}}",
+    "sorted": "按覆盖范围排序",
+    "badges": {
+      "verified": "已验证",
+      "pending": "审核中",
+      "official": "官方"
+    },
+    "actions": {
+      "contact": "通过平台联系",
+      "introduce": "申请引荐",
+      "procedure": "查看办理流程",
+      "add": "加入我的业务",
+      "added": "已在我的业务中"
+    },
+    "empty": {
+      "title": "此筛选条件下暂无结果",
+      "body": "随着审核推进，名单会不断扩充。请描述您的需求：我们的团队将寻找并核实合适的合作伙伴。",
+      "reset": "清除筛选",
+      "ask": "描述我的需求",
+      "noneTitle": "名单正在完善中"
+    },
+    "request": {
+      "title": "找不到合适的合作伙伴？",
+      "body": "请描述您的业务：我们的团队将识别并核实服务商，然后为您牵线。如果该领域的名单仍较短，这是最快的途径。",
+      "sla": "48 个工作小时内回复",
+      "nature": "业务类型",
+      "naturePh": "例如：进口水泥 5,000 吨",
+      "route": "路线或范围",
+      "routePh": "例如：安卡拉 → 马塔迪 → 金沙萨",
+      "deadline": "期限",
+      "deadlinePh": "30 天内",
+      "name": "姓名",
+      "email": "电子邮箱",
+      "attached": "{count, plural, other {已附 # 家服务商}}",
+      "remove": "移除 {name}",
+      "submit": "发送请求",
+      "submitting": "发送中…",
+      "successTitle": "请求已发送",
+      "successBody": "我们的团队将在 48 个工作小时内回复您。",
+      "reference": "编号：{ref}",
+      "invalid": "请检查：业务类型、姓名及有效的电子邮箱。",
+      "error": "出现错误，请重试。"
+    },
+    "basket": {
+      "label": "我的业务",
+      "count": "{count, plural, other {已选 # 家服务商}}",
+      "send": "发送给团队",
+      "sendShort": "发送",
+      "clear": "清空我的业务"
+    },
+    "segments": {
       "logistics": {
-        "title": "物流与航运",
-        "desc": "寻找物流、航运与货运代理，推动业务前行。",
-        "cta": "查看物流伙伴"
+        "eyebrow": "运输",
+        "title": "物流与转运",
+        "question": "谁把您的货物运出港口并送达？",
+        "lead": "货运代理、承运商、拼箱商和保税仓库 — 按走廊分类。",
+        "chips": {
+          "corridor_matadi": "马塔迪走廊",
+          "corridor_kasumbalesa": "卡松巴莱萨走廊",
+          "corridor_kigali": "基加利走廊",
+          "sea": "海运",
+          "road": "公路",
+          "bonded": "海关授权"
+        },
+        "facts": {
+          "corridors": "走廊",
+          "modes": "运输方式",
+          "licence": "资质",
+          "storage": "仓储"
+        }
       },
-      "government": {
-        "title": "政府机构",
-        "desc": "与促进贸易和投资的政府机构及监管部门建立联系。",
-        "cta": "查看政府机构"
-      },
-      "public_corp": {
-        "title": "公共企业",
-        "desc": "与推动发展和经济增长的公共企业合作。",
-        "cta": "查看公共企业"
+      "finance": {
+        "eyebrow": "融资",
+        "title": "金融与支付",
+        "question": "谁来保障付款并承担风险？",
+        "lead": "银行、信用证、保函、货物保险及汇率对冲。",
+        "chips": {
+          "documentary_credit": "信用证",
+          "bank_guarantee": "银行保函",
+          "cargo_insurance": "货物保险",
+          "fx": "美元/刚果法郎兑换",
+          "import_finance": "进口融资"
+        },
+        "facts": {
+          "instruments": "金融工具",
+          "currencies": "币种",
+          "sectors": "融资行业",
+          "lead_time": "审批周期"
+        }
       },
       "facilitation": {
-        "title": "贸易便利化与服务提供商",
-        "desc": "获取贸易便利化及合规、单证、咨询等专业服务提供商。",
-        "cta": "查看服务提供商"
+        "eyebrow": "合规",
+        "title": "合规与单证",
+        "question": "货物出发前，谁帮您办妥合规手续？",
+        "lead": "质量控制、装运前检验、原产地证书、税则归类及标准。",
+        "chips": {
+          "pre_inspection": "装运前检验",
+          "origin_certificate": "原产地证书",
+          "tariff_classification": "税则归类",
+          "standards_testing": "标准与检测",
+          "health_products": "医疗健康产品"
+        },
+        "facts": {
+          "accreditations": "认证资质",
+          "controls": "检验类型",
+          "documents": "出具文件",
+          "lead_time": "平均周期"
+        }
       },
-      "investors": {
-        "title": "投资者及更多",
-        "desc": "与投资者、基金及更多机遇对接，为项目融资并实现规模化。",
-        "cta": "查看投资者"
+      "institutions": {
+        "eyebrow": "指引",
+        "title": "机构与联络点",
+        "question": "该找哪个部门，能办成什么？",
+        "lead": "公共机构、国有企业、商会和行业联合会 — 按省份分类。",
+        "facts": {
+          "competence": "职能",
+          "obtain": "可办理事项",
+          "province": "省份",
+          "access": "办理方式"
+        }
       }
+    }
+  },
+  "Notices": {
+    "breadcrumbLabel": "面包屑导航",
+    "breadcrumbHome": "首页",
+    "breadcrumbCurrent": "市场机会",
+    "hero": {
+      "eyebrow": "市场机会",
+      "titleLead": "刚果（金）招标与",
+      "titleAccent": "投资机会",
+      "lead": "公共与私营招标、合作征集以及寻求融资的项目，均注明来源与截止日期后转载发布。"
     },
-    "why": {
-      "heading": "为何选择 Trade in DRC 市场？",
-      "verified": {
-        "title": "认证可信",
-        "desc": "我们对企业进行认证，确保信任与可信度。"
-      },
-      "growth": {
-        "title": "业务增长",
-        "desc": "发现新机遇，拓展人脉网络。"
-      },
-      "targeted": {
-        "title": "精准连接",
-        "desc": "与相关合作伙伴和决策者建立联系。"
-      },
-      "secure": {
-        "title": "安全平台",
-        "desc": "您的数据和交易受到保护。"
-      },
-      "intelligence": {
-        "title": "市场情报",
-        "desc": "获取真实数据、洞察与商业报告。"
-      },
-      "reach": {
-        "title": "全球触达",
-        "desc": "与世界各地的合作伙伴建立联系。"
-      }
-    },
-    "opportunities": {
-      "heading": "热门商业机遇",
-      "viewAll": "查看全部机遇",
-      "empty": "暂无已发布的机遇，请稍后再来。",
+    "search": {
+      "keyword": "关键词",
+      "placeholder": "关键词：道路、医疗设备、钴……",
       "sector": "行业",
-      "need": "需求",
-      "location": "地点",
-      "countryWide": "刚果（金）",
-      "open": "开放中",
-      "viewDetails": "查看详情",
-      "needs": {
-        "tender": "招标",
-        "offer": "供应商",
-        "demand": "采购方",
-        "quotation": "报价",
-        "project_launch": "项目伙伴",
-        "investment_call": "投资者",
-        "partner_search": "合作伙伴",
-        "ppp": "PPP 伙伴"
+      "province": "省份",
+      "deadline": "截止日期",
+      "within": {
+        "7d": "7 天内",
+        "30d": "30 天内",
+        "90d": "90 天内"
+      },
+      "submit": "搜索"
+    },
+    "trust": {
+      "source": {
+        "title": "每条公告均注明来源",
+        "body": "附原始发布链接，绝不匿名转载。"
+      },
+      "weekly": {
+        "title": "每周更新",
+        "body": "由我们的团队跟踪，并标注收录日期。"
+      },
+      "provinces": {
+        "title": "{count} 个省份",
+        "body": "覆盖全国及省级、公共及私营市场。"
       }
     },
-    "join": {
-      "heading": "立即加入市场",
-      "body": "创建免费账户，开始与数千家企业和机遇建立联系。",
-      "benefits": {
-        "profile": "创建公司资料",
-        "browse": "浏览机遇与伙伴",
-        "connect": "建立联系并发展业务",
-        "intelligence": "获取市场情报"
-      },
-      "ctaRegister": "免费注册",
-      "ctaPremium": "了解高级资料"
+    "tabsLabel": "公告类型",
+    "tabs": {
+      "all": "全部",
+      "tenders": "招标",
+      "partnership": "合作",
+      "investment": "投资"
     },
-    "strip": {
-      "companies": "注册企业",
-      "provinces": "覆盖省份",
-      "categories": "产品类别",
-      "opportunities": "商业机遇",
-      "access": "平台访问",
-      "secure": "认证且安全"
+    "clearCategory": "移除此筛选",
+    "count": "{count, plural, =0 {暂无开放公告} other {# 条开放公告}}",
+    "sorted": "按截止日期由近到远排序",
+    "removeFilter": "移除筛选：{label}",
+    "clearAll": "全部清除",
+    "empty": {
+      "title": "没有符合条件的开放公告",
+      "body": "请放宽搜索条件，或每周一接收您所在行业的新公告。",
+      "cta": "订阅提醒"
+    },
+    "card": {
+      "facts": {
+        "estimate": "预估金额",
+        "province": "省份",
+        "documents": "文件",
+        "source": "来源"
+      },
+      "sought": "寻求 {amount}",
+      "undisclosed": "未披露",
+      "dossier": "公告文件",
+      "onRequest": "可申请获取",
+      "originalNotice": "原始公告",
+      "recorded": "收录于 {date}",
+      "direct": "发布于 Trade in DRC",
+      "openEnded": "无截止日期",
+      "closesIn": "{days, plural, =0 {今天截止} other {# 天后截止}}",
+      "issuerUnknown": "发布方未注明",
+      "verified": "已验证企业",
+      "view": "查看文件",
+      "alert": "订阅此行业提醒",
+      "support": "获取协助"
+    },
+    "alerts": {
+      "title": "每周一接收您所在行业的公告",
+      "body": "每周一封邮件，汇总您关注行业的开放公告。",
+      "points": {
+        "one": "每周仅一封邮件",
+        "noAccount": "无需注册账户",
+        "unsubscribe": "一键退订"
+      },
+      "email": "工作邮箱",
+      "emailPh": "you@company.com",
+      "sectors": "关注的行业",
+      "sectorsHint": "未选择则为全部",
+      "submit": "订阅提醒",
+      "legal": "您的邮箱仅用于发送这些提醒。",
+      "successTitle": "订阅成功",
+      "successBody": "{count, plural, =0 {每周一您将收到所有行业的公告。} other {每周一您将收到您关注的 # 个行业的公告。}}",
+      "invalid": "请检查邮箱地址。",
+      "error": "出现错误，请重试。"
+    },
+    "submit": {
+      "title": "您要发布招标吗？",
+      "body": "将公告和文件发给我们：我们将在 24 小时内免费转载，并附上您的标志和联系方式。无需注册账户。",
+      "cta": "提交公告",
+      "dialogTitle": "提交公告",
+      "dialogBody": "我们的团队审核公告后，将在 24 小时内免费转载。",
+      "organisation": "机构",
+      "email": "电子邮箱",
+      "noticeTitle": "公告事由",
+      "noticeTitlePh": "例如：40 公里道路修复",
+      "link": "公告或文件链接",
+      "deadline": "截止日期",
+      "details": "补充说明",
+      "detailsPh": "标段、预算估算、参与条件……",
+      "send": "发送公告",
+      "submitting": "发送中…",
+      "successTitle": "已收到公告",
+      "successBody": "发布前我们会在 24 个工作小时内与您联系。",
+      "reference": "编号：{ref}",
+      "invalid": "请检查：机构、邮箱、事由（以及以 https:// 开头的链接）。",
+      "error": "出现错误，请重试。"
     }
   }
 }

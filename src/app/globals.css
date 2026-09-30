@@ -66,6 +66,12 @@
   --color-market-red-dark: #B71C22;
   --color-market-gold: #F5B800;
   --color-market-cream: #FBF6EC;
+  /* Marketplace redesign accent (2026-09): muted premium gold, replaces DRC yellow
+     on /market, /products and the offer page. Dark = hover, light = gradient end.
+     Use the utilities (bg-market-or…) — @theme inline doesn't emit these as runtime vars. */
+  --color-market-or: #CBA14E;
+  --color-market-or-dark: #B68B3A;
+  --color-market-or-light: #E4C98A;
 }
 
 :root {
@@ -192,6 +198,14 @@
     }
   }
 
+  /* Marketplace ad carousel: the active indicator's fill IS the rotation timer
+     (MOTION.md §2.8). Never rendered under reduced motion, so the global rule
+     above can't collapse it into an instant auto-advance loop. */
+  @keyframes ad-progress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
   /* FAQ accordion — smooth height animation (progressive enhancement) */
   details {
     interpolate-size: allow-keywords;
@@ -256,6 +270,25 @@
   /* Hide scrollbar while preserving scroll behaviour */
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { scrollbar-width: none; }
+
+  /* Slim, discreet scrollbar: a 6px pill that only shows its colour while the
+     area is hovered or focused. WebKit/Blink get the pseudo-elements; the
+     standard props are scoped to engines without them, because Chromium drops
+     the ::-webkit-scrollbar styling as soon as scrollbar-width is set. */
+  .scrollbar-slim::-webkit-scrollbar { width: 6px; height: 6px; }
+  .scrollbar-slim::-webkit-scrollbar-track { background: transparent; margin-block: 8px; }
+  .scrollbar-slim::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 9999px;
+  }
+  .scrollbar-slim:hover::-webkit-scrollbar-thumb,
+  .scrollbar-slim:focus-within::-webkit-scrollbar-thumb { background-color: rgb(203 213 225); }
+  .scrollbar-slim::-webkit-scrollbar-thumb:hover { background-color: rgb(148 163 184); }
+  @supports not selector(::-webkit-scrollbar) {
+    .scrollbar-slim { scrollbar-width: thin; scrollbar-color: transparent transparent; }
+    .scrollbar-slim:hover,
+    .scrollbar-slim:focus-within { scrollbar-color: rgb(203 213 225) transparent; }
+  }
 }
 
 /* Marketing surfaces (landing + about): Sora display headings */

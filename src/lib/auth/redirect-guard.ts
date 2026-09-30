@@ -2,8 +2,9 @@ import { ROUTES } from "@/constants/routes";
 
 /**
  * Open-redirect guard shared by every post-login redirect target: the OAuth
- * `/callback` route (`src/app/[locale]/(auth)/callback/route.ts`) and the
- * sign-in form (`src/components/auth/user-auth-form.tsx`).
+ * `/callback` route (`src/app/[locale]/(auth)/callback/route.ts`), the
+ * login and signup forms (`src/components/auth/`), and the signed-in bounce
+ * on the /signup page.
  *
  * Only same-origin paths are allowed. An absolute URL to another origin, a
  * protocol-relative URL (`//evil.com`), or anything that fails to parse falls

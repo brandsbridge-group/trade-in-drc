@@ -143,6 +143,24 @@ a jump cut. Active indicator shows a linear `scaleX 0 → 1` progress fill over
 the rotation interval (a timer readout, not a transition). Autoplay pauses on
 hover; reduced motion disables autoplay, scale and fill.
 
+### 2.9 Sliding nav highlight (Emil) — navbar pill group
+
+One shared highlight pill that glides to the hovered item (framer-motion
+`layoutId`), settling back on the active page when the pointer leaves. It
+moves via `layout` (transform), never `left`/`width`.
+
+```tsx
+<motion.span
+  layoutId="nav-highlight"
+  className="absolute inset-0 -z-10 rounded-full bg-white/[0.1]"
+  transition={reduce ? { duration: 0 } : { type: "spring", duration: 0.3, bounce: 0 }}
+/>
+```
+
+Spring duration 0.3 s, **no bounce** (workhorse UI). Rendered only inside the
+item the pointer is on (or the active one), so there is exactly one pill.
+Reduced motion: the pill jumps instantly.
+
 ---
 
 ## 3. Forbidden patterns
@@ -206,6 +224,10 @@ The Tailwind global rule covers 90% of cases. Per-component is for framer-only a
 - `src/components/design/brand-logo-carousel.tsx` — grayscale-to-color hover ✓
 - `src/components/design/filter-sidebar.tsx` — chevron rotate on group toggle ✓
 - `src/components/design/hero-search.tsx` — tab transition ✓
+- `src/components/marketplace/landing/market-ad-carousel.tsx` — marketplace hero ad carousel (landscape deck), §2.8 recipe (900 ms photo crossfade + 1.04 settle; the caption, set straight on a bottom gradient, follows with a §2.2-style 350 ms enter, 150 ms delay; the active story segment's `ad-progress` fill in `globals.css` is the 6.5 s rotation timer; pauses on hover/focus/pause button; not rendered under reduced motion). Deck cards behind the active slide shift with a 300 ms transform transition ✓
+- `src/components/marketplace/landing/market-directions.tsx` — direction-card photo hover scale (§2.6) ✓
+- `src/components/marketplace/chain/chain-client-bits.tsx` — "My operation" floating bar enter/exit (§2.2, 250 ms, opacity-only under reduced motion) ✓
+- `src/components/layout/nav-pills.tsx` — sliding hover/active highlight (§2.9); `navbar.tsx` glass-on-scroll background/border (§2.1, 200 ms colour) ✓
 - `sonner` toasts — built-in animations
 
 ### Motion gaps to fix (audit will plan these)

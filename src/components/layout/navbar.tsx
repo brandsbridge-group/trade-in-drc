@@ -4,11 +4,9 @@ import { Link, usePathname } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { LanguageSwitcher } from "./language-switcher";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Logo } from "@/components/ui/logo";
 import * as React from "react";
 import { useAuth } from "@/lib/auth/auth-provider";
-import { useSearch } from "@/lib/search/search-context";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -17,7 +15,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { LogOut, LayoutDashboard, Building2, Menu, Search, Shield, ShoppingCart, UserRound, ChevronRight, ChevronDown } from "lucide-react";
+import { LogOut, LayoutDashboard, Building2, Menu, Shield, ChevronRight, Plus } from "lucide-react";
 import {
     Sheet,
     SheetContent,
@@ -27,12 +25,25 @@ import {
 } from "@/components/ui/sheet";
 
 import { createClient } from "@/lib/supabase/client";
+import { NavPills } from "./nav-pills";
+
+/** True once the page has scrolled a little — the bar turns to glass. */
+function useScrolled(threshold = 8) {
+    return React.useSyncExternalStore(
+        (onChange) => {
+            window.addEventListener("scroll", onChange, { passive: true });
+            return () => window.removeEventListener("scroll", onChange);
+        },
+        () => window.scrollY > threshold,
+        () => false,
+    );
+}
+
 
 export function Navbar() {
     const t = useTranslations("Nav");
     const [userRole, setUserRole] = React.useState<string | null>(null);
     const { user, signOut } = useAuth();
-    const { openSearch } = useSearch();
 
     React.useEffect(() => {
         if (!user) { setUserRole(null); return; }
@@ -41,20 +52,18 @@ export function Navbar() {
             .then(({ data }) => setUserRole(data?.role ?? null));
     }, [user]);
 
-    // Top-level links mirror the customer marketplace design (latest-designs/1.ai).
-    // Priority nav: primary links stay inline; the rest overflow into "More ▾"
-    // between xl and 2xl, and go fully inline again at 2xl. (See navbar spec.)
-    // Order and split come from the customer's 2026-07-28 sketch: four primary
-    // links, the rest under "More". The responsive behaviour is unchanged —
-    // "More" only appears once the bar is too narrow for all ten.
+    // Five primary links inline from xl; the secondary ones always live under
+    // "More ▾" (the pill spacing doesn't leave room for all ten inline).
+    // Order (2026-09-29): Home · Marketplace · Opportunities · Data · Companies.
+    // `match` lists the extra path prefixes that light the link up.
     const primaryLinks = [
         { href: "/", label: t("home") },
-        { href: "/data-hub", label: t("marketIntelligence") },
+        { href: "/market", label: t("marketplace"), match: ["/products"] },
         { href: "/opportunities", label: t("opportunities") },
-        { href: "/market", label: t("marketplace") },
+        { href: "/data-hub", label: t("data") },
+        { href: "/companies", label: t("companies") },
     ];
     const overflowLinks = [
-        { href: "/companies", label: t("companies") },
         { href: "/local-contacts", label: t("contactPoints") },
         { href: "/services", label: t("services") },
         { href: "/events", label: t("events") },
@@ -64,98 +73,51 @@ export function Navbar() {
     const navLinks = [...primaryLinks, ...overflowLinks];
 
     const pathname = usePathname();
-    const overflowActive = overflowLinks.some(
-        (l) => pathname === l.href || pathname.startsWith(l.href + "/")
-    );
-    // Compact type + tight padding so ten links, the CTAs and a signed-in
-    // avatar all fit without squeezing the logo.
-    const navLinkClass =
-        "text-[13px] font-medium text-white/80 transition-colors hover:text-white px-2 py-2 relative group whitespace-nowrap";
-    const navUnderline = (
-        <span className="absolute bottom-1 left-2 right-2 h-0.5 bg-market-red scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200 ease-out" />
-    );
+    const isActive = (link: { href: string; match?: string[] }) =>
+        link.href === "/"
+            ? pathname === "/"
+            : [link.href, ...(link.match ?? [])].some(
+                  (p) => pathname === p || pathname.startsWith(p + "/")
+              );
+    const overflowActive = overflowLinks.some(isActive);
+    const scrolled = useScrolled();
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-market-navy text-white">
-            <div className="w-full flex h-16 items-center justify-between px-4 md:px-6 lg:px-8">
-                {/* Logo */}
-                <div className="flex min-w-0 items-center gap-3 lg:gap-4">
+        // Glassmorphism that keeps the brand navy on every page and scroll
+        // position: solid at the top (only the white page is behind the bar
+        // there, which would wash a translucent tint out to grey), then a 98.5 %
+        // navy tint + blur, so even over white content the colour holds —
+        // just a frosted hint of what passes beneath, and a soft shadow.
+        <header
+            className={`sticky top-0 z-50 w-full text-white backdrop-blur-2xl backdrop-saturate-[1.8] transition-shadow duration-200 ease-out ${
+                scrolled
+                    ? "bg-market-navy/[0.985] shadow-[0_8px_32px_-8px_rgba(2,6,23,0.45)]"
+                    : "bg-market-navy"
+            }`}
+        >
+            {/* Glass sheen: a faint top-lit gradient + a hairline catching the light. */}
+            <span aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.05] to-transparent" />
+            <span aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+            <span aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+
+            <div className="relative flex h-16 w-full items-center justify-between gap-4 px-4 md:px-6 lg:px-8">
+                {/* Left: logo, then the nav right after it (xl+) — sliding highlight + "More" panel. */}
+                <div className="flex min-w-0 items-center gap-6 xl:gap-12">
                     <Link href="/" className="flex shrink-0 items-center">
                         <Logo size="md" />
                     </Link>
-
-                    {/* Desktop Nav — priority + "More" overflow (no JS measuring):
-                        primary links always inline (xl+); overflow links inline only
-                        at 2xl; a "More ▾" dropdown holds them between xl and 2xl. */}
-                    <nav className="hidden xl:flex items-center gap-1">
-                        {primaryLinks.map((link) => (
-                            <Link key={link.href} href={link.href} className={navLinkClass}>
-                                {link.label}
-                                {navUnderline}
-                            </Link>
-                        ))}
-
-                        {/* Overflow links — inline only on wide (2xl) screens */}
-                        {overflowLinks.map((link) => (
-                            <Link key={link.href} href={link.href} className={`hidden 2xl:inline-flex ${navLinkClass}`}>
-                                {link.label}
-                                {navUnderline}
-                            </Link>
-                        ))}
-
-                        {/* "More ▾" — shown only between xl and 2xl */}
-                        <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                                <button
-                                    type="button"
-                                    className={`inline-flex 2xl:hidden items-center gap-1 ${navLinkClass} ${overflowActive ? "text-white" : ""}`}
-                                >
-                                    {t("moreMenu")}
-                                    <ChevronDown className="h-4 w-4" aria-hidden />
-                                    {overflowActive && (
-                                        <span className="absolute bottom-1 left-3 right-6 h-0.5 bg-market-red" />
-                                    )}
-                                </button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent align="start" className="w-56">
-                                {overflowLinks.map((link) => (
-                                    <DropdownMenuItem key={link.href} asChild>
-                                        <Link href={link.href} className="cursor-pointer">
-                                            {link.label}
-                                        </Link>
-                                    </DropdownMenuItem>
-                                ))}
-                            </DropdownMenuContent>
-                        </DropdownMenu>
-                    </nav>
+                    <div className="hidden xl:block">
+                        <NavPills
+                            links={primaryLinks.map((l) => ({ href: l.href, label: l.label, active: isActive(l) }))}
+                            moreActive={overflowActive}
+                            isActive={(href) => isActive({ href })}
+                        />
+                    </div>
                 </div>
 
-                {/* Right Side — one vertically-centered row, aligned with the nav links. */}
+                {/* Right Side */}
                 <div className="flex shrink-0 items-center gap-1.5">
-                    {/* Search Bar - Desktop */}
-                    <div className="hidden md:flex items-center">
-                        <Button
-                            variant="ghost"
-                            size="icon"
-                            onClick={openSearch}
-                            className="h-8 w-8 text-white/80 hover:text-white hover:bg-white/10"
-                            aria-label={t("search")}
-                        >
-                            <Search className="w-4 h-4" />
-                        </Button>
-                    </div>
-
                     <LanguageSwitcher />
-
-                    {/* CTA pair — always visible, exactly as in the design */}
-                    <div className="hidden lg:flex items-center gap-1.5">
-                        <Button asChild variant="outline" size="sm" className="h-8 shrink-0 whitespace-nowrap rounded-lg border border-white/80 bg-transparent px-2.5 text-[11.5px] text-white hover:bg-white/10 hover:text-white font-semibold">
-                            <Link href="/register-company"><UserRound className="h-3.5 w-3.5" /> {t("registerCompany")}</Link>
-                        </Button>
-                        <Button asChild size="sm" className="h-8 shrink-0 whitespace-nowrap rounded-lg bg-market-red px-2.5 text-[11.5px] text-white hover:bg-market-red-dark font-semibold">
-                            <Link href="/request"><ShoppingCart className="h-3.5 w-3.5" /> {t("postRequest")}</Link>
-                        </Button>
-                    </div>
 
                     {user ? (
                         <DropdownMenu>
@@ -214,16 +176,26 @@ export function Navbar() {
                         </DropdownMenu>
                     ) : (
                         <div className="hidden sm:flex items-center">
-                            <Button asChild variant="ghost" size="sm" className="h-8 px-3 text-xs text-white/80 hover:text-white hover:bg-white/10">
+                            <Button asChild variant="ghost" size="sm" className="h-8 rounded-full px-3 text-[12px] font-medium text-white/80 hover:bg-white/10 hover:text-white">
                                 <Link href="/login">{t("signin")}</Link>
                             </Button>
                         </div>
                     )}
 
+                    {/* Primary CTA — marketplace gold, lit top edge. Guests are sent to
+                        /login by the proxy and land back on the form afterwards. */}
+                    <Link
+                        href="/dashboard/products/new"
+                        className="group hidden h-8 shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full bg-market-or px-3.5 text-[12px] font-bold text-market-navy shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_4px_14px_-4px_rgba(203,161,78,0.55)] transition-colors duration-150 ease-out hover:bg-market-or-light sm:inline-flex"
+                    >
+                        <Plus className="h-3.5 w-3.5" aria-hidden />
+                        {t("publishOffer")}
+                    </Link>
+
                     {/* Mobile Menu */}
                     <Sheet>
                         <SheetTrigger asChild className="xl:hidden">
-                            <Button variant="ghost" size="icon">
+                            <Button variant="ghost" size="icon" aria-label={t("menu")} className="h-9 w-9 rounded-full text-white hover:bg-white/10 hover:text-white">
                                 <Menu className="h-5 w-5" />
                             </Button>
                         </SheetTrigger>
@@ -239,50 +211,41 @@ export function Navbar() {
                             </div>
 
                             <div className="flex flex-col p-5">
-                                {/* Search */}
-                                <div className="relative mb-5">
-                                    <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                                    <Input
-                                        type="text"
-                                        placeholder={t("search")}
-                                        className="h-11 w-full rounded-lg pl-9"
-                                    />
-                                </div>
-
                                 {/* Nav links — same set as desktop */}
                                 <nav className="flex flex-col">
-                                    {navLinks.map((link) => (
-                                        <SheetClose asChild key={link.href}>
-                                            <Link
-                                                href={link.href}
-                                                className="flex items-center justify-between border-b border-slate-100 py-3.5 text-[0.95rem] font-semibold text-market-navy transition-colors hover:text-market-red"
-                                            >
-                                                {link.label}
-                                                <ChevronRight className="h-4 w-4 text-slate-300" aria-hidden />
-                                            </Link>
-                                        </SheetClose>
-                                    ))}
+                                    {navLinks.map((link) => {
+                                        const active = isActive(link);
+                                        return (
+                                            <SheetClose asChild key={link.href}>
+                                                <Link
+                                                    href={link.href}
+                                                    aria-current={active ? "page" : undefined}
+                                                    className={`flex items-center justify-between rounded-xl px-3 py-3 text-[14px] transition-colors duration-150 ease-out ${active ? "bg-slate-100 font-semibold text-market-navy" : "font-medium text-slate-700 hover:bg-slate-50 hover:text-market-navy"}`}
+                                                >
+                                                    {link.label}
+                                                    <ChevronRight className="h-4 w-4 text-slate-300" aria-hidden />
+                                                </Link>
+                                            </SheetClose>
+                                        );
+                                    })}
                                 </nav>
 
-                                {/* CTAs */}
                                 <div className="mt-5 flex flex-col gap-2.5">
-                                    <SheetClose asChild>
-                                        <Button asChild variant="outline" className="w-full border-market-navy/30 font-semibold text-market-navy">
-                                            <Link href="/register-company"><UserRound className="h-4 w-4" /> {t("registerCompany")}</Link>
-                                        </Button>
-                                    </SheetClose>
-                                    <SheetClose asChild>
-                                        <Button asChild className="w-full bg-market-red font-semibold text-white hover:bg-market-red-dark">
-                                            <Link href="/request"><ShoppingCart className="h-4 w-4" /> {t("postRequest")}</Link>
-                                        </Button>
-                                    </SheetClose>
                                     {!user && (
                                         <SheetClose asChild>
-                                            <Button asChild variant="ghost" className="w-full text-market-navy">
+                                            <Button asChild className="w-full rounded-xl bg-market-navy font-semibold text-white hover:bg-market-navy/90">
                                                 <Link href="/login">{t("signin")}</Link>
                                             </Button>
                                         </SheetClose>
                                     )}
+                                    <SheetClose asChild>
+                                        <Button asChild className="w-full rounded-xl bg-market-or font-bold text-market-navy hover:bg-market-or-light">
+                                            <Link href="/dashboard/products/new">
+                                                <Plus className="h-4 w-4" aria-hidden />
+                                                {t("publishOffer")}
+                                            </Link>
+                                        </Button>
+                                    </SheetClose>
                                 </div>
                             </div>
                         </SheetContent>

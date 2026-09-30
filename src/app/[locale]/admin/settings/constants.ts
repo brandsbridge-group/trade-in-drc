@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { dbId } from "@/lib/validation/db-id";
+import type { CarouselPlacement } from "@/lib/supabase/types";
 
 /**
  * Non-action constants, types, and Zod schemas for the admin settings cluster
@@ -58,7 +59,11 @@ export interface CarouselSlideInput {
   cta_href: string;
   sort_order: number;
   active: boolean;
+  /** home = homepage carousel, market = marketplace hero ads (00048). */
+  placement: CarouselPlacement;
 }
+
+export const CAROUSEL_PLACEMENTS: readonly CarouselPlacement[] = ["home", "market"];
 
 export interface CarouselSlideRow extends CarouselSlideInput {
   id: string;
@@ -76,6 +81,7 @@ export const carouselSchema = z.object({
   cta_href: z.string().max(300),
   sort_order: z.number().int().min(0),
   active: z.boolean(),
+  placement: z.enum(["home", "market"]),
 });
 
 // --- Featured companies ----------------------------------------------------

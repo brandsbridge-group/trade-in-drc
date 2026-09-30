@@ -94,7 +94,7 @@ const payloadSchema = z
 
 /**
  * Compose a human-readable notes block appended to `description` so admins
- * scanning the pending company at /admin/companies see the legal identity and
+ * scanning the pending company at /console/companies see the legal identity and
  * positioning at a glance (the structured copy lives in verification_summary).
  */
 function buildDescription(d: ParsedPayload["data"]): string {

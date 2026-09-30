@@ -1325,7 +1325,8 @@
         "congoleseCompany": "刚果企业",
         "internationalBusiness": "国际企业",
         "user": "普通用户"
-      }
+      },
+      "selfActionError": "您不能更改自己账户的角色，也不能暂停自己的账户。"
     },
     "dashboard": {
       "title": "管理控制台",
@@ -2014,36 +2015,63 @@
   "Landing": {
     "hero": {
       "badge": "连接 · 贸易 · 增长",
-      "titleLead": "Trade in ",
-      "titleAccent": "DRC",
-      "subtitle": "您通往刚果民主共和国可信商业的门户",
       "body": "对接可靠的本地合作伙伴，发现市场机遇，获取战略洞察，从容投资、贸易并实现增长。",
-      "ctaPrimary": "探索机遇",
-      "ctaSecondary": "寻找合作伙伴",
+      "ctaOpportunities": "探索机遇",
       "trust": {
         "verified": "已认证合作伙伴",
         "bilingual": "提供 5 种语言",
         "free": "免费浏览"
       },
+      "brand": "Trade in DRC",
+      "title": "您通往刚果（金）<accent>可信商业</accent>的门户",
+      "ctaMarket": "探索市场"
+    },
+    "panel": {
+      "overview": "概览",
+      "drc": "刚果民主共和国",
+      "nav": {
+        "overview": "概览",
+        "opportunities": "机遇",
+        "partners": "合作伙伴",
+        "sectors": "行业",
+        "insights": "洞察",
+        "watchlist": "关注列表"
+      },
       "stats": {
         "opportunities": "机遇",
         "partners": "已认证合作伙伴",
-        "insights": "市场洞察"
-      }
-    },
-    "features": {
-      "verified": {
-        "title": "已认证合作伙伴",
-        "desc": "对接刚果民主共和国各地经过预先审核的可靠企业。"
+        "products": "已发布产品"
       },
-      "opportunities": {
-        "title": "市场机遇",
-        "desc": "发现高潜力行业与投资机遇。"
+      "topOpportunities": "开放商机",
+      "verified": "已验证",
+      "companies": "家企业",
+      "kpi": {
+        "budget": "公布预算",
+        "newListings": "新增（30 天）",
+        "activeListings": "有效信息"
       },
-      "intelligence": {
-        "title": "商业情报",
-        "desc": "获取数据、分析与洞察，做出更明智的决策。"
-      }
+      "notifTitle": "通知",
+      "scopeRegion": "中部非洲",
+      "scopeGlobal": "全球",
+      "statsSub": {
+        "closingSoon": "{n} 个将在 30 天内截止",
+        "provinces": "{n} 个省份",
+        "categories": "{n} 个类别"
+      },
+      "sectorBars": "按行业划分的企业",
+      "provinceBars": "按省份划分的信息",
+      "offers": "{n, plural, =0 {暂无报价} other {# 个报价}}",
+      "closesIn": "剩 {days} 天",
+      "noDeadline": "开放",
+      "watchEmptyTitle": "关注企业和商机",
+      "watchEmptyBody": "登录后即可收藏并接收更新通知。",
+      "watchCta": "登录",
+      "notif": {
+        "opportunity": "新商机：{label}",
+        "company": "已认证企业：{label}",
+        "product": "新报价：{label}"
+      },
+      "notifEmpty": "暂无新动态。"
     },
     "ribbon": {
       "lead": "可信的连接。真实的机遇。",
@@ -2091,62 +2119,6 @@
     "join": {
       "cta": "加入平台",
       "tagline": "连接。贸易。在刚果民主共和国增长。"
-    },
-    "panel": {
-      "overview": "概览",
-      "drc": "刚果民主共和国",
-      "nav": {
-        "overview": "概览",
-        "opportunities": "机遇",
-        "partners": "合作伙伴",
-        "sectors": "行业",
-        "insights": "洞察",
-        "watchlist": "关注列表"
-      },
-      "stats": {
-        "opportunities": "机遇",
-        "partners": "已认证合作伙伴",
-        "insights": "市场洞察"
-      },
-      "topOpportunities": "热门机遇",
-      "marketActivity": "市场动态",
-      "highPotential": "高潜力",
-      "top": {
-        "infrastructure": "基础设施建设",
-        "mining": "矿业与资源",
-        "agriculture": "农业与农业综合产业",
-        "energy": "能源与可再生能源"
-      },
-      "oppTypes": {
-        "tender": "招标",
-        "partnership": "合作",
-        "investment": "投资",
-        "distribution": "分销"
-      },
-      "statusOpen": "开放",
-      "verified": "已验证",
-      "sector": {
-        "mining": "采矿",
-        "agriculture": "农业",
-        "energy": "能源",
-        "ict": "数字与信息技术",
-        "manufacturing": "制造业",
-        "logistics": "物流"
-      },
-      "companies": "家企业",
-      "kpi": {
-        "volume": "贸易额",
-        "growth": "同比增长",
-        "listings": "新列表"
-      },
-      "saved": "已收藏",
-      "viewAll": "查看全部",
-      "notifTitle": "通知",
-      "notif1": "采矿业新增认证合作伙伴",
-      "notif2": "本周新增3个机会",
-      "notif3": "第二季度市场报告已就绪",
-      "scopeRegion": "中部非洲",
-      "scopeGlobal": "全球"
     },
     "sectors": {
       "eyebrow": "重点行业",
@@ -5533,5 +5505,84 @@
       "invalid": "请检查：机构、邮箱、事由（以及以 https:// 开头的链接）。",
       "error": "出现错误，请重试。"
     }
+  },
+  "HomeStart": {
+    "commitments": {
+      "label": "我们的承诺",
+      "checks": {
+        "unit": "项",
+        "label": "核查",
+        "body": "发布前核查文件、官方联系方式、企业资料和所在地。"
+      },
+      "companies": {
+        "unit": "家企业",
+        "label": "已认证",
+        "body": "每个已发布的档案都带有人人可见的认证徽章。"
+      },
+      "provinces": {
+        "unit": "个省份",
+        "label": "已覆盖",
+        "body": "刚果（金）共 26 个省份。每新增一次认证，网络都在扩大。"
+      }
+    },
+    "paths": {
+      "eyebrow": "起点",
+      "title": "您想从哪里开始？",
+      "lead": "为每类参与者设计的三条路径，同样严格的标准。",
+      "advisorQ": "不确定选哪条路径？",
+      "advisorCta": "咨询顾问",
+      "offers": "{count, plural, =0 {暂无报价} other {# 个报价}}",
+      "buy": {
+        "title": "采购",
+        "body": "在刚果（金）或海外找到经过认证的供应商。",
+        "p1": "无需注册即可询价",
+        "p2": "供应商经过 4 项核查",
+        "p3": "进口与出口报价一站汇集",
+        "import": "进口到刚果（金）",
+        "export": "采购刚果产品",
+        "cta": "查看市场"
+      },
+      "sell": {
+        "badge": "面向企业",
+        "title": "销售",
+        "body": "展示您的产品，接收合格的询盘。",
+        "p1": "企业展示页与产品目录",
+        "p2": "来自刚果（金）及全球的采购需求",
+        "p3": "醒目的认证徽章",
+        "cta": "注册我的企业"
+      },
+      "invest": {
+        "title": "投资",
+        "body": "在投入之前先了解市场。",
+        "p1": "行业数据与关键指标",
+        "p2": "投资招募与 PPP 项目",
+        "p3": "对接本地合作伙伴",
+        "cta": "查看数据",
+        "secondary": "查看投资招募"
+      }
+    }
+  },
+  "HomeMarket": {
+    "eyebrow": "实时市场",
+    "title": "当前市场动态",
+    "viewAll": "查看全部市场",
+    "search": {
+      "label": "搜索市场",
+      "what": "您在找什么？",
+      "whatPh": "产品名称…",
+      "category": "类别",
+      "allCategories": "全部类别",
+      "direction": "方向",
+      "allDirections": "进口与出口",
+      "import": "进口到刚果（金）",
+      "export": "从刚果（金）出口",
+      "submit": "搜索"
+    },
+    "trends": "热门：",
+    "tabsLabel": "按行业筛选",
+    "all": "全部",
+    "results": "{count, plural, =0 {暂无报价} other {# 个报价}}",
+    "seeAll": "{count, plural, other {查看全部 # 个报价}}",
+    "empty": "该行业暂无报价。"
   }
 }

@@ -4,7 +4,7 @@ import { isAdmin, type RoleProfile } from "@/constants/roles";
 /**
  * Boolean admin check for Server Actions / Route Handlers.
  *
- * Unlike {@link requireAdmin} (which redirects, for the `/admin` shell), this
+ * Unlike {@link requireAdmin} (which redirects, for the `/console` shell), this
  * returns a plain `{ ok, userId }` result so callers can branch and return a
  * typed error envelope instead of throwing a navigation redirect.
  *

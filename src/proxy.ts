@@ -2,8 +2,15 @@ import { NextResponse, type NextRequest } from 'next/server';
 import createIntlMiddleware from 'next-intl/middleware';
 import { routing } from './i18n/routing';
 import { updateSession } from '@/lib/supabase/middleware';
-import { PROTECTED_ROUTES, ADMIN_ROUTES, ROUTES } from '@/constants/routes';
-import { isAdmin } from '@/constants/roles';
+import {
+  COMPANY_AREA,
+  STAFF_AREA,
+  STAFF_ALLOWED_COMPANY_ROUTES,
+  SUPER_ADMIN_ROUTES,
+  ROUTES,
+  isUnderRoute,
+} from '@/constants/routes';
+import { hasSuperAdminAccess, isAdmin, roleHomePath } from '@/constants/roles';
 
 const intlMiddleware = createIntlMiddleware(routing);
 
@@ -25,40 +32,48 @@ export async function proxy(request: NextRequest) {
   const { supabase, user } = await updateSession(request, response);
 
   const pathname = request.nextUrl.pathname;
-  const pathnameWithoutLocale = pathname.replace(/^\/(en|fr|tr|es|zh)/, '') || '/';
+  const localeMatch = pathname.match(/^\/(en|fr|tr|es|zh)(?=\/|$)/);
+  const locale = localeMatch?.[1] ?? 'en';
+  const path = localeMatch ? pathname.slice(localeMatch[0].length) || '/' : pathname;
 
-  const isProtectedRoute = PROTECTED_ROUTES.some((route) =>
-    pathnameWithoutLocale.startsWith(route)
-  );
-  const isAdminRoute = ADMIN_ROUTES.some((route) =>
-    pathnameWithoutLocale.startsWith(route)
-  );
+  const inCompanyArea = isUnderRoute(path, COMPANY_AREA);
+  const inStaffArea = isUnderRoute(path, STAFF_AREA);
+  if (!inCompanyArea && !inStaffArea) return response;
 
-  if (isProtectedRoute && !user) {
-    const locale = pathname.split('/')[1] || 'en';
+  const to = (target: string) =>
+    NextResponse.redirect(new URL(`/${locale}${target}`, request.url));
+
+  if (!user) {
     const loginUrl = new URL(`/${locale}${ROUTES.LOGIN}`, request.url);
     loginUrl.searchParams.set('redirect', pathname);
     return NextResponse.redirect(loginUrl);
   }
 
-  if (isAdminRoute) {
-    if (!user) {
-      const locale = pathname.split('/')[1] || 'en';
-      return NextResponse.redirect(new URL(`/${locale}${ROUTES.LOGIN}`, request.url));
-    }
+  // A missing profile row resolves to "not staff" (a plain signed-in user).
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('role, staff_role, account_type')
+    .eq('id', user.id)
+    .single();
+  // Honours staff_role (moderator/super_admin) AND legacy role='admin',
+  // mirroring the SQL is_admin() helper — not just the legacy column.
+  const staff = isAdmin(profile);
 
-    const { data: profile } = await supabase
-      .from('profiles')
-      .select('role, staff_role, account_type')
-      .eq('id', user.id)
-      .single();
+  if (inStaffArea) {
+    // Companies and plain users go back to their own area.
+    if (!staff) return to(roleHomePath(profile));
 
-    // Honour staff_role (moderator/super_admin) AND legacy role='admin',
-    // mirroring the SQL is_admin() helper — not just the legacy column.
-    if (!isAdmin(profile)) {
-      const locale = pathname.split('/')[1] || 'en';
-      return NextResponse.redirect(new URL(`/${locale}`, request.url));
+    // Moderators share the console but not user/role management or settings.
+    const superAdminOnly = SUPER_ADMIN_ROUTES.some((route) => isUnderRoute(path, route));
+    if (superAdminOnly && !hasSuperAdminAccess(profile)) {
+      return to(`${STAFF_AREA}?error=super_admin_only`);
     }
+  }
+
+  // Staff work from the console; only their account settings live here.
+  if (inCompanyArea && staff) {
+    const allowed = STAFF_ALLOWED_COMPANY_ROUTES.some((route) => isUnderRoute(path, route));
+    if (!allowed) return to(roleHomePath(profile));
   }
 
   return response;

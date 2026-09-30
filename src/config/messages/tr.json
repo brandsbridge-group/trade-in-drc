@@ -1325,7 +1325,8 @@
         "congoleseCompany": "Kongolu Şirket",
         "internationalBusiness": "Uluslararası İşletme",
         "user": "Standart kullanıcı"
-      }
+      },
+      "selfActionError": "Kendi hesabınızın rolünü değiştiremez veya hesabınızı askıya alamazsınız."
     },
     "dashboard": {
       "title": "Yönetim Paneli",
@@ -2014,36 +2015,63 @@
   "Landing": {
     "hero": {
       "badge": "Bağlan · Ticaret Yap · Büyü",
-      "titleLead": "Trade in ",
-      "titleAccent": "DRC",
-      "subtitle": "Demokratik Kongo Cumhuriyeti'nde Güvenilir İş Bağlantılarına Açılan Kapınız",
       "body": "Güvenilir yerel ortaklarla bağlantı kurun, pazar fırsatlarını keşfedin ve güvenle yatırım yapmak, ticaret yapmak ve büyümek için stratejik analizlere erişin.",
-      "ctaPrimary": "Fırsatları Keşfedin",
-      "ctaSecondary": "Ortak Bulun",
+      "ctaOpportunities": "Fırsatları Keşfedin",
       "trust": {
         "verified": "Doğrulanmış ortaklar",
         "bilingual": "5 dilde kullanılabilir",
         "free": "Ücretsiz göz atma"
       },
+      "brand": "Trade in DRC",
+      "title": "KDC'de <accent>güvenilir ticarete</accent> açılan kapınız",
+      "ctaMarket": "Pazarı keşfedin"
+    },
+    "panel": {
+      "overview": "Genel Bakış",
+      "drc": "DKC",
+      "nav": {
+        "overview": "Genel Bakış",
+        "opportunities": "Fırsatlar",
+        "partners": "Ortaklar",
+        "sectors": "Sektörler",
+        "insights": "Analizler",
+        "watchlist": "İzleme Listesi"
+      },
       "stats": {
         "opportunities": "Fırsatlar",
-        "partners": "Doğrulanmış ortaklar",
-        "insights": "Pazar analizleri"
-      }
-    },
-    "features": {
-      "verified": {
-        "title": "Doğrulanmış Ortaklar",
-        "desc": "DKC genelinde önceden incelenmiş, güvenilir işletmelerle bağlantı kurun."
+        "partners": "Doğrulanmış Ortaklar",
+        "products": "Yayınlanan ürünler"
       },
-      "opportunities": {
-        "title": "Pazar Fırsatları",
-        "desc": "Yüksek potansiyelli sektörleri ve yatırım fırsatlarını keşfedin."
+      "topOpportunities": "Açık fırsatlar",
+      "verified": "Doğrulandı",
+      "companies": "şirket",
+      "kpi": {
+        "budget": "Açıklanan bütçe",
+        "newListings": "Yeni (30 gün)",
+        "activeListings": "Aktif ilanlar"
       },
-      "intelligence": {
-        "title": "İş Zekâsı",
-        "desc": "Daha akıllı kararlar almak için verilere, analizlere ve içgörülere erişin."
-      }
+      "notifTitle": "Bildirimler",
+      "scopeRegion": "Orta Afrika",
+      "scopeGlobal": "Küresel",
+      "statsSub": {
+        "closingSoon": "{n} tanesi 30 gün içinde kapanıyor",
+        "provinces": "{n} il",
+        "categories": "{n} kategori"
+      },
+      "sectorBars": "Sektörlere göre şirketler",
+      "provinceBars": "İllere göre ilanlar",
+      "offers": "{n, plural, =0 {Teklif yok} other {# teklif}}",
+      "closesIn": "{days} gün",
+      "noDeadline": "Açık",
+      "watchEmptyTitle": "Şirketleri ve fırsatları takip edin",
+      "watchEmptyBody": "Favorilerinizi kaydetmek ve güncellemelerden haberdar olmak için giriş yapın.",
+      "watchCta": "Giriş yap",
+      "notif": {
+        "opportunity": "Yeni fırsat: {label}",
+        "company": "Doğrulanmış şirket: {label}",
+        "product": "Yeni teklif: {label}"
+      },
+      "notifEmpty": "Şu anda yeni bir şey yok."
     },
     "ribbon": {
       "lead": "Güvenilir Bağlantılar. Gerçek Fırsatlar.",
@@ -2091,62 +2119,6 @@
     "join": {
       "cta": "Platforma katılın",
       "tagline": "Bağlanın. Ticaret yapın. DKC'de büyüyün."
-    },
-    "panel": {
-      "overview": "Genel Bakış",
-      "drc": "DKC",
-      "nav": {
-        "overview": "Genel Bakış",
-        "opportunities": "Fırsatlar",
-        "partners": "Ortaklar",
-        "sectors": "Sektörler",
-        "insights": "Analizler",
-        "watchlist": "İzleme Listesi"
-      },
-      "stats": {
-        "opportunities": "Fırsatlar",
-        "partners": "Doğrulanmış Ortaklar",
-        "insights": "Pazar Analizleri"
-      },
-      "topOpportunities": "Öne Çıkan Fırsatlar",
-      "marketActivity": "Pazar Hareketliliği",
-      "highPotential": "Yüksek Potansiyel",
-      "top": {
-        "infrastructure": "Altyapı Geliştirme",
-        "mining": "Madencilik ve Kaynaklar",
-        "agriculture": "Tarım ve Agro-Sanayi",
-        "energy": "Enerji ve Yenilenebilirler"
-      },
-      "oppTypes": {
-        "tender": "İhale",
-        "partnership": "Ortaklık",
-        "investment": "Yatırım",
-        "distribution": "Dağıtım"
-      },
-      "statusOpen": "Açık",
-      "verified": "Doğrulandı",
-      "sector": {
-        "mining": "Madencilik",
-        "agriculture": "Tarım",
-        "energy": "Enerji",
-        "ict": "Dijital & BİT",
-        "manufacturing": "İmalat",
-        "logistics": "Lojistik"
-      },
-      "companies": "şirket",
-      "kpi": {
-        "volume": "Ticaret hacmi",
-        "growth": "Yıllık büyüme",
-        "listings": "Yeni ilanlar"
-      },
-      "saved": "Kaydedildi",
-      "viewAll": "Tümünü gör",
-      "notifTitle": "Bildirimler",
-      "notif1": "Madencilikte yeni doğrulanmış ortak",
-      "notif2": "Bu hafta 3 yeni fırsat",
-      "notif3": "2. çeyrek pazar raporu hazır",
-      "scopeRegion": "Orta Afrika",
-      "scopeGlobal": "Küresel"
     },
     "sectors": {
       "eyebrow": "Kilit Sektörler",
@@ -5533,5 +5505,84 @@
       "invalid": "Lütfen kontrol edin: kuruluş, e-posta, konu (ve https:// ile başlayan bir bağlantı).",
       "error": "Bir hata oluştu. Lütfen tekrar deneyin."
     }
+  },
+  "HomeStart": {
+    "commitments": {
+      "label": "Taahhütlerimiz",
+      "checks": {
+        "unit": "noktada",
+        "label": "doğrulama",
+        "body": "Belgeler, resmi iletişim, dosya ve konum yayından önce kontrol edilir."
+      },
+      "companies": {
+        "unit": "şirket",
+        "label": "doğrulandı",
+        "body": "Yayınlanan her profil, herkesin görebileceği doğrulama rozetini taşır."
+      },
+      "provinces": {
+        "unit": "il",
+        "label": "temsil ediliyor",
+        "body": "KDC'nin 26 ilinden. Ağ her yeni doğrulamayla büyüyor."
+      }
+    },
+    "paths": {
+      "eyebrow": "Başlangıç noktası",
+      "title": "Nereden başlamak istersiniz?",
+      "lead": "Her aktör türü için tasarlanmış, aynı titizlikte üç yol.",
+      "advisorQ": "Hangi yol size uygun?",
+      "advisorCta": "Bir danışmanla konuşun",
+      "offers": "{count, plural, =0 {Teklif yok} other {# teklif}}",
+      "buy": {
+        "title": "Satın al",
+        "body": "KDC'de veya yurt dışında doğrulanmış bir tedarikçi bulun.",
+        "p1": "Hesap açmadan teklif isteyin",
+        "p2": "4 noktada doğrulanmış tedarikçiler",
+        "p3": "İthalat ve ihracat teklifleri tek yerde",
+        "import": "KDC'ye ithalat",
+        "export": "Kongo ürünleri alın",
+        "cta": "Pazarı görün"
+      },
+      "sell": {
+        "badge": "Şirketler için",
+        "title": "Sat",
+        "body": "Ürünlerinizi sergileyin, nitelikli talepler alın.",
+        "p1": "Şirket vitrini ve katalog",
+        "p2": "KDC'den ve dünyadan satın alma talepleri",
+        "p3": "Görünür doğrulama rozeti",
+        "cta": "Şirketimi kaydet"
+      },
+      "invest": {
+        "title": "Yatırım yap",
+        "body": "Taahhütte bulunmadan önce pazarı anlayın.",
+        "p1": "Sektör verileri ve temel göstergeler",
+        "p2": "Yatırım çağrıları ve KÖİ'ler",
+        "p3": "Yerel ortaklarla bağlantı",
+        "cta": "Verileri görün",
+        "secondary": "Yatırım çağrılarını görün"
+      }
+    }
+  },
+  "HomeMarket": {
+    "eyebrow": "Canlı pazar",
+    "title": "Şu anda neler dolaşıyor",
+    "viewAll": "Tüm pazarı görün",
+    "search": {
+      "label": "Pazarda ara",
+      "what": "Ne arıyorsunuz?",
+      "whatPh": "Ürün adı…",
+      "category": "Kategori",
+      "allCategories": "Tüm kategoriler",
+      "direction": "Yön",
+      "allDirections": "İthalat ve ihracat",
+      "import": "KDC'ye ithalat",
+      "export": "KDC'den ihracat",
+      "submit": "Ara"
+    },
+    "trends": "Trendler:",
+    "tabsLabel": "Sektöre göre filtrele",
+    "all": "Tümü",
+    "results": "{count, plural, =0 {Teklif yok} other {# teklif}}",
+    "seeAll": "{count, plural, one {Teklifi görün} other {# teklifin tümünü görün}}",
+    "empty": "Bu sektörde henüz teklif yok."
   }
 }

@@ -111,7 +111,7 @@ export function DecisionPanel({ companyId }: DecisionPanelProps) {
             }
 
             toast.success(t(`success.${selectedDecision}`), { id: toastId });
-            router.push("/admin/verifications");
+            router.push("/console/verifications");
             router.refresh();
         } catch {
             toast.error(t("errors.generic"), { id: toastId });

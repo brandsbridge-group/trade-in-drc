@@ -6,8 +6,7 @@ import { useTranslations } from "next-intl";
 import { toast } from "react-toastify";
 import { Link } from "@/i18n/routing";
 import { createClient } from "@/lib/supabase/client";
-import { ROUTES } from "@/constants/routes";
-import { USER_ROLE } from "@/constants/status";
+import { isAdmin, roleHomePath } from "@/constants/roles";
 import { resolvePostAuthRedirect } from "@/lib/auth/redirect-guard";
 import { EmailField, PasswordField, SubmitButton, authErrorMessage, currentLocale } from "./auth-fields";
 
@@ -34,23 +33,26 @@ export function LoginForm() {
     const locale = currentLocale();
     const { data: profile } = await supabase
       .from("profiles")
-      .select("role")
+      .select("role, staff_role, account_type")
       .eq("id", data.user.id)
       .single();
 
     // Full-page navigation takes a few seconds: `loading` stays true on
     // purpose so the button keeps spinning until the next page is up.
-    if (profile?.role === USER_ROLE.ADMIN) {
+    // isAdmin honours staff_role (moderator / super_admin), not just the
+    // legacy role column — company owners fall through to the dashboard.
+    if (isAdmin(profile)) {
       // Admin always wins over `?redirect=`, even on a valid same-origin
       // link: the admin console is the one surface with elevated
       // capabilities, so an admin always lands somewhere predictable rather
       // than wherever a (possibly phished) link pointed them.
-      window.location.href = `/${locale}${ROUTES.ADMIN}`;
+      window.location.href = `/${locale}${roleHomePath(profile)}`;
     } else {
       // resolvePostAuthRedirect is the single source of truth for the
       // post-auth landing spot (shared with signup and the OAuth /callback).
+      // The proxy sends `?redirect=`; requireAuth / requireAdmin send `?next=`.
       window.location.href = resolvePostAuthRedirect(
-        searchParams.get("redirect"),
+        searchParams.get("redirect") ?? searchParams.get("next"),
         locale,
         window.location.origin
       );

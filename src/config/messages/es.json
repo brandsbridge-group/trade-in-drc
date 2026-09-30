@@ -1325,7 +1325,8 @@
         "congoleseCompany": "Empresa congoleña",
         "internationalBusiness": "Empresa internacional",
         "user": "Usuario estándar"
-      }
+      },
+      "selfActionError": "No puede cambiar el rol de su propia cuenta ni suspenderla."
     },
     "dashboard": {
       "title": "Panel de administración",
@@ -2014,36 +2015,63 @@
   "Landing": {
     "hero": {
       "badge": "Conectar · Comerciar · Crecer",
-      "titleLead": "Trade in ",
-      "titleAccent": "DRC",
-      "subtitle": "Su puerta de entrada a negocios de confianza en la República Democrática del Congo",
       "body": "Conéctese con socios locales fiables, descubra oportunidades de mercado y acceda a análisis estratégicos para invertir, comerciar y crecer con confianza.",
-      "ctaPrimary": "Explorar oportunidades",
-      "ctaSecondary": "Encontrar socios",
+      "ctaOpportunities": "Explorar oportunidades",
       "trust": {
         "verified": "Socios verificados",
         "bilingual": "Disponible en 5 idiomas",
         "free": "Consulta gratuita"
       },
+      "brand": "Trade in DRC",
+      "title": "Su puerta de entrada a <accent>negocios de confianza</accent> en la RDC",
+      "ctaMarket": "Explorar el mercado"
+    },
+    "panel": {
+      "overview": "Resumen",
+      "drc": "RDC",
+      "nav": {
+        "overview": "Resumen",
+        "opportunities": "Oportunidades",
+        "partners": "Socios",
+        "sectors": "Sectores",
+        "insights": "Análisis",
+        "watchlist": "Favoritos"
+      },
       "stats": {
         "opportunities": "Oportunidades",
         "partners": "Socios verificados",
-        "insights": "Análisis de mercado"
-      }
-    },
-    "features": {
-      "verified": {
-        "title": "Socios verificados",
-        "desc": "Conéctese con empresas fiables y previamente validadas en toda la RDC."
+        "products": "Productos publicados"
       },
-      "opportunities": {
-        "title": "Oportunidades de mercado",
-        "desc": "Descubra sectores de alto potencial y oportunidades de inversión."
+      "topOpportunities": "Oportunidades abiertas",
+      "verified": "Verificado",
+      "companies": "empresas",
+      "kpi": {
+        "budget": "Presupuesto anunciado",
+        "newListings": "Nuevos (30 días)",
+        "activeListings": "Anuncios activos"
       },
-      "intelligence": {
-        "title": "Inteligencia de negocios",
-        "desc": "Acceda a datos, análisis e información para tomar decisiones más acertadas."
-      }
+      "notifTitle": "Notificaciones",
+      "scopeRegion": "África Central",
+      "scopeGlobal": "Global",
+      "statsSub": {
+        "closingSoon": "{n} cierran en 30 días",
+        "provinces": "{n, plural, one {# provincia} other {# provincias}}",
+        "categories": "{n, plural, one {# categoría} other {# categorías}}"
+      },
+      "sectorBars": "Empresas por sector",
+      "provinceBars": "Anuncios por provincia",
+      "offers": "{n, plural, =0 {Sin ofertas} one {# oferta} other {# ofertas}}",
+      "closesIn": "D-{days}",
+      "noDeadline": "Abierta",
+      "watchEmptyTitle": "Siga empresas y oportunidades",
+      "watchEmptyBody": "Inicie sesión para guardar favoritos y recibir sus novedades.",
+      "watchCta": "Iniciar sesión",
+      "notif": {
+        "opportunity": "Nueva oportunidad: {label}",
+        "company": "Empresa verificada: {label}",
+        "product": "Nueva oferta: {label}"
+      },
+      "notifEmpty": "Nada nuevo por ahora."
     },
     "ribbon": {
       "lead": "Conexiones de confianza. Oportunidades reales.",
@@ -2091,62 +2119,6 @@
     "join": {
       "cta": "Únase a la plataforma",
       "tagline": "Conecte. Comercie. Crezca en la RDC."
-    },
-    "panel": {
-      "overview": "Resumen",
-      "drc": "RDC",
-      "nav": {
-        "overview": "Resumen",
-        "opportunities": "Oportunidades",
-        "partners": "Socios",
-        "sectors": "Sectores",
-        "insights": "Análisis",
-        "watchlist": "Favoritos"
-      },
-      "stats": {
-        "opportunities": "Oportunidades",
-        "partners": "Socios verificados",
-        "insights": "Análisis de mercado"
-      },
-      "topOpportunities": "Principales oportunidades",
-      "marketActivity": "Actividad del mercado",
-      "highPotential": "Alto potencial",
-      "top": {
-        "infrastructure": "Desarrollo de infraestructura",
-        "mining": "Minería y recursos",
-        "agriculture": "Agricultura y agroindustria",
-        "energy": "Energía y renovables"
-      },
-      "oppTypes": {
-        "tender": "Licitación",
-        "partnership": "Asociación",
-        "investment": "Inversión",
-        "distribution": "Distribución"
-      },
-      "statusOpen": "Abierto",
-      "verified": "Verificado",
-      "sector": {
-        "mining": "Minería",
-        "agriculture": "Agricultura",
-        "energy": "Energía",
-        "ict": "Digital y TIC",
-        "manufacturing": "Manufactura",
-        "logistics": "Logística"
-      },
-      "companies": "empresas",
-      "kpi": {
-        "volume": "Volumen comercial",
-        "growth": "Crecimiento anual",
-        "listings": "Nuevos listados"
-      },
-      "saved": "Guardado",
-      "viewAll": "Ver todo",
-      "notifTitle": "Notificaciones",
-      "notif1": "Nuevo socio verificado en Minería",
-      "notif2": "3 nuevas oportunidades esta semana",
-      "notif3": "El informe de mercado del 2T está listo",
-      "scopeRegion": "África Central",
-      "scopeGlobal": "Global"
     },
     "sectors": {
       "eyebrow": "Sectores clave",
@@ -5533,5 +5505,84 @@
       "invalid": "Revise: organización, correo, objeto (y un enlace que empiece por https://).",
       "error": "Se produjo un error. Inténtelo de nuevo."
     }
+  },
+  "HomeStart": {
+    "commitments": {
+      "label": "Nuestros compromisos",
+      "checks": {
+        "unit": "puntos",
+        "label": "de verificación",
+        "body": "Documentos, contacto oficial, expediente y ubicación revisados antes de cualquier publicación."
+      },
+      "companies": {
+        "unit": "{count, plural, one {empresa} other {empresas}}",
+        "label": "{count, plural, one {verificada} other {verificadas}}",
+        "body": "Cada perfil publicado lleva su sello de verificación, visible para todos."
+      },
+      "provinces": {
+        "unit": "{count, plural, one {provincia} other {provincias}}",
+        "label": "{count, plural, one {representada} other {representadas}}",
+        "body": "De las 26 provincias de la RDC. La red crece con cada nueva verificación."
+      }
+    },
+    "paths": {
+      "eyebrow": "Punto de partida",
+      "title": "¿Por dónde quiere empezar?",
+      "lead": "Tres recorridos pensados para cada tipo de actor, con el mismo nivel de exigencia.",
+      "advisorQ": "¿No sabe qué recorrido elegir?",
+      "advisorCta": "Hablar con un asesor",
+      "offers": "{count, plural, =0 {Sin ofertas} one {# oferta} other {# ofertas}}",
+      "buy": {
+        "title": "Comprar",
+        "body": "Encuentre un proveedor verificado, en la RDC o en el extranjero.",
+        "p1": "Solicite una cotización sin crear una cuenta",
+        "p2": "Proveedores verificados en 4 puntos",
+        "p3": "Ofertas de importación y exportación en un solo lugar",
+        "import": "Importar a la RDC",
+        "export": "Comprar congoleño",
+        "cta": "Ver el mercado"
+      },
+      "sell": {
+        "badge": "Para empresas",
+        "title": "Vender",
+        "body": "Muestre sus productos y reciba solicitudes cualificadas.",
+        "p1": "Escaparate de empresa y catálogo",
+        "p2": "Solicitudes de compra de la RDC y del exterior",
+        "p3": "Sello de verificación visible",
+        "cta": "Registrar mi empresa"
+      },
+      "invest": {
+        "title": "Invertir",
+        "body": "Entienda el mercado antes de comprometerse.",
+        "p1": "Datos sectoriales e indicadores clave",
+        "p2": "Convocatorias de inversión y APP",
+        "p3": "Contacto con socios locales",
+        "cta": "Ver los datos",
+        "secondary": "Ver convocatorias de inversión"
+      }
+    }
+  },
+  "HomeMarket": {
+    "eyebrow": "Mercado en vivo",
+    "title": "Lo que circula en este momento",
+    "viewAll": "Ver todo el mercado",
+    "search": {
+      "label": "Buscar en el mercado",
+      "what": "¿Qué busca?",
+      "whatPh": "Nombre del producto…",
+      "category": "Categoría",
+      "allCategories": "Todas las categorías",
+      "direction": "Sentido",
+      "allDirections": "Importación y exportación",
+      "import": "Importación a la RDC",
+      "export": "Exportación desde la RDC",
+      "submit": "Buscar"
+    },
+    "trends": "Tendencias:",
+    "tabsLabel": "Filtrar por sector",
+    "all": "Todas",
+    "results": "{count, plural, =0 {Sin ofertas} one {# oferta} other {# ofertas}}",
+    "seeAll": "{count, plural, one {Ver la oferta} other {Ver las # ofertas}}",
+    "empty": "Todavía no hay ofertas en este sector."
   }
 }

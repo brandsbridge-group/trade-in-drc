@@ -24,12 +24,14 @@ import {
   type FacetOption,
 } from "@/components/marketplace/products/facet-checkboxes";
 import { OfferCard, type OfferCardData } from "@/components/marketplace/products/offer-card";
+import {
+  OFFER_CARD_SELECT,
+  toOfferCardData,
+  type OfferCardRow,
+} from "@/components/marketplace/products/offer-card-data";
 import { FiltersPanel } from "@/components/marketplace/products/filters-panel";
 import {
-  cardFacts,
-  initialsOf,
   isOrigin,
-  offerVisual,
   placeOf as offerPlaceOf,
   tierGroup,
   type Origin,
@@ -54,32 +56,7 @@ const CHAIN_LINKS = [
 /** Facet URL params, in chip order. */
 const FACET_PARAMS = ["from", "cat", "tier"] as const;
 
-interface ProductRow {
-  id: string;
-  name: string;
-  name_en: string | null;
-  name_fr: string | null;
-  images: string[] | null;
-  specs: Record<string, unknown> | null;
-  created_at: string;
-  categories: {
-    id: string;
-    slug: string | null;
-    name_en: string | null;
-    name_fr: string | null;
-  } | null;
-  companies: {
-    name: string;
-    logo_url: string | null;
-    verification_tier: string | null;
-    registration_profile: string | null;
-    country: string | null;
-    province: string | null;
-    city: string | null;
-    moq: string | null;
-    lead_time: string | null;
-  } | null;
-}
+type ProductRow = OfferCardRow;
 
 function listParam(value: string | undefined): string[] {
   return (value ?? "").split(",").filter(Boolean);
@@ -130,9 +107,7 @@ export default async function ProductsPage({
 
   let q = supabase
     .from("products")
-    .select(
-      "id, name, name_en, name_fr, images, specs, created_at, categories(id, slug, name_en, name_fr), companies!inner(name, logo_url, verification_tier, registration_profile, country, province, city, moq, lead_time)",
-    )
+    .select(OFFER_CARD_SELECT)
     .eq("companies.status", "verified");
   if (origin) {
     q = q.eq("companies.registration_profile", origin === "import" ? "international" : "congolese");
@@ -181,24 +156,10 @@ export default async function ProductsPage({
     tierLabel,
   );
 
-  const offers: OfferCardData[] = rows.map((p) => {
-    const c = p.companies!;
-    return {
-      id: p.id,
-      name: pickLocalized(p, "name", loc) || p.name,
-      category: p.categories ? pickLocalized(p.categories, "name", loc) : null,
-      verified: tierGroup(c.verification_tier) === "full",
-      supplier: c.name,
-      supplierLogo: c.logo_url,
-      supplierInitials: initialsOf(c.name),
-      location: [c.city, placeOf(p)].filter(Boolean).join(", ") || null,
-      visual: offerVisual(p.images, p.categories?.slug ?? null),
-      facts: cardFacts(c, p.specs, {
-        moq: t("card.moq"),
-        leadTime: t("card.leadTime"),
-      }),
-    };
-  });
+  const factLabels = { moq: t("card.moq"), leadTime: t("card.leadTime") };
+  const offers: OfferCardData[] = rows.map((p) =>
+    toOfferCardData({ ...p, companies: p.companies! }, loc, factLabels),
+  );
 
   // Active filter chips — each links to the same URL minus that one value.
   const chipLabel = (param: (typeof FACET_PARAMS)[number], value: string) =>

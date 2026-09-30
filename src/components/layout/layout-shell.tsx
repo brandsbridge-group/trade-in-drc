@@ -21,11 +21,11 @@ interface LayoutShellProps {
 export function LayoutShell({ children, footer }: LayoutShellProps) {
     const pathname = usePathname();
     const isDashboard = pathname.includes('/dashboard');
-    const isAdmin = pathname.includes('/admin');
+    const isConsole = pathname.includes('/console');
     // Routes of the (auth) group render full-screen, outside the site chrome.
     const segment = pathname.split('/')[2] ?? '';
     const isAuth = AUTH_SEGMENTS.has(segment);
-    const hideChrome = isDashboard || isAdmin || isAuth;
+    const hideChrome = isDashboard || isConsole || isAuth;
 
     return (
         <>

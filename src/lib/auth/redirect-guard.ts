@@ -40,7 +40,7 @@ export function resolveSafeRedirect(
  * instead of being restated as a bare `/dashboard` fallback in three places.
  * An explicit `?redirect=` target (validated by `resolveSafeRedirect`) still
  * always wins over this default. The ADMIN branch bypasses this helper
- * entirely and always goes to `/admin` — that decision is made by the caller
+ * entirely and always goes to `/console` — that decision is made by the caller
  * before this function is ever reached.
  */
 export function resolvePostAuthRedirect(

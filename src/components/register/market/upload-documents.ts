@@ -11,7 +11,7 @@ import { buildRegistrationDocumentPath } from "@/lib/storage/registration-docume
  * `proof_of_address`. That is one of the three types
  * `EXPECTED_DOC_TYPES` (src/constants/status.ts) counts for the admin
  * verification queue's completeness dots
- * (src/app/[locale]/admin/verifications/page.tsx). Since "Additional
+ * (src/app/[locale]/console/verifications/page.tsx). Since "Additional
  * documents" is an optional, unvalidated catch-all — a business card, a
  * brochure, literally anything — that mapping let ANY file dropped there
  * make "Proof of address: uploaded" read as satisfied without the applicant

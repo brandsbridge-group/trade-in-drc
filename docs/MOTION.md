@@ -228,6 +228,9 @@ The Tailwind global rule covers 90% of cases. Per-component is for framer-only a
 - `src/components/marketplace/landing/market-directions.tsx` — direction-card photo hover scale (§2.6) ✓
 - `src/components/marketplace/chain/chain-client-bits.tsx` — "My operation" floating bar enter/exit (§2.2, 250 ms, opacity-only under reduced motion) ✓
 - `src/components/layout/nav-pills.tsx` — sliding hover/active highlight (§2.9); `navbar.tsx` glass-on-scroll background/border (§2.1, 200 ms colour) ✓
+- `src/components/home/market/home-market-grid.tsx` — homepage live-market sector tabs: grid swap with the §2.4 recipe (150 ms, instant under reduced motion); tab pill colour and offer-card hovers per §2.1 / §2.6 ✓
+- `src/components/home/start/home-start.tsx` — homepage commitments band + entry paths: §2.2 section enters, Import/Export tile photo settle (§2.6, 1.04), arrow nudges and CTA colour hovers (§2.1, 150 ms) ✓
+- `src/components/home/landing/hero-dashboard-panel.tsx` — homepage dashboard showcase: tab swap (§2.4 with a §2.2 staggered enter), sliding sidebar highlight (§2.9), count-up numbers and bars growing in with `scaleX` (500 ms marketing-surface enter, 50 ms stagger; instant under reduced motion) ✓
 - `sonner` toasts — built-in animations
 
 ### Motion gaps to fix (audit will plan these)

@@ -165,9 +165,9 @@ export async function submitVerificationDecision(
   }
 
   // Refresh both the queue and the company detail surfaces.
-  revalidatePath(`/${locale}/admin/verifications`);
-  revalidatePath(`/${locale}/admin/verifications/${companyId}`);
-  revalidatePath(`/${locale}/admin/companies/${companyId}`);
+  revalidatePath(`/${locale}/console/verifications`);
+  revalidatePath(`/${locale}/console/verifications/${companyId}`);
+  revalidatePath(`/${locale}/console/companies/${companyId}`);
 
   return { ok: true };
 }
@@ -251,7 +251,7 @@ export async function resubmitCompanyVerification(
   }
 
   revalidatePath(`/${locale}/dashboard`);
-  revalidatePath(`/${locale}/admin/verifications`);
+  revalidatePath(`/${locale}/console/verifications`);
 
   return { ok: true };
 }
@@ -320,8 +320,8 @@ export async function setVerificationTier(
     return { ok: false, error: "company_update_failed" };
   }
 
-  revalidatePath(`/${locale}/admin/companies/${companyId}`);
-  revalidatePath(`/${locale}/admin/verifications/${companyId}`);
+  revalidatePath(`/${locale}/console/companies/${companyId}`);
+  revalidatePath(`/${locale}/console/verifications/${companyId}`);
   return { ok: true };
 }
 

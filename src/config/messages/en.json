@@ -1325,7 +1325,8 @@
         "congoleseCompany": "Congolese Company",
         "internationalBusiness": "International Business",
         "user": "Standard user"
-      }
+      },
+      "selfActionError": "You cannot change the role of, or suspend, your own account."
     },
     "dashboard": {
       "title": "Admin Dashboard",
@@ -2014,36 +2015,63 @@
   "Landing": {
     "hero": {
       "badge": "Connect · Trade · Grow",
-      "titleLead": "Trade in ",
-      "titleAccent": "DRC",
-      "subtitle": "Your Gateway to Trusted Business in the Democratic Republic of Congo",
       "body": "Connect with reliable local partners, discover market opportunities, and access strategic insights to invest, trade, and grow with confidence.",
-      "ctaPrimary": "Explore Opportunities",
-      "ctaSecondary": "Find Partners",
+      "ctaOpportunities": "Explore Opportunities",
       "trust": {
         "verified": "Verified partners",
         "bilingual": "Available in 5 languages",
         "free": "Free to browse"
       },
+      "brand": "Trade in DRC",
+      "title": "Your gateway to <accent>trusted business</accent> in the DRC",
+      "ctaMarket": "Explore the market"
+    },
+    "panel": {
+      "overview": "Overview",
+      "drc": "DRC",
+      "nav": {
+        "overview": "Overview",
+        "opportunities": "Opportunities",
+        "partners": "Partners",
+        "sectors": "Sectors",
+        "insights": "Insights",
+        "watchlist": "Watchlist"
+      },
       "stats": {
         "opportunities": "Opportunities",
-        "partners": "Verified partners",
-        "insights": "Market insights"
-      }
-    },
-    "features": {
-      "verified": {
-        "title": "Verified Partners",
-        "desc": "Connect with pre-vetted, reliable businesses across the DRC."
+        "partners": "Verified Partners",
+        "products": "Products listed"
       },
-      "opportunities": {
-        "title": "Market Opportunities",
-        "desc": "Discover high-potential sectors and investment opportunities."
+      "topOpportunities": "Open opportunities",
+      "verified": "Verified",
+      "companies": "companies",
+      "kpi": {
+        "budget": "Announced budget",
+        "newListings": "New (30 days)",
+        "activeListings": "Active listings"
       },
-      "intelligence": {
-        "title": "Business Intelligence",
-        "desc": "Access data, analytics, and insights to make smarter decisions."
-      }
+      "notifTitle": "Notifications",
+      "scopeRegion": "Central Africa",
+      "scopeGlobal": "Global",
+      "statsSub": {
+        "closingSoon": "{n} closing within 30 days",
+        "provinces": "{n, plural, one {# province} other {# provinces}}",
+        "categories": "{n, plural, one {# category} other {# categories}}"
+      },
+      "sectorBars": "Companies by sector",
+      "provinceBars": "Listings by province",
+      "offers": "{n, plural, =0 {No offers} one {# offer} other {# offers}}",
+      "closesIn": "D-{days}",
+      "noDeadline": "Open",
+      "watchEmptyTitle": "Follow companies and opportunities",
+      "watchEmptyBody": "Sign in to save favourites and get notified when they change.",
+      "watchCta": "Sign in",
+      "notif": {
+        "opportunity": "New opportunity: {label}",
+        "company": "Verified company: {label}",
+        "product": "New offer: {label}"
+      },
+      "notifEmpty": "Nothing new right now."
     },
     "ribbon": {
       "lead": "Trusted Connections. Real Opportunities.",
@@ -2091,62 +2119,6 @@
     "join": {
       "cta": "Join the platform",
       "tagline": "Connect. Trade. Grow in DRC."
-    },
-    "panel": {
-      "overview": "Overview",
-      "drc": "DRC",
-      "nav": {
-        "overview": "Overview",
-        "opportunities": "Opportunities",
-        "partners": "Partners",
-        "sectors": "Sectors",
-        "insights": "Insights",
-        "watchlist": "Watchlist"
-      },
-      "stats": {
-        "opportunities": "Opportunities",
-        "partners": "Verified Partners",
-        "insights": "Market Insights"
-      },
-      "topOpportunities": "Top Opportunities",
-      "marketActivity": "Market Activity",
-      "highPotential": "High Potential",
-      "top": {
-        "infrastructure": "Infrastructure Development",
-        "mining": "Mining & Resources",
-        "agriculture": "Agriculture & Agri-business",
-        "energy": "Energy & Renewables"
-      },
-      "oppTypes": {
-        "tender": "Tender",
-        "partnership": "Partnership",
-        "investment": "Investment",
-        "distribution": "Distribution"
-      },
-      "statusOpen": "Open",
-      "verified": "Verified",
-      "sector": {
-        "mining": "Mining",
-        "agriculture": "Agriculture",
-        "energy": "Energy",
-        "ict": "Digital & ICT",
-        "manufacturing": "Manufacturing",
-        "logistics": "Logistics"
-      },
-      "companies": "companies",
-      "kpi": {
-        "volume": "Trade volume",
-        "growth": "YoY growth",
-        "listings": "New listings"
-      },
-      "saved": "Saved",
-      "viewAll": "View all",
-      "notifTitle": "Notifications",
-      "notif1": "New verified partner in Mining",
-      "notif2": "3 new opportunities this week",
-      "notif3": "Q2 market report is ready",
-      "scopeRegion": "Central Africa",
-      "scopeGlobal": "Global"
     },
     "sectors": {
       "eyebrow": "Key Sectors",
@@ -5533,5 +5505,84 @@
       "invalid": "Please check: organisation, email, subject (and a link starting with https://).",
       "error": "Something went wrong. Please try again."
     }
+  },
+  "HomeStart": {
+    "commitments": {
+      "label": "Our commitments",
+      "checks": {
+        "unit": "checks",
+        "label": "before listing",
+        "body": "Documents, official contact, business file and location reviewed before anything is published."
+      },
+      "companies": {
+        "unit": "{count, plural, one {company} other {companies}}",
+        "label": "verified",
+        "body": "Every published profile carries its verification badge, visible to all."
+      },
+      "provinces": {
+        "unit": "{count, plural, one {province} other {provinces}}",
+        "label": "represented",
+        "body": "Out of the DRC's 26 provinces. The network grows with every new verification."
+      }
+    },
+    "paths": {
+      "eyebrow": "Where to start",
+      "title": "Where would you like to start?",
+      "lead": "Three paths designed for each kind of player, held to the same standard.",
+      "advisorQ": "Not sure which path?",
+      "advisorCta": "Talk to an advisor",
+      "offers": "{count, plural, =0 {No offers} one {# offer} other {# offers}}",
+      "buy": {
+        "title": "Buy",
+        "body": "Find a verified supplier, in the DRC or abroad.",
+        "p1": "Request a quote without an account",
+        "p2": "Suppliers verified on 4 checks",
+        "p3": "Import and export offers in one place",
+        "import": "Import into the DRC",
+        "export": "Buy Congolese",
+        "cta": "See the market"
+      },
+      "sell": {
+        "badge": "For companies",
+        "title": "Sell",
+        "body": "Showcase your products and receive qualified requests.",
+        "p1": "Company showcase and catalogue",
+        "p2": "Purchase requests from the DRC and beyond",
+        "p3": "Visible verification badge",
+        "cta": "Register my company"
+      },
+      "invest": {
+        "title": "Invest",
+        "body": "Understand the market before you commit.",
+        "p1": "Sector data and key indicators",
+        "p2": "Investment calls and PPPs",
+        "p3": "Introductions to local partners",
+        "cta": "See the data",
+        "secondary": "See investment calls"
+      }
+    }
+  },
+  "HomeMarket": {
+    "eyebrow": "Live market",
+    "title": "What's moving right now",
+    "viewAll": "See the whole market",
+    "search": {
+      "label": "Search the market",
+      "what": "What are you looking for?",
+      "whatPh": "Product name…",
+      "category": "Category",
+      "allCategories": "All categories",
+      "direction": "Direction",
+      "allDirections": "Import and export",
+      "import": "Import into the DRC",
+      "export": "Export from the DRC",
+      "submit": "Search"
+    },
+    "trends": "Trending:",
+    "tabsLabel": "Filter by sector",
+    "all": "All",
+    "results": "{count, plural, =0 {No offers} one {# offer} other {# offers}}",
+    "seeAll": "{count, plural, one {See the offer} other {See all # offers}}",
+    "empty": "No offers in this sector yet."
   }
 }

@@ -25,6 +25,8 @@ import {
 } from "@/components/ui/sheet";
 
 import { createClient } from "@/lib/supabase/client";
+import { ROUTES } from "@/constants/routes";
+import { isAdmin } from "@/constants/roles";
 import { NavPills } from "./nav-pills";
 
 /** True once the page has scrolled a little — the bar turns to glass. */
@@ -42,14 +44,16 @@ function useScrolled(threshold = 8) {
 
 export function Navbar() {
     const t = useTranslations("Nav");
-    const [userRole, setUserRole] = React.useState<string | null>(null);
+    // Staff (super-admin / moderator) only see the console entry; company-area
+    // links would bounce them back there anyway (proxy.ts).
+    const [isStaff, setIsStaff] = React.useState(false);
     const { user, signOut } = useAuth();
 
     React.useEffect(() => {
-        if (!user) { setUserRole(null); return; }
+        if (!user) { setIsStaff(false); return; }
         const supabase = createClient();
-        supabase.from('profiles').select('role').eq('id', user.id).single()
-            .then(({ data }) => setUserRole(data?.role ?? null));
+        supabase.from('profiles').select('role, staff_role, account_type').eq('id', user.id).single()
+            .then(({ data }) => setIsStaff(isAdmin(data)));
     }, [user]);
 
     // Five primary links inline from xl; the secondary ones always live under
@@ -144,29 +148,29 @@ export function Navbar() {
                                     </div>
                                 </div>
                                 <DropdownMenuSeparator />
-                                <DropdownMenuItem asChild>
-                                    <Link href="/dashboard" className="cursor-pointer">
-                                        <LayoutDashboard className="mr-2 h-4 w-4" />
-                                        {t("dashboard")}
-                                    </Link>
-                                </DropdownMenuItem>
-                                {userRole === 'admin' && (
+                                {isStaff ? (
+                                    <DropdownMenuItem asChild>
+                                        <Link href={ROUTES.CONSOLE} className="cursor-pointer">
+                                            <Shield className="mr-2 h-4 w-4" />
+                                            {t("adminPanel")}
+                                        </Link>
+                                    </DropdownMenuItem>
+                                ) : (
                                     <>
                                         <DropdownMenuItem asChild>
-                                            <Link href="/admin" className="cursor-pointer">
-                                                <Shield className="mr-2 h-4 w-4" />
-                                                {t("adminPanel")}
+                                            <Link href={ROUTES.DASHBOARD} className="cursor-pointer">
+                                                <LayoutDashboard className="mr-2 h-4 w-4" />
+                                                {t("dashboard")}
                                             </Link>
                                         </DropdownMenuItem>
-                                        <DropdownMenuSeparator />
+                                        <DropdownMenuItem asChild>
+                                            <Link href="/register-company" className="cursor-pointer">
+                                                <Building2 className="mr-2 h-4 w-4" />
+                                                {t("register")}
+                                            </Link>
+                                        </DropdownMenuItem>
                                     </>
                                 )}
-                                <DropdownMenuItem asChild>
-                                    <Link href="/register-company" className="cursor-pointer">
-                                        <Building2 className="mr-2 h-4 w-4" />
-                                        {t("register")}
-                                    </Link>
-                                </DropdownMenuItem>
                                 <DropdownMenuSeparator />
                                 <DropdownMenuItem onClick={() => signOut()} className="cursor-pointer text-destructive">
                                     <LogOut className="mr-2 h-4 w-4" />
@@ -183,14 +187,15 @@ export function Navbar() {
                     )}
 
                     {/* Primary CTA — marketplace gold, lit top edge. Guests are sent to
-                        /login by the proxy and land back on the form afterwards. */}
-                    <Link
-                        href="/dashboard/products/new"
+                        /login by the proxy and land back on the form afterwards. Hidden for
+                        staff: publishing is a company action. */}
+                    {!isStaff && <Link
+                        href={ROUTES.DASHBOARD_PRODUCTS_NEW}
                         className="group hidden h-8 shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full bg-market-or px-3.5 text-[12px] font-bold text-market-navy shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_4px_14px_-4px_rgba(203,161,78,0.55)] transition-colors duration-150 ease-out hover:bg-market-or-light sm:inline-flex"
                     >
                         <Plus className="h-3.5 w-3.5" aria-hidden />
                         {t("publishOffer")}
-                    </Link>
+                    </Link>}
 
                     {/* Mobile Menu */}
                     <Sheet>
@@ -238,14 +243,25 @@ export function Navbar() {
                                             </Button>
                                         </SheetClose>
                                     )}
-                                    <SheetClose asChild>
-                                        <Button asChild className="w-full rounded-xl bg-market-or font-bold text-market-navy hover:bg-market-or-light">
-                                            <Link href="/dashboard/products/new">
-                                                <Plus className="h-4 w-4" aria-hidden />
-                                                {t("publishOffer")}
-                                            </Link>
-                                        </Button>
-                                    </SheetClose>
+                                    {isStaff ? (
+                                        <SheetClose asChild>
+                                            <Button asChild className="w-full rounded-xl bg-market-navy font-semibold text-white hover:bg-market-navy/90">
+                                                <Link href={ROUTES.CONSOLE}>
+                                                    <Shield className="h-4 w-4" aria-hidden />
+                                                    {t("adminPanel")}
+                                                </Link>
+                                            </Button>
+                                        </SheetClose>
+                                    ) : (
+                                        <SheetClose asChild>
+                                            <Button asChild className="w-full rounded-xl bg-market-or font-bold text-market-navy hover:bg-market-or-light">
+                                                <Link href={ROUTES.DASHBOARD_PRODUCTS_NEW}>
+                                                    <Plus className="h-4 w-4" aria-hidden />
+                                                    {t("publishOffer")}
+                                                </Link>
+                                            </Button>
+                                        </SheetClose>
+                                    )}
                                 </div>
                             </div>
                         </SheetContent>

@@ -19,6 +19,7 @@
  */
 
 import type { AccountType, StaffRole } from "@/lib/supabase/types";
+import { ROUTES } from "@/constants/routes";
 
 /** Business account classification (profiles.account_type). */
 export const ACCOUNT_TYPE = {
@@ -97,6 +98,26 @@ export function isAdmin(profile: RoleProfile | null | undefined): boolean {
     isSuperAdmin(profile) ||
     profile.role === LEGACY_ROLE.ADMIN
   );
+}
+
+/**
+ * True when the profile holds super-admin privilege: `staff_role =
+ * 'super_admin'`, or a legacy `role = 'admin'` row with no staff_role (which
+ * {@link resolveRole} also surfaces as super-admin). Moderators are excluded.
+ */
+export function hasSuperAdminAccess(
+  profile: RoleProfile | null | undefined
+): boolean {
+  return resolveRole(profile) === APP_ROLE.SUPER_ADMIN;
+}
+
+/**
+ * Locale-less landing page for a signed-in profile — the single answer used
+ * after login and whenever someone strays outside their area. Staff land on the
+ * console, everyone else on their company list.
+ */
+export function roleHomePath(profile: RoleProfile | null | undefined): string {
+  return isAdmin(profile) ? ROUTES.CONSOLE : ROUTES.DASHBOARD_COMPANIES;
 }
 
 /** Resolve a profile row to one of the five canonical app roles. */

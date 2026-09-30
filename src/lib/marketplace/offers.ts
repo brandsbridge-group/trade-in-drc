@@ -9,6 +9,17 @@
 export type Origin = "import" | "export";
 export type TierGroup = "full" | "docs";
 
+/** Photos on the project's Vercel Blob store (allowed in next.config.ts). */
+const BLOB = "https://gkhs3jykmxksb2uk.public.blob.vercel-storage.com";
+
+/** Photo for each direction of trade (market landing cards, homepage paths). */
+export const DIRECTION_IMAGES: Record<Origin, string> = {
+  // Aerial container port.
+  import: `${BLOB}/1380.jpg`,
+  // Mining haul truck at sunset.
+  export: `${BLOB}/2151307809.jpg`,
+};
+
 export interface OfferCompanyFacts {
   registration_profile: string | null;
   country: string | null;

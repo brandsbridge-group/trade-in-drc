@@ -3,16 +3,11 @@ import { getTranslations } from "next-intl/server";
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 
 import { Link } from "@/i18n/routing";
-import type { Origin } from "@/lib/marketplace/offers";
-
-/** Photos on the project's Vercel Blob store (allowed in next.config.ts). */
-const BLOB = "https://gkhs3jykmxksb2uk.public.blob.vercel-storage.com";
+import { DIRECTION_IMAGES, type Origin } from "@/lib/marketplace/offers";
 
 const DIRECTIONS = [
-  // Aerial container port.
-  { key: "import", Icon: ArrowDownRight, image: `${BLOB}/1380.jpg` },
-  // Mining haul truck at sunset.
-  { key: "export", Icon: ArrowUpRight, image: `${BLOB}/2151307809.jpg` },
+  { key: "import", Icon: ArrowDownRight, image: DIRECTION_IMAGES.import },
+  { key: "export", Icon: ArrowUpRight, image: DIRECTION_IMAGES.export },
 ] as const;
 
 /**

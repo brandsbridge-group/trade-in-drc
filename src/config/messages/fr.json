@@ -1325,7 +1325,8 @@
         "congoleseCompany": "Entreprise congolaise",
         "internationalBusiness": "Entreprise internationale",
         "user": "Utilisateur standard"
-      }
+      },
+      "selfActionError": "Vous ne pouvez pas modifier le rôle de votre propre compte ni le suspendre."
     },
     "dashboard": {
       "title": "Tableau de bord admin",
@@ -2014,36 +2015,63 @@
   "Landing": {
     "hero": {
       "badge": "Connecter · Commercer · Grandir",
-      "titleLead": "Trade in ",
-      "titleAccent": "DRC",
-      "subtitle": "Votre porte d'entrée vers des affaires de confiance en République démocratique du Congo",
       "body": "Connectez-vous à des partenaires locaux fiables, découvrez des opportunités de marché et accédez à des analyses stratégiques pour investir, commercer et croître en toute confiance.",
-      "ctaPrimary": "Explorer les opportunités",
-      "ctaSecondary": "Trouver des partenaires",
+      "ctaOpportunities": "Explorer les opportunités",
       "trust": {
         "verified": "Partenaires vérifiés",
         "bilingual": "Disponible en 5 langues",
         "free": "Consultation gratuite"
       },
+      "brand": "Trade in DRC",
+      "title": "Votre porte d'entrée vers des <accent>affaires de confiance</accent> en RDC",
+      "ctaMarket": "Explorer le marché"
+    },
+    "panel": {
+      "overview": "Aperçu",
+      "drc": "RDC",
+      "nav": {
+        "overview": "Aperçu",
+        "opportunities": "Opportunités",
+        "partners": "Partenaires",
+        "sectors": "Secteurs",
+        "insights": "Analyses",
+        "watchlist": "Favoris"
+      },
       "stats": {
         "opportunities": "Opportunités",
         "partners": "Partenaires vérifiés",
-        "insights": "Analyses de marché"
-      }
-    },
-    "features": {
-      "verified": {
-        "title": "Partenaires vérifiés",
-        "desc": "Connectez-vous à des entreprises fiables et pré-vérifiées partout en RDC."
+        "products": "Produits publiés"
       },
-      "opportunities": {
-        "title": "Opportunités de marché",
-        "desc": "Découvrez des secteurs à fort potentiel et des opportunités d'investissement."
+      "topOpportunities": "Opportunités ouvertes",
+      "verified": "Vérifié",
+      "companies": "entreprises",
+      "kpi": {
+        "budget": "Budget annoncé",
+        "newListings": "Nouveautés (30 j)",
+        "activeListings": "Annonces actives"
       },
-      "intelligence": {
-        "title": "Intelligence économique",
-        "desc": "Accédez aux données, analyses et tendances pour décider plus juste."
-      }
+      "notifTitle": "Notifications",
+      "scopeRegion": "Afrique centrale",
+      "scopeGlobal": "Mondial",
+      "statsSub": {
+        "closingSoon": "{n} clôturent sous 30 j",
+        "provinces": "{n, plural, one {# province} other {# provinces}}",
+        "categories": "{n, plural, one {# catégorie} other {# catégories}}"
+      },
+      "sectorBars": "Entreprises par secteur",
+      "provinceBars": "Annonces par province",
+      "offers": "{n, plural, =0 {Aucune offre} one {# offre} other {# offres}}",
+      "closesIn": "J-{days}",
+      "noDeadline": "Ouvert",
+      "watchEmptyTitle": "Suivez entreprises et opportunités",
+      "watchEmptyBody": "Connectez-vous pour enregistrer vos favoris et être prévenu de leurs mises à jour.",
+      "watchCta": "Se connecter",
+      "notif": {
+        "opportunity": "Nouvelle opportunité : {label}",
+        "company": "Entreprise vérifiée : {label}",
+        "product": "Nouvelle offre : {label}"
+      },
+      "notifEmpty": "Aucune nouveauté pour le moment."
     },
     "ribbon": {
       "lead": "Des connexions de confiance. De vraies opportunités.",
@@ -2091,62 +2119,6 @@
     "join": {
       "cta": "Rejoindre la plateforme",
       "tagline": "Connectez. Commercez. Grandissez en RDC."
-    },
-    "panel": {
-      "overview": "Aperçu",
-      "drc": "RDC",
-      "nav": {
-        "overview": "Aperçu",
-        "opportunities": "Opportunités",
-        "partners": "Partenaires",
-        "sectors": "Secteurs",
-        "insights": "Analyses",
-        "watchlist": "Favoris"
-      },
-      "stats": {
-        "opportunities": "Opportunités",
-        "partners": "Partenaires vérifiés",
-        "insights": "Analyses de marché"
-      },
-      "topOpportunities": "Meilleures opportunités",
-      "marketActivity": "Activité du marché",
-      "highPotential": "Fort potentiel",
-      "top": {
-        "infrastructure": "Développement des infrastructures",
-        "mining": "Mines et ressources",
-        "agriculture": "Agriculture et agro-industrie",
-        "energy": "Énergie et renouvelables"
-      },
-      "oppTypes": {
-        "tender": "Appel d'offres",
-        "partnership": "Partenariat",
-        "investment": "Investissement",
-        "distribution": "Distribution"
-      },
-      "statusOpen": "Ouvert",
-      "verified": "Vérifié",
-      "sector": {
-        "mining": "Mines",
-        "agriculture": "Agriculture",
-        "energy": "Énergie",
-        "ict": "Numérique & TIC",
-        "manufacturing": "Industrie",
-        "logistics": "Logistique"
-      },
-      "companies": "entreprises",
-      "kpi": {
-        "volume": "Volume d'échanges",
-        "growth": "Croissance annuelle",
-        "listings": "Nouvelles annonces"
-      },
-      "saved": "Enregistré",
-      "viewAll": "Voir tout",
-      "notifTitle": "Notifications",
-      "notif1": "Nouveau partenaire vérifié dans les Mines",
-      "notif2": "3 nouvelles opportunités cette semaine",
-      "notif3": "Le rapport de marché du T2 est prêt",
-      "scopeRegion": "Afrique centrale",
-      "scopeGlobal": "Mondial"
     },
     "sectors": {
       "eyebrow": "Secteurs clés",
@@ -5533,5 +5505,84 @@
       "invalid": "Vérifiez les champs : organisation, e-mail, objet (et un lien commençant par https://).",
       "error": "Une erreur est survenue. Réessayez."
     }
+  },
+  "HomeStart": {
+    "commitments": {
+      "label": "Nos engagements",
+      "checks": {
+        "unit": "points",
+        "label": "de vérification",
+        "body": "Documents, contact officiel, dossier et localisation contrôlés avant toute publication."
+      },
+      "companies": {
+        "unit": "{count, plural, one {entreprise} other {entreprises}}",
+        "label": "{count, plural, one {vérifiée} other {vérifiées}}",
+        "body": "Chaque profil publié porte son badge de vérification, visible de tous."
+      },
+      "provinces": {
+        "unit": "{count, plural, one {province} other {provinces}}",
+        "label": "{count, plural, one {représentée} other {représentées}}",
+        "body": "Sur les 26 provinces de la RDC. Le réseau s'étend à chaque nouvelle vérification."
+      }
+    },
+    "paths": {
+      "eyebrow": "Point d'entrée",
+      "title": "Par où voulez-vous commencer ?",
+      "lead": "Trois parcours pensés pour chaque type d'acteur, avec le même niveau d'exigence.",
+      "advisorQ": "Pas sûr de votre parcours ?",
+      "advisorCta": "Parler à un conseiller",
+      "offers": "{count, plural, =0 {Aucune offre} one {# offre} other {# offres}}",
+      "buy": {
+        "title": "Acheter",
+        "body": "Trouvez un fournisseur vérifié, en RDC ou à l'étranger.",
+        "p1": "Demande de devis sans créer de compte",
+        "p2": "Fournisseurs vérifiés en 4 points",
+        "p3": "Offres import et export au même endroit",
+        "import": "Importer en RDC",
+        "export": "Acheter congolais",
+        "cta": "Voir le marché"
+      },
+      "sell": {
+        "badge": "Pour les entreprises",
+        "title": "Vendre",
+        "body": "Exposez vos produits et recevez des demandes qualifiées.",
+        "p1": "Vitrine entreprise et catalogue",
+        "p2": "Demandes d'achat de RDC et d'ailleurs",
+        "p3": "Badge de vérification visible",
+        "cta": "Inscrire mon entreprise"
+      },
+      "invest": {
+        "title": "Investir",
+        "body": "Comprenez le marché avant de vous engager.",
+        "p1": "Données sectorielles et indicateurs clés",
+        "p2": "Appels à investissement et PPP",
+        "p3": "Mise en relation avec des partenaires locaux",
+        "cta": "Voir les données",
+        "secondary": "Voir les appels à investissement"
+      }
+    }
+  },
+  "HomeMarket": {
+    "eyebrow": "Marché en direct",
+    "title": "Ce qui circule en ce moment",
+    "viewAll": "Voir tout le marché",
+    "search": {
+      "label": "Rechercher dans le marché",
+      "what": "Que recherchez-vous ?",
+      "whatPh": "Nom du produit…",
+      "category": "Catégorie",
+      "allCategories": "Toutes les catégories",
+      "direction": "Sens",
+      "allDirections": "Import et export",
+      "import": "Import vers la RDC",
+      "export": "Export depuis la RDC",
+      "submit": "Rechercher"
+    },
+    "trends": "Tendances :",
+    "tabsLabel": "Filtrer par secteur",
+    "all": "Toutes",
+    "results": "{count, plural, =0 {Aucune offre} one {# offre} other {# offres}}",
+    "seeAll": "{count, plural, one {Voir l'offre} other {Voir les # offres}}",
+    "empty": "Aucune offre dans ce secteur pour le moment."
   }
 }

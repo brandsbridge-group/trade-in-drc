@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import {
   approvePremiumRequest,
   rejectPremiumRequest,
-} from "@/app/[locale]/admin/requests/premium/actions";
+} from "@/app/[locale]/console/requests/premium/actions";
 import type {
   PremiumPlan,
   PremiumRequestStatus,

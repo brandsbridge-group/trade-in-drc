@@ -17,7 +17,7 @@ import {
 import {
   updateBusinessRequest,
   deleteBusinessRequest,
-} from "@/app/[locale]/admin/requests/actions";
+} from "@/app/[locale]/console/requests/actions";
 import type {
   BusinessRequestStatus,
   BusinessRequestIntent,

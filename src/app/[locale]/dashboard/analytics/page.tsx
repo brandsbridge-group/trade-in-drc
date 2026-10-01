@@ -12,14 +12,10 @@ import {
   TopSearchEntriesCard,
   NewsFeedCard,
 } from "@/components/dashboard/analytics-cards";
-import {
-  fetchOwnerProductIds,
-  fetchProfileViewTrend,
-  fetchSearchAppearanceTrend,
-  fetchTopSearchEntries,
-  fetchNewsFeed,
-  type OwnerAnalyticsScope,
-} from "@/lib/analytics/queries";
+import { fetchNewsFeed, type AnalyticsTrend, type TopSearchEntry } from "@/lib/analytics/queries";
+import { fetchOwnerDashboardMetrics, type MetricSeries } from "@/lib/dashboard/overview/metrics";
+
+const ANALYTICS_PERIOD = 30;
 
 function SectionSkeleton() {
   return (
@@ -48,35 +44,38 @@ export default function AnalyticsPage() {
   const { user } = useAuth();
   const { data: companies, isLoading: companiesLoading } = useCompanies(user?.id);
 
-  const companyIds = (companies ?? []).map((c) => c.id);
-  const hasCompanies = companyIds.length > 0;
+  const hasCompanies = (companies ?? []).length > 0;
 
-  // Resolve the owner's product ids so product-level search appearances roll up.
-  const { data: productIds = [] } = useQuery({
-    queryKey: ["analytics", "product-ids", companyIds],
-    queryFn: () => fetchOwnerProductIds(companyIds),
+  // Same source and window as the dashboard home: owners cannot read
+  // analytics_events under RLS, so everything comes from the 00052 aggregate.
+  const metrics = useQuery({
+    queryKey: ["overview", "metrics", user?.id, ANALYTICS_PERIOD],
+    queryFn: () => fetchOwnerDashboardMetrics(ANALYTICS_PERIOD),
     enabled: hasCompanies,
   });
-
-  const scope: OwnerAnalyticsScope = { companyIds, productIds };
-
-  const profileViews = useQuery({
-    queryKey: ["analytics", "profile-views", companyIds],
-    queryFn: () => fetchProfileViewTrend(companyIds),
-    enabled: hasCompanies,
-  });
-
-  const searchAppearances = useQuery({
-    queryKey: ["analytics", "search-appearances", companyIds, productIds],
-    queryFn: () => fetchSearchAppearanceTrend(scope),
-    enabled: hasCompanies,
-  });
-
-  const topSearchEntries = useQuery({
-    queryKey: ["analytics", "top-search-entries", companyIds, productIds],
-    queryFn: () => fetchTopSearchEntries(scope),
-    enabled: hasCompanies,
-  });
+  const toTrend = (m: MetricSeries | undefined): AnalyticsTrend =>
+    m
+      ? {
+          total: m.current,
+          recent: m.current,
+          previous: m.previous,
+          changePct: m.previous === 0 ? null : Math.round(((m.current - m.previous) / m.previous) * 100),
+        }
+      : { total: 0, recent: 0, previous: 0, changePct: null };
+  const profileViews = { ...metrics, data: toTrend(metrics.data?.metrics.profile_views) };
+  const searchAppearances = { ...metrics, data: toTrend(metrics.data?.metrics.search_appearances) };
+  const topSearchEntries = {
+    ...metrics,
+    data: (metrics.data?.top_search ?? []).map(
+      (e): TopSearchEntry => ({
+        entityType: e.entity_type,
+        entityId: e.entity_id,
+        nameEn: e.name_en,
+        nameFr: e.name_fr,
+        appearances: e.appearances,
+      })
+    ),
+  };
 
   // News/events feed is public content — independent of company ownership.
   const newsFeed = useQuery({

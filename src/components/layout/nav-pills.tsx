@@ -8,6 +8,7 @@ import {
     CalendarDays,
     ChevronDown,
     Handshake,
+    Info,
     Mail,
     MapPinned,
     Megaphone,
@@ -31,6 +32,7 @@ export interface NavLinkItem {
 
 /** Secondary destinations shown in the "More" panel. */
 const MORE: { key: string; href: string; Icon: LucideIcon }[] = [
+    { key: "about", href: "/about", Icon: Info },
     { key: "contactPoints", href: "/local-contacts", Icon: MapPinned },
     { key: "services", href: "/services", Icon: Handshake },
     { key: "events", href: "/events", Icon: CalendarDays },
@@ -40,7 +42,7 @@ const MORE: { key: string; href: string; Icon: LucideIcon }[] = [
 /**
  * Desktop nav — frameless links with one highlight pill that glides to the
  * hovered item and rests on the active page (MOTION.md §2.9). "More" opens a panel:
- * four destinations with icons + one-line descriptions, and a featured
+ * five destinations with icons + one-line descriptions, and a featured
  * "Promote your company" card.
  */
 export function NavPills({

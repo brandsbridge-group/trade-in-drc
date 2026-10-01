@@ -7,17 +7,13 @@ import { LandingTrustRibbon } from "@/components/home/landing/landing-trust-ribb
 // New homepage sections (boxed layout, see home-section.tsx).
 import { HomeStart } from "@/components/home/start/home-start";
 import { HomeMarket } from "@/components/home/market/home-market";
-// Previous landing sections, still shown until their replacement is built.
-import { HomeCarousel } from "@/components/home/home-carousel";
-import { FeaturedCompaniesStrip } from "@/components/home/featured-companies-strip";
-import { LandingAboutIntro } from "@/components/home/landing/landing-about-intro";
-import { LandingWhyDrc } from "@/components/home/landing/landing-why-drc";
-import { LandingSectors } from "@/components/home/landing/landing-sectors";
-import { LandingMissionBanner } from "@/components/home/landing/landing-mission-banner";
-import { LandingValueCards } from "@/components/home/landing/landing-value-cards";
-import { LandingHowItWorks } from "@/components/home/landing/landing-how-it-works";
-import { LandingTransformBanner } from "@/components/home/landing/landing-transform-banner";
-import { LandingJoinCta } from "@/components/home/landing/landing-join-cta";
+import { HomeDemands } from "@/components/home/demands/home-demands";
+import { HomeSuppliers } from "@/components/home/suppliers/home-suppliers";
+import { HomeChain } from "@/components/home/chain/home-chain";
+import { HomeWhy } from "@/components/home/why/home-why";
+import { HomeSectors } from "@/components/home/sectors/home-sectors";
+import { HomeSteps } from "@/components/home/steps/home-steps";
+import { HomeClosing } from "@/components/home/closing/home-closing";
 
 export async function generateMetadata({
   params,
@@ -38,10 +34,12 @@ export async function generateMetadata({
 }
 
 /**
- * Home page, being rebuilt section by section (2026-09-30): the full-bleed
- * gateway hero, then boxed sections — commitments + entry paths, the live
- * market. The previous landing sections below stay until each is replaced;
- * the old composition is preserved at /home-classic.
+ * Home page (redesigned 2026-09-30): the full-bleed gateway hero, then boxed
+ * sections — commitments + entry paths, the live market, buyer requests,
+ * verified suppliers, the service chain, why the DRC (full-width video band),
+ * key sectors, three steps — and the closing pair (full-width statement +
+ * join band). About / mission / values now live on /about (Nav → More); the
+ * old composition is preserved at /home-classic.
  */
 export default async function HomePage({
   params,
@@ -51,7 +49,9 @@ export default async function HomePage({
   const { locale } = await params;
 
   return (
-    <div className="bg-slate-50">
+    // -mb-12 cancels the site footer's top margin so the page's own background
+    // runs into the footer instead of leaving a white strip.
+    <div className="-mb-12 bg-slate-50">
       {/* ── Gateway hero: cinematic backdrop behind the hero copy and the
              dashboard panel, then the trust ribbon closes it. ── */}
       <div className="marketing-surface">
@@ -64,19 +64,14 @@ export default async function HomePage({
         <LandingTrustRibbon locale={locale} />
         <HomeStart locale={locale} />
         <HomeMarket locale={locale} />
+        <HomeDemands locale={locale} />
+        <HomeSuppliers locale={locale} />
+        <HomeChain locale={locale} />
+        <HomeWhy locale={locale} />
+        <HomeSectors locale={locale} />
+        <HomeSteps locale={locale} />
+        <HomeClosing locale={locale} />
       </div>
-
-      {/* ── Previous landing sections, pending their redesign. ── */}
-      <HomeCarousel locale={locale} />
-      <FeaturedCompaniesStrip locale={locale} />
-      <LandingAboutIntro locale={locale} />
-      <LandingWhyDrc locale={locale} />
-      <LandingSectors locale={locale} />
-      <LandingMissionBanner locale={locale} />
-      <LandingValueCards locale={locale} />
-      <LandingHowItWorks locale={locale} />
-      <LandingTransformBanner locale={locale} />
-      <LandingJoinCta locale={locale} />
     </div>
   );
 }

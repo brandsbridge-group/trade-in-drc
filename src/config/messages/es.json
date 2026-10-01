@@ -36,6 +36,7 @@
     "data": "Datos",
     "searchShort": "Buscar",
     "moreDesc": {
+      "about": "Nuestra misión, nuestros valores y nuestro equipo.",
       "contactPoints": "Instituciones y enlaces locales, provincia por provincia.",
       "services": "Acompañamiento integral de nuestro equipo.",
       "events": "Ferias, foros y misiones comerciales.",
@@ -368,7 +369,8 @@
       "settings": "Configuración",
       "expandSidebar": "Expandir barra lateral",
       "collapseSidebar": "Contraer barra lateral",
-      "services": "Servicios"
+      "services": "Servicios",
+      "openMenu": "Abrir el menú"
     },
     "editCompany": {
       "title": "Editar perfil de la empresa",
@@ -622,7 +624,30 @@
         "invalidUrl": "Introduzca una URL de vídeo válida que comience con http:// o https://."
       }
     },
-    "statusPendingDocuments": "Documentos pendientes"
+    "statusPendingDocuments": "Documentos pendientes",
+    "navGroups": {
+      "main": "Principal",
+      "trade": "Comercio",
+      "general": "General"
+    },
+    "companyType": {
+      "congolese": "Empresa congoleña",
+      "international": "Empresa internacional"
+    },
+    "premiumPromo": {
+      "title": "Hágase Premium",
+      "body": "Destaque su empresa ante compradores e inversores.",
+      "cta": "Ver los planes"
+    },
+    "unreadSr": "mensajes en espera:",
+    "breadcrumb": "Ruta de navegación",
+    "topbar": {
+      "search": "Buscar…",
+      "help": "Ayuda",
+      "inbox": "Mensajes",
+      "unread": "{count, plural, one {# mensaje en espera} other {# mensajes en espera}}",
+      "backToSite": "Volver al sitio"
+    }
   },
   "Footer": {
     "portal": "Portal",
@@ -5512,17 +5537,17 @@
       "checks": {
         "unit": "puntos",
         "label": "de verificación",
-        "body": "Documentos, contacto oficial, expediente y ubicación revisados antes de cualquier publicación."
+        "body": "Documentos, contacto, expediente y ubicación revisados."
       },
       "companies": {
         "unit": "{count, plural, one {empresa} other {empresas}}",
         "label": "{count, plural, one {verificada} other {verificadas}}",
-        "body": "Cada perfil publicado lleva su sello de verificación, visible para todos."
+        "body": "Sello de verificación visible en cada perfil."
       },
       "provinces": {
         "unit": "{count, plural, one {provincia} other {provincias}}",
         "label": "{count, plural, one {representada} other {representadas}}",
-        "body": "De las 26 provincias de la RDC. La red crece con cada nueva verificación."
+        "body": "De 26 en la RDC, y la red crece."
       }
     },
     "paths": {
@@ -5531,15 +5556,12 @@
       "lead": "Tres recorridos pensados para cada tipo de actor, con el mismo nivel de exigencia.",
       "advisorQ": "¿No sabe qué recorrido elegir?",
       "advisorCta": "Hablar con un asesor",
-      "offers": "{count, plural, =0 {Sin ofertas} one {# oferta} other {# ofertas}}",
       "buy": {
         "title": "Comprar",
         "body": "Encuentre un proveedor verificado, en la RDC o en el extranjero.",
         "p1": "Solicite una cotización sin crear una cuenta",
         "p2": "Proveedores verificados en 4 puntos",
         "p3": "Ofertas de importación y exportación en un solo lugar",
-        "import": "Importar a la RDC",
-        "export": "Comprar congoleño",
         "cta": "Ver el mercado"
       },
       "sell": {
@@ -5584,5 +5606,300 @@
     "results": "{count, plural, =0 {Sin ofertas} one {# oferta} other {# ofertas}}",
     "seeAll": "{count, plural, one {Ver la oferta} other {Ver las # ofertas}}",
     "empty": "Todavía no hay ofertas en este sector."
+  },
+  "HomeDemands": {
+    "eyebrow": "Solicitudes de compra",
+    "title": "Los compradores buscan, en este momento",
+    "lead": "Responda a las necesidades publicadas por compradores en la RDC y en el extranjero.",
+    "tabsLabel": "Tipo de necesidad",
+    "tabs": {
+      "demands": "Solicitudes de compra",
+      "notices": "Licitaciones y proyectos"
+    },
+    "viewAllDemands": "Todas las solicitudes",
+    "viewAllNotices": "Todas las licitaciones",
+    "columns": {
+      "request": "Solicitud",
+      "notice": "Aviso",
+      "type": "Tipo",
+      "budget": "Presupuesto",
+      "location": "Ubicación",
+      "deadline": "Cierre"
+    },
+    "closesIn": "{days, plural, =0 {Hoy} one {En # día} other {En # días}}",
+    "urgent": "Urgente · {days, plural, =0 {hoy} other {# d}}",
+    "noDeadline": "Sin fecha límite",
+    "undisclosed": "No comunicado",
+    "issuerUnknown": "Emisor no indicado",
+    "respond": "Responder",
+    "view": "Ver",
+    "emptyDemands": "No hay solicitudes abiertas por ahora.",
+    "emptyNotices": "No hay licitaciones abiertas por ahora.",
+    "cta": {
+      "title": "¿Tiene una necesidad? Publíquela en pocos minutos.",
+      "body": "Describa lo que busca: nuestro equipo la estudia y le pone en contacto con proveedores verificados.",
+      "secondary": "Obtener acompañamiento",
+      "primary": "Publicar una necesidad"
+    }
+  },
+  "HomeSuppliers": {
+    "eyebrow": "Directorio",
+    "title": "Proveedores verificados",
+    "lead": "Empresas revisadas en 4 puntos, listas para responder a sus solicitudes.",
+    "viewAll": "Todo el directorio",
+    "offers": "{count, plural, =0 {Sin ofertas} one {# oferta} other {# ofertas}}",
+    "verified": "Verificado",
+    "premium": "Premium",
+    "illustration": "Ilustración"
+  },
+  "DashboardOverview": {
+    "title": "Resumen",
+    "signInRequired": "Inicie sesión para ver su panel.",
+    "greeting": "Hola {name}: esta es la actividad de {company} en los últimos {days} días.",
+    "greetingNew": "Hola {name}: bienvenido a su espacio.",
+    "periodLabel": "Periodo",
+    "periodDays": "{days} d",
+    "periodCompare": "últimos {days} días, comparados con los {days} anteriores",
+    "ctaOffer": "Publicar una oferta",
+    "ctaRequest": "Publicar una solicitud",
+    "visibilityTitle": "Visibilidad",
+    "activityTitle": "Actividad",
+    "metricsError": "No se pudieron cargar sus estadísticas.",
+    "retry": "Reintentar",
+    "deltaNew": "Nuevo",
+    "deltaFlat": "Estable",
+    "deltaPoints": "{value} pt",
+    "deltaSr": {
+      "up": "sube",
+      "down": "baja",
+      "flat": "sin cambios",
+      "new": "nuevo"
+    },
+    "sparklineLabel": "{label}: evolución diaria en {days} días",
+    "todoTitle": "Por hacer ahora",
+    "todoAllDone": "Todo está al día. Nada requiere su atención.",
+    "todoMore": "{count, plural, one {# acción más} other {# acciones más}} en sus empresas y mensajes.",
+    "noActionNeeded": "Ninguna acción necesaria",
+    "tasks": {
+      "verification_documents": {
+        "title": "Verificación: faltan documentos",
+        "body": "Envíe los documentos de {company} para publicar su perfil.",
+        "cta": "Completar el expediente"
+      },
+      "verification_more_info": {
+        "title": "Información solicitada",
+        "body": "{notes}",
+        "cta": "Actualizar {company}"
+      },
+      "verification_rejected": {
+        "title": "Verificación rechazada",
+        "body": "{notes}",
+        "cta": "Corregir y reenviar",
+        "resubmitting": "Reenviando…",
+        "resubmitted": "Reenviado para verificación.",
+        "resubmitError": "El reenvío falló. Inténtelo de nuevo."
+      },
+      "verification_pending": {
+        "title": "Verificación en curso",
+        "body": "Nuestro equipo revisa el expediente de {company}.",
+        "cta": ""
+      },
+      "messages_awaiting": {
+        "title": "{count, plural, one {# mensaje sin respuesta} other {# mensajes sin respuesta}}",
+        "body": "{days, plural, =0 {El más antiguo llegó hoy.} one {El más antiguo espera desde hace # día.} other {El más antiguo espera desde hace # días.}}",
+        "cta": "Abrir mensajes"
+      },
+      "responses_new": {
+        "title": "{count, plural, one {# respuesta nueva} other {# respuestas nuevas}}",
+        "body": "Empresas respondieron a sus oportunidades esta semana.",
+        "cta": "Ver respuestas"
+      },
+      "profile_incomplete": {
+        "title": "Perfil completo al {percent} %",
+        "body": "Añada {first} y {second}.",
+        "bodySingle": "Añada {first}.",
+        "cta": "Completar el perfil"
+      },
+      "premium_expiring": {
+        "title": "{days, plural, =0 {Premium: vence hoy} one {Premium: vence en # día} other {Premium: vence en # días}}",
+        "body": "Renueve para mantener la visibilidad de {company}.",
+        "cta": "Renovar"
+      },
+      "premium_expired": {
+        "title": "Premium vencido",
+        "body": "{company} perdió sus ventajas Premium.",
+        "cta": "Reactivar"
+      }
+    },
+    "missing": {
+      "logo": "su logotipo",
+      "description": "una descripción detallada",
+      "contact": "un correo y un teléfono",
+      "location": "su ciudad",
+      "website": "su sitio web",
+      "photos": "2 fotos",
+      "certifications": "sus certificaciones",
+      "markets": "sus mercados",
+      "products": "un primer producto"
+    },
+    "kpi": {
+      "profileViews": "Visitas al perfil",
+      "searchAppearances": "Apariciones en búsquedas",
+      "productViews": "Visitas a productos",
+      "contactRate": "Tasa de contacto",
+      "contactRateFoot": "{contacts, plural, one {# solicitud de contacto} other {# solicitudes de contacto}} por {views, plural, one {# visita} other {# visitas}}",
+      "contactRateNoViews": "Sin visitas en el periodo: la tasa aparecerá con las primeras visitas.",
+      "responsesReceived": "Respuestas recibidas",
+      "matchingOpportunities": "Oportunidades afines",
+      "matchingFoot": "Abiertas en sus sectores y provincias",
+      "profileViewsYours": "Visitas a su perfil",
+      "replyRate": "Tasa de respuesta de proveedores",
+      "replyNone": "Contacte a un proveedor para medir esta tasa.",
+      "replyCount": "{replied} respuestas de {started} contactos",
+      "replyMedian": "Tiempo medio de respuesta: {hours} h"
+    },
+    "status": {
+      "published": "Publicada",
+      "pending_review": "En moderación",
+      "rejected": "Rechazada",
+      "draft": "Borrador",
+      "expired": "Vencida"
+    },
+    "myOpportunities": {
+      "title": {
+        "offers": "Mis oportunidades",
+        "requests": "Mis solicitudes en curso"
+      },
+      "summaryLabel": "Distribución por estado",
+      "all": "Todas {count}",
+      "seeAll": "Gestionar mis oportunidades",
+      "empty": {
+        "offers": "Aún no ha publicado ninguna oportunidad.",
+        "requests": "Aún no ha publicado ninguna solicitud."
+      },
+      "emptyCta": {
+        "offers": "Publicar una oportunidad",
+        "requests": "Publicar una solicitud"
+      },
+      "colTitle": "Oportunidad",
+      "colStatus": "Estado",
+      "colResponses": "Respuestas",
+      "colDate": "Publicada",
+      "reason": "Motivo: {reason}",
+      "fix": "Corregir",
+      "new": "{count, plural, one {# nueva} other {# nuevas}}",
+      "summary": {
+        "published": "{count, plural, one {Publicada #} other {Publicadas #}}",
+        "pending_review": "En moderación {count}",
+        "rejected": "{count, plural, one {Rechazada #} other {Rechazadas #}}"
+      }
+    },
+    "recommended": {
+      "title": "Nuevas oportunidades para usted",
+      "titleDrc": "Oportunidades en la RDC para usted",
+      "subtitle": "Sector: {sector}",
+      "provincesLabel": "Sus provincias objetivo",
+      "seeAll": "{count, plural, one {Ver la oportunidad} other {Ver las # oportunidades}}",
+      "empty": "No hay oportunidades abiertas en su sector por ahora.",
+      "browse": "Ver todas las oportunidades",
+      "closes": "Cierra el {date}",
+      "noDeadline": "Sin fecha límite",
+      "colTitle": "Oportunidad",
+      "colType": "Tipo",
+      "colProvince": "Provincia",
+      "colDeadline": "Cierre"
+    },
+    "topProducts": {
+      "title": "Sus productos más vistos",
+      "all": "Todos los productos",
+      "empty": "Sin visitas a productos en el periodo.",
+      "emptyCta": "Añadir o mejorar un producto",
+      "viewsSr": "visitas:"
+    },
+    "search": {
+      "title": "Lo que los compradores encuentran al buscar",
+      "subtitle": "Su empresa y productos más mostrados en los resultados",
+      "stats": "Estadísticas",
+      "empty": "Aún no hay apariciones en búsquedas en el periodo.",
+      "appearancesSr": "apariciones"
+    },
+    "suppliers": {
+      "title": "Proveedores verificados afines",
+      "directory": "Directorio",
+      "empty": "Aún no hay proveedores verificados en su sector.",
+      "browse": "Ver el directorio",
+      "verified": "Verificado"
+    },
+    "market": {
+      "title": "Vigilancia de mercado",
+      "dataHub": "Data Hub",
+      "empty": "Aún no hay datos de mercado publicados.",
+      "latestReport": "Último informe publicado"
+    },
+    "welcome": {
+      "title": "Bienvenido a Trade in DRC",
+      "subtitle": "Unos pasos para ser visible ante compradores y socios.",
+      "doneSr": "Hecho:",
+      "currentSr": "Paso actual:",
+      "start": "Empezar",
+      "statsTitle": "Sus estadísticas aparecerán aquí",
+      "statsBody": "cuando su empresa esté registrada, verificada y publicada.",
+      "steps": {
+        "account": {
+          "title": "Crear su cuenta",
+          "body": "Hecho."
+        },
+        "company": {
+          "title": "Registrar su empresa",
+          "body": "5 minutos: nombre, sector, país y contacto."
+        },
+        "documents": {
+          "title": "Enviar sus documentos",
+          "body": "RCCM y NIF para obtener la insignia verificada."
+        },
+        "product": {
+          "title": "Publicar su primer producto",
+          "body": "Para aparecer en el marketplace."
+        }
+      }
+    },
+    "greetingTime": {
+      "morning": "Buenos días, {name}",
+      "afternoon": "Buenas tardes, {name}",
+      "evening": "Buenas noches, {name}"
+    },
+    "greetingSub": "Esta es la actividad de {company} en los últimos {days} días.",
+    "greetingNewSub": "Bienvenido a su espacio de empresa.",
+    "vsPrevious": "vs periodo anterior",
+    "chart": {
+      "titleVitrine": "Visibilidad de su escaparate",
+      "titleProfile": "Visitas a su perfil",
+      "totalLabel": "visitas en el periodo",
+      "legend": "Leyenda",
+      "weekOf": "Semana del {date}",
+      "colWeek": "Semana",
+      "colDay": "Día",
+      "avgPerDay": "Media diaria",
+      "bestDay": "Mejor día",
+      "bestWeek": "Mejor semana",
+      "share": "Parte de «{label}»",
+      "activeDays": "Días con visitas"
+    }
+  },
+  "HomeChain": {
+    "eyebrow": "Ecosistema",
+    "title": "La cadena completa",
+    "lead": "Una venta transfronteriza no se sostiene sin los oficios que la llevan.",
+    "providers": "{count, plural, =0 {Sin proveedores} one {# proveedor} other {# proveedores}}",
+    "institutions": "{count, plural, one {# institución} other {# instituciones}}",
+    "soon": "Directorio en preparación"
+  },
+  "HomeWhy": {
+    "sectorsLabel": "Sectores clave"
+  },
+  "HomeSteps": {
+    "step": "Paso",
+    "cta": "Registrar mi empresa",
+    "secondary": "Nuestro enfoque de verificación"
   }
 }

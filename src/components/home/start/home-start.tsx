@@ -1,8 +1,6 @@
-import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import {
   ArrowRight,
-  ArrowUpRight,
   BarChart3,
   Building2,
   Check,
@@ -17,8 +15,6 @@ import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { MotionEnter } from "@/components/home/motion-enter";
 import { HomeSection, HomeSectionHeader } from "@/components/home/home-section";
-import { DIRECTION_IMAGES, type Origin } from "@/lib/marketplace/offers";
-import { countOffersByOrigin } from "@/lib/marketplace/queries";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 
 /** Checks run before a company is published (see VerificationApproach). */
@@ -26,22 +22,20 @@ const VERIFICATION_CHECKS = 4;
 
 async function loadStart() {
   const supabase = await createServerSupabaseClient();
-  const [companies, provinceRows, offers] = await Promise.all([
+  const [companies, provinceRows] = await Promise.all([
     supabase.from("companies").select("id", { count: "exact", head: true }).eq("status", "verified"),
     supabase.from("companies").select("province").eq("status", "verified").not("province", "is", null),
-    countOffersByOrigin(supabase),
   ]);
   return {
     companies: companies.count ?? 0,
     provinces: new Set((provinceRows.data ?? []).map((r) => r.province).filter(Boolean)).size,
-    offers,
   };
 }
 
 /**
  * Homepage sections 1 and 2, right under the hero: a commitments band (one
  * promise backed by the verification process, two live counts) and the three
- * entry paths — Buy (with the Import / Export split), Sell, Invest.
+ * entry paths — Buy, Sell, Invest.
  */
 export async function HomeStart({ locale }: { locale: string }) {
   const t = await getTranslations({ locale, namespace: "HomeStart" });
@@ -49,11 +43,11 @@ export async function HomeStart({ locale }: { locale: string }) {
 
   return (
     <>
-      <HomeSection className="pb-0 sm:pb-0">
+      <HomeSection className="pb-0 pt-6 sm:pb-0 sm:pt-8">
         <Commitments t={t} companies={data.companies} provinces={data.provinces} />
       </HomeSection>
       <HomeSection>
-        <Paths t={t} offers={data.offers} />
+        <Paths t={t} />
       </HomeSection>
     </>
   );
@@ -80,33 +74,33 @@ function Commitments({ t, companies, provinces }: { t: T; companies: number; pro
       <div
         aria-label={t("commitments.label")}
         role="group"
-        className="rounded-[1.5rem] border border-slate-200/80 bg-white p-1.5 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_16px_40px_-28px_rgba(15,23,42,0.3)]"
+        className="rounded-[1.25rem] border border-slate-200/80 bg-white p-1 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_16px_40px_-28px_rgba(15,23,42,0.3)]"
       >
-        <ul className="grid gap-1.5 md:grid-cols-3">
+        <ul className="grid gap-1 md:grid-cols-3">
           {items.map(({ key, Icon, value, highlight }) => (
             <li
               key={key}
               className={cn(
-                "flex gap-3.5 rounded-[1.15rem] p-4 sm:p-5",
+                "flex items-center gap-3 rounded-[1rem] px-4 py-3",
                 highlight && "bg-gradient-to-br from-market-or/[0.12] via-market-or/[0.05] to-transparent ring-1 ring-inset ring-market-or/15",
               )}
             >
-              <span className="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-market-or/10 text-market-or-dark ring-1 ring-inset ring-market-or/25">
-                <Icon className="h-[18px] w-[18px]" aria-hidden />
+              <span className="flex h-9 w-9 flex-none items-center justify-center rounded-lg bg-market-or/10 text-market-or-dark ring-1 ring-inset ring-market-or/25">
+                <Icon className="h-4 w-4" aria-hidden />
               </span>
               <div className="min-w-0">
                 <p className="flex flex-wrap items-baseline gap-x-1.5">
-                  <span className="font-display text-[1.75rem] font-bold leading-none tabular-nums tracking-tight text-[var(--color-landing-navy)]">
+                  <span className="font-display text-2xl font-bold leading-none tabular-nums tracking-tight text-[var(--color-landing-navy)]">
                     {value}
                   </span>
-                  <span className="text-[15px] font-semibold text-market-or-dark">
+                  <span className="text-sm font-semibold text-market-or-dark">
                     {t(`commitments.${key}.unit`, { count: value })}
                   </span>
                   <span className="text-[13px] font-semibold text-[var(--color-landing-navy)]">
                     {t(`commitments.${key}.label`, { count: value })}
                   </span>
                 </p>
-                <p className="mt-1.5 text-[13px] leading-relaxed text-slate-500">{t(`commitments.${key}.body`)}</p>
+                <p className="mt-1 text-xs leading-snug text-slate-500">{t(`commitments.${key}.body`)}</p>
               </div>
             </li>
           ))}
@@ -120,7 +114,7 @@ function Commitments({ t, companies, provinces }: { t: T; companies: number; pro
 
 const POINTS = ["p1", "p2", "p3"] as const;
 
-function Paths({ t, offers }: { t: T; offers: Record<Origin, number> }) {
+function Paths({ t }: { t: T }) {
   return (
     <>
       <MotionEnter>
@@ -149,39 +143,7 @@ function Paths({ t, offers }: { t: T; offers: Record<Origin, number> }) {
       </MotionEnter>
 
       <ul className="mt-8 grid gap-4 lg:grid-cols-3">
-        {/* Buy — with the Import / Export split */}
-        <PathCard index={1} Icon={ShoppingCart} t={t} path="buy" href="/market">
-          <div className="mt-5 grid grid-cols-2 gap-2">
-            {(["import", "export"] as const).map((origin) => (
-              <Link
-                key={origin}
-                href={`/products?origin=${origin}`}
-                className="group/tile relative block h-24 overflow-hidden rounded-xl bg-slate-200"
-              >
-                <Image
-                  src={DIRECTION_IMAGES[origin]}
-                  alt=""
-                  fill
-                  sizes="(min-width: 1024px) 160px, 45vw"
-                  className="object-cover transition-transform duration-300 ease-out group-hover/tile:scale-[1.04]"
-                />
-                <span className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-slate-950/5" aria-hidden />
-                {offers[origin] > 0 && (
-                  <span className="absolute left-2 top-2 rounded-full bg-white/15 px-2 py-0.5 text-[10px] font-semibold text-white ring-1 ring-inset ring-white/25 backdrop-blur-md">
-                    {t("paths.offers", { count: offers[origin] })}
-                  </span>
-                )}
-                <span className="absolute inset-x-2.5 bottom-2 flex items-end justify-between gap-1 text-xs font-semibold leading-tight text-white">
-                  <span className="line-clamp-2">{t(`paths.buy.${origin}`)}</span>
-                  <ArrowUpRight
-                    className="h-3.5 w-3.5 flex-none transition-transform duration-150 ease-out group-hover/tile:-translate-y-0.5 group-hover/tile:translate-x-0.5"
-                    aria-hidden
-                  />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </PathCard>
+        <PathCard index={1} Icon={ShoppingCart} t={t} path="buy" href="/market" />
 
         {/* Sell — the featured path */}
         <PathCard index={2} Icon={TrendingUp} t={t} path="sell" href="/register-company" featured />

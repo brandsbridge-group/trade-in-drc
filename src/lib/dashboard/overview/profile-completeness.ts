@@ -1,0 +1,61 @@
+/**
+ * Profile-completeness score for the dashboard's "À faire" block.
+ *
+ * Each criterion is something a buyer looks at before contacting a company.
+ * The order of CRITERIA is also the order in which missing items are suggested,
+ * most persuasive first.
+ */
+
+export type CompletenessKey =
+  | "logo"
+  | "description"
+  | "contact"
+  | "location"
+  | "website"
+  | "photos"
+  | "certifications"
+  | "markets"
+  | "products";
+
+export interface CompletenessInput {
+  logo_url: string | null;
+  description: string | null;
+  contact_email: string | null;
+  contact_phone: string | null;
+  city: string | null;
+  website: string | null;
+  certifications: string[] | null;
+  markets: string[] | null;
+  photoCount: number;
+  productCount: number;
+}
+
+/** A description shorter than this reads as a placeholder, not a pitch. */
+export const MIN_DESCRIPTION_LENGTH = 80;
+/** Photos needed for the gallery to feel real. */
+export const MIN_PHOTOS = 2;
+
+const CRITERIA: { key: CompletenessKey; met: (c: CompletenessInput) => boolean }[] = [
+  { key: "logo", met: (c) => !!c.logo_url },
+  { key: "description", met: (c) => (c.description?.trim().length ?? 0) >= MIN_DESCRIPTION_LENGTH },
+  { key: "products", met: (c) => c.productCount > 0 },
+  { key: "photos", met: (c) => c.photoCount >= MIN_PHOTOS },
+  { key: "contact", met: (c) => !!c.contact_email && !!c.contact_phone },
+  { key: "certifications", met: (c) => (c.certifications?.length ?? 0) > 0 },
+  { key: "markets", met: (c) => (c.markets?.length ?? 0) > 0 },
+  { key: "location", met: (c) => !!c.city?.trim() },
+  { key: "website", met: (c) => !!c.website?.trim() },
+];
+
+export interface CompletenessResult {
+  /** 0–100, rounded. */
+  percent: number;
+  /** Unmet criteria, most important first. */
+  missing: CompletenessKey[];
+}
+
+export function profileCompleteness(input: CompletenessInput): CompletenessResult {
+  const missing = CRITERIA.filter((c) => !c.met(input)).map((c) => c.key);
+  const percent = Math.round(((CRITERIA.length - missing.length) / CRITERIA.length) * 100);
+  return { percent, missing };
+}

@@ -37,7 +37,7 @@ interface DemandRow {
  * (`companies.registration_profile`): a Congolese buyer is importing into the
  * DRC, an international one is sourcing from it.
  */
-async function loadOpenDemands(locale: string): Promise<DemandItem[]> {
+export async function loadOpenDemands(locale: string): Promise<DemandItem[]> {
   const supabase = await createServerSupabaseClient();
   const now = Date.now();
 
@@ -82,7 +82,7 @@ async function loadOpenDemands(locale: string): Promise<DemandItem[]> {
 }
 
 /** Decides whether the request links go straight through or via /login. */
-async function isSignedIn(): Promise<boolean> {
+export async function isSignedIn(): Promise<boolean> {
   const supabase = await createServerSupabaseClient();
   const {
     data: { user },

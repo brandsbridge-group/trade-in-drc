@@ -36,6 +36,7 @@
     "data": "数据",
     "searchShort": "搜索",
     "moreDesc": {
+      "about": "我们的使命、价值观与团队。",
       "contactPoints": "各省的机构与本地联络点。",
       "services": "我们团队提供的全程支持。",
       "events": "展会、论坛与商务考察。",
@@ -368,7 +369,8 @@
       "settings": "设置",
       "expandSidebar": "展开侧边栏",
       "collapseSidebar": "收起侧边栏",
-      "services": "服务"
+      "services": "服务",
+      "openMenu": "打开菜单"
     },
     "editCompany": {
       "title": "编辑企业资料",
@@ -622,7 +624,30 @@
         "invalidUrl": "请输入以 http:// 或 https:// 开头的有效视频 URL。"
       }
     },
-    "statusPendingDocuments": "待提交文件"
+    "statusPendingDocuments": "待提交文件",
+    "navGroups": {
+      "main": "主要",
+      "trade": "贸易",
+      "general": "通用"
+    },
+    "companyType": {
+      "congolese": "刚果（金）企业",
+      "international": "国际企业"
+    },
+    "premiumPromo": {
+      "title": "升级高级会员",
+      "body": "让您的企业在买家和投资者面前脱颖而出。",
+      "cta": "查看方案"
+    },
+    "unreadSr": "待回复消息：",
+    "breadcrumb": "页面路径",
+    "topbar": {
+      "search": "搜索…",
+      "help": "帮助",
+      "inbox": "消息",
+      "unread": "{count} 条待回复消息",
+      "backToSite": "返回网站"
+    }
   },
   "Footer": {
     "portal": "门户",
@@ -5512,17 +5537,17 @@
       "checks": {
         "unit": "项",
         "label": "核查",
-        "body": "发布前核查文件、官方联系方式、企业资料和所在地。"
+        "body": "核查文件、联系方式、企业资料和所在地。"
       },
       "companies": {
         "unit": "家企业",
         "label": "已认证",
-        "body": "每个已发布的档案都带有人人可见的认证徽章。"
+        "body": "每个档案均有认证徽章。"
       },
       "provinces": {
         "unit": "个省份",
         "label": "已覆盖",
-        "body": "刚果（金）共 26 个省份。每新增一次认证，网络都在扩大。"
+        "body": "刚果（金）共 26 个省份，网络持续扩大。"
       }
     },
     "paths": {
@@ -5531,15 +5556,12 @@
       "lead": "为每类参与者设计的三条路径，同样严格的标准。",
       "advisorQ": "不确定选哪条路径？",
       "advisorCta": "咨询顾问",
-      "offers": "{count, plural, =0 {暂无报价} other {# 个报价}}",
       "buy": {
         "title": "采购",
         "body": "在刚果（金）或海外找到经过认证的供应商。",
         "p1": "无需注册即可询价",
         "p2": "供应商经过 4 项核查",
         "p3": "进口与出口报价一站汇集",
-        "import": "进口到刚果（金）",
-        "export": "采购刚果产品",
         "cta": "查看市场"
       },
       "sell": {
@@ -5584,5 +5606,300 @@
     "results": "{count, plural, =0 {暂无报价} other {# 个报价}}",
     "seeAll": "{count, plural, other {查看全部 # 个报价}}",
     "empty": "该行业暂无报价。"
+  },
+  "HomeDemands": {
+    "eyebrow": "采购需求",
+    "title": "买家正在寻找",
+    "lead": "回应刚果（金）及海外买家发布的需求。",
+    "tabsLabel": "需求类型",
+    "tabs": {
+      "demands": "采购需求",
+      "notices": "招标与项目"
+    },
+    "viewAllDemands": "全部需求",
+    "viewAllNotices": "全部招标",
+    "columns": {
+      "request": "需求",
+      "notice": "公告",
+      "type": "类型",
+      "budget": "预算",
+      "location": "地点",
+      "deadline": "截止"
+    },
+    "closesIn": "{days, plural, =0 {今天} other {# 天后}}",
+    "urgent": "紧急 · {days, plural, =0 {今天} other {# 天}}",
+    "noDeadline": "无截止日期",
+    "undisclosed": "未公开",
+    "issuerUnknown": "发布方未注明",
+    "respond": "回应",
+    "view": "查看",
+    "emptyDemands": "目前没有开放的需求。",
+    "emptyNotices": "目前没有开放的招标。",
+    "cta": {
+      "title": "有需求？几分钟即可发布。",
+      "body": "描述您的需求：我们的团队会审核并为您对接经过认证的供应商。",
+      "secondary": "获取支持",
+      "primary": "发布需求"
+    }
+  },
+  "HomeSuppliers": {
+    "eyebrow": "企业名录",
+    "title": "认证供应商",
+    "lead": "经过 4 项核查的企业，随时回应您的需求。",
+    "viewAll": "完整名录",
+    "offers": "{count, plural, =0 {暂无报价} other {# 个报价}}",
+    "verified": "已认证",
+    "premium": "高级",
+    "illustration": "示意图"
+  },
+  "DashboardOverview": {
+    "title": "概览",
+    "signInRequired": "请登录以查看您的控制台。",
+    "greeting": "{name}，您好——以下是 {company} 最近 {days} 天的动态。",
+    "greetingNew": "{name}，您好——欢迎来到您的空间。",
+    "periodLabel": "时间范围",
+    "periodDays": "{days} 天",
+    "periodCompare": "最近 {days} 天，与之前 {days} 天相比",
+    "ctaOffer": "发布供应",
+    "ctaRequest": "发布需求",
+    "visibilityTitle": "曝光",
+    "activityTitle": "动态",
+    "metricsError": "暂时无法加载您的统计数据。",
+    "retry": "重试",
+    "deltaNew": "新",
+    "deltaFlat": "持平",
+    "deltaPoints": "{value} pt",
+    "deltaSr": {
+      "up": "上升",
+      "down": "下降",
+      "flat": "无变化",
+      "new": "新"
+    },
+    "sparklineLabel": "{label}：{days} 天每日趋势",
+    "todoTitle": "待办事项",
+    "todoAllDone": "一切就绪，暂无需要处理的事项。",
+    "todoMore": "您的企业和消息中还有 {count} 项操作。",
+    "noActionNeeded": "无需操作",
+    "tasks": {
+      "verification_documents": {
+        "title": "认证：需提交文件",
+        "body": "提交 {company} 的文件，以便发布其主页。",
+        "cta": "完善资料"
+      },
+      "verification_more_info": {
+        "title": "需补充信息",
+        "body": "{notes}",
+        "cta": "更新 {company}"
+      },
+      "verification_rejected": {
+        "title": "认证未通过",
+        "body": "{notes}",
+        "cta": "修改并重新提交",
+        "resubmitting": "正在重新提交…",
+        "resubmitted": "已重新提交认证。",
+        "resubmitError": "重新提交失败，请重试。"
+      },
+      "verification_pending": {
+        "title": "认证审核中",
+        "body": "我们的团队正在审核 {company} 的资料。",
+        "cta": ""
+      },
+      "messages_awaiting": {
+        "title": "{count} 条消息待回复",
+        "body": "{days, plural, =0 {最早的一条今天收到。} other {最早的一条已等待 # 天。}}",
+        "cta": "打开消息"
+      },
+      "responses_new": {
+        "title": "{count} 条新回复",
+        "body": "本周有企业回复了您的商机。",
+        "cta": "查看回复"
+      },
+      "profile_incomplete": {
+        "title": "资料完成度 {percent}%",
+        "body": "请添加{first}和{second}。",
+        "bodySingle": "请添加{first}。",
+        "cta": "完善资料"
+      },
+      "premium_expiring": {
+        "title": "{days, plural, =0 {高级会员：今天到期} other {高级会员：# 天后到期}}",
+        "body": "续费以保持 {company} 的曝光。",
+        "cta": "续费"
+      },
+      "premium_expired": {
+        "title": "高级会员已过期",
+        "body": "{company} 已失去高级会员权益。",
+        "cta": "重新开通"
+      }
+    },
+    "missing": {
+      "logo": "企业标志",
+      "description": "详细介绍",
+      "contact": "邮箱和电话",
+      "location": "所在城市",
+      "website": "企业网站",
+      "photos": "2 张照片",
+      "certifications": "认证资质",
+      "markets": "目标市场",
+      "products": "第一个产品"
+    },
+    "kpi": {
+      "profileViews": "主页浏览量",
+      "searchAppearances": "搜索曝光",
+      "productViews": "产品浏览量",
+      "contactRate": "联系率",
+      "contactRateFoot": "{views} 次浏览带来 {contacts} 次联系请求",
+      "contactRateNoViews": "本期暂无浏览，出现首批访问后将显示联系率。",
+      "responsesReceived": "收到的回复",
+      "matchingOpportunities": "匹配的商机",
+      "matchingFoot": "您所在行业和省份的开放商机",
+      "profileViewsYours": "您的主页浏览量",
+      "replyRate": "供应商回复率",
+      "replyNone": "联系一家供应商即可衡量此比率。",
+      "replyCount": "{started} 次联系中有 {replied} 次回复",
+      "replyMedian": "回复时间中位数：{hours} 小时"
+    },
+    "status": {
+      "published": "已发布",
+      "pending_review": "审核中",
+      "rejected": "已拒绝",
+      "draft": "草稿",
+      "expired": "已过期"
+    },
+    "myOpportunities": {
+      "title": {
+        "offers": "我的商机",
+        "requests": "进行中的需求"
+      },
+      "summaryLabel": "按状态分布",
+      "all": "全部 {count}",
+      "seeAll": "管理我的商机",
+      "empty": {
+        "offers": "您还没有发布任何商机。",
+        "requests": "您还没有发布任何需求。"
+      },
+      "emptyCta": {
+        "offers": "发布商机",
+        "requests": "发布需求"
+      },
+      "colTitle": "商机",
+      "colStatus": "状态",
+      "colResponses": "回复",
+      "colDate": "发布日期",
+      "reason": "原因：{reason}",
+      "fix": "修改",
+      "new": "{count} 条新",
+      "summary": {
+        "published": "已发布 {count}",
+        "pending_review": "审核中 {count}",
+        "rejected": "已拒绝 {count}"
+      }
+    },
+    "recommended": {
+      "title": "为您推荐的新商机",
+      "titleDrc": "为您推荐的刚果（金）商机",
+      "subtitle": "行业：{sector}",
+      "provincesLabel": "您的目标省份",
+      "seeAll": "查看全部 {count} 个商机",
+      "empty": "您所在行业暂无开放商机。",
+      "browse": "浏览全部商机",
+      "closes": "{date} 截止",
+      "noDeadline": "无截止日期",
+      "colTitle": "商机",
+      "colType": "类型",
+      "colProvince": "省份",
+      "colDeadline": "截止"
+    },
+    "topProducts": {
+      "title": "浏览最多的产品",
+      "all": "全部产品",
+      "empty": "本期暂无产品浏览。",
+      "emptyCta": "添加或完善产品",
+      "viewsSr": "浏览量："
+    },
+    "search": {
+      "title": "买家在搜索中发现的内容",
+      "subtitle": "在搜索结果中展示最多的企业和产品",
+      "stats": "统计",
+      "empty": "本期暂无搜索曝光。",
+      "appearancesSr": "次曝光"
+    },
+    "suppliers": {
+      "title": "与您匹配的认证供应商",
+      "directory": "企业名录",
+      "empty": "您所在行业暂无认证供应商。",
+      "browse": "浏览企业名录",
+      "verified": "已认证"
+    },
+    "market": {
+      "title": "市场观察",
+      "dataHub": "数据中心",
+      "empty": "暂无已发布的市场数据。",
+      "latestReport": "最新发布的报告"
+    },
+    "welcome": {
+      "title": "欢迎来到 Trade in DRC",
+      "subtitle": "只需几步，即可被买家和合作伙伴看到。",
+      "doneSr": "已完成：",
+      "currentSr": "当前步骤：",
+      "start": "开始",
+      "statsTitle": "您的统计数据将显示在这里",
+      "statsBody": "待您的企业完成注册、认证并发布后显示。",
+      "steps": {
+        "account": {
+          "title": "创建账户",
+          "body": "已完成。"
+        },
+        "company": {
+          "title": "注册企业",
+          "body": "5 分钟：名称、行业、国家和联系方式。"
+        },
+        "documents": {
+          "title": "提交文件",
+          "body": "提交营业执照和税号以获得认证标识。"
+        },
+        "product": {
+          "title": "发布第一个产品",
+          "body": "以便出现在交易市场中。"
+        }
+      }
+    },
+    "greetingTime": {
+      "morning": "早上好，{name}",
+      "afternoon": "下午好，{name}",
+      "evening": "晚上好，{name}"
+    },
+    "greetingSub": "以下是 {company} 最近 {days} 天的动态。",
+    "greetingNewSub": "欢迎来到您的企业空间。",
+    "vsPrevious": "与上一周期相比",
+    "chart": {
+      "titleVitrine": "店铺曝光",
+      "titleProfile": "主页浏览量",
+      "totalLabel": "本期浏览量",
+      "legend": "图例",
+      "weekOf": "{date} 当周",
+      "colWeek": "周",
+      "colDay": "日",
+      "avgPerDay": "日均",
+      "bestDay": "最佳日",
+      "bestWeek": "最佳周",
+      "share": "「{label}」占比",
+      "activeDays": "有浏览的天数"
+    }
+  },
+  "HomeChain": {
+    "eyebrow": "生态体系",
+    "title": "完整链条",
+    "lead": "跨境交易离不开支撑它的各类服务。",
+    "providers": "{count, plural, =0 {暂无服务商} other {# 家服务商}}",
+    "institutions": "{count} 家机构",
+    "soon": "名录筹备中"
+  },
+  "HomeWhy": {
+    "sectorsLabel": "重点行业"
+  },
+  "HomeSteps": {
+    "step": "步骤",
+    "cta": "注册我的企业",
+    "secondary": "我们的认证方式"
   }
 }

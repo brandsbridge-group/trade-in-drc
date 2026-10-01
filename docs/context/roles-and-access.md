@@ -26,9 +26,9 @@
 |---|---|---|---|---|
 | **Super Admin** | Équipe TradeInDRC | `staff_role = 'super_admin'` (ou ancien `role = 'admin'` sans `staff_role`) | `/console` (toute) | `/console` |
 | **Modérateur** | Équipe TradeInDRC | `staff_role = 'moderator'` | `/console`, sauf les sections super-admin | `/console` |
-| **Admin (entreprise congolaise)** | Propriétaire d'une entreprise en RDC | `account_type = 'congolese_company'` | `/dashboard` | `/dashboard/companies` |
-| **Admin (entreprise internationale)** | Propriétaire d'une entreprise hors RDC | `account_type = 'international_business'` | `/dashboard` | `/dashboard/companies` |
-| *(connecté sans entreprise)* | Vient de s'inscrire, pas encore d'entreprise | `account_type = NULL`, `staff_role = NULL` | `/dashboard` | `/dashboard/companies` |
+| **Admin (entreprise congolaise)** | Propriétaire d'une entreprise en RDC | `account_type = 'congolese_company'` | `/dashboard` | `/dashboard` (Aperçu) |
+| **Admin (entreprise internationale)** | Propriétaire d'une entreprise hors RDC | `account_type = 'international_business'` | `/dashboard` | `/dashboard` (Aperçu) |
+| *(connecté sans entreprise)* | Vient de s'inscrire, pas encore d'entreprise | `account_type = NULL`, `staff_role = NULL` | `/dashboard` | `/dashboard` (Aperçu) |
 | *Visiteur* | Non connecté | pas de session | pages publiques | — |
 
 - `staff_role` est la source de vérité pour les droits du personnel. `profiles.role`
@@ -80,8 +80,8 @@ les pages en dessous (`isUnderRoute`).
 | Pages publiques | ✅ | ✅ | ✅ | ✅ |
 | `/dashboard/settings/**` | → `/login?redirect=…` | ✅ | ✅ (paramètres du compte) | ✅ (paramètres du compte) |
 | `/dashboard/**` (reste) | → `/login?redirect=…` | ✅ | → `/console` | → `/console` |
-| `/console/**` | → `/login?redirect=…` | → `/dashboard/companies` | ✅ | ✅ |
-| `/console/users/**`, `/console/settings/**` | → `/login?redirect=…` | → `/dashboard/companies` | → `/console?error=super_admin_only` | ✅ |
+| `/console/**` | → `/login?redirect=…` | → `/dashboard` | ✅ | ✅ |
+| `/console/users/**`, `/console/settings/**` | → `/login?redirect=…` | → `/dashboard` | → `/console?error=super_admin_only` | ✅ |
 | `/admin/**` (ancien nom) | redirection 308 → `/console/**` (`next.config.ts`) | idem | idem | idem |
 
 Les constantes sont dans `src/constants/routes.ts` :
@@ -129,12 +129,12 @@ La défense est en profondeur : chaque couche suppose que la précédente peut �
   - le personnel va vers `roleHomePath(profile)`, soit `/console`, **en ignorant `?redirect=`**
     (un lien piégé ne peut pas envoyer le personnel ailleurs) ;
   - les autres suivent `?redirect=` ou `?next=` (validés par `resolveSafeRedirect`), avec
-    `/dashboard/companies` par défaut.
+    `/dashboard` (Aperçu) par défaut.
 - **Paramètres de retour :** le proxy envoie `?redirect=`, alors que `requireAuth` et
   `requireAdmin` envoient `?next=`. Le formulaire de connexion accepte les deux.
 - **OAuth** (`(auth)/callback/route.ts`), **confirmation d'email** et **page d'inscription** :
   ils utilisent `resolvePostAuthRedirect`, qui ne connaît pas les rôles. Un membre du personnel
-  qui arrive sur `/dashboard/companies` est renvoyé vers `/console` par le proxy.
+  qui arrive sur `/dashboard` est renvoyé vers `/console` par le proxy.
 - **Changement d'email :** le callback renvoie vers `/dashboard/settings/account?changed=1`,
   qui reste accessible au personnel grâce à `STAFF_ALLOWED_COMPANY_ROUTES`.
 - **Menu du site** (`src/components/layout/navbar.tsx`) :
@@ -197,8 +197,9 @@ Ces éléments n'ont pas été renommés, pour limiter les changements. Ils dés
 - Le **personnel possède toutes les entreprises de démonstration** (28 entreprises, 2 comptes).
   Pour tester le parcours entreprise, utiliser des comptes non-personnel. Envisager une
   contrainte « le personnel ne possède pas d'entreprise ».
-- Un **compte sans entreprise** arrive sur `/dashboard/companies` au lieu d'un parcours
-  d'inscription (`/onboarding`).
+- ~~Un compte sans entreprise arrive sur une liste vide.~~ Résolu le 2026-09-30 : toute
+  connexion non-personnel arrive sur `/dashboard` (Aperçu), qui affiche un parcours guidé
+  tant qu'aucune entreprise n'est inscrite.
 - Les redirections du proxy (`NextResponse.redirect`) ne recopient pas les cookies de session
   rafraîchis par `updateSession`. Ce comportement existait déjà et reste sans effet connu.
 - **Plus tard :** sous-domaine dédié (`console.tradeindrc.net`), MFA obligatoire pour le

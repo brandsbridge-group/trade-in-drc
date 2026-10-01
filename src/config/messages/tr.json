@@ -36,6 +36,7 @@
     "data": "Veriler",
     "searchShort": "Ara",
     "moreDesc": {
+      "about": "Misyonumuz, değerlerimiz ve ekibimiz.",
       "contactPoints": "Kurumlar ve yerel temas noktaları, il il.",
       "services": "Ekibimizden uçtan uca destek.",
       "events": "Fuarlar, forumlar ve iş heyetleri.",
@@ -368,7 +369,8 @@
       "settings": "Ayarlar",
       "expandSidebar": "Kenar çubuğunu genişlet",
       "collapseSidebar": "Kenar çubuğunu daralt",
-      "services": "Hizmetler"
+      "services": "Hizmetler",
+      "openMenu": "Menüyü aç"
     },
     "editCompany": {
       "title": "Şirket Profilini Düzenle",
@@ -622,7 +624,30 @@
         "invalidUrl": "http:// veya https:// ile başlayan geçerli bir video URL'si girin."
       }
     },
-    "statusPendingDocuments": "Belge bekleniyor"
+    "statusPendingDocuments": "Belge bekleniyor",
+    "navGroups": {
+      "main": "Ana",
+      "trade": "Ticaret",
+      "general": "Genel"
+    },
+    "companyType": {
+      "congolese": "Kongolu şirket",
+      "international": "Uluslararası şirket"
+    },
+    "premiumPromo": {
+      "title": "Premium'a geçin",
+      "body": "Şirketinizi alıcılar ve yatırımcılar önünde öne çıkarın.",
+      "cta": "Planları gör"
+    },
+    "unreadSr": "bekleyen mesaj:",
+    "breadcrumb": "Gezinti yolu",
+    "topbar": {
+      "search": "Ara…",
+      "help": "Yardım",
+      "inbox": "Mesajlar",
+      "unread": "{count} bekleyen mesaj",
+      "backToSite": "Siteye dön"
+    }
   },
   "Footer": {
     "portal": "Portal",
@@ -5512,17 +5537,17 @@
       "checks": {
         "unit": "noktada",
         "label": "doğrulama",
-        "body": "Belgeler, resmi iletişim, dosya ve konum yayından önce kontrol edilir."
+        "body": "Belgeler, iletişim, dosya ve konum kontrol edilir."
       },
       "companies": {
         "unit": "şirket",
         "label": "doğrulandı",
-        "body": "Yayınlanan her profil, herkesin görebileceği doğrulama rozetini taşır."
+        "body": "Her profilde görünür doğrulama rozeti."
       },
       "provinces": {
         "unit": "il",
         "label": "temsil ediliyor",
-        "body": "KDC'nin 26 ilinden. Ağ her yeni doğrulamayla büyüyor."
+        "body": "KDC’deki 26 ilden; ağ büyüyor."
       }
     },
     "paths": {
@@ -5531,15 +5556,12 @@
       "lead": "Her aktör türü için tasarlanmış, aynı titizlikte üç yol.",
       "advisorQ": "Hangi yol size uygun?",
       "advisorCta": "Bir danışmanla konuşun",
-      "offers": "{count, plural, =0 {Teklif yok} other {# teklif}}",
       "buy": {
         "title": "Satın al",
         "body": "KDC'de veya yurt dışında doğrulanmış bir tedarikçi bulun.",
         "p1": "Hesap açmadan teklif isteyin",
         "p2": "4 noktada doğrulanmış tedarikçiler",
         "p3": "İthalat ve ihracat teklifleri tek yerde",
-        "import": "KDC'ye ithalat",
-        "export": "Kongo ürünleri alın",
         "cta": "Pazarı görün"
       },
       "sell": {
@@ -5584,5 +5606,300 @@
     "results": "{count, plural, =0 {Teklif yok} other {# teklif}}",
     "seeAll": "{count, plural, one {Teklifi görün} other {# teklifin tümünü görün}}",
     "empty": "Bu sektörde henüz teklif yok."
+  },
+  "HomeDemands": {
+    "eyebrow": "Satın alma talepleri",
+    "title": "Alıcılar şu anda arıyor",
+    "lead": "KDC'deki ve yurt dışındaki alıcıların yayınladığı ihtiyaçlara yanıt verin.",
+    "tabsLabel": "İhtiyaç türü",
+    "tabs": {
+      "demands": "Satın alma talepleri",
+      "notices": "İhaleler ve projeler"
+    },
+    "viewAllDemands": "Tüm talepler",
+    "viewAllNotices": "Tüm ihaleler",
+    "columns": {
+      "request": "Talep",
+      "notice": "İlan",
+      "type": "Tür",
+      "budget": "Bütçe",
+      "location": "Konum",
+      "deadline": "Kapanış"
+    },
+    "closesIn": "{days, plural, =0 {Bugün} other {# gün içinde}}",
+    "urgent": "Acil · {days, plural, =0 {bugün} other {# gün}}",
+    "noDeadline": "Son tarih yok",
+    "undisclosed": "Açıklanmadı",
+    "issuerUnknown": "Yayımcı belirtilmedi",
+    "respond": "Yanıtla",
+    "view": "Görüntüle",
+    "emptyDemands": "Şu anda açık talep yok.",
+    "emptyNotices": "Şu anda açık ihale yok.",
+    "cta": {
+      "title": "Bir ihtiyacınız mı var? Birkaç dakikada yayınlayın.",
+      "body": "Ne aradığınızı anlatın: ekibimiz inceler ve sizi doğrulanmış tedarikçilerle buluşturur.",
+      "secondary": "Destek alın",
+      "primary": "İhtiyaç yayınla"
+    }
+  },
+  "HomeSuppliers": {
+    "eyebrow": "Rehber",
+    "title": "Doğrulanmış tedarikçiler",
+    "lead": "4 noktada kontrol edilmiş, taleplerinize yanıt vermeye hazır şirketler.",
+    "viewAll": "Tüm rehber",
+    "offers": "{count, plural, =0 {Teklif yok} other {# teklif}}",
+    "verified": "Doğrulandı",
+    "premium": "Premium",
+    "illustration": "Görsel"
+  },
+  "DashboardOverview": {
+    "title": "Genel bakış",
+    "signInRequired": "Panelinizi görmek için giriş yapın.",
+    "greeting": "Merhaba {name}, {company} şirketinin son {days} gündeki etkinliği.",
+    "greetingNew": "Merhaba {name}, alanınıza hoş geldiniz.",
+    "periodLabel": "Dönem",
+    "periodDays": "{days} g",
+    "periodCompare": "son {days} gün, önceki {days} günle karşılaştırmalı",
+    "ctaOffer": "Teklif yayınla",
+    "ctaRequest": "Talep yayınla",
+    "visibilityTitle": "Görünürlük",
+    "activityTitle": "Etkinlik",
+    "metricsError": "İstatistikleriniz şu anda yüklenemedi.",
+    "retry": "Tekrar dene",
+    "deltaNew": "Yeni",
+    "deltaFlat": "Sabit",
+    "deltaPoints": "{value} pt",
+    "deltaSr": {
+      "up": "artış",
+      "down": "düşüş",
+      "flat": "değişmedi",
+      "new": "yeni"
+    },
+    "sparklineLabel": "{label}: {days} günlük günlük eğilim",
+    "todoTitle": "Şimdi yapılacaklar",
+    "todoAllDone": "Her şey güncel. İlginizi gerektiren bir şey yok.",
+    "todoMore": "Şirketlerinizde ve mesajlarınızda {count} işlem daha.",
+    "noActionNeeded": "İşlem gerekmiyor",
+    "tasks": {
+      "verification_documents": {
+        "title": "Doğrulama: belgeler eksik",
+        "body": "Profilinin yayınlanması için {company} belgelerini gönderin.",
+        "cta": "Dosyayı tamamla"
+      },
+      "verification_more_info": {
+        "title": "Ek bilgi istendi",
+        "body": "{notes}",
+        "cta": "{company} bilgilerini güncelle"
+      },
+      "verification_rejected": {
+        "title": "Doğrulama reddedildi",
+        "body": "{notes}",
+        "cta": "Düzelt ve yeniden gönder",
+        "resubmitting": "Yeniden gönderiliyor…",
+        "resubmitted": "Doğrulama için yeniden gönderildi.",
+        "resubmitError": "Yeniden gönderim başarısız. Tekrar deneyin."
+      },
+      "verification_pending": {
+        "title": "Doğrulama sürüyor",
+        "body": "Ekibimiz {company} dosyasını inceliyor.",
+        "cta": ""
+      },
+      "messages_awaiting": {
+        "title": "Yanıt bekleyen {count} mesaj",
+        "body": "{days, plural, =0 {En eskisi bugün geldi.} other {En eskisi # gündür bekliyor.}}",
+        "cta": "Mesajları aç"
+      },
+      "responses_new": {
+        "title": "{count} yeni yanıt",
+        "body": "Şirketler bu hafta fırsatlarınıza yanıt verdi.",
+        "cta": "Yanıtları gör"
+      },
+      "profile_incomplete": {
+        "title": "Profil %{percent} tamamlandı",
+        "body": "{first} ve {second} ekleyin.",
+        "bodySingle": "{first} ekleyin.",
+        "cta": "Profili tamamla"
+      },
+      "premium_expiring": {
+        "title": "{days, plural, =0 {Premium: bugün sona eriyor} other {Premium: # gün içinde sona eriyor}}",
+        "body": "{company} görünürlüğünü korumak için yenileyin.",
+        "cta": "Yenile"
+      },
+      "premium_expired": {
+        "title": "Premium sona erdi",
+        "body": "{company} Premium avantajlarını kaybetti.",
+        "cta": "Yeniden etkinleştir"
+      }
+    },
+    "missing": {
+      "logo": "logonuzu",
+      "description": "ayrıntılı bir açıklama",
+      "contact": "e-posta ve telefon",
+      "location": "şehrinizi",
+      "website": "web sitenizi",
+      "photos": "2 fotoğraf",
+      "certifications": "sertifikalarınızı",
+      "markets": "pazarlarınızı",
+      "products": "ilk ürününüzü"
+    },
+    "kpi": {
+      "profileViews": "Profil görüntülemeleri",
+      "searchAppearances": "Aramada görünme",
+      "productViews": "Ürün görüntülemeleri",
+      "contactRate": "İletişim oranı",
+      "contactRateFoot": "{views} görüntülemeye {contacts} iletişim talebi",
+      "contactRateNoViews": "Bu dönemde görüntüleme yok: oran ilk ziyaretlerle görünecek.",
+      "responsesReceived": "Alınan yanıtlar",
+      "matchingOpportunities": "Uygun fırsatlar",
+      "matchingFoot": "Sektörlerinizde ve illerinizde açık",
+      "profileViewsYours": "Profilinizin görüntülenmesi",
+      "replyRate": "Tedarikçi yanıt oranı",
+      "replyNone": "Bu oranı ölçmek için bir tedarikçiyle iletişime geçin.",
+      "replyCount": "{started} iletişimden {replied} yanıt",
+      "replyMedian": "Ortanca yanıt süresi: {hours} sa"
+    },
+    "status": {
+      "published": "Yayında",
+      "pending_review": "İncelemede",
+      "rejected": "Reddedildi",
+      "draft": "Taslak",
+      "expired": "Süresi doldu"
+    },
+    "myOpportunities": {
+      "title": {
+        "offers": "Fırsatlarım",
+        "requests": "Açık taleplerim"
+      },
+      "summaryLabel": "Duruma göre dağılım",
+      "all": "Tümü {count}",
+      "seeAll": "Fırsatlarımı yönet",
+      "empty": {
+        "offers": "Henüz bir fırsat yayınlamadınız.",
+        "requests": "Henüz bir talep yayınlamadınız."
+      },
+      "emptyCta": {
+        "offers": "Fırsat yayınla",
+        "requests": "Talep yayınla"
+      },
+      "colTitle": "Fırsat",
+      "colStatus": "Durum",
+      "colResponses": "Yanıtlar",
+      "colDate": "Yayın tarihi",
+      "reason": "Neden: {reason}",
+      "fix": "Düzelt",
+      "new": "{count} yeni",
+      "summary": {
+        "published": "Yayında {count}",
+        "pending_review": "İncelemede {count}",
+        "rejected": "Reddedildi {count}"
+      }
+    },
+    "recommended": {
+      "title": "Size yeni fırsatlar",
+      "titleDrc": "KDC'de size uygun fırsatlar",
+      "subtitle": "Sektör: {sector}",
+      "provincesLabel": "Hedef illeriniz",
+      "seeAll": "{count, plural, one {Fırsatı gör} other {# fırsatın tümünü gör}}",
+      "empty": "Şu anda sektörünüzde açık fırsat yok.",
+      "browse": "Tüm fırsatlara göz at",
+      "closes": "Kapanış {date}",
+      "noDeadline": "Son tarih yok",
+      "colTitle": "Fırsat",
+      "colType": "Tür",
+      "colProvince": "İl",
+      "colDeadline": "Kapanış"
+    },
+    "topProducts": {
+      "title": "En çok görüntülenen ürünleriniz",
+      "all": "Tüm ürünler",
+      "empty": "Bu dönemde ürün görüntülemesi yok.",
+      "emptyCta": "Ürün ekle veya geliştir",
+      "viewsSr": "görüntüleme:"
+    },
+    "search": {
+      "title": "Alıcıların aramada bulduğu",
+      "subtitle": "Sonuçlarda en çok gösterilen şirketiniz ve ürünleriniz",
+      "stats": "İstatistikler",
+      "empty": "Bu dönemde henüz aramada görünmediniz.",
+      "appearancesSr": "görünme"
+    },
+    "suppliers": {
+      "title": "Size uygun doğrulanmış tedarikçiler",
+      "directory": "Rehber",
+      "empty": "Sektörünüzde henüz doğrulanmış tedarikçi yok.",
+      "browse": "Rehbere göz at",
+      "verified": "Doğrulandı"
+    },
+    "market": {
+      "title": "Piyasa takibi",
+      "dataHub": "Data Hub",
+      "empty": "Henüz yayınlanmış piyasa verisi yok.",
+      "latestReport": "Son yayınlanan rapor"
+    },
+    "welcome": {
+      "title": "Trade in DRC'ye hoş geldiniz",
+      "subtitle": "Alıcılara ve ortaklara görünür olmak için birkaç adım.",
+      "doneSr": "Tamamlandı:",
+      "currentSr": "Geçerli adım:",
+      "start": "Başla",
+      "statsTitle": "İstatistikleriniz burada görünecek",
+      "statsBody": "şirketiniz kaydedilip doğrulandığında ve yayınlandığında.",
+      "steps": {
+        "account": {
+          "title": "Hesabınızı oluşturun",
+          "body": "Tamamlandı."
+        },
+        "company": {
+          "title": "Şirketinizi kaydedin",
+          "body": "5 dakika: ad, sektör, ülke ve iletişim."
+        },
+        "documents": {
+          "title": "Belgelerinizi gönderin",
+          "body": "Doğrulanmış rozeti için ticaret sicili ve vergi numarası."
+        },
+        "product": {
+          "title": "İlk ürününüzü yayınlayın",
+          "body": "Pazar yerinde görünmek için."
+        }
+      }
+    },
+    "greetingTime": {
+      "morning": "Günaydın, {name}",
+      "afternoon": "İyi günler, {name}",
+      "evening": "İyi akşamlar, {name}"
+    },
+    "greetingSub": "{company} şirketinin son {days} gündeki etkinliği.",
+    "greetingNewSub": "Şirket alanınıza hoş geldiniz.",
+    "vsPrevious": "önceki döneme göre",
+    "chart": {
+      "titleVitrine": "Vitrininizin görünürlüğü",
+      "titleProfile": "Profilinizin görüntülenmesi",
+      "totalLabel": "dönemdeki görüntüleme",
+      "legend": "Açıklama",
+      "weekOf": "{date} haftası",
+      "colWeek": "Hafta",
+      "colDay": "Gün",
+      "avgPerDay": "Günlük ortalama",
+      "bestDay": "En iyi gün",
+      "bestWeek": "En iyi hafta",
+      "share": "“{label}” payı",
+      "activeDays": "Görüntülenen günler"
+    }
+  },
+  "HomeChain": {
+    "eyebrow": "Ekosistem",
+    "title": "Tam zincir",
+    "lead": "Sınır ötesi bir satış, onu taşıyan meslekler olmadan ayakta kalmaz.",
+    "providers": "{count, plural, =0 {Hizmet sağlayıcı yok} other {# hizmet sağlayıcı}}",
+    "institutions": "{count} kurum",
+    "soon": "Rehber hazırlanıyor"
+  },
+  "HomeWhy": {
+    "sectorsLabel": "Kilit sektörler"
+  },
+  "HomeSteps": {
+    "step": "Adım",
+    "cta": "Şirketimi kaydet",
+    "secondary": "Doğrulama yaklaşımımız"
   }
 }

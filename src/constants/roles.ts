@@ -114,10 +114,10 @@ export function hasSuperAdminAccess(
 /**
  * Locale-less landing page for a signed-in profile — the single answer used
  * after login and whenever someone strays outside their area. Staff land on the
- * console, everyone else on their company list.
+ * console, everyone else on the dashboard overview.
  */
 export function roleHomePath(profile: RoleProfile | null | undefined): string {
-  return isAdmin(profile) ? ROUTES.CONSOLE : ROUTES.DASHBOARD_COMPANIES;
+  return isAdmin(profile) ? ROUTES.CONSOLE : ROUTES.DASHBOARD;
 }
 
 /** Resolve a profile row to one of the five canonical app roles. */

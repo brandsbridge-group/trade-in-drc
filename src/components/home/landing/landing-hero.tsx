@@ -23,12 +23,12 @@ export async function LandingHero({ locale }: { locale: string }) {
       {/* Copy */}
       <MotionEnter>
         <div>
-          <p className="inline-flex max-w-full items-center gap-2.5 rounded-full bg-white/[0.08] py-1 pl-1 pr-3.5 ring-1 ring-white/15 backdrop-blur-md">
+          {/* <p className="inline-flex max-w-full items-center gap-2.5 rounded-full bg-white/[0.08] py-1 pl-1 pr-3.5 ring-1 ring-white/15 backdrop-blur-md">
             <span className="rounded-full bg-market-or px-3 py-1 text-xs font-bold tracking-wide text-market-navy">
               {t("brand")}
             </span>
             <span className="truncate text-xs font-medium text-white/75">{t("badge")}</span>
-          </p>
+          </p> */}
 
           <h1 className="mt-6 text-balance text-[1.9rem] font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-[2.4rem] xl:text-[2.75rem]">
             {t.rich("title", {
@@ -40,7 +40,9 @@ export async function LandingHero({ locale }: { locale: string }) {
             })}
           </h1>
 
-          <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-white/70">{t("body")}</p>
+          <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-white/70">
+            {t("body")}
+          </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
@@ -48,7 +50,10 @@ export async function LandingHero({ locale }: { locale: string }) {
               className="group inline-flex items-center gap-2 rounded-full bg-market-or px-6 py-3 text-sm font-bold text-market-navy shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_10px_30px_-10px_rgba(203,161,78,0.6)] transition-colors duration-150 ease-out hover:bg-market-or-light"
             >
               {t("ctaMarket")}
-              <ArrowRight className="h-4 w-4 transition-transform duration-150 ease-out group-hover:translate-x-0.5" aria-hidden />
+              <ArrowRight
+                className="h-4 w-4 transition-transform duration-150 ease-out group-hover:translate-x-0.5"
+                aria-hidden
+              />
             </Link>
             <Link
               href="/opportunities"
@@ -58,14 +63,14 @@ export async function LandingHero({ locale }: { locale: string }) {
             </Link>
           </div>
 
-          <ul className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-white/65">
+          {/* <ul className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-white/65">
             {TRUST_KEYS.map((k) => (
               <li key={k} className="inline-flex items-center gap-1.5">
                 <CheckCircle2 className="h-3.5 w-3.5 text-market-or" aria-hidden />
                 {t(`trust.${k}`)}
               </li>
             ))}
-          </ul>
+          </ul> */}
         </div>
       </MotionEnter>
 

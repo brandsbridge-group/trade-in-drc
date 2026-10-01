@@ -35,9 +35,10 @@ export function resolveSafeRedirect(
 
 /**
  * P2-7: every successful auth path (login, signup's email-confirmation
- * round-trip, OAuth callback) lands on `/dashboard/companies` by default —
- * the one landing spot every call site agrees on, so it lives here once
- * instead of being restated as a bare `/dashboard` fallback in three places.
+ * round-trip, OAuth callback) lands on the dashboard overview (`/dashboard`)
+ * by default — the one landing spot every call site agrees on, so it lives
+ * here once. The overview adapts: a brand-new account without a company sees
+ * the guided onboarding there, an established company its "À faire" list.
  * An explicit `?redirect=` target (validated by `resolveSafeRedirect`) still
  * always wins over this default. The ADMIN branch bypasses this helper
  * entirely and always goes to `/console` — that decision is made by the caller
@@ -48,5 +49,5 @@ export function resolvePostAuthRedirect(
   locale: string,
   origin: string
 ): string {
-  return resolveSafeRedirect(redirect, locale, origin, `/${locale}${ROUTES.DASHBOARD_COMPANIES}`);
+  return resolveSafeRedirect(redirect, locale, origin, `/${locale}${ROUTES.DASHBOARD}`);
 }

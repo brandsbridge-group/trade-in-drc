@@ -68,6 +68,7 @@ export function Navbar() {
         { href: "/companies", label: t("companies") },
     ];
     const overflowLinks = [
+        { href: "/about", label: t("about") },
         { href: "/local-contacts", label: t("contactPoints") },
         { href: "/services", label: t("services") },
         { href: "/events", label: t("events") },

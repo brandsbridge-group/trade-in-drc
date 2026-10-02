@@ -11,9 +11,10 @@ export async function CtaBand() {
   const t = await getTranslations("LocalContacts.band");
 
   return (
-    <section className="bg-white py-6 md:py-8">
+    <section className="bg-transparent py-6 md:py-8">
       <div className="mx-auto w-full max-w-[1500px] px-4 md:px-6">
-        <div className="relative flex flex-col items-start gap-5 overflow-hidden rounded-xl bg-market-navy px-6 py-8 text-white md:flex-row md:items-center md:justify-between md:px-10 md:py-9">
+        <div className="relative flex flex-col items-start gap-5 overflow-hidden rounded-[28px] bg-[linear-gradient(135deg,#0b1830_0%,#142f59_50%,#0d244a_100%)] px-6 py-8 text-white shadow-[0_32px_80px_-42px_rgba(15,23,42,0.8)] md:flex-row md:items-center md:justify-between md:px-10 md:py-9">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(245,188,72,0.16),transparent_30%)]" aria-hidden />
           <Globe2
             className="pointer-events-none absolute -right-6 top-1/2 hidden h-48 w-48 -translate-y-1/2 text-market-gold/10 md:block"
             strokeWidth={1}
@@ -27,7 +28,7 @@ export async function CtaBand() {
           </div>
           <Link
             href="/request"
-            className="relative inline-flex shrink-0 items-center gap-2 rounded-md bg-market-gold px-6 py-3 text-sm font-semibold text-market-navy transition-colors duration-150 hover:bg-market-gold/90"
+            className="relative inline-flex shrink-0 items-center gap-2 rounded-full bg-market-gold px-6 py-3 text-sm font-semibold text-market-navy shadow-[0_14px_24px_-18px_rgba(245,188,72,0.8)] transition-all duration-200 hover:bg-market-gold/90"
           >
             <Handshake className="h-4 w-4" aria-hidden />
             {t("cta")}

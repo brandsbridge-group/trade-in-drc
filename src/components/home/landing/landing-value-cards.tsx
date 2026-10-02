@@ -9,8 +9,8 @@ export async function LandingValueCards({ locale }: { locale: string }) {
   const t = await getTranslations({ locale, namespace: "Landing.values" });
 
   return (
-    <section className="flex min-h-screen flex-col justify-center bg-white">
-      <div className="mx-auto grid max-w-7xl gap-4 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4">
+    <section className="relative">
+      <div className="mx-auto grid max-w-7xl gap-4 px-4 py-10 sm:grid-cols-2 lg:grid-cols-4">
         <ValueCard Icon={Users} title={t("who.title")}>
           <p className="text-sm leading-relaxed text-slate-600">{t("who.desc")}</p>
         </ValueCard>
@@ -42,14 +42,14 @@ function ValueCard({
 }) {
   return (
     <MotionEnter className="h-full">
-      <div className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-landing-gold/50 hover:shadow-md">
-        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 text-[var(--color-landing-navy)]">
+      <div className="group flex h-full flex-col rounded-[24px] border border-slate-200/80 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] p-6 shadow-[0_22px_60px_-42px_rgba(15,23,42,0.5)] transition-all duration-200 ease-out hover:-translate-y-1 hover:border-landing-gold/60 hover:shadow-[0_28px_80px_-38px_rgba(15,23,42,0.6)]">
+        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 text-[var(--color-landing-navy)]">
           <Icon className="h-5 w-5" />
         </div>
-        <h3 className="text-base font-bold uppercase tracking-wide text-[var(--color-landing-navy)]">
+        <h3 className="text-base font-bold uppercase tracking-[0.08em] text-[var(--color-landing-navy)]">
           {title}
         </h3>
-        <span className="mt-2 mb-3 block h-0.5 w-8 rounded-full bg-landing-gold" />
+        <span className="mt-2 mb-3 block h-0.5 w-10 rounded-full bg-landing-gold" />
         {children}
       </div>
     </MotionEnter>

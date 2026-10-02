@@ -35,51 +35,51 @@ export async function FeaturedEvents({
           return (
             <article
               key={event.id}
-              className="flex flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition-shadow duration-150 hover:shadow-md"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_16px_38px_-30px_rgba(15,23,42,0.65)] transition-all duration-150 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-[0_22px_46px_-30px_rgba(15,23,42,0.55)]"
             >
-              <div className="relative aspect-[16/9] bg-slate-100">
+              <div className="relative aspect-[16/9] overflow-hidden bg-[linear-gradient(135deg,#e8edf4,#f8fafc)]">
                 {event.cover_url && (
                   <Image
                     src={event.cover_url}
                     alt={title}
                     fill
                     sizes="(max-width: 1024px) 100vw, 33vw"
-                    className="object-cover"
+                    className="object-cover transition-transform duration-200 group-hover:scale-[1.02]"
                   />
                 )}
                 {event.event_type && (
-                  <span className="absolute right-2 top-2 rounded bg-market-red px-2 py-1 text-[11px] font-bold text-white">
+                  <span className="absolute left-3 top-3 rounded-full border border-white/60 bg-white/95 px-3 py-1 text-[11px] font-bold text-market-navy shadow-sm backdrop-blur-sm">
                     {tType(event.event_type)}
                   </span>
                 )}
               </div>
-              <div className="flex flex-1 flex-col p-4">
+              <div className="flex flex-1 flex-col p-5">
                 <h3 className="font-display text-lg font-bold leading-snug text-market-navy">{title}</h3>
-                <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-600">
+                <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-slate-600">
                   {dateRange && (
                     <span className="inline-flex items-center gap-1.5">
-                      <CalendarDays className="h-3.5 w-3.5 text-market-red" aria-hidden />
+                      <CalendarDays className="h-3.5 w-3.5 shrink-0 text-market-red" aria-hidden />
                       {dateRange}
                     </span>
                   )}
                   {event.event_location && (
                     <span className="inline-flex items-center gap-1.5">
-                      <MapPin className="h-3.5 w-3.5 text-market-red" aria-hidden />
+                      <MapPin className="h-3.5 w-3.5 shrink-0 text-market-red" aria-hidden />
                       {event.event_location}
                     </span>
                   )}
                 </div>
                 {excerpt && <p className="mt-2 line-clamp-2 text-sm text-slate-600">{excerpt}</p>}
-                <div className="mt-4 flex gap-2 pt-1">
+                <div className="mt-auto flex gap-2 pt-5">
                   <Link
                     href={`/events/${event.slug}`}
-                    className="inline-flex h-9 flex-1 items-center justify-center rounded-md border border-market-navy px-3 text-xs font-bold text-market-navy transition-colors duration-150 hover:bg-market-navy hover:text-white"
+                    className="inline-flex h-10 flex-1 items-center justify-center rounded-lg border border-slate-200 px-3 text-xs font-bold text-market-navy transition-colors duration-150 hover:border-market-navy hover:bg-market-navy hover:text-white"
                   >
                     {t("viewEvent")}
                   </Link>
                   <Link
                     href={`/events/${event.slug}`}
-                    className="inline-flex h-9 flex-1 items-center justify-center rounded-md bg-market-red px-3 text-xs font-bold text-white transition-colors duration-150 hover:bg-market-red-dark"
+                    className="inline-flex h-10 flex-1 items-center justify-center rounded-lg bg-market-red px-3 text-xs font-bold text-white transition-colors duration-150 hover:bg-market-red-dark"
                   >
                     {t("register")}
                   </Link>

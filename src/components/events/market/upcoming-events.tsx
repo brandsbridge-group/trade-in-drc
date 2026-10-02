@@ -47,17 +47,17 @@ export async function UpcomingEvents({
     <section id={UPCOMING_ANCHOR} className="scroll-mt-24">
       <SectionHeading>{t("heading")}</SectionHeading>
 
-      <div className="mb-5 flex flex-wrap gap-1.5">
+      <div className="mb-5 flex flex-wrap gap-2">
         {EVENT_TABS.map((tab) => {
           const active = filters.tab === tab;
           return (
             <Link
               key={tab}
               href={tabHref(filters, tab)}
-              className={`inline-flex h-8 items-center rounded-full px-3.5 text-xs font-semibold transition-colors duration-150 ${
+              className={`inline-flex h-9 items-center rounded-full px-4 text-xs font-semibold transition-colors duration-150 ${
                 active
                   ? "bg-market-navy text-white"
-                  : "border border-slate-300 bg-white text-slate-600 hover:border-market-navy hover:text-market-navy"
+                  : "border border-slate-200 bg-white text-slate-600 hover:border-market-navy/40 hover:bg-slate-50 hover:text-market-navy"
               }`}
             >
               {tTabs(tab)}
@@ -67,7 +67,7 @@ export async function UpcomingEvents({
       </div>
 
       {events.length === 0 ? (
-        <p className="rounded-lg border border-dashed border-slate-300 bg-white px-4 py-10 text-center text-sm text-slate-500">
+        <p className="rounded-2xl border border-dashed border-slate-300 bg-white px-4 py-12 text-center text-sm text-slate-500">
           {t("empty")}
         </p>
       ) : (
@@ -79,22 +79,22 @@ export async function UpcomingEvents({
             return (
               <article
                 key={event.id}
-                className="flex flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition-shadow duration-150 hover:shadow-md"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_16px_38px_-30px_rgba(15,23,42,0.65)] transition-all duration-150 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-[0_22px_46px_-30px_rgba(15,23,42,0.55)]"
               >
-                <div className="relative aspect-[16/10] bg-slate-100">
+                <div className="relative aspect-[16/10] overflow-hidden bg-[linear-gradient(135deg,#e8edf4,#f8fafc)]">
                   {event.cover_url && (
                     <Image
                       src={event.cover_url}
                       alt={title}
                       fill
                       sizes="(max-width: 1280px) 50vw, 20vw"
-                      className="object-cover"
+                      className="object-cover transition-transform duration-200 group-hover:scale-[1.02]"
                     />
                   )}
                 </div>
-                <div className="flex flex-1 flex-col p-3">
+                <div className="flex flex-1 flex-col p-4">
                   {event.event_type && (
-                    <span className="text-[11px] font-bold uppercase tracking-wide text-market-navy">
+                    <span className="w-fit rounded-full bg-market-navy/5 px-2.5 py-1 text-[10px] font-bold text-market-navy">
                       {tType(event.event_type)}
                     </span>
                   )}
@@ -102,38 +102,38 @@ export async function UpcomingEvents({
                     {title}
                   </h3>
                   {sectorLabel && (
-                    <span className="mt-1 text-[11px] font-semibold text-emerald-600">{sectorLabel}</span>
+                    <span className="mt-1 text-[11px] font-semibold text-emerald-700">{sectorLabel}</span>
                   )}
-                  <div className="mt-2 space-y-1 text-[11px] text-slate-600">
+                  <div className="mt-3 space-y-2 text-xs text-slate-600">
                     {dateRange && (
                       <span className="flex items-center gap-1.5">
-                        <CalendarDays className="h-3.5 w-3.5 text-market-red" aria-hidden />
+                        <CalendarDays className="h-3.5 w-3.5 shrink-0 text-market-red" aria-hidden />
                         {dateRange}
                       </span>
                     )}
                     {event.event_location && (
                       <span className="flex items-center gap-1.5">
-                        <MapPin className="h-3.5 w-3.5 text-market-red" aria-hidden />
+                        <MapPin className="h-3.5 w-3.5 shrink-0 text-market-red" aria-hidden />
                         {event.event_location}
                       </span>
                     )}
                     {event.organizer && (
                       <span className="flex items-center gap-1.5">
-                        <UserRound className="h-3.5 w-3.5 text-market-red" aria-hidden />
+                        <UserRound className="h-3.5 w-3.5 shrink-0 text-market-red" aria-hidden />
                         {event.organizer}
                       </span>
                     )}
                   </div>
-                  <div className="mt-3 flex gap-1.5 pt-1">
+                  <div className="mt-auto flex gap-2 pt-4">
                     <Link
                       href={`/events/${event.slug}`}
-                      className="inline-flex h-8 flex-1 items-center justify-center rounded-md border border-market-navy px-2 text-[11px] font-bold text-market-navy transition-colors duration-150 hover:bg-market-navy hover:text-white"
+                      className="inline-flex h-9 flex-1 items-center justify-center rounded-lg border border-slate-200 px-2 text-[11px] font-bold text-market-navy transition-colors duration-150 hover:border-market-navy hover:bg-market-navy hover:text-white"
                     >
                       {t("viewDetails")}
                     </Link>
                     <Link
                       href={`/events/${event.slug}`}
-                      className="inline-flex h-8 flex-1 items-center justify-center rounded-md bg-market-red px-2 text-[11px] font-bold text-white transition-colors duration-150 hover:bg-market-red-dark"
+                      className="inline-flex h-9 flex-1 items-center justify-center rounded-lg bg-market-red px-2 text-[11px] font-bold text-white transition-colors duration-150 hover:bg-market-red-dark"
                     >
                       {t("attend")}
                     </Link>

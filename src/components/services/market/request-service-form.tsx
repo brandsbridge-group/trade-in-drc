@@ -83,16 +83,18 @@ export function RequestServiceForm({ sectors }: { sectors: SectorOption[] }) {
   }
 
   return (
-    <section id="request-service" className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+    <section id="request-service" className="rounded-[26px] border border-slate-200/80 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] p-6 shadow-[0_22px_50px_-36px_rgba(15,23,42,0.7)]">
       <div className="flex items-start gap-3">
-        <ClipboardList className="mt-0.5 h-7 w-7 shrink-0 text-market-navy" strokeWidth={1.75} aria-hidden />
+        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-slate-100 text-market-navy">
+          <ClipboardList className="h-5 w-5" strokeWidth={1.8} aria-hidden />
+        </span>
         <div>
           <h2 className="font-display text-lg font-bold text-market-navy">{t("title")}</h2>
           <p className="text-sm text-slate-500">{t("subtitle")}</p>
         </div>
       </div>
 
-      <form ref={formRef} onSubmit={onSubmit} className="mt-4 grid gap-4 sm:grid-cols-3">
+      <form ref={formRef} onSubmit={onSubmit} className="mt-5 grid gap-4 sm:grid-cols-3">
         <div><Label req>{t("fullName")}</Label><input name="fullName" required minLength={2} placeholder={t("fullNamePh")} className={FIELD} /></div>
         <div><Label req>{t("company")}</Label><input name="company" required minLength={2} placeholder={t("companyPh")} className={FIELD} /></div>
         <div><Label req>{t("country")}</Label><input name="country" required minLength={2} placeholder={t("countryPh")} className={FIELD} /></div>
@@ -131,14 +133,14 @@ export function RequestServiceForm({ sectors }: { sectors: SectorOption[] }) {
 
         <div className="sm:col-span-3">
           <Label>{t("message")}</Label>
-          <textarea name="message" rows={3} placeholder={t("messagePh")} className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 outline-none transition-colors duration-150 placeholder:text-slate-400 focus:border-market-navy" />
+          <textarea name="message" rows={3} placeholder={t("messagePh")} className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 outline-none transition-colors duration-150 placeholder:text-slate-400 focus:border-market-navy" />
         </div>
 
         <div className="flex flex-wrap items-center gap-4 sm:col-span-3">
           <button
             type="submit"
             disabled={pending}
-            className="inline-flex h-11 items-center gap-2 rounded-md bg-market-navy px-6 text-sm font-bold text-white transition-colors duration-150 hover:bg-market-navy-deep disabled:opacity-60"
+            className="inline-flex h-11 items-center gap-2 rounded-full bg-market-navy px-6 text-sm font-bold text-white transition-all duration-200 hover:bg-market-navy-deep disabled:opacity-60"
           >
             {t("submit")} <Send className="h-4 w-4" aria-hidden />
           </button>

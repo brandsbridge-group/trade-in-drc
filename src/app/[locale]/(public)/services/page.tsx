@@ -37,16 +37,27 @@ export default async function ServicesPage({
   const sectors = rawSectors.map((s) => ({ id: s.id, label: pickLocalized(s, "name", locale as Locale) }));
 
   return (
-    <div className="bg-slate-50">
-      <ServicesHero />
-      <ServiceCards />
-      <div className="mx-auto grid w-full max-w-[1400px] gap-4 px-4 py-4 md:px-6 lg:grid-cols-[1fr_360px]">
-        <RequestServiceForm sectors={sectors} />
-        <WhoWeServe />
-      </div>
-      <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-4 px-4 pb-10 md:px-6">
-        <SectorsStrip />
-        <HowItWorks />
+    <div className="relative bg-[radial-gradient(circle_at_top,_rgba(16,36,71,0.12),transparent_45%)] text-slate-900">
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_top,_rgba(12,24,48,0.12),transparent_60%)]" />
+
+      <div className="relative">
+        <ServicesHero />
+
+        <div className="mx-auto w-full max-w-[1400px] px-4 py-4 md:px-6">
+          <div className="rounded-[32px] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(248,250,252,0.98))] p-3 shadow-[0_30px_70px_-38px_rgba(15,23,42,0.42)] backdrop-blur-sm">
+            <ServiceCards />
+          </div>
+        </div>
+
+        <div className="mx-auto grid w-full max-w-[1400px] gap-4 px-4 py-4 md:px-6 lg:grid-cols-[360px_minmax(0,1fr)] lg:items-start">
+          <WhoWeServe />
+          <RequestServiceForm sectors={sectors} />
+        </div>
+
+        <div className="mx-auto grid w-full max-w-[1400px] gap-4 px-4 pb-10 md:px-6 lg:grid-cols-[1.2fr_0.8fr]">
+          <SectorsStrip />
+          <HowItWorks />
+        </div>
       </div>
     </div>
   );

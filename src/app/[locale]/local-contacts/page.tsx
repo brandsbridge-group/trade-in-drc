@@ -65,12 +65,22 @@ export default async function LocalContactsPage({
   }));
 
   return (
-    <div className="min-h-screen bg-white">
-      <LocalContactsHero sectors={sectorOptions} />
-      <ContactTypeCards />
-      <LocalSectorCards sectors={sectorCards} />
-      <ValueStrip />
-      <CtaBand />
+    <div className="relative min-h-screen bg-[radial-gradient(circle_at_top,_rgba(15,35,70,0.08),transparent_42%)] text-slate-900">
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-[radial-gradient(circle_at_top,_rgba(13,29,62,0.12),transparent_60%)]" />
+
+      <div className="relative">
+        <LocalContactsHero sectors={sectorOptions} />
+
+        <div className="mx-auto w-full max-w-[1500px] px-4 py-6 md:px-6 md:py-8">
+          <div className="rounded-[32px] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(248,250,252,0.96))] p-3 shadow-[0_30px_70px_-38px_rgba(15,23,42,0.45)] backdrop-blur-sm">
+            <ContactTypeCards />
+            <LocalSectorCards sectors={sectorCards} />
+          </div>
+        </div>
+
+        <ValueStrip />
+        <CtaBand />
+      </div>
     </div>
   );
 }

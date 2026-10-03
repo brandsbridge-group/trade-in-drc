@@ -102,7 +102,7 @@ export default async function ProvincesPage({
   }));
 
   return (
-    <div className="bg-slate-50">
+    <div className="min-h-screen bg-white">
       <BreadcrumbBar
         items={[
           { label: t("breadcrumbHome"), href: "/" },
@@ -111,11 +111,14 @@ export default async function ProvincesPage({
         ]}
       />
 
-      <div className="mx-auto w-full max-w-[1500px] px-4 py-5 md:px-6">
-        <h1 className="font-display text-2xl font-bold tracking-tight text-market-navy md:text-[1.75rem]">
-          {t("title")}
-        </h1>
-        <p className="mt-1 mb-4 text-sm text-slate-500">{t("subtitle")}</p>
+      <div className="mx-auto w-full max-w-[1500px] px-4 pb-8 pt-3 md:px-6 md:pb-10">
+        <header className="mb-5 border-b border-slate-200 pb-4 md:mb-6 md:pb-5">
+          <span aria-hidden className="mb-3 block h-1 w-10 bg-market-gold" />
+          <h1 className="font-display text-2xl font-bold leading-tight text-market-navy md:text-[1.75rem]">
+            {t("title")}
+          </h1>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-600">{t("subtitle")}</p>
+        </header>
 
         <div className="grid grid-cols-1 items-stretch gap-4 lg:grid-cols-[1fr_1.05fr]">
           <MapPanel

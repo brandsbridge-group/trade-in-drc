@@ -36,7 +36,7 @@ export async function EventStatTiles({
         >
           <span
             className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${
-              gold ? "bg-market-gold text-market-navy" : "bg-market-navy text-white"
+              gold ? "bg-market-or text-market-navy" : "bg-market-navy text-white"
             }`}
           >
             <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />

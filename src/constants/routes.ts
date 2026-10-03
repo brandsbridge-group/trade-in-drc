@@ -27,6 +27,7 @@ export const ROUTES = {
   CONSOLE_TAXONOMY: '/console/taxonomy',
   CONSOLE_ANALYTICS: '/console/analytics',
   CONSOLE_SETTINGS: '/console/settings',
+  CONSOLE_NEWSLETTER: '/console/newsletter',
 } as const;
 
 /**
@@ -58,4 +59,5 @@ export function isUnderRoute(path: string, route: string): boolean {
 export const SUPER_ADMIN_ROUTES = [
   ROUTES.CONSOLE_USERS,
   ROUTES.CONSOLE_SETTINGS,
+  ROUTES.CONSOLE_NEWSLETTER,
 ] as const;

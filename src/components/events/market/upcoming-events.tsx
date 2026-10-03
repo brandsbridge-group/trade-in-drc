@@ -107,19 +107,19 @@ export async function UpcomingEvents({
                   <div className="mt-3 space-y-2 text-xs text-slate-600">
                     {dateRange && (
                       <span className="flex items-center gap-1.5">
-                        <CalendarDays className="h-3.5 w-3.5 shrink-0 text-market-red" aria-hidden />
+                        <CalendarDays className="h-3.5 w-3.5 shrink-0 text-market-or-dark" aria-hidden />
                         {dateRange}
                       </span>
                     )}
                     {event.event_location && (
                       <span className="flex items-center gap-1.5">
-                        <MapPin className="h-3.5 w-3.5 shrink-0 text-market-red" aria-hidden />
+                        <MapPin className="h-3.5 w-3.5 shrink-0 text-market-or-dark" aria-hidden />
                         {event.event_location}
                       </span>
                     )}
                     {event.organizer && (
                       <span className="flex items-center gap-1.5">
-                        <UserRound className="h-3.5 w-3.5 shrink-0 text-market-red" aria-hidden />
+                        <UserRound className="h-3.5 w-3.5 shrink-0 text-market-or-dark" aria-hidden />
                         {event.organizer}
                       </span>
                     )}
@@ -133,7 +133,7 @@ export async function UpcomingEvents({
                     </Link>
                     <Link
                       href={`/events/${event.slug}`}
-                      className="inline-flex h-9 flex-1 items-center justify-center rounded-lg bg-market-red px-2 text-[11px] font-bold text-white transition-colors duration-150 hover:bg-market-red-dark"
+                      className="inline-flex h-9 flex-1 items-center justify-center rounded-lg bg-market-or px-2 text-[11px] font-bold text-market-navy transition-colors duration-150 hover:bg-market-or-light"
                     >
                       {t("attend")}
                     </Link>

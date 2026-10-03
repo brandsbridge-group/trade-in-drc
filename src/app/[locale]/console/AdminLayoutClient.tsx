@@ -21,7 +21,9 @@ import {
     MessageSquareWarning,
     Inbox,
     Crown,
+    Mail,
 } from "lucide-react";
+import { ROUTES } from "@/constants/routes";
 
 const sidebarLinks = [
     { href: "/console", labelKey: "navDashboard", icon: LayoutDashboard },
@@ -37,6 +39,7 @@ const sidebarLinks = [
     { href: "/console/taxonomy", labelKey: "navTaxonomy", icon: Tag },
     { href: "/console/analytics", labelKey: "navAnalytics", icon: BarChart3 },
     { href: "/console/settings", labelKey: "navSettings", icon: Settings },
+    { href: ROUTES.CONSOLE_NEWSLETTER, labelKey: "navNewsletter", icon: Mail },
 ] as const;
 
 export default function AdminLayoutClient({

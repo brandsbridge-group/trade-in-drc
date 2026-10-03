@@ -59,7 +59,7 @@ export function EventsHeroSearch({
       <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[22%] md:block [mask-image:linear-gradient(to_left,black_45%,transparent)]">
         <Image src="/images/events/hero-right.jpg" alt="" fill priority className="object-cover" sizes="22vw" />
       </div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(245,188,72,0.16),transparent_28%)]" aria-hidden />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(203,161,78,0.16),transparent_28%)]" aria-hidden />
       <div className="absolute inset-0 bg-market-navy/55" aria-hidden />
 
       <div className="relative mx-auto w-full max-w-[1500px] px-4 py-12 text-center md:px-6 md:py-16">
@@ -75,7 +75,7 @@ export function EventsHeroSearch({
           className="mx-auto mt-8 grid max-w-6xl gap-2.5 rounded-[24px] border border-white/60 bg-white/95 p-3 shadow-[0_30px_90px_-40px_rgba(0,0,0,0.55)] backdrop-blur-sm sm:grid-cols-2 lg:grid-cols-6"
         >
           <div className="relative lg:col-span-1">
-            <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-market-red" aria-hidden />
+            <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-market-or-dark" aria-hidden />
             <input name="q" placeholder={t("keyword")} className={`${FIELD_CLS} pl-10`} />
           </div>
           <select name="type" defaultValue="" className={FIELD_CLS} aria-label={t("eventTypeAll")}>
@@ -116,7 +116,7 @@ export function EventsHeroSearch({
           </div>
           <button
             type="submit"
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-market-red px-4 text-sm font-bold text-white shadow-sm transition-colors duration-150 hover:bg-market-red-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-market-navy"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-market-or px-4 text-sm font-bold text-market-navy shadow-sm transition-colors duration-150 hover:bg-market-or-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-market-or focus-visible:ring-offset-2 focus-visible:ring-offset-market-navy"
           >
             <Search className="h-4 w-4" aria-hidden />
             {t("search")}
@@ -134,7 +134,7 @@ export function EventsHeroSearch({
           <button
             type="button"
             onClick={() => scrollToAnchor(SUBMIT_ANCHOR)}
-            className="inline-flex h-11 items-center justify-center rounded-full bg-market-red px-6 text-sm font-bold text-white transition-all duration-200 hover:bg-market-red-dark"
+            className="inline-flex h-11 items-center justify-center rounded-full bg-market-or px-6 text-sm font-bold text-market-navy transition-colors duration-150 hover:bg-market-or-light"
           >
             {t("submit")}
           </button>

@@ -31,7 +31,7 @@ const NEED_ICONS: Record<BusinessNeed, LucideIcon> = {
 };
 
 const STEP_BADGE =
-  "flex size-7 items-center justify-center rounded-md bg-market-navy text-sm font-bold text-white";
+  "flex size-8 items-center justify-center rounded-lg bg-market-navy text-sm font-bold text-white shadow-sm";
 
 interface NeedTilesProps {
   selected: BusinessNeed | null;
@@ -43,8 +43,8 @@ export function NeedTiles({ selected, onSelect }: NeedTilesProps) {
   const t = useTranslations("FindPartner");
 
   return (
-    <div>
-      <div className="mb-1.5 flex items-center gap-2.5">
+    <section className="rounded-xl border border-slate-200 bg-white p-4 shadow-[0_16px_38px_-30px_rgba(15,23,42,0.55)] md:p-5">
+      <div className="mb-2 flex items-center gap-2.5">
         <span className={STEP_BADGE} aria-hidden>
           1
         </span>
@@ -52,12 +52,12 @@ export function NeedTiles({ selected, onSelect }: NeedTilesProps) {
           {t("step1.title")}
         </h2>
       </div>
-      <p className="mb-4 text-sm text-slate-500">{t("step1.subtitle")}</p>
+      <p className="mb-5 text-sm leading-relaxed text-slate-500">{t("step1.subtitle")}</p>
 
       <div
         role="radiogroup"
         aria-label={t("step1.title")}
-        className="grid grid-cols-2 gap-3"
+        className="grid grid-cols-2 gap-2.5"
       >
         {NEEDS.map((need) => {
           const Icon = NEED_ICONS[need];
@@ -70,20 +70,16 @@ export function NeedTiles({ selected, onSelect }: NeedTilesProps) {
               aria-checked={active}
               onClick={() => onSelect(need)}
               className={cn(
-                "flex flex-col items-start gap-2.5 rounded-lg border p-3.5 text-left transition-colors duration-150",
+                "flex min-h-[112px] flex-col items-start gap-3 rounded-lg border p-3.5 text-left transition-all duration-150 ease-out",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-market-navy/40",
                 active
-                  ? "border-market-navy bg-market-navy/[0.04] ring-1 ring-market-navy"
-                  : "border-slate-200 hover:border-market-navy/50 hover:bg-slate-50"
+                  ? "border-market-navy bg-market-navy/[0.045] ring-1 ring-market-navy shadow-[0_12px_24px_-20px_rgba(13,29,62,0.75)]"
+                  : "border-slate-200 bg-white hover:border-market-navy/35 hover:bg-slate-50/80"
               )}
             >
-              <Icon
-                className={cn(
-                  "size-5",
-                  active ? "text-market-navy" : "text-market-navy/70"
-                )}
-                aria-hidden
-              />
+              <span className={cn("grid size-9 place-items-center rounded-lg", active ? "bg-market-navy text-white" : "bg-slate-100 text-market-navy/75")}>
+                <Icon className="size-[18px]" aria-hidden />
+              </span>
               <span className="text-sm font-semibold leading-snug text-slate-800">
                 {t(`needs.${need}`)}
               </span>
@@ -92,10 +88,10 @@ export function NeedTiles({ selected, onSelect }: NeedTilesProps) {
         })}
       </div>
 
-      <p className="mt-4 flex items-start gap-1.5 text-xs text-slate-500">
+      <p className="mt-4 flex items-start gap-2 rounded-lg bg-slate-50 px-3 py-2.5 text-xs leading-relaxed text-slate-500">
         <Info className="mt-0.5 size-3.5 shrink-0" aria-hidden />
         {t("step1.footnote")}
       </p>
-    </div>
+    </section>
   );
 }

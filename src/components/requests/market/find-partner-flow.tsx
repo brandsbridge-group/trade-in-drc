@@ -42,8 +42,8 @@ export function FindPartnerFlow({ sectors }: { sectors: SectorOption[] }) {
   };
 
   return (
-    <section className="mx-auto w-full max-w-[1500px] px-4 py-10 md:px-6 md:py-14">
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.4fr)_minmax(0,0.85fr)]">
+    <section className="mx-auto w-full max-w-[1500px] px-4 py-8 md:px-6 md:py-12">
+      <div className="grid items-start gap-5 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)_minmax(0,0.9fr)] lg:gap-6">
         <NeedTiles selected={selectedNeed} onSelect={handleSelectNeed} />
         <RequestForm
           sectors={sectors}

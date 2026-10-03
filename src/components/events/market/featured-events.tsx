@@ -10,7 +10,7 @@ import { SectionHeading } from "./section-heading";
 
 /**
  * Featured Events (design 13): three large cards for `featured`-tagged events —
- * cover with a red type badge, title, date range, location, excerpt, and
+ * cover with a type badge, title, date range, location, excerpt, and
  * view / register CTAs.
  */
 export async function FeaturedEvents({
@@ -58,13 +58,13 @@ export async function FeaturedEvents({
                 <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-slate-600">
                   {dateRange && (
                     <span className="inline-flex items-center gap-1.5">
-                      <CalendarDays className="h-3.5 w-3.5 shrink-0 text-market-red" aria-hidden />
+                      <CalendarDays className="h-3.5 w-3.5 shrink-0 text-market-or-dark" aria-hidden />
                       {dateRange}
                     </span>
                   )}
                   {event.event_location && (
                     <span className="inline-flex items-center gap-1.5">
-                      <MapPin className="h-3.5 w-3.5 shrink-0 text-market-red" aria-hidden />
+                      <MapPin className="h-3.5 w-3.5 shrink-0 text-market-or-dark" aria-hidden />
                       {event.event_location}
                     </span>
                   )}
@@ -79,7 +79,7 @@ export async function FeaturedEvents({
                   </Link>
                   <Link
                     href={`/events/${event.slug}`}
-                    className="inline-flex h-10 flex-1 items-center justify-center rounded-lg bg-market-red px-3 text-xs font-bold text-white transition-colors duration-150 hover:bg-market-red-dark"
+                    className="inline-flex h-10 flex-1 items-center justify-center rounded-lg bg-market-or px-3 text-xs font-bold text-market-navy transition-colors duration-150 hover:bg-market-or-light"
                   >
                     {t("register")}
                   </Link>

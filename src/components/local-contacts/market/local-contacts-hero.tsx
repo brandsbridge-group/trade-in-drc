@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import { UserRoundPlus } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { ContactSearchCard } from "./contact-search-card";
 
@@ -45,16 +44,9 @@ export async function LocalContactsHero({ sectors }: { sectors: SectorOption[] }
         <div className="mt-5 flex flex-wrap gap-3">
           <Link
             href="/request"
-            className="inline-flex items-center gap-2 rounded-full bg-market-gold px-5 py-2.5 text-sm font-semibold text-market-navy shadow-[0_18px_30px_-22px_rgba(245,188,72,0.9)] transition-all duration-200 hover:bg-market-gold/90"
+            className="inline-flex items-center gap-2 rounded-full bg-market-or px-5 py-2.5 text-sm font-semibold text-market-navy shadow-[0_18px_30px_-22px_rgba(203,161,78,0.55)] transition-colors duration-150 hover:bg-market-or-light"
           >
             {t("heroCta.requestPartner")}
-          </Link>
-          <Link
-            href="/register-company"
-            className="inline-flex items-center gap-2 rounded-full border border-white/45 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-white/10"
-          >
-            <UserRoundPlus className="h-4 w-4" aria-hidden />
-            {t("heroCta.registerContact")}
           </Link>
         </div>
       </div>

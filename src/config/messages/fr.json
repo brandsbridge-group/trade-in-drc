@@ -1434,7 +1434,8 @@
       "navAnalytics": "Statistiques",
       "navSettings": "Paramètres",
       "navRequests": "Demandes",
-      "navPremium": "Premium"
+      "navPremium": "Premium",
+      "navNewsletter": "Newsletter"
     },
     "analytics": {
       "title": "Statistiques de la plateforme",
@@ -1446,6 +1447,33 @@
       "rejectedCompanies": "Rejetées",
       "registeredUsers": "Utilisateurs inscrits",
       "activeRfqListings": "Annonces RFQ actives"
+    },
+    "newsletter": {
+      "title": "Campagnes newsletter",
+      "subtitle": "Créez des brouillons bilingues et envoyez-les aux abonnés ayant confirmé leur adresse.",
+      "campaigns": "Campagnes récentes",
+      "editorTitle": "Éditeur de campagne",
+      "editorHint": "Chaque abonné reçoit le contenu dans sa langue de confirmation avec un lien sécurisé de désinscription.",
+      "newCampaign": "Nouvelle campagne",
+      "cancel": "Annuler",
+      "empty": "Aucune campagne pour le moment.",
+      "subjectEn": "Objet (anglais)",
+      "bodyEn": "Message (anglais)",
+      "subjectFr": "Objet (français)",
+      "bodyFr": "Message (français)",
+      "saveDraft": "Enregistrer le brouillon",
+      "saving": "Enregistrement…",
+      "saved": "Brouillon enregistré.",
+      "saveError": "Impossible d'enregistrer la campagne. Vérifiez les champs et réessayez.",
+      "send": "Envoyer la campagne",
+      "retry": "Réessayer les destinataires en échec",
+      "confirmSend": "Envoyer cette campagne à tous les abonnés confirmés ?",
+      "alreadySending": "Cette campagne est déjà en cours d'envoi ou a déjà été envoyée.",
+      "recipientLimit": "Cette campagne dépasse la limite de sécurité actuelle des destinataires.",
+      "sendError": "Impossible de lancer la campagne. Veuillez réessayer.",
+      "sendSummary": "Envoyés : {sent} ; échecs : {failed}.",
+      "deliveryStats": "{sent}/{total} envoyés · {failed} échecs",
+      "status": { "draft": "Brouillon", "sending": "Envoi en cours", "sent": "Envoyée", "failed": "À relancer" }
     }
   },
   "Trust": {
@@ -1811,7 +1839,10 @@
       "headline": "Restez informé",
       "body": "Recevez chaque mois des informations sur le commerce en RDC dans votre boîte mail.",
       "consent": "J'accepte de recevoir des e-mails de TradeInDRC et j'ai lu la {privacyLink}.",
-      "privacy": "Politique de confidentialité"
+      "privacy": "Politique de confidentialité",
+      "success": "Consultez votre boîte mail pour confirmer votre inscription.",
+      "error": "Votre inscription n'a pas pu être traitée. Veuillez réessayer plus tard.",
+      "alreadySubscribed": "Cette adresse est déjà inscrite à la newsletter."
     },
     "hero": {
       "tabs": {
@@ -4778,6 +4809,7 @@
         "button": "Soumettre l'événement",
         "submitting": "Envoi de votre événement…",
         "success": "Événement soumis. Notre équipe l'examinera prochainement.",
+        "savedEmailFailed": "Votre événement a bien été enregistré, mais l'e-mail de confirmation n'a pas pu être envoyé. Vérifiez votre adresse ou contactez-nous.",
         "error": "Une erreur s'est produite. Veuillez réessayer.",
         "invalid": "Veuillez vérifier les champs indiqués."
       },
@@ -4797,7 +4829,10 @@
         "body": "Restez informé des événements à venir et des opportunités d'affaires.",
         "placeholder": "Entrez votre e-mail",
         "subscribe": "S'abonner",
-        "success": "Inscription confirmée. Surveillez votre boîte de réception."
+        "consent": "J'accepte de recevoir les e-mails de la newsletter TradeInDRC.",
+        "success": "Consultez votre boîte mail pour confirmer votre inscription à la newsletter.",
+        "error": "Votre inscription n'a pas pu être traitée. Veuillez réessayer plus tard.",
+        "alreadySubscribed": "Cette adresse est déjà inscrite à la newsletter."
       }
     }
   },

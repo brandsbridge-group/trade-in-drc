@@ -65,11 +65,11 @@ export async function FeaturedBand({ locale, lualabaCount, recommended }: Featur
   return (
     <section
       aria-label={t("featuredTitle")}
-      className="mt-4 grid grid-cols-1 items-start gap-6 rounded-lg border border-amber-200/70 bg-market-cream p-5 lg:grid-cols-[1.3fr_1fr_1fr_0.9fr]"
+      className="mt-5 grid grid-cols-1 items-start gap-5 border border-slate-200 border-t-2 border-t-market-gold bg-white p-4 sm:p-5 lg:grid-cols-[1.3fr_1fr_1fr_0.9fr] lg:gap-6"
     >
       {/* Col 1 — headline + borderless inline stats */}
       <div>
-        <span className="mb-2.5 inline-block rounded-sm bg-market-gold px-2.5 py-1 text-[0.66rem] font-bold tracking-wider text-market-navy">
+        <span className="mb-2.5 inline-block bg-blue-50 px-2.5 py-1 text-[0.66rem] font-bold tracking-wider text-blue-800">
           {t("featuredBadge")}
         </span>
         <h2 className="font-display text-xl font-bold leading-tight text-market-navy">
@@ -81,7 +81,7 @@ export async function FeaturedBand({ locale, lualabaCount, recommended }: Featur
             <div key={s.label} className="flex items-center gap-2">
               <s.icon className="h-5 w-5 flex-none text-market-navy" strokeWidth={1.75} aria-hidden />
               <div>
-                <div className="font-display text-base font-bold leading-none text-market-navy">
+                <div className="font-display text-base font-bold leading-none tabular-nums text-market-navy">
                   {s.value}
                 </div>
                 <div className="mt-0.5 text-[0.66rem] leading-tight text-slate-500">{s.label}</div>
@@ -119,9 +119,9 @@ export async function FeaturedBand({ locale, lualabaCount, recommended }: Featur
           {recommended.map((c) => (
             <div
               key={c.id}
-              className="flex items-center gap-2.5 rounded-lg border border-slate-200 bg-white px-2.5 py-2 transition-colors duration-150 hover:border-slate-300"
+              className="flex items-center gap-2.5 border border-slate-200 bg-white px-2.5 py-2 transition-colors duration-150 hover:border-blue-300"
             >
-              <span className="grid h-7 w-7 flex-none place-items-center rounded-full border border-slate-200 bg-slate-100 text-[0.7rem] font-bold text-market-navy">
+              <span className="grid h-7 w-7 flex-none place-items-center border border-slate-200 bg-slate-100 text-[0.7rem] font-bold text-market-navy">
                 {monogram(c.name)}
               </span>
               <div className="min-w-0">
@@ -129,7 +129,7 @@ export async function FeaturedBand({ locale, lualabaCount, recommended }: Featur
                 <div className="truncate text-[0.66rem] text-slate-500">{c.sectorLabel}</div>
               </div>
               {c.verified && (
-                <span className="ml-auto flex flex-none items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-[0.66rem] font-bold text-green-700">
+                <span className="ml-auto flex flex-none items-center gap-1 bg-emerald-50 px-2 py-1 text-[0.66rem] font-bold text-emerald-700">
                   <BadgeCheck className="h-3 w-3" aria-hidden />
                   {t("verified")}
                 </span>
@@ -140,8 +140,8 @@ export async function FeaturedBand({ locale, lualabaCount, recommended }: Featur
       </div>
 
       {/* Col 4 — lead-gen CTA card */}
-      <div className="flex flex-col gap-2.5 self-stretch rounded-lg border border-slate-200 bg-white p-4">
-        <span className="grid h-10 w-10 place-items-center rounded-full bg-blue-50 text-market-navy">
+      <div className="flex flex-col gap-2.5 self-stretch border border-slate-200 bg-slate-50 p-4">
+        <span className="grid h-10 w-10 place-items-center bg-blue-100 text-market-navy">
           <Users className="h-5 w-5" aria-hidden />
         </span>
         <h3 className="font-display text-base font-bold leading-snug text-market-navy">
@@ -150,7 +150,7 @@ export async function FeaturedBand({ locale, lualabaCount, recommended }: Featur
         <p className="flex-1 text-xs text-slate-500">{t("needDescription")}</p>
         <Link
           href="/request"
-          className="flex w-full items-center justify-center gap-1.5 rounded-lg bg-market-gold px-4 py-2.5 text-sm font-semibold text-market-navy transition-colors duration-150 hover:brightness-95"
+          className="flex w-full items-center justify-center gap-1.5 bg-market-or px-4 py-2.5 text-sm font-semibold text-market-navy transition-colors duration-150 hover:bg-market-or-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-market-or-dark"
         >
           {t("requestCta")}
           <ArrowRight className="h-4 w-4" aria-hidden />

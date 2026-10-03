@@ -140,7 +140,7 @@ export function RequestServiceForm({ sectors }: { sectors: SectorOption[] }) {
           <button
             type="submit"
             disabled={pending}
-            className="inline-flex h-11 items-center gap-2 rounded-full bg-market-navy px-6 text-sm font-bold text-white transition-all duration-200 hover:bg-market-navy-deep disabled:opacity-60"
+            className="inline-flex h-11 items-center gap-2 rounded-md bg-market-or px-6 text-sm font-bold text-market-navy shadow-[inset_0_1px_0_rgba(255,255,255,0.3)] transition-colors duration-150 hover:bg-market-or-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-market-or disabled:opacity-60"
           >
             {t("submit")} <Send className="h-4 w-4" aria-hidden />
           </button>

@@ -1434,7 +1434,8 @@
       "navAnalytics": "Analytics",
       "navSettings": "Settings",
       "navRequests": "Requests",
-      "navPremium": "Premium"
+      "navPremium": "Premium",
+      "navNewsletter": "Newsletter"
     },
     "analytics": {
       "title": "Platform Analytics",
@@ -1446,6 +1447,38 @@
       "rejectedCompanies": "Rejected",
       "registeredUsers": "Registered Users",
       "activeRfqListings": "Active RFQ Listings"
+    },
+    "newsletter": {
+      "title": "Newsletter campaigns",
+      "subtitle": "Create bilingual campaign drafts and send them to confirmed subscribers.",
+      "campaigns": "Recent campaigns",
+      "editorTitle": "Campaign editor",
+      "editorHint": "Messages are sent in each subscriber's confirmed language and include a secure unsubscribe link.",
+      "newCampaign": "New campaign",
+      "cancel": "Cancel",
+      "empty": "No campaigns yet.",
+      "subjectEn": "Subject (English)",
+      "bodyEn": "Message (English)",
+      "subjectFr": "Subject (French)",
+      "bodyFr": "Message (French)",
+      "saveDraft": "Save draft",
+      "saving": "Saving…",
+      "saved": "Campaign draft saved.",
+      "saveError": "Could not save campaign. Check the fields and try again.",
+      "send": "Send campaign",
+      "retry": "Retry failed recipients",
+      "confirmSend": "Send this campaign to all confirmed newsletter subscribers?",
+      "alreadySending": "This campaign is already being sent or has already been sent.",
+      "recipientLimit": "This campaign exceeds the current recipient safety limit.",
+      "sendError": "Campaign could not be started. Please try again.",
+      "sendSummary": "Sent: {sent}; failed: {failed}.",
+      "deliveryStats": "{sent}/{total} sent · {failed} failed",
+      "status": {
+        "draft": "Draft",
+        "sending": "Sending",
+        "sent": "Sent",
+        "failed": "Needs retry"
+      }
     }
   },
   "Trust": {
@@ -1811,7 +1844,10 @@
       "headline": "Stay updated",
       "body": "Get monthly trade insights from DRC, delivered to your inbox.",
       "consent": "I agree to receive emails from TradeInDRC and have read the {privacyLink}.",
-      "privacy": "Privacy Policy"
+      "privacy": "Privacy Policy",
+      "success": "Check your inbox to confirm your subscription.",
+      "error": "We could not process your subscription. Please try again later.",
+      "alreadySubscribed": "This address is already subscribed."
     },
     "hero": {
       "tabs": {
@@ -4778,6 +4814,7 @@
         "button": "Submit Event",
         "submitting": "Submitting your event…",
         "success": "Event submitted. Our team will review it shortly.",
+        "savedEmailFailed": "Your event was saved, but we could not send the confirmation email. Please check your email address or contact us.",
         "error": "Something went wrong. Please try again.",
         "invalid": "Please check the highlighted fields."
       },
@@ -4797,7 +4834,10 @@
         "body": "Stay updated on upcoming events and business opportunities.",
         "placeholder": "Enter your email",
         "subscribe": "Subscribe",
-        "success": "Subscribed. Watch your inbox for upcoming events."
+        "consent": "I agree to receive TradeInDRC newsletter emails.",
+        "success": "Check your inbox to confirm your newsletter subscription.",
+        "error": "We could not process your subscription. Please try again later.",
+        "alreadySubscribed": "This address is already subscribed."
       }
     }
   },

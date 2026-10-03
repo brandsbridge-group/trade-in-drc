@@ -81,8 +81,8 @@ const EMPTY_FORM: FormState = {
   requirement: "",
 };
 
-const INPUT = "h-9 text-sm";
-const TRIGGER = "h-9 text-sm";
+const INPUT = "h-10 rounded-lg border-slate-200 bg-slate-50/70 text-sm shadow-none transition-colors duration-150 placeholder:text-slate-400 focus-visible:border-market-navy focus-visible:bg-white focus-visible:ring-market-navy/15";
+const TRIGGER = "h-10 rounded-lg border-slate-200 bg-slate-50/70 text-sm shadow-none transition-colors duration-150 focus:border-market-navy focus:bg-white focus:ring-market-navy/15";
 
 function Field({
   label,
@@ -97,7 +97,7 @@ function Field({
 }) {
   return (
     <div className="space-y-1.5">
-      <Label htmlFor={htmlFor} className="text-xs font-medium text-slate-600">
+      <Label htmlFor={htmlFor} className="text-xs font-semibold text-slate-700">
         {label} {required && <span className="text-market-red">*</span>}
       </Label>
       {children}
@@ -106,7 +106,7 @@ function Field({
 }
 
 const STEP_BADGE =
-  "flex size-7 items-center justify-center rounded-md bg-market-navy text-sm font-bold text-white";
+  "flex size-8 items-center justify-center rounded-lg bg-market-navy text-sm font-bold text-white shadow-sm";
 
 /** Column 2 — the full business-need form. Owns field state + submission. */
 export function RequestForm({ sectors, selectedNeed, onSubmitted }: RequestFormProps) {
@@ -200,8 +200,8 @@ export function RequestForm({ sectors, selectedNeed, onSubmitted }: RequestFormP
   };
 
   return (
-    <form onSubmit={handleSubmit} id="request-form" className="scroll-mt-24">
-      <div className="mb-1.5 flex items-center gap-2.5">
+    <form onSubmit={handleSubmit} id="request-form" className="scroll-mt-24 rounded-xl border border-slate-200 bg-white p-4 shadow-[0_18px_42px_-30px_rgba(15,23,42,0.62)] md:p-5">
+      <div className="mb-2 flex items-center gap-2.5">
         <span className={STEP_BADGE} aria-hidden>
           2
         </span>
@@ -209,9 +209,9 @@ export function RequestForm({ sectors, selectedNeed, onSubmitted }: RequestFormP
           {t("step2.title")}
         </h2>
       </div>
-      <p className="mb-4 text-sm text-slate-500">{t("step2.subtitle")}</p>
+      <p className="mb-5 text-sm leading-relaxed text-slate-500">{t("step2.subtitle")}</p>
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-x-4 gap-y-4 md:grid-cols-2">
         {/* Left column */}
         <Field label={t("form.companyName")} htmlFor="fp-company" required>
           <Input id="fp-company" className={INPUT} placeholder={t("form.companyNamePlaceholder")} value={form.companyName} onChange={(e) => set("companyName", e.target.value)} />
@@ -287,7 +287,7 @@ export function RequestForm({ sectors, selectedNeed, onSubmitted }: RequestFormP
         <Field label={t("form.phone")} htmlFor="fp-phone">
           <div className="flex gap-2">
             <Select value={form.dialCode} onValueChange={(v) => set("dialCode", v)}>
-              <SelectTrigger className="h-9 w-20 shrink-0 text-sm"><SelectValue /></SelectTrigger>
+              <SelectTrigger className="h-10 w-20 shrink-0 rounded-lg border-slate-200 bg-slate-50/70 text-sm"><SelectValue /></SelectTrigger>
               <SelectContent>
                 {DIAL_CODES.map((d) => (
                   <SelectItem key={d} value={d} className="text-sm">{d}</SelectItem>
@@ -298,7 +298,7 @@ export function RequestForm({ sectors, selectedNeed, onSubmitted }: RequestFormP
           </div>
         </Field>
         <Field label={t("form.requirement")} htmlFor="fp-requirement" required>
-          <Textarea id="fp-requirement" rows={3} className="text-sm" placeholder={t("form.requirementPlaceholder")} value={form.requirement} onChange={(e) => set("requirement", e.target.value)} />
+          <Textarea id="fp-requirement" rows={3} className="min-h-24 resize-y rounded-lg border-slate-200 bg-slate-50/70 text-sm shadow-none placeholder:text-slate-400 focus-visible:border-market-navy focus-visible:bg-white focus-visible:ring-market-navy/15" placeholder={t("form.requirementPlaceholder")} value={form.requirement} onChange={(e) => set("requirement", e.target.value)} />
         </Field>
 
         <Field label={t("form.sector")} htmlFor="fp-sector">
@@ -316,7 +316,7 @@ export function RequestForm({ sectors, selectedNeed, onSubmitted }: RequestFormP
         <Field label={t("form.uploadLabel")} htmlFor="fp-file">
           <label
             htmlFor="fp-file"
-            className="flex h-9 cursor-pointer items-center gap-2 rounded-md border border-dashed border-slate-300 bg-slate-50/60 px-3 text-xs text-slate-500 transition-colors duration-150 hover:border-market-navy/50"
+            className="flex h-10 cursor-pointer items-center gap-2 rounded-lg border border-dashed border-slate-300 bg-slate-50/70 px-3 text-xs text-slate-600 transition-colors duration-150 hover:border-market-navy/50 hover:bg-white"
           >
             <UploadCloud className="size-4 shrink-0 text-market-navy/60" aria-hidden />
             <span className="truncate">
@@ -328,11 +328,11 @@ export function RequestForm({ sectors, selectedNeed, onSubmitted }: RequestFormP
       </div>
 
       {/* Preference checkboxes */}
-      <div className="mt-5 grid grid-cols-2 gap-x-4 gap-y-2.5 sm:grid-cols-4">
+      <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-4">
         {PREFERENCES.map((pref) => {
           const checked = prefs.includes(pref);
           return (
-            <label key={pref} className="flex cursor-pointer items-center gap-2 text-xs text-slate-600">
+            <label key={pref} className="flex min-h-10 cursor-pointer items-center gap-2.5 rounded-lg border border-slate-200 bg-slate-50/60 px-3 py-2 text-xs leading-snug text-slate-600 transition-colors duration-150 hover:border-slate-300 hover:bg-white">
               <input
                 type="checkbox"
                 checked={checked}
@@ -345,7 +345,7 @@ export function RequestForm({ sectors, selectedNeed, onSubmitted }: RequestFormP
         })}
       </div>
 
-      <p className="mt-4 flex items-center gap-1.5 text-xs text-slate-500">
+      <p className="mt-4 flex items-center gap-2 rounded-lg bg-slate-50 px-3 py-2.5 text-xs leading-relaxed text-slate-500">
         <Lock className="size-3.5 shrink-0" aria-hidden />
         {t("form.privacy")}
       </p>
@@ -354,7 +354,7 @@ export function RequestForm({ sectors, selectedNeed, onSubmitted }: RequestFormP
         type="submit"
         disabled={isSubmitting}
         className={cn(
-          "mt-4 inline-flex w-full items-center justify-center gap-2 rounded-md bg-market-red px-5 py-2.5 text-sm font-semibold text-white",
+          "mt-4 inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-market-red px-5 text-sm font-semibold text-white shadow-sm",
           "transition-colors duration-150 hover:bg-market-red-dark disabled:opacity-60"
         )}
       >

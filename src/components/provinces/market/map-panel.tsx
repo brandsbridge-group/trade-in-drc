@@ -32,12 +32,12 @@ export async function MapPanel({ locale, totalCompanies, verifiedCompanies }: Ma
   return (
     <section
       aria-label={t("browseTitle")}
-      className="flex h-full flex-col justify-center rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+      className="flex h-full flex-col justify-center border border-slate-200 bg-white p-4 sm:p-5"
     >
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-[180px_1fr] sm:items-center">
         <div>
           <h2 className="font-display text-base font-bold text-market-navy">{t("browseTitle")}</h2>
-          <p className="mt-1 max-w-[180px] text-xs text-slate-500">{t("browseHint")}</p>
+          <p className="mt-1 max-w-[180px] text-xs leading-relaxed text-slate-500">{t("browseHint")}</p>
 
           <ul className="my-3 grid gap-1.5 text-[0.72rem] text-slate-500">
             {legend.map((l) => (
@@ -52,13 +52,13 @@ export async function MapPanel({ locale, totalCompanies, verifiedCompanies }: Ma
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="flex items-center gap-2.5 rounded-lg border border-slate-200 bg-slate-50/60 px-3 py-2.5"
+                className="flex items-center gap-2.5 border border-slate-200 bg-white px-3 py-2.5"
               >
-                <span className="grid h-8 w-8 flex-none place-items-center rounded-sm bg-blue-50 text-market-navy">
+                <span className="grid h-8 w-8 flex-none place-items-center bg-blue-50 text-market-navy">
                   <s.icon className="h-4 w-4" aria-hidden />
                 </span>
                 <div>
-                  <div className="font-display text-sm font-bold leading-tight text-market-navy">
+                  <div className="font-display text-sm font-bold leading-tight tabular-nums text-market-navy">
                     {fmt(s.num)}
                   </div>
                   <div className="text-[0.68rem] leading-tight text-slate-500">
@@ -71,7 +71,7 @@ export async function MapPanel({ locale, totalCompanies, verifiedCompanies }: Ma
 
           <Link
             href="/companies"
-            className="flex w-full items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2 text-xs font-medium text-market-navy transition-colors duration-150 hover:border-slate-300 hover:bg-slate-50"
+            className="flex w-full items-center justify-center gap-2 border border-slate-200 bg-white px-4 py-2.5 text-xs font-semibold text-market-navy transition-colors duration-150 hover:border-blue-700 hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
           >
             <List className="h-4 w-4" aria-hidden />
             {t("viewAllProvinces")}
@@ -79,7 +79,7 @@ export async function MapPanel({ locale, totalCompanies, verifiedCompanies }: Ma
         </div>
 
         {/* Real DRC choropleth (provinces + pins + labels) from the design art. */}
-        <div className="relative mx-auto w-full max-w-[520px]">
+        <div className="relative mx-auto w-full max-w-[520px] bg-slate-50/60 p-2 sm:p-3">
           <Image
             src="/images/provinces/drc-map.png"
             alt={t("browseTitle")}

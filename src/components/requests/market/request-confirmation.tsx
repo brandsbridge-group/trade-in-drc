@@ -7,7 +7,7 @@ import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 
 const STEP_BADGE =
-  "flex size-7 items-center justify-center rounded-md bg-market-navy text-sm font-bold text-white";
+  "flex size-8 items-center justify-center rounded-lg bg-market-navy text-sm font-bold text-white shadow-sm";
 
 interface RequestConfirmationProps {
   submitted: boolean;
@@ -30,8 +30,8 @@ export function RequestConfirmation({
   ];
 
   return (
-    <div>
-      <div className="mb-1.5 flex items-center gap-2.5">
+    <section className="rounded-xl border border-slate-200 bg-white p-4 shadow-[0_16px_38px_-30px_rgba(15,23,42,0.55)] md:p-5">
+      <div className="mb-2 flex items-center gap-2.5">
         <span className={STEP_BADGE} aria-hidden>
           3
         </span>
@@ -39,18 +39,21 @@ export function RequestConfirmation({
           {t("step3.title")}
         </h2>
       </div>
-      <p className="mb-4 text-sm text-slate-500">{t("step3.subtitle")}</p>
+      <p className="mb-5 text-sm leading-relaxed text-slate-500">{t("step3.subtitle")}</p>
 
       {!submitted ? (
-        <div className="flex min-h-[18rem] items-center justify-center rounded-lg border border-dashed border-slate-200 bg-slate-50/60 p-6">
-          <p className="max-w-[16rem] text-center text-sm text-slate-400">
+        <div className="flex min-h-[18rem] flex-col items-center justify-center rounded-lg border border-dashed border-slate-200 bg-slate-50/70 p-6 text-center">
+          <span className="mb-3 grid size-12 place-items-center rounded-xl bg-white text-market-navy shadow-sm ring-1 ring-slate-200">
+            <ClipboardCheck className="size-5" aria-hidden />
+          </span>
+          <p className="max-w-[16rem] text-sm leading-relaxed text-slate-500">
             {t("step3.placeholder")}
           </p>
         </div>
       ) : (
         <div
           className={cn(
-            "rounded-lg border border-emerald-200 bg-emerald-50/50 p-5",
+            "rounded-lg border border-emerald-200 bg-[linear-gradient(180deg,#f0fdf4_0%,#ffffff_100%)] p-5",
             "motion-safe:animate-in motion-safe:fade-in-0 motion-safe:duration-300"
           )}
         >
@@ -61,7 +64,7 @@ export function RequestConfirmation({
             </p>
           </div>
 
-          <div className="mt-4 rounded-md border border-dashed border-emerald-300 bg-white px-4 py-3 text-center">
+          <div className="mt-4 rounded-lg border border-dashed border-emerald-300 bg-white px-4 py-3 text-center">
             <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
               {t("step3.requestId")}
             </p>
@@ -82,7 +85,7 @@ export function RequestConfirmation({
           <button
             type="button"
             onClick={onReset}
-            className="mt-5 w-full rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-market-navy transition-colors duration-150 hover:bg-slate-50"
+            className="mt-5 h-10 w-full rounded-lg border border-slate-300 bg-white px-4 text-sm font-semibold text-market-navy transition-colors duration-150 hover:bg-slate-50"
           >
             {t("step3.another")}
           </button>
@@ -96,6 +99,6 @@ export function RequestConfirmation({
           </Link>
         </div>
       )}
-    </div>
+    </section>
   );
 }

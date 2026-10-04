@@ -17,6 +17,7 @@
  * `next` is the emailRedirectTo (our /callback URL carrying `?redirect=`) and
  * stays last in the query string, since Supabase inserts it unencoded.
  */
+
 // This file is intentionally CommonJS so it can run directly with Node.
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const fs = require("fs");

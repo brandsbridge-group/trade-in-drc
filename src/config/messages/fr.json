@@ -5887,8 +5887,8 @@
       "filterLabel": "Filtrer les demandes par sens",
       "filters": {
         "all": "Tout",
-        "import": "Import",
-        "export": "Export"
+        "import": "Vendre en RDC",
+        "export": "Acheter en RDC"
       },
       "buyer": "Acheteur",
       "buyerVerified": "Acheteur vérifié",
@@ -5918,14 +5918,14 @@
       "heading": "Deux sens de circulation",
       "lead": "Un marché, deux sens : ce qui entre en RDC, ce qui en sort. Choisissez le vôtre.",
       "import": {
-        "title": "Importer en RDC",
+        "title": "Vendre en RDC",
         "body": "Ce que des entreprises étrangères proposent de vendre sur le marché congolais.",
-        "badge": "Import"
+        "badge": "Vendre"
       },
       "export": {
-        "title": "Exporter depuis la RDC",
+        "title": "Acheter en RDC",
         "body": "Ce que des entreprises congolaises proposent aux marchés extérieurs.",
-        "badge": "Export"
+        "badge": "Acheter"
       },
       "offers": "{count, plural, =0 {Aucune offre} one {# offre} other {# offres}}"
     },
@@ -5969,11 +5969,11 @@
     },
     "directions": {
       "import": {
-        "title": "Importer en RDC",
+        "title": "Vendre en RDC",
         "body": "Offres d’entreprises étrangères qui veulent vendre en RDC."
       },
       "export": {
-        "title": "Exporter depuis la RDC",
+        "title": "Acheter en RDC",
         "body": "Offres d’entreprises congolaises qui veulent vendre à l’étranger."
       }
     },
@@ -6005,8 +6005,8 @@
     },
     "results": {
       "heading": {
-        "import": "Produits proposés à l’import en RDC",
-        "export": "Produits proposés à l’export depuis la RDC",
+        "import": "Produits proposés à la vente en RDC",
+        "export": "Produits proposés à l’achat en RDC",
         "all": "Tous les produits"
       },
       "count": "{count, plural, =0 {Aucune offre} one {# offre} other {# offres}}",
@@ -6035,8 +6035,8 @@
       "body": "Aucun fournisseur n’a encore publié d’offre dans ce sens. Publiez votre besoin : notre équipe trouve et vérifie un fournisseur pour vous.",
       "bodyFiltered": "Aucune offre ne correspond à votre recherche ou à vos filtres. Élargissez-les, ou laissez notre équipe chercher pour vous.",
       "see": {
-        "import": "Voir les offres à l’import",
-        "export": "Voir les offres à l’export"
+        "import": "Voir les offres « Vendre en RDC »",
+        "export": "Voir les offres « Acheter en RDC »"
       }
     }
   },
@@ -6045,8 +6045,8 @@
     "crumbMarket": "Place de marché",
     "verifiedOn": "Vérifié le {date}",
     "direction": {
-      "import": "Sens : import vers la RDC",
-      "export": "Sens : export depuis la RDC"
+      "import": "Sens : vendre en RDC",
+      "export": "Sens : acheter en RDC"
     },
     "memberSince": "Sur la plateforme depuis {year}",
     "showImage": "Afficher l’image {n}",
@@ -6164,8 +6164,8 @@
     },
     "context": {
       "title": "Pour votre opération : {name} ({direction})",
-      "import": "import",
-      "export": "export",
+      "import": "Vendre en RDC",
+      "export": "Acheter en RDC",
       "body": "Le formulaire en bas de page est pré-rempli avec cette opération.",
       "clear": "Retirer le contexte"
     },
@@ -6443,7 +6443,7 @@
         "body": "Trouvez un fournisseur vérifié, en RDC ou à l'étranger.",
         "p1": "Demande de devis sans créer de compte",
         "p2": "Fournisseurs vérifiés en 4 points",
-        "p3": "Offres import et export au même endroit",
+        "p3": "Offres pour vendre et acheter en RDC au même endroit",
         "cta": "Voir le marché"
       },
       "sell": {
@@ -6477,9 +6477,9 @@
       "category": "Catégorie",
       "allCategories": "Toutes les catégories",
       "direction": "Sens",
-      "allDirections": "Import et export",
-      "import": "Import vers la RDC",
-      "export": "Export depuis la RDC",
+      "allDirections": "Vendre et acheter en RDC",
+      "import": "Vendre en RDC",
+      "export": "Acheter en RDC",
       "submit": "Rechercher"
     },
     "trends": "Tendances :",

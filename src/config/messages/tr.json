@@ -5887,8 +5887,8 @@
       "filterLabel": "Talepleri yöne göre filtrele",
       "filters": {
         "all": "Tümü",
-        "import": "İthalat",
-        "export": "İhracat"
+        "import": "DKC’de satış",
+        "export": "DKC’de satın alma"
       },
       "buyer": "Alıcı",
       "buyerVerified": "Doğrulanmış alıcı",
@@ -5918,14 +5918,14 @@
       "heading": "İki ticaret yönü",
       "lead": "Tek pazar, iki yön: DKC’ye girenler ve DKC’den çıkanlar. Sizinkini seçin.",
       "import": {
-        "title": "DKC’ye ithalat",
+        "title": "DKC’de satış",
         "body": "Yabancı şirketlerin Kongo pazarında satmayı teklif ettikleri.",
-        "badge": "İthalat"
+        "badge": "Satış"
       },
       "export": {
-        "title": "DKC’den ihracat",
+        "title": "DKC’de satın alma",
         "body": "Kongolu şirketlerin dış pazarlara sundukları.",
-        "badge": "İhracat"
+        "badge": "Satın alma"
       },
       "offers": "{count, plural, =0 {Henüz teklif yok} other {# teklif}}"
     },
@@ -5969,11 +5969,11 @@
     },
     "directions": {
       "import": {
-        "title": "DKC’ye ithalat",
+        "title": "DKC’de satış",
         "body": "DKC’de satış yapmak isteyen yabancı şirketlerin teklifleri."
       },
       "export": {
-        "title": "DKC’den ihracat",
+        "title": "DKC’de satın alma",
         "body": "Yurt dışına satış yapmak isteyen Kongolu şirketlerin teklifleri."
       }
     },
@@ -6005,8 +6005,8 @@
     },
     "results": {
       "heading": {
-        "import": "DKC’ye ithalat için sunulan ürünler",
-        "export": "DKC’den ihracat için sunulan ürünler",
+        "import": "DKC’de satışa sunulan ürünler",
+        "export": "DKC’de satın alınabilecek ürünler",
         "all": "Tüm ürünler"
       },
       "count": "{count, plural, =0 {Teklif yok} other {# teklif}}",
@@ -6035,8 +6035,8 @@
       "body": "Bu yönde henüz hiçbir tedarikçi teklif yayınlamadı. İhtiyacınızı yayınlayın: ekibimiz sizin için bir tedarikçi bulup doğrular.",
       "bodyFiltered": "Aramanıza veya filtrelerinize uyan teklif yok. Filtreleri genişletin ya da ekibimizin sizin için aramasına izin verin.",
       "see": {
-        "import": "İthalat tekliflerini gör",
-        "export": "İhracat tekliflerini gör"
+        "import": "“DKC’de satış” tekliflerini gör",
+        "export": "“DKC’de satın alma” tekliflerini gör"
       }
     }
   },
@@ -6045,8 +6045,8 @@
     "crumbMarket": "Pazaryeri",
     "verifiedOn": "{date} tarihinde doğrulandı",
     "direction": {
-      "import": "Yön: DKC’ye ithalat",
-      "export": "Yön: DKC’den ihracat"
+      "import": "Yön: DKC’de satış",
+      "export": "Yön: DKC’de satın alma"
     },
     "memberSince": "{year} yılından beri platformda",
     "showImage": "{n}. görseli göster",
@@ -6164,8 +6164,8 @@
     },
     "context": {
       "title": "Operasyonunuz için: {name} ({direction})",
-      "import": "ithalat",
-      "export": "ihracat",
+      "import": "DKC’de satış",
+      "export": "DKC’de satın alma",
       "body": "Sayfanın altındaki form bu operasyonla önceden doldurulmuştur.",
       "clear": "Bağlamı kaldır"
     },
@@ -6443,7 +6443,7 @@
         "body": "KDC'de veya yurt dışında doğrulanmış bir tedarikçi bulun.",
         "p1": "Hesap açmadan teklif isteyin",
         "p2": "4 noktada doğrulanmış tedarikçiler",
-        "p3": "İthalat ve ihracat teklifleri tek yerde",
+        "p3": "KDC'de satış ve satın alma teklifleri tek yerde",
         "cta": "Pazarı görün"
       },
       "sell": {
@@ -6477,9 +6477,9 @@
       "category": "Kategori",
       "allCategories": "Tüm kategoriler",
       "direction": "Yön",
-      "allDirections": "İthalat ve ihracat",
-      "import": "KDC'ye ithalat",
-      "export": "KDC'den ihracat",
+      "allDirections": "KDC'de satış ve satın alma",
+      "import": "KDC'de satış",
+      "export": "KDC'de satın alma",
       "submit": "Ara"
     },
     "trends": "Trendler:",

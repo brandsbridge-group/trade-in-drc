@@ -5887,8 +5887,8 @@
       "filterLabel": "Filtrar solicitudes por sentido",
       "filters": {
         "all": "Todo",
-        "import": "Importación",
-        "export": "Exportación"
+        "import": "Vender en la RDC",
+        "export": "Comprar en la RDC"
       },
       "buyer": "Comprador",
       "buyerVerified": "Comprador verificado",
@@ -5918,14 +5918,14 @@
       "heading": "Dos sentidos de circulación",
       "lead": "Un mercado, dos sentidos: lo que entra en la RDC y lo que sale. Elija el suyo.",
       "import": {
-        "title": "Importar a la RDC",
+        "title": "Vender en la RDC",
         "body": "Lo que empresas extranjeras ofrecen vender en el mercado congoleño.",
-        "badge": "Importación"
+        "badge": "Vender"
       },
       "export": {
-        "title": "Exportar desde la RDC",
+        "title": "Comprar en la RDC",
         "body": "Lo que empresas congoleñas ofrecen a los mercados exteriores.",
-        "badge": "Exportación"
+        "badge": "Comprar"
       },
       "offers": "{count, plural, =0 {Sin ofertas} one {# oferta} other {# ofertas}}"
     },
@@ -5969,11 +5969,11 @@
     },
     "directions": {
       "import": {
-        "title": "Importar a la RDC",
+        "title": "Vender en la RDC",
         "body": "Ofertas de empresas extranjeras que quieren vender en la RDC."
       },
       "export": {
-        "title": "Exportar desde la RDC",
+        "title": "Comprar en la RDC",
         "body": "Ofertas de empresas congoleñas que quieren vender en el extranjero."
       }
     },
@@ -6005,8 +6005,8 @@
     },
     "results": {
       "heading": {
-        "import": "Productos ofrecidos para importar a la RDC",
-        "export": "Productos ofrecidos para exportar desde la RDC",
+        "import": "Productos ofrecidos para la venta en la RDC",
+        "export": "Productos disponibles para comprar en la RDC",
         "all": "Todos los productos"
       },
       "count": "{count, plural, =0 {Ninguna oferta} one {# oferta} other {# ofertas}}",
@@ -6035,8 +6035,8 @@
       "body": "Ningún proveedor ha publicado todavía una oferta en este sentido. Publique su necesidad: nuestro equipo encuentra y verifica un proveedor por usted.",
       "bodyFiltered": "Ninguna oferta coincide con su búsqueda o filtros. Amplíelos, o deje que nuestro equipo busque por usted.",
       "see": {
-        "import": "Ver ofertas de importación",
-        "export": "Ver ofertas de exportación"
+        "import": "Ver ofertas «Vender en la RDC»",
+        "export": "Ver ofertas «Comprar en la RDC»"
       }
     }
   },
@@ -6045,8 +6045,8 @@
     "crumbMarket": "Mercado",
     "verifiedOn": "Verificado el {date}",
     "direction": {
-      "import": "Sentido: importación a la RDC",
-      "export": "Sentido: exportación desde la RDC"
+      "import": "Sentido: vender en la RDC",
+      "export": "Sentido: comprar en la RDC"
     },
     "memberSince": "En la plataforma desde {year}",
     "showImage": "Mostrar imagen {n}",
@@ -6164,8 +6164,8 @@
     },
     "context": {
       "title": "Para su operación: {name} ({direction})",
-      "import": "importación",
-      "export": "exportación",
+      "import": "Vender en la RDC",
+      "export": "Comprar en la RDC",
       "body": "El formulario al final de la página está prellenado con esta operación.",
       "clear": "Quitar el contexto"
     },
@@ -6443,7 +6443,7 @@
         "body": "Encuentre un proveedor verificado, en la RDC o en el extranjero.",
         "p1": "Solicite una cotización sin crear una cuenta",
         "p2": "Proveedores verificados en 4 puntos",
-        "p3": "Ofertas de importación y exportación en un solo lugar",
+        "p3": "Ofertas para vender y comprar en la RDC en un solo lugar",
         "cta": "Ver el mercado"
       },
       "sell": {
@@ -6477,9 +6477,9 @@
       "category": "Categoría",
       "allCategories": "Todas las categorías",
       "direction": "Sentido",
-      "allDirections": "Importación y exportación",
-      "import": "Importación a la RDC",
-      "export": "Exportación desde la RDC",
+      "allDirections": "Vender y comprar en la RDC",
+      "import": "Vender en la RDC",
+      "export": "Comprar en la RDC",
       "submit": "Buscar"
     },
     "trends": "Tendencias:",

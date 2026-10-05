@@ -49,9 +49,7 @@ export default async function HomePage({
   const { locale } = await params;
 
   return (
-    // -mb-12 cancels the site footer's top margin so the page's own background
-    // runs into the footer instead of leaving a white strip.
-    <div className="-mb-12 bg-slate-50">
+    <div data-page-end="flush" className="bg-slate-50">
       {/* ── Gateway hero: cinematic backdrop behind the hero copy and the
              dashboard panel, then the trust ribbon closes it. ── */}
       <div className="marketing-surface">

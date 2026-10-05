@@ -123,8 +123,8 @@ export default function CompanyProfilePage() {
   const scrollToContact = () => scrollTo("contact-intro");
 
   return (
-    <div className="min-h-screen bg-market-cream/30">
-      <div className="mx-auto max-w-6xl space-y-4 px-4 py-6">
+    <div data-page-end="flush" className="min-h-screen bg-market-cream/30">
+      <div className="mx-auto max-w-6xl space-y-4 px-4 pb-14 pt-6">
         <ProfileHero
           company={company}
           sectorLabel={sectorLabel}

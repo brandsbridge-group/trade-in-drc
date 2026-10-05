@@ -32,7 +32,7 @@ export default async function TrackRequestPage({
   const initialReference = normalizeReference(Array.isArray(ref) ? ref[0] ?? "" : ref ?? "") ?? "";
 
   return (
-    <main className="bg-slate-100">
+    <main data-page-end="flush" className="bg-slate-100">
       <section className="bg-market-navy text-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-10 md:py-12">
           <nav aria-label="Breadcrumb" className="mb-4 flex flex-wrap items-center gap-1.5 text-xs">

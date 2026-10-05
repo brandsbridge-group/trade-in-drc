@@ -3,6 +3,11 @@
  *
  *   node scripts/build-email-templates.cjs
  *
+ * CAUTION (2026-10-05): the two committed templates were retouched by hand
+ * after they were generated, so running this script OVERWRITES that work with
+ * a slightly different design. To change only the copy or the link, edit the
+ * .html files and mirror the change here; regenerate only on purpose.
+ *
  * Supabase templates are single-language Go templates, so each string is
  * emitted as an if/else chain on the user's `locale` metadata (sent by the
  * signup form; falls back to English). Edit the copy here, never the .html.
@@ -13,9 +18,17 @@
  * Links deliberately avoid {{ .ConfirmationURL }}: with @supabase/ssr that is a
  * PKCE link whose code can only be exchanged in the browser that asked for it,
  * so opening the e-mail on another device failed. Instead the link carries the
- * token hash to /[locale]/confirm, which calls verifyOtp() — works anywhere.
- * `next` is the emailRedirectTo (our /callback URL carrying `?redirect=`) and
- * stays last in the query string, since Supabase inserts it unencoded.
+ * token hash to a route that calls verifyOtp() — works anywhere.
+ *
+ * WHICH DOMAIN the link opens: the site answers on several (tradeindrc.net,
+ * .com, .org, staging, localhost) but a Supabase project has a single Site URL.
+ * So the link is {{ .RedirectTo }} — the address the app sent at sign-up, on
+ * the domain the person was on (src/lib/auth/email-redirect.ts) — with the
+ * token appended; /[locale]/callback verifies it. {{ .RedirectTo }} always
+ * carries a query string, hence the `&`.
+ * If that domain is not in Supabase's Redirect URLs list, Supabase replaces
+ * {{ .RedirectTo }} with the Site URL; the template detects it and falls back
+ * to the Site URL's /[locale]/confirm route.
  */
 const fs = require("fs");
 const path = require("path");
@@ -26,7 +39,8 @@ const LOCALES = ["fr", "es", "tr", "zh"]; // + "en" as the fallback
 function prelude(t) {
   return (
     `{{ $l := "en" }}{{ with .Data.locale }}{{ $l = . }}{{ end }}` +
-    `{{ $url := printf "%s/%s/confirm?token_hash=%s&type=${t.otpType}&next=%s" .SiteURL $l .TokenHash .RedirectTo }}`
+    `{{ $url := printf "%s&token_hash=%s&type=${t.otpType}" .RedirectTo .TokenHash }}` +
+    `{{ if eq .RedirectTo .SiteURL }}{{ $url = printf "%s/%s/confirm?token_hash=%s&type=${t.otpType}" .SiteURL $l .TokenHash }}{{ end }}`
   );
 }
 
@@ -291,7 +305,7 @@ if (PREVIEW) {
       .replace(prelude(t), "")
       .replaceAll("{{ $l }}", PREVIEW)
       .replaceAll("{{ .Email }}", "jean@exemple.com")
-      .replaceAll("{{ $url }}", `https://tradeindrc.com/${PREVIEW}/confirm?token_hash=0123abcd&type=${t.otpType}&next=https://tradeindrc.com/${PREVIEW}/callback`)
+      .replaceAll("{{ $url }}", `https://tradeindrc.net/${PREVIEW}/callback?redirect=%2F${PREVIEW}%2Fdashboard&token_hash=0123abcd&type=${t.otpType}`)
       .replaceAll("{{ .SiteURL }}", "http://localhost:3000");
     const out = path.join(previewDir, file.replace(".html", `.${PREVIEW}.html`));
     fs.writeFileSync(out, html);

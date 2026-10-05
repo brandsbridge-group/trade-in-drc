@@ -262,24 +262,26 @@ export function ActivityChart({ title, subtitle, series, startDate, totalLabel, 
         )}
       </dl>
 
-      {/* Same numbers for screen readers and table lovers. */}
-      <table className="sr-only">
-        <caption>{title}</caption>
-        <thead>
-          <tr>
-            <th scope="col">{weekly ? t("colWeek") : t("colDay")}</th>
-            {series.map((s) => <th key={s.key} scope="col">{s.label}</th>)}
-          </tr>
-        </thead>
-        <tbody>
-          {buckets.map((b, i) => (
-            <tr key={i}>
-              <th scope="row">{bucketLabel(b)}</th>
-              {b.values.map((v, j) => <td key={j}>{v}</td>)}
+      {/* Same numbers for screen readers. Hidden through a wrapper: a table ignores `width: 1px`. */}
+      <div className="sr-only">
+        <table>
+          <caption>{title}</caption>
+          <thead>
+            <tr>
+              <th scope="col">{weekly ? t("colWeek") : t("colDay")}</th>
+              {series.map((s) => <th key={s.key} scope="col">{s.label}</th>)}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {buckets.map((b, i) => (
+              <tr key={i}>
+                <th scope="row">{bucketLabel(b)}</th>
+                {b.values.map((v, j) => <td key={j}>{v}</td>)}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </section>
   );
 }

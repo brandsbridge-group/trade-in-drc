@@ -4,6 +4,7 @@ import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { OpportunityForm } from "../opportunity-form";
 import { PageHeader } from "@/components/design";
 import { Link } from "@/i18n/routing";
+import { MESSAGING_ENABLED } from "@/config/features";
 import { MessageSquare } from "lucide-react";
 import type { Opportunity } from "@/lib/opportunities/types";
 
@@ -119,7 +120,7 @@ export default async function EditOpportunityPage({
                 <p className="text-sm text-muted-foreground mt-1 whitespace-pre-wrap break-words">
                   {r.message}
                 </p>
-                {r.conversation_id && (
+                {MESSAGING_ENABLED && r.conversation_id && (
                   <Link
                     href={`/dashboard/inbox/${r.conversation_id}`}
                     className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline"

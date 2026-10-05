@@ -2,11 +2,12 @@
 
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { motion, useReducedMotion } from "framer-motion";
 import { toast } from "react-toastify";
 import { ExternalLink, Loader2, RotateCw } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
+import { authEmailRedirect } from "@/lib/auth/email-redirect";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/routing";
 import { MailSentIllustration } from "@/components/auth-design/mail-sent-illustration";
@@ -26,6 +27,7 @@ function inboxUrl(email: string): string {
 
 function VerifyEmailContent() {
   const t = useTranslations("Auth.verifyEmail");
+  const locale = useLocale();
   const reduce = useReducedMotion();
   const search = useSearchParams();
   const email = search.get("email") ?? "";
@@ -53,7 +55,12 @@ function VerifyEmailContent() {
       return;
     }
     setSending(true);
-    const { error } = await createClient().auth.resend({ type: "signup", email });
+    const { error } = await createClient().auth.resend({
+      type: "signup",
+      email,
+      // Same domain as the page: without it the link uses the project's Site URL.
+      options: { emailRedirectTo: authEmailRedirect(window.location.origin, locale, "signup") },
+    });
     setSending(false);
     if (error) {
       // Supabase answers in English; say it in the visitor's language.

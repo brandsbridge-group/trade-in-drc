@@ -214,7 +214,7 @@ export default async function CompaniesPage({
         </div>
       </section>
 
-      <div className="bg-slate-50">
+      <div data-page-end="flush" className="bg-slate-50">
         <div className="mx-auto w-full max-w-6xl px-4 pb-16 pt-6">
           <DirectoryFilters params={filters} sectors={sectorOptions} countries={countries} provinces={provinces} />
 

@@ -1728,8 +1728,6 @@
       },
       "tier": {
         "title": "Doğrulama seviyesi",
-        "current": "Mevcut seviye:",
-        "verifiedOn": "{date} tarihinde doğrulandı",
         "save": "Seviyeyi Kaydet",
         "saving": "Seviye kaydediliyor...",
         "saved": "Doğrulama seviyesi güncellendi.",
@@ -1741,34 +1739,12 @@
           "generic": "Seviye güncellenemedi. Lütfen tekrar deneyin."
         }
       },
-      "info": {
-        "title": "Şirket Bilgileri",
-        "sector": "Sektör",
-        "owner": "Sahibi",
-        "city": "Şehir",
-        "province": "İl",
-        "address": "Adres",
-        "email": "E-posta",
-        "phone": "Telefon",
-        "website": "Web Sitesi",
-        "description": "Açıklama"
-      },
       "products": {
         "title": "Ürünler ({count})",
         "empty": "Listelenmiş ürün yok."
       },
       "documents": {
         "title": "Belgeler ({count})"
-      },
-      "history": {
-        "title": "Doğrulama Geçmişi ({count})",
-        "empty": "Henüz doğrulama incelemesi yok."
-      },
-      "decisionValues": {
-        "approved": "Onaylandı",
-        "rejected": "Reddedildi",
-        "more_info_requested": "Daha fazla bilgi istendi",
-        "resubmitted": "Yeniden gönderildi"
       },
       "trustProfile": {
         "title": "Güven profili"
@@ -1777,20 +1753,82 @@
         "title": "Segmentler"
       },
       "listTitle": "Şirketler",
-      "listSubtitle": "Tüm durumlardaki kayıtlı şirketler",
-      "searchPlaceholder": "Şirket adına göre ara...",
-      "filterAll": "Tümü",
-      "colCompany": "Şirket",
-      "colStatus": "Durum",
-      "colOwnerEmail": "Sahibinin E-postası",
-      "colCreated": "Oluşturulma",
-      "colAction": "İşlem",
-      "view": "Görüntüle",
-      "emptyTitle": "Şirket bulunamadı",
-      "emptySearch": "Aramanızı değiştirmeyi deneyin.",
-      "emptyFilter": "Seçili filtreye uyan şirket yok.",
-      "loadMore": "Daha fazla yükle ({count} kaldı)",
-      "loadError": "Şirketler yüklenemedi. Lütfen sayfayı yenileyip tekrar deneyin."
+      "list": {
+        "subtitle": "Dosyasının durumu ne olursa olsun, kayıtlı tüm şirketler.",
+        "stats": {
+          "toReview": "İncelenecek dosyalar",
+          "toReviewFoot": "ekibin kararını bekliyor",
+          "total": "Şirketler",
+          "totalFoot": "{drc} KDC'de · {intl} uluslararası",
+          "verified": "Doğrulanmış",
+          "verifiedFoot": "kayıtlı şirketlerin %{rate}'i",
+          "premium": "Etkin Premium",
+          "premiumFoot": "devam eden abonelikler"
+        },
+        "views": {
+          "label": "Dosyanın durumu",
+          "all": "Tümü"
+        },
+        "results": "{count, plural, =0 {Şirket yok} one {# şirket} other {# şirket}}",
+        "filters": {
+          "search": "Şirket, şehir veya sahip ara",
+          "sector": "Sektör",
+          "allSectors": "Tüm sektörler",
+          "origin": "Köken",
+          "allOrigins": "Tüm kökenler",
+          "origins": {
+            "drc": "KDC",
+            "intl": "Uluslararası"
+          },
+          "premium": "Premium",
+          "sort": "Liste sırası",
+          "sorts": {
+            "recent": "Önce en yeniler",
+            "name": "Ad, A'dan Z'ye",
+            "products": "Önce en çok ürünü olanlar"
+          },
+          "remove": "{label} filtresini kaldır",
+          "clear": "Tümünü temizle"
+        },
+        "table": {
+          "company": "Şirket",
+          "sector": "Sektör",
+          "file": "Dosya",
+          "tier": "Düzey",
+          "products": "Ürünler",
+          "owner": "Sahibi",
+          "registered": "Kayıt tarihi",
+          "open": "Sayfayı aç",
+          "noSector": "Sınıflandırılmamış",
+          "noOwner": "Bilinmiyor",
+          "premiumUntil": "{date} tarihine kadar Premium"
+        },
+        "empty": "Eşleşen şirket yok.",
+        "more": "Daha fazla göster ({count, plural, one {# kaldı} other {# kaldı}})"
+      },
+      "sheet": {
+        "verifiedOn": "{date} tarihinde doğrulandı",
+        "verificationFile": "Doğrulama dosyası",
+        "publicPage": "Herkese açık sayfa",
+        "facts": {
+          "products": "Ürünler",
+          "productsFoot": "{count, plural, =0 {yayımlanan yok} one {# yayımlandı} other {# yayımlandı}}",
+          "documents": "Belgeler",
+          "documentsFoot": "{count, plural, =0 {onaylanan yok} one {# onaylandı} other {# onaylandı}}",
+          "segments": "Segmentler",
+          "segmentsFoot": "pazarda göründüğü yerler",
+          "premium": "Premium",
+          "premiumNone": "Yok",
+          "premiumNoneFoot": "devam eden abonelik yok",
+          "premiumUntil": "{date} tarihine kadar",
+          "premiumNoEnd": "bitiş tarihi yok",
+          "premiumEnded": "{date} tarihinde sona erdi"
+        },
+        "published": "Yayımlandı",
+        "draft": "Taslak",
+        "trustHint": "Şirketin profilinde yayımlanan kontroller ve notlar. Notsuz olarak \"beklemede\" bırakılan bir kontrol gösterilmez.",
+        "segmentsHint": "Şirketin listelendiği pazar bölümleri."
+      }
     },
     "users": {
       "title": "Kullanıcılar",
@@ -2042,15 +2080,167 @@
       "myAccount": "Hesabım"
     },
     "analytics": {
-      "title": "Platform Analitiği",
-      "subtitle": "Platform genelinde istatistikler ve etkinlik özeti",
-      "loadError": "Analitik yüklenemedi",
-      "totalCompanies": "Toplam Şirket",
-      "verifiedCompanies": "Doğrulanmış Şirketler",
-      "pendingCompanies": "Doğrulama Bekleyen",
-      "rejectedCompanies": "Reddedilen",
-      "registeredUsers": "Kayıtlı Kullanıcılar",
-      "activeRfqListings": "Etkin Teklif Talebi İlanları"
+      "title": "İstatistikler",
+      "subtitle": "Platformu kimler kullanıyor ve her kullanıcı türü nereye kadar ilerliyor.",
+      "byUserType": "Kullanıcı türüne göre",
+      "loadError": "İstatistikler şu anda yüklenemiyor.",
+      "hours": "{value} sa",
+      "days": "{value} gün",
+      "roles": {
+        "super_admin": "Süper yönetici görünümü",
+        "moderator": "Moderatör görünümü"
+      },
+      "hero": {
+        "eyebrow": "{role} · son {days} gün",
+        "superAdmin": {
+          "headline": "{accounts, plural, other {# hesap}}, {companies, plural, other {# şirket}}, {verified, plural, other {# tanesi doğrulanmış}}",
+          "body": "TradeInDRC ekibi hariç. Bir hesap birden fazla şirket yönetebilir; türü bugün sahip olduklarına göre belirlenir.",
+          "active": "Dönem içinde etkin hesaplar",
+          "activeNote": "Hesapların {percent} kadarı giriş yaptı",
+          "newCompanies": "Yeni şirketler",
+          "newCompaniesNote": "{count, plural, =0 {Önceki dönemde yok} other {Önceki dönemde #}}",
+          "premium": "Etkin Premium abonelikleri",
+          "premiumNote": "Şirketlerin {percent} kadarı"
+        },
+        "moderator": {
+          "headline": "{decisions, plural, =0 {Karar verilmedi} other {# karar verildi}}, {waiting, plural, =0 {bekleyen talep yok} other {# talep bekliyor}}",
+          "body": "Ekibin dönem içinde ele aldıkları ve hâlâ yanıt bekleyenler.",
+          "decisions": "Doğrulama kararları",
+          "decisionsNote": "{approved, plural, other {# tanesi onay}}",
+          "delay": "Ortanca karar süresi",
+          "delayNote": "Dosyanın gönderilmesinden karara kadar",
+          "waiting": "Bekleyen iş talepleri",
+          "waitingNote": "{count, plural, =0 {Dönem içinde iletilen yok} other {Dönem içinde # tanesi iletildi}}"
+        }
+      },
+      "sections": {
+        "types": {
+          "title": "Platformu kimler kullanıyor",
+          "hint": "Dört kullanıcı türü, her biri kendisi için önemli olanla."
+        },
+        "companies": {
+          "title": "Kongolu ve uluslararası şirketler",
+          "hint": "Her şirket türü nereye kadar ilerliyor, ardından ikisi yan yana."
+        },
+        "team": {
+          "title": "Moderasyon ve ekip",
+          "hint": {
+            "super_admin": "Ekibin dönem içinde ele aldıkları, üye üye.",
+            "moderator": "Ekibin dönem içinde ele aldıkları ve sizin payınız."
+          }
+        }
+      },
+      "types": {
+        "added": "Dönem içinde +{count}",
+        "unitCompanies": "{count, plural, other {şirket}}",
+        "unitAccounts": "{count, plural, other {hesap}}",
+        "rows": {
+          "owners": "Sahip hesaplar",
+          "verified": "Doğrulanmış",
+          "premium": "Etkin Premium",
+          "active": "Dönem içinde etkin",
+          "confirmed": "E-posta onaylı",
+          "newAccounts": "Dönem içinde oluşturulan"
+        },
+        "congolese": {
+          "label": "Kongolu şirketler",
+          "hint": "Ürün ve hizmetlerini KDC’den satıyorlar."
+        },
+        "international": {
+          "label": "Uluslararası şirketler",
+          "hint": "KDC’de satın alıyor, yatırım yapıyor veya tedarik ediyorlar."
+        },
+        "none": {
+          "label": "Şirketi olmayan hesaplar",
+          "hint": "Kayıt olmuş, ancak henüz şirket kaydetmemiş."
+        },
+        "staff": {
+          "label": "TradeInDRC ekibi",
+          "hint": "Konsolun süper yöneticileri ve moderatörleri."
+        }
+      },
+      "signups": {
+        "title": "Yeni hesaplar",
+        "total": "dönem içinde yeni hesap",
+        "withCompany": "Şirket kaydedenler",
+        "withoutCompany": "Henüz şirketi olmayanlar"
+      },
+      "activity": {
+        "title": "Etkin hesaplar",
+        "subtitle": "Dönem içinde en az bir kez giriş yapanlar",
+        "ratio": "{active} / {total}",
+        "note": "Etkin olmayan bir hesap ne taleplerini ne de mesajlarını görür: ilk hatırlatılması gereken kitle budur."
+      },
+      "funnel": {
+        "subtitle": "Kayıttan ilk iletişime",
+        "share": "Önceki adımın {percent} kadarı",
+        "title": {
+          "drc": "Kongolu şirketlerin yolculuğu",
+          "intl": "Uluslararası şirketlerin yolculuğu"
+        },
+        "empty": {
+          "drc": "Henüz kayıtlı Kongolu şirket yok.",
+          "intl": "Henüz kayıtlı uluslararası şirket yok."
+        },
+        "steps": {
+          "registered": "Kayıtlı",
+          "submitted": "Dosya gönderildi",
+          "verified": "Doğrulanmış",
+          "listed": "Yayında teklifi olan",
+          "contacted": "İletişim kurulmuş"
+        }
+      },
+      "compare": {
+        "title": "İki şirket türü, rakam rakam",
+        "subtitle": "Bugün yayında olan teklifler, dönem içindeki etkinlik. Her satırın kendi ölçeği vardır.",
+        "legend": "Açıklama",
+        "metricHeader": "Gösterge",
+        "series": {
+          "drc": "Kongolu",
+          "intl": "Uluslararası"
+        },
+        "metrics": {
+          "products_published": "Yayındaki ürünler",
+          "opportunities": "Yayındaki fırsatlar",
+          "profile_views": "Şirket profili görüntülenmeleri",
+          "product_views": "Ürün sayfası görüntülenmeleri",
+          "contact_requests": "İletişim talepleri",
+          "requests_received": "Alınan iş talepleri",
+          "conversations": "Başlatılan görüşmeler",
+          "responses_sent": "Fırsatlara verilen yanıtlar"
+        }
+      },
+      "moderation": {
+        "title": "Dönem içinde moderasyon",
+        "subtitle": "Doğrulama dosyaları ve iş talepleri",
+        "link": "Doğrulamaları aç",
+        "approved": "Onaylanan dosyalar",
+        "moreInfo": "Ek bilgi istenenler",
+        "rejected": "Reddedilen dosyalar",
+        "delay": "Ortanca karar süresi",
+        "delayNote": "Dosyanın gönderilmesinden karara kadar",
+        "forwarded": "Tedarikçilere iletilen talepler",
+        "waiting": "Bekleyen iş talepleri",
+        "waitingNote": "Bugün ele alınacak"
+      },
+      "team": {
+        "title": "Ekip etkinliği",
+        "subtitle": "Üye başına kararlar ve iletimler",
+        "titleSelf": "Sizin etkinliğiniz",
+        "subtitleSelf": "Dönem içindeki kararlarınız ve iletimleriniz",
+        "empty": "Gösterilecek üye yok.",
+        "member": "Üye",
+        "decisions": "Kararlar",
+        "forwarded": "İletimler",
+        "lastAction": "Son işlem",
+        "unnamed": "Ad girilmemiş",
+        "you": "Siz",
+        "approved": "{count, plural, other {# onay}}",
+        "roles": {
+          "super_admin": "Süper yönetici",
+          "moderator": "Moderatör"
+        }
+      }
     }
   },
   "Trust": {
@@ -2915,59 +3105,231 @@
     }
   },
   "Taxonomy": {
-    "title": "Taksonomi Yönetimi",
-    "subtitle": "Platform genelinde kullanılan sektörleri, kategorileri, GTİP kodlarını ve etiketleri yönetin.",
-    "sectorsHeading": "Sektörler",
-    "sectorsDescription": "Üst düzey endüstri sınıflandırmaları.",
-    "categoriesHeading": "Kategoriler",
-    "categoriesDescription": "Bir üst sektöre bağlı alt sınıflandırmalar.",
-    "hsCodesHeading": "GTİP Kodları",
-    "hsCodesDescription": "Armonize Sistem emtia kodları, isteğe bağlı olarak bir sektörle eşlenebilir.",
-    "tagsHeading": "Etiketler",
-    "tagsDescription": "Filtreleme ve keşif için serbest biçimli etiketler.",
-    "loadingSectors": "Sektörler yükleniyor...",
-    "errorLoadSectors": "Sektörler yüklenemedi",
-    "add": "Ekle",
-    "edit": "Düzenle",
-    "delete": "Sil",
-    "save": "Kaydet",
-    "cancel": "İptal",
-    "retry": "Yeniden dene",
-    "newEntry": "Yeni kayıt",
-    "empty": "Henüz öğe yok.",
-    "loading": "Yükleniyor...",
-    "saving": "Değişiklikler kaydediliyor...",
-    "saved": "Başarıyla kaydedildi.",
-    "adding": "Ekleniyor...",
-    "added": "Başarıyla eklendi.",
-    "deleting": "Siliniyor...",
-    "deleted": "Başarıyla silindi.",
-    "confirmDelete": "\"{name}\" silinsin mi? Bu işlem geri alınamaz.",
-    "errorLoad": "Öğeler yüklenemedi",
-    "errorSave": "Kaydedilemedi",
-    "errorAdd": "Eklenemedi",
-    "errorDelete": "Silinemedi",
-    "noSector": "— Sektör yok —",
-    "placeholderCode": "Kod",
-    "placeholderNameEn": "Ad (EN)",
-    "placeholderNameFr": "Ad (FR)",
-    "placeholderSlug": "Slug",
-    "placeholderParentCode": "Üst kod (isteğe bağlı)",
-    "colCode": "Kod",
-    "colNameEn": "Ad (EN)",
-    "colNameFr": "Ad (FR)",
-    "colSlug": "Slug",
-    "colSector": "Sektör",
-    "colActions": "İşlemler",
-    "placeholderNameTr": "Ad (TR)",
-    "placeholderNameZh": "Ad (ZH)",
-    "placeholderNameEs": "Ad (ES)",
-    "specsHeading": "Kategoriye göre özellikler",
-    "specsDescription": "Şirketlerin bu kategorideki bir ürün için doldurduğu alanlar. Kendi satırlarını her zaman ekleyebilirler.",
+    "title": "Taksonomi",
+    "subtitle": "Şirketleri, ürünleri ve fırsatları sınıflandıran sektörler, kategoriler, GTİP kodları ve etiketler.",
+    "stats": {
+      "untranslated": "Çevrilecek",
+      "untranslatedFoot": "{total} kayıt içinde, İspanyolca, Türkçe veya Çince adı olmayan",
+      "sectors": "Sektörler",
+      "sectorsFoot": "{count, plural, =0 {hepsinin kategorisi var} one {# tanesi kategorisiz} other {# tanesi kategorisiz}}",
+      "categories": "Kategoriler",
+      "categoriesFoot": "{count, plural, =0 {teknik özellik alanı yok} one {# teknik özellik alanı} other {# teknik özellik alanı}}",
+      "unclassified": "Sektörü olmayan şirketler",
+      "unclassifiedFoot": "kendi sayfalarından sınıflandırılacak"
+    },
+    "tabs": {
+      "label": "Taksonominin bölümleri",
+      "tree": "Sektörler ve kategoriler",
+      "hs_codes": "GTİP kodları",
+      "tags": "Etiketler",
+      "history": "Geçmiş"
+    },
+    "search": {
+      "tree": "Sektör veya kategori ara",
+      "hs_codes": "Kod veya ad ara",
+      "tags": "Etiket ara",
+      "noMatch": "Bu arama için sonuç yok.",
+      "results": "{count, plural, =0 {Sonuç yok} one {# sonuç} other {# sonuç}}"
+    },
+    "kinds": {
+      "sectors": {
+        "add": "Sektör",
+        "new": "Yeni sektör",
+        "edit": "Sektörü düzenle",
+        "hint": "Bir sektör şirketleri, fırsatları ve ürün kategorilerini bir araya getirir."
+      },
+      "categories": {
+        "add": "Kategori ekle",
+        "new": "Yeni kategori",
+        "edit": "Kategoriyi düzenle",
+        "hint": "Bir kategori, bir sektörün ürün ve hizmetlerini sınıflandırır."
+      },
+      "hs_codes": {
+        "add": "GTİP kodu ekle",
+        "new": "Yeni GTİP kodu",
+        "edit": "GTİP kodunu düzenle",
+        "hint": "Şirketlerin faaliyetleriyle ilişkilendirdiği bir Armonize Sistem kodu."
+      },
+      "tags": {
+        "add": "Etiket ekle",
+        "new": "Yeni etiket",
+        "edit": "Etiketi düzenle",
+        "hint": "Şirketlerin sayfalarına eklediği serbest bir etiket."
+      }
+    },
+    "tree": {
+      "sectors": "Sektörler",
+      "categories": "Kategoriler",
+      "back": "Tüm sektörler",
+      "pickSector": "Kategorilerini görmek için bir sektör seçin.",
+      "noCategoryShort": "Kategori yok",
+      "noCategoryTitle": "Bu sektörün henüz kategorisi yok",
+      "noCategoryBody": "Kategorisi olmadıkça şirketleri ürünlerini bu sektörde sınıflandıramaz."
+    },
+    "usage": {
+      "categories": "{count, plural, =0 {kategori yok} one {# kategori} other {# kategori}}",
+      "companies": "{count, plural, =0 {şirket yok} one {# şirket} other {# şirket}}",
+      "opportunities": "{count, plural, =0 {fırsat yok} one {# fırsat} other {# fırsat}}",
+      "content": "{count, plural, one {# yayımlanmış içerik} other {# yayımlanmış içerik}}",
+      "reports": "{count, plural, one {# rapor} other {# rapor}}",
+      "prices": "{count, plural, one {# fiyat serisi} other {# fiyat serisi}}",
+      "hs_codes": "{count, plural, one {# GTİP kodu} other {# GTİP kodu}}",
+      "sub_sectors": "{count, plural, one {# alt sektör} other {# alt sektör}}",
+      "products": "{count, plural, =0 {ürün yok} one {# ürün} other {# ürün}}",
+      "services": "{count, plural, =0 {hizmet yok} one {# hizmet} other {# hizmet}}",
+      "sub_codes": "{count, plural, one {# alt kod} other {# alt kod}}"
+    },
+    "translation": {
+      "missing": "Çevrilecek",
+      "missingIn": "Şu dillerde adı yok: {languages}",
+      "coverage": "Doldurulan diller",
+      "has": "{language}: dolduruldu",
+      "lacks": "{language}: eksik"
+    },
+    "languages": {
+      "en": "İngilizce",
+      "fr": "Fransızca",
+      "es": "İspanyolca",
+      "tr": "Türkçe",
+      "zh": "Çince"
+    },
+    "actions": {
+      "edit": "Düzenle",
+      "delete": "Sil",
+      "moveUp": "Yukarı taşı",
+      "moveDown": "Aşağı taşı",
+      "specs": "Teknik özellikler"
+    },
+    "form": {
+      "code": "GTİP kodu",
+      "codeHint": "2 ila 10 rakam, nokta kullanılabilir (09, 0901, 0901.21). Oluşturulduktan sonra değişmez.",
+      "codeFrozen": "Değişmez: şirketler ve alt kodlar buna bağlıdır.",
+      "names": "Zorunlu adlar",
+      "nameEn": "İngilizce adı",
+      "nameFr": "Fransızca adı",
+      "otherLanguages": "Diğer diller",
+      "otherLanguagesHint": "İsteğe bağlı. Boş bırakılırsa sitede İngilizce ad gösterilir.",
+      "placement": "Bağlantı",
+      "sector": "Sektör",
+      "sectorChoose": "Bir sektör seçin",
+      "sectorNone": "Sektör yok",
+      "parentCode": "Üst kod",
+      "parentNone": "Yok (birinci düzey kod)",
+      "parentCodeHint": "Bu kodun bağlı olduğu fasıl veya pozisyon.",
+      "slug": "Adres tanımlayıcısı",
+      "slugHintNew": "Boş bırakılırsa İngilizce addan türetilir. Oluşturulduktan sonra değişmez.",
+      "slugFrozen": "Değişmez: sitenin sayfaları ve bağlantıları buna işaret eder.",
+      "cancel": "İptal",
+      "create": "Oluştur",
+      "save": "Kaydet"
+    },
+    "errors": {
+      "required": "Bu alan zorunludur.",
+      "too_long": "En fazla 80 karakter.",
+      "invalid_slug": "İngilizce ad Latin harfleri veya rakam içermelidir ya da bir tanımlayıcı yazın.",
+      "invalid_code": "Bir GTİP kodu 2 ila 10 rakamdan oluşur (09, 0901, 0901.21).",
+      "invalid_parent": "Bu üst kod geçerli değil.",
+      "invalid_sector": "Bu sektör artık yok. Başka bir sektör seçin.",
+      "duplicate_slug": "Bu tanımlayıcı zaten kullanılıyor. Başka bir tane yazın.",
+      "duplicate_code": "Bu GTİP kodu zaten var.",
+      "not_authorized": "Bu değişikliği yapma yetkiniz yok.",
+      "write_failed": "Kaydedilemedi. Yeniden deneyin.",
+      "super_admin_only": "Silme işlemi yalnızca süper yöneticiye aittir.",
+      "in_use": "Bu kayıt hâlâ kullanılıyor: silinemez.",
+      "reorder": "Yeni sıra kaydedilemedi."
+    },
+    "toasts": {
+      "created": "Kayıt oluşturuldu.",
+      "saved": "Değişiklikler kaydedildi.",
+      "deleted": "Kayıt silindi."
+    },
+    "delete": {
+      "title": "\"{name}\" silinsin mi?",
+      "body": "\"{name}\" hiçbir yerde kullanılmıyor. Silme işlemi kalıcıdır ve geçmişe kaydedilir.",
+      "blockedTitle": "Silinemez",
+      "blockedBody": "\"{name}\" hâlâ kullanılıyor:",
+      "blockedHint": {
+        "sectors": "Kategorilerini taşıyın ve bu kayıtları başka bir sektöre aktarın, ardından silmek için geri dönün.",
+        "categories": "Bu ürün ve hizmetleri başka bir kategoriye aktarın, ardından silmek için geri dönün.",
+        "hs_codes": "Bu kodu şirketlerden ve alt kodlardan kaldırın, ardından silmek için geri dönün.",
+        "tags": "Bu etiketi şirketlerden kaldırın, ardından silmek için geri dönün."
+      },
+      "reservedTitle": "Silme yetkisi kısıtlı",
+      "reservedBody": "\"{name}\" kaydını yalnızca bir süper yönetici silebilir. Düzenlemeye devam edebilirsiniz.",
+      "specNote": "{count, plural, one {Teknik özellik alanı da onunla birlikte silinecek.} other {# teknik özellik alanı da onunla birlikte silinecek.}}",
+      "confirm": "Sil",
+      "close": "Kapat"
+    },
+    "specsSheet": {
+      "title": "Teknik özellikler · {name}",
+      "description": "Şirketlerin bu kategorideki bir ürün için doldurduğu alanlar. Her zaman kendi satırlarını ekleyebilirler."
+    },
+    "table": {
+      "code": "Kod",
+      "name": "Ad",
+      "sector": "Sektör",
+      "usage": "Kullanım",
+      "actions": "İşlemler",
+      "noSector": "Yok"
+    },
+    "empty": {
+      "hs_codes": {
+        "title": "Henüz GTİP kodu yok",
+        "body": "GTİP kodları malları ayrıntılı olarak tanımlar. Oluşturulduktan sonra şirketler bunları sayfalarıyla ilişkilendirebilir."
+      },
+      "tags": {
+        "title": "Henüz etiket yok",
+        "body": "Etiketler serbest anahtar kelimelerdir (organik, adil ticaret, ihracat…). Oluşturulduktan sonra şirketler bunları sayfalarına ekleyebilir."
+      }
+    },
+    "history": {
+      "emptyTitle": "Kayıtlı değişiklik yok",
+      "emptyBody": "Her oluşturma, değişiklik veya silme işlemi, yapan kişi ve tarihiyle burada görünecek.",
+      "system": "Sistem",
+      "actions": {
+        "sectors": {
+          "insert": "Sektör oluşturuldu",
+          "update": "Sektör düzenlendi",
+          "delete": "Sektör silindi"
+        },
+        "categories": {
+          "insert": "Kategori oluşturuldu",
+          "update": "Kategori düzenlendi",
+          "delete": "Kategori silindi"
+        },
+        "hs_codes": {
+          "insert": "GTİP kodu oluşturuldu",
+          "update": "GTİP kodu düzenlendi",
+          "delete": "GTİP kodu silindi"
+        },
+        "tags": {
+          "insert": "Etiket oluşturuldu",
+          "update": "Etiket düzenlendi",
+          "delete": "Etiket silindi"
+        },
+        "category_spec_fields": {
+          "insert": "Özellik alanı oluşturuldu",
+          "update": "Özellik alanı düzenlendi",
+          "delete": "Özellik alanı silindi"
+        }
+      },
+      "fields": {
+        "name_en": "İngilizce ad",
+        "name_fr": "Fransızca ad",
+        "name_es": "İspanyolca ad",
+        "name_tr": "Türkçe ad",
+        "name_zh": "Çince ad",
+        "label_en": "İngilizce başlık",
+        "label_fr": "Fransızca başlık",
+        "unit": "Birim",
+        "parent_code": "Üst kod",
+        "sector_id": "Sektör değişti",
+        "field_type": "Değer türü değişti",
+        "options": "Seçenekler değişti",
+        "required": "Zorunluluk değişti"
+      }
+    },
     "specs": {
-      "category": "Kategori",
-      "chooseCategory": "Kategori seçin",
-      "pickFirst": "Özelliklerini yönetmek için bir kategori seçin.",
       "empty": "Bu kategori için tanımlı özellik yok.",
       "loading": "Yükleniyor…",
       "add": "Alan ekle",
@@ -3003,7 +3365,8 @@
       "errorLabels": "Etiketi her iki dilde de doldurun.",
       "errorOptions": "Bir seçenek listesi en az iki seçenek gerektirir.",
       "errorKey": "İngilizce etiket en az bir harf içermelidir.",
-      "errorDuplicate": "Bu kategoride aynı adda bir alan zaten var."
+      "errorDuplicate": "Bu kategoride aynı adda bir alan zaten var.",
+      "count": "{count, plural, =0 {Alan yok} one {# alan} other {# alan}}"
     }
   },
   "Faq": {
@@ -3169,29 +3532,186 @@
       "contactLoginRequired": "Bu şirketle güvenli bir şekilde mesajlaşmak için oturum açın."
     }
   },
-  "Analytics": {
-    "title": "Analizler",
-    "subtitle": "TradeInDRC'deki şirketlerinizin performans özeti",
-    "profileViews": "Profil görüntülemeleri",
-    "productViews": "Ürün görüntülemeleri",
-    "contactRequests": "İletişim talepleri",
-    "searchAppearances": "Aramada Görünmeler",
-    "trendUp": "önceki 30 güne göre +%{pct}",
-    "trendDown": "önceki 30 güne göre -%{pct}",
-    "trendFlat": "önceki 30 güne göre değişiklik yok",
-    "trendNoBaseline": "Karşılaştırılacak önceki veri yok",
-    "error": "Şu anda istatistikleriniz yüklenemedi. Lütfen tekrar deneyin.",
-    "topSearchTitle": "En çok ulaşılan arama sonuçları",
-    "topSearchSubtitle": "Alıcıların arama yoluyla en sık ulaştığı şirketleriniz ve ürünleriniz.",
-    "appearancesCount": "{count} görünme",
-    "topSearchEmptyTitle": "Henüz arama etkinliği yok",
-    "topSearchEmptyBody": "Alıcılar arama yoluyla ilanlarınızı bulduğunda, en çok ulaştıkları kayıtlar burada görünecek.",
-    "newsFeedTitle": "Ticaret haberleri ve etkinlikleri",
-    "newsFeedSubtitle": "TradeInDRC genelinde en son yayımlanan güncellemeler ve etkinlikler.",
-    "newsTag": "Haber",
-    "eventTag": "Etkinlik",
-    "newsFeedEmptyTitle": "Henüz yayımlanan bir şey yok",
-    "newsFeedEmptyBody": "Yeni ticaret haberleri ve etkinlikleri yayımlandıkça burada görünecek."
+  "OwnerStats": {
+    "title": "İstatistikler",
+    "subtitle": {
+      "seller": "Alıcılar sizi nasıl buluyor ve sonra ne yapıyor.",
+      "buyer": "KDC’deki tedarikçi arayışınız ne durumda.",
+      "none": "Şirketiniz kaydedildiğinde rakamlarınız burada görünecek."
+    },
+    "account": {
+      "seller": "Kongolu şirket hesabı",
+      "buyer": "Uluslararası şirket hesabı"
+    },
+    "eyebrow": "{account} · son {days} gün",
+    "error": "İstatistikleriniz şu anda yüklenemiyor.",
+    "hours": "{value} sa",
+    "days": "{value} gün",
+    "ratio": "{value} / {total}",
+    "viewsCount": "{count, plural, other {# görüntülenme}}",
+    "noCompany": {
+      "title": "Henüz istatistik yok",
+      "body": "Şirketinizi kaydedin: profilinize, ürünlerinize ve fırsatlarınıza kimlerin baktığını burada göreceksiniz.",
+      "cta": "Şirketimi kaydet"
+    },
+    "hero": {
+      "seller": {
+        "headline": "{visitors, plural, other {# ziyaretçi}} sayfalarınıza {views, plural, other {# kez}} baktı",
+        "empty": "Bu dönemde sayfalarınız hiç ziyaret edilmedi",
+        "body": "Sayfalarınız: şirket profiliniz ve ürün sayfalarınız. Bir ziyaretçi birkaç gün geri gelse bile yalnızca bir kez sayılır.",
+        "visitors": "Tekil ziyaretçiler",
+        "visitorsNote": "{count, plural, =0 {Önceki dönemde yok} other {Önceki dönemde #}}",
+        "repeat": "Geri gelen ziyaretçiler",
+        "repeatNote": "Ziyaretçilerinizin {percent} kadarı",
+        "contactRate": "İletişim oranı",
+        "contactRateNote": "{views, plural, other {# görüntülenme}} için {contacts, plural, other {# iletişim}}"
+      },
+      "buyer": {
+        "headline": "İletişime geçilen {started} tedarikçiden {replied, plural, =0 {henüz hiçbiri yanıt vermedi} other {# tanesi yanıt verdi}}",
+        "empty": "Bu dönemde hiçbir tedarikçiyle iletişime geçmediniz",
+        "body": "KDC’deki bir şirketle başlattığınız her görüşme, size yanıt verme süresiyle birlikte burada izlenir.",
+        "started": "İletişime geçilen tedarikçiler",
+        "startedNote": "Başlattığınız görüşmeler",
+        "replyRate": "Yanıt oranı",
+        "replyRateNote": "{started} içinden {replied}",
+        "median": "Ortanca yanıt süresi",
+        "medianNote": "Mesajınızdan ilk yanıta kadar"
+      }
+    },
+    "kpi": {
+      "label": "Dönemin temel rakamları",
+      "contactRequests": "İletişim talepleri",
+      "responsesSent": "Gönderilen yanıtlar",
+      "responsesSentFoot": "Diğer şirketlerin yayımladığı fırsatlara",
+      "conversationsStarted": "Başlatılan görüşmeler",
+      "conversationsStartedFoot": "{count, plural, =0 {Henüz yanıt yok} other {# tanesi yanıt aldı}}"
+    },
+    "chart": {
+      "viewLabel": "Grafik görünümü",
+      "views": {
+        "visibility": "Görünürlük",
+        "interest": "İlgi"
+      },
+      "titles": {
+        "visibility": "Sayfalarınızın görüntülenmesi",
+        "interest": "Alınan iletişim ve yanıtlar"
+      },
+      "totals": {
+        "visibility": "dönem içindeki görüntülenme",
+        "interest": "dönem içindeki iletişim ve yanıt"
+      }
+    },
+    "funnel": {
+      "share": "Önceki adımın {percent} kadarı",
+      "seller": {
+        "title": "Ziyaretten iletişime",
+        "subtitle": "Sayfa görüntülenmeleriniz neye dönüşüyor",
+        "empty": "Sayfalarınız görüntülendiğinde, kaç ziyaretin iletişime dönüştüğünü burada göreceksiniz.",
+        "search": "Aramada görünme",
+        "steps": {
+          "views": "Sayfalarınızın görüntülenmesi",
+          "contacts": "İletişim talepleri",
+          "replied": "Yanıtladığınız görüşmeler"
+        }
+      },
+      "buyer": {
+        "title": "İlk iletişimden yanıta",
+        "subtitle": "Tedarikçilere gönderdiğiniz mesajlar neye dönüşüyor",
+        "empty": "Rehberden bir tedarikçiyle iletişime geçin: kaçının yanıt verdiğini burada göreceksiniz.",
+        "median": "Ortanca yanıt süresi",
+        "steps": {
+          "started": "İletişime geçilen tedarikçiler",
+          "replied": "Yanıt verenler"
+        }
+      }
+    },
+    "sections": {
+      "attraction": {
+        "title": "Alıcıları ne çekiyor",
+        "hint": "En çok görüntülenen ürünleriniz, aramanın öne çıkardıkları ve size bakılan günler."
+      },
+      "followUp": {
+        "title": "Ticari takibiniz",
+        "hint": "Hızlı bir yanıt ve eksiksiz bir katalog ziyaretleri siparişe dönüştürür."
+      },
+      "prospecting": {
+        "title": "Arayışınız",
+        "hint": "Yayımladığınız talepler, görüşmeleriniz ve profilinize bakılan günler."
+      },
+      "showcase": {
+        "title": "Vitrininiz",
+        "hint": "Kongolu şirketlerin ürünlerinizde gördükleri."
+      }
+    },
+    "topProducts": {
+      "title": "En çok görüntülenen ürünler",
+      "subtitle": "Dönem içinde",
+      "all": "Kataloğu aç",
+      "empty": "Bu dönemde görüntülenen ürün yok."
+    },
+    "search": {
+      "title": "Aramayla bulunanlar",
+      "subtitle": "Aramanın öne çıkardıkları (yazılan metin kaydedilmez)",
+      "empty": "Bu dönemde aramada görünme yok.",
+      "appearances": "{count, plural, other {# kez}}",
+      "kind": {
+        "company": "Şirket profili",
+        "product": "Ürün"
+      }
+    },
+    "weekday": {
+      "title": "En yoğun günler",
+      "subtitle": "Haftanın günlerine göre sayfa görüntülenmeleri",
+      "best": "En çok görüntülendiğiniz gün: {day}.",
+      "empty": "Bir günü öne çıkarmak için henüz yeterli ziyaret yok.",
+      "dayHeader": "Gün",
+      "valueHeader": "Görüntülenme"
+    },
+    "responsiveness": {
+      "title": "Yanıt hızınız",
+      "subtitle": "Alıcılar kimin hızlı yanıt verdiğini hatırlar",
+      "inbox": "Mesajları aç",
+      "received": "Alıcıların başlattığı görüşmeler",
+      "replied": "Yanıtladıklarınız",
+      "repliedNote": "{percent} yanıtlandı",
+      "median": "Ortanca yanıt süreniz",
+      "requests": "Ekibin ilettiği talepler",
+      "requestsNote": "{count, plural, other {# tanesi henüz açılmadı}}"
+    },
+    "catalogue": {
+      "title": "Katalog durumu",
+      "subtitle": "Eksiksiz bir ürün sayfası daha çok görüntülenir",
+      "manage": "Kataloğu yönet",
+      "empty": "Henüz ürününüz yok.",
+      "add": "Ürün ekle",
+      "published": "Yayındaki ürünler",
+      "withPhoto": "En az bir fotoğrafı olanlar",
+      "priced": "Fiyatı gösterilenler",
+      "viewed": "Dönem içinde görüntülenenler"
+    },
+    "opportunities": {
+      "title": {
+        "seller": "Fırsatlarınız",
+        "buyer": "Yayımladığınız talepler"
+      },
+      "subtitle": "{published} yayında · dönem içinde {responses, plural, other {# yanıt alındı}}",
+      "all": "Tüm fırsatlarınız",
+      "publish": "Fırsat yayımla",
+      "empty": {
+        "seller": "Bir teklif veya çağrı yayımlayın: ilgilenen şirketler size doğrudan yanıt verir.",
+        "buyer": "KDC’de ne aradığınızı yayımlayın: tedarikçiler size doğrudan yanıt verir."
+      },
+      "status": {
+        "published": "Yayında",
+        "pending": "Onay bekliyor"
+      },
+      "responses": "{count, plural, other {# yanıt}}"
+    },
+    "companies": {
+      "title": "Şirkete göre",
+      "hint": "Bu hesapta {count} şirket var — dönem içinde en çok görüntülenen {shown} tanesi.",
+      "company": "Şirket"
+    }
   },
   "Settings": {
     "title": "Ayarlar",
@@ -4035,17 +4555,15 @@
     },
     "footer": {
       "tagline": "Demokratik Kongo Cumhuriyeti'nde uluslararası işletmeleri yerel fırsatlarla buluşturuyoruz.",
-      "stayConnected": "Bağlantıda Kalın",
       "upgradePremium": "Premium'a Yükselt",
       "copyright": "© {year} BrandsBridge Group. Tüm hakları saklıdır.",
-      "taglineBar": "Trade in DRC – Uluslararası işletmeleri yerel fırsatlarla buluşturuyoruz.",
+      "navLabel": "Alt bilgi",
       "columns": {
         "quickLinks": {
-          "title": "Hızlı Bağlantılar",
-          "home": "Ana Sayfa",
-          "companies": "Şirketler",
-          "opportunities": "Fırsatlar",
+          "title": "Platform",
           "marketplace": "Pazar Yeri",
+          "opportunities": "Fırsatlar",
+          "companies": "Şirketler",
           "events": "Etkinlikler"
         },
         "resources": {
@@ -4059,16 +4577,24 @@
           "title": "Şirket",
           "aboutUs": "Hakkımızda",
           "register": "Şirketinizi Kaydedin",
-          "requestPartner": "Ortak Talep Et",
-          "contactUs": "Bize Ulaşın"
+          "requestPartner": "Ortak Talep Et"
         },
         "support": {
           "title": "Destek",
           "helpCenter": "Yardım Merkezi",
           "faq": "SSS",
-          "terms": "Kullanım Koşulları",
-          "privacy": "Gizlilik Politikası"
+          "contactUs": "Bize Ulaşın"
         }
+      },
+      "contact": {
+        "email": "E-posta",
+        "phone": "Telefon",
+        "address": "Adres"
+      },
+      "legal": {
+        "terms": "Kullanım Koşulları",
+        "privacy": "Gizlilik Politikası",
+        "cookies": "Çerezler"
       }
     }
   },

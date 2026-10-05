@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { useConversations } from "@/hooks/use-messages";
+import { MESSAGING_ENABLED } from "@/config/features";
 
 export interface AwaitingReplies {
   count: number;
@@ -15,7 +16,8 @@ export interface AwaitingReplies {
  * so the sidebar badge, top bar and overview never disagree.
  */
 export function useAwaitingReplies(userId: string | undefined): AwaitingReplies {
-  const { data: conversations } = useConversations(userId);
+  // Off: no query at all, so the badge, the top bar and the "to do" list all read zero.
+  const { data: conversations } = useConversations(MESSAGING_ENABLED ? userId : undefined);
   return React.useMemo(() => {
     const waiting = (conversations ?? [])
       .map((c) => c.conversations?.messages?.[0])

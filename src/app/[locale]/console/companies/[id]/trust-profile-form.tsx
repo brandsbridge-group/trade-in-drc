@@ -4,9 +4,8 @@ import * as React from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/routing";
 import { toast } from "sonner";
-import { CheckCircle2, AlertCircle, XCircle } from "lucide-react";
+import { CheckCircle2, AlertCircle, Loader2, XCircle } from "lucide-react";
 import { saveTrustProfile } from "@/lib/verifications/actions";
-import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
@@ -26,8 +25,6 @@ import {
   type VerificationCheckStatus,
 } from "@/lib/trust/verification-summary";
 import type { VerificationTier, VerificationCheck } from "@/lib/trust/types";
-
-const TIER_OPTIONS: VerificationTier[] = ["none", "basic", "verified", "premium"];
 
 const STATUS_ICON: Record<VerificationCheckStatus, typeof CheckCircle2> = {
   passed: CheckCircle2,
@@ -76,11 +73,11 @@ export function TrustProfileForm({
   const t = useTranslations("Trust.admin");
   const tChecks = useTranslations("Trust.report.checks");
   const tStatus = useTranslations("Trust.report.status");
-  const tBadge = useTranslations("Trust.badge");
   const router = useRouter();
   const locale = useLocale();
 
-  const [tier, setTier] = React.useState<VerificationTier>(initialTier ?? "none");
+  // Sent back unchanged: the tier is edited in the sheet's tier card, not here.
+  const tier: VerificationTier = initialTier ?? "none";
   const [checks, setChecks] = React.useState<Record<VerificationCheckKey, CheckState>>(
     () => buildInitialChecks(initialSummary)
   );
@@ -146,44 +143,23 @@ export function TrustProfileForm({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
-      {/* Tier */}
-      <div className="space-y-1">
-        <label className="text-xs font-medium text-muted-foreground">
-          {t("tierLabel")}
-        </label>
-        <Select value={tier} onValueChange={(v) => setTier(v as VerificationTier)}>
-          <SelectTrigger className="h-8 text-sm w-56">
-            <SelectValue />
-          </SelectTrigger>
-          <SelectContent>
-            {TIER_OPTIONS.map((opt) => (
-              <SelectItem key={opt} value={opt} className="text-sm">
-                {tBadge(opt)}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-      </div>
-
+    <form onSubmit={handleSubmit} className="space-y-4">
       {/* Structured checklist */}
-      <div className="space-y-1">
-        <label className="text-xs font-medium text-muted-foreground">
-          {t("checklistLabel")}
-        </label>
-        <ul className="space-y-2.5">
+      <div className="space-y-2">
+        <p className="text-xs font-semibold text-slate-700">{t("checklistLabel")}</p>
+        <ul className="space-y-2">
           {VERIFICATION_CHECK_KEYS.map((key) => {
             const c = checks[key];
             const Icon = STATUS_ICON[c.status];
             return (
               <li
                 key={key}
-                className="rounded-lg border border-slate-200 p-3 space-y-2 bg-card"
+                className="space-y-2 rounded-xl p-3 ring-1 ring-slate-200/80"
               >
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
                     <Icon className={cn("w-4 h-4", STATUS_TONE[c.status])} />
-                    <span className="text-sm font-medium">{tChecks(key)}</span>
+                    <span className="text-[13px] font-semibold text-market-navy">{tChecks(key)}</span>
                   </div>
                   <Select
                     value={c.status}
@@ -191,7 +167,7 @@ export function TrustProfileForm({
                       updateCheck(key, { status: v as VerificationCheckStatus })
                     }
                   >
-                    <SelectTrigger className="h-7 text-xs w-32">
+                    <SelectTrigger className="h-8 w-36 rounded-full border-slate-200 bg-white px-3 text-xs shadow-none">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -203,7 +179,7 @@ export function TrustProfileForm({
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                   <Textarea
                     className="text-xs min-h-[44px]"
                     placeholder={t("notePlaceholderEn")}
@@ -226,9 +202,9 @@ export function TrustProfileForm({
       </div>
 
       {/* Overall public notes */}
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <div className="space-y-1">
-          <label className="text-xs font-medium text-muted-foreground">
+          <label className="text-xs font-semibold text-slate-700">
             {t("notesLabelEn")}
           </label>
           <Textarea
@@ -239,7 +215,7 @@ export function TrustProfileForm({
           />
         </div>
         <div className="space-y-1">
-          <label className="text-xs font-medium text-muted-foreground">
+          <label className="text-xs font-semibold text-slate-700">
             {t("notesLabelFr")}
           </label>
           <Textarea
@@ -251,9 +227,16 @@ export function TrustProfileForm({
         </div>
       </div>
 
-      <Button type="submit" size="sm" disabled={saving}>
-        {saving ? t("saving") : t("save")}
-      </Button>
+      <div className="flex justify-end">
+        <button
+          type="submit"
+          disabled={saving}
+          className="inline-flex h-9 items-center gap-1.5 rounded-full bg-market-navy px-4 text-[13px] font-semibold text-white transition-colors hover:bg-market-navy-deep disabled:opacity-60"
+        >
+          {saving && <Loader2 className="size-4 animate-spin" aria-hidden />}
+          {t("save")}
+        </button>
+      </div>
     </form>
   );
 }

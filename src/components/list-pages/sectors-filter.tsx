@@ -30,6 +30,7 @@ export async function SectorsFilter({
   const { data } = await supabase
     .from("sectors")
     .select("id, name_en, name_fr, name_tr, name_zh, name_es")
+    .order("sort_order", { ascending: true })
     .order("name_en");
   const sectors = ((data ?? []) as unknown as Sector[]);
   return (

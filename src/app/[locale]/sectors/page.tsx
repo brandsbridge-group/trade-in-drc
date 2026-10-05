@@ -117,6 +117,8 @@ async function buildFeaturedMiniCards(
       .from("categories")
       .select("id, name_en, name_fr, sector_id")
       .eq("sector_id", miningSectorId)
+      .order("sort_order", { ascending: true })
+      .order("name_en", { ascending: true })
       .limit(FEATURED_TILE_COUNT);
     const categories = (categoryData ?? []) as CategoryRow[];
 

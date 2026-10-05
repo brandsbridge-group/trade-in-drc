@@ -326,6 +326,13 @@
 .console-table-card tbody tr { border-color: rgb(241 245 249); }
 .console-table-card tbody tr:last-child { border-bottom-width: 0; }
 
+/* Site footer: a breathing space above it on plain pages. A page that ends on
+   its own background (tinted canvas, closing band) puts data-page-end="flush"
+   on its wrapper, so that background runs into the footer instead of leaving
+   a white strip. */
+.site-footer { margin-top: 3rem; }
+body:has([data-page-end="flush"]) .site-footer { margin-top: 0; }
+
 /* Marketing surfaces (landing + about): Sora display headings */
 .marketing-surface :where(h1, h2, h3) {
   font-family: var(--font-display), var(--font-poppins), system-ui, sans-serif;

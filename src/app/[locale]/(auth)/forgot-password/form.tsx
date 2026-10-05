@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { toast } from "react-toastify";
 import { createClient } from "@/lib/supabase/client";
+import { authEmailRedirect } from "@/lib/auth/email-redirect";
 import { EmailField, SubmitButton } from "@/components/auth/auth-fields";
 
 export function ForgotPasswordForm() {
@@ -17,7 +18,7 @@ export function ForgotPasswordForm() {
     e.preventDefault();
     setSending(true);
     const { error } = await createClient().auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/${locale}/callback?type=recovery`,
+      redirectTo: authEmailRedirect(window.location.origin, locale, "recovery"),
     });
     setSending(false);
     if (error) toast.error(error.message);

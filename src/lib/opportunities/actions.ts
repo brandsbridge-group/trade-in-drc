@@ -5,6 +5,7 @@ import { z } from "zod";
 import { dbId } from "@/lib/validation/db-id";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { MESSAGING_ENABLED } from "@/config/features";
 import { verifyCaptchaToken } from "@/lib/messaging/captcha";
 import { ensureThreadAndPostMessage } from "@/lib/messaging/threads";
 
@@ -90,6 +91,10 @@ async function isOverResponseRateLimit(
 export async function insertOpportunityResponse(
   input: RespondToOpportunityInput
 ): Promise<RespondToOpportunityResult> {
+  // A response IS a message to the poster, with its thread: off with messaging.
+  if (!MESSAGING_ENABLED) {
+    return { success: false, errorCode: "submit_failed" };
+  }
   const parsed = respondSchema.safeParse(input);
   if (!parsed.success) {
     return { success: false, errorCode: "validation_failed" };

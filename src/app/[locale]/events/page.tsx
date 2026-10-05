@@ -36,7 +36,7 @@ export default async function EventsPage({
   );
 
   return (
-    <main className="bg-slate-50 pb-12">
+    <main data-page-end="flush" className="bg-slate-50 pb-12">
       <EventsHeroSearch sectorOptions={sectorOptions} provinces={DRC_PROVINCES} />
 
       <div className="mx-auto w-full max-w-[1500px] px-4 py-8 md:px-6">

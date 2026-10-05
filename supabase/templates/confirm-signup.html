@@ -1,4 +1,4 @@
-{{ $l := "en" }}{{ with .Data.locale }}{{ $l = . }}{{ end }}{{ $url := printf "%s/%s/confirm?token_hash=%s&type=email&next=%s" .SiteURL $l .TokenHash .RedirectTo }}<!DOCTYPE html>
+{{ $l := "en" }}{{ with .Data.locale }}{{ $l = . }}{{ end }}{{ $url := printf "%s&token_hash=%s&type=email" .RedirectTo .TokenHash }}{{ if eq .RedirectTo .SiteURL }}{{ $url = printf "%s/%s/confirm?token_hash=%s&type=email" .SiteURL $l .TokenHash }}{{ end }}<!DOCTYPE html>
 <html lang="{{ $l }}">
 <head>
 <meta charset="utf-8">

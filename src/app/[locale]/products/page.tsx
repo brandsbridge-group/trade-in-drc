@@ -195,7 +195,7 @@ export default async function ProductsPage({
   const otherDirection: Origin = origin === "import" ? "export" : "import";
 
   return (
-    <div className="bg-slate-50">
+    <div data-page-end="flush" className="bg-slate-50">
       {/* Header band — same atmosphere as the marketplace hero, compact. */}
       <section className="relative isolate overflow-hidden bg-market-navy text-white">
         <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">

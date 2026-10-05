@@ -1728,8 +1728,6 @@
       },
       "tier": {
         "title": "Nivel de verificación",
-        "current": "Nivel actual:",
-        "verifiedOn": "verificada el {date}",
         "save": "Guardar nivel",
         "saving": "Guardando nivel...",
         "saved": "Nivel de verificación actualizado.",
@@ -1741,34 +1739,12 @@
           "generic": "No se pudo actualizar el nivel. Inténtalo de nuevo."
         }
       },
-      "info": {
-        "title": "Información de la empresa",
-        "sector": "Sector",
-        "owner": "Propietario",
-        "city": "Ciudad",
-        "province": "Provincia",
-        "address": "Dirección",
-        "email": "Correo electrónico",
-        "phone": "Teléfono",
-        "website": "Sitio web",
-        "description": "Descripción"
-      },
       "products": {
         "title": "Productos ({count})",
         "empty": "No hay productos registrados."
       },
       "documents": {
         "title": "Documentos ({count})"
-      },
-      "history": {
-        "title": "Historial de verificación ({count})",
-        "empty": "Aún no hay revisiones de verificación."
-      },
-      "decisionValues": {
-        "approved": "Aprobada",
-        "rejected": "Rechazada",
-        "more_info_requested": "Se solicitó más información",
-        "resubmitted": "Reenviada"
       },
       "trustProfile": {
         "title": "Perfil de confianza"
@@ -1777,20 +1753,82 @@
         "title": "Segmentos"
       },
       "listTitle": "Empresas",
-      "listSubtitle": "Todas las empresas registradas en cualquier estado",
-      "searchPlaceholder": "Buscar por nombre de empresa...",
-      "filterAll": "Todas",
-      "colCompany": "Empresa",
-      "colStatus": "Estado",
-      "colOwnerEmail": "Correo del propietario",
-      "colCreated": "Creada",
-      "colAction": "Acción",
-      "view": "Ver",
-      "emptyTitle": "No se encontraron empresas",
-      "emptySearch": "Prueba a ajustar tu búsqueda.",
-      "emptyFilter": "Ninguna empresa coincide con el filtro seleccionado.",
-      "loadMore": "Cargar más ({count} restantes)",
-      "loadError": "No se pudieron cargar las empresas. Actualice e inténtelo de nuevo."
+      "list": {
+        "subtitle": "Todas las empresas registradas, sea cual sea el estado de su expediente.",
+        "stats": {
+          "toReview": "Expedientes por revisar",
+          "toReviewFoot": "a la espera de una decisión del equipo",
+          "total": "Empresas",
+          "totalFoot": "{drc} en la RDC · {intl} internacionales",
+          "verified": "Verificadas",
+          "verifiedFoot": "{rate} % de las empresas registradas",
+          "premium": "Premium activas",
+          "premiumFoot": "suscripciones en curso"
+        },
+        "views": {
+          "label": "Estado del expediente",
+          "all": "Todas"
+        },
+        "results": "{count, plural, =0 {Ninguna empresa} one {# empresa} other {# empresas}}",
+        "filters": {
+          "search": "Buscar una empresa, una ciudad, un propietario",
+          "sector": "Sector",
+          "allSectors": "Todos los sectores",
+          "origin": "Origen",
+          "allOrigins": "Todos los orígenes",
+          "origins": {
+            "drc": "RDC",
+            "intl": "Internacional"
+          },
+          "premium": "Premium",
+          "sort": "Orden de la lista",
+          "sorts": {
+            "recent": "Más recientes primero",
+            "name": "Nombre, de la A a la Z",
+            "products": "Más productos primero"
+          },
+          "remove": "Quitar el filtro {label}",
+          "clear": "Borrar todo"
+        },
+        "table": {
+          "company": "Empresa",
+          "sector": "Sector",
+          "file": "Expediente",
+          "tier": "Nivel",
+          "products": "Productos",
+          "owner": "Propietario",
+          "registered": "Registrada el",
+          "open": "Abrir la ficha",
+          "noSector": "Sin clasificar",
+          "noOwner": "Desconocido",
+          "premiumUntil": "Premium hasta el {date}"
+        },
+        "empty": "Ninguna empresa coincide.",
+        "more": "Mostrar más ({count, plural, one {# restante} other {# restantes}})"
+      },
+      "sheet": {
+        "verifiedOn": "verificada el {date}",
+        "verificationFile": "Expediente de verificación",
+        "publicPage": "Página pública",
+        "facts": {
+          "products": "Productos",
+          "productsFoot": "{count, plural, =0 {ninguno publicado} one {# publicado} other {# publicados}}",
+          "documents": "Documentos",
+          "documentsFoot": "{count, plural, =0 {ninguno validado} one {# validado} other {# validados}}",
+          "segments": "Segmentos",
+          "segmentsFoot": "donde aparece en el mercado",
+          "premium": "Premium",
+          "premiumNone": "Ninguno",
+          "premiumNoneFoot": "sin suscripción en curso",
+          "premiumUntil": "hasta el {date}",
+          "premiumNoEnd": "sin fecha de fin",
+          "premiumEnded": "terminó el {date}"
+        },
+        "published": "Publicado",
+        "draft": "Borrador",
+        "trustHint": "Los controles y las notas publicados en el perfil de la empresa. Un control dejado «pendiente» sin nota no se muestra.",
+        "segmentsHint": "Las secciones del mercado donde aparece la empresa."
+      }
     },
     "users": {
       "title": "Usuarios",
@@ -2042,15 +2080,167 @@
       "myAccount": "Mi cuenta"
     },
     "analytics": {
-      "title": "Analítica de la plataforma",
-      "subtitle": "Estadísticas y resumen de actividad de toda la plataforma",
-      "loadError": "No se pudo cargar la analítica",
-      "totalCompanies": "Total de empresas",
-      "verifiedCompanies": "Empresas verificadas",
-      "pendingCompanies": "Verificación pendiente",
-      "rejectedCompanies": "Rechazadas",
-      "registeredUsers": "Usuarios registrados",
-      "activeRfqListings": "Solicitudes de cotización activas"
+      "title": "Estadísticas",
+      "subtitle": "Quién usa la plataforma y hasta dónde llega cada tipo de usuario.",
+      "byUserType": "Por tipo de usuario",
+      "loadError": "No se pueden cargar las estadísticas por el momento.",
+      "hours": "{value} h",
+      "days": "{value} d",
+      "roles": {
+        "super_admin": "Vista de superadministrador",
+        "moderator": "Vista de moderador"
+      },
+      "hero": {
+        "eyebrow": "{role} · últimos {days} días",
+        "superAdmin": {
+          "headline": "{accounts, plural, one {# cuenta} other {# cuentas}}, {companies, plural, one {# empresa} other {# empresas}}, {verified, plural, one {# verificada} other {# verificadas}}",
+          "body": "Sin contar el equipo de TradeInDRC. Una cuenta puede gestionar varias empresas; su tipo depende de lo que posee hoy.",
+          "active": "Cuentas activas en el periodo",
+          "activeNote": "{percent} de las cuentas iniciaron sesión",
+          "newCompanies": "Nuevas empresas",
+          "newCompaniesNote": "{count, plural, =0 {Ninguna en el periodo anterior} other {# en el periodo anterior}}",
+          "premium": "Suscripciones Premium activas",
+          "premiumNote": "{percent} de las empresas"
+        },
+        "moderator": {
+          "headline": "{decisions, plural, =0 {Ninguna decisión tomada} one {# decisión tomada} other {# decisiones tomadas}}, {waiting, plural, =0 {ninguna solicitud en espera} one {# solicitud en espera} other {# solicitudes en espera}}",
+          "body": "Lo que el equipo ha tratado en el periodo y lo que aún espera respuesta.",
+          "decisions": "Decisiones de verificación",
+          "decisionsNote": "de ellas {approved, plural, one {# aprobación} other {# aprobaciones}}",
+          "delay": "Tiempo mediano de decisión",
+          "delayNote": "Desde el envío del expediente hasta la decisión",
+          "waiting": "Solicitudes de negocio en espera",
+          "waitingNote": "{count, plural, =0 {Ninguna transmitida en el periodo} one {# transmitida en el periodo} other {# transmitidas en el periodo}}"
+        }
+      },
+      "sections": {
+        "types": {
+          "title": "Quién usa la plataforma",
+          "hint": "Cuatro tipos de usuarios, cada uno con lo que le importa."
+        },
+        "companies": {
+          "title": "Empresas congoleñas e internacionales",
+          "hint": "Hasta dónde avanza cada tipo de empresa y, después, las dos lado a lado."
+        },
+        "team": {
+          "title": "Moderación y equipo",
+          "hint": {
+            "super_admin": "Lo que el equipo ha tratado en el periodo, miembro por miembro.",
+            "moderator": "Lo que el equipo ha tratado en el periodo, y su parte."
+          }
+        }
+      },
+      "types": {
+        "added": "+{count} en el periodo",
+        "unitCompanies": "{count, plural, one {empresa} other {empresas}}",
+        "unitAccounts": "{count, plural, one {cuenta} other {cuentas}}",
+        "rows": {
+          "owners": "Cuentas propietarias",
+          "verified": "Verificadas",
+          "premium": "Premium activos",
+          "active": "Activas en el periodo",
+          "confirmed": "Correo confirmado",
+          "newAccounts": "Creadas en el periodo"
+        },
+        "congolese": {
+          "label": "Empresas congoleñas",
+          "hint": "Venden sus productos y servicios desde la RDC."
+        },
+        "international": {
+          "label": "Empresas internacionales",
+          "hint": "Compran, invierten o suministran en la RDC."
+        },
+        "none": {
+          "label": "Cuentas sin empresa",
+          "hint": "Registradas, pero sin empresa por ahora."
+        },
+        "staff": {
+          "label": "Equipo de TradeInDRC",
+          "hint": "Superadministradores y moderadores de la consola."
+        }
+      },
+      "signups": {
+        "title": "Nuevas cuentas",
+        "total": "{count, plural, one {cuenta nueva} other {cuentas nuevas}} en el periodo",
+        "withCompany": "Registraron una empresa",
+        "withoutCompany": "Sin empresa hasta hoy"
+      },
+      "activity": {
+        "title": "Cuentas activas",
+        "subtitle": "Con al menos un inicio de sesión en el periodo",
+        "ratio": "{active} / {total}",
+        "note": "Una cuenta inactiva no ve ni sus solicitudes ni sus mensajes: es el primer público que hay que reactivar."
+      },
+      "funnel": {
+        "subtitle": "Del registro al primer contacto",
+        "share": "{percent} del paso anterior",
+        "title": {
+          "drc": "Recorrido de las empresas congoleñas",
+          "intl": "Recorrido de las empresas internacionales"
+        },
+        "empty": {
+          "drc": "Aún no hay ninguna empresa congoleña registrada.",
+          "intl": "Aún no hay ninguna empresa internacional registrada."
+        },
+        "steps": {
+          "registered": "Registradas",
+          "submitted": "Expediente enviado",
+          "verified": "Verificadas",
+          "listed": "Con una oferta en línea",
+          "contacted": "Ya contactadas"
+        }
+      },
+      "compare": {
+        "title": "Los dos tipos de empresas, cifra por cifra",
+        "subtitle": "Ofertas en línea hoy, actividad en el periodo. Cada fila tiene su propia escala.",
+        "legend": "Leyenda",
+        "metricHeader": "Indicador",
+        "series": {
+          "drc": "Congoleñas",
+          "intl": "Internacionales"
+        },
+        "metrics": {
+          "products_published": "Productos en línea",
+          "opportunities": "Oportunidades en línea",
+          "profile_views": "Vistas de fichas de empresa",
+          "product_views": "Vistas de fichas de producto",
+          "contact_requests": "Solicitudes de contacto",
+          "requests_received": "Solicitudes de negocio recibidas",
+          "conversations": "Conversaciones abiertas",
+          "responses_sent": "Respuestas a oportunidades"
+        }
+      },
+      "moderation": {
+        "title": "Moderación en el periodo",
+        "subtitle": "Expedientes de verificación y solicitudes de negocio",
+        "link": "Abrir las verificaciones",
+        "approved": "Expedientes aprobados",
+        "moreInfo": "Información adicional solicitada",
+        "rejected": "Expedientes rechazados",
+        "delay": "Tiempo mediano de decisión",
+        "delayNote": "Desde el envío del expediente hasta la decisión",
+        "forwarded": "Solicitudes transmitidas a proveedores",
+        "waiting": "Solicitudes de negocio en espera",
+        "waitingNote": "Para tratar hoy"
+      },
+      "team": {
+        "title": "Actividad del equipo",
+        "subtitle": "Decisiones y transmisiones por miembro",
+        "titleSelf": "Su actividad",
+        "subtitleSelf": "Sus decisiones y transmisiones en el periodo",
+        "empty": "Ningún miembro que mostrar.",
+        "member": "Miembro",
+        "decisions": "Decisiones",
+        "forwarded": "Transmisiones",
+        "lastAction": "Última acción",
+        "unnamed": "Nombre no indicado",
+        "you": "Usted",
+        "approved": "{count, plural, one {# aprobación} other {# aprobaciones}}",
+        "roles": {
+          "super_admin": "Superadministrador",
+          "moderator": "Moderador"
+        }
+      }
     }
   },
   "Trust": {
@@ -2915,59 +3105,231 @@
     }
   },
   "Taxonomy": {
-    "title": "Gestión de la taxonomía",
-    "subtitle": "Gestione los sectores, categorías, códigos SA y etiquetas utilizados en la plataforma.",
-    "sectorsHeading": "Sectores",
-    "sectorsDescription": "Clasificaciones sectoriales de nivel superior.",
-    "categoriesHeading": "Categorías",
-    "categoriesDescription": "Subclasificaciones vinculadas a un sector principal.",
-    "hsCodesHeading": "Códigos SA",
-    "hsCodesDescription": "Códigos de mercancías del Sistema Armonizado, vinculados opcionalmente a un sector.",
-    "tagsHeading": "Etiquetas",
-    "tagsDescription": "Etiquetas de formato libre para el filtrado y la búsqueda.",
-    "loadingSectors": "Cargando sectores...",
-    "errorLoadSectors": "No se pudieron cargar los sectores",
-    "add": "Agregar",
-    "edit": "Editar",
-    "delete": "Eliminar",
-    "save": "Guardar",
-    "cancel": "Cancelar",
-    "retry": "Reintentar",
-    "newEntry": "Nueva entrada",
-    "empty": "Aún no hay elementos.",
-    "loading": "Cargando...",
-    "saving": "Guardando los cambios...",
-    "saved": "Guardado correctamente.",
-    "adding": "Agregando...",
-    "added": "Agregado correctamente.",
-    "deleting": "Eliminando...",
-    "deleted": "Eliminado correctamente.",
-    "confirmDelete": "¿Eliminar \"{name}\"? Esta acción no se puede deshacer.",
-    "errorLoad": "No se pudieron cargar los elementos",
-    "errorSave": "No se pudo guardar",
-    "errorAdd": "No se pudo agregar",
-    "errorDelete": "No se pudo eliminar",
-    "noSector": "— Sin sector —",
-    "placeholderCode": "Código",
-    "placeholderNameEn": "Nombre (EN)",
-    "placeholderNameFr": "Nombre (FR)",
-    "placeholderSlug": "Slug",
-    "placeholderParentCode": "Código principal (opcional)",
-    "colCode": "Código",
-    "colNameEn": "Nombre (EN)",
-    "colNameFr": "Nombre (FR)",
-    "colSlug": "Slug",
-    "colSector": "Sector",
-    "colActions": "Acciones",
-    "placeholderNameTr": "Nombre (TR)",
-    "placeholderNameZh": "Nombre (ZH)",
-    "placeholderNameEs": "Nombre (ES)",
-    "specsHeading": "Características por categoría",
-    "specsDescription": "Los campos que las empresas rellenan para un producto de esta categoría. Siempre pueden añadir sus propias líneas.",
+    "title": "Taxonomía",
+    "subtitle": "Los sectores, categorías, códigos SA y etiquetas que clasifican las empresas, los productos y las oportunidades.",
+    "stats": {
+      "untranslated": "Por traducir",
+      "untranslatedFoot": "de {total} entradas, sin nombre en español, turco o chino",
+      "sectors": "Sectores",
+      "sectorsFoot": "{count, plural, =0 {todos tienen categorías} one {# sin categoría} other {# sin categoría}}",
+      "categories": "Categorías",
+      "categoriesFoot": "{count, plural, =0 {ningún campo de ficha técnica} one {# campo de ficha técnica} other {# campos de ficha técnica}}",
+      "unclassified": "Empresas sin sector",
+      "unclassifiedFoot": "por clasificar desde su ficha"
+    },
+    "tabs": {
+      "label": "Partes de la taxonomía",
+      "tree": "Sectores y categorías",
+      "hs_codes": "Códigos SA",
+      "tags": "Etiquetas",
+      "history": "Historial"
+    },
+    "search": {
+      "tree": "Buscar un sector o una categoría",
+      "hs_codes": "Buscar un código o un nombre",
+      "tags": "Buscar una etiqueta",
+      "noMatch": "Ningún resultado para esta búsqueda.",
+      "results": "{count, plural, =0 {Ningún resultado} one {# resultado} other {# resultados}}"
+    },
+    "kinds": {
+      "sectors": {
+        "add": "Sector",
+        "new": "Nuevo sector",
+        "edit": "Editar el sector",
+        "hint": "Un sector agrupa empresas, oportunidades y categorías de productos."
+      },
+      "categories": {
+        "add": "Añadir una categoría",
+        "new": "Nueva categoría",
+        "edit": "Editar la categoría",
+        "hint": "Una categoría clasifica los productos y servicios de un sector."
+      },
+      "hs_codes": {
+        "add": "Añadir un código SA",
+        "new": "Nuevo código SA",
+        "edit": "Editar el código SA",
+        "hint": "Un código del Sistema Armonizado que las empresas asocian a su actividad."
+      },
+      "tags": {
+        "add": "Añadir una etiqueta",
+        "new": "Nueva etiqueta",
+        "edit": "Editar la etiqueta",
+        "hint": "Una etiqueta libre que las empresas añaden a su ficha."
+      }
+    },
+    "tree": {
+      "sectors": "Sectores",
+      "categories": "Categorías",
+      "back": "Todos los sectores",
+      "pickSector": "Elija un sector para ver sus categorías.",
+      "noCategoryShort": "Sin categoría",
+      "noCategoryTitle": "Este sector aún no tiene categorías",
+      "noCategoryBody": "Mientras no tenga ninguna, sus empresas no pueden clasificar sus productos en este sector."
+    },
+    "usage": {
+      "categories": "{count, plural, =0 {ninguna categoría} one {# categoría} other {# categorías}}",
+      "companies": "{count, plural, =0 {ninguna empresa} one {# empresa} other {# empresas}}",
+      "opportunities": "{count, plural, =0 {ninguna oportunidad} one {# oportunidad} other {# oportunidades}}",
+      "content": "{count, plural, one {# contenido publicado} other {# contenidos publicados}}",
+      "reports": "{count, plural, one {# informe} other {# informes}}",
+      "prices": "{count, plural, one {# serie de precios} other {# series de precios}}",
+      "hs_codes": "{count, plural, one {# código SA} other {# códigos SA}}",
+      "sub_sectors": "{count, plural, one {# subsector} other {# subsectores}}",
+      "products": "{count, plural, =0 {ningún producto} one {# producto} other {# productos}}",
+      "services": "{count, plural, =0 {ningún servicio} one {# servicio} other {# servicios}}",
+      "sub_codes": "{count, plural, one {# subcódigo} other {# subcódigos}}"
+    },
+    "translation": {
+      "missing": "Por traducir",
+      "missingIn": "Sin nombre en: {languages}",
+      "coverage": "Idiomas completados",
+      "has": "{language}: completado",
+      "lacks": "{language}: falta"
+    },
+    "languages": {
+      "en": "Inglés",
+      "fr": "Francés",
+      "es": "Español",
+      "tr": "Turco",
+      "zh": "Chino"
+    },
+    "actions": {
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "moveUp": "Subir",
+      "moveDown": "Bajar",
+      "specs": "Ficha técnica"
+    },
+    "form": {
+      "code": "Código SA",
+      "codeHint": "De 2 a 10 cifras, puntos permitidos (09, 0901, 0901.21). Definitivo tras la creación.",
+      "codeFrozen": "Definitivo: hay empresas y subcódigos vinculados a él.",
+      "names": "Nombres obligatorios",
+      "nameEn": "Nombre en inglés",
+      "nameFr": "Nombre en francés",
+      "otherLanguages": "Otros idiomas",
+      "otherLanguagesHint": "Opcional. Si se deja vacío, el sitio muestra el nombre en inglés.",
+      "placement": "Vinculación",
+      "sector": "Sector",
+      "sectorChoose": "Elegir un sector",
+      "sectorNone": "Ningún sector",
+      "parentCode": "Código superior",
+      "parentNone": "Ninguno (código de primer nivel)",
+      "parentCodeHint": "El capítulo o la partida de la que depende este código.",
+      "slug": "Identificador de dirección",
+      "slugHintNew": "Si se deja vacío, se deduce del nombre en inglés. Definitivo tras la creación.",
+      "slugFrozen": "Definitivo: páginas y enlaces del sitio apuntan a él.",
+      "cancel": "Cancelar",
+      "create": "Crear",
+      "save": "Guardar"
+    },
+    "errors": {
+      "required": "Este campo es obligatorio.",
+      "too_long": "80 caracteres como máximo.",
+      "invalid_slug": "El nombre en inglés debe contener letras latinas o cifras, o escriba un identificador.",
+      "invalid_code": "Un código SA tiene de 2 a 10 cifras (09, 0901, 0901.21).",
+      "invalid_parent": "Este código superior no es válido.",
+      "invalid_sector": "Este sector ya no existe. Elija otro.",
+      "duplicate_slug": "Este identificador ya está en uso. Escriba otro.",
+      "duplicate_code": "Este código SA ya existe.",
+      "not_authorized": "No tiene permiso para hacer este cambio.",
+      "write_failed": "No se pudo guardar. Inténtelo de nuevo.",
+      "super_admin_only": "La eliminación está reservada al superadministrador.",
+      "in_use": "Este elemento todavía se usa: no se puede eliminar.",
+      "reorder": "No se pudo guardar el nuevo orden."
+    },
+    "toasts": {
+      "created": "Elemento creado.",
+      "saved": "Cambios guardados.",
+      "deleted": "Elemento eliminado."
+    },
+    "delete": {
+      "title": "¿Eliminar «{name}»?",
+      "body": "Nada utiliza «{name}». La eliminación es definitiva y quedará anotada en el historial.",
+      "blockedTitle": "No se puede eliminar",
+      "blockedBody": "«{name}» todavía se usa:",
+      "blockedHint": {
+        "sectors": "Mueva sus categorías y reclasifique estos elementos en otro sector; después vuelva a eliminarlo.",
+        "categories": "Reclasifique estos productos y servicios en otra categoría; después vuelva a eliminarla.",
+        "hs_codes": "Quite este código de las empresas y de los subcódigos; después vuelva a eliminarlo.",
+        "tags": "Quite esta etiqueta de las empresas; después vuelva a eliminarla."
+      },
+      "reservedTitle": "Eliminación reservada",
+      "reservedBody": "Solo un superadministrador puede eliminar «{name}». Usted puede seguir editándolo.",
+      "specNote": "{count, plural, one {Su campo de ficha técnica se eliminará con ella.} other {Sus # campos de ficha técnica se eliminarán con ella.}}",
+      "confirm": "Eliminar",
+      "close": "Cerrar"
+    },
+    "specsSheet": {
+      "title": "Ficha técnica · {name}",
+      "description": "Los campos que las empresas rellenan para un producto de esta categoría. Siempre pueden añadir sus propias líneas."
+    },
+    "table": {
+      "code": "Código",
+      "name": "Nombre",
+      "sector": "Sector",
+      "usage": "Uso",
+      "actions": "Acciones",
+      "noSector": "Ninguno"
+    },
+    "empty": {
+      "hs_codes": {
+        "title": "Todavía no hay códigos SA",
+        "body": "Los códigos SA describen las mercancías con precisión. Una vez creados, las empresas pueden asociarlos a su ficha."
+      },
+      "tags": {
+        "title": "Todavía no hay etiquetas",
+        "body": "Las etiquetas son palabras clave libres (ecológico, comercio justo, exportación…). Una vez creadas, las empresas pueden añadirlas a su ficha."
+      }
+    },
+    "history": {
+      "emptyTitle": "Ningún cambio registrado",
+      "emptyBody": "Cada creación, cambio o eliminación aparecerá aquí, con su autor y su fecha.",
+      "system": "Sistema",
+      "actions": {
+        "sectors": {
+          "insert": "Sector creado",
+          "update": "Sector editado",
+          "delete": "Sector eliminado"
+        },
+        "categories": {
+          "insert": "Categoría creada",
+          "update": "Categoría editada",
+          "delete": "Categoría eliminada"
+        },
+        "hs_codes": {
+          "insert": "Código SA creado",
+          "update": "Código SA editado",
+          "delete": "Código SA eliminado"
+        },
+        "tags": {
+          "insert": "Etiqueta creada",
+          "update": "Etiqueta editada",
+          "delete": "Etiqueta eliminada"
+        },
+        "category_spec_fields": {
+          "insert": "Campo de ficha creado",
+          "update": "Campo de ficha editado",
+          "delete": "Campo de ficha eliminado"
+        }
+      },
+      "fields": {
+        "name_en": "Nombre en inglés",
+        "name_fr": "Nombre en francés",
+        "name_es": "Nombre en español",
+        "name_tr": "Nombre en turco",
+        "name_zh": "Nombre en chino",
+        "label_en": "Etiqueta en inglés",
+        "label_fr": "Etiqueta en francés",
+        "unit": "Unidad",
+        "parent_code": "Código superior",
+        "sector_id": "Sector cambiado",
+        "field_type": "Tipo de valor cambiado",
+        "options": "Opciones modificadas",
+        "required": "Obligatoriedad cambiada"
+      }
+    },
     "specs": {
-      "category": "Categoría",
-      "chooseCategory": "Elegir una categoría",
-      "pickFirst": "Elija una categoría para gestionar sus características.",
       "empty": "No hay características definidas para esta categoría.",
       "loading": "Cargando…",
       "add": "Añadir un campo",
@@ -3003,7 +3365,8 @@
       "errorLabels": "Indique la etiqueta en ambos idiomas.",
       "errorOptions": "Una lista de opciones necesita al menos dos opciones.",
       "errorKey": "La etiqueta en inglés debe contener al menos una letra.",
-      "errorDuplicate": "Ya existe un campo con ese nombre en esta categoría."
+      "errorDuplicate": "Ya existe un campo con ese nombre en esta categoría.",
+      "count": "{count, plural, =0 {Ningún campo} one {# campo} other {# campos}}"
     }
   },
   "Faq": {
@@ -3169,29 +3532,186 @@
       "contactLoginRequired": "Inicie sesión para contactar de forma segura con esta empresa."
     }
   },
-  "Analytics": {
-    "title": "Análisis",
-    "subtitle": "Resumen del rendimiento de sus empresas en TradeInDRC",
-    "profileViews": "Vistas del perfil",
-    "productViews": "Vistas de productos",
-    "contactRequests": "Solicitudes de contacto",
-    "searchAppearances": "Apariciones en búsquedas",
-    "trendUp": "+{pct}% respecto a los 30 días anteriores",
-    "trendDown": "-{pct}% respecto a los 30 días anteriores",
-    "trendFlat": "Sin cambios respecto a los 30 días anteriores",
-    "trendNoBaseline": "No hay datos anteriores para comparar",
-    "error": "No pudimos cargar sus análisis en este momento. Inténtelo de nuevo.",
-    "topSearchTitle": "Principales resultados de búsqueda",
-    "topSearchSubtitle": "Sus empresas y productos a los que los compradores llegaron con mayor frecuencia mediante la búsqueda.",
-    "appearancesCount": "{count} apariciones",
-    "topSearchEmptyTitle": "Aún no hay actividad de búsqueda",
-    "topSearchEmptyBody": "Cuando los compradores encuentren sus listados mediante la búsqueda, las entradas a las que más lleguen aparecerán aquí.",
-    "newsFeedTitle": "Noticias y eventos comerciales",
-    "newsFeedSubtitle": "Las últimas actualizaciones y encuentros publicados en TradeInDRC.",
-    "newsTag": "Noticia",
-    "eventTag": "Evento",
-    "newsFeedEmptyTitle": "Aún no se ha publicado nada",
-    "newsFeedEmptyBody": "Las nuevas noticias y eventos comerciales aparecerán aquí a medida que se publiquen."
+  "OwnerStats": {
+    "title": "Estadísticas",
+    "subtitle": {
+      "seller": "Cómo le encuentran los compradores y qué hacen después.",
+      "buyer": "En qué punto está su prospección en la RDC.",
+      "none": "Sus cifras aparecerán aquí en cuanto registre su empresa."
+    },
+    "account": {
+      "seller": "Cuenta de empresa congoleña",
+      "buyer": "Cuenta de empresa internacional"
+    },
+    "eyebrow": "{account} · últimos {days} días",
+    "error": "No se pueden cargar sus estadísticas por el momento.",
+    "hours": "{value} h",
+    "days": "{value} d",
+    "ratio": "{value} / {total}",
+    "viewsCount": "{count, plural, one {# vista} other {# vistas}}",
+    "noCompany": {
+      "title": "Aún no hay estadísticas",
+      "body": "Registre su empresa: aquí verá quién consulta su ficha, sus productos y sus oportunidades.",
+      "cta": "Registrar mi empresa"
+    },
+    "hero": {
+      "seller": {
+        "headline": "{visitors, plural, one {# visitante consultó} other {# visitantes consultaron}} sus páginas {views, plural, one {# vez} other {# veces}}",
+        "empty": "Ninguna visita a sus páginas durante este periodo",
+        "body": "Sus páginas: la ficha de su empresa y las fichas de sus productos. Un visitante se cuenta una sola vez, aunque vuelva varios días.",
+        "visitors": "Visitantes únicos",
+        "visitorsNote": "{count, plural, =0 {Ninguno en el periodo anterior} other {# en el periodo anterior}}",
+        "repeat": "Visitantes que volvieron",
+        "repeatNote": "{percent} de sus visitantes",
+        "contactRate": "Tasa de contacto",
+        "contactRateNote": "{contacts, plural, one {# contacto} other {# contactos}} por {views, plural, one {# vista} other {# vistas}}"
+      },
+      "buyer": {
+        "headline": "{replied, plural, =0 {Ningún proveedor le ha respondido todavía} one {# proveedor le respondió} other {# proveedores le respondieron}} de {started} contactados",
+        "empty": "No ha contactado a ningún proveedor durante este periodo",
+        "body": "Cada conversación que abre con una empresa de la RDC se sigue aquí, con el tiempo que tarda en responderle.",
+        "started": "Proveedores contactados",
+        "startedNote": "Conversaciones que usted abrió",
+        "replyRate": "Tasa de respuesta",
+        "replyRateNote": "{replied} de {started}",
+        "median": "Tiempo mediano de respuesta",
+        "medianNote": "Entre su mensaje y la primera respuesta"
+      }
+    },
+    "kpi": {
+      "label": "Cifras clave del periodo",
+      "contactRequests": "Solicitudes de contacto",
+      "responsesSent": "Respuestas enviadas",
+      "responsesSentFoot": "A oportunidades publicadas por otras empresas",
+      "conversationsStarted": "Conversaciones iniciadas",
+      "conversationsStartedFoot": "{count, plural, =0 {Sin respuesta por ahora} one {# recibió respuesta} other {# recibieron respuesta}}"
+    },
+    "chart": {
+      "viewLabel": "Lectura del gráfico",
+      "views": {
+        "visibility": "Visibilidad",
+        "interest": "Interés"
+      },
+      "titles": {
+        "visibility": "Vistas de sus páginas",
+        "interest": "Contactos y respuestas recibidos"
+      },
+      "totals": {
+        "visibility": "vistas en el periodo",
+        "interest": "contactos y respuestas en el periodo"
+      }
+    },
+    "funnel": {
+      "share": "{percent} del paso anterior",
+      "seller": {
+        "title": "De la visita al contacto",
+        "subtitle": "En qué se convierten las vistas de sus páginas",
+        "empty": "En cuanto se consulten sus páginas, verá aquí cuántas visitas se convierten en contactos.",
+        "search": "Apariciones en la búsqueda",
+        "steps": {
+          "views": "Vistas de sus páginas",
+          "contacts": "Solicitudes de contacto",
+          "replied": "Conversaciones que usted respondió"
+        }
+      },
+      "buyer": {
+        "title": "Del primer contacto a la respuesta",
+        "subtitle": "En qué se convierten sus mensajes a los proveedores",
+        "empty": "Contacte a un proveedor desde el directorio: verá aquí cuántos le responden.",
+        "median": "Tiempo mediano de respuesta",
+        "steps": {
+          "started": "Proveedores contactados",
+          "replied": "Respondieron"
+        }
+      }
+    },
+    "sections": {
+      "attraction": {
+        "title": "Lo que atrae a los compradores",
+        "hint": "Sus productos más vistos, lo que muestra la búsqueda y los días en que le consultan."
+      },
+      "followUp": {
+        "title": "Su seguimiento comercial",
+        "hint": "Una respuesta rápida y un catálogo completo convierten las visitas en pedidos."
+      },
+      "prospecting": {
+        "title": "Su prospección",
+        "hint": "Sus solicitudes publicadas, sus intercambios y los días en que se consulta su perfil."
+      },
+      "showcase": {
+        "title": "Su escaparate",
+        "hint": "Lo que las empresas congoleñas ven de sus productos."
+      }
+    },
+    "topProducts": {
+      "title": "Productos más vistos",
+      "subtitle": "En el periodo",
+      "all": "Ver el catálogo",
+      "empty": "Ningún producto visto en este periodo."
+    },
+    "search": {
+      "title": "Encontrados por la búsqueda",
+      "subtitle": "Lo que mostró la búsqueda (el texto escrito no se guarda)",
+      "empty": "Ninguna aparición en la búsqueda en este periodo.",
+      "appearances": "{count, plural, one {# vez} other {# veces}}",
+      "kind": {
+        "company": "Ficha de empresa",
+        "product": "Producto"
+      }
+    },
+    "weekday": {
+      "title": "Días más activos",
+      "subtitle": "Vistas de sus páginas por día de la semana",
+      "best": "El {day} es su día más consultado.",
+      "empty": "Aún no hay suficientes visitas para destacar un día.",
+      "dayHeader": "Día",
+      "valueHeader": "Vistas"
+    },
+    "responsiveness": {
+      "title": "Su capacidad de respuesta",
+      "subtitle": "Los compradores recuerdan quién responde rápido",
+      "inbox": "Abrir la mensajería",
+      "received": "Conversaciones abiertas por compradores",
+      "replied": "Que usted respondió",
+      "repliedNote": "{percent} de respuesta",
+      "median": "Su tiempo mediano de respuesta",
+      "requests": "Solicitudes transmitidas por el equipo",
+      "requestsNote": "{count, plural, one {# aún sin abrir} other {# aún sin abrir}}"
+    },
+    "catalogue": {
+      "title": "Salud del catálogo",
+      "subtitle": "Una ficha completa recibe más visitas",
+      "manage": "Gestionar el catálogo",
+      "empty": "Aún no tiene ningún producto.",
+      "add": "Añadir un producto",
+      "published": "Productos en línea",
+      "withPhoto": "Con al menos una foto",
+      "priced": "Con precio mostrado",
+      "viewed": "Vistos en el periodo"
+    },
+    "opportunities": {
+      "title": {
+        "seller": "Sus oportunidades",
+        "buyer": "Sus solicitudes publicadas"
+      },
+      "subtitle": "{published} en línea · {responses, plural, one {# respuesta recibida} other {# respuestas recibidas}} en el periodo",
+      "all": "Todas sus oportunidades",
+      "publish": "Publicar una oportunidad",
+      "empty": {
+        "seller": "Publique una oferta o una convocatoria: las empresas interesadas le responden directamente.",
+        "buyer": "Publique lo que busca en la RDC: los proveedores le responden directamente."
+      },
+      "status": {
+        "published": "En línea",
+        "pending": "Pendiente de validación"
+      },
+      "responses": "{count, plural, one {# respuesta} other {# respuestas}}"
+    },
+    "companies": {
+      "title": "Por empresa",
+      "hint": "{count} empresas en esta cuenta: las {shown} más vistas en el periodo.",
+      "company": "Empresa"
+    }
   },
   "Settings": {
     "title": "Configuración",
@@ -4035,17 +4555,15 @@
     },
     "footer": {
       "tagline": "Conectando negocios internacionales con oportunidades locales en la República Democrática del Congo.",
-      "stayConnected": "Manténgase conectado",
       "upgradePremium": "Actualizar a Premium",
       "copyright": "© {year} BrandsBridge Group. Todos los derechos reservados.",
-      "taglineBar": "Trade in DRC – Conectando negocios internacionales con oportunidades locales.",
+      "navLabel": "Pie de página",
       "columns": {
         "quickLinks": {
-          "title": "Enlaces rápidos",
-          "home": "Inicio",
-          "companies": "Empresas",
-          "opportunities": "Oportunidades",
+          "title": "Plataforma",
           "marketplace": "Mercado",
+          "opportunities": "Oportunidades",
+          "companies": "Empresas",
           "events": "Eventos"
         },
         "resources": {
@@ -4059,16 +4577,24 @@
           "title": "Empresa",
           "aboutUs": "Sobre nosotros",
           "register": "Registre su empresa",
-          "requestPartner": "Solicitar un socio",
-          "contactUs": "Contáctenos"
+          "requestPartner": "Solicitar un socio"
         },
         "support": {
           "title": "Soporte",
           "helpCenter": "Centro de ayuda",
           "faq": "Preguntas frecuentes",
-          "terms": "Términos de uso",
-          "privacy": "Política de privacidad"
+          "contactUs": "Contáctenos"
         }
+      },
+      "contact": {
+        "email": "Correo electrónico",
+        "phone": "Teléfono",
+        "address": "Dirección"
+      },
+      "legal": {
+        "terms": "Términos de uso",
+        "privacy": "Política de privacidad",
+        "cookies": "Cookies"
       }
     }
   },

@@ -11,7 +11,8 @@ const DIRECTIONS = [
 ] as const;
 
 /**
- * The two directions of trade: Import into the DRC / Export from the DRC.
+ * The two directions of trade, labelled "Sell in the DRC" (import) and
+ * "Buy in the DRC" (export).
  * Full-bleed photo cards — a glass pill (direction + live offer count) on top,
  * title and copy on a bottom gradient, a round arrow button that turns gold
  * on hover. Hover: photo settles in (§2.6, 300 ms), arrow nudges (§2.1).

@@ -5887,8 +5887,8 @@
       "filterLabel": "Filter requests by direction",
       "filters": {
         "all": "All",
-        "import": "Import",
-        "export": "Export"
+        "import": "Sell in the DRC",
+        "export": "Buy in the DRC"
       },
       "buyer": "Buyer",
       "buyerVerified": "Verified buyer",
@@ -5918,14 +5918,14 @@
       "heading": "Two directions of trade",
       "lead": "One market, two directions: what comes into the DRC and what leaves it. Pick yours.",
       "import": {
-        "title": "Import into the DRC",
+        "title": "Sell in the DRC",
         "body": "What foreign companies offer to sell on the Congolese market.",
-        "badge": "Import"
+        "badge": "Sell"
       },
       "export": {
-        "title": "Export from the DRC",
+        "title": "Buy in the DRC",
         "body": "What Congolese companies offer to foreign markets.",
-        "badge": "Export"
+        "badge": "Buy"
       },
       "offers": "{count, plural, =0 {No offers yet} one {# offer} other {# offers}}"
     },
@@ -5969,11 +5969,11 @@
     },
     "directions": {
       "import": {
-        "title": "Import into the DRC",
+        "title": "Sell in the DRC",
         "body": "Offers from foreign companies that want to sell in the DRC."
       },
       "export": {
-        "title": "Export from the DRC",
+        "title": "Buy in the DRC",
         "body": "Offers from Congolese companies that want to sell abroad."
       }
     },
@@ -6005,8 +6005,8 @@
     },
     "results": {
       "heading": {
-        "import": "Products offered for import into the DRC",
-        "export": "Products offered for export from the DRC",
+        "import": "Products offered for sale in the DRC",
+        "export": "Products available to buy in the DRC",
         "all": "All products"
       },
       "count": "{count, plural, =0 {No offers} one {# offer} other {# offers}}",
@@ -6035,8 +6035,8 @@
       "body": "No supplier has published an offer in this direction yet. Publish your need — our team will find and vet one for you.",
       "bodyFiltered": "No offer matches your search or filters. Loosen them, or let our team source it for you.",
       "see": {
-        "import": "See import offers",
-        "export": "See export offers"
+        "import": "See “Sell in the DRC” offers",
+        "export": "See “Buy in the DRC” offers"
       }
     }
   },
@@ -6045,8 +6045,8 @@
     "crumbMarket": "Marketplace",
     "verifiedOn": "Verified on {date}",
     "direction": {
-      "import": "Direction: import into the DRC",
-      "export": "Direction: export from the DRC"
+      "import": "Direction: sell in the DRC",
+      "export": "Direction: buy in the DRC"
     },
     "memberSince": "On the platform since {year}",
     "showImage": "Show image {n}",
@@ -6164,8 +6164,8 @@
     },
     "context": {
       "title": "For your operation: {name} ({direction})",
-      "import": "import",
-      "export": "export",
+      "import": "Sell in the DRC",
+      "export": "Buy in the DRC",
       "body": "The form at the bottom of the page is pre-filled with this operation.",
       "clear": "Remove context"
     },
@@ -6443,7 +6443,7 @@
         "body": "Find a verified supplier, in the DRC or abroad.",
         "p1": "Request a quote without an account",
         "p2": "Suppliers verified on 4 checks",
-        "p3": "Import and export offers in one place",
+        "p3": "Offers to sell and buy in the DRC in one place",
         "cta": "See the market"
       },
       "sell": {
@@ -6477,9 +6477,9 @@
       "category": "Category",
       "allCategories": "All categories",
       "direction": "Direction",
-      "allDirections": "Import and export",
-      "import": "Import into the DRC",
-      "export": "Export from the DRC",
+      "allDirections": "Sell and buy in the DRC",
+      "import": "Sell in the DRC",
+      "export": "Buy in the DRC",
       "submit": "Search"
     },
     "trends": "Trending:",

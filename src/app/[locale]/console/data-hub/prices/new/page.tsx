@@ -6,6 +6,7 @@ export default async function PricesNewPage() {
   const { data: sectors } = await supabase
     .from("sectors")
     .select("id, name_en, name_fr")
+    .order("sort_order", { ascending: true })
     .order("name_en", { ascending: true });
 
   return <SeriesForm mode="create" sectors={sectors ?? []} />;

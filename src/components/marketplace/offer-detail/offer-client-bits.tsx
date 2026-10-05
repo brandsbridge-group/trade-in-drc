@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { MessageSquare } from "lucide-react";
 
 import { useAuth } from "@/lib/auth/auth-provider";
+import { MESSAGING_ENABLED } from "@/config/features";
 import { trackView } from "@/lib/analytics/track-view";
 import { ContactSupplierModal } from "@/components/messaging/contact-supplier-modal";
 
@@ -32,7 +33,7 @@ export function OfferDirectContact({
   const t = useTranslations("OfferDetail.request");
   const { user } = useAuth();
   const [open, setOpen] = useState(false);
-  if (!user || user.id === companyOwnerId) return null;
+  if (!MESSAGING_ENABLED || !user || user.id === companyOwnerId) return null;
 
   return (
     <>

@@ -155,6 +155,11 @@ export interface Database {
           name_fr: string;
           slug: string;
           parent_id: string | null;
+          name_es: string | null;
+          name_tr: string | null;
+          name_zh: string | null;
+          // 00066_taxonomy_safeguards
+          sort_order: number;
         };
         Insert: {
           id?: string;
@@ -162,6 +167,11 @@ export interface Database {
           name_fr: string;
           slug: string;
           parent_id?: string | null;
+          name_es?: string | null;
+          name_tr?: string | null;
+          name_zh?: string | null;
+          // 00066_taxonomy_safeguards
+          sort_order?: number;
         };
         Update: {
           id?: string;
@@ -169,6 +179,11 @@ export interface Database {
           name_fr?: string;
           slug?: string;
           parent_id?: string | null;
+          name_es?: string | null;
+          name_tr?: string | null;
+          name_zh?: string | null;
+          // 00066_taxonomy_safeguards
+          sort_order?: number;
         };
         Relationships: [];
       };
@@ -225,6 +240,11 @@ export interface Database {
           name_fr: string;
           slug: string;
           sector_id: string;
+          name_es: string | null;
+          name_tr: string | null;
+          name_zh: string | null;
+          // 00066_taxonomy_safeguards
+          sort_order: number;
         };
         Insert: {
           id?: string;
@@ -232,6 +252,11 @@ export interface Database {
           name_fr: string;
           slug: string;
           sector_id: string;
+          name_es?: string | null;
+          name_tr?: string | null;
+          name_zh?: string | null;
+          // 00066_taxonomy_safeguards
+          sort_order?: number;
         };
         Update: {
           id?: string;
@@ -239,6 +264,11 @@ export interface Database {
           name_fr?: string;
           slug?: string;
           sector_id?: string;
+          name_es?: string | null;
+          name_tr?: string | null;
+          name_zh?: string | null;
+          // 00066_taxonomy_safeguards
+          sort_order?: number;
         };
         Relationships: [];
       };
@@ -1262,6 +1292,9 @@ export interface Database {
           name_fr: string;
           parent_code: string | null;
           sector_id: string | null;
+          name_es: string | null;
+          name_tr: string | null;
+          name_zh: string | null;
           created_at: string;
           updated_at: string;
         };
@@ -1272,6 +1305,9 @@ export interface Database {
           name_fr: string;
           parent_code?: string | null;
           sector_id?: string | null;
+          name_es?: string | null;
+          name_tr?: string | null;
+          name_zh?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -1282,6 +1318,9 @@ export interface Database {
           name_fr?: string;
           parent_code?: string | null;
           sector_id?: string | null;
+          name_es?: string | null;
+          name_tr?: string | null;
+          name_zh?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -1293,6 +1332,9 @@ export interface Database {
           slug: string;
           name_en: string;
           name_fr: string;
+          name_es: string | null;
+          name_tr: string | null;
+          name_zh: string | null;
           created_at: string;
           updated_at: string;
         };
@@ -1301,6 +1343,9 @@ export interface Database {
           slug: string;
           name_en: string;
           name_fr: string;
+          name_es?: string | null;
+          name_tr?: string | null;
+          name_zh?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -1309,6 +1354,9 @@ export interface Database {
           slug?: string;
           name_en?: string;
           name_fr?: string;
+          name_es?: string | null;
+          name_tr?: string | null;
+          name_zh?: string | null;
           created_at?: string;
           updated_at?: string;
         };

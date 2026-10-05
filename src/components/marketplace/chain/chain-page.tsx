@@ -13,6 +13,7 @@ import {
 
 import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
+import { MESSAGING_ENABLED } from "@/config/features";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import {
   CHAIN_CONFIG,
@@ -457,7 +458,8 @@ export async function ChainPage({
 
                   <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
                     {p.kind === "company" && p.ownerId ? (
-                      <ProviderContactButton
+                      // Direct messaging off: a company is reached through "My operation", sent to the team.
+                      MESSAGING_ENABLED && <ProviderContactButton
                         label={ctaLabel}
                         signedIn={!!viewer}
                         viewerId={viewer?.id ?? null}

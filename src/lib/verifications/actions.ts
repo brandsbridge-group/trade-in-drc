@@ -674,6 +674,8 @@ export interface ReviewProduct {
   id: string;
   name: string;
   description: string | null;
+  /** False = a draft only its owner sees (00057). */
+  isPublished: boolean;
 }
 
 export interface ReviewEntry {
@@ -713,6 +715,11 @@ export interface ReviewCompany {
   province: string | null;
   country: string | null;
   website: string | null;
+  logoUrl: string | null;
+  /** Premium as granted by staff (00022): the flag, the plan and when it ends. */
+  isPremium: boolean;
+  premiumPlan: string | null;
+  premiumExpiresAt: string | null;
   status: CompanyStatus;
   stage: ReviewStage;
   verificationTier: VerificationTier;
@@ -772,8 +779,9 @@ export async function getCompanyForReview(
       `id, name, description, owner_id, status, verification_tier, verified_at,
        verification_summary, contact_email, contact_phone, address, city,
        province, country, registration_profile, website, created_at,
+       logo_url, is_premium, premium_plan, premium_expires_at,
        sectors(name_en, name_fr),
-       products(id, name, description),
+       products(id, name, description, is_published),
        company_documents(id, type, file_url, file_name, status, review_note, reviewed_at),
        verification_reviews(id, decision, notes, created_at, admin_id),
        company_segments(segment_key)`
@@ -804,8 +812,12 @@ export async function getCompanyForReview(
     registration_profile: string | null;
     website: string | null;
     created_at: string;
+    logo_url: string | null;
+    is_premium: boolean;
+    premium_plan: string | null;
+    premium_expires_at: string | null;
     sectors: { name_en: string; name_fr: string } | null;
-    products: ReviewProduct[];
+    products: Array<{ id: string; name: string; description: string | null; is_published: boolean }>;
     company_documents: RawDocument[];
     verification_reviews: Array<{
       id: string;
@@ -849,6 +861,10 @@ export async function getCompanyForReview(
     province: row.province,
     country: row.country,
     website: row.website,
+    logoUrl: row.logo_url,
+    isPremium: row.is_premium,
+    premiumPlan: row.premium_plan,
+    premiumExpiresAt: row.premium_expires_at,
     status: row.status,
     stage: reviewStage(row.status, events),
     verificationTier: row.verification_tier,
@@ -858,7 +874,7 @@ export async function getCompanyForReview(
     submittedAt: lastSubmittedAt(events, row.created_at),
     legal,
     intake: intakeFromSummary(row.verification_summary, row.registration_profile),
-    products: row.products ?? [],
+    products: (row.products ?? []).map((p) => ({ id: p.id, name: p.name, description: p.description, isPublished: p.is_published })),
     documents: signedDocs,
     reviews: (row.verification_reviews ?? []).map((v) => ({
       id: v.id,

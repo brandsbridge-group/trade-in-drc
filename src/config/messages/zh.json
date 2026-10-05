@@ -1728,8 +1728,6 @@
       },
       "tier": {
         "title": "认证等级",
-        "current": "当前等级：",
-        "verifiedOn": "认证于 {date}",
         "save": "保存等级",
         "saving": "正在保存等级……",
         "saved": "认证等级已更新。",
@@ -1741,34 +1739,12 @@
           "generic": "更新等级失败。请重试。"
         }
       },
-      "info": {
-        "title": "企业信息",
-        "sector": "行业",
-        "owner": "负责人",
-        "city": "城市",
-        "province": "省份",
-        "address": "地址",
-        "email": "电子邮箱",
-        "phone": "电话",
-        "website": "网站",
-        "description": "简介"
-      },
       "products": {
         "title": "产品（{count}）",
         "empty": "暂无产品列表。"
       },
       "documents": {
         "title": "文件（{count}）"
-      },
-      "history": {
-        "title": "认证记录（{count}）",
-        "empty": "暂无认证审查记录。"
-      },
-      "decisionValues": {
-        "approved": "已批准",
-        "rejected": "已拒绝",
-        "more_info_requested": "已要求补充信息",
-        "resubmitted": "已重新提交"
       },
       "trustProfile": {
         "title": "信任档案"
@@ -1777,20 +1753,82 @@
         "title": "细分领域"
       },
       "listTitle": "企业",
-      "listSubtitle": "各种状态下的所有注册企业",
-      "searchPlaceholder": "按企业名称搜索……",
-      "filterAll": "全部",
-      "colCompany": "企业",
-      "colStatus": "状态",
-      "colOwnerEmail": "负责人邮箱",
-      "colCreated": "创建时间",
-      "colAction": "操作",
-      "view": "查看",
-      "emptyTitle": "未找到企业",
-      "emptySearch": "请尝试调整搜索条件。",
-      "emptyFilter": "没有符合所选筛选条件的企业。",
-      "loadMore": "加载更多（剩余 {count} 项）",
-      "loadError": "无法加载公司。请刷新后重试。"
+      "list": {
+        "subtitle": "所有已注册的企业，无论其档案处于何种状态。",
+        "stats": {
+          "toReview": "待审核档案",
+          "toReviewFoot": "等待团队作出决定",
+          "total": "企业",
+          "totalFoot": "刚果（金）{drc} 家 · 国际 {intl} 家",
+          "verified": "已验证",
+          "verifiedFoot": "占已注册企业的 {rate}%",
+          "premium": "有效高级会员",
+          "premiumFoot": "正在进行的订阅"
+        },
+        "views": {
+          "label": "档案状态",
+          "all": "全部"
+        },
+        "results": "{count, plural, =0 {没有企业} other {# 家企业}}",
+        "filters": {
+          "search": "搜索企业、城市或所有者",
+          "sector": "行业",
+          "allSectors": "所有行业",
+          "origin": "来源",
+          "allOrigins": "所有来源",
+          "origins": {
+            "drc": "刚果（金）",
+            "intl": "国际"
+          },
+          "premium": "高级会员",
+          "sort": "列表顺序",
+          "sorts": {
+            "recent": "最新优先",
+            "name": "名称，A 到 Z",
+            "products": "产品最多优先"
+          },
+          "remove": "移除筛选条件 {label}",
+          "clear": "全部清除"
+        },
+        "table": {
+          "company": "企业",
+          "sector": "行业",
+          "file": "档案",
+          "tier": "等级",
+          "products": "产品",
+          "owner": "所有者",
+          "registered": "注册日期",
+          "open": "打开企业档案",
+          "noSector": "未归类",
+          "noOwner": "未知",
+          "premiumUntil": "高级会员有效期至 {date}"
+        },
+        "empty": "没有符合条件的企业。",
+        "more": "显示更多（还有 {count} 家）"
+      },
+      "sheet": {
+        "verifiedOn": "验证于 {date}",
+        "verificationFile": "验证档案",
+        "publicPage": "公开页面",
+        "facts": {
+          "products": "产品",
+          "productsFoot": "{count, plural, =0 {尚无已发布} other {# 个已发布}}",
+          "documents": "文件",
+          "documentsFoot": "{count, plural, =0 {尚无已通过} other {# 份已通过}}",
+          "segments": "细分板块",
+          "segmentsFoot": "在市场中出现的位置",
+          "premium": "高级会员",
+          "premiumNone": "无",
+          "premiumNoneFoot": "没有正在进行的订阅",
+          "premiumUntil": "有效期至 {date}",
+          "premiumNoEnd": "无结束日期",
+          "premiumEnded": "已于 {date} 结束"
+        },
+        "published": "已发布",
+        "draft": "草稿",
+        "trustHint": "发布在企业资料上的核查项和备注。保持“待处理”且没有备注的核查项不会显示。",
+        "segmentsHint": "企业在市场中所属的板块。"
+      }
     },
     "users": {
       "title": "用户",
@@ -2042,15 +2080,167 @@
       "myAccount": "我的账户"
     },
     "analytics": {
-      "title": "平台分析",
-      "subtitle": "全平台统计数据与活动概览",
-      "loadError": "加载分析数据失败",
-      "totalCompanies": "企业总数",
-      "verifiedCompanies": "已认证企业",
-      "pendingCompanies": "待认证",
-      "rejectedCompanies": "已拒绝",
-      "registeredUsers": "注册用户",
-      "activeRfqListings": "活跃询价列表"
+      "title": "统计",
+      "subtitle": "谁在使用平台，以及每类用户走到了哪一步。",
+      "byUserType": "按用户类型",
+      "loadError": "暂时无法加载统计数据。",
+      "hours": "{value} 小时",
+      "days": "{value} 天",
+      "roles": {
+        "super_admin": "超级管理员视图",
+        "moderator": "审核员视图"
+      },
+      "hero": {
+        "eyebrow": "{role} · 最近 {days} 天",
+        "superAdmin": {
+          "headline": "{accounts, plural, other {# 个账户}}，{companies, plural, other {# 家企业}}，其中 {verified, plural, other {# 家已认证}}",
+          "body": "不含 TradeInDRC 团队。一个账户可以管理多家企业；账户类型取决于它目前拥有的企业。",
+          "active": "本期活跃账户",
+          "activeNote": "{percent} 的账户登录过",
+          "newCompanies": "新增企业",
+          "newCompaniesNote": "{count, plural, =0 {上一期间没有} other {上一期间 # 家}}",
+          "premium": "有效的 Premium 订阅",
+          "premiumNote": "占企业的 {percent}"
+        },
+        "moderator": {
+          "headline": "{decisions, plural, =0 {尚未作出决定} other {已作出 # 项决定}}，{waiting, plural, =0 {没有待处理的需求} other {# 条需求待处理}}",
+          "body": "团队在本期处理的事项，以及仍在等待答复的事项。",
+          "decisions": "认证决定",
+          "decisionsNote": "{approved, plural, other {其中 # 项通过}}",
+          "delay": "决定时间中位数",
+          "delayNote": "从提交材料到作出决定",
+          "waiting": "待处理的商务需求",
+          "waitingNote": "{count, plural, =0 {本期没有转交} other {本期已转交 # 条}}"
+        }
+      },
+      "sections": {
+        "types": {
+          "title": "谁在使用平台",
+          "hint": "四类用户，各看各自最重要的数据。"
+        },
+        "companies": {
+          "title": "刚果企业与国际企业",
+          "hint": "每类企业走到了哪一步，然后两者并排比较。"
+        },
+        "team": {
+          "title": "审核与团队",
+          "hint": {
+            "super_admin": "团队在本期处理的事项，按成员列出。",
+            "moderator": "团队在本期处理的事项，以及您的部分。"
+          }
+        }
+      },
+      "types": {
+        "added": "本期 +{count}",
+        "unitCompanies": "{count, plural, other {家企业}}",
+        "unitAccounts": "{count, plural, other {个账户}}",
+        "rows": {
+          "owners": "所有者账户",
+          "verified": "已认证",
+          "premium": "有效 Premium",
+          "active": "本期活跃",
+          "confirmed": "邮箱已确认",
+          "newAccounts": "本期创建"
+        },
+        "congolese": {
+          "label": "刚果企业",
+          "hint": "从刚果（金）销售产品和服务。"
+        },
+        "international": {
+          "label": "国际企业",
+          "hint": "在刚果（金）采购、投资或供货。"
+        },
+        "none": {
+          "label": "未注册企业的账户",
+          "hint": "已注册账户，但尚未登记企业。"
+        },
+        "staff": {
+          "label": "TradeInDRC 团队",
+          "hint": "控制台的超级管理员和审核员。"
+        }
+      },
+      "signups": {
+        "title": "新增账户",
+        "total": "个新账户（本期）",
+        "withCompany": "已登记企业",
+        "withoutCompany": "至今没有企业"
+      },
+      "activity": {
+        "title": "活跃账户",
+        "subtitle": "本期至少登录过一次",
+        "ratio": "{active} / {total}",
+        "note": "不活跃的账户看不到自己的需求和消息，是最需要优先提醒的人群。"
+      },
+      "funnel": {
+        "subtitle": "从注册到首次联系",
+        "share": "上一步的 {percent}",
+        "title": {
+          "drc": "刚果企业的进程",
+          "intl": "国际企业的进程"
+        },
+        "empty": {
+          "drc": "目前还没有登记的刚果企业。",
+          "intl": "目前还没有登记的国际企业。"
+        },
+        "steps": {
+          "registered": "已登记",
+          "submitted": "已提交材料",
+          "verified": "已认证",
+          "listed": "有在线供应信息",
+          "contacted": "已被联系"
+        }
+      },
+      "compare": {
+        "title": "两类企业逐项对比",
+        "subtitle": "今日在线的供应信息，本期的活动。每一行使用各自的刻度。",
+        "legend": "图例",
+        "metricHeader": "指标",
+        "series": {
+          "drc": "刚果企业",
+          "intl": "国际企业"
+        },
+        "metrics": {
+          "products_published": "在线产品",
+          "opportunities": "在线商机",
+          "profile_views": "企业主页浏览量",
+          "product_views": "产品页面浏览量",
+          "contact_requests": "联系请求",
+          "requests_received": "收到的商务需求",
+          "conversations": "发起的对话",
+          "responses_sent": "对商机的回复"
+        }
+      },
+      "moderation": {
+        "title": "本期审核",
+        "subtitle": "认证材料与商务需求",
+        "link": "打开认证审核",
+        "approved": "已通过的材料",
+        "moreInfo": "要求补充的材料",
+        "rejected": "已拒绝的材料",
+        "delay": "决定时间中位数",
+        "delayNote": "从提交材料到作出决定",
+        "forwarded": "已转交供应商的需求",
+        "waiting": "待处理的商务需求",
+        "waitingNote": "今日待处理"
+      },
+      "team": {
+        "title": "团队活动",
+        "subtitle": "每位成员的决定与转交",
+        "titleSelf": "您的活动",
+        "subtitleSelf": "您在本期的决定与转交",
+        "empty": "没有可显示的成员。",
+        "member": "成员",
+        "decisions": "决定",
+        "forwarded": "转交",
+        "lastAction": "最近操作",
+        "unnamed": "未填写姓名",
+        "you": "您",
+        "approved": "{count, plural, other {# 项通过}}",
+        "roles": {
+          "super_admin": "超级管理员",
+          "moderator": "审核员"
+        }
+      }
     }
   },
   "Trust": {
@@ -2915,59 +3105,231 @@
     }
   },
   "Taxonomy": {
-    "title": "分类体系管理",
-    "subtitle": "管理平台所使用的行业、类别、HS 编码与标签。",
-    "sectorsHeading": "行业",
-    "sectorsDescription": "最高层级的行业分类。",
-    "categoriesHeading": "类别",
-    "categoriesDescription": "归属于某一上级行业的子分类。",
-    "hsCodesHeading": "HS 编码",
-    "hsCodesDescription": "协调制度商品编码，可选择性地映射到某一行业。",
-    "tagsHeading": "标签",
-    "tagsDescription": "用于筛选和发现的自由格式标签。",
-    "loadingSectors": "正在加载行业……",
-    "errorLoadSectors": "加载行业失败",
-    "add": "添加",
-    "edit": "编辑",
-    "delete": "删除",
-    "save": "保存",
-    "cancel": "取消",
-    "retry": "重试",
-    "newEntry": "新条目",
-    "empty": "暂无项目。",
-    "loading": "加载中……",
-    "saving": "正在保存更改……",
-    "saved": "保存成功。",
-    "adding": "正在添加……",
-    "added": "添加成功。",
-    "deleting": "正在删除……",
-    "deleted": "删除成功。",
-    "confirmDelete": "确定删除“{name}”吗？此操作无法撤销。",
-    "errorLoad": "加载项目失败",
-    "errorSave": "保存失败",
-    "errorAdd": "添加失败",
-    "errorDelete": "删除失败",
-    "noSector": "— 无行业 —",
-    "placeholderCode": "编码",
-    "placeholderNameEn": "名称（EN）",
-    "placeholderNameFr": "名称（FR）",
-    "placeholderSlug": "Slug",
-    "placeholderParentCode": "上级编码（可选）",
-    "colCode": "编码",
-    "colNameEn": "名称（EN）",
-    "colNameFr": "名称（FR）",
-    "colSlug": "Slug",
-    "colSector": "行业",
-    "colActions": "操作",
-    "placeholderNameTr": "名称 (TR)",
-    "placeholderNameZh": "名称 (ZH)",
-    "placeholderNameEs": "名称 (ES)",
-    "specsHeading": "按类别设置规格",
-    "specsDescription": "企业为该类别产品填写的字段。企业仍可添加自己的规格行。",
+    "title": "分类体系",
+    "subtitle": "用于归类企业、产品和商机的行业、类别、HS 编码和标签。",
+    "stats": {
+      "untranslated": "待翻译",
+      "untranslatedFoot": "共 {total} 项，其中缺少西班牙语、土耳其语或中文名称",
+      "sectors": "行业",
+      "sectorsFoot": "{count, plural, =0 {全部已有类别} other {# 个没有类别}}",
+      "categories": "类别",
+      "categoriesFoot": "{count, plural, =0 {没有规格字段} other {# 个规格字段}}",
+      "unclassified": "未归入行业的企业",
+      "unclassifiedFoot": "需在企业资料中归类"
+    },
+    "tabs": {
+      "label": "分类体系的组成部分",
+      "tree": "行业与类别",
+      "hs_codes": "HS 编码",
+      "tags": "标签",
+      "history": "历史记录"
+    },
+    "search": {
+      "tree": "搜索行业或类别",
+      "hs_codes": "搜索编码或名称",
+      "tags": "搜索标签",
+      "noMatch": "没有符合此搜索的结果。",
+      "results": "{count, plural, =0 {没有结果} other {# 条结果}}"
+    },
+    "kinds": {
+      "sectors": {
+        "add": "行业",
+        "new": "新建行业",
+        "edit": "编辑行业",
+        "hint": "行业汇集企业、商机和产品类别。"
+      },
+      "categories": {
+        "add": "添加类别",
+        "new": "新建类别",
+        "edit": "编辑类别",
+        "hint": "类别用于归类某一行业的产品和服务。"
+      },
+      "hs_codes": {
+        "add": "添加 HS 编码",
+        "new": "新建 HS 编码",
+        "edit": "编辑 HS 编码",
+        "hint": "企业与其业务关联的协调制度编码。"
+      },
+      "tags": {
+        "add": "添加标签",
+        "new": "新建标签",
+        "edit": "编辑标签",
+        "hint": "企业添加到其资料中的自由标签。"
+      }
+    },
+    "tree": {
+      "sectors": "行业",
+      "categories": "类别",
+      "back": "所有行业",
+      "pickSector": "选择一个行业以查看其类别。",
+      "noCategoryShort": "没有类别",
+      "noCategoryTitle": "该行业还没有类别",
+      "noCategoryBody": "在添加类别之前，该行业的企业无法在此行业下归类其产品。"
+    },
+    "usage": {
+      "categories": "{count, plural, =0 {没有类别} other {# 个类别}}",
+      "companies": "{count, plural, =0 {没有企业} other {# 家企业}}",
+      "opportunities": "{count, plural, =0 {没有商机} other {# 个商机}}",
+      "content": "{count, plural, other {# 项已发布内容}}",
+      "reports": "{count, plural, other {# 份报告}}",
+      "prices": "{count, plural, other {# 个价格序列}}",
+      "hs_codes": "{count, plural, other {# 个 HS 编码}}",
+      "sub_sectors": "{count, plural, other {# 个子行业}}",
+      "products": "{count, plural, =0 {没有产品} other {# 个产品}}",
+      "services": "{count, plural, =0 {没有服务} other {# 项服务}}",
+      "sub_codes": "{count, plural, other {# 个子编码}}"
+    },
+    "translation": {
+      "missing": "待翻译",
+      "missingIn": "缺少以下语言的名称：{languages}",
+      "coverage": "已填写的语言",
+      "has": "{language}：已填写",
+      "lacks": "{language}：缺失"
+    },
+    "languages": {
+      "en": "英语",
+      "fr": "法语",
+      "es": "西班牙语",
+      "tr": "土耳其语",
+      "zh": "中文"
+    },
+    "actions": {
+      "edit": "编辑",
+      "delete": "删除",
+      "moveUp": "上移",
+      "moveDown": "下移",
+      "specs": "规格字段"
+    },
+    "form": {
+      "code": "HS 编码",
+      "codeHint": "2 至 10 位数字，可使用点号（09、0901、0901.21）。创建后不可更改。",
+      "codeFrozen": "不可更改：已有企业和子编码与其关联。",
+      "names": "必填名称",
+      "nameEn": "英语名称",
+      "nameFr": "法语名称",
+      "otherLanguages": "其他语言",
+      "otherLanguagesHint": "选填。留空时，网站显示英语名称。",
+      "placement": "归属",
+      "sector": "行业",
+      "sectorChoose": "选择行业",
+      "sectorNone": "无行业",
+      "parentCode": "上级编码",
+      "parentNone": "无（一级编码）",
+      "parentCodeHint": "此编码所属的章或品目。",
+      "slug": "网址标识",
+      "slugHintNew": "留空时根据英语名称生成。创建后不可更改。",
+      "slugFrozen": "不可更改：网站的页面和链接指向它。",
+      "cancel": "取消",
+      "create": "创建",
+      "save": "保存"
+    },
+    "errors": {
+      "required": "此项为必填。",
+      "too_long": "最多 80 个字符。",
+      "invalid_slug": "英语名称必须包含拉丁字母或数字，或者请输入一个标识。",
+      "invalid_code": "HS 编码为 2 至 10 位数字（09、0901、0901.21）。",
+      "invalid_parent": "此上级编码无效。",
+      "invalid_sector": "该行业已不存在，请选择其他行业。",
+      "duplicate_slug": "此标识已被使用，请输入其他标识。",
+      "duplicate_code": "此 HS 编码已存在。",
+      "not_authorized": "您无权进行此更改。",
+      "write_failed": "保存失败，请重试。",
+      "super_admin_only": "只有超级管理员可以删除。",
+      "in_use": "此项仍在使用中，无法删除。",
+      "reorder": "无法保存新的顺序。"
+    },
+    "toasts": {
+      "created": "已创建。",
+      "saved": "更改已保存。",
+      "deleted": "已删除。"
+    },
+    "delete": {
+      "title": "删除“{name}”？",
+      "body": "“{name}”未被使用。删除后无法恢复，并会记入历史记录。",
+      "blockedTitle": "无法删除",
+      "blockedBody": "“{name}”仍在使用中：",
+      "blockedHint": {
+        "sectors": "请先移动其类别，并将这些内容归入其他行业，然后再回来删除。",
+        "categories": "请先将这些产品和服务归入其他类别，然后再回来删除。",
+        "hs_codes": "请先从企业和子编码中移除此编码，然后再回来删除。",
+        "tags": "请先从企业中移除此标签，然后再回来删除。"
+      },
+      "reservedTitle": "删除权限受限",
+      "reservedBody": "只有超级管理员可以删除“{name}”。您仍然可以编辑它。",
+      "specNote": "{count, plural, other {它的 # 个规格字段将一并删除。}}",
+      "confirm": "删除",
+      "close": "关闭"
+    },
+    "specsSheet": {
+      "title": "规格字段 · {name}",
+      "description": "企业为该类别的产品填写的字段。企业始终可以添加自己的行。"
+    },
+    "table": {
+      "code": "编码",
+      "name": "名称",
+      "sector": "行业",
+      "usage": "使用情况",
+      "actions": "操作",
+      "noSector": "无"
+    },
+    "empty": {
+      "hs_codes": {
+        "title": "暂无 HS 编码",
+        "body": "HS 编码用于精确描述货物。创建后，企业可以将其与自己的资料关联。"
+      },
+      "tags": {
+        "title": "暂无标签",
+        "body": "标签是自由关键词（有机、公平贸易、出口等）。创建后，企业可以将其添加到自己的资料中。"
+      }
+    },
+    "history": {
+      "emptyTitle": "暂无更改记录",
+      "emptyBody": "每一次创建、修改或删除都会显示在这里，并附有操作人和日期。",
+      "system": "系统",
+      "actions": {
+        "sectors": {
+          "insert": "已创建行业",
+          "update": "已修改行业",
+          "delete": "已删除行业"
+        },
+        "categories": {
+          "insert": "已创建类别",
+          "update": "已修改类别",
+          "delete": "已删除类别"
+        },
+        "hs_codes": {
+          "insert": "已创建 HS 编码",
+          "update": "已修改 HS 编码",
+          "delete": "已删除 HS 编码"
+        },
+        "tags": {
+          "insert": "已创建标签",
+          "update": "已修改标签",
+          "delete": "已删除标签"
+        },
+        "category_spec_fields": {
+          "insert": "已创建规格字段",
+          "update": "已修改规格字段",
+          "delete": "已删除规格字段"
+        }
+      },
+      "fields": {
+        "name_en": "英语名称",
+        "name_fr": "法语名称",
+        "name_es": "西班牙语名称",
+        "name_tr": "土耳其语名称",
+        "name_zh": "中文名称",
+        "label_en": "英语标签",
+        "label_fr": "法语标签",
+        "unit": "单位",
+        "parent_code": "上级编码",
+        "sector_id": "行业已更改",
+        "field_type": "值类型已更改",
+        "options": "选项已修改",
+        "required": "必填设置已更改"
+      }
+    },
     "specs": {
-      "category": "类别",
-      "chooseCategory": "选择类别",
-      "pickFirst": "选择一个类别以管理其规格。",
       "empty": "该类别尚未定义规格。",
       "loading": "加载中…",
       "add": "添加字段",
@@ -3003,7 +3365,8 @@
       "errorLabels": "请填写两种语言的名称。",
       "errorOptions": "选项列表至少需要两个选项。",
       "errorKey": "英文名称必须至少包含一个字母。",
-      "errorDuplicate": "该类别中已存在同名字段。"
+      "errorDuplicate": "该类别中已存在同名字段。",
+      "count": "{count, plural, =0 {没有字段} other {# 个字段}}"
     }
   },
   "Faq": {
@@ -3169,29 +3532,186 @@
       "contactLoginRequired": "登录后即可安全地与该企业沟通。"
     }
   },
-  "Analytics": {
-    "title": "数据分析",
-    "subtitle": "您在 TradeInDRC 上各家企业的绩效概览",
-    "profileViews": "资料浏览量",
-    "productViews": "产品浏览量",
-    "contactRequests": "联系请求",
-    "searchAppearances": "搜索展示次数",
-    "trendUp": "较前 30 天 +{pct}%",
-    "trendDown": "较前 30 天 -{pct}%",
-    "trendFlat": "较前 30 天无变化",
-    "trendNoBaseline": "没有可比较的历史数据",
-    "error": "目前无法加载您的数据分析。请重试。",
-    "topSearchTitle": "热门搜索结果",
-    "topSearchSubtitle": "买家通过搜索最常找到的您的企业和产品。",
-    "appearancesCount": "{count} 次展示",
-    "topSearchEmptyTitle": "尚无搜索活动",
-    "topSearchEmptyBody": "一旦买家通过搜索找到您的列表，他们最常访问的条目将显示在此处。",
-    "newsFeedTitle": "贸易新闻与活动",
-    "newsFeedSubtitle": "TradeInDRC 上最新发布的动态和活动。",
-    "newsTag": "新闻",
-    "eventTag": "活动",
-    "newsFeedEmptyTitle": "尚无发布内容",
-    "newsFeedEmptyBody": "新的贸易新闻和活动将在发布后显示在此处。"
+  "OwnerStats": {
+    "title": "统计",
+    "subtitle": {
+      "seller": "买家如何找到您，以及之后做了什么。",
+      "buyer": "您在刚果（金）的开发进展。",
+      "none": "注册企业后，您的数据将显示在这里。"
+    },
+    "account": {
+      "seller": "刚果企业账户",
+      "buyer": "国际企业账户"
+    },
+    "eyebrow": "{account} · 最近 {days} 天",
+    "error": "暂时无法加载您的统计数据。",
+    "hours": "{value} 小时",
+    "days": "{value} 天",
+    "ratio": "{value} / {total}",
+    "viewsCount": "{count, plural, other {# 次浏览}}",
+    "noCompany": {
+      "title": "暂无统计数据",
+      "body": "注册您的企业后，您可以在这里看到谁浏览了您的企业主页、产品和商机。",
+      "cta": "注册我的企业"
+    },
+    "hero": {
+      "seller": {
+        "headline": "{visitors, plural, other {# 位访客}}浏览了您的页面 {views, plural, other {# 次}}",
+        "empty": "此期间您的页面没有访问",
+        "body": "您的页面包括企业主页和产品页面。同一访客即使多天回访也只计一次。",
+        "visitors": "独立访客",
+        "visitorsNote": "{count, plural, =0 {上一期间没有} other {上一期间 # 位}}",
+        "repeat": "回访访客",
+        "repeatNote": "占访客的 {percent}",
+        "contactRate": "联系率",
+        "contactRateNote": "{views, plural, other {# 次浏览}}带来 {contacts, plural, other {# 次联系}}"
+      },
+      "buyer": {
+        "headline": "已联系的 {started} 家供应商中，{replied, plural, =0 {尚无回复} other {# 家已回复}}",
+        "empty": "此期间您没有联系任何供应商",
+        "body": "您与刚果（金）企业发起的每次对话都会在这里跟踪，并记录对方回复所需的时间。",
+        "started": "已联系的供应商",
+        "startedNote": "您发起的对话",
+        "replyRate": "回复率",
+        "replyRateNote": "{started} 家中 {replied} 家",
+        "median": "回复时间中位数",
+        "medianNote": "从您发出消息到首次回复"
+      }
+    },
+    "kpi": {
+      "label": "本期关键数据",
+      "contactRequests": "联系请求",
+      "responsesSent": "已发送的回复",
+      "responsesSentFoot": "针对其他企业发布的商机",
+      "conversationsStarted": "发起的对话",
+      "conversationsStartedFoot": "{count, plural, =0 {暂无回复} other {# 个已获回复}}"
+    },
+    "chart": {
+      "viewLabel": "图表视图",
+      "views": {
+        "visibility": "曝光",
+        "interest": "意向"
+      },
+      "titles": {
+        "visibility": "您的页面浏览量",
+        "interest": "收到的联系与回复"
+      },
+      "totals": {
+        "visibility": "次浏览（本期）",
+        "interest": "次联系与回复（本期）"
+      }
+    },
+    "funnel": {
+      "share": "上一步的 {percent}",
+      "seller": {
+        "title": "从访问到联系",
+        "subtitle": "页面浏览最终转化为什么",
+        "empty": "页面被浏览后，您可以在这里看到有多少访问转化为联系。",
+        "search": "搜索展示次数",
+        "steps": {
+          "views": "您的页面浏览量",
+          "contacts": "联系请求",
+          "replied": "您已回复的对话"
+        }
+      },
+      "buyer": {
+        "title": "从首次联系到回复",
+        "subtitle": "您发给供应商的消息得到了什么",
+        "empty": "从企业名录联系一家供应商，您可以在这里看到有多少家回复。",
+        "median": "回复时间中位数",
+        "steps": {
+          "started": "已联系的供应商",
+          "replied": "已回复"
+        }
+      }
+    },
+    "sections": {
+      "attraction": {
+        "title": "什么吸引了买家",
+        "hint": "浏览最多的产品、搜索展示的内容，以及您被浏览最多的日子。"
+      },
+      "followUp": {
+        "title": "您的业务跟进",
+        "hint": "快速回复和完整的产品目录能把访问变成订单。"
+      },
+      "prospecting": {
+        "title": "您的开发工作",
+        "hint": "您发布的需求、您的沟通，以及主页被浏览的日子。"
+      },
+      "showcase": {
+        "title": "您的展示",
+        "hint": "刚果企业看到的您的产品。"
+      }
+    },
+    "topProducts": {
+      "title": "浏览最多的产品",
+      "subtitle": "本期",
+      "all": "查看产品目录",
+      "empty": "本期没有产品被浏览。"
+    },
+    "search": {
+      "title": "通过搜索被找到",
+      "subtitle": "搜索展示的内容（不保存输入的文字）",
+      "empty": "本期没有搜索展示。",
+      "appearances": "{count, plural, other {# 次}}",
+      "kind": {
+        "company": "企业主页",
+        "product": "产品"
+      }
+    },
+    "weekday": {
+      "title": "最活跃的日子",
+      "subtitle": "按星期统计的页面浏览量",
+      "best": "{day}是您被浏览最多的一天。",
+      "empty": "访问量还不足以看出哪一天更活跃。",
+      "dayHeader": "星期",
+      "valueHeader": "浏览量"
+    },
+    "responsiveness": {
+      "title": "您的响应速度",
+      "subtitle": "买家会记住谁回复得快",
+      "inbox": "打开消息",
+      "received": "买家发起的对话",
+      "replied": "您已回复的",
+      "repliedNote": "回复率 {percent}",
+      "median": "您的回复时间中位数",
+      "requests": "团队转交的需求",
+      "requestsNote": "{count, plural, other {# 条尚未打开}}"
+    },
+    "catalogue": {
+      "title": "产品目录状况",
+      "subtitle": "信息完整的产品页浏览更多",
+      "manage": "管理产品目录",
+      "empty": "您还没有产品。",
+      "add": "添加产品",
+      "published": "已上线的产品",
+      "withPhoto": "至少有一张图片",
+      "priced": "已显示价格",
+      "viewed": "本期被浏览"
+    },
+    "opportunities": {
+      "title": {
+        "seller": "您的商机",
+        "buyer": "您发布的需求"
+      },
+      "subtitle": "{published} 条在线 · 本期{responses, plural, other {收到 # 条回复}}",
+      "all": "您的全部商机",
+      "publish": "发布商机",
+      "empty": {
+        "seller": "发布一条供应或招标信息，感兴趣的企业会直接回复您。",
+        "buyer": "发布您在刚果（金）寻找的内容，供应商会直接回复您。"
+      },
+      "status": {
+        "published": "在线",
+        "pending": "等待审核"
+      },
+      "responses": "{count, plural, other {# 条回复}}"
+    },
+    "companies": {
+      "title": "按企业",
+      "hint": "此账户有 {count} 家企业——本期浏览最多的 {shown} 家。",
+      "company": "企业"
+    }
   },
   "Settings": {
     "title": "设置",
@@ -4035,17 +4555,15 @@
     },
     "footer": {
       "tagline": "在刚果民主共和国连接国际企业与本地机会。",
-      "stayConnected": "保持联系",
       "upgradePremium": "升级至高级版",
       "copyright": "© {year} BrandsBridge Group。保留所有权利。",
-      "taglineBar": "Trade in DRC – 连接国际企业与本地机会。",
+      "navLabel": "页脚",
       "columns": {
         "quickLinks": {
-          "title": "快速链接",
-          "home": "首页",
-          "companies": "企业",
-          "opportunities": "商机",
+          "title": "平台",
           "marketplace": "交易市场",
+          "opportunities": "商机",
+          "companies": "企业",
           "events": "活动"
         },
         "resources": {
@@ -4059,16 +4577,24 @@
           "title": "公司",
           "aboutUs": "关于我们",
           "register": "注册您的公司",
-          "requestPartner": "请求合作伙伴",
-          "contactUs": "联系我们"
+          "requestPartner": "请求合作伙伴"
         },
         "support": {
           "title": "支持",
           "helpCenter": "帮助中心",
           "faq": "常见问题",
-          "terms": "使用条款",
-          "privacy": "隐私政策"
+          "contactUs": "联系我们"
         }
+      },
+      "contact": {
+        "email": "电子邮箱",
+        "phone": "电话",
+        "address": "地址"
+      },
+      "legal": {
+        "terms": "使用条款",
+        "privacy": "隐私政策",
+        "cookies": "Cookie"
       }
     }
   },

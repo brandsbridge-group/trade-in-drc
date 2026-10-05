@@ -227,7 +227,7 @@ export default function EditCompanyPage() {
 
         const [companyRes, sectorsRes, tagsRes, hsCodesRes, companyTagsRes, companyHsRes] = await Promise.all([
           supabase.from("companies").select("*").eq("id", companyId).single(),
-          supabase.from("sectors").select("id, name_en, name_fr").order("name_en", { ascending: true }),
+          supabase.from("sectors").select("id, name_en, name_fr").order("sort_order", { ascending: true }).order("name_en", { ascending: true }),
           supabase.from("tags").select("id, name_en, name_fr").order("name_en", { ascending: true }),
           supabase.from("hs_codes").select("id, code, name_en, name_fr").order("code", { ascending: true }),
           supabase.from("company_tags").select("tag_id").eq("company_id", companyId),

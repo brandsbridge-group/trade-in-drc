@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { isValidPhoneNumber, type Value } from "react-phone-number-input";
 import { createClient } from "@/lib/supabase/client";
 import { resolvePostAuthRedirect } from "@/lib/auth/redirect-guard";
+import { authEmailRedirect } from "@/lib/auth/email-redirect";
 import {
   EmailField,
   NameField,
@@ -49,9 +50,9 @@ export function SignupForm() {
       email,
       password,
       options: {
-        // The confirmation link opens /callback, which forwards `redirect` on
-        // to resolvePostAuthRedirect itself — both ends share the same helper.
-        emailRedirectTo: `${origin}/${locale}/callback?redirect=${encodeURIComponent(safeRedirect)}`,
+        // The confirmation link opens /callback ON THIS DOMAIN (the site answers
+        // on several), which forwards `redirect` on to resolvePostAuthRedirect.
+        emailRedirectTo: authEmailRedirect(origin, locale, "signup", safeRedirect),
         // Copied into public.profiles by the handle_new_user() trigger (00046).
         // `locale` picks the language of the confirmation e-mail template.
         data: { full_name: fullName.trim(), phone: phone ?? null, locale },

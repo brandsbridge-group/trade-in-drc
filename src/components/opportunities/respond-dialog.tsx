@@ -16,6 +16,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { Send, Loader2, MessageSquarePlus } from "lucide-react";
 import { useAuth } from "@/lib/auth/auth-provider";
+import { MESSAGING_ENABLED } from "@/config/features";
 import { Link, useRouter, usePathname } from "@/i18n/routing";
 import { ROUTES } from "@/constants/routes";
 import { insertOpportunityResponse } from "@/lib/opportunities/actions";
@@ -55,6 +56,8 @@ export function RespondDialog({
   const [captchaToken, setCaptchaToken] = React.useState<string | null>(null);
 
   const captchaRequired = isCaptchaWidgetEnabled();
+
+  if (!MESSAGING_ENABLED) return null;
 
   // Not signed in → link to login, preserving the locale-aware return path.
   if (!user) {

@@ -16,7 +16,7 @@ export default async function ReportEditPage({
 
   const [{ data: reportData }, { data: sectors }] = await Promise.all([
     supabase.from("reports").select("*").eq("id", id).single(),
-    supabase.from("sectors").select("id, name_en, name_fr").order("name_en", { ascending: true }),
+    supabase.from("sectors").select("id, name_en, name_fr").order("sort_order", { ascending: true }).order("name_en", { ascending: true }),
   ]);
 
   if (!reportData) notFound();

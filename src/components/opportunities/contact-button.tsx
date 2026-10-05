@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "@/i18n/routing";
 import { Link } from "@/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/lib/auth/auth-provider";
+import { MESSAGING_ENABLED } from "@/config/features";
 import { createClient } from "@/lib/supabase/client";
 import { Loader2 } from "lucide-react";
 
@@ -26,6 +27,9 @@ export function ContactButton({ companyId, subject, opportunityId }: ContactButt
   const router = useRouter();
   const pathname = usePathname();
   const [loading, setLoading] = React.useState(false);
+
+  // This button writes the conversation from the browser: it must not exist while messaging is off.
+  if (!MESSAGING_ENABLED) return null;
 
   // Not logged in → render a link styled as a button to preserve locale-aware routing
   if (!user) {

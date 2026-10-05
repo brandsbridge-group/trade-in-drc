@@ -21,6 +21,7 @@ import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { createClient } from "@/lib/supabase/client";
 import { ROUTES } from "@/constants/routes";
+import { MESSAGING_ENABLED } from "@/config/features";
 import { COMPANY_STATUS } from "@/constants/status";
 import { isAdmin, isSuperAdmin } from "@/constants/roles";
 import {
@@ -231,7 +232,7 @@ export function AccountMenu({ user, signOut }: { user: User; signOut: () => void
                             <MenuLink href={ROUTES.DASHBOARD} icon={LayoutDashboard}>{t("links.dashboard")}</MenuLink>
                             {company && <MenuLink href={ROUTES.DASHBOARD_COMPANIES} icon={Building2}>{t("links.companies")}</MenuLink>}
                             {company && <MenuLink href={ROUTES.DASHBOARD_PRODUCTS} icon={Package}>{t("links.products")}</MenuLink>}
-                            <MenuLink href={ROUTES.DASHBOARD_INBOX} icon={Mail}>{t("links.inbox")}</MenuLink>
+                            {MESSAGING_ENABLED && <MenuLink href={ROUTES.DASHBOARD_INBOX} icon={Mail}>{t("links.inbox")}</MenuLink>}
                             {company?.status === COMPANY_STATUS.VERIFIED && (
                                 <MenuLink href={`${ROUTES.COMPANIES}/${company.id}`} icon={ArrowUpRight}>{t("links.publicProfile")}</MenuLink>
                             )}

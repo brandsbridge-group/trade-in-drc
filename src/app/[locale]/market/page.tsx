@@ -41,7 +41,7 @@ export default async function MarketPage({
   const offerCounts = await countOffersByOrigin(supabase);
 
   return (
-    <div className="bg-white">
+    <div data-page-end="flush" className="bg-white">
       <MarketHero locale={locale} />
       <MarketDirections offerCounts={offerCounts} />
       <MarketTrustStrip />

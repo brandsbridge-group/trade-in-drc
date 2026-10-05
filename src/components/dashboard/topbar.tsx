@@ -6,6 +6,7 @@ import { Link, usePathname } from "@/i18n/routing";
 import { useAuth } from "@/lib/auth/auth-provider";
 import { useSearch } from "@/lib/search/search-context";
 import { useAwaitingReplies } from "@/hooks/use-awaiting-replies";
+import { MESSAGING_ENABLED } from "@/config/features";
 import { WorkspaceAccountMenu } from "@/components/workspace/account-menu";
 import { WorkspaceLanguageToggle } from "@/components/workspace/language-toggle";
 import { DASHBOARD_NAV_ITEMS, isNavActive } from "./nav-config";
@@ -53,14 +54,16 @@ export function DashboardTopbar() {
       <Link href="/help" className={iconButton} aria-label={t("topbar.help")} title={t("topbar.help")}>
         <CircleHelp className="h-[18px] w-[18px]" aria-hidden />
       </Link>
-      <Link href="/dashboard/inbox" className={iconButton} aria-label={t("topbar.inbox")} title={t("topbar.inbox")}>
-        <MessageSquare className="h-[18px] w-[18px]" aria-hidden />
-        {awaiting.count > 0 && (
-          <span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-market-red ring-2 ring-white">
-            <span className="sr-only">{t("topbar.unread", { count: awaiting.count })}</span>
-          </span>
-        )}
-      </Link>
+      {MESSAGING_ENABLED && (
+        <Link href="/dashboard/inbox" className={iconButton} aria-label={t("topbar.inbox")} title={t("topbar.inbox")}>
+          <MessageSquare className="h-[18px] w-[18px]" aria-hidden />
+          {awaiting.count > 0 && (
+            <span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-market-red ring-2 ring-white">
+              <span className="sr-only">{t("topbar.unread", { count: awaiting.count })}</span>
+            </span>
+          )}
+        </Link>
+      )}
 
       <WorkspaceLanguageToggle />
 

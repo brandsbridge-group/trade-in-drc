@@ -25,7 +25,7 @@ export default async function PricingPage() {
   const t = await getTranslations("Premium");
 
   return (
-    <div className="bg-market-cream">
+    <div data-page-end="flush" className="bg-market-cream">
       <PricingHero t={t} />
       <BenefitsStrip t={t} />
 

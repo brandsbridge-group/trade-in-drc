@@ -111,6 +111,7 @@ export async function listSectorOptions(
   const { data, error } = await supabase
     .from("sectors")
     .select("id, name_en, name_fr, name_tr, name_zh, name_es")
+    .order("sort_order", { ascending: true })
     .order("name_en", { ascending: true });
   if (error) {
     console.error("[opportunities.listSectorOptions]", error.code, error.message);

@@ -15,7 +15,7 @@ export default async function PricesEditPage({
 
   const [{ data: seriesData }, { data: sectors }, { data: pointsData }] = await Promise.all([
     supabase.from("price_series").select("*").eq("id", id).single(),
-    supabase.from("sectors").select("id, name_en, name_fr").order("name_en", { ascending: true }),
+    supabase.from("sectors").select("id, name_en, name_fr").order("sort_order", { ascending: true }).order("name_en", { ascending: true }),
     supabase
       .from("price_points")
       .select("*")

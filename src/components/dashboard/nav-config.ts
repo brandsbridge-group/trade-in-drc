@@ -10,6 +10,7 @@ import {
   Settings,
   Wrench,
 } from "lucide-react";
+import { MESSAGING_ENABLED } from "@/config/features";
 
 export interface DashboardNavItem {
   href: string;
@@ -34,7 +35,7 @@ export const DASHBOARD_NAV: DashboardNavGroup[] = [
       { href: "/dashboard", labelKey: "nav.overview", icon: LayoutDashboard },
       { href: "/dashboard/companies", labelKey: "nav.companies", icon: Building2 },
       { href: "/dashboard/products", labelKey: "nav.products", icon: Package },
-      { href: "/dashboard/services", labelKey: "nav.services", icon: Wrench },
+      // { href: "/dashboard/services", labelKey: "nav.services", icon: Wrench },
     ],
   },
   {
@@ -44,7 +45,10 @@ export const DASHBOARD_NAV: DashboardNavGroup[] = [
       // No "quote requests" entry: a company publishes its offers and demands
       // as opportunities (/dashboard/rfq redirects there).
       { href: "/dashboard/opportunities", labelKey: "nav.opportunities", icon: Briefcase },
-      { href: "/dashboard/inbox", labelKey: "nav.inbox", icon: MessageSquare, badge: "messages" },
+      // Direct messaging is switched off for now (src/config/features.ts).
+      ...(MESSAGING_ENABLED
+        ? [{ href: "/dashboard/inbox", labelKey: "nav.inbox", icon: MessageSquare, badge: "messages" } satisfies DashboardNavItem]
+        : []),
     ],
   },
   {

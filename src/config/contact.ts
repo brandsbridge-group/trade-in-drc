@@ -26,3 +26,15 @@ export const CONTACT_EMAIL_HREF = `mailto:${CONTACT.email}`;
 
 /** Address as a single string, newline separated (for `whitespace-pre-line`). */
 export const CONTACT_ADDRESS = CONTACT.addressLines.join("\n");
+
+/**
+ * Official social pages, as full URLs. Leave a value empty until the page
+ * really exists: the footer only shows the ones that are filled in, because a
+ * "#" placeholder is a dead link on every page of the site.
+ */
+export const SOCIAL_LINKS: Record<"facebook" | "linkedin" | "x" | "youtube", string> = {
+  facebook: "",
+  linkedin: "",
+  x: "",
+  youtube: "",
+};

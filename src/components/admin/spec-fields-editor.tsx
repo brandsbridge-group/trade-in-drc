@@ -16,12 +16,6 @@ import {
 } from "@/lib/products/specs";
 import type { Json } from "@/lib/supabase/types";
 
-interface CategoryOption {
-  id: string;
-  name_en: string;
-  name_fr: string;
-}
-
 interface FieldRow {
   id: string;
   key: string;
@@ -73,37 +67,21 @@ const optionLines = (options: SpecOption[]) =>
   options.map((o) => (o.label_fr && o.label_fr !== o.label_en ? `${o.label_en} | ${o.label_fr}` : o.label_en)).join("\n");
 
 /**
- * Staff editor of the specification template of each product category
+ * Staff editor of the specification template of one product category
  * (`category_spec_fields`, 00055): the fields a seller fills in the product
- * form. Writes go through the browser client; RLS limits them to staff.
+ * form. Writes go through the browser client; RLS limits them to staff, and
+ * the audit trigger of 00066 records each one.
  */
-export function SpecFieldsEditor() {
+export function SpecFieldsEditor({ categoryId, onChanged }: { categoryId: string; /** A field was added or removed. */ onChanged?: () => void }) {
   const t = useTranslations("Taxonomy.specs");
   const locale = useLocale();
-  const [categories, setCategories] = React.useState<CategoryOption[]>([]);
-  const [categoryId, setCategoryId] = React.useState("");
   const [fields, setFields] = React.useState<FieldRow[]>([]);
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = React.useState(true);
   const [draft, setDraft] = React.useState<Draft | null>(null);
   const [saving, setSaving] = React.useState(false);
 
-  const name = (row: { name_en: string; name_fr: string }) => (locale === "fr" ? row.name_fr : row.name_en);
-
-  React.useEffect(() => {
-    const load = async () => {
-      const { data, error } = await createClient().from("categories").select("id, name_en, name_fr").order("name_en");
-      if (error) toast.error(t("errorLoad"));
-      setCategories(data ?? []);
-    };
-    load();
-  }, [t]);
-
   const loadFields = React.useCallback(
     async (id: string) => {
-      if (!id) {
-        setFields([]);
-        return;
-      }
       setLoading(true);
       const { data, error } = await createClient()
         .from("category_spec_fields")
@@ -120,11 +98,10 @@ export function SpecFieldsEditor() {
     [t]
   );
 
-  const selectCategory = (id: string) => {
-    setCategoryId(id);
-    setDraft(null);
-    loadFields(id);
-  };
+  // The parent remounts the editor per category (`key`), so there is no draft to reset here.
+  React.useEffect(() => {
+    loadFields(categoryId);
+  }, [categoryId, loadFields]);
 
   const save = async () => {
     if (!draft || !categoryId) return;
@@ -177,6 +154,7 @@ export function SpecFieldsEditor() {
     toast.success(t("saved"));
     setDraft(null);
     loadFields(categoryId);
+    if (!editing) onChanged?.();
   };
 
   const remove = async (field: FieldRow) => {
@@ -188,6 +166,7 @@ export function SpecFieldsEditor() {
     }
     toast.success(t("deleted"));
     loadFields(categoryId);
+    onChanged?.();
   };
 
   const move = async (index: number, direction: -1 | 1) => {
@@ -222,20 +201,10 @@ export function SpecFieldsEditor() {
     });
 
   return (
-    <div className="rounded-2xl bg-white p-5 ring-1 ring-slate-200/70">
-      <div className="flex flex-wrap items-end justify-between gap-3">
-        <label className="block min-w-0 flex-1 sm:max-w-sm">
-          <span className="mb-1 block text-xs font-semibold text-slate-700">{t("category")}</span>
-          <select className={FIELD} value={categoryId} onChange={(e) => selectCategory(e.target.value)}>
-            <option value="">{t("chooseCategory")}</option>
-            {categories.map((category) => (
-              <option key={category.id} value={category.id}>
-                {name(category)}
-              </option>
-            ))}
-          </select>
-        </label>
-        {categoryId && !draft && (
+    <div className="rounded-2xl bg-white p-4 ring-1 ring-slate-200/70">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <p className="text-xs text-slate-500" aria-live="polite">{loading ? "" : t("count", { count: fields.length })}</p>
+        {!draft && !loading && (
           <button
             type="button"
             onClick={() => setDraft(EMPTY_DRAFT)}
@@ -247,9 +216,7 @@ export function SpecFieldsEditor() {
         )}
       </div>
 
-      {!categoryId ? (
-        <p className="mt-4 rounded-xl bg-slate-50 px-4 py-5 text-xs text-slate-500">{t("pickFirst")}</p>
-      ) : loading ? (
+      {loading ? (
         <p className="mt-4 flex items-center gap-2 text-xs text-slate-500">
           <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden />
           {t("loading")}

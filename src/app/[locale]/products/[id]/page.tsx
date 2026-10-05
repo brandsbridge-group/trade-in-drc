@@ -318,7 +318,7 @@ export default async function OfferDetailPage({
     );
 
   return (
-    <div className="bg-slate-50 pb-20 lg:pb-0">
+    <div data-page-end="flush" className="bg-slate-50 pb-20 lg:pb-8">
       {isPublic ? (
         <OfferViewTracker productId={product.id} />
       ) : (

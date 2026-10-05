@@ -1,74 +1,64 @@
 import Image from "next/image";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { getTranslations } from "next-intl/server";
+import { BadgeCheck, ChevronRight, Clock, Gift, Search } from "lucide-react";
 
 import { Link } from "@/i18n/routing";
 
 const HERO_IMAGE = "/images/request/hero-handshake.jpg";
 
-interface FindPartnerHeroProps {
-  breadcrumbHome: string;
-  breadcrumbCurrent: string;
-  title: string;
-  subtitle: string;
-  submitCta: string;
-  browseCta: string;
-}
-
 /**
- * Design-10 hero: full-bleed handshake photo on the right, left-weighted navy
- * overlay carrying the breadcrumb, headline, intro copy and the two CTAs.
- * Static/presentational — strings arrive already localized from the page.
+ * Hero of /request: full-width navy band with the handshake photo fading in on
+ * the right, its content aligned to the site's box. It states the promise and
+ * the three assurances a visitor weighs before filling a form in.
  */
-export function FindPartnerHero({
-  breadcrumbHome,
-  breadcrumbCurrent,
-  title,
-  subtitle,
-  submitCta,
-  browseCta,
-}: FindPartnerHeroProps) {
-  return (
-    <section className="relative overflow-hidden bg-market-navy text-white">
-      <Image
-        src={HERO_IMAGE}
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-right"
-      />
-      {/* Left-weighted navy overlay keeps the copy legible over the photo. */}
-      <div className="absolute inset-0 bg-gradient-to-r from-market-navy via-market-navy/90 to-market-navy/10" />
+export async function FindPartnerHero() {
+  const t = await getTranslations("FindPartner");
 
-      <div className="relative mx-auto w-full max-w-[1500px] px-4 py-10 md:px-6 md:py-14">
-        <nav aria-label="Breadcrumb" className="mb-4 flex items-center gap-1.5 text-xs">
-          <Link href="/" className="text-market-gold transition-colors duration-150 hover:text-market-gold/80">
-            {breadcrumbHome}
+  const assurances = [
+    { key: "free", icon: Gift },
+    { key: "delay", icon: Clock },
+    { key: "verified", icon: BadgeCheck },
+  ] as const;
+
+  return (
+    <section className="relative isolate overflow-hidden bg-market-navy text-white">
+      <div
+        className="pointer-events-none absolute inset-y-0 right-0 hidden w-[55%] md:block [mask-image:linear-gradient(to_right,transparent,black_45%)]"
+        aria-hidden
+      >
+        <Image src={HERO_IMAGE} alt="" fill priority sizes="(min-width: 768px) 55vw, 0px" className="object-cover object-center opacity-45" />
+      </div>
+      <span className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-market-or/15 blur-3xl" aria-hidden />
+
+      <div className="relative mx-auto w-full max-w-6xl px-4 py-12 md:py-16">
+        <nav aria-label="Breadcrumb" className="mb-5 flex items-center gap-1.5 text-xs">
+          <Link href="/" className="text-white/60 transition-colors hover:text-white">
+            {t("breadcrumb.home")}
           </Link>
-          <ChevronRight className="size-3 text-white/50" aria-hidden />
-          <span className="text-white/80">{breadcrumbCurrent}</span>
+          <ChevronRight className="h-3 w-3 text-white/40" aria-hidden />
+          <span className="text-white/85">{t("breadcrumb.current")}</span>
         </nav>
 
-        <h1 className="max-w-xl font-display text-3xl font-bold tracking-tight md:text-[2.5rem] md:leading-[1.1]">
-          {title}
-        </h1>
-        <p className="mt-3 max-w-lg text-sm leading-relaxed text-white/85">
-          {subtitle}
-        </p>
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-market-or-light">{t("hero.eyebrow")}</p>
+        <h1 className="mt-2 max-w-xl font-display text-3xl font-semibold leading-tight tracking-tight md:text-[40px]">{t("hero.title")}</h1>
+        <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-white/75">{t("hero.subtitle")}</p>
 
-        <div className="mt-6 flex flex-wrap gap-3">
-          <a
-            href="#request-form"
-            className="inline-flex items-center gap-2 rounded-md bg-market-gold px-5 py-2.5 text-sm font-semibold text-market-navy transition-colors duration-150 hover:bg-market-gold/90"
-          >
-            {submitCta}
-            <ArrowRight className="size-4" aria-hidden />
-          </a>
-          <Link
-            href="/companies"
-            className="inline-flex items-center gap-2 rounded-md border border-white/40 px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-white/10"
-          >
-            {browseCta}
+        <ul className="mt-6 flex flex-wrap gap-2">
+          {assurances.map(({ key, icon: Icon }) => (
+            <li key={key} className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-2 text-[13px] text-white/90 ring-1 ring-white/15">
+              <Icon className="h-4 w-4 shrink-0 text-market-or-light" aria-hidden />
+              {t(`trust.${key}`)}
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+          <Link href="/request/track" className="inline-flex items-center gap-2 font-semibold text-white underline-offset-4 transition-colors hover:text-market-or-light hover:underline">
+            <Search className="h-4 w-4" aria-hidden />
+            {t("hero.trackCta")}
+          </Link>
+          <Link href="/companies" className="font-medium text-white/70 underline-offset-4 transition-colors hover:text-white hover:underline">
+            {t("hero.browseCta")}
           </Link>
         </div>
       </div>

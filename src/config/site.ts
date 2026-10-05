@@ -1,6 +1,6 @@
 export const siteConfig = {
     name: "TradeInDRC",
-    description: "Official bilingual (French/English) online trade portal of the DRC.",
+    description: "Official multilingual online trade portal of the DRC (EN, FR, TR, ES, ZH).",
     mainNav: [
         {
             title: "Home",

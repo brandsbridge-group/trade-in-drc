@@ -1,0 +1,4 @@
+wrote supabase/templates/confirm-signup.html
+  subject: {{ $l := "en" }}{{ with .Data.locale }}{{ $l = . }}{{ end }}{{ if eq $l "fr" }}Confirmez votre compte TradeInDRC{{ else if eq $l "es" }}Confirme su cuenta de TradeInDRC{{ else if eq $l "tr" }}TradeInDRC hesabınızı onaylayın{{ else if eq $l "zh" }}确认您的 TradeInDRC 账户{{ else }}Confirm your TradeInDRC account{{ end }}
+wrote supabase/templates/reset-password.html
+  subject: {{ $l := "en" }}{{ with .Data.locale }}{{ $l = . }}{{ end }}{{ if eq $l "fr" }}Réinitialisez votre mot de passe TradeInDRC{{ else if eq $l "es" }}Restablezca su contraseña de TradeInDRC{{ else if eq $l "tr" }}TradeInDRC parolanızı sıfırlayın{{ else if eq $l "zh" }}重置您的 TradeInDRC 密码{{ else }}Reset your TradeInDRC password{{ end }}

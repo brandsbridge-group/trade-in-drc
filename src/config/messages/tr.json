@@ -32,7 +32,59 @@
     "poweredBy": "Power by BrandsBridge Group",
     "menu": "Menü",
     "services": "Hizmetler",
-    "moreMenu": "Daha Fazla"
+    "moreMenu": "Daha Fazla",
+    "data": "Veriler",
+    "searchShort": "Ara",
+    "moreDesc": {
+      "about": "Misyonumuz, değerlerimiz ve ekibimiz.",
+      "contactPoints": "Kurumlar ve yerel temas noktaları, il il.",
+      "services": "Ekibimizden uçtan uca destek.",
+      "events": "Fuarlar, forumlar ve iş heyetleri.",
+      "contact": "Bir sorunuz mu var? Konuşalım."
+    },
+    "featured": {
+      "body": "Uluslararası alıcıların gözüne girin.",
+      "cta": "Planları görün"
+    },
+    "language": "Dil",
+    "changeLanguage": "Dili değiştir",
+    "publishNeed": "İhtiyaç yayınla",
+    "account": {
+      "open": "Hesap menüsünü aç",
+      "menu": "Hesap menüsü",
+      "roles": {
+        "super_admin": "Süper Yönetici",
+        "moderator": "Moderatör",
+        "company": "Şirket hesabı",
+        "member": "Üye hesabı"
+      },
+      "staffTitle": "Ekip konsolu",
+      "staffBody": "Doğrulamalar, moderasyon ve site ayarları",
+      "company": {
+        "more": "{count, plural, one {+ # şirket daha} other {+ # şirket daha}}",
+        "noneTitle": "Şirketinizi kaydedin",
+        "noneBody": "Teklif yayınlamak ve doğrulanmak için profilini oluşturun.",
+        "open": "{name} panelini aç"
+      },
+      "status": {
+        "verified": "Doğrulandı",
+        "pending": "İnceleniyor",
+        "pending_documents": "Belgeler gönderilecek",
+        "rejected": "Reddedildi"
+      },
+      "links": {
+        "dashboard": "Panel",
+        "companies": "Şirketlerim",
+        "products": "Ürünlerim",
+        "inbox": "Mesajlar",
+        "settings": "Hesap ayarları",
+        "console": "Konsol ana sayfası",
+        "verifications": "Doğrulamalar",
+        "consoleCompanies": "Şirketler",
+        "publicProfile": "Herkese açık profili gör"
+      },
+      "signout": "Çıkış yap"
+    }
   },
   "Hero": {
     "badge": "Ticaret Bakanlığı tarafından doğrulandı",
@@ -139,7 +191,7 @@
     "heroSubtitle": "Doğrulanmış Kongolu şirketlerin uluslararası alıcılarla buluştuğu, devlet destekli bir B2B platformu — rehber, arama, teklif talepleri (RFQ) ve güvenli mesajlaşma tek bir yerde.",
     "heroImageAlt": "Alacakaranlıkta Kinshasa silueti",
     "mission": "Misyonumuz",
-    "missionText": "TradeInDRC, Demokratik Kongo Cumhuriyeti'nin resmî çift dilli ticaret portalıdır. Doğrulanmış Kongolu işletmeleri uluslararası alıcılar ve ortaklarla buluşturur, her şirketi denetlemesi ve doğrulaması için Bakanlığa araçlar sunar ve ülkenin ihracat kapasitesini güvenilir tek bir yerde toplar.",
+    "missionText": "TradeInDRC, Demokratik Kongo Cumhuriyeti'nin resmî çok dilli ticaret portalıdır. Doğrulanmış Kongolu işletmeleri uluslararası alıcılar ve ortaklarla buluşturur, her şirketi denetlemesi ve doğrulaması için Bakanlığa araçlar sunar ve ülkenin ihracat kapasitesini güvenilir tek bir yerde toplar.",
     "whoFor": "Kimler için",
     "audience": {
       "exporter": {
@@ -181,8 +233,8 @@
         "desc": "Görünür ve denetime uygun bir güven ağı oluşturmak için platformdaki diğer doğrulanmış ortaklara bağlantı verin."
       },
       "bilingual": {
-        "title": "Çift dilli EN / FR",
-        "desc": "Her arayüz metni ve CMS yüzeyi iki dillidir. Tercih ettiğiniz dilde göz atın ve ticaret yapın."
+        "title": "5 dil",
+        "desc": "Arayüz Türkçe, İngilizce, Fransızca, İspanyolca ve Çince olarak sunulur. Tercih ettiğiniz dilde göz atın ve ticaret yapın."
       },
       "analytics": {
         "title": "Özel analizler",
@@ -217,10 +269,22 @@
     "successRegister": "Hesap başarıyla oluşturuldu.",
     "verifyEmail": {
       "title": "E-postanızı doğrulayın",
-      "body": "{email} adresine bir onay bağlantısı gönderdik. Hesabınızı etkinleştirmek için bağlantıya tıklayın.",
+      "body": "<b>{email}</b> adresine bir onay bağlantısı gönderdik. Hesabınızı etkinleştirmek için bağlantıya tıklayın.",
       "resend": "E-postayı tekrar gönder",
       "resent": "E-posta gönderildi. Gelen kutunuzu kontrol edin.",
-      "openInbox": "Gelen kutusunu aç"
+      "openInbox": "Gelen kutumu aç",
+      "bodyNoEmail": "E-posta adresinize bir onay bağlantısı gönderdik. Hesabınızı etkinleştirmek için bağlantıya tıklayın.",
+      "resendIn": "{seconds} sn sonra yeniden gönder",
+      "notReceived": "Almadınız mı? Spam klasörünüzü kontrol edin veya",
+      "wrongEmail": "Yanlış adres mi?",
+      "changeEmail": "Yeniden kaydolun",
+      "backToLogin": "Girişe dön",
+      "missingEmail": "Yeniden gönderilecek e-posta adresi yok.",
+      "step1": "E-postayı açın",
+      "step2": "Bağlantıya tıklayın",
+      "step3": "Alanınıza erişin",
+      "resendError": "E-posta yeniden gönderilemedi. Birazdan tekrar deneyin.",
+      "resendRateLimited": "Çok fazla istek. Tekrar denemeden önce bir dakika bekleyin."
     },
     "forgotPassword": {
       "title": "Parolanızı sıfırlayın",
@@ -237,7 +301,14 @@
       "submit": "Parolayı güncelle",
       "success": "Parola güncellendi. Artık giriş yapabilirsiniz.",
       "mismatch": "Parolalar eşleşmiyor.",
-      "weak": "En az 8 karakter kullanın."
+      "weak": "En az 8 karakter kullanın.",
+      "body": "Başka hiçbir yerde kullanmadığınız güçlü bir parola seçin.",
+      "ruleLength": "En az {min} karakter",
+      "ruleCase": "Büyük ve küçük harf",
+      "ruleNumber": "En az bir rakam",
+      "match": "Parolalar eşleşiyor",
+      "expired": "Bu sıfırlama bağlantısının süresi doldu. Yeni bir tane isteyin.",
+      "requestNew": "Yeni bağlantı iste"
     },
     "accountSettings": {
       "title": "Hesap ayarları",
@@ -260,8 +331,25 @@
     "errorAccountExists": "Bu e-posta ile zaten bir hesap mevcut.",
     "errorPasswordTooShort": "Parola en az 6 karakter olmalıdır.",
     "forgotPasswordLink": "Parolanızı mı unuttunuz?",
+    "showPassword": "Parolayı göster",
+    "hidePassword": "Parolayı gizle",
     "sendResetLink": "Sıfırlama Bağlantısı Gönder",
-    "backToSignIn": "Girişe Dön"
+    "backToSignIn": "Girişe Dön",
+    "fullName": "Ad soyad",
+    "fullNamePlaceholder": "Jean Mukendi",
+    "phone": "Telefon",
+    "phonePlaceholder": "81 234 5678",
+    "optional": "isteğe bağlı",
+    "errorPhoneInvalid": "Lütfen geçerli bir telefon numarası girin.",
+    "signupContext": {
+      "company": {
+        "title": "Şirketinizi kaydetmek için hesabınızı oluşturun",
+        "track": "Taleplerinizi ve mesajlarınızı takip edin",
+        "manage": "Şirket profilinizi yönetin",
+        "alerts": "Yeni fırsatlar için uyarı alın"
+      }
+    },
+    "termsNotice": "Hesap oluşturarak <terms>Kullanım Koşullarımızı</terms> ve <privacy>Gizlilik Politikamızı</privacy> kabul etmiş olursunuz."
   },
   "Dashboard": {
     "title": "Kontrol Paneli",
@@ -320,10 +408,12 @@
       "settings": "Ayarlar",
       "expandSidebar": "Kenar çubuğunu genişlet",
       "collapseSidebar": "Kenar çubuğunu daralt",
-      "services": "Hizmetler"
+      "services": "Hizmetler",
+      "openMenu": "Menüyü aç",
+      "requests": "Alınan talepler"
     },
     "editCompany": {
-      "title": "Şirket Profilini Düzenle",
+      "title": "Şirket profili",
       "backToDashboard": "Kontrol Paneline Dön",
       "saveChanges": "Değişiklikleri Kaydet",
       "loadError": "Şirket verileri yüklenemedi",
@@ -356,7 +446,52 @@
       "hsCodeHint": "Ürünlerinize uyan GTİP kodlarını seçin. GTİP kodları yöneticiler tarafından yönetilir.",
       "noHsCodesAvailable": "Henüz mevcut GTİP kodu yok.",
       "media": "Medya",
-      "mediaHint": "Logonuzu, galeri fotoğraflarınızı, broşürlerinizi ve ürün videolarınızı ekleyin. Bunlar herkese açık şirket profilinizde görünür."
+      "mediaHint": "Logonuzu, galeri fotoğraflarınızı, broşürlerinizi ve ürün videolarınızı ekleyin. Bunlar herkese açık şirket profilinizde görünür.",
+      "backToCompanies": "Şirketlerim",
+      "subtitle": "Profili bölüm bölüm tamamlayın: her bölüm ayrı kaydedilir.",
+      "save": "Kaydet",
+      "sectionSaved": "Bölüm kaydedildi.",
+      "filled": "{done}/{total} dolduruldu",
+      "unsaved": "Kaydedilmemiş değişiklikler.",
+      "upToDate": "Her şey kaydedildi.",
+      "nameRequired": "Şirket adı zorunludur.",
+      "website": "Web sitesi",
+      "websitePlaceholder": "www.sirketiniz.cd",
+      "contactEmail": "İletişim e-postası",
+      "contactPhone": "İletişim telefonu",
+      "descriptionCount": "{count} karakter, en az {min} önerilir.",
+      "completeness": {
+        "title": "Profil %{percent} tamamlandı",
+        "complete": "Profiliniz tamamlandı.",
+        "lead": "Eklenmesi gerekenler:"
+      },
+      "sections": {
+        "presentation": {
+          "title": "Tanıtım",
+          "hint": "Alıcıların profilinizde ilk okuduğu bilgiler."
+        },
+        "commerce": {
+          "title": "Ticaret",
+          "hint": "Kapasiteniz, sertifikalarınız ve pazarlarınız."
+        },
+        "contact": {
+          "title": "İletişim",
+          "hint": "Herkese açık profilinizde gösterilen bilgiler."
+        },
+        "media": {
+          "title": "Medya"
+        },
+        "verification": {
+          "title": "Yasal kimlik ve doğrulama",
+          "hint": "Sicil numaraları ve resmi belgeler doğrulama ekranında yönetilir.",
+          "cta": "Doğrulamayı aç"
+        }
+      },
+      "draft": {
+        "restored": "Geçen seferki kaydedilmemiş değişiklikleriniz geri yüklendi. Korumak için her bloğu kaydedin.",
+        "discard": "Bu değişiklikleri sil",
+        "kept": "Kaydedene kadar bu cihazda saklanır."
+      }
     },
     "products": {
       "title": "Ürünler",
@@ -371,8 +506,8 @@
       "colDescription": "Açıklama",
       "colImages": "Görseller",
       "colCreated": "Oluşturulma",
-      "emptyTitle": "Henüz ürün yok",
-      "emptyBody": "Başlamak için ilk ürününüzü ekleyin.",
+      "emptyTitle": "Kataloğunuz boş",
+      "emptyBody": "İlk ürününüzü ekleyin: alıcılar pazar yerinde bunu arar.",
       "noDescription": "Açıklama yok",
       "deleteConfirm": "\"{name}\" silinsin mi? Bu işlem geri alınamaz.",
       "deleting": "Ürün siliniyor...",
@@ -381,22 +516,152 @@
       "backToProducts": "Ürünlere Dön",
       "signInToAdd": "Ürün eklemek için lütfen giriş yapın.",
       "editProduct": "Ürünü Düzenle",
-      "loadError": "Ürün yüklenemedi.",
-      "ownershipDenied": "Bu ürünü düzenleme izniniz yok."
+      "loadError": "Ürünleriniz yüklenemedi.",
+      "ownershipDenied": "Bu ürünü düzenleme izniniz yok.",
+      "addSubtitle": "Ürününüzü tanımlayın; siz yazdıkça önizleme güncellenir.",
+      "editSubtitle": "Ürünün bilgilerini ve fotoğraflarını güncelleyin.",
+      "subtitle": "Kataloğunuz: yayında olanlar, görüntülenenler ve iyileştirilecekler.",
+      "retry": "Tekrar dene",
+      "notFound": "Bu ürün bulunamadı veya şirketlerinizden birine ait değil.",
+      "noCategory": "Kategori yok",
+      "noMatch": "Bu ölçütlere uyan ürün yok.",
+      "clearFilters": "Filtreleri temizle",
+      "viewsCount": "{count} görüntülenme",
+      "colViews": "Görüntülenme ({days} g)",
+      "colQuality": "İlan",
+      "colUpdated": "Güncellendi",
+      "colActions": "İşlemler",
+      "stats": {
+        "total": "Ürünler",
+        "live": "Yayında",
+        "liveHint": "katalogdaki {total} üründen",
+        "views": "Görüntülenme ({days} g)",
+        "viewsError": "İstatistikler kullanılamıyor.",
+        "toImprove": "Tamamlanacak ilanlar",
+        "toImproveHint": "fotoğraf, açıklama veya özellikler"
+      },
+      "unverified": {
+        "title": "Ürünleriniz henüz alıcılara görünmüyor",
+        "body": "Kaydedildiler ve {company} doğrulanır doğrulanmaz yayınlanacaklar.",
+        "cta": "Şirketi doğrulat"
+      },
+      "toolbar": {
+        "search": "Ürün ara",
+        "category": "Kategori",
+        "allCategories": "Tüm kategoriler",
+        "status": "Durum",
+        "allStatuses": "Tüm durumlar",
+        "sort": "Sırala",
+        "sorts": {
+          "recent": "En yeniler",
+          "name": "Ad (A–Z)",
+          "views": "En çok görüntülenen",
+          "quality": "Önce tamamlanacak ilanlar"
+        },
+        "view": "Görünüm",
+        "views": {
+          "grid": "Kartlar",
+          "list": "Liste"
+        },
+        "count": "{total} üründen {shown} tanesi"
+      },
+      "visibility": {
+        "live": "Yayında",
+        "awaiting": "Doğrulama bekleniyor",
+        "hidden": "Gizli"
+      },
+      "actions": {
+        "menu": "{name} için işlemler",
+        "details": "Ayrıntıları gör",
+        "edit": "Düzenle",
+        "duplicate": "Çoğalt",
+        "hide": "Pazar yerinden gizle",
+        "publish": "Yeniden yayınla",
+        "delete": "Sil",
+        "copySuffix": "(kopya)",
+        "publishing": "Yayınlanıyor…",
+        "hiding": "Gizleniyor…",
+        "published": "Ürün yeniden yayında.",
+        "hidden": "Ürün pazar yerinden gizlendi.",
+        "duplicating": "Çoğaltılıyor…",
+        "duplicated": "Kopya oluşturuldu. Siz yayınlayana kadar gizli kalır.",
+        "deleting": "Siliniyor…",
+        "deleted": "Ürün silindi.",
+        "error": "İşlem başarısız oldu. Tekrar deneyin.",
+        "deleteTitle": "Bu ürün silinsin mi?",
+        "deleteBody": "\"{name}\" sayfası ve istatistikleriyle birlikte kalıcı olarak silinecek.",
+        "deleteHideInstead": "Geçici olarak kaldırmak için gizleyin: istediğiniz zaman yeniden yayınlayabilirsiniz.",
+        "cancel": "İptal",
+        "confirmDelete": "Kalıcı olarak sil"
+      },
+      "addAnother": {
+        "title": "Ürün ekle",
+        "body": "Ya da daha hızlı bir varyant oluşturmak için mevcut bir ürünü çoğaltın."
+      },
+      "detail": {
+        "publicPage": "Herkese açık sayfa",
+        "photos": "Fotoğraflar",
+        "photoCount": "{count, plural, =0 {fotoğraf yok} other {# fotoğraf}}",
+        "noPhotos": "Bu ürünün henüz fotoğrafı yok",
+        "addPhotos": "Fotoğraf ekle",
+        "photoAlt": "{name}, fotoğraf {index}",
+        "showPhoto": "{index}. fotoğrafı göster",
+        "description": "Ad ve açıklama",
+        "noTranslation": "Bu dilde metin yok.",
+        "noSpecs": "Özellik girilmemiş.",
+        "addSpecs": "Özellik ekle",
+        "searchAppearances": "Aramada görünme ({days} g)",
+        "deltaNew": "Yeni",
+        "deltaFlat": "Sabit",
+        "visibility": {
+          "live": {
+            "title": "Pazar yerinde yayında",
+            "body": "Alıcılar bu ürünü görebilir ve teklif isteyebilir."
+          },
+          "awaiting": {
+            "title": "Kaydedildi, henüz görünmüyor",
+            "body": "{company} doğrulanır doğrulanmaz yayınlanacak."
+          },
+          "hidden": {
+            "title": "Pazar yerinden gizlendi",
+            "body": "Yalnızca siz ve ekibimiz görebilir. İşlemler menüsünden yeniden yayınlayın."
+          }
+        },
+        "quality": {
+          "title": "İlan kalitesi",
+          "cta": "İlanı tamamla",
+          "doneSr": "Tamam:",
+          "todoSr": "Yapılacak:",
+          "items": {
+            "photo": "En az bir fotoğraf",
+            "gallery": "{photos} veya daha fazla fotoğraf",
+            "description": "En az {chars} karakterlik bir açıklama",
+            "category": "Bir kategori",
+            "specs": "{specs} veya daha fazla özellik"
+          }
+        },
+        "info": {
+          "title": "Bilgiler",
+          "created": "Oluşturuldu",
+          "updated": "Güncellendi"
+        },
+        "noPricing": "Fiyat veya minimum miktar yok: ilanda “Fiyat talep üzerine” görünür.",
+        "addPricing": "Fiyat ekle"
+      }
     },
     "productForm": {
-      "nameLabel": "Ürün Adı",
+      "nameLabel": "Ürün adı",
       "namePlaceholder": "ör. Organik Arabica Kahve Çekirdeği",
       "descriptionLabel": "Açıklama",
       "descriptionPlaceholder": "Ürünü, menşeini, kalite sınıfını, sertifikalarını açıklayın...",
-      "categoryLabel": "Kategori Kimliği",
+      "categoryLabel": "Kategori",
       "optional": "(isteğe bağlı)",
-      "categoryPlaceholder": "Kategori tanımlayıcısı",
+      "categoryPlaceholder": "Kategori seçin",
       "imagesLabel": "Görseller",
       "imageAlt": "Ürün görseli {index}",
       "removeImage": "Görseli kaldır",
       "addImages": "Görsel ekle",
-      "imagesHint": "Görseller, ürünü kaydettiğinizde yüklenir.",
+      "imagesHint": "Fotoğraflar ürün kaydedilirken yüklenir.",
       "saveChanges": "Değişiklikleri Kaydet",
       "createProduct": "Ürün Oluştur",
       "cancel": "İptal",
@@ -421,7 +686,110 @@
       "categoryNone": "Kategori yok",
       "invalidType": "{name} desteklenen bir görsel türü değil.",
       "fileTooLarge": "{name}, {max} MB sınırını aşıyor.",
-      "maxImages": "En fazla {max} görsel yükleyebilirsiniz."
+      "maxImages": "En fazla {max} görsel yükleyebilirsiniz.",
+      "sections": {
+        "info": {
+          "title": "Bilgiler",
+          "hint": "Alıcıların pazar yerinde okuduğu bilgiler."
+        }
+      },
+      "lang": {
+        "label": "Yazım dili",
+        "fr": "Français",
+        "en": "English",
+        "complete": "dolduruldu",
+        "incomplete": "doldurulacak",
+        "hint": "Tek bir dil yeterlidir. Çeviri yoksa diğer dilde aynı metin gösterilir; daha sonra tamamlayabilirsiniz."
+      },
+      "photos": {
+        "title": "Fotoğraflar",
+        "hint": "En fazla 8 fotoğraf, her biri en fazla {size} MB. İlki kapak fotoğrafıdır.",
+        "drop": "Fotoğraflarınızı buraya sürükleyin veya göz atmak için tıklayın",
+        "formats": "JPG, PNG, WebP veya GIF",
+        "cover": "Kapak"
+      },
+      "visibility": {
+        "cta": "Şirketi doğrulat",
+        "verified": {
+          "title": "Kaydedilir kaydedilmez yayınlanır",
+          "body": "{company} doğrulandı: ürün kaydedilir kaydedilmez pazar yerinde görünür."
+        },
+        "pending": {
+          "title": "Doğrulamadan sonra yayınlanır",
+          "body": "{company} dosyası inceleniyor. Ürün şimdi kaydedilir ve şirket doğrulanınca yayınlanır."
+        },
+        "pending_documents": {
+          "title": "Kaydedildi, ancak henüz görünmüyor",
+          "body": "{company} henüz doğrulanmadı. Ürünlerinizi hazırlayabilirsiniz; şirket doğrulanınca yayınlanırlar."
+        },
+        "rejected": {
+          "title": "Kaydedildi, ancak görünmüyor",
+          "body": "{company} dosyası reddedildi. Ürünlerinizin yayınlanması için dosyayı düzeltin."
+        }
+      },
+      "preview": {
+        "title": "Önizleme",
+        "hint": "Alıcının listede göreceği şekilde.",
+        "namePlaceholder": "Ürün adı",
+        "descriptionPlaceholder": "Açıklama burada görünecek."
+      },
+      "tips": {
+        "title": "İyi bir ilan için",
+        "name": "Net bir ad: ürün, çeşit, menşe.",
+        "description": "Kalite, ambalaj, miktarlar ve sertifikalar.",
+        "photos": "Gerçek ürünün açık zeminde net fotoğrafları."
+      },
+      "specs": {
+        "title": "Özellikler",
+        "hint": "Alıcıların karşılaştırdığı teknik veriler: bir özellik, bir değer.",
+        "templateTitle": "Bu kategoriye özgü",
+        "customTitle": "Kendi özellikleriniz",
+        "customTitleMore": "Diğer özellikler",
+        "noCategory": "Kategoriye özgü özellikleri görmek için bir kategori seçin. Aşağıya kendi özelliklerinizi şimdiden ekleyebilirsiniz.",
+        "noTemplate": "Bu kategorinin henüz tanımlı özellikleri yok. Aşağıya kendinizinkileri ekleyin.",
+        "choose": "Seçin",
+        "yes": "Evet",
+        "no": "Hayır",
+        "nameLabel": "Özellik",
+        "valueLabel": "Değer",
+        "namePlaceholder": "Özellik (örn. Nem)",
+        "valuePlaceholder": "Değer (örn. %11)",
+        "addRow": "Özellik ekle",
+        "removeRow": "Bu özelliği kaldır",
+        "max": "En fazla {max} özellik sınırına ulaşıldı.",
+        "suggestions": {
+          "origin": "Menşe",
+          "packaging": "Ambalaj",
+          "minOrder": "Asgari miktar",
+          "certifications": "Sertifikalar"
+        },
+        "errors": {
+          "required": "Bu alan zorunludur.",
+          "number": "Bir sayı girin.",
+          "row": "Adı ve değeri doldurun; kullanılmış bir adı tekrar etmeyin.",
+          "toast": "İşaretlenen özellikleri kontrol edin.",
+          "tooMany": "Çok fazla özellik var: birkaçını kaldırın."
+        }
+      },
+      "pricing": {
+        "title": "Fiyat ve minimum miktar",
+        "hint": "Bir alıcının teklif istemeden önce bilmek istediği bilgiler.",
+        "unitLabel": "Satış birimi",
+        "unitPlaceholder": "Birim seçin",
+        "unitNone": "Yok",
+        "priceLabel": "Birim fiyat",
+        "priceLabelPer": "{unit} başına fiyat",
+        "pricePlaceholder": "Örn. 4,50",
+        "currencyLabel": "Para birimi",
+        "minOrderLabel": "Minimum sipariş miktarı",
+        "minOrderPlaceholder": "Örn. 500",
+        "empty": "Fiyat pazarlıkla belirleniyorsa bu alanları boş bırakın: ilanda “Fiyat talep üzerine” görünür.",
+        "errors": {
+          "price": "Geçerli bir fiyat girin (örneğin 4,50).",
+          "minOrder": "Sıfırdan büyük bir minimum miktar girin.",
+          "unit": "Bu fiyat veya miktar için satış birimini seçin."
+        }
+      }
     },
     "services": {
       "title": "Hizmetler",
@@ -573,6 +941,79 @@
         "addSuccess": "Video eklendi.",
         "invalidUrl": "http:// veya https:// ile başlayan geçerli bir video URL'si girin."
       }
+    },
+    "statusPendingDocuments": "Belge bekleniyor",
+    "navGroups": {
+      "main": "Ana",
+      "trade": "Ticaret",
+      "general": "Genel"
+    },
+    "companyType": {
+      "congolese": "Kongolu şirket",
+      "international": "Uluslararası şirket"
+    },
+    "premiumPromo": {
+      "title": "Premium'a geçin",
+      "body": "Şirketinizi alıcılar ve yatırımcılar önünde öne çıkarın.",
+      "cta": "Planları gör"
+    },
+    "unreadSr": "bekleyen mesaj:",
+    "breadcrumb": "Gezinti yolu",
+    "topbar": {
+      "search": "Ara…",
+      "help": "Yardım",
+      "inbox": "Mesajlar",
+      "unread": "{count} bekleyen mesaj",
+      "backToSite": "Siteye dön"
+    },
+    "getVerified": "Doğrulat",
+    "companiesPage": {
+      "subtitle": "Alanınızda {count} şirket var.",
+      "subtitleEmpty": "Başlamak için ilk şirketinizi kaydedin.",
+      "premium": "Premium",
+      "publicProfile": "Herkese açık profil",
+      "completeness": "Profil tamamlanma",
+      "complete": "Profili tamamla",
+      "products": "Ürünler",
+      "manageProducts": "Ürünleri yönet",
+      "addProduct": "Ürün ekle",
+      "visibility": "Görünürlük",
+      "visibilityOn": "Yayında",
+      "visibilityOff": "Yayında değil",
+      "visibilityOnHint": "Rehberde ve aramada görünür.",
+      "visibilityOffHint": "Şirket doğrulandığında yayınlanır.",
+      "next": {
+        "pending_documents": {
+          "title": "Şirketinizi doğrulatın",
+          "body": "Profili yayınlamak için belgelerinizi gönderin.",
+          "cta": "Doğrulat"
+        },
+        "pending": {
+          "title": "Dosya inceleniyor",
+          "body": "Karar verilir verilmez bilgilendirileceksiniz.",
+          "cta": "Dosyayı gör"
+        },
+        "more_info": {
+          "title": "Ek bilgi isteniyor",
+          "body": "İstenenleri ekleyin ve dosyayı yeniden gönderin.",
+          "cta": "Dosyayı tamamla"
+        },
+        "rejected": {
+          "title": "Dosya reddedildi",
+          "body": "Belgeleri düzeltin ve dosyayı yeniden gönderin.",
+          "cta": "Dosyayı düzelt"
+        },
+        "verified": {
+          "title": "Şirket doğrulandı",
+          "body": "Profiliniz yayında ve doğrulanmış rozetini taşıyor.",
+          "cta": "Dosyayı gör"
+        }
+      },
+      "addAnother": {
+        "title": "Başka bir şirket kaydet",
+        "body": "Her şirketin kendi profili ve kendi doğrulama dosyası vardır."
+      },
+      "teamMessage": "Ekibimizin mesajı:"
     }
   },
   "Footer": {
@@ -1069,15 +1510,15 @@
     "notAuthorized": "Bu alana erişim yetkiniz yok.",
     "verifications": {
       "title": "Doğrulama Kuyruğu",
-      "subtitle": "Şirket kayıtlarını inceleyin ve onaylayın",
+      "subtitle": "Şirketlerin gönderdiği dosyalar, en eskiden en yeniye.",
       "review": "İncele",
       "submitting": "Karar gönderiliyor...",
       "backToQueue": "Kuyruğa Dön",
       "loadError": "Doğrulama kuyruğu yüklenemedi. Lütfen tekrar deneyin.",
       "tabs": {
-        "all": "Tümü ({count})",
-        "new": "Yeni ({count})",
-        "resubmitted": "Yeniden Gönderildi ({count})"
+        "to_review": "İncelenecek ({count})",
+        "awaiting_owner": "Şirket bekleniyor ({count})",
+        "all": "Tümü ({count})"
       },
       "columns": {
         "company": "Şirket",
@@ -1085,14 +1526,26 @@
         "submitted": "Gönderim Tarihi",
         "documents": "Belgeler",
         "status": "Durum",
-        "action": "İşlem"
+        "action": "İşlem",
+        "file": "Dosya"
       },
       "badges": {
         "resubmitted": "YENİDEN GÖNDERİLDİ"
       },
       "empty": {
-        "title": "Hepsi tamamlandı!",
-        "subtitle": "Şu anda bekleyen doğrulama bulunmuyor."
+        "search": "Bu aramayla eşleşen dosya yok.",
+        "to_review": {
+          "title": "İncelenecek dosya yok",
+          "subtitle": "Gönderilen tüm dosyalar karara bağlandı."
+        },
+        "awaiting_owner": {
+          "title": "Şirketten beklenen dosya yok",
+          "subtitle": "Açık bir ek bilgi talebi yok."
+        },
+        "all": {
+          "title": "Devam eden dosya yok",
+          "subtitle": "Yeni dosyalar burada görünecek."
+        }
       },
       "decision": {
         "title": "Karar",
@@ -1104,7 +1557,18 @@
         "notesRequired": "Notlar (zorunlu)",
         "notesOptional": "Notlar (isteğe bağlı)",
         "notesPlaceholder": "İnceleme notları ekleyin...",
-        "submit": "Kararı Gönder"
+        "submit": "Kararı Gönder",
+        "notesVisible": "Bu mesajı şirket kendi alanında görür.",
+        "refusedWarning": "Bu dosyada {count} belge reddedildi.",
+        "incompleteTitle": "Dosya eksik",
+        "incompleteOverride": "Eksiklere rağmen onaylıyorum ve sorumluluğu üstleniyorum.",
+        "hint": {
+          "not_submitted": "Şirket dosyasını henüz göndermedi. Yine de karar verilebilir.",
+          "to_review": "Dosya kararınızı bekliyor.",
+          "awaiting_owner": "Ek bilgi istendi; şirket dosyayı henüz yeniden göndermedi.",
+          "verified": "Şirket doğrulandı. Yeni bir karar durumunu kaldırır veya değiştirir.",
+          "rejected": "Dosya reddedildi. Şirket düzeltip yeniden gönderebilir."
+        }
       },
       "detail": {
         "companyInfo": "Şirket Bilgileri",
@@ -1114,7 +1578,41 @@
         "currentTier": "Mevcut seviye",
         "reviewHistory": "İnceleme Geçmişi",
         "noReviews": "Önceki inceleme yok.",
-        "submittedOn": "{date} tarihinde gönderildi"
+        "submittedOn": "{date} tarihinde gönderildi",
+        "createdOn": "Kayıt tarihi: {date}",
+        "notSubmitted": "Şirket dosyayı henüz göndermedi.",
+        "companySheet": "Şirket sayfası",
+        "completeTitle": "Dosya tamam",
+        "completeBody": "Zorunlu belgeler ve yasal numaralar sağlandı.",
+        "incompleteTitle": "Dosya eksik",
+        "missingDocument": "Eksik belge: {name}",
+        "missingLegal": "Eksik numara: {name}",
+        "legalTitle": "Beyan edilen yasal kimlik",
+        "legalHint": "Yüklenen belgelerle karşılaştırın.",
+        "requiredMissing": "Zorunlu, sağlanmadı",
+        "notProvided": "Belirtilmedi",
+        "documentsHint": "Her belgeyi açın, ardından kabul edin veya gerekçeyle reddedin.",
+        "intake": {
+          "profile": "Beyan edilen profil",
+          "profiles": {
+            "congolese": "Kongolu şirket",
+            "international": "Uluslararası şirket"
+          },
+          "headOffice": "Genel merkez",
+          "interests": "DKC'deki ilgi alanları",
+          "provinces": "Hedef eyaletler"
+        },
+        "card": {
+          "about": "Tanıtım",
+          "noDescription": "Tanıtım metni girilmemiş.",
+          "contactTitle": "Şirket iletişimi",
+          "ownerTitle": "Hesap sahibi",
+          "declaredTitle": "Kayıt sırasında beyan edilenler",
+          "address": "Adres",
+          "registered": "Kayıt",
+          "tradingAs": "Ticari ad: {name}",
+          "accountOwner": "Hesap sahibi"
+        }
       },
       "documents": {
         "empty": "Yüklenmiş belge yok.",
@@ -1134,18 +1632,35 @@
           "pending": "Beklemede",
           "approved": "Onaylandı",
           "rejected": "Reddedildi"
+        },
+        "requiredMissing": "zorunlu, yüklenmedi",
+        "accept": "Kabul et",
+        "refuse": "Reddet",
+        "reset": "Beklemeye al",
+        "cancel": "İptal",
+        "confirmRefuse": "Belgeyi reddet",
+        "reasonLabel": "Gerekçe:",
+        "reasonPrompt": "Ret gerekçesi (şirket görür)",
+        "reasonPlaceholder": "Örn.: okunaksız belge, süresi dolmuş…",
+        "updateError": "Belge güncellenemedi.",
+        "updated": {
+          "approved": "Belge kabul edildi.",
+          "rejected": "Belge reddedildi.",
+          "pending": "Belge beklemeye alındı."
         }
       },
       "statusValues": {
         "pending": "Beklemede",
         "verified": "Doğrulandı",
-        "rejected": "Reddedildi"
+        "rejected": "Reddedildi",
+        "pending_documents": "Belgeler gönderilecek"
       },
       "decisionValues": {
         "approved": "Onaylandı",
         "rejected": "Reddedildi",
         "more_info_requested": "Daha fazla bilgi istendi",
-        "resubmitted": "Yeniden gönderildi"
+        "resubmitted": "Yeniden gönderildi",
+        "submitted": "Dosya gönderildi"
       },
       "success": {
         "approved": "Şirket başarıyla onaylandı.",
@@ -1159,7 +1674,46 @@
         "invalid_input": "Bazı bilgiler geçersizdi. Lütfen kontrol edip tekrar deneyin.",
         "review_insert_failed": "İnceleme kaydedilemedi. Lütfen tekrar deneyin.",
         "company_update_failed": "Şirket güncellenemedi. Lütfen tekrar deneyin.",
-        "generic": "Karar gönderilemedi. Lütfen tekrar deneyin."
+        "generic": "Karar gönderilemedi. Lütfen tekrar deneyin.",
+        "missing_requirements": "Dosya eksik: yine de onaylamak için kutuyu işaretleyin.",
+        "company_not_found": "Şirket bulunamadı.",
+        "document_update_failed": "Belge güncellenemedi."
+      },
+      "retry": "Tekrar dene",
+      "open": "Aç",
+      "search": "Şirket veya e-posta ara",
+      "days": "{count, plural, =0 {bugün} other {# gün}}",
+      "waiting": "{count, plural, =0 {bugün alındı} other {# gündür bekliyor}}",
+      "lateSr": "hedef aşıldı",
+      "kpi": {
+        "toReview": "İncelenecek",
+        "toReviewFoot": "kararınızı bekleyen dosyalar",
+        "oldest": "En eski dosya",
+        "late": "{count} dosya {days} günü aştı",
+        "onTime": "{days} günü aşan dosya yok",
+        "awaitingOwner": "Şirket bekleniyor",
+        "awaitingOwnerFoot": "ek bilgi istendi, henüz gönderilmedi",
+        "notSubmitted": "Henüz gönderilmedi",
+        "notSubmittedFoot": "dosyası olmayan kayıtlı şirketler"
+      },
+      "stage": {
+        "not_submitted": "Henüz gönderilmedi",
+        "to_review": "İncelenecek",
+        "awaiting_owner": "Şirket bekleniyor",
+        "verified": "Doğrulandı",
+        "rejected": "Reddedildi"
+      },
+      "file": {
+        "complete": "Dosya tamam",
+        "incomplete": "Dosya eksik",
+        "documents": "{done}/{total} zorunlu belge",
+        "legalMissing": "yasal numara eksik"
+      },
+      "timeline": {
+        "byCompany": "Şirket",
+        "byStaff": "Ekip",
+        "tierOverride": "Seviye elle değiştirildi",
+        "tierOverrideNote": "Yeni seviye: {tier}"
       }
     },
     "companies": {
@@ -1169,7 +1723,8 @@
       "statusValues": {
         "pending": "Beklemede",
         "verified": "Doğrulandı",
-        "rejected": "Reddedildi"
+        "rejected": "Reddedildi",
+        "pending_documents": "Belge bekleniyor"
       },
       "tier": {
         "title": "Doğrulama seviyesi",
@@ -1275,24 +1830,135 @@
         "congoleseCompany": "Kongolu Şirket",
         "internationalBusiness": "Uluslararası İşletme",
         "user": "Standart kullanıcı"
-      }
+      },
+      "selfActionError": "Kendi hesabınızın rolünü değiştiremez veya hesabınızı askıya alamazsınız."
     },
     "dashboard": {
-      "title": "Yönetim Paneli",
-      "subtitle": "Platform etkinliği, doğrulama durumu ve etkileşim",
-      "loadError": "Pano metrikleri yüklenemedi",
+      "title": "Kontrol paneli",
+      "subtitle": "Ekibi bekleyenler ve platformun son {days} günde ürettikleri.",
+      "loadError": "Göstergeler şu anda yüklenemiyor.",
+      "retry": "Yeniden dene",
+      "reviewCta": "Doğrulamaları incele",
       "kpi": {
-        "total": "Toplam şirket",
-        "pending": "Beklemede",
-        "verified": "Doğrulandı",
-        "rejected": "Reddedildi",
-        "views": "Profil görüntülemeleri",
-        "contacts": "İletişim talepleri"
+        "label": "Dönem göstergeleri",
+        "companies": "Yeni şirketler",
+        "companiesFoot": "Toplam {total} kayıtlı, {verified} doğrulanmış",
+        "products": "Eklenen ürünler",
+        "productsFoot": "{total} üründen {published} yayında",
+        "views": "Vitrin görüntülemeleri",
+        "viewsFoot": "{count, plural, =0 {Aramada görünme yok} other {Aramada # görünme}}",
+        "connections": "Bağlantılar",
+        "connectionsFoot": "{conversations, plural, other {# görüşme}} · fırsatlara {responses, plural, other {# yanıt}}"
       },
-      "sectorTitle": "Sektöre göre şirketler",
-      "sectorEmpty": "Henüz sektör verisi yok",
-      "topTitle": "Görüntülemeye göre öne çıkan şirketler",
-      "topEmpty": "Henüz görüntüleme etkinliği yok"
+      "queue": {
+        "title": "Yapılacaklar",
+        "allClear": "Her şey güncel. Ekibi bekleyen bir şey yok.",
+        "upToDate": "Güncel",
+        "oldest": "En eski: {age}",
+        "oldestLate": "Gecikmiş — en eski: {age}",
+        "items": {
+          "verifications": "Şirket doğrulamaları",
+          "opportunities": "Moderasyon bekleyen fırsatlar",
+          "requests": "Yeni iş talepleri",
+          "premium": "Premium talepleri",
+          "reports": "Şikâyet edilen mesajlar"
+        }
+      },
+      "chart": {
+        "viewLabel": "Grafik göstergesi",
+        "views": {
+          "traffic": "Trafik",
+          "signups": "Kayıtlar",
+          "connections": "Bağlantılar"
+        },
+        "titles": {
+          "traffic": "Vitrin görüntülemeleri",
+          "signups": "Şirket kayıtları",
+          "connections": "Alıcı–satıcı görüşmeleri"
+        },
+        "totals": {
+          "traffic": "dönemdeki görüntüleme",
+          "signups": "kayıtlı şirket",
+          "connections": "bağlantı"
+        },
+        "activeDays": {
+          "traffic": "Görüntüleme olan günler",
+          "signups": "Kayıt olan günler",
+          "connections": "Görüşme olan günler"
+        },
+        "series": {
+          "profile_views": "Şirket profilleri",
+          "product_views": "Ürün sayfaları",
+          "companies_drc": "KDC",
+          "companies_intl": "Uluslararası",
+          "conversations": "Görüşmeler",
+          "responses": "Fırsat yanıtları"
+        }
+      },
+      "funnel": {
+        "title": "Doğrulama süreci",
+        "subtitle": "Bugüne kadarki tüm şirketler",
+        "viewAll": "Doğrulama kuyruğu",
+        "steps": {
+          "registered": "Kayıtlı",
+          "submitted": "Dosya gönderildi",
+          "verified": "Doğrulandı"
+        },
+        "ofPrevious": "Önceki adımın {percent} kadarı",
+        "stock": {
+          "to_review": "İncelenecek",
+          "awaiting_owner": "Şirket bekleniyor",
+          "rejected": "Reddedildi"
+        },
+        "decisions": "Dönemdeki kararlar",
+        "decisionsValue": "{approved} onay · {rejected} ret · {moreInfo} ek bilgi talebi",
+        "medianDelay": "Ortanca karar süresi",
+        "hours": "{value} sa",
+        "days": "{value} gün"
+      },
+      "categories": {
+        "title": "Kategoriye göre fırsatlar",
+        "subtitle": "Şu anda yayında",
+        "empty": "Henüz yayınlanmış fırsat yok.",
+        "viewAll": "Tüm fırsatlar",
+        "pending": "{count} moderasyon bekliyor",
+        "responses": "{count, plural, =0 {Dönemde yanıt yok} other {Dönemde # yanıt}}"
+      },
+      "sectors": {
+        "title": "Sektöre göre şirketler",
+        "subtitle": "En çok temsil edilen sektörler",
+        "empty": "Henüz hiçbir şirket sektör seçmedi.",
+        "verified": "{count, plural, =0 {Doğrulanmış yok} other {# doğrulanmış}}"
+      },
+      "origin": {
+        "title": "Şirketlerin kökeni",
+        "subtitle": "Kongolu ve uluslararası şirketler",
+        "empty": "Henüz kayıtlı şirket yok.",
+        "drc": "KDC",
+        "intl": "Uluslararası",
+        "provinces": "Başlıca eyaletler",
+        "countries": "Başlıca ülkeler",
+        "noProvinces": "Eyalet bilgisi yok.",
+        "noIntl": "Henüz uluslararası şirket yok."
+      },
+      "top": {
+        "title": "En çok görüntülenen şirketler",
+        "subtitle": "Dönemdeki profil görüntülemeleri",
+        "empty": "Dönemde profil görüntülemesi yok.",
+        "viewAll": "Tüm şirketler",
+        "views": "{count, plural, other {# görüntüleme}}",
+        "contacts": "{count, plural, =0 {iletişim yok} other {# iletişim}}"
+      },
+      "premium": {
+        "title": "Premium",
+        "subtitle": "Aktif abonelikler ve onaylanan tutarlar",
+        "viewAll": "Premium talepleri",
+        "active": "Aktif abonelikler",
+        "expiring": "30 gün içinde sona eriyor",
+        "revenue": "Dönemde onaylanan",
+        "revenueFoot": "{count, plural, =0 {Dönemde onaylanan talep yok} other {Dönemde # talep onaylandı}}",
+        "empty": "Aktif Premium abonelik yok."
+      }
     },
     "settings": {
       "title": "Ayarlar",
@@ -1335,10 +2001,15 @@
       "featuredSelectPlaceholder": "Doğrulanmış bir şirket seçin...",
       "featuredNoCandidates": "Öne çıkarılacak başka doğrulanmış şirket yok",
       "featuredAdd": "Öne Çıkar",
-      "featuredEmpty": "Henüz öne çıkan şirket yok"
+      "featuredEmpty": "Henüz öne çıkan şirket yok",
+      "slidePlacement": "Yerleşim",
+      "placements": {
+        "home": "Ana sayfa",
+        "market": "Pazaryeri hero alanı (reklamlar)"
+      }
     },
     "nav": {
-      "console": "Yönetim Konsolu",
+      "console": "Ekip Konsolu",
       "administrator": "Yönetici",
       "signOut": "Çıkış Yap",
       "navDashboard": "Pano",
@@ -1353,7 +2024,22 @@
       "navAnalytics": "Analitik",
       "navSettings": "Ayarlar",
       "navRequests": "Talepler",
-      "navPremium": "Premium"
+      "navPremium": "Premium",
+      "groups": {
+        "overview": "Genel bakış",
+        "moderation": "Moderasyon",
+        "content": "İçerik",
+        "platform": "Platform"
+      },
+      "roleSuperAdmin": "Süper Yönetici",
+      "roleModerator": "Moderatör",
+      "openMenu": "Menüyü aç",
+      "expandSidebar": "Kenar çubuğunu genişlet",
+      "collapseSidebar": "Kenar çubuğunu daralt",
+      "breadcrumb": "Gezinti yolu",
+      "search": "Ara…",
+      "backToSite": "Siteye dön",
+      "myAccount": "Hesabım"
     },
     "analytics": {
       "title": "Platform Analitiği",
@@ -1779,13 +2465,13 @@
     "hero": {
       "tagline": "DRC resmi ticaret portalı",
       "headline": "Doğrulanmış ihracatçıları bulun, teklif talebi gönderin, anlaşmaları tamamlayın.",
-      "subline": "Demokratik Kongo Cumhuriyeti'ni dünyaya bağlayan, alıcılar ve tedarikçiler için iki dilli platform.",
+      "subline": "Demokratik Kongo Cumhuriyeti'ni dünyaya bağlayan, alıcılar ve tedarikçiler için çok dilli platform.",
       "cta": {
         "browse": "Doğrulanmış şirketlere göz atın",
         "howItWorks": "Nasıl çalışır",
         "trust": {
           "verified": "Doğrulanmış ihracatçılar",
-          "bilingual": "EN · FR",
+          "bilingual": "EN · FR · TR · ES · ZH",
           "free": "Ücretsiz teklif talepleri"
         }
       }
@@ -1803,8 +2489,8 @@
           "body": "Şirketler herkese açık olarak görünmeden önce KYB belge incelemesi ve yerinde kontroller yapılır."
         },
         "bilingual": {
-          "title": "Varsayılan olarak iki dilli",
-          "body": "İngilizce veya Fransızca olarak göz atın ve ticaret yapın — içerik her iki dilde de saklanır ve görüntülenir."
+          "title": "Varsayılan olarak çok dilli",
+          "body": "Türkçe, İngilizce, Fransızca, İspanyolca veya Çince olarak göz atın ve ticaret yapın."
         },
         "rfq": {
           "title": "Teklif talepleri ücretsizdir",
@@ -1868,7 +2554,7 @@
       "helpCenter": "Yardım merkezi"
     },
     "footer": {
-      "tagline": "DRC iki dilli ticaret portalı",
+      "tagline": "DRC çok dilli ticaret portalı",
       "columns": {
         "platform": {
           "title": "Platform",
@@ -1907,7 +2593,7 @@
     },
     "metadata": {
       "title": "TradeInDRC — Doğrulanmış Kongolu ihracatçılar ve ticaret portalı",
-      "description": "Demokratik Kongo Cumhuriyeti'nin resmi iki dilli ticaret portalı. Doğrulanmış ihracatçıları bulun, teklif talepleri gönderin ve ticaret fırsatlarını keşfedin."
+      "description": "Demokratik Kongo Cumhuriyeti'nin resmi çok dilli ticaret portalı. Doğrulanmış ihracatçıları bulun, teklif talepleri gönderin ve ticaret fırsatlarını keşfedin."
     }
   },
   "ListPages": {
@@ -1938,7 +2624,7 @@
       "tagline": "Demokratik Kongo Cumhuriyeti'nin resmi ticaret portalı",
       "checks": [
         "Doğrulanmış Kongolu ihracatçılar",
-        "İki dilli platform (EN / FR)",
+        "5 dilde platform (EN / FR / TR / ES / ZH)",
         "Ücretsiz teklif talepleri, güvenli mesajlaşma"
       ]
     },
@@ -1959,36 +2645,63 @@
   "Landing": {
     "hero": {
       "badge": "Bağlan · Ticaret Yap · Büyü",
-      "titleLead": "Trade in ",
-      "titleAccent": "DRC",
-      "subtitle": "Demokratik Kongo Cumhuriyeti'nde Güvenilir İş Bağlantılarına Açılan Kapınız",
       "body": "Güvenilir yerel ortaklarla bağlantı kurun, pazar fırsatlarını keşfedin ve güvenle yatırım yapmak, ticaret yapmak ve büyümek için stratejik analizlere erişin.",
-      "ctaPrimary": "Fırsatları Keşfedin",
-      "ctaSecondary": "Ortak Bulun",
+      "ctaOpportunities": "Fırsatları Keşfedin",
       "trust": {
         "verified": "Doğrulanmış ortaklar",
         "bilingual": "5 dilde kullanılabilir",
         "free": "Ücretsiz göz atma"
       },
+      "brand": "Trade in DRC",
+      "title": "KDC'de <accent>güvenilir ticarete</accent> açılan kapınız",
+      "ctaMarket": "Pazarı keşfedin"
+    },
+    "panel": {
+      "overview": "Genel Bakış",
+      "drc": "DKC",
+      "nav": {
+        "overview": "Genel Bakış",
+        "opportunities": "Fırsatlar",
+        "partners": "Ortaklar",
+        "sectors": "Sektörler",
+        "insights": "Analizler",
+        "watchlist": "İzleme Listesi"
+      },
       "stats": {
         "opportunities": "Fırsatlar",
-        "partners": "Doğrulanmış ortaklar",
-        "insights": "Pazar analizleri"
-      }
-    },
-    "features": {
-      "verified": {
-        "title": "Doğrulanmış Ortaklar",
-        "desc": "DKC genelinde önceden incelenmiş, güvenilir işletmelerle bağlantı kurun."
+        "partners": "Doğrulanmış Ortaklar",
+        "products": "Yayınlanan ürünler"
       },
-      "opportunities": {
-        "title": "Pazar Fırsatları",
-        "desc": "Yüksek potansiyelli sektörleri ve yatırım fırsatlarını keşfedin."
+      "topOpportunities": "Açık fırsatlar",
+      "verified": "Doğrulandı",
+      "companies": "şirket",
+      "kpi": {
+        "budget": "Açıklanan bütçe",
+        "newListings": "Yeni (30 gün)",
+        "activeListings": "Aktif ilanlar"
       },
-      "intelligence": {
-        "title": "İş Zekâsı",
-        "desc": "Daha akıllı kararlar almak için verilere, analizlere ve içgörülere erişin."
-      }
+      "notifTitle": "Bildirimler",
+      "scopeRegion": "Orta Afrika",
+      "scopeGlobal": "Küresel",
+      "statsSub": {
+        "closingSoon": "{n} tanesi 30 gün içinde kapanıyor",
+        "provinces": "{n} il",
+        "categories": "{n} kategori"
+      },
+      "sectorBars": "Sektörlere göre şirketler",
+      "provinceBars": "İllere göre ilanlar",
+      "offers": "{n, plural, =0 {Teklif yok} other {# teklif}}",
+      "closesIn": "{days} gün",
+      "noDeadline": "Açık",
+      "watchEmptyTitle": "Şirketleri ve fırsatları takip edin",
+      "watchEmptyBody": "Favorilerinizi kaydetmek ve güncellemelerden haberdar olmak için giriş yapın.",
+      "watchCta": "Giriş yap",
+      "notif": {
+        "opportunity": "Yeni fırsat: {label}",
+        "company": "Doğrulanmış şirket: {label}",
+        "product": "Yeni teklif: {label}"
+      },
+      "notifEmpty": "Şu anda yeni bir şey yok."
     },
     "ribbon": {
       "lead": "Güvenilir Bağlantılar. Gerçek Fırsatlar.",
@@ -2036,62 +2749,6 @@
     "join": {
       "cta": "Platforma katılın",
       "tagline": "Bağlanın. Ticaret yapın. DKC'de büyüyün."
-    },
-    "panel": {
-      "overview": "Genel Bakış",
-      "drc": "DKC",
-      "nav": {
-        "overview": "Genel Bakış",
-        "opportunities": "Fırsatlar",
-        "partners": "Ortaklar",
-        "sectors": "Sektörler",
-        "insights": "Analizler",
-        "watchlist": "İzleme Listesi"
-      },
-      "stats": {
-        "opportunities": "Fırsatlar",
-        "partners": "Doğrulanmış Ortaklar",
-        "insights": "Pazar Analizleri"
-      },
-      "topOpportunities": "Öne Çıkan Fırsatlar",
-      "marketActivity": "Pazar Hareketliliği",
-      "highPotential": "Yüksek Potansiyel",
-      "top": {
-        "infrastructure": "Altyapı Geliştirme",
-        "mining": "Madencilik ve Kaynaklar",
-        "agriculture": "Tarım ve Agro-Sanayi",
-        "energy": "Enerji ve Yenilenebilirler"
-      },
-      "oppTypes": {
-        "tender": "İhale",
-        "partnership": "Ortaklık",
-        "investment": "Yatırım",
-        "distribution": "Dağıtım"
-      },
-      "statusOpen": "Açık",
-      "verified": "Doğrulandı",
-      "sector": {
-        "mining": "Madencilik",
-        "agriculture": "Tarım",
-        "energy": "Enerji",
-        "ict": "Dijital & BİT",
-        "manufacturing": "İmalat",
-        "logistics": "Lojistik"
-      },
-      "companies": "şirket",
-      "kpi": {
-        "volume": "Ticaret hacmi",
-        "growth": "Yıllık büyüme",
-        "listings": "Yeni ilanlar"
-      },
-      "saved": "Kaydedildi",
-      "viewAll": "Tümünü gör",
-      "notifTitle": "Bildirimler",
-      "notif1": "Madencilikte yeni doğrulanmış ortak",
-      "notif2": "Bu hafta 3 yeni fırsat",
-      "notif3": "2. çeyrek pazar raporu hazır",
-      "scopeRegion": "Orta Afrika",
-      "scopeGlobal": "Küresel"
     },
     "sectors": {
       "eyebrow": "Kilit Sektörler",
@@ -2304,7 +2961,50 @@
     "colActions": "İşlemler",
     "placeholderNameTr": "Ad (TR)",
     "placeholderNameZh": "Ad (ZH)",
-    "placeholderNameEs": "Ad (ES)"
+    "placeholderNameEs": "Ad (ES)",
+    "specsHeading": "Kategoriye göre özellikler",
+    "specsDescription": "Şirketlerin bu kategorideki bir ürün için doldurduğu alanlar. Kendi satırlarını her zaman ekleyebilirler.",
+    "specs": {
+      "category": "Kategori",
+      "chooseCategory": "Kategori seçin",
+      "pickFirst": "Özelliklerini yönetmek için bir kategori seçin.",
+      "empty": "Bu kategori için tanımlı özellik yok.",
+      "loading": "Yükleniyor…",
+      "add": "Alan ekle",
+      "newTitle": "Yeni alan",
+      "editTitle": "Alanı düzenle",
+      "labelEn": "Etiket (İngilizce)",
+      "labelFr": "Etiket (Fransızca)",
+      "type": "Değer türü",
+      "unit": "Birim",
+      "options": "Seçenekler",
+      "optionsHint": "Her satıra bir seçenek, \"İngilizce | Fransızca\" biçiminde. En az iki seçenek.",
+      "required": "Zorunlu",
+      "requiredToggle": "Bu kategoride ürün yayınlamak için zorunlu alan",
+      "keyPreview": "Teknik tanımlayıcı (kalıcı):",
+      "types": {
+        "text": "Metin",
+        "number": "Sayı",
+        "select": "Seçenek listesi",
+        "boolean": "Evet / Hayır"
+      },
+      "save": "Kaydet",
+      "cancel": "İptal",
+      "edit": "Düzenle",
+      "delete": "Sil",
+      "moveUp": "Yukarı taşı",
+      "moveDown": "Aşağı taşı",
+      "saved": "Alan kaydedildi.",
+      "deleted": "Alan silindi.",
+      "confirmDelete": "\"{name}\" alanı silinsin mi? Ürünlere girilmiş değerler serbest özellik olarak gösterilmeye devam eder.",
+      "errorLoad": "Yükleme başarısız oldu.",
+      "errorSave": "Kaydetme başarısız oldu.",
+      "errorDelete": "Silme başarısız oldu.",
+      "errorLabels": "Etiketi her iki dilde de doldurun.",
+      "errorOptions": "Bir seçenek listesi en az iki seçenek gerektirir.",
+      "errorKey": "İngilizce etiket en az bir harf içermelidir.",
+      "errorDuplicate": "Bu kategoride aynı adda bir alan zaten var."
+    }
   },
   "Faq": {
     "title": "Sıkça Sorulan Sorular",
@@ -2559,7 +3259,7 @@
   },
   "Metadata": {
     "siteTitle": "TradeInDRC",
-    "siteDescription": "Kongo Demokratik Cumhuriyeti'nin resmi iki dilli çevrimiçi ticaret portalı; uluslararası alıcıları doğrulanmış Kongolu ihracatçılarla buluşturur."
+    "siteDescription": "Kongo Demokratik Cumhuriyeti'nin resmi çok dilli çevrimiçi ticaret portalı; uluslararası alıcıları doğrulanmış Kongolu ihracatçılarla buluşturur."
   },
   "Terms": {
     "title": "Hizmet Koşulları",
@@ -3001,7 +3701,7 @@
   },
   "AdminRequests": {
     "title": "Alınan Talepler",
-    "subtitle": "Potansiyel müşterileri, ihtiyaçları, atanmış yöneticileri ve talep ilerlemesini gerçek zamanlı takip edin.",
+    "subtitle": "Site üzerinden gönderilen tüm talepler: kim istiyor, ne için, kime yönelik ve hangi aşamada.",
     "newRequestCta": "Yeni Talep",
     "filters": {
       "search": "Ara...",
@@ -3010,7 +3710,11 @@
       "status": "Durum",
       "owner": "Sorumlu",
       "date": "Tarih",
-      "all": "Tümü"
+      "all": "Tümü",
+      "searchPlaceholder": "Ad, şirket veya referans ara…",
+      "allOf": "{label}: tümü",
+      "remove": "{label} filtresini kaldır",
+      "clear": "Filtreleri temizle"
     },
     "stats": {
       "total": "Toplam Talep",
@@ -3018,7 +3722,13 @@
       "inProgress": "Devam Ediyor",
       "converted": "Dönüştürüldü",
       "pending": "Beklemede",
-      "responseRate": "Yanıt Oranı"
+      "responseRate": "Yanıt Oranı",
+      "toForward": "İletilecek",
+      "toForwardFoot": "Henüz talebi almamış bir şirkete yönelik",
+      "newFoot": "{total, plural, =0 {Henüz talep yok} one {# talep içinde} other {# talep içinde}}",
+      "inProgressFoot": "{pending, plural, =0 {Beklemede olan yok} one {# tanesi beklemede} other {# tanesi beklemede}}",
+      "done": "İşlenen",
+      "doneFoot": "Taleplerin %{rate} kadarı ele alındı"
     },
     "table": {
       "name": "Ad",
@@ -3029,7 +3739,11 @@
       "status": "Durum",
       "date": "Tarih",
       "followUpOwner": "Takip Sorumlusu",
-      "actions": "İşlemler"
+      "actions": "İşlemler",
+      "target": "Alıcı şirket",
+      "requester": "Talep eden",
+      "received": "Alındığı tarih",
+      "teamTarget": "TradeInDRC ekibi"
     },
     "statusLabels": {
       "new": "Yeni",
@@ -3059,8 +3773,8 @@
         "description": "İhtiyaç analizi, doğrulama ve önceliklendirme."
       },
       "step3": {
-        "title": "Sorumlu Ataması",
-        "description": "Talep uygun sorumluya atanır."
+        "title": "İletme veya atama",
+        "description": "Bir şirkete yönelik talep o şirkete iletilir; diğerlerine bir takip sorumlusu atanır."
       },
       "step4": {
         "title": "Takip ve Dönüşüm",
@@ -3075,7 +3789,32 @@
       "intent": "Talep Konusu",
       "promotionRequested": "Talep edilen tanıtım paketi",
       "promotionGranted": "Premium verildi — bu başvuru karşılandı.",
-      "grantPromotion": "Bu paketi ver"
+      "grantPromotion": "Bu paketi ver",
+      "open": "Talebi aç",
+      "phone": "Telefon",
+      "target": "Talebin gönderildiği şirket",
+      "product": "Ürün",
+      "quantity": "Miktar",
+      "deliveryPlace": "Teslimat yeri",
+      "deadline": "Termin",
+      "interest": "İlişki türü",
+      "noMessage": "Alıcı mesaj bırakmadı.",
+      "sections": {
+        "contact": "İletişim bilgileri",
+        "request": "Talep",
+        "followUp": "Takip"
+      },
+      "noteHint": "Dahili not: şirket bunu asla görmez.",
+      "saveNote": "Notu kaydet",
+      "location": "Tercih edilen yer",
+      "timeline": "Zamanlama",
+      "need": "Belirtilen ihtiyaç",
+      "volume": "Tahmini hacim",
+      "preferences": "Ek istekler",
+      "website": "Web sitesi",
+      "attachment": "Ekli belge",
+      "download": "İndir",
+      "downloadError": "Belge açılamadı."
     },
     "savingToast": "Kaydediliyor…",
     "savedToast": "Kaydedildi.",
@@ -3110,7 +3849,28 @@
         "already_converted": "Zaten karşılandı.",
         "update_failed": "Premium verilemedi. Lütfen tekrar deneyin."
       }
-    }
+    },
+    "forward": {
+      "cta": "Tedarikçiye ilet",
+      "hint": "Şirket talebi panelinde, alıcının adı, e-postası ve telefonuyla birlikte görecek.",
+      "confirm": "Bu talep {company} şirketine iletilsin mi? Şirket alıcının adını, e-postasını ve telefonunu görecek.",
+      "sending": "İletiliyor…",
+      "sent": "Talep {company} şirketine iletildi.",
+      "error": "Talep iletilemedi.",
+      "done": "{date} tarihinde tedarikçiye iletildi",
+      "stateDone": "İletildi",
+      "stateTodo": "İletilecek"
+    },
+    "views": {
+      "label": "Hızlı görünümler",
+      "all": "Tümü",
+      "to_forward": "İletilecek",
+      "new": "Yeni",
+      "in_progress": "Devam ediyor",
+      "pending": "Beklemede",
+      "done": "İşlenen"
+    },
+    "results": "{count, plural, =0 {Talep yok} one {# talep} other {# talep}}"
   },
   "AdminPremium": {
     "title": "Premium Talepleri",
@@ -3313,54 +4073,80 @@
     }
   },
   "VerifiedDirectory": {
-    "breadcrumbHome": "Ana Sayfa",
-    "breadcrumbLocalContacts": "Yerel İletişim Rehberi",
-    "breadcrumbCurrent": "Doğrulanmış Şirketler Dizini",
-    "heroTitle": "Doğrulanmış Şirketler Rehberi",
-    "heroSubtitle1": "DRC'deki incelenmiş ve doğrulanmış işletme profilleriyle bağlantı kurun.",
-    "heroSubtitle2": "Burada listelenen her şirket; meşruiyet, güvenilirlik ve ticari faaliyet açısından incelenmiştir; böylece güvenle güvenilir ortaklıklar kurabilirsiniz.",
-    "badgesTitle": "Doğrulama Rozetlerimizi Anlamak",
-    "badgeRegisteredTitle": "Kayıtlı Şirket",
-    "badgeRegisteredDesc": "Şirket platforma kaydolmuş ve temel işletme bilgilerini sağlamıştır.",
-    "badgeRegisteredPill": "Temel Profil",
-    "badgeVerifiedTitle": "Doğrulanmış Şirket",
-    "badgeVerifiedDesc": "Şirketin meşruiyeti ve ticari faaliyeti incelenmiş ve doğrulanmıştır.",
-    "badgeVerifiedPill": "Doğrulanmış",
-    "badgePremiumTitle": "Premium Doğrulanmış Yerel Ortak",
-    "badgePremiumDesc": "Daha derin doğrulama ve kanıtlanmış geçmişe sahip yüksek güvenilirlikte yerel ortak.",
-    "badgePremiumPill": "Premium Ortak",
-    "filterSectorLabel": "Bir sektör seçin",
-    "filterAllSectors": "Tüm Sektörler",
-    "filterProvinceLabel": "Bir il seçin",
-    "filterAllProvinces": "Tüm İller",
-    "filterTypeLabel": "Ortaklık türü",
-    "filterAllTypes": "Tüm Türler",
-    "typeDistributor": "Distribütör",
-    "typeSupplier": "Tedarikçi",
-    "typeManufacturer": "Üretici",
-    "typeServiceProvider": "Hizmet Sağlayıcı",
-    "premiumOnly": "Yalnızca Premium",
-    "intlReady": "Uluslararası İşe Hazır",
-    "searchCompanies": "Şirket Ara",
-    "showingResults": "{total} doğrulanmış şirketten {from}-{to} arası gösteriliyor",
-    "sortBy": "Sırala:",
-    "sortRecent": "Son Eklenenler",
-    "sortNameAZ": "İsim A-Z",
-    "verifiedPill": "Doğrulanmış",
-    "premiumPill": "Premium Ortak",
-    "viewProfile": "Profili Görüntüle",
-    "noResults": "Filtrelerinizle eşleşen doğrulanmış şirket yok.",
-    "approachTitle": "Doğrulama Yaklaşımımız",
-    "step1Title": "Belgeler Gönderildi",
-    "step1Caption": "Şirket gerekli belgeleri ve bilgileri gönderir.",
-    "step2Title": "Resmi İletişim Doğrulandı",
-    "step2Caption": "Şirket iletişimini resmi kanaldan doğrularız.",
-    "step3Title": "Belgeler İncelendi",
-    "step3Caption": "Ekibimiz işletme belgelerini inceler ve doğrular.",
-    "step4Title": "Sektör ve Konum Sınıflandırıldı",
-    "step4Caption": "Şirket sektöre ve operasyonel konuma göre sınıflandırılır.",
-    "step5Title": "Profil Yayınlandı",
-    "step5Caption": "Doğrulanmış profil uygun rozetle yayınlanır."
+    "page": {
+      "crumb": "Şirketler",
+      "eyebrow": "Doğrulanmış rehber",
+      "title": "KDC'de doğrulanmış bir ortak bulun",
+      "subtitle": "Burada listelenen her şirket tescil belgelerini gönderdi ve ekibimiz yayından önce bunları inceledi.",
+      "searchLabel": "Şirketi adına göre arayın",
+      "searchPlaceholder": "Şirket adı…",
+      "searchButton": "Ara",
+      "stats": {
+        "companies": "Doğrulanmış şirket",
+        "sectors": "Sektör",
+        "provinces": "İl",
+        "countries": "Ülke"
+      },
+      "filters": {
+        "label": "Rehberi filtrele",
+        "sector": "Sektör",
+        "allSectors": "Tüm sektörler",
+        "country": "Ülke",
+        "allCountries": "Tüm ülkeler",
+        "province": "İl",
+        "allProvinces": "Tüm iller",
+        "tier": "Seviye",
+        "tierAll": "Tümü",
+        "tierPremium": "Premium",
+        "sort": "Sırala",
+        "sortRecent": "Son eklenenler",
+        "sortAz": "Ad A–Z",
+        "clear": "Tümünü temizle",
+        "active": "Etkin filtreler",
+        "remove": "Filtreyi kaldır: {name}",
+        "query": "Arama: {q}"
+      },
+      "results": "{total, plural, =0 {Şirket yok} one {# doğrulanmış şirket} other {# doğrulanmış şirket}}",
+      "empty": {
+        "title": "Bu filtrelere uyan şirket yok",
+        "body": "Başka bir sektör veya il deneyin ya da filtreleri temizleyin.",
+        "reset": "Filtreleri temizle"
+      },
+      "card": {
+        "verified": "Doğrulandı",
+        "premium": "Premium",
+        "products": "{count, plural, one {# ürün} other {# ürün}}",
+        "founded": "{year} yılından beri",
+        "view": "Profili gör",
+        "open": "{name} profilini gör"
+      },
+      "pagination": {
+        "label": "Sonuç sayfaları",
+        "previous": "Önceki",
+        "next": "Sonraki",
+        "page": "Sayfa {page}",
+        "status": "Sayfa {page} / {pages}"
+      },
+      "trust": {
+        "title": "Rozetler ne anlama geliyor",
+        "verifiedTitle": "Doğrulanmış şirket",
+        "verifiedBody": "Yasal kimliği ve tescil belgeleri Trade in DRC ekibi tarafından incelendi.",
+        "premiumTitle": "Premium ortak",
+        "premiumBody": "Premium aboneliği olan doğrulanmış bir şirket.",
+        "stepsTitle": "Bir şirket rehbere nasıl girer",
+        "step1Title": "Dosyasını gönderir",
+        "step1Body": "Yasal numaralar ve tescil belgeleri.",
+        "step2Title": "Ekibimiz inceler",
+        "step2Body": "Her belge gerekçesiyle kabul veya reddedilir.",
+        "step3Title": "Profil yayınlanır",
+        "step3Body": "Şirket ve ürünleri ancak o zaman herkese açık olur."
+      },
+      "cta": {
+        "title": "Şirketiniz henüz rehberde değil mi?",
+        "body": "Kaydedin, belgelerinizi gönderin ve doğrulandıktan sonra alıcılara ulaşın.",
+        "button": "Şirketimi kaydet"
+      }
+    }
   },
   "BySector": {
     "breadcrumb": {
@@ -3521,6 +4307,85 @@
       "error": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
       "errorRequired": "Lütfen tüm zorunlu alanları doldurun.",
       "privacy": "Gizliliğinize saygı duyuyoruz. Bilgileriniz yalnızca bu tanışmayı kolaylaştırmak için kullanılacaktır."
+    },
+    "page": {
+      "share": "Paylaş",
+      "linkCopied": "Bağlantı kopyalandı",
+      "website": "Web sitesi",
+      "requestContact": "İletişim talep et",
+      "tradingAs": "Ticari ad: {name}",
+      "verified": "Doğrulanmış şirket",
+      "premium": "Doğrulanmış Premium ortak",
+      "logoAlt": "{name} logosu",
+      "nav": {
+        "label": "Bu sayfanın bölümleri",
+        "about": "Hakkında",
+        "gallery": "Galeri",
+        "products": "Ürünler",
+        "trade": "Ticari kapasite",
+        "verification": "Doğrulama",
+        "contact": "İletişim"
+      },
+      "stats": {
+        "founded": "Kuruluş",
+        "employees": "Çalışan",
+        "products": "Ürün",
+        "markets": "Hizmet verilen pazarlar"
+      },
+      "about": {
+        "title": "Hakkında",
+        "empty": "Bu şirket henüz tanıtım metnini yazmadı.",
+        "tags": "Uzmanlık alanları"
+      },
+      "gallery": {
+        "title": "Galeri",
+        "photoAlt": "{name} — fotoğraf {index}",
+        "open": "{index}. fotoğrafı büyüt",
+        "previous": "Önceki fotoğraf",
+        "next": "Sonraki fotoğraf",
+        "counter": "{index} / {total}",
+        "viewer": "Fotoğraf görüntüleyici",
+        "documents": "Broşürler ve videolar",
+        "brochure": "Broşür {index}",
+        "video": "Video {index}"
+      },
+      "products": {
+        "title": "Ürünler",
+        "count": "{count, plural, one {# ürün} other {# ürün}}"
+      },
+      "trade": {
+        "title": "Ticari kapasite",
+        "capacity": "Üretim kapasitesi",
+        "moq": "Minimum sipariş",
+        "leadTime": "Teslim süresi",
+        "markets": "Hizmet verilen pazarlar",
+        "languages": "Konuşulan diller",
+        "certifications": "Sertifikalar",
+        "hsCodes": "Gümrük kodları (GTİP)"
+      },
+      "facts": {
+        "title": "Şirket bilgileri",
+        "sector": "Sektör",
+        "legalForm": "Hukuki yapı",
+        "founded": "Kuruluş yılı",
+        "employees": "Çalışan sayısı",
+        "location": "Konum",
+        "address": "Adres",
+        "website": "Web sitesi",
+        "memberSince": "Trade in DRC üyelik tarihi"
+      },
+      "trust": {
+        "title": "Doğrulama",
+        "verifiedOn": "{date} tarihinde doğrulandı",
+        "verifiedNoDate": "Doğrulandı",
+        "by": "Trade in DRC ekibi tarafından",
+        "point1": "Yasal kimlik ve tescil belgeleri ekibimizce incelendi.",
+        "point2": "İletişim bilgileri korunur: tanıştırma platform üzerinden yapılır."
+      },
+      "cta": {
+        "title": "{name} ile çalışın",
+        "body": "Bir talep gönderin: ekibimiz inceler ve şirkete iletir."
+      }
     }
   },
   "LocalContacts": {
@@ -3665,15 +4530,16 @@
       "current": "Yerel Ortak Bulun"
     },
     "hero": {
-      "title": "DRC'de Yerel Ortak Bulun",
-      "subtitle": "İşletmenizin neye ihtiyacı olduğunu bize bildirin, Trade in DRC projenize uygun yerel şirketleri, temsilcileri, distribütörleri veya hizmet sağlayıcıları belirlemenize yardımcı olacaktır.",
-      "submitCta": "İhtiyacınızı Gönderin",
-      "browseCta": "Önce Rehbere Göz Atın"
+      "eyebrow": "Destekli iş bağlantısı",
+      "title": "KDC'de yerel bir ortak bulun",
+      "subtitle": "İhtiyacınızı üç adımda anlatın. Ekibimiz projenize uygun şirketleri, distribütörleri, temsilcileri veya hizmet sağlayıcıları sizin için belirler.",
+      "browseCta": "Rehbere göz at",
+      "trackCta": "Bir talebi takip et"
     },
-    "step1": {
-      "title": "Neye ihtiyacınız var?",
-      "subtitle": "Aradığınız ortak veya iletişim türünü seçin.",
-      "footnote": "Her talep için yalnızca bir birincil ihtiyaç seçebilirsiniz."
+    "trust": {
+      "free": "Ücretsiz, taahhütsüz",
+      "delay": "2-3 iş günü içinde yanıt",
+      "verified": "Ekibimizin doğruladığı şirketler"
     },
     "needs": {
       "supplier": "Tedarikçi Bul",
@@ -3684,58 +4550,6 @@
       "institutional": "Kurumsal İletişim Bul",
       "enter_market": "DRC Pazarına Girin",
       "source_products": "DRC'den Ürün Tedarik Edin"
-    },
-    "step2": {
-      "title": "İş ihtiyacınızı bize anlatın",
-      "subtitle": "Sizi doğru yerel iletişim noktalarıyla eşleştirebilmemiz için ayrıntı verin."
-    },
-    "form": {
-      "companyName": "Şirket Adı",
-      "companyNamePlaceholder": "Şirket adınızı girin",
-      "country": "Ülke",
-      "countryPlaceholder": "Ülkenizi seçin",
-      "countrySearch": "Ülke ara...",
-      "countryNoResults": "Ülke bulunamadı.",
-      "website": "Web Sitesi",
-      "websitePlaceholder": "www.sirketiniz.com",
-      "contactPerson": "İletişim Kişisi",
-      "contactPersonPlaceholder": "Ad soyad",
-      "email": "E-posta",
-      "emailPlaceholder": "ad@sirketiniz.com",
-      "phone": "Telefon",
-      "phonePlaceholder": "(555) 123-4567",
-      "sector": "Sektör",
-      "selectPlaceholder": "Bir seçenek seçin",
-      "sectorPlaceholder": "Sektörünüzü seçin",
-      "contactType": "İhtiyaç Duyulan İletişim Türü",
-      "contactTypePlaceholder": "İletişim türünü seçin",
-      "targetProvince": "DRC'de Hedef İl",
-      "targetProvincePlaceholder": "Hedef ili seçin",
-      "productService": "İlgilenilen Ürün veya Hizmet",
-      "productServicePlaceholder": "Ürün veya hizmet girin",
-      "volume": "Tahmini İş Hacmi (USD)",
-      "volumePlaceholder": "Aralık seçin",
-      "timeline": "Beklenen Zaman Çizelgesi",
-      "timelinePlaceholder": "Zaman çizelgesi seçin",
-      "requirement": "Ayrıntılı Gereksinim",
-      "requirementPlaceholder": "Projenizi, ihtiyaçlarınızı ve belirli gereksinimleri açıklayın...",
-      "uploadTitle": "Yüklemek için tıklayın veya sürükleyip bırakın",
-      "uploadHint": "PDF, DOC, DOCX, PPTX (En fazla 10 MB)",
-      "uploadLabel": "Destekleyici Belge Yükleyin (İsteğe bağlı)",
-      "submit": "Talebi Gönder",
-      "submitting": "Gönderiliyor...",
-      "privacy": "Bilgileriniz güvendedir ve yalnızca sizi ilgili yerel ortaklarla eşleştirmek için kullanılacaktır."
-    },
-    "contactTypes": {
-      "supplier": "Tedarikçi",
-      "distributor": "Distribütör",
-      "representative": "Yerel Temsilci",
-      "jv_partner": "Ortak Girişim Ortağı",
-      "service_provider": "Profesyonel Hizmet Sağlayıcı",
-      "institutional": "Kurumsal İletişim",
-      "buyer": "Alıcı",
-      "agent": "Ticari Acente",
-      "other": "Diğer"
     },
     "volumes": {
       "under_10k": "10.000 $ altı",
@@ -3753,32 +4567,110 @@
     },
     "checkboxes": {
       "verified_only": "Yalnızca doğrulanmış şirketler",
-      "b2b_meetings": "B2B görüşmeleri düzenle",
+      "b2b_meetings": "B2B görüşmeleri düzenlensin",
       "market_entry_support": "Pazara giriş desteği",
-      "sponsorship": "Sponsorluk ilgisi"
+      "sponsorship": "Sponsorlukla ilgileniyorum"
     },
-    "step3": {
-      "title": "Talep Gönderildi",
-      "subtitle": "Talep onayınız burada görünecektir.",
-      "placeholder": "Talep onayınız gönderdikten sonra burada görünecektir.",
-      "thankYou": "Teşekkürler! İş talebiniz gönderildi.",
-      "requestId": "Talep Kimliği",
-      "info1": "Ekibimiz talebinizi inceleyecek ve uygun yerel iletişim noktalarını belirleyecektir.",
-      "info2": "Kısa süre içinde bir onay e-postası alacaksınız.",
-      "info3": "Genellikle 2-3 iş günü içinde yanıt veriyoruz.",
-      "another": "Başka Bir Talep Gönder",
-      "browse": "Önce Rehbere Göz Atın"
+    "wizard": {
+      "steps": {
+        "need": "İhtiyacınız",
+        "details": "Ayrıntılar",
+        "contact": "İletişim bilgileriniz"
+      },
+      "stepOf": "Adım {current} / {total}",
+      "back": "Geri",
+      "next": "Devam",
+      "submit": "Talebi gönder",
+      "submitting": "Gönderiliyor…",
+      "draftRestored": "Daha önce yazdıklarınızı bulduk.",
+      "draftDiscard": "Baştan başla",
+      "needTitle": "Ne arıyorsunuz?",
+      "needIntro": "Bu talebin ana ihtiyacını seçin. Sonrasında başka bir talep gönderebilirsiniz.",
+      "detailsTitle": "Projenizi anlatın",
+      "detailsIntro": "Açıklamanız ne kadar net olursa önerilen bağlantılar o kadar isabetli olur.",
+      "contactTitle": "Size nasıl ulaşalım?",
+      "contactIntro": "Bu bilgiler yalnızca size yanıt vermek için kullanılır. Asla yayımlanmaz.",
+      "optional": "isteğe bağlı",
+      "recapTitle": "Talebiniz",
+      "recapEdit": "Düzenle",
+      "privacy": "Bilgileriniz gizli kalır ve yalnızca sizi uygun ortaklarla buluşturmak için kullanılır.",
+      "errorSummary": "Devam etmek için işaretlenen alanları düzeltin.",
+      "errorServer": "Talep gönderilemedi. Biraz sonra tekrar deneyin.",
+      "errorCaptcha": "Robot doğrulaması başarısız oldu. Tekrar deneyin.",
+      "errorRate": "Bu adresle zaten birkaç talep gönderdiniz. Bir saat sonra tekrar deneyin."
     },
-    "toast": {
-      "loading": "Talebiniz gönderiliyor...",
-      "success": "İş talebiniz gönderildi.",
-      "error": "Bir şeyler ters gitti. Lütfen tekrar deneyin."
+    "fields": {
+      "productService": "İlgili ürün veya hizmet",
+      "productServicePlaceholder": "Örn. kakao çekirdeği, karayolu taşımacılığı, vergi danışmanlığı…",
+      "sector": "Sektör",
+      "sectorPlaceholder": "Sektör seçin",
+      "province": "KDC'de hedef il",
+      "provinceAny": "Tüm KDC / henüz belli değil",
+      "timeline": "Zamanlama",
+      "volume": "Tahmini iş hacmi (USD)",
+      "volumePlaceholder": "Aralık seçin",
+      "requirement": "İhtiyacınızın ayrıntıları",
+      "requirementPlaceholder": "Miktarlar, özellikler, beklenen ortak türü, özel koşullar…",
+      "requirementCount": "{count, plural, =0 {En az 20 karakter} one {# karakter (en az 20)} other {# karakter (en az 20)}}",
+      "preferences": "Ek istekler",
+      "attachment": "Destekleyici belge",
+      "companyName": "Şirketinizin adı",
+      "companyNamePlaceholder": "Ticaret unvanı",
+      "contactPerson": "Adınız",
+      "contactPersonPlaceholder": "Ad ve soyad",
+      "email": "İş e-postası",
+      "emailPlaceholder": "ad@sirket.com",
+      "phone": "Telefon",
+      "country": "Ülke",
+      "countryPlaceholder": "Ülke seçin",
+      "countrySearch": "Ülke ara…",
+      "countryNoResults": "Ülke bulunamadı.",
+      "website": "Web sitesi",
+      "websitePlaceholder": "www.sirket.com"
     },
-    "validation": {
-      "selectNeed": "Lütfen önce neye ihtiyacınız olduğunu seçin.",
-      "required": "Lütfen tüm zorunlu alanları doldurun.",
-      "fileTooLarge": "Dosya çok büyük (en fazla 10 MB).",
-      "fileType": "Desteklenmeyen dosya türü. PDF, DOC, DOCX veya PPTX kullanın."
+    "errors": {
+      "required": "Bu alan zorunludur.",
+      "too_short": "Biraz daha ayrıntı ekleyin: en az 20 karakter.",
+      "too_long": "Bu metin çok uzun.",
+      "email": "Bu e-posta adresi geçerli değil.",
+      "phone": "Bu numara geçerli değil. Ülke kodunu ve numarayı kontrol edin.",
+      "website": "Bu web adresi geçerli değil.",
+      "invalid": "Bu değer kabul edilmiyor.",
+      "need": "Devam etmek için bir ihtiyaç seçin."
+    },
+    "upload": {
+      "title": "Dosyayı buraya bırakın veya seçmek için tıklayın",
+      "hint": "PDF, DOC, DOCX, PPTX, JPG veya PNG — en fazla 10 MB",
+      "uploading": "Dosya gönderiliyor…",
+      "done": "Dosya eklendi",
+      "remove": "Dosyayı kaldır",
+      "too_large": "Bu dosya 10 MB'tan büyük.",
+      "bad_type": "Bu dosya türü kabul edilmiyor.",
+      "server": "Dosya gönderilemedi. Tekrar deneyin."
+    },
+    "done": {
+      "title": "Talep gönderildi",
+      "body": "Teşekkürler. Ekibimiz talebinizi inceliyor ve 2-3 iş günü içinde size dönecek.",
+      "referenceLabel": "Referansınız",
+      "copy": "Kopyala",
+      "copied": "Referans kopyalandı.",
+      "emailSent": "{email} adresine bir onay e-postası gönderildi.",
+      "noEmail": "Bu referansı saklayın: e-posta adresinizle birlikte talebinizi takip etmenizi sağlar.",
+      "track": "Talebimi takip et",
+      "another": "Başka bir talep gönder",
+      "browse": "Rehbere göz at"
+    },
+    "aside": {
+      "howTitle": "Nasıl işliyor",
+      "how1Title": "İhtiyacınızı anlatırsınız",
+      "how1Body": "Üç adım, yaklaşık üç dakika.",
+      "how2Title": "Ekibimiz sizin için arar",
+      "how2Body": "Projenize uyan şirketleri belirleriz.",
+      "how3Title": "Sizi buluştururuz",
+      "how3Body": "Önerilerimizi e-postayla alırsınız.",
+      "trackTitle": "Zaten bir talep gönderdiniz mi?",
+      "trackBody": "Referansınız ve e-posta adresinizle ilerleyişini takip edin.",
+      "trackCta": "Talebimi takip et"
     }
   },
   "Premium": {
@@ -4124,8 +5016,11 @@
         "business_profile": "İş Profili",
         "market_interest": "DRC Pazar İlgisi",
         "contact_person": "İlgili Kişi",
-        "plan": "Plan"
-      }
+        "plan": "Plan",
+        "company": "Şirket",
+        "contact": "İletişim"
+      },
+      "optional": "isteğe bağlı"
     },
     "sections": {
       "legal": "1. Yasal Bilgiler",
@@ -4250,20 +5145,34 @@
     "nav": {
       "back": "Geri",
       "next": "İleri",
-      "submit": "İnceleme için Gönder",
-      "submitting": "Şirketiniz gönderiliyor..."
+      "submit": "Şirketimi oluştur",
+      "submitting": "Şirketiniz gönderiliyor...",
+      "skip": "Bu adımı atla"
     },
     "success": {
-      "title": "Şirketiniz inceleme için gönderildi",
-      "body": "Ekibimiz başvurunuzu inceleyecek ve size geri dönecektir. Durumunu kontrol panelinizden takip edebilirsiniz.",
-      "cta": "Şirketlerime Git"
+      "title": "Şirketiniz oluşturuldu",
+      "body": "Şirketiniz panelinizde. Alıcıların görebilmesi için iki adım kaldı.",
+      "cta": "Belgelerimi gönder",
+      "nextTitle": "Şimdi ne olacak?",
+      "next": {
+        "documents": {
+          "title": "Şirketi doğrulatın",
+          "body": "Belgelerinizi gönderin: dosya onaylanınca profil yayınlanır."
+        },
+        "product": {
+          "title": "İlk ürünü yayınlayın",
+          "body": "Pazar yerinde görünmek için."
+        }
+      },
+      "dashboardCta": "Panele git"
     },
     "errors": {
       "required": "Lütfen tüm zorunlu alanları doldurun.",
       "auth": "Şirketinizi göndermek için lütfen giriş yapın.",
       "server": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
       "invalid": "Bazı alanlar geçersiz. Lütfen kontrol edip tekrar deneyin.",
-      "bannerTitle": "Göndermeden önce lütfen aşağıdakileri tamamlayın:"
+      "bannerTitle": "Göndermeden önce lütfen aşağıdakileri tamamlayın:",
+      "staff": "Trade in DRC ekip hesapları şirket kaydedemez."
     },
     "benefits": {
       "items": [
@@ -4298,7 +5207,9 @@
       "international": {
         "title": "Uluslararası bir şirketim",
         "body": "DRC'de iş ortağı, görünürlük ve fırsat arayan yabancı şirketler için."
-      }
+      },
+      "accountNeeded": "Önce ücretsiz hesabınızı oluşturacaksınız (1 dakika), ardından doğrudan buraya döneceksiniz.",
+      "createAccountToContinue": "Devam etmek için hesabımı oluştur"
     },
     "intl": {
       "heroTitleLead": "Uluslararası ",
@@ -4470,6 +5381,35 @@
           }
         }
       }
+    },
+    "quick": {
+      "sections": {
+        "company": "Şirketiniz",
+        "contact": "Şirket iletişimi"
+      },
+      "fields": {
+        "companyEmail": "Şirket iletişim e-postası",
+        "headOfficeCity": "Merkez ofis şehri",
+        "activity": "Faaliyetiniz"
+      },
+      "hints": {
+        "companyEmail": "Herkese açık profilinizde gösterilir. Giriş e-postanızdan farklı olabilir.",
+        "activity": "İsteğe bağlı. İki üç cümle yeterli: bu metin herkese açık profilinizde görünür."
+      },
+      "marketInterestIntro": "İsteğe bağlı — size doğru fırsatları önerebilmemiz için DKC'de ne aradığınızı belirtin.",
+      "ph": {
+        "activity": "Örn.: Kivu bölgesinden yıkanmış, güneşte kurutulmuş arabica kahve üreticisi ve ihracatçısı."
+      }
+    },
+    "draft": {
+      "restored": "Formunuzu kaldığınız yerden geri yükledik.",
+      "discard": "Baştan başla",
+      "saved": "Taslak bu cihaza kaydedildi."
+    },
+    "dashboard": {
+      "back": "Şirketlerim",
+      "title": "Şirket kaydet",
+      "subtitle": "Profili oluşturmak için birkaç bilgi. Belgeler ve tam profil sonra gelir."
     }
   },
   "Services": {
@@ -4883,148 +5823,1347 @@
       }
     }
   },
-  "MarketplacePage": {
+  "MarketLanding": {
     "hero": {
-      "titleLead": "DRC İş",
-      "titleAccent": "Pazar Yeri",
-      "tagline": "Tek platform. Sınırsız bağlantı. Gerçek fırsatlar.",
-      "body": "Trade in DRC, ticaret ve yatırım ekosistemindeki güvenilir oyuncuları bir araya getirir. Afrika'nın kalbinde bağlantı kurun, iş birliği yapın ve işinizi büyütün.",
-      "imageAlt": "Gün batımında bir Kongo limanına yanaşmış konteyner gemisi",
-      "ctaJoin": "Pazar Yerine Katıl",
-      "ctaExplore": "Fırsatları Keşfet",
-      "ctaHowItWorks": "Nasıl Çalışır",
-      "stats": {
-        "companies": "Doğrulanmış Şirket",
-        "provinces": "Kapsanan İl",
-        "opportunities": "İş Fırsatı",
-        "secure": "Doğrulanmış ve Güvenli"
+      "eyebrow": "Resmî pazaryeri · DK Kongo",
+      "titleLead": "DKC’nin",
+      "titleAccent": "iş pazaryeri",
+      "lead": "Doğrulanmış teklifler, nitelikli alıcılar ve bir anlaşmayı teslimata dönüştüren tüm meslekler — tek bir yerde.",
+      "publishOffer": "Teklif yayınla",
+      "publishNeed": "İhtiyaç yayınla",
+      "searchLabel": "Pazaryerinde ara",
+      "searchPlaceholder": "Bir ürün, bir şirket, bir hizmet",
+      "searchCta": "Ara"
+    },
+    "trust": {
+      "coverage": {
+        "title": "{count} eyalet",
+        "body": "Kongo-Central’dan Haut-Katanga’ya ülke çapında kapsama.",
+        "value": "{count}",
+        "label": "eyalet kapsamında"
       },
-      "hub": {
-        "title": "DRC'de Küresel Ticaret için Merkez",
-        "discover": "Doğrulanmış işletmeleri keşfedin",
-        "find": "Ürün, hizmet ve iş ortağı bulun",
-        "intelligence": "Pazar istihbaratına erişin",
-        "facilitate": "Ticaret ve yatırımı kolaylaştırın",
-        "network": "Ağınızı küresel olarak büyütün"
+      "verification": {
+        "title": "4 noktada doğrulama",
+        "body": "Yasal varlık, kapasite, referanslar ve mümkün olduğunda saha ziyareti.",
+        "value": "4 noktalı",
+        "label": "doğrulama"
+      },
+      "response": {
+        "title": "48 saat içinde yanıt",
+        "body": "Her talep bir robot tarafından değil, bir kişi tarafından değerlendirilir.",
+        "value": "48 saat",
+        "label": "içinde yanıt"
       }
     },
-    "categories": {
-      "heading": "Pazar Yerini Kategoriye Göre Keşfedin",
-      "subheading": "Ticaret ekosisteminin tüm önemli sektörlerinde doğru iş ortaklarıyla bağlantı kurun.",
-      "count": "{count, plural, =0 {Kayıt yok} other {# kayıt}}",
-      "manufacturer": {
-        "title": "Üreticiler",
-        "desc": "Tüm sektörlerde kaliteli ürünler sunan yerel üreticilerle bağlantı kurun.",
-        "cta": "Üreticileri Gör"
-      },
-      "importer": {
-        "title": "İthalatçılar",
-        "desc": "DRC pazarına ürün ve çözüm tedarik eden güvenilir ithalatçıları bulun.",
-        "cta": "İthalatçıları Gör"
-      },
-      "exporter": {
-        "title": "İhracatçılar",
-        "desc": "Kongo yapımı ürünleri küresel pazarlara sunan ihracatçılarla tanışın.",
-        "cta": "İhracatçıları Gör"
+    "services": {
+      "heading": "İşleminizi tamamlayın",
+      "lead": "Sınır ötesi bir satış, onu taşıyan zincir olmadan ayakta kalmaz. Bu meslekler de ürünler gibi platformda.",
+      "cta": "Hizmet sağlayıcıları gör",
+      "logistics": {
+        "eyebrow": "Taşıma",
+        "title": "Lojistik ve transit",
+        "body": "Nakliye komisyoncuları, taşıyıcılar, konsolidatörler, antrepolar."
       },
       "finance": {
-        "title": "Finans ve Bankacılık",
-        "desc": "İşletmenizin büyümesini destekleyen finans kurumlarına ve bankacılık hizmetlerine erişin.",
-        "cta": "Finans Ortaklarını Gör"
+        "eyebrow": "Finansman",
+        "title": "Finans ve ödeme",
+        "body": "Bankalar, akreditif, kargo sigortası, döviz."
       },
+      "compliance": {
+        "eyebrow": "Uyum",
+        "title": "Uyum ve belgeler",
+        "body": "Kalite kontrol, gümrük, menşe şahadetnamesi, standartlar."
+      },
+      "institutions": {
+        "eyebrow": "Yön bulma",
+        "title": "Kurumlar ve irtibatlar",
+        "body": "Kamu kurumları, kamu şirketleri, odalar ve federasyonlar."
+      }
+    },
+    "demands": {
+      "heading": "Açık talepler",
+      "lead": "Alıcılar şimdiden arıyor. Mevcut bir talebe yanıt vermek, bulunmayı beklemekten daha iyi sonuç verir.",
+      "viewAll": "Tüm talepler",
+      "filterLabel": "Talepleri yöne göre filtrele",
+      "filters": {
+        "all": "Tümü",
+        "import": "İthalat",
+        "export": "İhracat"
+      },
+      "buyer": "Alıcı",
+      "buyerVerified": "Doğrulanmış alıcı",
+      "closesIn": "{days, plural, =0 {Bugün kapanıyor} other {# gün içinde kapanıyor}}",
+      "respond": "Yanıtla",
+      "empty": "Şu anda açık talep yok. Yakında tekrar bakın.",
+      "columns": {
+        "demand": "Talep",
+        "direction": "Yön",
+        "location": "Konum",
+        "deadline": "Son tarih"
+      },
+      "publish": "İhtiyaç yayınla",
+      "noDeadline": "Süresiz",
+      "kinds": {
+        "demand": "Satın alma talebi",
+        "quotation": "Teklif talebi"
+      }
+    },
+    "cta": {
+      "heading": "Satıyor musunuz, arıyor musunuz?",
+      "body": "Teklif yayınlamak ücretsizdir. İhtiyaç yayınlamak ekibimizin bir arama başlatmasını sağlar.",
+      "publishOffer": "Teklif yayınla",
+      "publishNeed": "İhtiyaç yayınla"
+    },
+    "directions": {
+      "heading": "İki ticaret yönü",
+      "lead": "Tek pazar, iki yön: DKC’ye girenler ve DKC’den çıkanlar. Sizinkini seçin.",
+      "import": {
+        "title": "DKC’ye ithalat",
+        "body": "Yabancı şirketlerin Kongo pazarında satmayı teklif ettikleri.",
+        "badge": "İthalat"
+      },
+      "export": {
+        "title": "DKC’den ihracat",
+        "body": "Kongolu şirketlerin dış pazarlara sundukları.",
+        "badge": "İhracat"
+      },
+      "offers": "{count, plural, =0 {Henüz teklif yok} other {# teklif}}"
+    },
+    "carousel": {
+      "roledescription": "karusel",
+      "label": "Pazaryerinde öne çıkanlar",
+      "slide": "slayt",
+      "position": "{n} / {total}",
+      "goTo": "{n}. slayta git",
+      "previous": "Önceki slayt",
+      "next": "Sonraki slayt",
+      "pause": "Karuseli duraklat",
+      "play": "Karuseli oynat",
+      "sponsored": "Sponsorlu",
+      "house": "Trade in DRC",
+      "houseSlides": {
+        "offer": {
+          "title": "Teklifinizi ücretsiz yayınlayın",
+          "body": "Tek bir ilanla uluslararası alıcılara ve Kongolu ithalatçılara ulaşın.",
+          "cta": "Teklif yayınla"
+        },
+        "verify": {
+          "title": "Şirketinizi doğrulatın",
+          "body": "Alıcılara güven veren ve tekliflerinizi öne çıkaran 4 noktalı doğrulama.",
+          "cta": "Şirketinizi kaydedin"
+        },
+        "advertise": {
+          "title": "Reklamınız burada",
+          "body": "Markanızı her gün pazaryerini ziyaret eden alıcı ve yatırımcılara gösterin.",
+          "cta": "Bizimle reklam verin"
+        }
+      }
+    }
+  },
+  "MarketProducts": {
+    "header": {
+      "title": "Pazaryeri",
+      "lead": "Tek pazar, iki ticaret yönü. Size uygun olanı seçin.",
+      "breadcrumb": "Gezinti yolu",
+      "crumbMarket": "Pazaryeri"
+    },
+    "directions": {
+      "import": {
+        "title": "DKC’ye ithalat",
+        "body": "DKC’de satış yapmak isteyen yabancı şirketlerin teklifleri."
+      },
+      "export": {
+        "title": "DKC’den ihracat",
+        "body": "Yurt dışına satış yapmak isteyen Kongolu şirketlerin teklifleri."
+      }
+    },
+    "search": {
+      "label": "Teklif ara",
+      "placeholder": "Örn. çimento, trafo, jenerik",
+      "cta": "Ara"
+    },
+    "filters": {
+      "country": "Menşe ülke",
+      "province": "Menşe eyalet",
+      "sector": "Sektör",
+      "verification": "Doğrulama",
+      "tiers": {
+        "full": "Tam doğrulama",
+        "docs": "Belgeler kontrol edildi"
+      },
+      "clear": "Filtreleri temizle",
+      "chain": "Tedarik zinciri",
+      "showMore": "{count} tane daha göster",
+      "showLess": "Daha az göster",
+      "title": "Filtreler",
+      "removeFilter": "Filtreyi kaldır: {label}"
+    },
+    "chain": {
+      "logistics": "Nakliye ve lojistik",
+      "finance": "Finansman ve sigorta",
+      "compliance": "Uyum ve gümrük"
+    },
+    "results": {
+      "heading": {
+        "import": "DKC’ye ithalat için sunulan ürünler",
+        "export": "DKC’den ihracat için sunulan ürünler",
+        "all": "Tüm ürünler"
+      },
+      "count": "{count, plural, =0 {Teklif yok} other {# teklif}}",
+      "sortRelevance": "alaka düzeyine göre",
+      "sortNewest": "en yeniler önce",
+      "empty": "Şu anda bu kriterlere uyan teklif yok."
+    },
+    "card": {
+      "verified": "Doğrulandı",
+      "pending": "İncelemede",
+      "moq": "Min. miktar",
+      "leadTime": "Teslim süresi",
+      "request": "Teklif iste",
+      "illustrative": "Temsilî görsel",
+      "yes": "Evet",
+      "no": "Hayır",
+      "photos": "{count, plural, other {# fotoğraf}}"
+    },
+    "banner": {
+      "title": "Tedarikçinizi bulamıyor musunuz?",
+      "body": "İhtiyacınızı yayınlayın: ekibimiz tedarikçiyi sizin için bulup doğrular.",
+      "cta": "İhtiyaç yayınla"
+    },
+    "empty": {
+      "title": "Burada henüz teklif yok",
+      "body": "Bu yönde henüz hiçbir tedarikçi teklif yayınlamadı. İhtiyacınızı yayınlayın: ekibimiz sizin için bir tedarikçi bulup doğrular.",
+      "bodyFiltered": "Aramanıza veya filtrelerinize uyan teklif yok. Filtreleri genişletin ya da ekibimizin sizin için aramasına izin verin.",
+      "see": {
+        "import": "İthalat tekliflerini gör",
+        "export": "İhracat tekliflerini gör"
+      }
+    }
+  },
+  "OfferDetail": {
+    "breadcrumb": "Gezinti yolu",
+    "crumbMarket": "Pazaryeri",
+    "verifiedOn": "{date} tarihinde doğrulandı",
+    "direction": {
+      "import": "Yön: DKC’ye ithalat",
+      "export": "Yön: DKC’den ihracat"
+    },
+    "memberSince": "{year} yılından beri platformda",
+    "showImage": "{n}. görseli göster",
+    "verify": {
+      "title": "Neleri doğruladık",
+      "statusOk": "doğrulandı",
+      "statusTodo": "henüz doğrulanmadı",
+      "legal": {
+        "title": "Yasal varlık",
+        "ok": "Menşe ülkesinin ticaret siciline kayıtlı.",
+        "todo": "Sicil kontrolü sürüyor."
+      },
+      "export": {
+        "title": "Ticari kapasite",
+        "ok": "Lisans ve sevkiyat geçmişi kontrol edildi.",
+        "todo": "Lisans henüz kontrol edilmedi."
+      },
+      "references": {
+        "title": "Müşteri referansları",
+        "ok": "{count, plural, other {# referansla iletişime geçildi}}",
+        "todo": "Henüz doğrulanmış referans yok."
+      },
+      "site": {
+        "title": "Saha ziyareti",
+        "ok": "Ekibimiz saha ziyareti yaptı.",
+        "todo": "Henüz yapılmadı.",
+        "todoAbroad": "Yapılmadı — tedarikçi DKC dışında."
+      },
+      "scope": "Doğrulama her işlemi değil, şirketi kapsar.",
+      "report": "Doğrulama raporunu gör",
+      "method": "Yöntemimiz ayrıntılı olarak",
+      "progress": "{total} noktadan {done} tanesi doğrulandı",
+      "done": "Doğrulandı",
+      "pending": "Yapılacak",
+      "tax": {
+        "title": "Vergi kaydı",
+        "ok": "Vergi kimlik numarası belge üzerinden kontrol edildi.",
+        "todo": "Vergi belgesi henüz kontrol edilmedi."
+      }
+    },
+    "terms": {
+      "title": "Ticari koşullar",
+      "moq": "Minimum miktar",
+      "leadTime": "Teslim süresi",
+      "capacity": "Üretim kapasitesi",
+      "languages": "Diller",
+      "markets": "Hizmet verilen pazarlar",
+      "certifications": "Sertifikalar",
+      "empty": "Tedarikçi henüz koşullarını belirtmedi. Ekibimiz talebinizle birlikte bunları sizin için alır."
+    },
+    "related": "{company} firmasının diğer teklifleri",
+    "request": {
+      "title": "Teklif iste",
+      "step1": "Adım 1/2 — başlamak için kayıt gerekmez.",
+      "step2": "Adım 2/2 — size nasıl ulaşalım?",
+      "quantity": "İstenen miktar",
+      "quantityPlaceholder": "Örn. 12 adet",
+      "deliveryPlace": "Teslim yeri",
+      "deliveryPlacePlaceholder": "Örn. Lubumbashi, Haut-Katanga",
+      "deadline": "Son tarih",
+      "deadlinePlaceholder": "30 gün içinde",
+      "details": "Ayrıntılar (isteğe bağlı)",
+      "detailsPlaceholder": "Teknik özellikler, beklenen standartlar…",
+      "continue": "Devam",
+      "fullName": "Ad soyad",
+      "companyName": "Şirket (isteğe bağlı)",
+      "email": "E-posta",
+      "phone": "Telefon (isteğe bağlı)",
+      "country": "Ülke",
+      "countryPlaceholder": "Bir ülke seçin",
+      "back": "Geri",
+      "send": "Talebi gönder",
+      "sending": "Gönderiliyor…",
+      "errorInvalid": "Alanları kontrol edip tekrar deneyin.",
+      "errorServer": "Talebiniz gönderilemedi. Birazdan tekrar deneyin.",
+      "doneTitle": "Talep gönderildi",
+      "doneBody": "Ekibimiz talebinizi değerlendirip tedarikçiye iletir. 48 iş saati içinde yanıt.",
+      "reference": "Referans:",
+      "privacy": "Tedarikçinin iletişim bilgileri yayınlanmaz. Talebiniz ekibimizce değerlendirilir, ardından iletilir. 48 iş saati içinde yanıt.",
+      "messageSupplier": "Tedarikçiye doğrudan yaz",
+      "support": "Kapsamlı destek mi gerekiyor: gümrük, transit, yerel temsil?",
+      "supportCta": "Destek hizmetlerini gör",
+      "responseTime": "48 iş saati içinde yanıt",
+      "stepNeed": "İhtiyacınız",
+      "stepContact": "Bilgileriniz",
+      "track": "Talebimi takip et"
+    },
+    "about": "Teklif hakkında",
+    "supplier": {
+      "title": "Tedarikçi",
+      "profile": "Profili gör",
+      "report": "Doğrulama raporu"
+    },
+    "preview": {
+      "hidden": "Önizleme — bu ürün gizli. Pazarda görünmüyor; bu sayfayı yalnızca satıcı ve Trade in DRC ekibi görüyor.",
+      "unverified": "Önizleme — bu ürün, şirket doğrulandığında pazarda görünecek. Şimdilik bu sayfayı yalnızca satıcı ve Trade in DRC ekibi görüyor.",
+      "manage": "Bu ürünü yönet"
+    }
+  },
+  "MarketChain": {
+    "breadcrumbLabel": "İçerik yolu",
+    "breadcrumb": {
+      "market": "Pazar yeri",
+      "chain": "Zincir"
+    },
+    "choose": {
+      "title": "Kendiniz seçin",
+      "body": "Doğrulanmış hizmet sağlayıcılara göz atın, kapsamlarını karşılaştırın ve platform üzerinden iletişime geçin.",
+      "cta": "Aşağıdaki listeyi görün"
+    },
+    "delegate": {
+      "title": "Operasyonu ekibimize bırakın",
+      "body": "Teslimata kadar tüm tarafları seçer, doğrular ve koordine ederiz. Ücretli hizmet.",
+      "cta": "Desteği görün"
+    },
+    "context": {
+      "title": "Operasyonunuz için: {name} ({direction})",
+      "import": "ithalat",
+      "export": "ihracat",
+      "body": "Sayfanın altındaki form bu operasyonla önceden doldurulmuştur.",
+      "clear": "Bağlamı kaldır"
+    },
+    "filterLabel": "Sağlayıcıları filtrele",
+    "all": "Tümü",
+    "count": "{count, plural, =0 {Sağlayıcı yok} other {# sağlayıcı}}",
+    "countInstitutions": "{count, plural, =0 {Kurum yok} other {# kurum}}",
+    "sorted": "Kapsama göre sıralı",
+    "badges": {
+      "verified": "Doğrulandı",
+      "pending": "İnceleniyor",
+      "official": "Resmî"
+    },
+    "actions": {
+      "contact": "Platform üzerinden iletişim",
+      "introduce": "Tanıştırma talep et",
+      "procedure": "Prosedürü gör",
+      "add": "Operasyonuma ekle",
+      "added": "Operasyonumda"
+    },
+    "empty": {
+      "title": "Bu filtre için sonuç yok",
+      "body": "Liste doğrulamalar tamamlandıkça büyüyor. İhtiyacınızı anlatın: ekibimiz doğru ortağı bulur ve doğrular.",
+      "reset": "Filtreyi kaldır",
+      "ask": "İhtiyacımı anlat",
+      "noneTitle": "Liste hazırlanıyor"
+    },
+    "request": {
+      "title": "Doğru ortağı bulamıyor musunuz?",
+      "body": "Operasyonu anlatın: ekibimiz sağlayıcıyı belirler, doğrular ve sizi tanıştırır. Bu alanda liste henüz kısaysa en hızlı yol budur.",
+      "sla": "48 iş saati içinde yanıt",
+      "nature": "Operasyon türü",
+      "naturePh": "Örn. çimento ithalatı, 5.000 t",
+      "route": "Güzergâh veya kapsam",
+      "routePh": "Örn. Ankara → Matadi → Kinşasa",
+      "deadline": "Son tarih",
+      "deadlinePh": "30 gün içinde",
+      "name": "Ad soyad",
+      "email": "E-posta",
+      "attached": "{count, plural, other {# sağlayıcı eklendi}}",
+      "remove": "{name} kaldır",
+      "submit": "Talebi gönder",
+      "submitting": "Gönderiliyor…",
+      "successTitle": "Talep gönderildi",
+      "successBody": "Ekibimiz 48 iş saati içinde size dönecek.",
+      "reference": "Referans: {ref}",
+      "invalid": "Lütfen kontrol edin: operasyon türü, ad ve geçerli bir e-posta.",
+      "error": "Bir hata oluştu. Lütfen tekrar deneyin."
+    },
+    "basket": {
+      "label": "Operasyonum",
+      "count": "{count, plural, other {# sağlayıcı ayrıldı}}",
+      "send": "Ekibe gönder",
+      "sendShort": "Gönder",
+      "clear": "Operasyonumu temizle"
+    },
+    "segments": {
       "logistics": {
-        "title": "Lojistik ve Taşımacılık",
-        "desc": "İşinizi ileri taşıyacak lojistik, nakliye ve taşıma acentelerini bulun.",
-        "cta": "Lojistik Ortaklarını Gör"
+        "eyebrow": "Taşımak",
+        "title": "Lojistik ve transit",
+        "question": "Malınızı limandan kim çıkarır ve teslim eder?",
+        "lead": "Nakliye komisyoncuları, taşıyıcılar, konsolidatörler ve antrepolar — koridor koridor.",
+        "chips": {
+          "corridor_matadi": "Matadi koridoru",
+          "corridor_kasumbalesa": "Kasumbalesa koridoru",
+          "corridor_kigali": "Kigali koridoru",
+          "sea": "Deniz yolu",
+          "road": "Kara yolu",
+          "bonded": "Gümrük yetkili"
+        },
+        "facts": {
+          "corridors": "Koridorlar",
+          "modes": "Taşıma türleri",
+          "licence": "Yetki",
+          "storage": "Depolama"
+        }
       },
-      "government": {
-        "title": "Kamu Kurumları",
-        "desc": "Ticaret ve yatırımı kolaylaştıran kamu kurumları ve düzenleyici kuruluşlarla bağlantı kurun.",
-        "cta": "Kamu Kurumlarını Gör"
-      },
-      "public_corp": {
-        "title": "Kamu İşletmeleri",
-        "desc": "Kalkınmayı ve ekonomik büyümeyi yönlendiren kamu işletmeleriyle çalışın.",
-        "cta": "Kamu İşletmelerini Gör"
+      "finance": {
+        "eyebrow": "Finanse etmek",
+        "title": "Finans ve ödeme",
+        "question": "Ödemeyi kim güvenceye alır ve riski kim karşılar?",
+        "lead": "Bankalar, akreditif, teminatlar, kargo sigortası ve kur riskinden korunma.",
+        "chips": {
+          "documentary_credit": "Akreditif",
+          "bank_guarantee": "Banka teminatı",
+          "cargo_insurance": "Kargo sigortası",
+          "fx": "USD/CDF döviz",
+          "import_finance": "İthalat finansmanı"
+        },
+        "facts": {
+          "instruments": "Araçlar",
+          "currencies": "Para birimleri",
+          "sectors": "Finanse edilen sektörler",
+          "lead_time": "İnceleme süresi"
+        }
       },
       "facilitation": {
-        "title": "Ticaret Kolaylaştırma ve Hizmet Sağlayıcılar",
-        "desc": "Uyum, belgelendirme, danışmanlık ve daha fazlasında destek veren profesyonel hizmet sağlayıcılara erişin.",
-        "cta": "Hizmet Sağlayıcıları Gör"
+        "eyebrow": "Uyum sağlamak",
+        "title": "Uyum ve belgeler",
+        "question": "Mal yola çıkmadan sizi kim mevzuata uygun hâle getirir?",
+        "lead": "Kalite kontrol, yükleme öncesi denetim, menşe şahadetnamesi, tarife sınıflandırması ve standartlar.",
+        "chips": {
+          "pre_inspection": "Yükleme öncesi denetim",
+          "origin_certificate": "Menşe şahadetnamesi",
+          "tariff_classification": "Tarife sınıflandırması",
+          "standards_testing": "Standartlar ve testler",
+          "health_products": "Sağlık ürünleri"
+        },
+        "facts": {
+          "accreditations": "Akreditasyonlar",
+          "controls": "Kontrol türleri",
+          "documents": "Düzenlenen belgeler",
+          "lead_time": "Ortalama süre"
+        }
       },
-      "investors": {
-        "title": "Yatırımcılar ve Daha Fazlası",
-        "desc": "Projelerinizi finanse etmek ve büyütmek için yatırımcılar, fonlar ve daha fazla fırsatla bağlantı kurun.",
-        "cta": "Yatırımcıları Gör"
+      "institutions": {
+        "eyebrow": "Yön bulmak",
+        "title": "Kurumlar ve iletişim noktaları",
+        "question": "Hangi kapıyı çalmalı, orada ne alınır?",
+        "lead": "Kamu kurumları, kamu şirketleri, odalar ve federasyonlar — il il.",
+        "facts": {
+          "competence": "Yetki alanı",
+          "obtain": "Orada ne alınır",
+          "province": "İl",
+          "access": "Erişim"
+        }
       }
-    },
-    "why": {
-      "heading": "Neden Trade in DRC Pazar Yeri?",
-      "verified": {
-        "title": "Doğrulanmış ve Güvenilir",
-        "desc": "Güven ve itibarı sağlamak için şirketleri doğruluyoruz."
-      },
-      "growth": {
-        "title": "İş Büyümesi",
-        "desc": "Yeni fırsatlar keşfedin ve ağınızı genişletin."
-      },
-      "targeted": {
-        "title": "Hedefli Bağlantılar",
-        "desc": "İlgili iş ortakları ve karar vericilerle bağlantı kurun."
-      },
-      "secure": {
-        "title": "Güvenli Platform",
-        "desc": "Verileriniz ve işlemleriniz korunur."
-      },
-      "intelligence": {
-        "title": "Pazar İstihbaratı",
-        "desc": "Gerçek verilere, içgörülere ve iş raporlarına erişin."
-      },
-      "reach": {
-        "title": "Küresel Erişim",
-        "desc": "Dünyanın her yerinden iş ortaklarıyla bağlantı kurun."
-      }
-    },
-    "opportunities": {
-      "heading": "Popüler İş Fırsatları",
-      "viewAll": "Tüm fırsatları gör",
-      "empty": "Henüz yayımlanmış fırsat yok. Kısa süre sonra tekrar bakın.",
-      "sector": "Sektör",
-      "need": "İhtiyaç",
-      "location": "Konum",
-      "countryWide": "DRC",
-      "open": "Açık",
-      "viewDetails": "Detayları Gör",
-      "needs": {
-        "tender": "İhale",
-        "offer": "Tedarikçi",
-        "demand": "Alıcı",
-        "quotation": "Teklif",
-        "project_launch": "Proje Ortağı",
-        "investment_call": "Yatırımcı",
-        "partner_search": "İş Ortağı",
-        "ppp": "KÖİ Ortağı"
-      }
-    },
-    "join": {
-      "heading": "Bugün Pazar Yerine Katılın",
-      "body": "Ücretsiz hesabınızı oluşturun ve binlerce işletme ve fırsatla bağlantı kurmaya başlayın.",
-      "benefits": {
-        "profile": "Şirket profilinizi oluşturun",
-        "browse": "Fırsatlara ve ortaklara göz atın",
-        "connect": "Bağlantı kurun ve işinizi büyütün",
-        "intelligence": "Pazar istihbaratına erişin"
-      },
-      "ctaRegister": "Ücretsiz Kaydol",
-      "ctaPremium": "Premium Profili İnceleyin"
-    },
-    "strip": {
-      "companies": "Kayıtlı Şirket",
-      "provinces": "Kapsanan İl",
-      "categories": "Ürün Kategorisi",
-      "opportunities": "İş Fırsatı",
-      "access": "Platform Erişimi",
-      "secure": "Doğrulanmış ve Güvenli"
     }
+  },
+  "Notices": {
+    "breadcrumbLabel": "İçerik yolu",
+    "breadcrumbHome": "Ana sayfa",
+    "breadcrumbCurrent": "Pazar fırsatları",
+    "hero": {
+      "eyebrow": "Pazar fırsatları",
+      "titleLead": "KDC’de ihaleler ve",
+      "titleAccent": "yatırım fırsatları",
+      "lead": "Kamu ve özel ihaleler, ortaklık çağrıları ve finansman arayan projeler; kaynağı ve son tarihiyle yeniden yayımlanır."
+    },
+    "search": {
+      "keyword": "Anahtar kelime",
+      "placeholder": "Anahtar kelime: yol, tıbbi ekipman, kobalt…",
+      "sector": "Sektör",
+      "province": "İl",
+      "deadline": "Son tarih",
+      "within": {
+        "7d": "7 gün içinde",
+        "30d": "30 gün içinde",
+        "90d": "90 gün içinde"
+      },
+      "submit": "Ara"
+    },
+    "trust": {
+      "source": {
+        "title": "Her ilanda kaynak belirtilir",
+        "body": "Asıl yayına bağlantı; asla anonim kopya değil."
+      },
+      "weekly": {
+        "title": "Haftalık güncelleme",
+        "body": "Ekibimiz takip eder, kayıt tarihi gösterilir."
+      },
+      "provinces": {
+        "title": "{count} il",
+        "body": "Ulusal ve il düzeyinde, kamu ve özel pazarlar."
+      }
+    },
+    "tabsLabel": "İlan türleri",
+    "tabs": {
+      "all": "Tümü",
+      "tenders": "İhaleler",
+      "partnership": "Ortaklık",
+      "investment": "Yatırım"
+    },
+    "clearCategory": "Bu filtreyi kaldır",
+    "count": "{count, plural, =0 {Açık ilan yok} other {# açık ilan}}",
+    "sorted": "En yakın son tarihe göre sıralı",
+    "removeFilter": "Filtreyi kaldır: {label}",
+    "clearAll": "Tümünü temizle",
+    "empty": {
+      "title": "Bu kriterlere uyan açık ilan yok",
+      "body": "Aramanızı genişletin veya sektörünüzün yeni ilanlarını her pazartesi alın.",
+      "cta": "Uyarıları al"
+    },
+    "card": {
+      "facts": {
+        "estimate": "Tahmini tutar",
+        "province": "İl",
+        "documents": "Belgeler",
+        "source": "Kaynak"
+      },
+      "sought": "{amount} aranıyor",
+      "undisclosed": "Açıklanmadı",
+      "dossier": "İlan dosyası",
+      "onRequest": "Talep üzerine",
+      "originalNotice": "Asıl ilan",
+      "recorded": "{date} tarihinde kaydedildi",
+      "direct": "Trade in DRC’de yayımlandı",
+      "openEnded": "Son tarih yok",
+      "closesIn": "{days, plural, =0 {Bugün kapanıyor} other {# gün içinde kapanıyor}}",
+      "issuerUnknown": "İlan sahibi belirtilmemiş",
+      "verified": "Doğrulanmış şirket",
+      "view": "Dosyayı gör",
+      "alert": "Bu sektör için uyarı al",
+      "support": "Destek al"
+    },
+    "alerts": {
+      "title": "Sektörünüzün ilanlarını her pazartesi alın",
+      "body": "Sektörlerinizdeki açık ilanlarla haftada tek bir e-posta.",
+      "points": {
+        "one": "Haftada bir e-posta, fazlası değil",
+        "noAccount": "Hesap gerekmez",
+        "unsubscribe": "Tek tıkla abonelikten çıkış"
+      },
+      "email": "İş e-postası",
+      "emailPh": "siz@sirket.com",
+      "sectors": "Takip edilen sektörler",
+      "sectorsHint": "seçilmezse tümü",
+      "submit": "Uyarıları al",
+      "legal": "Adresiniz yalnızca bu uyarıları göndermek için kullanılır.",
+      "successTitle": "Abone oldunuz",
+      "successBody": "{count, plural, =0 {Her pazartesi tüm sektörlerin ilanlarını alacaksınız.} other {Her pazartesi # sektörünüzün ilanlarını alacaksınız.}}",
+      "invalid": "Lütfen e-posta adresini kontrol edin.",
+      "error": "Bir hata oluştu. Lütfen tekrar deneyin."
+    },
+    "submit": {
+      "title": "İhale mi açıyorsunuz?",
+      "body": "İlanı ve dosyayı bize gönderin: 24 saat içinde, ücretsiz olarak logonuz ve iletişim bilgilerinizle yeniden yayımlarız. Hesap gerekmez.",
+      "cta": "İlan gönder",
+      "dialogTitle": "İlan gönder",
+      "dialogBody": "Ekibimiz ilanı kontrol eder ve 24 saat içinde ücretsiz yeniden yayımlar.",
+      "organisation": "Kuruluş",
+      "email": "E-posta",
+      "noticeTitle": "İlanın konusu",
+      "noticeTitlePh": "Örn. 40 km yolun rehabilitasyonu",
+      "link": "İlana veya dosyaya bağlantı",
+      "deadline": "Son tarih",
+      "details": "Ayrıntılar",
+      "detailsPh": "Lotlar, tahmini bütçe, katılım koşulları…",
+      "send": "İlanı gönder",
+      "submitting": "Gönderiliyor…",
+      "successTitle": "İlan alındı",
+      "successBody": "Yayımlamadan önce 24 iş saati içinde size döneceğiz.",
+      "reference": "Referans: {ref}",
+      "invalid": "Lütfen kontrol edin: kuruluş, e-posta, konu (ve https:// ile başlayan bir bağlantı).",
+      "error": "Bir hata oluştu. Lütfen tekrar deneyin."
+    }
+  },
+  "HomeStart": {
+    "commitments": {
+      "label": "Taahhütlerimiz",
+      "checks": {
+        "unit": "noktada",
+        "label": "doğrulama",
+        "body": "Belgeler, iletişim, dosya ve konum kontrol edilir."
+      },
+      "companies": {
+        "unit": "şirket",
+        "label": "doğrulandı",
+        "body": "Her profilde görünür doğrulama rozeti."
+      },
+      "provinces": {
+        "unit": "il",
+        "label": "temsil ediliyor",
+        "body": "KDC’deki 26 ilden; ağ büyüyor."
+      }
+    },
+    "paths": {
+      "eyebrow": "Başlangıç noktası",
+      "title": "Nereden başlamak istersiniz?",
+      "lead": "Her aktör türü için tasarlanmış, aynı titizlikte üç yol.",
+      "advisorQ": "Hangi yol size uygun?",
+      "advisorCta": "Bir danışmanla konuşun",
+      "buy": {
+        "title": "Satın al",
+        "body": "KDC'de veya yurt dışında doğrulanmış bir tedarikçi bulun.",
+        "p1": "Hesap açmadan teklif isteyin",
+        "p2": "4 noktada doğrulanmış tedarikçiler",
+        "p3": "İthalat ve ihracat teklifleri tek yerde",
+        "cta": "Pazarı görün"
+      },
+      "sell": {
+        "badge": "Şirketler için",
+        "title": "Sat",
+        "body": "Ürünlerinizi sergileyin, nitelikli talepler alın.",
+        "p1": "Şirket vitrini ve katalog",
+        "p2": "KDC'den ve dünyadan satın alma talepleri",
+        "p3": "Görünür doğrulama rozeti",
+        "cta": "Şirketimi kaydet"
+      },
+      "invest": {
+        "title": "Yatırım yap",
+        "body": "Taahhütte bulunmadan önce pazarı anlayın.",
+        "p1": "Sektör verileri ve temel göstergeler",
+        "p2": "Yatırım çağrıları ve KÖİ'ler",
+        "p3": "Yerel ortaklarla bağlantı",
+        "cta": "Verileri görün",
+        "secondary": "Yatırım çağrılarını görün"
+      }
+    }
+  },
+  "HomeMarket": {
+    "eyebrow": "Canlı pazar",
+    "title": "Şu anda neler dolaşıyor",
+    "viewAll": "Tüm pazarı görün",
+    "search": {
+      "label": "Pazarda ara",
+      "what": "Ne arıyorsunuz?",
+      "whatPh": "Ürün adı…",
+      "category": "Kategori",
+      "allCategories": "Tüm kategoriler",
+      "direction": "Yön",
+      "allDirections": "İthalat ve ihracat",
+      "import": "KDC'ye ithalat",
+      "export": "KDC'den ihracat",
+      "submit": "Ara"
+    },
+    "trends": "Trendler:",
+    "tabsLabel": "Sektöre göre filtrele",
+    "all": "Tümü",
+    "results": "{count, plural, =0 {Teklif yok} other {# teklif}}",
+    "seeAll": "{count, plural, one {Teklifi görün} other {# teklifin tümünü görün}}",
+    "empty": "Bu sektörde henüz teklif yok."
+  },
+  "HomeDemands": {
+    "eyebrow": "Satın alma talepleri",
+    "title": "Alıcılar şu anda arıyor",
+    "lead": "KDC'deki ve yurt dışındaki alıcıların yayınladığı ihtiyaçlara yanıt verin.",
+    "tabsLabel": "İhtiyaç türü",
+    "tabs": {
+      "demands": "Satın alma talepleri",
+      "notices": "İhaleler ve projeler"
+    },
+    "viewAllDemands": "Tüm talepler",
+    "viewAllNotices": "Tüm ihaleler",
+    "columns": {
+      "request": "Talep",
+      "notice": "İlan",
+      "type": "Tür",
+      "budget": "Bütçe",
+      "location": "Konum",
+      "deadline": "Kapanış"
+    },
+    "closesIn": "{days, plural, =0 {Bugün} other {# gün içinde}}",
+    "urgent": "Acil · {days, plural, =0 {bugün} other {# gün}}",
+    "noDeadline": "Son tarih yok",
+    "undisclosed": "Açıklanmadı",
+    "issuerUnknown": "Yayımcı belirtilmedi",
+    "respond": "Yanıtla",
+    "view": "Görüntüle",
+    "emptyDemands": "Şu anda açık talep yok.",
+    "emptyNotices": "Şu anda açık ihale yok.",
+    "cta": {
+      "title": "Bir ihtiyacınız mı var? Birkaç dakikada yayınlayın.",
+      "body": "Ne aradığınızı anlatın: ekibimiz inceler ve sizi doğrulanmış tedarikçilerle buluşturur.",
+      "secondary": "Destek alın",
+      "primary": "İhtiyaç yayınla"
+    }
+  },
+  "HomeSuppliers": {
+    "eyebrow": "Rehber",
+    "title": "Doğrulanmış tedarikçiler",
+    "lead": "4 noktada kontrol edilmiş, taleplerinize yanıt vermeye hazır şirketler.",
+    "viewAll": "Tüm rehber",
+    "offers": "{count, plural, =0 {Teklif yok} other {# teklif}}",
+    "verified": "Doğrulandı",
+    "premium": "Premium",
+    "illustration": "Görsel"
+  },
+  "DashboardOverview": {
+    "title": "Genel bakış",
+    "signInRequired": "Panelinizi görmek için giriş yapın.",
+    "greeting": "Merhaba {name}, {company} şirketinin son {days} gündeki etkinliği.",
+    "greetingNew": "Merhaba {name}, alanınıza hoş geldiniz.",
+    "periodLabel": "Dönem",
+    "periodDays": "{days} g",
+    "periodCompare": "son {days} gün, önceki {days} günle karşılaştırmalı",
+    "ctaOffer": "Teklif yayınla",
+    "ctaRequest": "Talep yayınla",
+    "visibilityTitle": "Görünürlük",
+    "activityTitle": "Etkinlik",
+    "metricsError": "İstatistikleriniz şu anda yüklenemedi.",
+    "retry": "Tekrar dene",
+    "deltaNew": "Yeni",
+    "deltaFlat": "Sabit",
+    "deltaPoints": "{value} pt",
+    "deltaSr": {
+      "up": "artış",
+      "down": "düşüş",
+      "flat": "değişmedi",
+      "new": "yeni"
+    },
+    "sparklineLabel": "{label}: {days} günlük günlük eğilim",
+    "todoTitle": "Şimdi yapılacaklar",
+    "todoAllDone": "Her şey güncel. İlginizi gerektiren bir şey yok.",
+    "todoMore": "Şirketlerinizde ve mesajlarınızda {count} işlem daha.",
+    "noActionNeeded": "İşlem gerekmiyor",
+    "tasks": {
+      "verification_documents": {
+        "title": "Doğrulama: belgeler eksik",
+        "body": "Profilinin yayınlanması için {company} belgelerini gönderin.",
+        "cta": "Dosyayı tamamla"
+      },
+      "verification_more_info": {
+        "title": "Ek bilgi istendi",
+        "body": "{notes}",
+        "cta": "{company} bilgilerini güncelle"
+      },
+      "verification_rejected": {
+        "title": "Doğrulama reddedildi",
+        "body": "{notes}",
+        "cta": "Düzelt ve yeniden gönder",
+        "resubmitting": "Yeniden gönderiliyor…",
+        "resubmitted": "Doğrulama için yeniden gönderildi.",
+        "resubmitError": "Yeniden gönderim başarısız. Tekrar deneyin."
+      },
+      "verification_pending": {
+        "title": "Doğrulama sürüyor",
+        "body": "Ekibimiz {company} dosyasını inceliyor.",
+        "cta": ""
+      },
+      "messages_awaiting": {
+        "title": "Yanıt bekleyen {count} mesaj",
+        "body": "{days, plural, =0 {En eskisi bugün geldi.} other {En eskisi # gündür bekliyor.}}",
+        "cta": "Mesajları aç"
+      },
+      "responses_new": {
+        "title": "{count} yeni yanıt",
+        "body": "Şirketler bu hafta fırsatlarınıza yanıt verdi.",
+        "cta": "Yanıtları gör"
+      },
+      "profile_incomplete": {
+        "title": "Profil %{percent} tamamlandı",
+        "body": "{first} ve {second} ekleyin.",
+        "bodySingle": "{first} ekleyin.",
+        "cta": "Profili tamamla"
+      },
+      "premium_expiring": {
+        "title": "{days, plural, =0 {Premium: bugün sona eriyor} other {Premium: # gün içinde sona eriyor}}",
+        "body": "{company} görünürlüğünü korumak için yenileyin.",
+        "cta": "Yenile"
+      },
+      "premium_expired": {
+        "title": "Premium sona erdi",
+        "body": "{company} Premium avantajlarını kaybetti.",
+        "cta": "Yeniden etkinleştir"
+      },
+      "verification_approved": {
+        "title": "{company} doğrulandı",
+        "body": "{notes}",
+        "bodyDefault": "Profili artık herkese açık ve doğrulanmış rozetini taşıyor.",
+        "cta": "Dosyayı gör"
+      },
+      "requests_received": {
+        "title": "{count, plural, one {# yeni alıcı talebi} other {# yeni alıcı talebi}}",
+        "body": "Ekibimiz tarafından kontrol edilip iletildi. Alıcı hâlâ ararken yanıt verin.",
+        "cta": "Talepleri gör"
+      }
+    },
+    "missing": {
+      "logo": "logonuzu",
+      "description": "ayrıntılı bir açıklama",
+      "contact": "e-posta ve telefon",
+      "location": "şehrinizi",
+      "website": "web sitenizi",
+      "photos": "2 fotoğraf",
+      "certifications": "sertifikalarınızı",
+      "markets": "pazarlarınızı",
+      "products": "ilk ürününüzü"
+    },
+    "kpi": {
+      "profileViews": "Profil görüntülemeleri",
+      "searchAppearances": "Aramada görünme",
+      "productViews": "Ürün görüntülemeleri",
+      "contactRate": "İletişim oranı",
+      "contactRateFoot": "{views} görüntülemeye {contacts} iletişim talebi",
+      "contactRateNoViews": "Bu dönemde görüntüleme yok: oran ilk ziyaretlerle görünecek.",
+      "responsesReceived": "Alınan yanıtlar",
+      "matchingOpportunities": "Uygun fırsatlar",
+      "matchingFoot": "Sektörlerinizde ve illerinizde açık",
+      "profileViewsYours": "Profilinizin görüntülenmesi",
+      "replyRate": "Tedarikçi yanıt oranı",
+      "replyNone": "Bu oranı ölçmek için bir tedarikçiyle iletişime geçin.",
+      "replyCount": "{started} iletişimden {replied} yanıt",
+      "replyMedian": "Ortanca yanıt süresi: {hours} sa"
+    },
+    "status": {
+      "published": "Yayında",
+      "pending_review": "İncelemede",
+      "rejected": "Reddedildi",
+      "draft": "Taslak",
+      "expired": "Süresi doldu"
+    },
+    "myOpportunities": {
+      "title": {
+        "offers": "Fırsatlarım",
+        "requests": "Açık taleplerim"
+      },
+      "summaryLabel": "Duruma göre dağılım",
+      "all": "Tümü {count}",
+      "seeAll": "Fırsatlarımı yönet",
+      "empty": {
+        "offers": "Henüz bir fırsat yayınlamadınız.",
+        "requests": "Henüz bir talep yayınlamadınız."
+      },
+      "emptyCta": {
+        "offers": "Fırsat yayınla",
+        "requests": "Talep yayınla"
+      },
+      "colTitle": "Fırsat",
+      "colStatus": "Durum",
+      "colResponses": "Yanıtlar",
+      "colDate": "Yayın tarihi",
+      "reason": "Neden: {reason}",
+      "fix": "Düzelt",
+      "new": "{count} yeni",
+      "summary": {
+        "published": "Yayında {count}",
+        "pending_review": "İncelemede {count}",
+        "rejected": "Reddedildi {count}"
+      }
+    },
+    "recommended": {
+      "title": "Size yeni fırsatlar",
+      "titleDrc": "KDC'de size uygun fırsatlar",
+      "subtitle": "Sektör: {sector}",
+      "provincesLabel": "Hedef illeriniz",
+      "seeAll": "{count, plural, one {Fırsatı gör} other {# fırsatın tümünü gör}}",
+      "empty": "Şu anda sektörünüzde açık fırsat yok.",
+      "browse": "Tüm fırsatlara göz at",
+      "closes": "Kapanış {date}",
+      "noDeadline": "Son tarih yok",
+      "colTitle": "Fırsat",
+      "colType": "Tür",
+      "colProvince": "İl",
+      "colDeadline": "Kapanış"
+    },
+    "topProducts": {
+      "title": "En çok görüntülenen ürünleriniz",
+      "all": "Tüm ürünler",
+      "empty": "Bu dönemde ürün görüntülemesi yok.",
+      "emptyCta": "Ürün ekle veya geliştir",
+      "viewsSr": "görüntüleme:"
+    },
+    "search": {
+      "title": "Alıcıların aramada bulduğu",
+      "subtitle": "Sonuçlarda en çok gösterilen şirketiniz ve ürünleriniz",
+      "stats": "İstatistikler",
+      "empty": "Bu dönemde henüz aramada görünmediniz.",
+      "appearancesSr": "görünme"
+    },
+    "suppliers": {
+      "title": "Size uygun doğrulanmış tedarikçiler",
+      "directory": "Rehber",
+      "empty": "Sektörünüzde henüz doğrulanmış tedarikçi yok.",
+      "browse": "Rehbere göz at",
+      "verified": "Doğrulandı"
+    },
+    "market": {
+      "title": "Piyasa takibi",
+      "dataHub": "Data Hub",
+      "empty": "Henüz yayınlanmış piyasa verisi yok.",
+      "latestReport": "Son yayınlanan rapor"
+    },
+    "greetingTime": {
+      "morning": "Günaydın, {name}",
+      "afternoon": "İyi günler, {name}",
+      "evening": "İyi akşamlar, {name}"
+    },
+    "greetingSub": "{company} şirketinin son {days} gündeki etkinliği.",
+    "greetingNewSub": "Şirket alanınıza hoş geldiniz.",
+    "vsPrevious": "önceki döneme göre",
+    "chart": {
+      "titleVitrine": "Vitrininizin görünürlüğü",
+      "titleProfile": "Profilinizin görüntülenmesi",
+      "totalLabel": "dönemdeki görüntüleme",
+      "legend": "Açıklama",
+      "weekOf": "{date} haftası",
+      "colWeek": "Hafta",
+      "colDay": "Gün",
+      "avgPerDay": "Günlük ortalama",
+      "bestDay": "En iyi gün",
+      "bestWeek": "En iyi hafta",
+      "share": "“{label}” payı",
+      "activeDays": "Görüntülenen günler"
+    },
+    "onboarding": {
+      "eyebrow": "Başlangıç",
+      "title": "Trade in DRC'ye hoş geldiniz",
+      "subtitle": "Şirketinizin alıcılar ve ortaklar tarafından görülmesi için dört adım. İstediğiniz zaman durup kaldığınız yerden devam edebilirsiniz.",
+      "ringCaption": "{total} adımdan {done} tanesi tamamlandı",
+      "progressTitle": "Başlangıç adımlarını tamamlayın",
+      "progressSub": "{total} adımdan {done} tanesi tamamlandı",
+      "stepLabel": "Adım {n}",
+      "stateDone": "Tamamlandı",
+      "stateUpcoming": "Sonra",
+      "doneSr": "Tamamlandı:",
+      "currentSr": "Geçerli adım:",
+      "upcomingSr": "Sıradaki:",
+      "benefitsTitle": "Yayına girdiğinizde elde ettikleriniz",
+      "benefits": {
+        "visible": {
+          "title": "Herkese açık profil",
+          "body": "Şirketiniz rehberde ve aramada görünür."
+        },
+        "verified": {
+          "title": "Doğrulanmış rozeti",
+          "body": "Alıcıların ilk baktığı güven işareti."
+        },
+        "stats": {
+          "title": "İstatistikleriniz",
+          "body": "Görüntülenmeler, aramalar ve iletişim talepleri burada izlenir."
+        }
+      },
+      "steps": {
+        "account": {
+          "title": "Hesabınızı oluşturun",
+          "body": "Şirket alanına erişiminiz.",
+          "done": "Hesap oluşturuldu ve e-posta onaylandı.",
+          "cta": "Hesabımı oluştur",
+          "time": "1 dk"
+        },
+        "company": {
+          "title": "Şirketinizi kaydedin",
+          "body": "Ad, sektör, ülke ve iletişim.",
+          "done": "Şirket kaydedildi.",
+          "cta": "Şirketimi kaydet",
+          "time": "Yaklaşık 5 dk"
+        },
+        "documents": {
+          "title": "Şirketi doğrulatın",
+          "body": "Profili yayınlamak için belgelerinizi gönderin.",
+          "done": "Belgeler gönderildi.",
+          "cta": "Belgelerimi gönder",
+          "time": "Yaklaşık 5 dk"
+        },
+        "product": {
+          "title": "İlk ürünü yayınlayın",
+          "body": "Pazar yerinde görünmek için.",
+          "done": "İlk ürün yayınlandı.",
+          "cta": "Ürün ekle",
+          "time": "Yaklaşık 3 dk"
+        }
+      }
+    }
+  },
+  "HomeChain": {
+    "eyebrow": "Ekosistem",
+    "title": "Tam zincir",
+    "lead": "Sınır ötesi bir satış, onu taşıyan meslekler olmadan ayakta kalmaz.",
+    "providers": "{count, plural, =0 {Hizmet sağlayıcı yok} other {# hizmet sağlayıcı}}",
+    "institutions": "{count} kurum",
+    "soon": "Rehber hazırlanıyor"
+  },
+  "HomeWhy": {
+    "sectorsLabel": "Kilit sektörler"
+  },
+  "HomeSteps": {
+    "step": "Adım",
+    "cta": "Şirketimi kaydet",
+    "secondary": "Doğrulama yaklaşımımız"
+  },
+  "CompanyVerification": {
+    "back": "Şirketlerim",
+    "title": "Şirketimi doğrulat",
+    "subtitle": "{company} için belgeleri yükleyin, ardından dosyayı ekibimize gönderin.",
+    "notFound": "Bu şirket bulunamadı veya size ait değil.",
+    "status": {
+      "pending_documents": "Belgeler gönderilecek",
+      "pending": "İnceleniyor",
+      "more_info": "Ek bilgi istendi",
+      "verified": "Doğrulandı",
+      "rejected": "Dosya reddedildi"
+    },
+    "phases": {
+      "documents": {
+        "title": "Belgeleriniz",
+        "body": "Dosyaları siz yüklersiniz"
+      },
+      "review": {
+        "title": "Ekibimizin incelemesi",
+        "body": "Dosyayı kontrol ederiz"
+      },
+      "published": {
+        "title": "Profil yayında",
+        "body": "Alıcılar görebilir"
+      }
+    },
+    "docsTitle": "Dosyadaki belgeler",
+    "formats": "PDF, JPG veya PNG, dosya başına en fazla 5 MB.",
+    "requiredProgress": "Zorunlu belgeler: {done}/{total}",
+    "required": "Zorunlu",
+    "optional": "İsteğe bağlı",
+    "docs": {
+      "business_license": {
+        "title": "RCCM belgesi",
+        "hint": "Ticaret ve Taşınır Kredi Sicili kaydı.",
+        "titleIntl": "Kuruluş belgesi",
+        "hintIntl": "Şirketin kendi ülkesindeki resmi tescil belgesi."
+      },
+      "tax_registration": {
+        "title": "NIF belgesi",
+        "hint": "Vergi kimlik numaranızı gösteren belge.",
+        "titleIntl": "Vergi belgesi",
+        "hintIntl": "Varsa, ülkenizden bir vergi kimlik belgesi."
+      },
+      "proof_of_address": {
+        "title": "Adres belgesi",
+        "hint": "Şirket adına kira sözleşmesi, fatura veya yazı."
+      },
+      "additional_document": {
+        "title": "Diğer belge",
+        "hint": "Lisans, sertifika veya dosyaya yararlı herhangi bir belge."
+      }
+    },
+    "docStatus": {
+      "pending": "Alındı",
+      "approved": "Kabul edildi",
+      "rejected": "Reddedildi"
+    },
+    "choose": "Dosya seç",
+    "addAnother": "Ekle",
+    "view": "Görüntüle",
+    "viewFile": "{file} dosyasını görüntüle",
+    "remove": "Kaldır",
+    "removeFile": "{file} dosyasını kaldır",
+    "uploading": "{file} yükleniyor…",
+    "uploaded": "Belge eklendi.",
+    "uploadError": "Belge yüklenemedi. Lütfen tekrar deneyin.",
+    "removed": "Belge kaldırıldı.",
+    "removeError": "Belge kaldırılamadı.",
+    "viewError": "Bu belge açılamadı.",
+    "loadError": "Belgeleriniz yüklenemedi.",
+    "retry": "Tekrar dene",
+    "missing": "Eksik: {list}.",
+    "ready": "Dosya tamam, gönderilmeye hazır.",
+    "submit": "Doğrulamaya gönder",
+    "resubmit": "Doğrulamaya yeniden gönder",
+    "submitting": "Dosya gönderiliyor…",
+    "submitted": "Dosya gönderildi. Ekibimiz inceleyecek.",
+    "submitMissing": "Zorunlu bir belge hâlâ eksik.",
+    "submitError": "Dosya gönderilemedi. Lütfen tekrar deneyin.",
+    "notesLabel": "Ekibimizin mesajı:",
+    "banner": {
+      "pending": {
+        "title": "Dosya inceleniyor",
+        "body": "Karar verilir verilmez bilgilendirileceksiniz.",
+        "cta": "Bu arada ürün ekleyin"
+      },
+      "verified": {
+        "title": "Şirket doğrulandı",
+        "body": "Profiliniz yayında ve doğrulanmış rozetini taşıyor.",
+        "cta": "Herkese açık profili gör"
+      },
+      "rejected": {
+        "title": "Dosya reddedildi",
+        "body": "Aşağıdaki belgeleri düzeltin ve dosyayı yeniden gönderin."
+      },
+      "moreInfo": {
+        "title": "Ek bilgi isteniyor",
+        "body": "İstenenleri ekleyin ve dosyayı yeniden gönderin."
+      }
+    },
+    "aside": {
+      "title": "Doğrulamanın sağladıkları",
+      "items": {
+        "public": {
+          "title": "Herkese açık profil",
+          "body": "Şirketiniz rehberde ve aramada görünür hale gelir."
+        },
+        "badge": {
+          "title": "Doğrulanmış rozeti",
+          "body": "Profilinizde ve ürünlerinizde görünen bir güven işareti."
+        },
+        "contact": {
+          "title": "İletişim talepleri",
+          "body": "Alıcılar profiliniz üzerinden size yazabilir."
+        }
+      },
+      "delay": "Kontrol, dosya gönderildikten sonra ekibimizden biri tarafından yapılır.",
+      "privacy": "Belgeleriniz gizli kalır: yalnızca siz ve doğrulama ekibimiz erişebilir."
+    },
+    "legal": {
+      "title": "Yasal kimlik",
+      "subtitle": "Belgelerinizde yer alan numaralar. Ekibimiz bunları yüklediğiniz dosyalarla karşılaştırır.",
+      "save": "Kaydet",
+      "saving": "Kaydediliyor…",
+      "saved": "Yasal kimlik kaydedildi.",
+      "saveError": "Kaydedilemedi. Lütfen tekrar deneyin.",
+      "unsaved": "Kaydedilmemiş değişiklikler.",
+      "hint": "Yıldızla işaretli alanlar dosyayı göndermek için gereklidir.",
+      "draft": {
+        "restored": "Geçen seferki kaydedilmemiş değişiklikleriniz geri yüklendi. Korumak için kaydedin.",
+        "discard": "Bu değişiklikleri sil",
+        "kept": "Kaydedene kadar bu cihazda saklanır."
+      }
+    },
+    "missingLegal": "Zorunlu yasal kimlik numaralarını doldurup kaydedin.",
+    "submitMissingLegal": "Yasal kimlikte zorunlu bir numara eksik.",
+    "timeline": {
+      "title": "Dosya takibi",
+      "empty": "Henüz bir olay yok.",
+      "events": {
+        "submitted": "Dosya gönderildi",
+        "resubmitted": "Dosya yeniden gönderildi",
+        "approved": "Şirket doğrulandı",
+        "rejected": "Dosya reddedildi",
+        "more_info_requested": "Ek bilgi istendi"
+      }
+    },
+    "docRefusedReason": "Ret gerekçesi:",
+    "teamMessage": {
+      "title": "Ekibimizin mesajı"
+    }
+  },
+  "NotFound": {
+    "metaTitle": "Sayfa bulunamadı",
+    "eyebrow": "Hata 404",
+    "title": "Bu sayfa bulunamıyor",
+    "body": "Adres yanlış yazılmış olabilir ya da sayfa taşınmış veya kaldırılmış olabilir. Sitede arama yapın veya aşağıdan bir bölüm seçin.",
+    "searchLabel": "Sitede ara",
+    "searchPlaceholder": "Bir şirket, bir ürün, bir fırsat…",
+    "searchButton": "Ara",
+    "home": "Ana sayfaya dön",
+    "back": "Önceki sayfa",
+    "linksTitle": "Buradan nereye",
+    "links": {
+      "market": {
+        "title": "Pazar",
+        "body": "Doğrulanmış şirketlerin ürün ve teklifleri."
+      },
+      "companies": {
+        "title": "Şirketler",
+        "body": "Doğrulanmış şirketler rehberi."
+      },
+      "opportunities": {
+        "title": "Fırsatlar",
+        "body": "Şu anda açık olan talepler ve çağrılar."
+      },
+      "contact": {
+        "title": "İletişim",
+        "body": "Hangi sayfayı aradığınızı bize bildirin."
+      }
+    }
+  },
+  "ReceivedRequests": {
+    "title": "Alınan talepler",
+    "subtitle": "Alıcıların şirketinize gönderdiği teklif ve iletişim talepleri. Ekibimiz her birini size iletmeden önce kontrol eder.",
+    "checkedNote": "Aşağıdaki her talep size ulaşmadan önce TradeInDRC ekibi tarafından kontrol edildi.",
+    "loadError": "Talepleriniz yüklenemedi. Sayfayı yenileyin.",
+    "mailSubject": "TradeInDRC üzerindeki {reference} numaralı talebiniz — {subject}",
+    "kind": {
+      "quote": "Teklif talebi",
+      "contact": "İletişim talebi"
+    },
+    "empty": {
+      "title": "Henüz talep yok",
+      "body": "Bir alıcı ürünlerinizden biri için teklif istediğinde veya şirketinizle iletişime geçtiğinde, ekibimiz talebi kontrol eder ve burada görünür.",
+      "cta": "Ürünlerimi gör",
+      "steps": {
+        "buyer": {
+          "title": "Alıcı yazar",
+          "body": "Ürünlerinizden biri için teklif talebi veya şirketinize bir mesaj."
+        },
+        "team": {
+          "title": "Ekibimiz kontrol eder",
+          "body": "Talep size ulaşmadan önce ciddi olduğundan emin oluruz."
+        },
+        "you": {
+          "title": "Siz yanıtlarsınız",
+          "body": "Talep, alıcının iletişim bilgileriyle birlikte burada görünür."
+        }
+      }
+    },
+    "card": {
+      "new": "Yeni",
+      "receivedOn": "{date} tarihinde alındı",
+      "forCompany": "{company} için",
+      "productRemoved": "Ürün katalogdan kaldırıldı",
+      "quantity": "Miktar",
+      "deliveryPlace": "Teslimat yeri",
+      "deadline": "Termin",
+      "message": "Alıcının mesajı",
+      "noMessage": "Alıcı mesaj bırakmadı.",
+      "buyer": "Alıcı",
+      "reply": "E-posta ile yanıtla",
+      "interestTitle": "Aranan ilişki: {interest}"
+    },
+    "views": {
+      "label": "Talepleri filtrele",
+      "all": "Tümü",
+      "new": "Yeni",
+      "quote": "Teklif",
+      "contact": "İletişim"
+    },
+    "searchPlaceholder": "Alıcı veya ürün ara…",
+    "noMatch": "Bu aramayla eşleşen talep yok.",
+    "clear": "Filtreleri temizle",
+    "detail": {
+      "back": "Tüm talepler",
+      "request": "Talep",
+      "contact": "Alıcının iletişim bilgileri",
+      "call": "Ara",
+      "copyEmail": "E-posta adresini kopyala",
+      "emailCopied": "E-posta adresi kopyalandı.",
+      "copyFailed": "Adres kopyalanamadı.",
+      "viewProduct": "Ürün sayfasını gör",
+      "checked": "Size iletilmeden önce TradeInDRC ekibi tarafından kontrol edildi."
+    }
+  },
+  "ProductPricing": {
+    "units": {
+      "kg": "kg",
+      "tonne": "ton",
+      "litre": "litre",
+      "piece": "adet",
+      "bag": "çuval",
+      "carton": "koli",
+      "pallet": "palet",
+      "container": "konteyner",
+      "m3": "m³",
+      "m2": "m²"
+    },
+    "quantity": {
+      "kg": "{count, plural, other {# kg}}",
+      "tonne": "{count, plural, other {# ton}}",
+      "litre": "{count, plural, other {# litre}}",
+      "piece": "{count, plural, other {# adet}}",
+      "bag": "{count, plural, other {# çuval}}",
+      "carton": "{count, plural, other {# koli}}",
+      "pallet": "{count, plural, other {# palet}}",
+      "container": "{count, plural, other {# konteyner}}",
+      "m3": "{count, plural, other {# m³}}",
+      "m2": "{count, plural, other {# m²}}"
+    },
+    "price": "Fiyat",
+    "minOrder": "Minimum sipariş",
+    "perUnit": "/ {unit}",
+    "minShort": "Min. {quantity}",
+    "onRequest": "Fiyat talep üzerine"
+  },
+  "RequestTracking": {
+    "metaTitle": "Talebimi takip et",
+    "title": "Talebimi takip et",
+    "subtitle": "Gönderimden sonra aldığınız referansı ve formda kullandığınız e-posta adresini girin.",
+    "reference": "Referans",
+    "referencePlaceholder": "TIDRC-PR-2026-000000",
+    "email": "E-posta adresi",
+    "emailPlaceholder": "ad@sirket.com",
+    "submit": "İlerleyişi gör",
+    "searching": "Aranıyor…",
+    "invalid": "Referansı (TIDRC-PR-yıl-numara) ve e-posta adresini kontrol edin.",
+    "notFound": "Bu referans ve e-posta adresiyle eşleşen bir talep yok.",
+    "serverError": "Takip şu anda kullanılamıyor. Biraz sonra tekrar deneyin.",
+    "resultTitle": "Talep {reference}",
+    "sentOn": "{date} tarihinde gönderildi",
+    "aboutProduct": "Ürün: {product}",
+    "aboutCompany": "Gönderildiği şirket: {company}",
+    "steps": {
+      "received": {
+        "title": "Talep alındı",
+        "body": "Talebiniz kaydedildi."
+      },
+      "review": {
+        "title": "Ekibimizin incelemesi",
+        "body": "Talebinizi kontrol ediyor ve doğru muhatapları arıyoruz."
+      },
+      "forwarded": {
+        "title": "Tedarikçiye iletildi",
+        "body": "Tedarikçi talebinizi ve iletişim bilgilerinizi aldı. Size doğrudan yanıt verecek.",
+        "pending": "Talebiniz, ekibimiz kontrol eder etmez tedarikçiye iletilecek."
+      },
+      "outcome": {
+        "title": "Talep sonuçlandı",
+        "body": "Ekibimiz talebinizle ilgili işlemleri tamamladı.",
+        "pending": "Talebiniz işleniyor. İşlem tamamlandığında bu adım işaretlenecek."
+      }
+    },
+    "declined": "Talebiniz kabul edilemedi. Ekibimiz nedenini açıklamak için size yazdı veya yazacak.",
+    "state": {
+      "done": "Tamamlandı",
+      "current": "Sürüyor",
+      "upcoming": "Sırada"
+    },
+    "another": "Başka bir talebi takip et",
+    "newRequest": "Yeni bir talep gönder",
+    "help": "Talebinizle ilgili bir sorunuz mu var?",
+    "contact": "Bize ulaşın"
+  },
+  "RequestEmail": {
+    "subject": "{reference} numaralı talebinizi aldık",
+    "title": "Talebinizi aldık",
+    "greeting": "Merhaba {name},",
+    "received": "TradeInDRC'yi tercih ettiğiniz için teşekkürler. Talebiniz kaydedildi ve ekibimiz inceleyecek.",
+    "next": "2-3 iş günü içinde size döneceğiz.",
+    "keepReference": "Referansınızı saklayın: bu e-posta adresiyle birlikte talebinizi takip etmenizi sağlar.",
+    "referenceLabel": "Referans",
+    "summaryLabel": "İhtiyacınız",
+    "trackCta": "Talebimi takip et",
+    "signature": "TradeInDRC ekibi — bu e-posta, sitemizden gönderilen bir talep üzerine gönderilmiştir."
   }
 }

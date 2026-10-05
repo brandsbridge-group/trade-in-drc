@@ -10,23 +10,23 @@ interface ProfileCardProps {
 }
 
 /**
- * Shared white bordered card used across every design-5 profile section. Keeps
- * the border/radius/shadow/padding tokens in one place so the dossier reads as
- * one uniform card grid on the light canvas.
+ * Shared white card used by every section of the public company page. Keeps
+ * the radius, ring and padding in one place so the page reads as one uniform
+ * set of cards on the light canvas.
  */
 export function ProfileCard({ id, title, action, className, children }: ProfileCardProps) {
   return (
     <section
       id={id}
       className={cn(
-        "scroll-mt-24 rounded-lg border border-market-navy/10 bg-white p-4 shadow-sm sm:p-5",
+        "scroll-mt-24 rounded-2xl bg-white p-5 ring-1 ring-slate-200/70 sm:p-6",
         className,
       )}
     >
       {(title || action) && (
-        <div className="mb-3 flex items-center justify-between gap-3">
+        <div className="mb-4 flex items-center justify-between gap-3">
           {title && (
-            <h2 className="font-display text-base font-semibold text-market-navy">{title}</h2>
+            <h2 className="font-display text-lg font-semibold text-market-navy">{title}</h2>
           )}
           {action}
         </div>

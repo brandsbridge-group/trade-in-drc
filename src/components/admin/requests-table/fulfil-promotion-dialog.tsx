@@ -19,7 +19,7 @@ import { formatPlanPrice, findPlan } from "@/config/promotion-plans";
 import {
   convertPromotionLead,
   searchCompaniesForPromotion,
-} from "@/app/[locale]/admin/requests/convert-promotion-actions";
+} from "@/app/[locale]/console/requests/convert-promotion-actions";
 import type { AdminRequestRow } from "./shared";
 
 interface CompanyOption {

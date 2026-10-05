@@ -7,6 +7,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { COMPANY_STATUS, VERIFICATION_TIER } from "@/constants/status";
 import { HOME_COUNTRY } from "@/config/geo";
 import { toExternalHref } from "@/lib/url/external-href";
+import { isAdmin } from "@/constants/roles";
 import {
   REGISTRATION_PROFILES,
   DRC_INTERESTS,
@@ -17,7 +18,6 @@ import {
   OPPORTUNITY_INTERESTS,
   PREFERRED_CONTACTS,
 } from "./constants";
-import { coercePlanForProfile } from "./types";
 import type { RegisterResult, RegisterSubmitPayload } from "./types";
 
 type ParsedPayload = z.infer<typeof payloadSchema>;
@@ -26,19 +26,24 @@ const optional = z.string().trim().max(300).optional().or(z.literal(""));
 
 const payloadSchema = z
   .object({
-    plan: z.enum(["free", "verified", "premium"]),
+    // The plan is never chosen in the short form (upgrades happen from the
+    // dashboard); accepted for payload compatibility, always stored as free.
+    plan: z.enum(["free", "verified", "premium"]).optional(),
     data: z.object({
       profile: z.enum(REGISTRATION_PROFILES),
       country: z.string().trim().min(2).max(120),
       companyLegalName: z.string().trim().min(2).max(200),
       tradingName: optional,
-      rccmNumber: z.string().trim().min(1).max(80),
+      // Verification fields: collected later by the dashboard's "Get
+      // verified" action, so optional at creation.
+      rccmNumber: optional,
       // DRC-only registries — enforced for Congolese applicants below.
       nationalId: z.string().trim().max(80).optional().or(z.literal("")),
       nif: z.string().trim().max(80).optional().or(z.literal("")),
-      yearEstablished: z.string().trim().min(4).max(4),
-      legalForm: z.enum(LEGAL_FORMS),
-      employees: z.enum(EMPLOYEE_RANGES),
+      // Profile fields: collected later by "Complete your profile".
+      yearEstablished: z.string().trim().length(4).optional().or(z.literal("")),
+      legalForm: z.enum(LEGAL_FORMS).optional().or(z.literal("")),
+      employees: z.enum(EMPLOYEE_RANGES).optional().or(z.literal("")),
       sectorId: dbId(),
       productsServices: z.string().trim().max(2000).optional().or(z.literal("")),
       province: z.string().trim().max(80).optional().or(z.literal("")),
@@ -49,9 +54,9 @@ const payloadSchema = z
       phone: z.string().trim().min(3).max(40),
       altPhone: z.string().trim().max(40).optional().or(z.literal("")),
       contactPerson: z.string().trim().min(2).max(160),
-      jobTitle: z.string().trim().min(1).max(160),
+      jobTitle: z.string().trim().max(160).optional().or(z.literal("")),
       preferredContact: z.enum(PREFERRED_CONTACTS).optional().or(z.literal("")),
-      languages: z.array(z.enum(SPOKEN_LANGUAGES)).min(1),
+      languages: z.array(z.enum(SPOKEN_LANGUAGES)).default([]),
       interests: z.array(z.enum(OPPORTUNITY_INTERESTS)).default([]),
       interestOther: z.string().trim().max(300).optional().or(z.literal("")),
       // International-only (customer design 2026-07-28); empty for Congolese.
@@ -63,103 +68,53 @@ const payloadSchema = z
       targetProvinces: z.array(z.string().trim().max(80)).max(30).default([]),
       entryTimeline: z.enum(ENTRY_TIMELINES).optional().or(z.literal("")),
       marketInterestNotes: z.string().trim().max(3000).optional().or(z.literal("")),
-      rccmCertName: z.string().trim().min(1).max(260),
+      rccmCertName: z.string().trim().max(260).optional().or(z.literal("")),
       nifDocName: z.string().trim().max(260).optional().or(z.literal("")),
       logoName: z.string().trim().max(260).optional().or(z.literal("")),
       additionalName: z.string().trim().max(260).optional().or(z.literal("")),
     }),
   })
-  // Each profile enforces its own required set. The profile is the applicant's
-  // explicit declaration on the chooser cards — not inferred from country, so a
-  // DRC-registered subsidiary of a foreign group can still declare international.
+  // Short form: only location differs per profile. Congolese companies pick
+  // a province + city; international ones give their head-office city.
   .superRefine((val, ctx) => {
     const d = val.data;
-    if (d.profile === "international") {
-      for (const key of ["headOffice", "entryTimeline", "marketInterestNotes"] as const) {
-        if (!String(d[key] ?? "").trim()) {
-          ctx.addIssue({
-            code: z.ZodIssueCode.custom,
-            path: ["data", key],
-            message: `${key} is required for an international registration`,
-          });
-        }
-      }
-      if (d.drcInterests.length === 0) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          path: ["data", "drcInterests"],
-          message: "Select at least one DRC market interest",
-        });
-      }
-      return;
-    }
-    if (d.interests.length === 0) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        path: ["data", "interests"],
-        message: "Select at least one opportunity of interest",
-      });
-    }
-    if (val.data.country !== HOME_COUNTRY) return;
-    const required: (keyof typeof val.data)[] = [
-      "nationalId",
-      "nif",
-      "province",
-      "city",
-      "nifDocName",
-    ];
+    const required: (keyof typeof d)[] =
+      d.profile === "congolese" && d.country === HOME_COUNTRY
+        ? ["province", "city"]
+        : ["city"];
     for (const key of required) {
-      if (!String(val.data[key] ?? "").trim()) {
+      if (!String(d[key] ?? "").trim()) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
           path: ["data", key],
-          message: `${key} is required for companies registered in the DRC`,
+          message: `${key} is required`,
         });
       }
     }
   });
 
 /**
- * Compose a human-readable notes block appended to `description` so admins
- * scanning the pending company at /admin/companies see the legal identity and
- * positioning at a glance (the structured copy lives in verification_summary).
+ * `description` is the PUBLIC pitch shown on the company profile, so it holds
+ * only what the owner wrote about their activity. It used to carry an
+ * "— Registration intake —" block (legal name, contact person, DRC interests)
+ * for reviewers: that leaked the contact's name onto the public page and made
+ * an empty profile look described. Reviewers read the same data, structured,
+ * from `verification_summary.registration_intake`.
  */
-function buildDescription(p: ParsedPayload): string {
-  const d = p.data;
-  const lines = [
-    d.productsServices?.trim() ? d.productsServices.trim() : null,
-    "",
-    "— Registration intake —",
-    `Chosen tier: ${p.plan}`,
-    `Legal name: ${d.companyLegalName}`,
-    d.tradingName ? `Trading name: ${d.tradingName}` : null,
-    `RCCM: ${d.rccmNumber}`,
-    `National ID: ${d.nationalId}`,
-    `NIF: ${d.nif}`,
-    `Year established: ${d.yearEstablished}`,
-    `Legal form: ${d.legalForm}`,
-    `Employees: ${d.employees}`,
-    `Contact: ${d.contactPerson} (${d.jobTitle})`,
-    `Languages: ${d.languages.join(", ")}`,
-    `Opportunities: ${d.interests.join(", ")}${d.interestOther ? ` — ${d.interestOther}` : ""}`,
-    d.altPhone ? `Alt phone: ${d.altPhone}` : null,
-    `Documents: RCCM="${d.rccmCertName}", NIF="${d.nifDocName}"${d.logoName ? `, Logo="${d.logoName}"` : ""}${d.additionalName ? `, Extra="${d.additionalName}"` : ""}`,
-  ].filter((l) => l !== null);
-  return lines.join("\n");
+function buildDescription(d: ParsedPayload["data"]): string | null {
+  return d.productsServices?.trim() || null;
 }
 
 /**
- * Final submit for the register-company wizard (customer design 6).
+ * Submit of the short, signed-in-only company form.
  *
- * Auth is required: unauthenticated callers get {ok:false, error:"auth"} and the
- * UI routes them to /login?redirect=/register-company. Authenticated callers get
- * a `companies` row inserted via the admin client (owner_id = user, status
- * pending, verification_tier none — admins drive the actual tier later). The
- * DRC-specific legal identifiers, positioning, chosen tier and uploaded document
- * FILE NAMES are stored in `verification_summary.registration_intake` (JSON) and
- * mirrored into `description` so they are visible at /admin/companies and
- * /admin/verifications. The document BINARIES are uploaded separately by the
- * client immediately after this action resolves — see upload-documents.ts.
+ * The form is never rendered without a session (register-company page +
+ * ProfileGate), so this has a single path: insert a `companies` row via the
+ * admin client with owner_id = the caller, status `pending_documents`, plan
+ * free. There is deliberately no one-company-per-account check. The
+ * no-session guard below stays as defence in depth ({ok:false, error:"auth"}).
+ * Legal identifiers, documents and plan are added later from the dashboard;
+ * the intake JSON keeps their keys (null) so admin screens read one shape.
  */
 export async function registerCompany(
   input: RegisterSubmitPayload
@@ -192,7 +147,8 @@ async function doRegisterCompany(
     return { ok: false, error: "invalid", fields };
   }
   const { data } = parsed.data;
-  const plan = coercePlanForProfile(data.profile, parsed.data.plan);
+  // Plans are upgraded from the dashboard, never at creation.
+  const plan = "free" as const;
 
   // Require an authenticated session (RLS-independent gate).
   const supabase = await createServerSupabaseClient();
@@ -201,24 +157,34 @@ async function doRegisterCompany(
   } = await supabase.auth.getUser();
   if (!user) return { ok: false, error: "auth" };
 
+  // Staff accounts run the console; they never own a company (the page already
+  // redirects them — this is the gate that holds if it is bypassed).
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("account_type, staff_role, role")
+    .eq("id", user.id)
+    .maybeSingle();
+  if (isAdmin(profile)) return { ok: false, error: "staff" };
+
   const admin = createAdminClient();
   const { data: row, error } = await admin
     .from("companies")
     .insert({
       owner_id: user.id,
       name: data.companyLegalName,
-      description: buildDescription({ plan, data }),
+      description: buildDescription(data),
       sector_id: data.sectorId,
       registration_profile: data.profile,
       country: data.country,
-      city: data.city,
+      city: data.city || null,
       province: data.province || null,
       // Applicants type "www.example.com"; store a real URL so profile links work.
       website: toExternalHref(data.website),
       contact_email: data.officialEmail,
       // Store the phone in dialable international form.
       contact_phone: `${data.dialCode} ${data.phone}`.trim(),
-      status: COMPANY_STATUS.PENDING,
+      // 00047: not in the admin queue until the owner submits documents.
+      status: COMPANY_STATUS.PENDING_DOCUMENTS,
       verification_tier: VERIFICATION_TIER.NONE,
       verification_summary: {
         registration_intake: {
@@ -240,12 +206,12 @@ async function doRegisterCompany(
             country: data.country,
             legal_name: data.companyLegalName,
             trading_name: data.tradingName || null,
-            rccm_number: data.rccmNumber,
+            rccm_number: data.rccmNumber || null,
             national_id: data.nationalId || null,
             nif: data.nif || null,
-            year_established: data.yearEstablished,
-            legal_form: data.legalForm,
-            employees: data.employees,
+            year_established: data.yearEstablished || null,
+            legal_form: data.legalForm || null,
+            employees: data.employees || null,
           },
           professional: {
             products_services: data.productsServices || null,
@@ -253,7 +219,7 @@ async function doRegisterCompany(
           },
           positioning: {
             contact_person: data.contactPerson,
-            job_title: data.jobTitle,
+            job_title: data.jobTitle || null,
             preferred_contact: data.preferredContact || null,
             languages: data.languages,
             interests: data.interests,
@@ -267,8 +233,8 @@ async function doRegisterCompany(
           // owner-path RLS resolves against companies.owner_id), which is
           // why it isn't done in this server action.
           documents: {
-            rccm_certificate: data.rccmCertName,
-            tax_identification: data.nifDocName,
+            rccm_certificate: data.rccmCertName || null,
+            tax_identification: data.nifDocName || null,
             company_logo: data.logoName || null,
             additional: data.additionalName || null,
           },

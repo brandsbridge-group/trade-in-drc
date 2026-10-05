@@ -1,4 +1,6 @@
 export const COMPANY_STATUS = {
+  /** 00047 — created by the short form; not in the admin queue until the owner submits documents. */
+  PENDING_DOCUMENTS: 'pending_documents',
   PENDING: 'pending',
   VERIFIED: 'verified',
   REJECTED: 'rejected',
@@ -60,6 +62,8 @@ export const VERIFICATION_TIERS = [
  * flow, not the admin decision panel.
  */
 export const VERIFICATION_DECISION = {
+  /** 00058 — the owner's first send (recorded by submitCompanyForReview). */
+  SUBMITTED: 'submitted',
   APPROVED: 'approved',
   REJECTED: 'rejected',
   MORE_INFO_REQUESTED: 'more_info_requested',

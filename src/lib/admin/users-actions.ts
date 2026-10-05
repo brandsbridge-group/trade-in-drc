@@ -3,7 +3,7 @@
 import { z } from "zod";
 import { dbId } from "@/lib/validation/db-id";
 import { revalidatePath } from "next/cache";
-import { requireAdmin } from "@/lib/auth/require-admin";
+import { requireSuperAdmin } from "@/lib/auth/require-admin";
 import { createAdminClient } from "@/lib/supabase/admin";
 import {
   STAFF_ROLE,
@@ -23,10 +23,10 @@ import type { StaffRole, AccountType, Json } from "@/lib/supabase/types";
  * suspension (ban) is an Auth-admin operation, also service-role only.
  * The service-role client is constructed and used EXCLUSIVELY here, on the
  * server, and never leaves this module. Every action re-verifies the caller is
- * an admin via `requireAdmin` before touching anything, and writes an
+ * an admin via `requireSuperAdmin` before touching anything, and writes an
  * `audit_log` row for the moderation trail (00015).
  *
- * RLS note: `requireAdmin` runs against the request-scoped server client
+ * RLS note: `requireSuperAdmin` runs against the request-scoped server client
  * (honours RLS + session). Only after that gate passes do we reach for the
  * service-role client for the privileged read/write.
  */
@@ -78,6 +78,9 @@ const ASSIGNABLE_ROLES = [
   "user",
 ] as const;
 
+/** Error code the users screen translates: staff may not act on their own account. */
+const SELF_ACTION_ERROR = "self_action";
+
 const setRoleSchema = z.object({
   userId: dbId(),
   role: z.enum(ASSIGNABLE_ROLES),
@@ -89,11 +92,11 @@ const userIdSchema = z.object({
 
 /**
  * Resolve the authenticated admin's profile id for audit attribution.
- * `requireAdmin` already redirects unauthorized callers, so reaching here
+ * `requireSuperAdmin` already redirects unauthorized callers, so reaching here
  * guarantees an admin; we still capture the id explicitly.
  */
 async function getActorId(locale: string): Promise<string> {
-  const actor = await requireAdmin(locale);
+  const actor = await requireSuperAdmin(locale);
   return actor.id;
 }
 
@@ -123,7 +126,7 @@ async function writeAudit(params: {
  * `auth.users` (email + ban state). Sorted newest profile first.
  */
 export async function listUsers(locale: string): Promise<AdminUserRow[]> {
-  await requireAdmin(locale);
+  await requireSuperAdmin(locale);
   const admin = createAdminClient();
 
   const { data: profiles, error: profilesError } = await admin
@@ -183,7 +186,7 @@ export async function listUserAudit(
   locale: string,
   limit = 25
 ): Promise<AdminAuditRow[]> {
-  await requireAdmin(locale);
+  await requireSuperAdmin(locale);
   const admin = createAdminClient();
 
   const { data, error } = await admin
@@ -236,6 +239,8 @@ export async function setUserRole(
   }
   const { userId, role } = parsed.data;
   const actorId = await getActorId(locale);
+  // A super-admin demoting themselves could leave the platform with none.
+  if (userId === actorId) return { ok: false, error: SELF_ACTION_ERROR };
   const admin = createAdminClient();
 
   // Build the column update for the chosen role.
@@ -282,7 +287,7 @@ export async function setUserRole(
     metadata: { role },
   });
 
-  revalidatePath(`/${locale}/admin/users`);
+  revalidatePath(`/${locale}/console/users`);
   return { ok: true };
 }
 
@@ -296,6 +301,7 @@ export async function suspendUser(
     return { ok: false, error: parsed.error.issues[0]?.message ?? "Invalid input" };
   }
   const actorId = await getActorId(locale);
+  if (parsed.data.userId === actorId) return { ok: false, error: SELF_ACTION_ERROR };
   const admin = createAdminClient();
 
   const { error } = await admin.auth.admin.updateUserById(parsed.data.userId, {
@@ -312,7 +318,7 @@ export async function suspendUser(
     summary: "Account suspended",
   });
 
-  revalidatePath(`/${locale}/admin/users`);
+  revalidatePath(`/${locale}/console/users`);
   return { ok: true };
 }
 
@@ -342,6 +348,6 @@ export async function reactivateUser(
     summary: "Account reactivated",
   });
 
-  revalidatePath(`/${locale}/admin/users`);
+  revalidatePath(`/${locale}/console/users`);
   return { ok: true };
 }

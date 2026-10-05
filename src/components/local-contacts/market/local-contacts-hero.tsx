@@ -45,7 +45,7 @@ export async function LocalContactsHero({ sectors }: { sectors: SectorOption[] }
         <div className="mt-3 flex flex-wrap gap-3">
           <Link
             href="/request"
-            className="inline-flex items-center gap-2 rounded-md bg-market-gold px-5 py-2.5 text-sm font-semibold text-market-navy transition-colors duration-150 hover:bg-market-gold/90"
+            className="inline-flex items-center gap-2 rounded-full bg-market-or px-5 py-2.5 text-sm font-semibold text-market-navy transition-colors duration-150 hover:bg-market-or-light active:bg-market-or-dark"
           >
             {t("heroCta.requestPartner")}
           </Link>

@@ -26,7 +26,7 @@ export function FilterSelect<T extends string>({
 }) {
   return (
     <Select value={value} onValueChange={onValueChange}>
-      <SelectTrigger className="h-9 text-xs" aria-label={label}>
+      <SelectTrigger className="h-9 w-full rounded-full border-slate-200 bg-white px-3.5 text-[13px] shadow-none" aria-label={label}>
         <SelectValue placeholder={label} />
       </SelectTrigger>
       <SelectContent>

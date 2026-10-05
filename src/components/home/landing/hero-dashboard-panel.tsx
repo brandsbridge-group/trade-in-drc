@@ -19,26 +19,34 @@ import {
   Bell,
   ChevronDown,
   TrendingUp,
-  ClipboardList,
   Building2,
   Mountain,
   Sprout,
   Zap,
   Cpu,
   Factory,
-  Truck,
+  Fuel,
+  Package,
+  Shirt,
+  Trees,
+  Wheat,
   BadgeCheck,
   Globe,
   Check,
+  LogIn,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
+import { Link } from "@/i18n/routing";
+import { CATEGORY_DISPLAY } from "@/lib/opportunities/board-config";
+import type { HeroPanelData } from "./hero-panel-data";
+
 /**
  * Interactive, animated showcase of the inner dashboard for the hero. The left
- * nav switches the right-side panel; each section is filled with representative,
- * localized sample data (no live data — this is marketing eye-candy). On mount
- * and on every tab change the content animates in (Jakub recipe), the market
- * chart draws itself, and headline numbers count up. All motion is gated on
+ * nav switches the right-side panel; every tab shows live platform data loaded
+ * on the server (see hero-panel-data.ts) and rows link to their detail pages.
+ * On mount and on every tab change the content animates in (Jakub recipe), the
+ * bars grow in and headline numbers count up. All motion is gated on
  * prefers-reduced-motion.
  */
 
@@ -59,55 +67,21 @@ const NAV: { key: TabKey; Icon: LucideIcon }[] = [
   { key: "watchlist", Icon: Bookmark },
 ];
 
-const STATS = [
-  { key: "opportunities", value: 1248, delta: "+18%", Icon: TrendingUp, tone: "bg-blue-600" },
-  { key: "partners", value: 842, delta: "+22%", Icon: Users, tone: "bg-red-500" },
-  { key: "insights", value: 356, delta: "+15%", Icon: ClipboardList, tone: "bg-blue-600" },
-] as const;
-
-const TOP = [
-  { key: "infrastructure", region: "Kinshasa", type: "investment", Icon: Building2, color: "text-emerald-600" },
-  { key: "mining", region: "Lualaba", type: "partnership", Icon: Mountain, color: "text-amber-600" },
-  { key: "agriculture", region: "Haut-Katanga", type: "distribution", Icon: Sprout, color: "text-green-600" },
-  { key: "energy", region: "Tshopo", type: "tender", Icon: Zap, color: "text-blue-600" },
-] as const;
-
-const PARTNERS = [
-  { name: "Kivu Agro SARL", country: "DRC", sector: "agriculture" },
-  { name: "Anadolu Energy", country: "Türkiye", sector: "energy" },
-  { name: "SinoTech Systems", country: "China", sector: "ict" },
-  { name: "Global Trade Link", country: "USA", sector: "logistics" },
-  { name: "Katanga Minerals", country: "DRC", sector: "mining" },
-] as const;
-
-const SECTORS = [
-  { key: "mining", Icon: Mountain, count: 312, growth: "+14%" },
-  { key: "agriculture", Icon: Sprout, count: 268, growth: "+9%" },
-  { key: "energy", Icon: Zap, count: 154, growth: "+21%" },
-  { key: "ict", Icon: Cpu, count: 97, growth: "+18%" },
-  { key: "manufacturing", Icon: Factory, count: 203, growth: "+7%" },
-  { key: "logistics", Icon: Truck, count: 121, growth: "+12%" },
-] as const;
-
-const WATCHLIST = [
-  { kind: "company", label: "Kivu Agro SARL", sub: "agriculture", Icon: Sprout },
-  { kind: "opportunity", label: "infrastructure", sub: "Kinshasa", Icon: Building2 },
-  { kind: "company", label: "Anadolu Energy", sub: "energy", Icon: Zap },
-  { kind: "opportunity", label: "mining", sub: "Lualaba", Icon: Mountain },
-  { kind: "company", label: "SinoTech Systems", sub: "ict", Icon: Cpu },
-] as const;
+const SECTOR_ICONS: Record<string, LucideIcon> = {
+  "mining-minerals": Mountain,
+  agriculture: Sprout,
+  "forestry-timber": Trees,
+  "oil-gas": Fuel,
+  manufacturing: Factory,
+  "textiles-apparel": Shirt,
+  "food-beverages": Wheat,
+  construction: Building2,
+  technology: Cpu,
+  energy: Zap,
+};
 
 /** Fixed inner-body height so the panel never resizes between tabs. */
 const BODY_H = "h-[300px]";
-
-const KPIS = [
-  { key: "volume", value: "$4.2B" },
-  { key: "growth", value: "+16%" },
-  { key: "listings", value: "1,248" },
-] as const;
-
-const CHART = [180, 250, 360, 300, 520, 760];
-const CHART_MAX = 1000;
 
 // ── Small animated number ───────────────────────────────────────────────────
 function CountUp({ value, format }: { value: number; format: (n: number) => string }) {
@@ -128,60 +102,39 @@ function CountUp({ value, format }: { value: number; format: (n: number) => stri
   return <>{format(Math.round(display))}</>;
 }
 
-// ── Market activity chart (draws itself) ────────────────────────────────────
-function MarketChart({ locale, fill = false }: { locale: string; fill?: boolean }) {
+// ── Horizontal bars (grow in from the left) ─────────────────────────────────
+function Bars({ rows }: { rows: { name: string; count: number }[] }) {
   const reduce = useReducedMotion();
-  const monthFormat = new Intl.DateTimeFormat(locale, { month: "short" });
-  const months = Array.from({ length: 6 }, (_, i) =>
-    monthFormat.format(new Date(Date.UTC(2025, i, 1))),
-  );
-  const coords = CHART.map((v, i) => {
-    const x = 6 + (i * (188 - 6)) / (CHART.length - 1);
-    const y = 96 - (v / CHART_MAX) * 86;
-    return { x, y };
-  });
-  const points = coords.map((c) => `${c.x.toFixed(1)},${c.y.toFixed(1)}`).join(" ");
+  const max = Math.max(1, ...rows.map((r) => r.count));
   return (
-    <svg viewBox="0 0 200 110" preserveAspectRatio="xMidYMid meet" className={fill ? "h-full w-full" : "w-full"} role="img" aria-hidden="true">
-      {[0, 25, 50, 75].map((g) => (
-        <line key={g} x1="6" x2="194" y1={96 - (g / 100) * 86} y2={96 - (g / 100) * 86} stroke="#EEF2F7" strokeWidth="1" />
+    <ul className="space-y-2.5">
+      {rows.map((r, i) => (
+        <li key={r.name}>
+          <div className="mb-1 flex items-baseline justify-between gap-2">
+            <span className="truncate text-[10px] font-medium text-slate-700">{r.name}</span>
+            <span className="shrink-0 text-[10px] font-semibold tabular-nums text-slate-900">{r.count}</span>
+          </div>
+          <div className="h-1.5 overflow-hidden rounded-full bg-slate-100">
+            <motion.div
+              className="h-full origin-left rounded-full bg-blue-600"
+              style={{ width: `${(r.count / max) * 100}%` }}
+              initial={reduce ? false : { scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: reduce ? 0 : 0.5, delay: reduce ? 0 : 0.15 + i * 0.05, ease: "easeOut" }}
+            />
+          </div>
+        </li>
       ))}
-      <motion.polyline
-        points={points}
-        fill="none"
-        stroke="#2563EB"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        initial={reduce ? false : { pathLength: 0 }}
-        animate={{ pathLength: 1 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
-      />
-      {coords.map((c, i) => (
-        <motion.circle
-          key={i}
-          cx={c.x}
-          cy={c.y}
-          r="2"
-          fill="#2563EB"
-          initial={reduce ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: reduce ? 0 : 0.5 + i * 0.06, duration: 0.2 }}
-        />
-      ))}
-      {months.map((m, i) => (
-        <text key={i} x={6 + (i * (188 - 6)) / 5} y="108" fontSize="6" fill="#94A3B8" textAnchor="middle">
-          {m}
-        </text>
-      ))}
-    </svg>
+    </ul>
   );
 }
 
-function Chip({ children, tone = "blue" }: { children: React.ReactNode; tone?: "blue" | "green" | "slate" }) {
+function Chip({ children, tone = "blue" }: { children: React.ReactNode; tone?: "blue" | "green" | "amber" | "red" | "slate" }) {
   const tones = {
     blue: "bg-blue-50 text-blue-600",
     green: "bg-emerald-50 text-emerald-600",
+    amber: "bg-amber-50 text-amber-700",
+    red: "bg-red-50 text-red-600",
     slate: "bg-slate-100 text-slate-600",
   } as const;
   return (
@@ -191,16 +144,23 @@ function Chip({ children, tone = "blue" }: { children: React.ReactNode; tone?: "
   );
 }
 
-// Interactive (but non-functional) header chrome: a region scope dropdown and a
-// notifications popover. Pure showcase — picking a scope just updates the label;
-// opening the bell clears the unread dot. No real data or navigation.
+/** Same urgency scale as the opportunities board. */
+function deadlineTone(days: number | null): "slate" | "red" | "amber" | "green" {
+  if (days === null) return "slate";
+  if (days <= 7) return "red";
+  if (days <= 21) return "amber";
+  return "green";
+}
+
+// Header chrome: a region scope dropdown (display only) and a notifications
+// popover listing the latest real platform events.
 type Scope = "drc" | "region" | "global";
 
-function PanelHeaderControls() {
+function PanelHeaderControls({ notifications }: { notifications: HeroPanelData["notifications"] }) {
   const t = useTranslations("Landing.panel");
   const [menu, setMenu] = React.useState<null | "scope" | "bell">(null);
   const [scope, setScope] = React.useState<Scope>("drc");
-  const [unread, setUnread] = React.useState(true);
+  const [unread, setUnread] = React.useState(notifications.length > 0);
   const ref = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
@@ -218,7 +178,6 @@ function PanelHeaderControls() {
     { key: "region", label: t("scopeRegion") },
     { key: "global", label: t("scopeGlobal") },
   ];
-  const notifs = [t("notif1"), t("notif2"), t("notif3")];
 
   return (
     <div ref={ref} className="relative flex items-center gap-2 text-slate-400">
@@ -267,14 +226,24 @@ function PanelHeaderControls() {
           {unread && <span className="absolute right-1 top-1 h-1.5 w-1.5 rounded-full bg-red-500" />}
         </button>
         {menu === "bell" && (
-          <div className="absolute right-0 top-full z-40 mt-1 w-56 rounded-lg border border-slate-200 bg-white p-2 text-left shadow-md">
+          <div className="absolute right-0 top-full z-40 mt-1 w-60 rounded-lg border border-slate-200 bg-white p-2 text-left shadow-md">
             <p className="px-1 pb-1 text-[11px] font-bold text-slate-900">{t("notifTitle")}</p>
-            {notifs.map((n, i) => (
-              <div key={i} className="flex items-start gap-2 rounded-md px-1.5 py-1.5 transition-colors hover:bg-slate-50">
-                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500" />
-                <p className="text-[10px] leading-snug text-slate-600">{n}</p>
-              </div>
-            ))}
+            {notifications.length === 0 ? (
+              <p className="px-1.5 py-1.5 text-[10px] text-slate-500">{t("notifEmpty")}</p>
+            ) : (
+              notifications.map((n) => (
+                <Link
+                  key={n.href}
+                  href={n.href}
+                  className="flex items-start gap-2 rounded-md px-1.5 py-1.5 transition-colors hover:bg-slate-50"
+                >
+                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500" />
+                  <span className="text-[10px] leading-snug text-slate-600">
+                    {t(`notif.${n.kind}`, { label: n.label })}
+                  </span>
+                </Link>
+              ))
+            )}
           </div>
         )}
       </div>
@@ -282,13 +251,31 @@ function PanelHeaderControls() {
   );
 }
 
-export function HeroDashboardPanel({ locale: localeProp }: { locale?: string }) {
+export function HeroDashboardPanel({ data, locale: localeProp }: { data: HeroPanelData; locale?: string }) {
   const t = useTranslations("Landing.panel");
+  const tBadge = useTranslations("Opportunities.badges");
   const activeLocale = useLocale();
   const locale = localeProp ?? activeLocale;
   const reduce = useReducedMotion();
   const [tab, setTab] = React.useState<TabKey>("overview");
   const nf = React.useMemo(() => new Intl.NumberFormat(locale), [locale]);
+  const usd = React.useMemo(
+    () => new Intl.NumberFormat(locale, { style: "currency", currency: "USD", notation: "compact", maximumFractionDigits: 1 }),
+    [locale],
+  );
+
+  const { stats, kpis } = data;
+  const STATS = [
+    { key: "opportunities", value: stats.opportunities, sub: t("statsSub.closingSoon", { n: stats.closingSoon }), Icon: TrendingUp, tone: "bg-blue-600" },
+    { key: "partners", value: stats.partners, sub: t("statsSub.provinces", { n: stats.provinces }), Icon: Users, tone: "bg-red-500" },
+    { key: "products", value: stats.products, sub: t("statsSub.categories", { n: stats.categories }), Icon: Package, tone: "bg-blue-600" },
+  ] as const;
+  const KPIS = [
+    { key: "budget", value: usd.format(kpis.budgetUsd) },
+    { key: "newListings", value: nf.format(kpis.newListings30d) },
+    { key: "activeListings", value: nf.format(kpis.activeListings) },
+  ] as const;
+  const closesIn = (days: number | null) => (days === null ? t("noDeadline") : t("closesIn", { days }));
 
   const container = reduce
     ? undefined
@@ -347,7 +334,7 @@ export function HeroDashboardPanel({ locale: localeProp }: { locale?: string }) 
       <div className="min-w-0 flex-1 p-4">
         <div className="mb-3 flex items-center justify-between">
           <p className="text-sm font-bold text-slate-900">{t(`nav.${tab}`)}</p>
-          <PanelHeaderControls />
+          <PanelHeaderControls notifications={data.notifications} />
         </div>
 
         <div className={BODY_H}>
@@ -364,7 +351,7 @@ export function HeroDashboardPanel({ locale: localeProp }: { locale?: string }) 
             {tab === "overview" && (
               <div className="flex h-full flex-col gap-3">
                 <div className="grid shrink-0 grid-cols-3 gap-2">
-                  {STATS.map(({ key, value, delta, Icon, tone }) => (
+                  {STATS.map(({ key, value, sub, Icon, tone }) => (
                     <motion.div key={key} variants={item} className="rounded-xl border border-slate-100 bg-white p-2.5 shadow-sm">
                       <div className={`mb-2 flex h-7 w-7 items-center justify-center rounded-full ${tone} text-white`}>
                         <Icon className="h-3.5 w-3.5" />
@@ -373,29 +360,31 @@ export function HeroDashboardPanel({ locale: localeProp }: { locale?: string }) 
                       <p className="text-base font-bold leading-tight text-slate-900">
                         <CountUp value={value} format={(n) => nf.format(n)} />
                       </p>
-                      <p className="text-[10px] font-semibold text-emerald-600">{delta}</p>
+                      <p className="text-[10px] font-semibold leading-tight text-emerald-600">{sub}</p>
                     </motion.div>
                   ))}
                 </div>
                 <div className="grid min-h-0 flex-1 grid-cols-2 gap-3">
                   <motion.div variants={item} className="flex min-h-0 flex-col">
                     <p className="mb-2 text-[11px] font-bold text-slate-900">{t("topOpportunities")}</p>
-                    <ul className="space-y-2.5">
-                      {TOP.map(({ key, region, Icon, color }) => (
-                        <li key={key} className="flex items-center gap-1.5">
-                          <Icon className={`h-3.5 w-3.5 shrink-0 ${color}`} />
-                          <span className="min-w-0 flex-1 truncate text-[10px] font-medium text-slate-700">{t(`top.${key}`)}</span>
-                          {region && <span className="hidden text-[9px] text-slate-400 lg:inline">{region}</span>}
-                          <Chip>{t("highPotential")}</Chip>
-                        </li>
-                      ))}
+                    <ul className="space-y-1">
+                      {data.opportunities.slice(0, 4).map((o) => {
+                        const Icon = CATEGORY_DISPLAY[o.category].icon;
+                        return (
+                          <li key={o.href}>
+                            <Link href={o.href} className="-mx-1 flex items-center gap-1.5 rounded-md px-1 py-1 transition-colors duration-150 hover:bg-slate-50">
+                              <Icon className="h-3.5 w-3.5 shrink-0 text-blue-600" />
+                              <span className="min-w-0 flex-1 truncate text-[10px] font-medium text-slate-700">{o.title}</span>
+                              <Chip tone={deadlineTone(o.daysLeft)}>{closesIn(o.daysLeft)}</Chip>
+                            </Link>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </motion.div>
                   <motion.div variants={item} className="flex min-h-0 flex-col">
-                    <p className="mb-2 text-[11px] font-bold text-slate-900">{t("marketActivity")}</p>
-                    <div className="min-h-0 flex-1">
-                      <MarketChart locale={locale} fill />
-                    </div>
+                    <p className="mb-2 text-[11px] font-bold text-slate-900">{t("sectorBars")}</p>
+                    <Bars rows={data.sectors.slice(0, 4).map((s) => ({ name: s.name, count: s.companies }))} />
                   </motion.div>
                 </div>
               </div>
@@ -404,35 +393,56 @@ export function HeroDashboardPanel({ locale: localeProp }: { locale?: string }) 
             {/* OPPORTUNITIES */}
             {tab === "opportunities" && (
               <ul className="flex h-full flex-col gap-2">
-                {TOP.map(({ key, region, type, Icon, color }) => (
-                  <motion.li key={key} variants={item} className="flex min-h-0 flex-1 items-center gap-2 rounded-xl border border-slate-100 bg-white p-2.5 shadow-sm">
-                    <Icon className={`h-4 w-4 shrink-0 ${color}`} />
-                    <div className="min-w-0 flex-1">
-                      <p className="truncate text-[11px] font-semibold text-slate-800">{t(`top.${key}`)}</p>
-                      <p className="text-[9px] text-slate-400">{region}</p>
-                    </div>
-                    <Chip tone="slate">{t(`oppTypes.${type}`)}</Chip>
-                    <Chip tone="green">{t("statusOpen")}</Chip>
-                  </motion.li>
-                ))}
+                {data.opportunities.map((o) => {
+                  const Icon = CATEGORY_DISPLAY[o.category].icon;
+                  return (
+                    <motion.li key={o.href} variants={item} className="min-h-0 flex-1">
+                      <Link
+                        href={o.href}
+                        className="flex h-full items-center gap-2 rounded-xl border border-slate-100 bg-white p-2.5 shadow-sm transition-colors duration-150 hover:border-slate-200"
+                      >
+                        <Icon className="h-4 w-4 shrink-0 text-blue-600" />
+                        <div className="min-w-0 flex-1">
+                          <p className="truncate text-[11px] font-semibold text-slate-800">{o.title}</p>
+                          <p className="text-[9px] text-slate-400">{o.region}</p>
+                        </div>
+                        <Chip tone="slate">{tBadge(CATEGORY_DISPLAY[o.category].labelKey)}</Chip>
+                        <Chip tone={deadlineTone(o.daysLeft)}>{closesIn(o.daysLeft)}</Chip>
+                      </Link>
+                    </motion.li>
+                  );
+                })}
               </ul>
             )}
 
             {/* PARTNERS */}
             {tab === "partners" && (
               <ul className="flex h-full flex-col gap-2">
-                {PARTNERS.map((p) => (
-                  <motion.li key={p.name} variants={item} className="flex min-h-0 flex-1 items-center gap-2 rounded-xl border border-slate-100 bg-white p-2.5 shadow-sm">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-[10px] font-bold text-slate-500">
-                      {p.name.slice(0, 2).toUpperCase()}
-                    </span>
-                    <div className="min-w-0 flex-1">
-                      <p className="truncate text-[11px] font-semibold text-slate-800">{p.name}</p>
-                      <p className="text-[9px] text-slate-400">{t(`sector.${p.sector}`)} · {p.country}</p>
-                    </div>
-                    <span className="inline-flex shrink-0 items-center gap-0.5 rounded-full bg-blue-50 px-1.5 py-0.5 text-[8px] font-medium text-blue-600">
-                      <BadgeCheck className="h-2.5 w-2.5" /> {t("verified")}
-                    </span>
+                {data.partners.map((p) => (
+                  <motion.li key={p.href} variants={item} className="min-h-0 flex-1">
+                    <Link
+                      href={p.href}
+                      className="flex h-full items-center gap-2 rounded-xl border border-slate-100 bg-white p-2.5 shadow-sm transition-colors duration-150 hover:border-slate-200"
+                    >
+                      {p.logo ? (
+                        // Company logos live on arbitrary storage hosts.
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={p.logo} alt="" className="h-7 w-7 shrink-0 rounded-lg bg-white object-contain ring-1 ring-slate-100" />
+                      ) : (
+                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-[10px] font-bold text-slate-500">
+                          {p.initials}
+                        </span>
+                      )}
+                      <div className="min-w-0 flex-1">
+                        <p className="truncate text-[11px] font-semibold text-slate-800">{p.name}</p>
+                        <p className="truncate text-[9px] text-slate-400">
+                          {[p.sector, p.place].filter(Boolean).join(" · ")}
+                        </p>
+                      </div>
+                      <span className="inline-flex shrink-0 items-center gap-0.5 rounded-full bg-blue-50 px-1.5 py-0.5 text-[8px] font-medium text-blue-600">
+                        <BadgeCheck className="h-2.5 w-2.5" /> {t("verified")}
+                      </span>
+                    </Link>
                   </motion.li>
                 ))}
               </ul>
@@ -441,20 +451,23 @@ export function HeroDashboardPanel({ locale: localeProp }: { locale?: string }) 
             {/* SECTORS */}
             {tab === "sectors" && (
               <div className="grid h-full grid-cols-2 grid-rows-3 gap-2">
-                {SECTORS.map(({ key, Icon, count, growth }) => (
-                  <motion.div key={key} variants={item} className="flex min-h-0 flex-col justify-center rounded-xl border border-slate-100 bg-white p-2.5 shadow-sm">
-                    <div className="mb-1.5 flex items-center justify-between">
-                      <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
-                        <Icon className="h-3.5 w-3.5" />
-                      </span>
-                      <span className="text-[10px] font-semibold text-emerald-600">{growth}</span>
-                    </div>
-                    <p className="truncate text-[11px] font-semibold text-slate-800">{t(`sector.${key}`)}</p>
-                    <p className="text-[9px] text-slate-400">
-                      <CountUp value={count} format={(n) => nf.format(n)} /> {t("companies")}
-                    </p>
-                  </motion.div>
-                ))}
+                {data.sectors.map(({ slug, name, companies, products }) => {
+                  const Icon = SECTOR_ICONS[slug] ?? Boxes;
+                  return (
+                    <motion.div key={slug} variants={item} className="flex min-h-0 flex-col justify-center rounded-xl border border-slate-100 bg-white p-2.5 shadow-sm">
+                      <div className="mb-1.5 flex items-center justify-between">
+                        <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+                          <Icon className="h-3.5 w-3.5" />
+                        </span>
+                        <span className="text-[10px] font-semibold text-emerald-600">{t("offers", { n: products })}</span>
+                      </div>
+                      <p className="truncate text-[11px] font-semibold text-slate-800">{name}</p>
+                      <p className="text-[9px] text-slate-400">
+                        <CountUp value={companies} format={(n) => nf.format(n)} /> {t("companies")}
+                      </p>
+                    </motion.div>
+                  );
+                })}
               </div>
             )}
 
@@ -470,32 +483,30 @@ export function HeroDashboardPanel({ locale: localeProp }: { locale?: string }) 
                   ))}
                 </div>
                 <motion.div variants={item} className="flex min-h-0 flex-1 flex-col">
-                  <p className="mb-2 text-[11px] font-bold text-slate-900">{t("marketActivity")}</p>
-                  <div className="min-h-0 flex-1">
-                    <MarketChart locale={locale} fill />
-                  </div>
+                  <p className="mb-2 text-[11px] font-bold text-slate-900">{t("provinceBars")}</p>
+                  <Bars rows={data.provinces} />
                 </motion.div>
               </div>
             )}
 
-            {/* WATCHLIST */}
+            {/* WATCHLIST — personal, so it needs an account */}
             {tab === "watchlist" && (
-              <ul className="flex h-full flex-col gap-2">
-                {WATCHLIST.map((w, i) => (
-                  <motion.li key={i} variants={item} className="flex min-h-0 flex-1 items-center gap-2 rounded-xl border border-slate-100 bg-white p-2.5 shadow-sm">
-                    <Bookmark className="h-3.5 w-3.5 shrink-0 fill-blue-600 text-blue-600" />
-                    <div className="min-w-0 flex-1">
-                      <p className="truncate text-[11px] font-semibold text-slate-800">
-                        {w.kind === "opportunity" ? t(`top.${w.label}`) : w.label}
-                      </p>
-                      <p className="text-[9px] text-slate-400">
-                        {w.kind === "company" ? t(`sector.${w.sub}`) : w.sub}
-                      </p>
-                    </div>
-                    <Chip tone="slate">{t("saved")}</Chip>
-                  </motion.li>
-                ))}
-              </ul>
+              <motion.div
+                variants={item}
+                className="flex h-full flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-slate-200 px-6 text-center"
+              >
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-50 text-blue-600">
+                  <Bookmark className="h-4 w-4" />
+                </span>
+                <p className="text-[12px] font-bold text-slate-900">{t("watchEmptyTitle")}</p>
+                <p className="max-w-[16rem] text-[10px] leading-snug text-slate-500">{t("watchEmptyBody")}</p>
+                <Link
+                  href="/login?redirect=%2Fdashboard"
+                  className="mt-1 inline-flex items-center gap-1 rounded-full bg-[var(--color-landing-navy)] px-3 py-1.5 text-[10px] font-semibold text-white transition-colors duration-150 hover:bg-[#13244a]"
+                >
+                  <LogIn className="h-3 w-3" /> {t("watchCta")}
+                </Link>
+              </motion.div>
             )}
           </motion.div>
         </AnimatePresence>

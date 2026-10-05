@@ -23,7 +23,7 @@ export async function GET(request: NextRequest) {
 
   // type-based branching takes priority. Otherwise, resolvePostAuthRedirect
   // handles both cases: an explicit `?redirect=` (validated, same-origin)
-  // still wins, and its absence falls back to /dashboard/companies (P2-7) —
+  // still wins, and its absence falls back to the /dashboard overview (P2-7) —
   // the one default every auth path shares, defined once in redirect-guard.ts.
   let next: string;
   if (type === 'recovery') {

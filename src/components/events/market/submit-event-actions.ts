@@ -41,7 +41,7 @@ function toStartTimestamp(date: string): string | null {
 /**
  * Events-hub "Submit an Event" rail (design 13). Anonymous-friendly: inserts a
  * `draft` content_items row (type='event') via the service-role client so it
- * lands in the admin moderation queue at /admin/content/event. author_id is
+ * lands in the admin moderation queue at /console/content/event. author_id is
  * NULL; the organizer email is captured in the body text for the reviewer.
  */
 export async function submitEvent(input: SubmitEventInput): Promise<Result> {

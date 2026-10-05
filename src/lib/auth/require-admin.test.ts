@@ -40,7 +40,7 @@ describe("requireAdmin", () => {
 
   it("redirects to /login when no user", async () => {
     getUserMock.mockResolvedValue({ data: { user: null }, error: null });
-    await expect(requireAdmin("en")).rejects.toThrow("REDIRECT:/en/login?next=/admin");
+    await expect(requireAdmin("en")).rejects.toThrow("REDIRECT:/en/login?next=/console");
   });
 
   it("redirects to / when user is not admin", async () => {

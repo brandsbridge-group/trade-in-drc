@@ -1,349 +1,399 @@
 "use client";
 
+import { latestStaffMessage, sortEvents } from "@/lib/verifications/workflow";
 import * as React from "react";
-import { motion } from "framer-motion";
-import { useTranslations, useLocale } from "next-intl";
+import { useFormatter, useLocale, useTranslations } from "next-intl";
+import { useQuery } from "@tanstack/react-query";
+import { Eye, MessageCircleReply, MousePointerClick, Package, Plus, Search, Target, Timer } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { useAuth } from "@/lib/auth/auth-provider";
-import { useCompanies, companiesQueryKey } from "@/hooks/use-companies";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { PageHeader } from "@/components/design";
-import { StatsRow } from "@/components/dashboard/stats-row";
-import { OnboardingCard } from "@/components/dashboard/onboarding-card";
-import { PremiumStatusCard } from "@/components/pricing/premium-status-card";
-import {
-    Building2,
-    Plus,
-    CheckCircle,
-    Clock,
-    XCircle,
-    Eye,
-    Edit,
-    RefreshCw,
-} from "lucide-react";
-import { createClient } from "@/lib/supabase/client";
-import { resubmitCompanyVerification } from "@/lib/verifications/actions";
-import { useQueryClient } from "@tanstack/react-query";
-import { toast } from "sonner";
-import {
-    canViewPublicProfile,
-    registerFirstOrAnother,
-    resolveSectorLabel,
-} from "@/lib/dashboard/company-display";
+import { useCompanies } from "@/hooks/use-companies";
+import { useAwaitingReplies } from "@/hooks/use-awaiting-replies";
+import { useReceivedRequests } from "@/hooks/use-received-requests";
+import { HOME_COUNTRY } from "@/config/geo";
+import { resolveSectorLabel } from "@/lib/dashboard/company-display";
 import type { Locale } from "@/config/locales";
+import {
+  fetchOwnerDashboardMetrics,
+  ratePct,
+  ratePointsDelta,
+  trendOf,
+  type MetricSeries,
+  type OverviewPeriod,
+} from "@/lib/dashboard/overview/metrics";
+import {
+  fetchMarketWatch,
+  fetchMatchingSuppliers,
+  fetchMyOpportunities,
+  fetchOwnerContent,
+  fetchRecommendedOpportunities,
+} from "@/lib/dashboard/overview/queries";
+import { profileCompleteness } from "@/lib/dashboard/overview/profile-completeness";
+import { buildDashboardTasks } from "@/lib/dashboard/overview/tasks";
+import { PeriodSwitch } from "@/components/dashboard/overview/period-switch";
+import { KpiTile, KpiTileSkeleton, type KpiDelta } from "@/components/dashboard/overview/kpi-tile";
+import { ActionCenter } from "@/components/dashboard/overview/action-center";
+import { CardSkeleton } from "@/components/dashboard/overview/overview-card";
+import { MyOpportunitiesCard, RecommendedOpportunitiesCard } from "@/components/dashboard/overview/opportunity-cards";
+import {
+  MarketWatchCard,
+  SearchDiscoveryCard,
+  SuppliersCard,
+  TopProductsCard,
+} from "@/components/dashboard/overview/insight-cards";
+import { OnboardingGuide } from "@/components/dashboard/overview/onboarding-guide";
+import { buildOnboarding } from "@/lib/dashboard/overview/onboarding";
+import { ActivityChart } from "@/components/dashboard/overview/activity-chart";
 
-interface VerificationReview {
-    decision: string;
-    notes: string | null;
-    created_at: string;
+interface OverviewCompany {
+  id: string;
+  name: string;
+  status: string;
+  country: string | null;
+  sector_id: string | null;
+  sectors: { name_en: string | null; name_fr: string | null } | { name_en: string | null; name_fr: string | null }[] | null;
+  logo_url: string | null;
+  description: string | null;
+  contact_email: string | null;
+  contact_phone: string | null;
+  city: string | null;
+  website: string | null;
+  certifications: string[] | null;
+  markets: string[] | null;
+  is_premium: boolean;
+  premium_expires_at: string | null;
+  verification_summary: unknown;
+  verification_reviews: { decision: string; notes: string | null; created_at: string }[] | null;
 }
 
-interface SectorRef {
-    name_en: string | null;
-    name_fr: string | null;
+const isHomeCountry = (country: string | null) =>
+  // Rows created before 00035 have the DRC as their column default.
+  !country || country.trim().toLowerCase() === HOME_COUNTRY.toLowerCase();
+
+/** Target provinces an international company declared at registration. */
+function targetProvinces(companies: OverviewCompany[]): string[] {
+  const all = companies.flatMap((c) => {
+    const intake = (c.verification_summary as { registration_intake?: { international?: { target_provinces?: string[] } | null } } | null)
+      ?.registration_intake?.international;
+    return intake?.target_provinces ?? [];
+  });
+  return Array.from(new Set(all));
 }
 
-interface Company {
-    id: string;
-    name: string;
-    sectors: SectorRef | SectorRef[] | null;
-    status: "pending" | "verified" | "rejected" | "more_info_requested";
-    verification_reviews: VerificationReview[];
+/** Status as the task list understands it: a pending file whose last event is a more-info request is the company's turn. */
+function taskStatus(c: OverviewCompany): string {
+  const reviews = [...(c.verification_reviews ?? [])].sort((a, b) => b.created_at.localeCompare(a.created_at));
+  return c.status === "pending" && reviews[0]?.decision === "more_info_requested" ? "more_info_requested" : c.status;
+}
+
+const reviewEvents = (c: OverviewCompany) =>
+  (c.verification_reviews ?? []).map((r) => ({ decision: r.decision, notes: r.notes, createdAt: r.created_at }));
+
+/** The team's message attached to its latest decision (not the owner's own sends). */
+function latestNotes(c: OverviewCompany): string | null {
+  return latestStaffMessage(reviewEvents(c))?.notes ?? null;
+}
+
+/** When the company was last approved, if that is its current state. */
+function approvedAt(c: OverviewCompany): string | null {
+  if (c.status !== "verified") return null;
+  return sortEvents(reviewEvents(c)).find((e) => e.decision === "approved")?.createdAt ?? null;
 }
 
 export default function DashboardPage() {
-    const t = useTranslations("Dashboard");
-    const locale = useLocale();
-    const { user } = useAuth();
-    const queryClient = useQueryClient();
-    const { data: companies, isLoading } = useCompanies(user?.id);
-    const [resubmittingIds, setResubmittingIds] = React.useState<Set<string>>(new Set());
-    const [productCount, setProductCount] = React.useState<number | null>(null);
-    const [opportunityCount, setOpportunityCount] = React.useState<number | null>(null);
+  const t = useTranslations("DashboardOverview");
+  const format = useFormatter();
+  const locale = useLocale();
+  const { user } = useAuth();
+  const { data: rawCompanies, isLoading: companiesLoading } = useCompanies(user?.id);
+  const [period, setPeriod] = React.useState<OverviewPeriod>(30);
+  const [now] = React.useState(() => new Date());
 
-    const companyIds = React.useMemo(
-        () => (companies ?? []).map((c) => c.id),
-        [companies]
-    );
+  const companies = React.useMemo(() => (rawCompanies ?? []) as unknown as OverviewCompany[], [rawCompanies]);
+  const companyIds = React.useMemo(() => companies.map((c) => c.id), [companies]);
+  const sectorIds = React.useMemo(
+    () => Array.from(new Set(companies.map((c) => c.sector_id).filter((id): id is string => !!id))),
+    [companies]
+  );
+  // Same rule as the account type (00051): one company in the DRC makes the owner Congolese.
+  const congolese = companies.length === 0 || companies.some((c) => isHomeCountry(c.country));
+  const provinces = React.useMemo(() => (congolese ? [] : targetProvinces(companies)), [congolese, companies]);
+  const primary = companies[0];
+  const hasCompanies = companyIds.length > 0;
 
-    // Fetch product and opportunity counts once company IDs are known
-    React.useEffect(() => {
-        if (!user || companyIds.length === 0) {
-            setProductCount(0);
-            setOpportunityCount(0);
-            return;
-        }
-        const supabase = createClient();
-        Promise.all([
-            supabase
-                .from("products")
-                .select("id", { count: "exact", head: true })
-                .in("company_id", companyIds),
-            supabase
-                .from("opportunities")
-                .select("id", { count: "exact", head: true })
-                .in("company_id", companyIds),
-        ]).then(([{ count: pCount }, { count: oCount }]) => {
-            setProductCount(pCount ?? 0);
-            setOpportunityCount(oCount ?? 0);
-        });
-    }, [user, companyIds]);
+  const metrics = useQuery({
+    queryKey: ["overview", "metrics", user?.id, period],
+    queryFn: () => fetchOwnerDashboardMetrics(period),
+    enabled: hasCompanies,
+  });
+  const content = useQuery({
+    queryKey: ["overview", "content", companyIds],
+    queryFn: () => fetchOwnerContent(companyIds),
+    enabled: hasCompanies,
+  });
+  const myOpportunities = useQuery({
+    queryKey: ["overview", "my-opportunities", companyIds],
+    queryFn: () => fetchMyOpportunities(companyIds, user!.id, now),
+    enabled: hasCompanies && !!user,
+  });
+  const recommended = useQuery({
+    queryKey: ["overview", "recommended", sectorIds, provinces, companyIds],
+    queryFn: () => fetchRecommendedOpportunities({ sectorIds, ownCompanyIds: companyIds, provinces, now }),
+    enabled: hasCompanies,
+  });
+  const suppliers = useQuery({
+    queryKey: ["overview", "suppliers", sectorIds, companyIds],
+    queryFn: () => fetchMatchingSuppliers({ sectorIds, ownCompanyIds: companyIds, homeCountry: HOME_COUNTRY }),
+    enabled: hasCompanies && !congolese,
+  });
+  const market = useQuery({
+    queryKey: ["overview", "market", sectorIds],
+    queryFn: () => fetchMarketWatch(sectorIds),
+    enabled: hasCompanies && !congolese,
+  });
 
-    const getLatestReview = (reviews: VerificationReview[]): VerificationReview | null => {
-        if (!reviews || reviews.length === 0) return null;
-        return [...reviews].sort(
-            (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-        )[0];
+  const awaitingReplies = useAwaitingReplies(user?.id);
+  const { unseenCount: newRequests } = useReceivedRequests(user?.id);
+
+  const tasks = React.useMemo(() => {
+    if (!hasCompanies) return [];
+    const completeness =
+      primary && content.data
+        ? profileCompleteness({
+            ...primary,
+            photoCount: content.data.photoCountByCompany[primary.id] ?? 0,
+            productCount: content.data.productCountByCompany[primary.id] ?? 0,
+          })
+        : null;
+    return buildDashboardTasks({
+      now,
+      companies: companies.map((c) => ({
+        id: c.id,
+        name: c.name,
+        status: taskStatus(c),
+        latestReviewNotes: latestNotes(c),
+        approvedAt: approvedAt(c),
+        isPremium: c.is_premium,
+        premiumExpiresAt: c.premium_expires_at,
+      })),
+      awaitingReplies,
+      newRequests,
+      newResponses: myOpportunities.data?.newResponses ?? 0,
+      completeness,
+      completenessCompanyId: primary?.id,
+    });
+  }, [hasCompanies, primary, content.data, companies, awaitingReplies, newRequests, myOpportunities.data, now]);
+
+  // Getting-started path; null until the product count is known, so a step never flashes as "to do".
+  const onboarding = React.useMemo(() => {
+    if (!hasCompanies) return buildOnboarding({ companies: [], productCount: 0 });
+    if (!content.data) return null;
+    const productCount = Object.values(content.data.productCountByCompany).reduce((a, b) => a + b, 0);
+    return buildOnboarding({ companies: companies.map((c) => ({ id: c.id, status: c.status })), productCount });
+  }, [hasCompanies, content.data, companies]);
+
+  if (!user) {
+    return <p className="py-10 text-center text-sm text-slate-500">{t("signInRequired")}</p>;
+  }
+
+  const firstName =
+    (user.user_metadata?.full_name as string | undefined)?.split(" ")[0] ?? user.email?.split("@")[0] ?? "";
+  const n = (value: number) => format.number(value);
+  const pct = (value: number) => format.number(value / 100, { style: "percent", maximumFractionDigits: 1 });
+
+  const countDelta = (m: MetricSeries): KpiDelta => {
+    const trend = trendOf(m.current, m.previous);
+    return {
+      direction: trend.direction,
+      text: trend.direction === "new" ? t("deltaNew") : trend.direction === "flat" ? t("deltaFlat") : pct(trend.pct ?? 0),
     };
+  };
+  const seriesOf = (m: MetricSeries) => ({ values: m.series, startDate: metrics.data!.current_start });
 
-    const handleResubmit = async (companyId: string) => {
-        if (!user) return;
+  const renderKpis = () => {
+    if (metrics.isError) {
+      return (
+        <div role="alert" className="flex items-center justify-between gap-3 rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-800 ring-1 ring-red-200 sm:col-span-2">
+          {t("metricsError")}
+          <button type="button" onClick={() => metrics.refetch()} className="font-semibold underline">
+            {t("retry")}
+          </button>
+        </div>
+      );
+    }
+    if (!metrics.data) return Array.from({ length: 4 }).map((_, i) => <KpiTileSkeleton key={i} />);
 
-        setResubmittingIds((prev) => new Set(prev).add(companyId));
-        const toastId = toast.loading(t("resubmitting"));
-
-        try {
-            // Routed through a service-role server action: an owner cannot write
-            // companies.status (column-REVOKE'd) or insert a verification_reviews
-            // row (admin-only RLS) directly — the action verifies ownership first.
-            const result = await resubmitCompanyVerification({ companyId, locale });
-            if (!result.ok) throw new Error(result.error ?? "resubmit_failed");
-
-            toast.success(t("resubmitSuccess"), { id: toastId });
-            queryClient.invalidateQueries({ queryKey: companiesQueryKey(user.id) });
-        } catch (err) {
-            console.error("Error resubmitting company:", err);
-            toast.error(t("resubmitError"), { id: toastId });
-        } finally {
-            setResubmittingIds((prev) => {
-                const next = new Set(prev);
-                next.delete(companyId);
-                return next;
-            });
-        }
-    };
-
-    const getStatusBadge = (status: string) => {
-        switch (status) {
-            case "verified":
-                return (
-                    <Badge className="badge-verified">
-                        <CheckCircle className="w-3 h-3 mr-1" />
-                        {t("verified")}
-                    </Badge>
-                );
-            case "pending":
-                return (
-                    <Badge variant="secondary">
-                        <Clock className="w-3 h-3 mr-1" />
-                        {t("pendingVerification")}
-                    </Badge>
-                );
-            case "rejected":
-                return (
-                    <Badge variant="destructive">
-                        <XCircle className="w-3 h-3 mr-1" />
-                        {t("rejected")}
-                    </Badge>
-                );
-            case "more_info_requested":
-                return (
-                    <Badge className="bg-amber-100 text-amber-800 border-amber-200">
-                        <Clock className="w-3 h-3 mr-1" />
-                        {t("moreInfoRequested")}
-                    </Badge>
-                );
-            default:
-                return null;
-        }
-    };
-
-    if (!user) {
-        return (
-            <div className="min-h-screen flex items-center justify-center">
-                <p>{t("signInRequired")}</p>
-            </div>
-        );
+    const m = metrics.data.metrics;
+    if (congolese) {
+      const rateNow = ratePct(m.contact_requests.current, m.profile_views.current);
+      const ratePrev = ratePct(m.contact_requests.previous, m.profile_views.previous);
+      const points = ratePointsDelta(rateNow, ratePrev);
+      return (
+        <>
+          <KpiTile highlight icon={Eye} label={t("kpi.profileViews")} value={n(m.profile_views.current)} delta={countDelta(m.profile_views)} series={seriesOf(m.profile_views)} />
+          <KpiTile icon={Search} label={t("kpi.searchAppearances")} value={n(m.search_appearances.current)} delta={countDelta(m.search_appearances)} series={seriesOf(m.search_appearances)} />
+          <KpiTile icon={Package} label={t("kpi.productViews")} value={n(m.product_views.current)} delta={countDelta(m.product_views)} series={seriesOf(m.product_views)} />
+          <KpiTile
+            icon={MousePointerClick}
+            label={t("kpi.contactRate")}
+            value={rateNow === null ? "—" : pct(rateNow)}
+            delta={
+              points === null
+                ? null
+                : {
+                    direction: points > 0 ? "up" : points < 0 ? "down" : "flat",
+                    text: t("deltaPoints", { value: format.number(Math.abs(points), { maximumFractionDigits: 1 }) }),
+                  }
+            }
+            footnote={
+              rateNow === null
+                ? t("kpi.contactRateNoViews")
+                : t("kpi.contactRateFoot", { contacts: m.contact_requests.current, views: m.profile_views.current })
+            }
+          />
+        </>
+      );
     }
 
+    const outreach = metrics.data.outreach;
+    const replyRate = ratePct(outreach.replied, outreach.started);
     return (
-        <div className="max-w-5xl">
-            <PageHeader
-                title={t("title")}
-                subtitle={`${t("welcome")}, ${user.email}`}
-                action={
-                    // P1-1: an owner who already has companies must see "Register
-                    // Another Company", not the first-time CTA. This used to hide
-                    // the whole button while isLoading, which popped the CTA in
-                    // and shifted the header layout on every single visit — now
-                    // the button always renders and only its LABEL swaps once the
-                    // companies query resolves (defaulting to the "first company"
-                    // copy while loading, since 0 is the safe starting guess).
-                    <Button asChild size="sm">
-                        <Link href="/register-company">
-                            <Plus className="w-4 h-4 mr-2" />
-                            {t(registerFirstOrAnother(companies?.length ?? 0))}
-                        </Link>
-                    </Button>
-                }
-            />
-
-            <div className="mt-4 mb-4">
-                <StatsRow companyIds={companyIds} />
-            </div>
-
-            <div className="mb-4">
-                <PremiumStatusCard />
-            </div>
-
-            {!isLoading && productCount !== null && opportunityCount !== null && (
-                <OnboardingCard
-                    steps={[
-                        {
-                            key: "company",
-                            href: "/dashboard/companies",
-                            done: (companies?.length ?? 0) > 0,
-                        },
-                        {
-                            key: "product",
-                            href: "/dashboard/products",
-                            done: productCount > 0,
-                        },
-                        {
-                            key: "opportunity",
-                            href: "/dashboard/opportunities/new",
-                            done: opportunityCount > 0,
-                        },
-                    ]}
-                />
-            )}
-
-            <div className="bg-card border border-slate-200 rounded-2xl">
-                <div className="p-3 border-b">
-                    <h2 className="font-semibold text-sm">{t("myCompanies")}</h2>
-                </div>
-
-                    {isLoading ? (
-                        <div className="p-3 space-y-2">
-                            <div className="h-14 bg-muted animate-pulse rounded-sm" />
-                            <div className="h-14 bg-muted animate-pulse rounded-sm" />
-                        </div>
-                    ) : (companies as unknown as Company[] | undefined)?.length ? (
-                        <div className="divide-y">
-                            {(companies as unknown as Company[]).map((company, index) => {
-                                const latestReview = getLatestReview(company.verification_reviews);
-                                const isRejected = company.status === "rejected";
-                                const isMoreInfo = company.status === "more_info_requested";
-                                const isResubmitting = resubmittingIds.has(company.id);
-                                const canViewProfile = canViewPublicProfile(company.status);
-                                const sectorLabel = resolveSectorLabel(company.sectors, locale as Locale);
-
-                                return (
-                                    <motion.div
-                                        key={company.id}
-                                        initial={{ opacity: 0, y: 10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: index * 0.05 }}
-                                        className="p-3"
-                                    >
-                                        <div className="flex items-center justify-between">
-                                            <div className="flex items-center gap-4">
-                                                <div className="w-12 h-12 bg-muted flex items-center justify-center">
-                                                    <Building2 className="w-6 h-6 text-muted-foreground" />
-                                                </div>
-                                                <div>
-                                                    <div className="flex items-center gap-2">
-                                                        <h3 className="font-semibold">{company.name}</h3>
-                                                        {getStatusBadge(company.status)}
-                                                    </div>
-                                                    {sectorLabel && (
-                                                        <p className="text-sm text-muted-foreground">
-                                                            {sectorLabel}
-                                                        </p>
-                                                    )}
-                                                </div>
-                                            </div>
-                                            <div className="flex items-center gap-2">
-                                                {isRejected && (
-                                                    <Button
-                                                        variant="outline"
-                                                        size="sm"
-                                                        onClick={() => handleResubmit(company.id)}
-                                                        disabled={isResubmitting}
-                                                    >
-                                                        <RefreshCw className={`w-4 h-4 mr-1 ${isResubmitting ? "animate-spin" : ""}`} />
-                                                        {t("resubmit")}
-                                                    </Button>
-                                                )}
-                                                {canViewProfile ? (
-                                                    <Button variant="outline" size="sm" asChild>
-                                                        <Link href={`/companies/${company.id}`}>
-                                                            <Eye className="w-4 h-4 mr-1" />
-                                                            {t("viewProfile")}
-                                                        </Link>
-                                                    </Button>
-                                                ) : (
-                                                    // P1-3: companies_public only exposes verified rows
-                                                    // (00036_companies_public_country.sql:31). Linking there
-                                                    // for a pending/rejected company 404s, so show a disabled
-                                                    // state instead of a dead link.
-                                                    // disabled:pointer-events-none on the Button
-                                                    // primitive (src/components/ui/button.tsx) also
-                                                    // blocks the browser's native title tooltip on the
-                                                    // button itself, so the explanation is carried by
-                                                    // this wrapping span instead — it isn't disabled
-                                                    // and still receives pointer/hover events.
-                                                    <span title={t("viewProfilePendingHint")}>
-                                                        <Button
-                                                            variant="outline"
-                                                            size="sm"
-                                                            disabled
-                                                        >
-                                                            <Eye className="w-4 h-4 mr-1" />
-                                                            {t("viewProfile")}
-                                                        </Button>
-                                                    </span>
-                                                )}
-                                                <Button variant="outline" size="sm" asChild>
-                                                    <Link href={`/dashboard/companies/${company.id}/edit`}>
-                                                        <Edit className="w-4 h-4 mr-1" />
-                                                        {t("editProfile")}
-                                                    </Link>
-                                                </Button>
-                                            </div>
-                                        </div>
-
-                                        {(isRejected || isMoreInfo) && latestReview?.notes && (
-                                            <div className={`mt-3 ml-16 px-3 py-2 text-sm rounded-sm border ${
-                                                isRejected
-                                                    ? "bg-red-50 border-red-100 text-red-700"
-                                                    : "bg-amber-50 border-amber-100 text-amber-700"
-                                            }`}>
-                                                <span className="font-medium">
-                                                    {isRejected ? t("rejectionReason") : t("moreInfoRequested")}:
-                                                </span>{" "}
-                                                {latestReview.notes}
-                                            </div>
-                                        )}
-                                    </motion.div>
-                                );
-                            })}
-                        </div>
-                    ) : (
-                        <div className="py-6 text-center">
-                            <Building2 className="w-10 h-10 mx-auto text-muted-foreground mb-3" />
-                            <h3 className="text-sm font-medium mb-2">{t("noCompanies")}</h3>
-                            <Button asChild className="mt-4">
-                                <Link href="/register-company">
-                                    <Plus className="w-4 h-4 mr-2" />
-                                    {t("registerFirst")}
-                                </Link>
-                            </Button>
-                        </div>
-                    )}
-            </div>
-        </div>
+      <>
+        <KpiTile highlight icon={MessageCircleReply} label={t("kpi.responsesReceived")} value={n(m.responses_received.current)} delta={countDelta(m.responses_received)} series={seriesOf(m.responses_received)} />
+        <KpiTile icon={Target} label={t("kpi.matchingOpportunities")} value={recommended.data ? n(recommended.data.total) : "—"} footnote={t("kpi.matchingFoot")} />
+        <KpiTile icon={Eye} label={t("kpi.profileViewsYours")} value={n(m.profile_views.current)} delta={countDelta(m.profile_views)} series={seriesOf(m.profile_views)} />
+        <KpiTile
+          icon={Timer}
+          label={t("kpi.replyRate")}
+          value={replyRate === null ? "—" : pct(replyRate)}
+          footnote={
+            replyRate === null
+              ? t("kpi.replyNone")
+              : outreach.median_reply_hours === null
+                ? t("kpi.replyCount", { replied: outreach.replied, started: outreach.started })
+                : t("kpi.replyMedian", { hours: format.number(outreach.median_reply_hours, { maximumFractionDigits: 1 }) })
+          }
+        />
+      </>
     );
-}
+  };
 
+  const sectorLabel = primary ? resolveSectorLabel(primary.sectors, locale as Locale) : null;
+  const hour = now.getHours();
+  const greetingKey = hour < 12 ? "morning" : hour < 18 ? "afternoon" : "evening";
+
+  const chart = metrics.data ? (
+    <ActivityChart
+      title={t(congolese ? "chart.titleVitrine" : "chart.titleProfile")}
+      subtitle={t("periodCompare", { days: period })}
+      startDate={metrics.data.current_start}
+      series={
+        congolese
+          ? [
+              { key: "profile", label: t("kpi.profileViews"), color: "blue", values: metrics.data.metrics.profile_views.series },
+              { key: "products", label: t("kpi.productViews"), color: "gold", hatched: true, values: metrics.data.metrics.product_views.series },
+            ]
+          : [{ key: "profile", label: t("kpi.profileViewsYours"), color: "blue", values: metrics.data.metrics.profile_views.series }]
+      }
+    />
+  ) : (
+    <CardSkeleton rows={6} />
+  );
+
+  return (
+    <div className="mx-auto max-w-[1320px] space-y-5">
+      <header className="flex flex-wrap items-end justify-between gap-4 pt-2">
+        <div>
+          <h1 className="font-display text-[28px] font-semibold leading-tight tracking-tight text-market-navy sm:text-[32px]">
+            {t(`greetingTime.${greetingKey}`, { name: firstName })}
+          </h1>
+          <p className="mt-1 text-sm text-slate-500">
+            {hasCompanies ? t("greetingSub", { company: primary!.name, days: period }) : t("greetingNewSub")}
+          </p>
+        </div>
+        {hasCompanies && (
+          <div className="flex flex-wrap items-center gap-2">
+            <PeriodSwitch value={period} onChange={setPeriod} />
+            <Link
+              href={congolese ? "/dashboard/products/new" : "/dashboard/opportunities/new"}
+              className="inline-flex items-center gap-1.5 rounded-full bg-market-navy px-4 py-2.5 text-[13px] font-semibold text-white transition-colors hover:bg-market-navy-deep"
+            >
+              <span className="grid h-5 w-5 place-items-center rounded-full bg-market-or text-market-navy">
+                <Plus className="h-3.5 w-3.5" aria-hidden />
+              </span>
+              {t(congolese ? "ctaOffer" : "ctaRequest")}
+            </Link>
+          </div>
+        )}
+      </header>
+
+      {companiesLoading ? (
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {Array.from({ length: 4 }).map((_, i) => <KpiTileSkeleton key={i} />)}
+        </div>
+      ) : !hasCompanies ? (
+        <OnboardingGuide model={onboarding!} variant="welcome" />
+      ) : (
+        <>
+          {onboarding && !onboarding.complete && <OnboardingGuide model={onboarding} variant="progress" />}
+
+          <div className="grid grid-cols-1 gap-4 xl:grid-cols-12">
+            <section aria-label={t(congolese ? "visibilityTitle" : "activityTitle")} className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 xl:col-span-7">
+              {renderKpis()}
+            </section>
+            <div className="min-w-0 xl:col-span-5">
+              <ActionCenter tasks={tasks} userId={user.id} />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 xl:grid-cols-12">
+            <div className="min-w-0 xl:col-span-8">{chart}</div>
+            <div className="flex min-w-0 flex-col gap-4 xl:col-span-4">
+              {congolese ? (
+                <>
+                  {metrics.data ? <TopProductsCard products={metrics.data.top_products} /> : <CardSkeleton rows={3} />}
+                  {metrics.data ? <SearchDiscoveryCard entries={metrics.data.top_search} /> : <CardSkeleton rows={2} />}
+                </>
+              ) : (
+                <>
+                  {market.data ? <MarketWatchCard data={market.data} /> : <CardSkeleton rows={3} />}
+                  {suppliers.data ? <SuppliersCard suppliers={suppliers.data} /> : <CardSkeleton rows={3} />}
+                </>
+              )}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 xl:grid-cols-12">
+            {congolese ? (
+              <>
+                <div className="min-w-0 xl:col-span-8">
+                  {myOpportunities.data ? <MyOpportunitiesCard data={myOpportunities.data} wording="offers" /> : <CardSkeleton />}
+                </div>
+                <div className="min-w-0 xl:col-span-4">
+                  {recommended.data ? (
+                    <RecommendedOpportunitiesCard data={recommended.data} sectorLabel={sectorLabel} provinces={[]} layout="list" />
+                  ) : (
+                    <CardSkeleton />
+                  )}
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="min-w-0 xl:col-span-8">
+                  {recommended.data ? (
+                    <RecommendedOpportunitiesCard data={recommended.data} sectorLabel={sectorLabel} provinces={provinces} layout="table" />
+                  ) : (
+                    <CardSkeleton />
+                  )}
+                </div>
+                <div className="min-w-0 xl:col-span-4">
+                  {myOpportunities.data ? <MyOpportunitiesCard data={myOpportunities.data} wording="requests" compact /> : <CardSkeleton />}
+                </div>
+              </>
+            )}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}

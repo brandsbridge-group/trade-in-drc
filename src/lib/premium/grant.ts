@@ -5,8 +5,8 @@ import type { Database, PremiumPlan } from "@/lib/supabase/types";
  * Granting premium to a company — the single implementation.
  *
  * Two screens grant it: approving a company-scoped request at
- * /admin/requests/premium, and fulfilling an anonymous promotion lead at
- * /admin/requests. They used to write these four columns separately and had
+ * /console/requests/premium, and fulfilling an anonymous promotion lead at
+ * /console/requests. They used to write these four columns separately and had
  * already drifted — one advanced the term with `setMonth(+12)` (calendar year)
  * and the other with a fixed `365 * 24 * 60 * 60 * 1000`, so the same package
  * expired on different dates depending on which screen the admin used.

@@ -119,7 +119,7 @@ export async function SiteFooter() {
           </div>
           <Link
             href="/pricing"
-            className="mt-4 inline-flex items-center gap-1.5 rounded-md bg-market-gold px-3.5 py-2 text-xs font-bold text-market-navy transition-colors duration-150 hover:bg-yellow-400"
+            className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-market-or px-4 py-2 text-xs font-bold text-market-navy transition-colors duration-150 hover:bg-market-or-light active:bg-market-or-dark"
           >
             {t("upgradePremium")} <ArrowRight className="h-3.5 w-3.5" aria-hidden />
           </Link>

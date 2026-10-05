@@ -74,7 +74,7 @@ export function IntlSidebar({ onChoosePremium, premiumSelected }: Props) {
             "mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-[13px] font-bold transition-colors duration-150 ease-out",
             premiumSelected
               ? "bg-white/15 text-white"
-              : "bg-market-gold text-[var(--color-landing-navy)] hover:bg-yellow-400"
+              : "bg-market-or text-[var(--color-landing-navy)] hover:bg-market-or-light active:bg-market-or-dark"
           )}
         >
           {premiumSelected && <Check className="size-4" strokeWidth={3} aria-hidden />}

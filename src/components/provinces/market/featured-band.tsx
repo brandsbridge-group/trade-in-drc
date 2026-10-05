@@ -150,7 +150,7 @@ export async function FeaturedBand({ locale, lualabaCount, recommended }: Featur
         <p className="flex-1 text-xs text-slate-500">{t("needDescription")}</p>
         <Link
           href="/request"
-          className="flex w-full items-center justify-center gap-1.5 rounded-lg bg-market-gold px-4 py-2.5 text-sm font-semibold text-market-navy transition-colors duration-150 hover:brightness-95"
+          className="flex w-full items-center justify-center gap-1.5 rounded-full bg-market-or px-4 py-2.5 text-sm font-semibold text-market-navy transition-colors duration-150 hover:bg-market-or-light active:bg-market-or-dark"
         >
           {t("requestCta")}
           <ArrowRight className="h-4 w-4" aria-hidden />

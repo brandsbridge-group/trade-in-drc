@@ -31,6 +31,8 @@ export function IntelForm({ sectors }: { sectors: HeroSectorOption[] }) {
         message: String(fd.get("message") ?? ""),
       });
 
+      console.log("resultat", result);
+
       if (result.ok) {
         setReference(result.reference ?? null);
         setDone(true);

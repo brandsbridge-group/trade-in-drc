@@ -34,7 +34,7 @@ export type ServiceRequestInput = z.infer<typeof serviceRequestSchema>;
 /**
  * "Request a Service" submission (design Our Services). Anonymous-friendly —
  * writes to business_requests (submitter_id NULL when signed out). Admins see
- * it at /admin/requests. Returns the generated TIDRC-PR-... reference.
+ * it at /console/requests. Returns the generated TIDRC-PR-... reference.
  */
 export async function submitServiceRequest(
   input: ServiceRequestInput

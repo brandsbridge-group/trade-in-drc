@@ -2,10 +2,10 @@ import Image from "next/image";
 import { BLUR } from "./blur-data";
 
 /**
- * Full-bleed animated composite backdrop for the hero zone (hero copy + panel +
- * feature cards). Absolutely fills its positioned parent. Two overlays:
- * left-dark for copy legibility, bottom-dark so the white feature cards sit on a
- * near-solid navy band (Congo reference vibe). Reduced-motion → static poster.
+ * Full-bleed animated composite backdrop for the hero zone (hero copy and
+ * dashboard panel). Absolutely fills its positioned parent. Two overlays:
+ * left-dark for copy legibility, bottom-dark so the hero fades into the navy
+ * trust ribbon below (Congo reference vibe). Reduced-motion → static poster.
  */
 export function HeroBackdrop() {
   return (
@@ -33,7 +33,7 @@ export function HeroBackdrop() {
       />
       {/* left-dark scrim for headline legibility */}
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(14,28,68,0.94)_0%,rgba(14,28,68,0.78)_42%,rgba(14,28,68,0.46)_72%,rgba(14,28,68,0.30)_100%)]" />
-      {/* bottom-dark band so the white feature cards pop on near-solid navy */}
+      {/* bottom-dark band easing the hero into the navy trust ribbon */}
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(14,28,68,0.05)_0%,rgba(14,28,68,0.30)_52%,rgba(14,28,68,0.94)_100%)]" />
     </div>
   );

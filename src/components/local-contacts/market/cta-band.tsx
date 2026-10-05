@@ -27,7 +27,7 @@ export async function CtaBand() {
           </div>
           <Link
             href="/request"
-            className="relative inline-flex shrink-0 items-center gap-2 rounded-md bg-market-gold px-6 py-3 text-sm font-semibold text-market-navy transition-colors duration-150 hover:bg-market-gold/90"
+            className="relative inline-flex shrink-0 items-center gap-2 rounded-full bg-market-or px-6 py-3 text-sm font-semibold text-market-navy transition-colors duration-150 hover:bg-market-or-light active:bg-market-or-dark"
           >
             <Handshake className="h-4 w-4" aria-hidden />
             {t("cta")}

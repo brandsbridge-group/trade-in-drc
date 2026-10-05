@@ -11,12 +11,17 @@ import { Loader2 } from "lucide-react";
 import { PageHeader } from "@/components/design";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { isValidPhoneNumber, type Value } from "react-phone-number-input";
+import { PhoneField } from "@/components/auth/phone-field";
 
 export default function SettingsPage() {
   const { user } = useAuth();
   const t = useTranslations("Auth.accountSettings");
   const ts = useTranslations("Settings");
+  const ta = useTranslations("Auth");
   const [fullName, setFullName] = useState("");
+  const [phone, setPhone] = useState<Value | undefined>();
+  const [phoneInvalid, setPhoneInvalid] = useState(false);
   const [role, setRole] = useState<string>("user");
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -27,10 +32,11 @@ export default function SettingsPage() {
       const supabase = createClient();
       const { data } = await supabase
         .from("profiles")
-        .select("full_name, role")
+        .select("full_name, phone, role")
         .eq("id", user.id)
         .single();
       if (data?.full_name) setFullName(data.full_name);
+      if (data?.phone) setPhone(data.phone as Value);
       if (data?.role) setRole(data.role);
       setLoading(false);
     };
@@ -39,11 +45,17 @@ export default function SettingsPage() {
 
   const handleSave = async () => {
     if (!user) return;
+    // Phone is optional — only validate it when something was typed.
+    if (phone && !isValidPhoneNumber(phone)) {
+      setPhoneInvalid(true);
+      toast.error(ta("errorPhoneInvalid"));
+      return;
+    }
     setSaving(true);
     const supabase = createClient();
     const { error } = await supabase
       .from("profiles")
-      .update({ full_name: fullName })
+      .update({ full_name: fullName, phone: phone ?? null })
       .eq("id", user.id);
 
     if (error) {
@@ -96,6 +108,18 @@ export default function SettingsPage() {
             className="mt-1 h-9 text-sm"
           />
         </div>
+
+        <PhoneField
+          label={`${ta("phone")} (${ta("optional")})`}
+          placeholder={ta("phonePlaceholder")}
+          disabled={saving}
+          value={phone}
+          invalid={phoneInvalid}
+          onChange={(v) => {
+            setPhone(v);
+            setPhoneInvalid(false);
+          }}
+        />
 
         <Button
           onClick={handleSave}

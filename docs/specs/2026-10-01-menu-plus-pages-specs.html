@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Specs — Menu « Plus » et pages associées</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm 18mm 16mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", "Microsoft YaHei", Arial, sans-serif; font-size: 10.2pt; line-height: 1.45; color: #1e293b; margin: 0; }
+  h1 { font-size: 19pt; color: #0b1f3a; margin: 0 0 4pt; page-break-before: always; padding-bottom: 5pt; border-bottom: 2.5pt solid #cba14e; }
+  h1.first { page-break-before: avoid; }
+  h2 { font-size: 12.5pt; color: #0b1f3a; margin: 14pt 0 4pt; page-break-after: avoid; }
+  h3 { font-size: 10.5pt; color: #0b1f3a; margin: 10pt 0 3pt; page-break-after: avoid; }
+  p { margin: 0 0 6pt; }
+  ul, ol { margin: 0 0 6pt; padding-left: 16pt; }
+  li { margin-bottom: 2.5pt; }
+  code { font-family: Consolas, "Courier New", monospace; font-size: 8.8pt; background: #f1f5f9; padding: 0.5pt 3pt; border-radius: 2pt; word-break: break-all; }
+  table { width: 100%; border-collapse: collapse; margin: 4pt 0 9pt; font-size: 9.2pt; page-break-inside: auto; }
+  tr { page-break-inside: avoid; }
+  th { background: #0b1f3a; color: #fff; text-align: left; padding: 4pt 6pt; font-weight: 600; }
+  th code { background: transparent; color: #fff; padding: 0; }
+  td { border: 0.6pt solid #cbd5e1; padding: 4pt 6pt; vertical-align: top; }
+  .cover { height: 250mm; display: flex; flex-direction: column; justify-content: center; }
+  .cover .kicker { color: #a67c2e; font-weight: 700; letter-spacing: 1.5pt; font-size: 9.5pt; text-transform: uppercase; }
+  .cover .title { font-size: 30pt; font-weight: 700; color: #0b1f3a; line-height: 1.15; margin: 8pt 0 10pt; }
+  .cover .sub { font-size: 12pt; color: #475569; max-width: 135mm; }
+  .cover .meta { margin-top: 26pt; font-size: 9.5pt; color: #475569; border-top: 0.8pt solid #cbd5e1; padding-top: 9pt; }
+  .lead { font-size: 10.8pt; color: #334155; margin-bottom: 9pt; }
+  .box { border-left: 3pt solid #cba14e; background: #fbf7ee; padding: 6pt 9pt; margin: 6pt 0 9pt; page-break-inside: avoid; }
+  .box.warn { border-left-color: #b91c1c; background: #fef2f2; }
+  .box b { color: #0b1f3a; }
+  .tag { display: inline-block; font-size: 7.8pt; font-weight: 700; padding: 1pt 5pt; border-radius: 8pt; color: #fff; background: #0b1f3a; vertical-align: 1pt; }
+  .tag.p1 { background: #b91c1c; } .tag.p2 { background: #a67c2e; } .tag.p3 { background: #64748b; }
+  .small { font-size: 8.8pt; color: #475569; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="kicker">TradeInDRC · Spécifications d'implémentation</div>
+  <div class="title">Menu « Plus » et ses six pages de destination</div>
+  <div class="sub">Ce qu'il faut modifier, page par page, pour que le menu secondaire et les pages qu'il ouvre décrivent fidèlement ce que fait la plateforme.</div>
+  <div class="meta">
+    Version 1.0 — 1<sup>er</sup> octobre 2026<br>
+    Branche de référence : <code>feature/Homepage</code><br>
+    Périmètre : <code>/about</code>, <code>/local-contacts</code>, <code>/services</code>, <code>/events</code>, <code>/contact</code>, <code>/pricing</code> et le panneau « Plus » de la barre de navigation.
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h1>0. Vue d'ensemble</h1>
+
+<p class="lead">Le panneau « Plus » de la navigation ouvre cinq liens et une carte mise en avant. Tous les liens fonctionnent, mais plusieurs descriptions ne correspondent pas au contenu réel des pages, et deux pages (À propos, Contact) sont en retrait par rapport au reste du site. Ce document décrit les corrections à faire.</p>
+
+<h2>0.1 Résumé du travail</h2>
+<table>
+  <tr><th style="width:5%">§</th><th style="width:20%">Élément</th><th>Travail demandé</th><th style="width:12%">Priorité</th><th style="width:11%">Charge</th></tr>
+  <tr><td>1</td><td>Panneau « Plus »</td><td>Remplacer 6 textes et 1 libellé dans les 5 fichiers de langue. Aucun changement de composant.</td><td><span class="tag p1">P1</span></td><td>0,5 j</td></tr>
+  <tr><td>2</td><td>À propos</td><td>Ajouter 4 sections à partir de textes déjà traduits mais non affichés. Traiter les sous-pages « en construction ».</td><td><span class="tag p1">P1</span></td><td>1,5 j</td></tr>
+  <tr><td>3</td><td>Contacts locaux</td><td>Renommer l'entrée, ajouter les métadonnées, différencier les cartes « type de contact ».</td><td><span class="tag p2">P2</span></td><td>0,5 à 1 j</td></tr>
+  <tr><td>4</td><td>Services</td><td>Présélection du service depuis les cartes. Page déjà conforme pour le reste.</td><td><span class="tag p3">P3</span></td><td>0,5 j</td></tr>
+  <tr><td>5</td><td>Événements</td><td>Ajouter les métadonnées et masquer les sections vides. Page déjà conforme pour le reste.</td><td><span class="tag p3">P3</span></td><td>0,25 j</td></tr>
+  <tr><td>6</td><td>Contact</td><td>Refonte visuelle (navy et or), sujet à choix, raccourcis vers les bons parcours, métadonnées.</td><td><span class="tag p1">P1</span></td><td>1,5 j</td></tr>
+  <tr><td>7</td><td>Promouvoir (<code>/pricing</code>)</td><td>Réécrire le hero et les métadonnées, aujourd'hui centrés sur les seules entreprises locales.</td><td><span class="tag p2">P2</span></td><td>0,5 j</td></tr>
+</table>
+<p class="small">Les charges sont des estimations pour un développeur qui connaît déjà le dépôt.</p>
+
+<h2>0.2 Règles du projet à respecter partout</h2>
+<ul>
+  <li><b>Traductions.</b> Tout texte visible vit dans <code>src/config/messages/{en,fr,tr,es,zh}.json</code>. Toute clé ajoutée ou modifiée l'est dans les <b>cinq</b> fichiers, dans la même PR. Aucun texte en dur dans le JSX.</li>
+  <li><b>Navigation.</b> Utiliser <code>Link</code>, <code>useRouter</code>, <code>usePathname</code> de <code>@/i18n/routing</code>, jamais ceux de <code>next/link</code> ou <code>next/navigation</code>.</li>
+  <li><b>Animations.</b> Lire <code>docs/MOTION.md</code> avant d'en ajouter. Survol ≤ 200 ms, apparition ≤ 300 ms, entrée de surface marketing ≤ 500 ms, respect de <code>prefers-reduced-motion</code>.</li>
+  <li><b>Couleurs.</b> Fond navy <code>market-navy</code>, accent or <code>market-or</code> (#CBA14E). Ne pas utiliser le jaune vif du drapeau.</li>
+  <li><b>Composants UI.</b> Ne pas modifier les fichiers de <code>src/components/ui/</code> ; composer par-dessus.</li>
+  <li><b>Coordonnées.</b> E-mail, téléphone et adresse viennent uniquement de <code>src/config/contact.ts</code>.</li>
+  <li><b>Base de données.</b> Aucune migration n'est requise par ce document. Les prix des formules sont verrouillés par une contrainte SQL : ne pas les changer.</li>
+</ul>
+
+<h2>0.3 Ordre conseillé</h2>
+<ol>
+  <li>§1 Panneau « Plus » (indépendant, livrable seul).</li>
+  <li>§6 Contact, puis §2 À propos (les deux pages les plus en retrait).</li>
+  <li>§7 Promouvoir, §3 Contacts locaux.</li>
+  <li>§4 Services et §5 Événements (finitions).</li>
+</ol>
+
+<!-- ============================================================ -->
+<h1>1. Panneau « Plus » de la navigation</h1>
+
+<h2>Fichiers</h2>
+<ul>
+  <li><code>src/components/layout/nav-pills.tsx</code> — tableau <code>MORE</code> et carte mise en avant (bureau, à partir de <code>xl</code>).</li>
+  <li><code>src/components/layout/navbar.tsx</code> — tableau <code>overflowLinks</code> (menu mobile), qui réutilise les mêmes libellés.</li>
+  <li><code>src/config/messages/*.json</code> — espace de noms <code>Nav</code> : clés <code>contactPoints</code>, <code>moreDesc.*</code>, <code>featured.body</code>.</li>
+</ul>
+
+<h2>Problème</h2>
+<table>
+  <tr><th style="width:22%">Entrée</th><th style="width:36%">Texte actuel (FR)</th><th>Écart avec la page</th></tr>
+  <tr><td>À propos</td><td>Notre mission, nos valeurs et notre équipe.</td><td>La page ne contient aucune section équipe.</td></tr>
+  <tr><td>Points de contact locaux</td><td>Institutions et relais locaux, province par province.</td><td>La page est un point d'entrée vers l'annuaire d'entreprises (fournisseurs, distributeurs, représentants, prestataires). Les institutions ne sont qu'un type sur six.</td></tr>
+  <tr><td>Services</td><td>Un accompagnement de A à Z par notre équipe.</td><td>Trop vague : la page propose sept services nommés.</td></tr>
+  <tr><td>Événements</td><td>Salons, forums et missions d'affaires.</td><td>Exact, mais n'indique pas qu'on peut proposer un événement.</td></tr>
+  <tr><td>Contact</td><td>Une question ? Parlons-en.</td><td>Générique.</td></tr>
+  <tr><td>Carte « Promouvoir »</td><td>Gagnez en visibilité auprès des acheteurs internationaux.</td><td>Exclut les entreprises internationales, à qui deux des trois formules sont vendues.</td></tr>
+</table>
+
+<h2>Changements</h2>
+<ol>
+  <li>Remplacer la valeur de <code>Nav.contactPoints</code> (libellé) et des six clés ci-dessous, dans les cinq langues.</li>
+  <li>Ne pas renommer les clés : <code>navbar.tsx</code> et <code>nav-pills.tsx</code> restent inchangés.</li>
+  <li>Vérifier que chaque description tient sur deux lignes au maximum dans le panneau (largeur 600 px) et que le texte de la carte tient dans ses 220 px.</li>
+</ol>
+
+<h3>Textes — français et anglais</h3>
+<table>
+  <tr><th style="width:22%">Clé (<code>Nav.</code>)</th><th>fr</th><th>en</th></tr>
+  <tr><td><code>contactPoints</code></td><td>Contacts locaux</td><td>Local contacts</td></tr>
+  <tr><td><code>moreDesc.about</code></td><td>La plateforme qui relie les entreprises de la RDC au monde : mission, vision, valeurs.</td><td>The platform linking DRC businesses to the world: mission, vision, values.</td></tr>
+  <tr><td><code>moreDesc.contactPoints</code></td><td>Fournisseurs, distributeurs et représentants vérifiés, par secteur et par province.</td><td>Verified suppliers, distributors and representatives, by sector and province.</td></tr>
+  <tr><td><code>moreDesc.services</code></td><td>Recherche de partenaires, vérification d'entreprise, rendez-vous B2B et entrée sur le marché.</td><td>Partner search, company verification, B2B meetings and market entry.</td></tr>
+  <tr><td><code>moreDesc.events</code></td><td>Salons, forums et missions d'affaires — ou publiez le vôtre.</td><td>Trade fairs, forums and business missions — or list your own.</td></tr>
+  <tr><td><code>moreDesc.contact</code></td><td>Vérification, formules, partenariats : notre équipe vous répond.</td><td>Verification, plans, partnerships: our team replies.</td></tr>
+  <tr><td><code>featured.body</code></td><td>Référencement gratuit, ou profil Premium vérifié et prioritaire dans l'annuaire.</td><td>Free listing, or a verified Premium profile with priority in the directory.</td></tr>
+</table>
+
+<h3>Textes — espagnol, turc, chinois</h3>
+<table>
+  <tr><th style="width:22%">Clé (<code>Nav.</code>)</th><th>es</th><th>tr</th><th>zh</th></tr>
+  <tr><td><code>contactPoints</code></td><td>Contactos locales</td><td>Yerel bağlantılar</td><td>本地联系人</td></tr>
+  <tr><td><code>moreDesc.about</code></td><td>La plataforma que conecta las empresas de la RDC con el mundo: misión, visión y valores.</td><td>DKC şirketlerini dünyaya bağlayan platform: misyon, vizyon, değerler.</td><td>连接刚果（金）企业与世界的平台：使命、愿景与价值观。</td></tr>
+  <tr><td><code>moreDesc.contactPoints</code></td><td>Proveedores, distribuidores y representantes verificados, por sector y provincia.</td><td>Sektöre ve ile göre doğrulanmış tedarikçiler, distribütörler ve temsilciler.</td><td>经过验证的供应商、分销商和代表，按行业和省份查找。</td></tr>
+  <tr><td><code>moreDesc.services</code></td><td>Búsqueda de socios, verificación de empresas, reuniones B2B y entrada al mercado.</td><td>Ortak arama, şirket doğrulama, B2B görüşmeleri ve pazara giriş.</td><td>合作伙伴搜寻、企业核验、B2B 会议与市场准入。</td></tr>
+  <tr><td><code>moreDesc.events</code></td><td>Ferias, foros y misiones comerciales, o publique el suyo.</td><td>Fuarlar, forumlar ve ticaret heyetleri — ya da kendi etkinliğinizi yayınlayın.</td><td>展会、论坛与商务考察——也可发布您自己的活动。</td></tr>
+  <tr><td><code>moreDesc.contact</code></td><td>Verificación, planes, alianzas: nuestro equipo le responde.</td><td>Doğrulama, paketler, ortaklıklar: ekibimiz yanıtlar.</td><td>核验、套餐、合作：我们的团队为您解答。</td></tr>
+  <tr><td><code>featured.body</code></td><td>Registro gratuito, o un perfil Premium verificado y prioritario en el directorio.</td><td>Ücretsiz kayıt ya da dizinde öncelikli, doğrulanmış Premium profil.</td><td>免费入驻，或升级为经过验证、在名录中优先展示的高级档案。</td></tr>
+</table>
+<div class="box"><b>À faire relire.</b> Les versions espagnole, turque et chinoise sont des traductions de travail. Elles doivent être relues par un locuteur natif avant mise en production.</div>
+
+<h2>Critères d'acceptation</h2>
+<ul>
+  <li>Les sept valeurs sont à jour dans les cinq fichiers ; aucune clé manquante (pas d'avertissement next-intl en console).</li>
+  <li>Le libellé « Contacts locaux » apparaît à l'identique dans le panneau bureau et dans le menu mobile.</li>
+  <li>Aucune description ne dépasse deux lignes à 1280 px de large, dans les cinq langues.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h1>2. À propos — <code>/about</code></h1>
+
+<h2>Objectif</h2>
+<p>Expliquer en une page ce qu'est TradeInDRC, à qui elle sert et ce qu'on peut y faire concrètement. Aujourd'hui la page reste au niveau des intentions (mission, vision, valeurs) et ne décrit aucune fonctionnalité.</p>
+
+<h2>Fichiers</h2>
+<ul>
+  <li><code>src/app/[locale]/about/page.tsx</code> — composition de la page.</li>
+  <li><code>src/app/[locale]/about/[slug]/page.tsx</code> — sous-pages.</li>
+  <li><code>src/components/home/landing/</code> — sections actuelles (<code>about-hero</code>, <code>landing-mission-banner</code>, <code>landing-value-cards</code>, <code>landing-transform-banner</code>, <code>landing-join-cta</code>), partagées avec l'accueil.</li>
+  <li>Traductions : <code>Landing.about|mission|values|transform|join</code> (affichées) et <code>About.*</code> (présentes dans les fichiers, <b>appelées nulle part</b> dans <code>src/</code>).</li>
+</ul>
+
+<h2>État actuel</h2>
+<p>Cinq sections : hero, bandeau mission, quatre cartes (qui nous sommes, vision, valeurs, ce que nous rendons possible), bandeau de transformation, appel à rejoindre. Le fichier <code>page.tsx</code> n'exporte pas de métadonnées.</p>
+
+<h2>Changements</h2>
+<ol>
+  <li><b>Créer quatre sections</b> dans un nouveau dossier <code>src/components/about/</code> (composants serveur, <code>getTranslations({ locale, namespace: "About" })</code>) et les insérer entre <code>LandingValueCards</code> et <code>LandingTransformBanner</code> :
+    <table>
+      <tr><th style="width:26%">Composant</th><th style="width:30%">Clés <code>About.</code></th><th>Rendu</th></tr>
+      <tr><td><code>about-audience.tsx</code></td><td><code>whoFor</code>, <code>audience.exporter|buyer|gov</code></td><td>Titre et trois cartes (icône, titre, description).</td></tr>
+      <tr><td><code>about-steps.tsx</code></td><td><code>howItWorks</code>, <code>step1..3</code>, <code>step1Desc..3Desc</code></td><td>Trois étapes numérotées en ligne ; en colonne sur mobile.</td></tr>
+      <tr><td><code>about-capabilities.tsx</code></td><td><code>capabilitiesTitle</code>, <code>capabilities.*</code> (6 entrées)</td><td>Grille 3 × 2 (2 colonnes en tablette, 1 en mobile).</td></tr>
+      <tr><td><code>about-trust.tsx</code></td><td><code>trustTitle</code>, <code>pillars.ministry|kyb|backed</code></td><td>Bandeau navy, trois piliers avec icône or.</td></tr>
+    </table>
+  </li>
+  <li><b>Relier chaque fonctionnalité à sa page</b> : annuaire → <code>/companies</code>, appels d'offres → <code>/opportunities</code>, les autres cartes sans lien. Ajouter les libellés de lien nécessaires dans <code>About</code> (5 langues).</li>
+  <li><b>Métadonnées</b> : ajouter <code>generateMetadata</code> dans <code>page.tsx</code> avec <code>About.title</code> et <code>About.heroSubtitle</code>.</li>
+  <li><b>Sous-pages</b> : <code>[slug]/page.tsx</code> affiche aujourd'hui un écran « en construction » pour n'importe quelle adresse (<code>/about/nimporte-quoi</code>). Le remplacer par <code>notFound()</code>, sauf si des sous-pages sont prévues (voir points ouverts).</li>
+  <li><b>Mise en page</b> : conserver le conteneur <code>marketing-surface</code>, largeur contenue, tailles compactes comme le reste de l'accueil. Pas de nouvelle animation au-delà des recettes de <code>docs/MOTION.md</code>.</li>
+</ol>
+
+<div class="box warn"><b>À valider avec le client avant publication.</b> Les textes <code>About.*</code> affirment que la plateforme est « soutenue par le gouvernement », que chaque inscription est « validée par le Ministère » et qu'un « badge officiel du Ministère » est attribué. Les textes actuellement en ligne (<code>Landing.*</code>) ne disent rien de tel. Ne pas afficher <code>about-trust</code> ni la carte <code>audience.gov</code> tant que ces affirmations ne sont pas confirmées par écrit ; les quatre sections doivent pouvoir être livrées séparément.</div>
+
+<h2>Critères d'acceptation</h2>
+<ul>
+  <li>La page affiche, dans l'ordre : hero, mission, cartes de valeurs, publics, étapes, fonctionnalités, confiance, bandeau, appel à rejoindre.</li>
+  <li>Les cinq langues s'affichent sans clé manquante.</li>
+  <li><code>/fr/about/xyz</code> renvoie une page 404.</li>
+  <li>L'onglet du navigateur affiche le titre traduit de la page.</li>
+  <li>Aucun défilement horizontal à 375 px.</li>
+</ul>
+
+<h2>Points ouverts</h2>
+<ul>
+  <li>Le rôle exact du Ministère (encadré ci-dessus).</li>
+  <li>Une section « équipe » est-elle souhaitée ? Si oui, il faut des noms, fonctions et photos fournis par le client ; sinon l'ancienne description du menu reste fausse et la nouvelle (§1) suffit.</li>
+  <li>Des sous-pages <code>/about/…</code> sont-elles prévues ?</li>
+</ul>
+
+<!-- ============================================================ -->
+<h1>3. Contacts locaux — <code>/local-contacts</code></h1>
+
+<h2>Objectif</h2>
+<p>Aider une entreprise qui entre sur le marché congolais à trouver le bon interlocuteur local : fournisseur, distributeur, représentant, prestataire, institution ou partenaire d'investissement.</p>
+
+<h2>Fichiers</h2>
+<ul>
+  <li><code>src/app/[locale]/local-contacts/page.tsx</code> et <code>provinces/page.tsx</code>.</li>
+  <li><code>src/components/local-contacts/market/</code> — <code>local-contacts-hero</code>, <code>contact-search-card</code>, <code>contact-type-cards</code>, <code>local-sector-cards</code>, <code>value-strip</code>, <code>cta-band</code>.</li>
+  <li>Traductions : <code>LocalContacts.*</code>.</li>
+  <li>Page liée : <code>src/app/[locale]/contact-points/</code> — annuaire des institutions (table <code>institutions</code>), ouvert par la carte « Contacts institutionnels ».</li>
+</ul>
+
+<h2>État actuel</h2>
+<p>Hero avec recherche (mot-clé, secteur, province, type), six cartes « type de contact », cartes par secteur avec le nombre réel d'entreprises vérifiées, bandeau de valeur, appel « Demander un partenaire local ».</p>
+<p>Limite connue, documentée dans le code : il n'existe pas de colonne « type de contact » en base. Quatre des six cartes (fournisseurs, distributeurs, représentants, prestataires) ouvrent donc la même adresse <code>/companies</code>, sans filtre.</p>
+
+<h2>Changements</h2>
+<ol>
+  <li><b>Libellé du menu</b> : « Contacts locaux » (traité au §1). Vérifier que le fil d'Ariane et le titre de <code>provinces/page.tsx</code> emploient le même terme.</li>
+  <li><b>Métadonnées</b> : ajouter <code>generateMetadata</code> avec <code>LocalContacts.hero.title</code> et <code>hero.subtitle</code>.</li>
+  <li><b>Cartes « type de contact »</b> : quatre cartes identiques dans leur effet donnent l'impression d'un bug. Sans changer le schéma, deux solutions acceptables :
+    <ul>
+      <li><i>Recommandée</i> — passer le type en mot-clé de recherche vers l'annuaire (par exemple <code>/companies?q=distributeur</code>), après avoir vérifié le nom du paramètre que lit la page <code>/companies</code>.</li>
+      <li><i>Minimale</i> — fusionner les quatre cartes en une seule « Entreprises vérifiées » et garder « Institutions » et « Partenaires d'investissement », soit trois cartes.</li>
+    </ul>
+  </li>
+  <li><b>Texte du bandeau de valeur</b> : <code>LocalContacts.value.verify.desc</code> dit « Tous les contacts sont vérifiés ». C'est exact pour les entreprises (seules les entreprises au statut vérifié sont comptées), pas démontré pour les institutions. Reformuler : « Les entreprises listées ont été vérifiées par notre équipe » (5 langues).</li>
+  <li><b>Nettoyage</b> : l'espace de noms <code>ContactPoints</code> (« Trouvez votre point de contact local… pays et ville ») ne semble plus appelé par aucun composant. Confirmer par une recherche globale puis le supprimer des cinq fichiers.</li>
+</ol>
+
+<h2>Critères d'acceptation</h2>
+<ul>
+  <li>Aucune paire de cartes « type de contact » ne mène au même résultat.</li>
+  <li>Le compteur d'entreprises par secteur reste alimenté par la base (pas de valeur en dur).</li>
+  <li>La carte « Contacts institutionnels » ouvre toujours <code>/contact-points</code>, et la carte investissement <code>/request</code>.</li>
+  <li>Titre d'onglet traduit dans les cinq langues.</li>
+</ul>
+
+<h2>Point ouvert</h2>
+<p>Si le client veut un vrai filtre par type de contact, il faut une colonne en base et un champ dans le formulaire d'inscription entreprise. C'est hors périmètre de ce document.</p>
+
+<!-- ============================================================ -->
+<h1>4. Services — <code>/services</code></h1>
+
+<h2>Objectif</h2>
+<p>Présenter les sept services d'accompagnement de l'équipe et recueillir les demandes.</p>
+
+<h2>Fichiers</h2>
+<ul>
+  <li><code>src/app/[locale]/(public)/services/page.tsx</code>.</li>
+  <li><code>src/components/services/market/</code> — <code>services-hero</code>, <code>service-cards</code>, <code>request-service-form</code>, <code>services-actions.ts</code>, <code>services-config.ts</code>, <code>who-we-serve</code>, <code>sectors-strip</code>, <code>how-it-works</code>.</li>
+  <li>Traductions : <code>Services.*</code>. Les demandes sont enregistrées dans la table <code>business_requests</code>, visible côté console.</li>
+</ul>
+
+<h2>État actuel</h2>
+<p>Page complète et cohérente : hero, sept cartes (recherche de partenaires, entrée sur le marché, vérification d'entreprise, rendez-vous B2B, rapports de marché, représentation locale, délégations), formulaire de demande, publics servis, secteurs, étapes. Métadonnées déjà présentes. C'est la page la plus aboutie du menu.</p>
+
+<h2>Changements</h2>
+<ol>
+  <li><b>Description du menu</b> (traité au §1). Elle cite quatre des sept services : si un service est retiré de <code>services-config.ts</code>, mettre la description à jour.</li>
+  <li><b>Présélection du service</b> : un clic sur une carte de service doit faire défiler jusqu'au formulaire et présélectionner ce service dans le champ « Service souhaité ». L'ancre <code>#request-service</code> existe déjà sur le formulaire et le bouton du hero l'utilise. Il reste à rendre les cartes cliquables et à lire un paramètre d'URL <code>?service=&lt;clé&gt;</code> à l'initialisation du formulaire ; une clé inconnue est ignorée.</li>
+  <li><b>Décalage de l'ancre</b> : le formulaire n'a pas de <code>scroll-margin-top</code>. Ajouter <code>scroll-mt-24</code>, comme sur la page Événements, pour que son titre ne passe pas sous la barre de navigation fixe.</li>
+</ol>
+
+<h2>Critères d'acceptation</h2>
+<ul>
+  <li><code>/fr/services?service=verification#request-service</code> affiche le formulaire avec « Vérification d'entreprise » déjà choisi.</li>
+  <li>Après un clic sur une carte ou sur le bouton du hero, le titre du formulaire est entièrement visible sous la barre de navigation (hauteur 64 px).</li>
+  <li>L'envoi du formulaire crée toujours une ligne dans <code>business_requests</code> ; aucun changement de l'action serveur.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h1>5. Événements — <code>/events</code></h1>
+
+<h2>Objectif</h2>
+<p>Lister les événements d'affaires liés à la RDC et permettre à un organisateur d'en proposer un.</p>
+
+<h2>Fichiers</h2>
+<ul>
+  <li><code>src/app/[locale]/events/page.tsx</code> et <code>[slug]/page.tsx</code>.</li>
+  <li><code>src/components/events/market/</code> — <code>hero-search</code>, <code>stat-tiles</code>, <code>featured-events</code>, <code>upcoming-events</code>, <code>events-by-sector</code>, <code>host-band</code>, <code>past-highlights</code>, <code>event-rail</code>, <code>event-queries.ts</code>, <code>submit-event-actions.ts</code>.</li>
+  <li>Traductions : <code>EventsHub.*</code>.</li>
+</ul>
+
+<h2>État actuel</h2>
+<p>Page complète : recherche filtrée (mot-clé, type, secteur, lieu, date), chiffres clés, événements en vedette, à venir, par secteur, rétrospective, et une colonne latérale avec le formulaire « Proposer un événement » et l'inscription à la lettre d'information. Le fichier <code>page.tsx</code> n'exporte pas de métadonnées.</p>
+
+<h2>Changements</h2>
+<ol>
+  <li><b>Description du menu</b> (traité au §1) : elle promet désormais « ou publiez le vôtre ». Le formulaire est déjà atteignable en un clic : il porte l'identifiant <code>submit-event</code>, et les boutons du hero et de <code>host-band.tsx</code> y renvoient. Rien à développer sur ce point.</li>
+  <li><b>Mobile</b> : sous <code>lg</code>, la colonne latérale passe sous tout le contenu ; vérifier que les deux boutons amènent bien le formulaire à l'écran dans cette disposition.</li>
+  <li><b>Métadonnées</b> : ajouter <code>generateMetadata</code> avec <code>EventsHub.hero.title</code> et <code>hero.subtitle</code>.</li>
+  <li><b>Liste vide</b> : si aucun événement à venir n'existe en base, les sections « en vedette » et « rétrospective » ne doivent pas afficher un titre sans contenu. Vérifier et masquer les sections vides.</li>
+</ol>
+
+<h2>Critères d'acceptation</h2>
+<ul>
+  <li>Les deux boutons « Proposer un événement » amènent le formulaire à l'écran, sur bureau et sur mobile.</li>
+  <li>Avec une base sans événement, la page ne montre aucun titre de section orphelin et conserve le formulaire de proposition.</li>
+  <li>Titre d'onglet traduit dans les cinq langues.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h1>6. Contact — <code>/contact</code></h1>
+
+<h2>Objectif</h2>
+<p>Donner un point de contact clair avec l'équipe TradeInDRC, et orienter vers le bon parcours les visiteurs dont la demande relève d'une autre page (service, formule Premium, aide).</p>
+
+<h2>Fichiers</h2>
+<ul>
+  <li><code>src/app/[locale]/contact/page.tsx</code> — aujourd'hui un seul composant client de 218 lignes.</li>
+  <li><code>src/lib/contact/actions.ts</code> — action serveur <code>submitContactMessage</code> (validation Zod, champ piège anti-robot, limite de 5 envois par heure et par adresse IP, écriture dans <code>contact_submissions</code>).</li>
+  <li><code>src/config/contact.ts</code> — coordonnées officielles.</li>
+  <li>Traductions : <code>Contact.*</code> et <code>ContactPage.*</code>.</li>
+</ul>
+
+<h2>État actuel</h2>
+<ul>
+  <li>En-tête sur fond <code>bg-primary</code>, alors que les autres pages du menu utilisent le navy et l'or.</li>
+  <li>Texte générique : « Contactez-nous — Des questions? Nous sommes là pour vous aider. »</li>
+  <li>Champ « Sujet » libre et facultatif.</li>
+  <li>La page entière est un composant client : elle ne peut pas exporter de métadonnées.</li>
+</ul>
+
+<h2>Changements</h2>
+<ol>
+  <li><b>Découper la page.</b> <code>page.tsx</code> devient un composant serveur (hero, coordonnées, raccourcis, <code>generateMetadata</code>). Le formulaire est extrait tel quel dans <code>src/components/contact/contact-form.tsx</code> (<code>"use client"</code>).</li>
+  <li><b>Hero navy et or</b>, dans le style de <code>services-hero.tsx</code> : sur-titre, titre, sous-titre. Hauteur compacte.</li>
+  <li><b>Sujet à choix.</b> Remplacer le champ libre par une liste déroulante (composant <code>Select</code> existant). La valeur envoyée dans <code>subject</code> est le libellé traduit ; l'action serveur et la table ne changent pas (le champ accepte déjà 200 caractères).
+    <table>
+      <tr><th style="width:22%">Clé <code>ContactPage.topics.</code></th><th>fr</th><th>en</th></tr>
+      <tr><td><code>verification</code></td><td>Vérification de mon entreprise</td><td>Verifying my company</td></tr>
+      <tr><td><code>premium</code></td><td>Formules Premium et promotion</td><td>Premium plans and promotion</td></tr>
+      <tr><td><code>partnership</code></td><td>Partenariat ou institution</td><td>Partnership or institution</td></tr>
+      <tr><td><code>support</code></td><td>Problème technique sur mon compte</td><td>Technical issue with my account</td></tr>
+      <tr><td><code>other</code></td><td>Autre demande</td><td>Other request</td></tr>
+    </table>
+  </li>
+  <li><b>Présélection par l'URL</b> : <code>/contact?topic=premium</code> présélectionne le sujet (clé inconnue ignorée). Le bouton « Contacter notre équipe » de <code>/pricing</code> doit utiliser ce paramètre.</li>
+  <li><b>Raccourcis</b> sous les coordonnées, trois cartes-liens :
+    <table>
+      <tr><th style="width:22%">Cible</th><th>Titre (fr / en)</th><th>Ligne d'appui (fr / en)</th></tr>
+      <tr><td><code>/services#request-service</code></td><td>Demander un service / Request a service</td><td>Recherche de partenaires, vérification, rendez-vous B2B. / Partner search, verification, B2B meetings.</td></tr>
+      <tr><td><code>/pricing</code></td><td>Promouvoir votre entreprise / Promote your company</td><td>Comparer les formules et déposer une demande. / Compare plans and apply.</td></tr>
+      <tr><td><code>/help</code></td><td>Centre d'aide / Help centre</td><td>Les réponses aux questions fréquentes. / Answers to common questions.</td></tr>
+    </table>
+  </li>
+  <li><b>Nouveaux textes d'en-tête</b> (remplacent <code>Contact.title</code>, <code>Contact.subtitle</code>, <code>ContactPage.getInTouchBody</code>) :
+    <table>
+      <tr><th style="width:22%">Clé</th><th>fr</th><th>en</th></tr>
+      <tr><td><code>Contact.title</code></td><td>Parlons de votre projet en RDC</td><td>Let's talk about your project in the DRC</td></tr>
+      <tr><td><code>Contact.subtitle</code></td><td>Vérification, formules Premium, partenariats ou aide sur votre compte : écrivez-nous, l'équipe TradeInDRC vous répond.</td><td>Verification, Premium plans, partnerships or help with your account: write to us and the TradeInDRC team will reply.</td></tr>
+      <tr><td><code>ContactPage.getInTouchBody</code></td><td>Choisissez le sujet de votre demande pour qu'elle arrive directement à la bonne personne.</td><td>Pick a topic so your request reaches the right person straight away.</td></tr>
+    </table>
+    Traduire aussi en <code>es</code>, <code>tr</code>, <code>zh</code>.
+  </li>
+  <li><b>Écran de confirmation.</b> Après envoi réussi, remplacer le formulaire par un message de confirmation avec un bouton « Envoyer un autre message », en plus de la notification actuelle. Ajouter les clés <code>ContactPage.successTitle</code>, <code>successBody</code>, <code>another</code>.</li>
+  <li><b>Accessibilité.</b> Relier chaque message d'erreur à son champ avec <code>aria-describedby</code> ; le champ piège reste hors tabulation et masqué.</li>
+</ol>
+
+<div class="box"><b>À ne pas toucher.</b> La logique de <code>submitContactMessage</code> (validation, champ piège <code>company</code>, limite par IP, client d'administration côté serveur) reste inchangée. Aucun délai de réponse ne doit être promis dans les textes tant que le client n'en a pas fixé un.</div>
+
+<h2>Critères d'acceptation</h2>
+<ul>
+  <li>La page s'affiche en navy et or, sans la couleur <code>bg-primary</code> en en-tête.</li>
+  <li>Un envoi valide crée une ligne dans <code>contact_submissions</code> dont <code>subject</code> contient le libellé du sujet choisi.</li>
+  <li>Le sixième envoi dans l'heure depuis la même adresse IP affiche le message de limite existant.</li>
+  <li><code>/fr/contact?topic=premium</code> ouvre le formulaire avec le bon sujet.</li>
+  <li>E-mail, téléphone et adresse sont lus depuis <code>config/contact.ts</code>, jamais depuis les fichiers de langue.</li>
+  <li>Le titre d'onglet est traduit ; l'animation d'apparition reste ≤ 300 ms et désactivée si l'utilisateur réduit les animations.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h1>7. Promouvoir votre entreprise — <code>/pricing</code></h1>
+
+<h2>Objectif</h2>
+<p>Vendre les formules de promotion aux deux publics de la plateforme : entreprises congolaises et entreprises internationales.</p>
+
+<h2>Fichiers</h2>
+<ul>
+  <li><code>src/app/[locale]/(public)/pricing/page.tsx</code> et <code>actions.ts</code>.</li>
+  <li><code>src/components/pricing/market/</code> — <code>pricing-hero</code>, <code>benefits-strip</code>, <code>promote-tabs</code>, <code>what-you-get</code>, <code>how-it-works</code>, <code>assistance-band</code>, <code>promote-cta-bar</code>, <code>premium-apply-form</code>.</li>
+  <li><code>src/config/promotion-plans.ts</code> — les trois formules et leurs prix.</li>
+  <li>Traductions : <code>Premium.*</code> (page) ; <code>Pricing.*</code> reste utilisé par <code>premium-cta.tsx</code> et <code>premium-status-card.tsx</code>.</li>
+</ul>
+
+<h2>État actuel</h2>
+<table>
+  <tr><th>Formule</th><th>Public</th><th>Prix annuel</th></tr>
+  <tr><td>Partenaire local Premium (<code>congolese</code>)</td><td>Entreprises congolaises</td><td>3 000 USD</td></tr>
+  <tr><td>Internationale (<code>international</code>)</td><td>Entreprises internationales</td><td>3 600 USD</td></tr>
+  <tr><td>Internationale stratégique (<code>international_strategic</code>)</td><td>Entreprises internationales</td><td>6 000 USD</td></tr>
+</table>
+<p>Les onglets (Local, International, Comparer) présentent bien les trois formules. En revanche le haut de page ne parle que de la formule locale :</p>
+<ul>
+  <li>Titre du hero : « Devenez Partenaire Local Premium et développez-vous à l'international ».</li>
+  <li>Titre d'onglet : « Adhésion Partenaire Local Premium ».</li>
+  <li>Section « Ce que vous obtenez en tant que Partenaire Local Premium ».</li>
+</ul>
+<p>Une entreprise étrangère arrivant depuis le menu ne se reconnaît pas avant d'avoir défilé jusqu'aux onglets.</p>
+
+<h2>Changements</h2>
+<ol>
+  <li><b>Hero et métadonnées neutres</b> (5 langues) :
+    <table>
+      <tr><th style="width:24%">Clé <code>Premium.</code></th><th>fr</th><th>en</th></tr>
+      <tr><td><code>meta.title</code></td><td>Promouvoir votre entreprise sur le marché de la RDC</td><td>Promote your company in the DRC market</td></tr>
+      <tr><td><code>meta.description</code></td><td>Formules de promotion pour les entreprises congolaises et internationales : profil vérifié, placement prioritaire dans l'annuaire et demandes commerciales qualifiées.</td><td>Promotion plans for Congolese and international companies: verified profile, priority placement in the directory and qualified business enquiries.</td></tr>
+      <tr><td><code>hero.title</code></td><td>Faites-vous remarquer sur le marché de la RDC</td><td>Get noticed in the DRC market</td></tr>
+      <tr><td><code>hero.subtitle</code></td><td>Que votre entreprise soit congolaise ou internationale, une formule Premium vous donne un profil vérifié, une place prioritaire dans l'annuaire et des demandes commerciales qualifiées.</td><td>Whether your company is Congolese or international, a Premium plan gives you a verified profile, priority placement in the directory and qualified business enquiries.</td></tr>
+      <tr><td><code>hero.applyCta</code></td><td>Voir les formules</td><td>See the plans</td></tr>
+    </table>
+    Le prix « À partir de 3 000 USD / an » reste exact et doit être calculé à partir du minimum de <code>PROMOTION_PLANS</code> via <code>formatPlanPrice</code>, plutôt que lu dans <code>Premium.hero.price</code>.
+  </li>
+  <li><b>Bouton du hero</b> : il fait défiler jusqu'aux onglets (<code>#plans</code>) au lieu d'ouvrir directement la demande de formule locale.</li>
+  <li><b>Onglet ouvert par défaut</b> : accepter <code>/pricing?audience=international</code> pour ouvrir l'onglet International. Pour un utilisateur connecté, présélectionner l'onglet selon le type de compte de son entreprise (<code>congolese_company</code> → Local, <code>international_business</code> → International). Sans information, garder Local.</li>
+  <li><b>Section « Ce que vous obtenez »</b> : retirer « en tant que Partenaire Local Premium » du titre (<code>Premium.whatYouGet.title</code>) pour qu'il vaille pour les trois formules, ou n'afficher la section que sous l'onglet Local.</li>
+  <li><b>Lien vers Contact</b> : dans <code>promote-cta-bar.tsx</code>, le lien <code>/contact</code> devient <code>/contact?topic=premium</code> (voir §6).</li>
+</ol>
+
+<div class="box warn"><b>Ne pas modifier les prix.</b> Les montants de <code>promotion-plans.ts</code> sont verrouillés par une contrainte SQL sur <code>premium_requests.amount_usd</code> (migrations 00023 et 00039). Tout changement de prix exige une migration et l'accord écrit du client.</div>
+
+<h2>Critères d'acceptation</h2>
+<ul>
+  <li>Le hero, le titre d'onglet du navigateur et la section « Ce que vous obtenez » ne mentionnent plus uniquement la formule locale.</li>
+  <li>Le prix du hero change automatiquement si le minimum de <code>PROMOTION_PLANS</code> change.</li>
+  <li><code>/fr/pricing?audience=international</code> ouvre l'onglet International.</li>
+  <li>Le parcours de demande (connexion, choix de l'entreprise, envoi) fonctionne à l'identique pour les trois formules.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h1>8. Recette et points ouverts</h1>
+
+<h2>8.1 Vérifications communes avant de livrer</h2>
+<ul>
+  <li><code>npm run lint</code> et <code>npm run build</code> passent sans erreur.</li>
+  <li>Chaque page est contrôlée dans les cinq langues (<code>/en</code>, <code>/fr</code>, <code>/es</code>, <code>/tr</code>, <code>/zh</code>) : pas de clé brute affichée, pas de texte qui déborde.</li>
+  <li>Largeurs testées : 375 px, 768 px, 1280 px, 1536 px. Le panneau « Plus » n'existe qu'à partir de <code>xl</code> ; en dessous, vérifier le menu mobile.</li>
+  <li>Navigation au clavier : le panneau « Plus » s'ouvre, se parcourt aux flèches et se ferme avec Échap ; l'entrée de la page courante est mise en évidence.</li>
+  <li>Avec « réduire les animations » activé dans le système, aucune animation d'entrée ne joue.</li>
+  <li>Parcours testés en trois états : visiteur non connecté, entreprise connectée, membre de l'équipe (qui ne voit que l'accès console).</li>
+</ul>
+
+<h2>8.2 Décisions attendues du client</h2>
+<table>
+  <tr><th style="width:5%">#</th><th>Question</th><th style="width:22%">Bloque</th></tr>
+  <tr><td>1</td><td>Peut-on écrire que la plateforme est soutenue par le gouvernement et que le Ministère valide les inscriptions ?</td><td>§2, sections confiance et publics</td></tr>
+  <tr><td>2</td><td>Faut-il une section équipe sur la page À propos ? Si oui, fournir noms, fonctions, photos.</td><td>§2</td></tr>
+  <tr><td>3</td><td>Des sous-pages <code>/about/…</code> sont-elles prévues ?</td><td>§2, point 4</td></tr>
+  <tr><td>4</td><td>Cartes « type de contact » : recherche par mot-clé ou fusion en trois cartes ?</td><td>§3, point 3</td></tr>
+  <tr><td>5</td><td>Quel délai de réponse peut-on annoncer sur la page Contact ?</td><td>§6 (texte facultatif)</td></tr>
+  <tr><td>6</td><td>Qui relit les traductions espagnole, turque et chinoise ?</td><td>§1, §6, §7</td></tr>
+</table>
+
+<h2>8.3 Hors périmètre</h2>
+<ul>
+  <li>Toute migration de base de données, dont un vrai champ « type de contact ».</li>
+  <li>La modification des prix ou du contenu des formules.</li>
+  <li>Les cinq liens principaux de la navigation (Accueil, Marketplace, Opportunités, Données, Entreprises).</li>
+  <li>Les espaces <code>/dashboard</code> et <code>/console</code>.</li>
+</ul>
+
+</body>
+</html>

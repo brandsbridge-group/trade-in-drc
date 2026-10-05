@@ -124,8 +124,9 @@ export function PremiumRequestsTable({
 
   return (
     <div className="overflow-x-auto rounded-xl border bg-card">
+      <div className="console-table-card">
       <table className="w-full text-sm border-collapse">
-        <thead className="text-left text-xs text-muted-foreground border-b">
+        <thead className="text-left">
           <tr>
             <th className="px-3 py-2.5 font-medium">{t("table.company")}</th>
             <th className="px-3 py-2.5 font-medium">{t("table.requestedBy")}</th>
@@ -210,6 +211,7 @@ export function PremiumRequestsTable({
           })}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

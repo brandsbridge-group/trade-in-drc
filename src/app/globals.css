@@ -291,6 +291,41 @@
   }
 }
 
+/* Staff console surface: brings shadcn cards and tables to the dashboard's
+   visual language (white, rounded-2xl, hairline ring, no shadow; slate-50
+   rounded table header). Unlayered on purpose so it wins over the components'
+   own utilities without editing 30 pages; scoped to `.console-surface`. */
+.console-surface [data-slot="card"] {
+  border-width: 0;
+  border-radius: 1rem;
+  background-color: #fff;
+  box-shadow: 0 0 0 1px rgb(226 232 240 / 0.7);
+}
+.console-table-card {
+  overflow-x: auto;
+  border-radius: 1rem;
+  background-color: #fff;
+  padding: 0.5rem;
+  box-shadow: 0 0 0 1px rgb(226 232 240 / 0.7);
+}
+.console-table-card thead,
+.console-table-card thead tr {
+  border-bottom-width: 0;
+  background-color: transparent;
+}
+.console-table-card th {
+  background-color: rgb(248 250 252);
+  color: rgb(100 116 139);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding-inline: 0.75rem;
+}
+.console-table-card th:first-child { border-radius: 0.75rem 0 0 0.75rem; }
+.console-table-card th:last-child { border-radius: 0 0.75rem 0.75rem 0; }
+.console-table-card td { padding-inline: 0.75rem; }
+.console-table-card tbody tr { border-color: rgb(241 245 249); }
+.console-table-card tbody tr:last-child { border-bottom-width: 0; }
+
 /* Marketing surfaces (landing + about): Sora display headings */
 .marketing-surface :where(h1, h2, h3) {
   font-family: var(--font-display), var(--font-poppins), system-ui, sans-serif;

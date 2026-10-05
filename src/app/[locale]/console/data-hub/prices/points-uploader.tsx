@@ -101,8 +101,9 @@ export function PointsUploader({ seriesId, initialPoints }: PointsUploaderProps)
 
       {/* Existing points table */}
       {initialPoints.length > 0 && (
+        <div className="console-table-card">
         <table className="w-full text-sm border-collapse">
-          <thead className="text-left text-xs text-muted-foreground border-b">
+          <thead className="text-left">
             <tr>
               <th className="py-2 font-medium">{t("fields.observedAt")}</th>
               <th className="py-2 font-medium">{t("fields.value")}</th>
@@ -129,6 +130,7 @@ export function PointsUploader({ seriesId, initialPoints }: PointsUploaderProps)
             ))}
           </tbody>
         </table>
+        </div>
       )}
 
       {initialPoints.length === 0 && (

@@ -5,6 +5,7 @@ import { z } from "zod";
 import { dbId } from "@/lib/validation/db-id";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { recordContactRequest } from "@/lib/analytics/contact-request";
 
 const offerRequestSchema = z.object({
   productId: dbId(),
@@ -33,6 +34,10 @@ interface Result {
  * client and the visitor never sees the supplier's contact details. Product,
  * supplier and sector are resolved server-side from the id, never trusted
  * from the form.
+ *
+ * The supplier reads the request only once staff has forwarded it (00062), so
+ * what the buyer typed is stored as-is in its own columns: `message` holds the
+ * buyer's free text, nothing composed for staff.
  */
 export async function submitOfferRequest(input: OfferRequestInput): Promise<Result> {
   const parsed = offerRequestSchema.safeParse(input);
@@ -55,19 +60,14 @@ export async function submitOfferRequest(input: OfferRequestInput): Promise<Resu
   const category = (product as unknown as { categories: { name_en: string | null } | null })
     .categories;
 
-  const messageParts = [
-    `Quote request for product: ${product.name} (${product.id})`,
-    `Quantity: ${d.quantity}`,
-    `Delivery place: ${d.deliveryPlace}`,
-    d.deadline ? `Deadline: ${d.deadline}` : null,
-    d.details ? `Details: ${d.details}` : null,
-  ].filter(Boolean);
-
   const { data, error } = await admin
     .from("business_requests")
     .insert({
       submitter_id: user?.id ?? null,
       company_id: product.company_id,
+      target_company_id: product.company_id,
+      product_id: product.id,
+      quantity: d.quantity,
       kind: "business",
       intent: "buy",
       full_name: d.fullName,
@@ -78,7 +78,7 @@ export async function submitOfferRequest(input: OfferRequestInput): Promise<Resu
       sector: category?.name_en ?? null,
       preferred_location: d.deliveryPlace,
       timeline: d.deadline || null,
-      message: messageParts.join("\n"),
+      message: d.details || "",
     })
     .select("reference")
     .single();
@@ -87,5 +87,6 @@ export async function submitOfferRequest(input: OfferRequestInput): Promise<Resu
     console.error("[submitOfferRequest]", error.code, error.message);
     return { ok: false, error: "server" };
   }
+  await recordContactRequest(product.company_id);
   return { ok: true, reference: data?.reference ?? null };
 }

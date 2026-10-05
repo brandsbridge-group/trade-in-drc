@@ -228,7 +228,7 @@ The Tailwind global rule covers 90% of cases. Per-component is for framer-only a
 - `src/components/marketplace/landing/market-directions.tsx` — direction-card photo hover scale (§2.6) ✓
 - `src/components/marketplace/chain/chain-client-bits.tsx` — "My operation" floating bar enter/exit (§2.2, 250 ms, opacity-only under reduced motion) ✓
 - `src/components/layout/nav-pills.tsx` — sliding hover/active highlight (§2.9); `navbar.tsx` glass-on-scroll background/border (§2.1, 200 ms colour) ✓
-- `src/components/dashboard/sidebar.tsx` + `topbar.tsx` — company-dashboard shell: rail width on collapse (200 ms), nav/button/row colour hovers (§2.1, 150 ms); the phone drawer is the shadcn `Sheet` ✓
+- `src/components/dashboard/sidebar.tsx` + `topbar.tsx` — company-dashboard shell: sidebar width on collapse (200 ms), nav/button/row colour hovers (§2.1, 150 ms); the phone drawer is the shadcn `Sheet` ✓
 - `src/components/dashboard/overview/activity-chart.tsx` — hovered bar stays solid while the others dim (§2.1, 150 ms opacity); the tooltip appears instantly, no enter animation ✓
 - `src/components/home/why/home-why.tsx` — homepage "Why the DRC" full-width band: ambient Congo River video loop (motion-safe only; still poster under reduced motion) and a §2.2 content enter ✓
 - `src/components/home/closing/home-closing.tsx` — homepage closing bands: §2.2 enters; join link colour + arrow nudge on hover (§2.1, 150 ms) ✓

@@ -15,7 +15,7 @@ export function PagesTabsNav() {
   const t = useTranslations("AdminCms");
 
   return (
-    <div className="flex gap-1 border-b pb-0">
+    <div className="inline-flex max-w-full flex-wrap gap-0.5 rounded-xl bg-slate-200/70 p-1">
       {TABS.map((tab) => {
         // "pages" is the base — only active when no deeper segment matches a sibling tab.
         const isFaqs = pathname.includes("/console/content/pages/faqs");
@@ -30,11 +30,12 @@ export function PagesTabsNav() {
           <Link
             key={tab.href}
             href={tab.href}
+            aria-current={active ? "page" : undefined}
             className={cn(
-              "px-3 py-1.5 text-sm font-medium rounded-t-md border border-b-0 transition-colors",
+              "rounded-lg px-3 py-1.5 text-[13px] transition-colors",
               active
-                ? "bg-background border-border text-foreground"
-                : "bg-muted/40 border-transparent text-muted-foreground hover:text-foreground"
+                ? "bg-white font-semibold text-market-navy ring-1 ring-slate-200"
+                : "text-slate-600 hover:text-market-navy"
             )}
           >
             {t(`tabs.${tab.key}`)}

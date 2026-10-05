@@ -2,26 +2,25 @@
 
 import { useEffect } from "react";
 import { useParams } from "next/navigation";
-import { trackEvent } from "@/lib/analytics/track-event";
-import { useQuery } from "@tanstack/react-query";
+import { trackView } from "@/lib/analytics/track-view";
 import { Link } from "@/i18n/routing";
-import { createClient } from "@/lib/supabase/client";
 import { pickLocalized } from "@/lib/i18n/pick-localized";
 import type { Locale } from "@/config/locales";
 import { Button } from "@/components/ui/button";
 import { Building2 } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
-import { COMPANY_STATUS } from "@/constants/status";
-import type { VerificationTier } from "@/lib/trust/types";
-import type { ContactVisibility } from "@/lib/supabase/types";
-import type { CompanyProfileData, ProfileProduct, ProfileSector } from "@/components/companies/market/profile/types";
-import { FunnelStepper } from "@/components/companies/market/profile/funnel-stepper";
-import { ProfileHero } from "@/components/companies/market/profile/profile-hero";
-import { ProfileTabs } from "@/components/companies/market/profile/profile-tabs";
-import { OverviewAbout } from "@/components/companies/market/profile/overview-about";
-import { OverviewProducts } from "@/components/companies/market/profile/overview-products";
-import { PartnershipSnapshot } from "@/components/companies/market/profile/partnership-snapshot";
-import { VerificationTable } from "@/components/companies/market/profile/verification-table";
+import type { ProfileProduct } from "@/components/companies/market/profile/types";
+import { useCompanyProfile } from "@/components/companies/market/profile/profile-data";
+import { ProfileHero, type HeroStat } from "@/components/companies/market/profile/profile-hero";
+import { ProfileGallery } from "@/components/companies/market/profile/profile-gallery";
+import {
+  ProfileAbout,
+  ProfileContactCta,
+  ProfileFactsCard,
+  ProfileProducts,
+  ProfileTrade,
+  ProfileTrustCard,
+} from "@/components/companies/market/profile/profile-sections";
 import { ContactIntroForm } from "@/components/companies/market/profile/contact-intro-form";
 
 interface DbProductRow {
@@ -34,98 +33,23 @@ interface DbProductRow {
 }
 
 /**
- * PII-safe public company profile (customer design 5).
- *
- * The base `companies` table carries contact_email / contact_phone. Those are
- * NEVER shipped to an anonymous browser. The public payload is read from the
- * `companies_public` view (00012) which excludes contact PII entirely, plus the
- * verified-readable rich-profile columns. The only contact path on this page is
- * the one-way "Request Contact / Introduction" lead form, which writes to
- * `business_requests` server-side and never reveals the company's contact data.
+ * Public company page. Everything shown is what the company entered — its
+ * presentation, registration facts, trade capabilities, photos and products —
+ * plus the verification decision. Sections with nothing to show are left out.
+ * Data and the PII rules live in `useCompanyProfile`.
  */
-function useCompanyProfile(id: string) {
-  return useQuery({
-    queryKey: ["company-profile", id],
-    queryFn: async (): Promise<CompanyProfileData> => {
-      const supabase = createClient();
-
-      const { data: pub, error: pubError } = await supabase
-        .from("companies_public")
-        .select(
-          "id, owner_id, name, description, city, province, country, website, logo_url, contact_visibility, sector_id",
-        )
-        .eq("id", id)
-        .single();
-      if (pubError) throw pubError;
-      if (!pub?.id) throw new Error("not_found");
-
-      // Verified-readable rich-profile columns (no contact PII selected here).
-      const { data: rich } = await supabase
-        .from("companies")
-        .select(
-          "verification_tier, is_premium, premium_plan, production_capacity, moq, lead_time, certifications, markets, spoken_languages, verification_summary, verified_at, updated_at",
-        )
-        .eq("id", id)
-        .eq("status", COMPANY_STATUS.VERIFIED)
-        .single();
-
-      const [productsRes, sectorRes] = await Promise.all([
-        supabase
-          .from("products")
-          .select("id, name, name_en, name_fr, description, images")
-          .eq("company_id", id)
-          .order("created_at", { ascending: false }),
-        pub.sector_id
-          ? supabase
-              .from("sectors")
-              .select("id, name_en, name_fr, name_tr, name_zh, name_es")
-              .eq("id", pub.sector_id)
-              .single()
-          : Promise.resolve({ data: null }),
-      ]);
-
-      return {
-        id: pub.id,
-        owner_id: pub.owner_id!,
-        name: pub.name ?? "",
-        description: pub.description,
-        city: pub.city,
-        province: pub.province,
-        country: pub.country,
-        website: pub.website,
-        logo_url: pub.logo_url,
-        contact_visibility: (pub.contact_visibility ?? "login_required") as ContactVisibility,
-        verification_tier: (rich?.verification_tier ?? "verified") as VerificationTier,
-        is_premium: Boolean(rich?.is_premium),
-        premium_plan: rich?.premium_plan ?? null,
-        production_capacity: rich?.production_capacity ?? null,
-        moq: rich?.moq ?? null,
-        lead_time: rich?.lead_time ?? null,
-        certifications: rich?.certifications ?? [],
-        markets: rich?.markets ?? [],
-        spoken_languages: rich?.spoken_languages ?? [],
-        verified_at: rich?.verified_at ?? null,
-        updated_at: rich?.updated_at ?? null,
-        verification_summary: rich?.verification_summary ?? null,
-        sector: (sectorRes.data as ProfileSector | null) ?? null,
-        products: (productsRes.data ?? []) as unknown as ProfileProduct[],
-      };
-    },
-    enabled: !!id,
-  });
-}
-
 export default function CompanyProfilePage() {
   const params = useParams();
   const companyId = params.id as string;
-  const t = useTranslations("CompanyProfile");
+  const t = useTranslations("CompanyProfile.page");
+  const tForm = useTranslations("RegisterCompany");
   const tMarketplace = useTranslations("Marketplace");
   const locale = useLocale();
   const { data: company, isLoading, error } = useCompanyProfile(companyId);
 
   useEffect(() => {
     if (companyId) {
-      trackEvent("company", companyId, "view");
+      trackView("company", companyId);
     }
   }, [companyId]);
 
@@ -152,12 +76,13 @@ export default function CompanyProfilePage() {
     );
   }
 
-  const sectorLabel = company.sector
-    ? pickLocalized(company.sector, "name", locale as Locale)
-    : null;
-  const subtitle = sectorLabel ? `${sectorLabel} ${t("hero.subtitleSuffix")}` : null;
+  const sectorLabel = company.sector ? pickLocalized(company.sector, "name", locale as Locale) : null;
+  // Stored as form keys ("sa", "1-10"); an unknown key is shown as typed.
+  const { legalForm, employees, yearEstablished } = company.facts;
+  const legalFormLabel = legalForm && tForm.has(`legalForms.${legalForm}`) ? tForm(`legalForms.${legalForm}`) : legalForm;
+  const employeesLabel = employees && tForm.has(`employeeRanges.${employees}`) ? tForm(`employeeRanges.${employees}`) : employees;
 
-  const localizedProducts: ProfileProduct[] = company.products.map((p) => {
+  const products: ProfileProduct[] = company.products.map((p) => {
     const row = p as unknown as DbProductRow;
     return {
       id: row.id,
@@ -167,31 +92,79 @@ export default function CompanyProfilePage() {
     };
   });
 
-  const scrollToContact = () => {
-    const el = document.getElementById("contact-intro");
+  const photos = company.media.filter((m) => m.kind === "gallery");
+  const hasMedia = company.media.length > 0;
+  const hasTrade =
+    Boolean(company.production_capacity || company.moq || company.lead_time) ||
+    company.markets.length + company.spoken_languages.length + company.certifications.length + company.hsCodes.length > 0;
+
+  const stats: HeroStat[] = [
+    { label: t("stats.founded"), value: yearEstablished },
+    { label: t("stats.employees"), value: employeesLabel },
+    { label: t("stats.products"), value: products.length > 0 ? String(products.length) : null },
+    { label: t("stats.markets"), value: company.markets.length > 0 ? String(company.markets.length) : null },
+  ].filter((stat): stat is HeroStat => Boolean(stat.value));
+
+  const sections = [
+    { id: "about", label: t("nav.about"), show: true },
+    { id: "gallery", label: t("nav.gallery"), show: hasMedia },
+    { id: "products", label: t("nav.products"), show: products.length > 0 },
+    { id: "trade", label: t("nav.trade"), show: hasTrade },
+    { id: "verification", label: t("nav.verification"), show: true },
+    { id: "contact-intro", label: t("nav.contact"), show: true },
+  ].filter((section) => section.show);
+
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
     if (!el) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
   };
+  const scrollToContact = () => scrollTo("contact-intro");
 
   return (
     <div className="min-h-screen bg-market-cream/30">
       <div className="mx-auto max-w-6xl space-y-4 px-4 py-6">
-        <FunnelStepper />
-        <ProfileHero company={company} subtitle={subtitle} onRequestIntro={scrollToContact} />
-        <ProfileTabs />
+        <ProfileHero
+          company={company}
+          sectorLabel={sectorLabel}
+          coverUrl={photos[0]?.url ?? null}
+          stats={stats}
+          onRequestContact={scrollToContact}
+        />
 
-        {/* 3-column content row */}
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1.1fr_1fr_0.9fr]">
-          <OverviewAbout company={company} />
-          <OverviewProducts products={localizedProducts} />
-          <PartnershipSnapshot sectorLabel={sectorLabel} certifications={company.certifications} />
-        </div>
+        <nav aria-label={t("nav.label")} className="-mx-4 overflow-x-auto px-4">
+          <ul className="flex w-max gap-1.5">
+            {sections.map((section) => (
+              <li key={section.id}>
+                <button
+                  type="button"
+                  onClick={() => scrollTo(section.id)}
+                  className="whitespace-nowrap rounded-full bg-white px-3.5 py-2 text-[13px] font-medium text-slate-600 ring-1 ring-slate-200/70 transition-colors hover:bg-market-navy hover:text-white"
+                >
+                  {section.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-        {/* Verification + contact row */}
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-[0.9fr_1.1fr]">
-          <VerificationTable company={company} />
-          <ContactIntroForm companyId={company.id} companyName={company.name} />
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
+          <div className="min-w-0 space-y-4 lg:col-span-8">
+            <ProfileAbout company={company} locale={locale} />
+            <ProfileGallery companyName={company.name} media={company.media} locale={locale} />
+            <ProfileProducts products={products} />
+            <ProfileTrade company={company} locale={locale} />
+            <ContactIntroForm companyId={company.id} companyName={company.name} />
+          </div>
+
+          <aside className="min-w-0 space-y-4 lg:col-span-4">
+            <div className="space-y-4 lg:sticky lg:top-20">
+              <ProfileContactCta companyName={company.name} onRequestContact={scrollToContact} />
+              <ProfileFactsCard company={company} sectorLabel={sectorLabel} legalFormLabel={legalFormLabel} employeesLabel={employeesLabel} />
+              <ProfileTrustCard verifiedAt={company.verified_at} />
+            </div>
+          </aside>
         </div>
       </div>
     </div>

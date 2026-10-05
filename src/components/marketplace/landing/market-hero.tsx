@@ -95,7 +95,7 @@ export async function MarketHero({ locale }: { locale: string }) {
           <div className="mt-5 flex flex-wrap gap-3">
             <Link
               href="/dashboard/products/new"
-              className="group inline-flex items-center gap-1.5 rounded-lg bg-market-or px-4 py-2.5 text-[13px] font-bold text-[var(--color-landing-navy)] shadow-sm transition-colors duration-150 ease-out hover:bg-market-or-dark"
+              className="group inline-flex items-center gap-1.5 rounded-full bg-market-or px-5 py-2.5 text-[13px] font-bold text-[var(--color-landing-navy)] transition-colors duration-150 ease-out hover:bg-market-or-light active:bg-market-or-dark"
             >
               {t("publishOffer")}
               <ArrowRight
@@ -105,7 +105,7 @@ export async function MarketHero({ locale }: { locale: string }) {
             </Link>
             <Link
               href="/request"
-              className="inline-flex items-center rounded-lg bg-white/5 px-4 py-2.5 text-[13px] font-bold text-white ring-1 ring-white/25 backdrop-blur-md transition-colors duration-150 ease-out hover:bg-white/10"
+              className="inline-flex items-center rounded-full bg-white/5 px-5 py-2.5 text-[13px] font-bold text-white ring-1 ring-white/25 backdrop-blur-md transition-colors duration-150 ease-out hover:bg-white/10"
             >
               {t("publishNeed")}
             </Link>

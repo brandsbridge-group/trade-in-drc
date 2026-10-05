@@ -48,7 +48,43 @@
     },
     "language": "Language",
     "changeLanguage": "Change language",
-    "publishOffer": "Post an offer"
+    "publishNeed": "Post a need",
+    "account": {
+      "open": "Open the account menu",
+      "menu": "Account menu",
+      "roles": {
+        "super_admin": "Super Admin",
+        "moderator": "Moderator",
+        "company": "Company account",
+        "member": "Member account"
+      },
+      "staffTitle": "Staff console",
+      "staffBody": "Verifications, moderation and site settings",
+      "company": {
+        "more": "{count, plural, one {+ # other company} other {+ # other companies}}",
+        "noneTitle": "Register your company",
+        "noneBody": "Create its profile to publish offers and get verified.",
+        "open": "Open the dashboard of {name}"
+      },
+      "status": {
+        "verified": "Verified",
+        "pending": "Under review",
+        "pending_documents": "Documents to send",
+        "rejected": "Refused"
+      },
+      "links": {
+        "dashboard": "Dashboard",
+        "companies": "My companies",
+        "products": "My products",
+        "inbox": "Messages",
+        "settings": "Account settings",
+        "console": "Console home",
+        "verifications": "Verifications",
+        "consoleCompanies": "Companies",
+        "publicProfile": "View public profile"
+      },
+      "signout": "Sign out"
+    }
   },
   "Hero": {
     "badge": "Verified by Ministry of Trade",
@@ -246,7 +282,9 @@
       "missingEmail": "No e-mail address to resend to.",
       "step1": "Open the e-mail",
       "step2": "Click the link",
-      "step3": "Access your space"
+      "step3": "Access your space",
+      "resendError": "The e-mail could not be sent again. Please try again in a moment.",
+      "resendRateLimited": "Too many requests. Wait a minute before trying again."
     },
     "forgotPassword": {
       "title": "Reset your password",
@@ -310,7 +348,8 @@
         "manage": "Manage your company listing",
         "alerts": "Get alerts on new opportunities"
       }
-    }
+    },
+    "termsNotice": "By creating an account, you accept our <terms>Terms of Use</terms> and our <privacy>Privacy Policy</privacy>."
   },
   "Dashboard": {
     "title": "Dashboard",
@@ -370,10 +409,11 @@
       "expandSidebar": "Expand sidebar",
       "collapseSidebar": "Collapse sidebar",
       "services": "Services",
-      "openMenu": "Open menu"
+      "openMenu": "Open menu",
+      "requests": "Received requests"
     },
     "editCompany": {
-      "title": "Edit Company Profile",
+      "title": "Company profile",
       "backToDashboard": "Back to Dashboard",
       "saveChanges": "Save Changes",
       "loadError": "Failed to load company data",
@@ -406,7 +446,52 @@
       "hsCodeHint": "Pick the HS codes that match your products. HS codes are managed by administrators.",
       "noHsCodesAvailable": "No HS codes available yet.",
       "media": "Media",
-      "mediaHint": "Add your logo, gallery photos, brochures, and product videos. These appear on your public company profile."
+      "mediaHint": "Add your logo, gallery photos, brochures, and product videos. These appear on your public company profile.",
+      "backToCompanies": "My companies",
+      "subtitle": "Complete the profile block by block: each block is saved separately.",
+      "save": "Save",
+      "sectionSaved": "Block saved.",
+      "filled": "{done}/{total} filled in",
+      "unsaved": "Unsaved changes.",
+      "upToDate": "Everything is saved.",
+      "nameRequired": "The company name is required.",
+      "website": "Website",
+      "websitePlaceholder": "www.yourcompany.cd",
+      "contactEmail": "Contact e-mail",
+      "contactPhone": "Contact phone",
+      "descriptionCount": "{count} characters, at least {min} recommended.",
+      "completeness": {
+        "title": "Profile {percent}% complete",
+        "complete": "Your profile is complete.",
+        "lead": "Still to add:"
+      },
+      "sections": {
+        "presentation": {
+          "title": "Presentation",
+          "hint": "What buyers read first on your profile."
+        },
+        "commerce": {
+          "title": "Trade",
+          "hint": "Your capacity, certifications and markets."
+        },
+        "contact": {
+          "title": "Contact",
+          "hint": "The details shown on your public profile."
+        },
+        "media": {
+          "title": "Media"
+        },
+        "verification": {
+          "title": "Legal identity and verification",
+          "hint": "Registration numbers and official documents are managed on the verification screen.",
+          "cta": "Open verification"
+        }
+      },
+      "draft": {
+        "restored": "Your unsaved changes from last time have been restored. Save each block to keep them.",
+        "discard": "Discard these changes",
+        "kept": "They are kept on this device until you save."
+      }
     },
     "products": {
       "title": "Products",
@@ -421,8 +506,8 @@
       "colDescription": "Description",
       "colImages": "Images",
       "colCreated": "Created",
-      "emptyTitle": "No products yet",
-      "emptyBody": "Add your first product to get started.",
+      "emptyTitle": "Your catalogue is empty",
+      "emptyBody": "Add a first product: it is what buyers look for in the marketplace.",
       "noDescription": "No description",
       "deleteConfirm": "Delete \"{name}\"? This action cannot be undone.",
       "deleting": "Deleting product...",
@@ -431,22 +516,152 @@
       "backToProducts": "Back to Products",
       "signInToAdd": "Please sign in to add products.",
       "editProduct": "Edit Product",
-      "loadError": "Failed to load product.",
-      "ownershipDenied": "You don't have permission to edit this product."
+      "loadError": "Your products could not be loaded.",
+      "ownershipDenied": "You don't have permission to edit this product.",
+      "addSubtitle": "Describe your product; the preview updates as you type.",
+      "editSubtitle": "Update the product's details and photos.",
+      "subtitle": "Your catalogue: what is live, what is seen, what is left to improve.",
+      "retry": "Retry",
+      "notFound": "This product cannot be found or does not belong to one of your companies.",
+      "noCategory": "No category",
+      "noMatch": "No product matches these criteria.",
+      "clearFilters": "Clear filters",
+      "viewsCount": "{count} views",
+      "colViews": "Views ({days} d)",
+      "colQuality": "Listing",
+      "colUpdated": "Updated",
+      "colActions": "Actions",
+      "stats": {
+        "total": "Products",
+        "live": "Live",
+        "liveHint": "out of {total} in the catalogue",
+        "views": "Views ({days} d)",
+        "viewsError": "Statistics unavailable.",
+        "toImprove": "Listings to complete",
+        "toImproveHint": "photos, description or specifications"
+      },
+      "unverified": {
+        "title": "Your products are not visible to buyers yet",
+        "body": "They are saved, and will be published as soon as {company} is verified.",
+        "cta": "Get the company verified"
+      },
+      "toolbar": {
+        "search": "Search a product",
+        "category": "Category",
+        "allCategories": "All categories",
+        "status": "Status",
+        "allStatuses": "All statuses",
+        "sort": "Sort",
+        "sorts": {
+          "recent": "Most recent",
+          "name": "Name (A–Z)",
+          "views": "Most viewed",
+          "quality": "Listings to complete first"
+        },
+        "view": "View",
+        "views": {
+          "grid": "Cards",
+          "list": "List"
+        },
+        "count": "{shown} of {total} {total, plural, one {product} other {products}}"
+      },
+      "visibility": {
+        "live": "Live",
+        "awaiting": "Awaiting verification",
+        "hidden": "Hidden"
+      },
+      "actions": {
+        "menu": "Actions for {name}",
+        "details": "View details",
+        "edit": "Edit",
+        "duplicate": "Duplicate",
+        "hide": "Hide from the marketplace",
+        "publish": "Put back online",
+        "delete": "Delete",
+        "copySuffix": "(copy)",
+        "publishing": "Putting back online…",
+        "hiding": "Hiding…",
+        "published": "Product back online.",
+        "hidden": "Product hidden from the marketplace.",
+        "duplicating": "Duplicating…",
+        "duplicated": "Copy created. It stays hidden until you publish it.",
+        "deleting": "Deleting…",
+        "deleted": "Product deleted.",
+        "error": "The action failed. Please try again.",
+        "deleteTitle": "Delete this product?",
+        "deleteBody": "\"{name}\" will be permanently deleted, with its page and its statistics.",
+        "deleteHideInstead": "To take it down temporarily, hide it instead: you can put it back online whenever you want.",
+        "cancel": "Cancel",
+        "confirmDelete": "Delete permanently"
+      },
+      "addAnother": {
+        "title": "Add a product",
+        "body": "Or duplicate an existing product to create a variant faster."
+      },
+      "detail": {
+        "publicPage": "Public page",
+        "photos": "Photos",
+        "photoCount": "{count, plural, =0 {no photo} one {# photo} other {# photos}}",
+        "noPhotos": "This product has no photo yet",
+        "addPhotos": "Add photos",
+        "photoAlt": "{name}, photo {index}",
+        "showPhoto": "Show photo {index}",
+        "description": "Name and description",
+        "noTranslation": "No text in this language.",
+        "noSpecs": "No specification filled in.",
+        "addSpecs": "Add specifications",
+        "searchAppearances": "Search appearances ({days} d)",
+        "deltaNew": "New",
+        "deltaFlat": "Stable",
+        "visibility": {
+          "live": {
+            "title": "Live in the marketplace",
+            "body": "Buyers can see this product and request a quote."
+          },
+          "awaiting": {
+            "title": "Saved, not visible yet",
+            "body": "It will be published as soon as {company} is verified."
+          },
+          "hidden": {
+            "title": "Hidden from the marketplace",
+            "body": "Only you and our team can see it. Put it back online from the actions menu."
+          }
+        },
+        "quality": {
+          "title": "Listing quality",
+          "cta": "Complete the listing",
+          "doneSr": "Done:",
+          "todoSr": "To do:",
+          "items": {
+            "photo": "At least one photo",
+            "gallery": "{photos} photos or more",
+            "description": "A description of at least {chars} characters",
+            "category": "A category",
+            "specs": "{specs} specifications or more"
+          }
+        },
+        "info": {
+          "title": "Information",
+          "created": "Created",
+          "updated": "Updated"
+        },
+        "noPricing": "No price or minimum order: the listing shows “Price on request”.",
+        "addPricing": "Add a price"
+      }
     },
     "productForm": {
-      "nameLabel": "Product Name",
+      "nameLabel": "Product name",
       "namePlaceholder": "e.g. Organic Arabica Coffee Beans",
       "descriptionLabel": "Description",
       "descriptionPlaceholder": "Describe the product, its origin, quality grade, certifications...",
-      "categoryLabel": "Category ID",
+      "categoryLabel": "Category",
       "optional": "(optional)",
-      "categoryPlaceholder": "Category identifier",
+      "categoryPlaceholder": "Choose a category",
       "imagesLabel": "Images",
       "imageAlt": "Product image {index}",
       "removeImage": "Remove image",
       "addImages": "Add images",
-      "imagesHint": "Images are uploaded when you save the product.",
+      "imagesHint": "Photos are uploaded when the product is saved.",
       "saveChanges": "Save Changes",
       "createProduct": "Create Product",
       "cancel": "Cancel",
@@ -471,7 +686,110 @@
       "categoryNone": "No category",
       "invalidType": "{name} is not a supported image type.",
       "fileTooLarge": "{name} exceeds the {max} MB limit.",
-      "maxImages": "You can upload at most {max} images."
+      "maxImages": "You can upload at most {max} images.",
+      "sections": {
+        "info": {
+          "title": "Details",
+          "hint": "What buyers read in the marketplace."
+        }
+      },
+      "lang": {
+        "label": "Writing language",
+        "fr": "Français",
+        "en": "English",
+        "complete": "filled in",
+        "incomplete": "to fill in",
+        "hint": "One language is enough. Without a translation, the same text is shown in the other language; you can complete it later."
+      },
+      "photos": {
+        "title": "Photos",
+        "hint": "Up to 8 photos, {size} MB maximum each. The first one is the cover.",
+        "drop": "Drag your photos here or click to browse",
+        "formats": "JPG, PNG, WebP or GIF",
+        "cover": "Cover"
+      },
+      "visibility": {
+        "cta": "Get the company verified",
+        "verified": {
+          "title": "Published as soon as it is saved",
+          "body": "{company} is verified: the product appears in the marketplace as soon as it is saved."
+        },
+        "pending": {
+          "title": "Published after verification",
+          "body": "The file for {company} is under review. The product is saved now and published as soon as the company is verified."
+        },
+        "pending_documents": {
+          "title": "Saved, but not visible yet",
+          "body": "{company} is not verified yet. You can prepare your products; they will be published once the company is verified."
+        },
+        "rejected": {
+          "title": "Saved, but not visible",
+          "body": "The file for {company} was rejected. Fix it so that your products are published."
+        }
+      },
+      "preview": {
+        "title": "Preview",
+        "hint": "As the buyer will see it in the list.",
+        "namePlaceholder": "Product name",
+        "descriptionPlaceholder": "The description will appear here."
+      },
+      "tips": {
+        "title": "For a good listing",
+        "name": "A precise name: product, variety, origin.",
+        "description": "Quality, packaging, quantities and certifications.",
+        "photos": "Sharp photos of the real product on a light background."
+      },
+      "specs": {
+        "title": "Specifications",
+        "hint": "The technical data buyers compare: one characteristic, one value.",
+        "templateTitle": "Specific to this category",
+        "customTitle": "Your specifications",
+        "customTitleMore": "Other specifications",
+        "noCategory": "Choose a category to see the specifications that belong to it. You can already add your own below.",
+        "noTemplate": "This category has no predefined specifications yet. Add your own below.",
+        "choose": "Choose",
+        "yes": "Yes",
+        "no": "No",
+        "nameLabel": "Specification",
+        "valueLabel": "Value",
+        "namePlaceholder": "Specification (e.g. Moisture)",
+        "valuePlaceholder": "Value (e.g. 11%)",
+        "addRow": "Add a specification",
+        "removeRow": "Remove this specification",
+        "max": "Maximum of {max} specifications reached.",
+        "suggestions": {
+          "origin": "Origin",
+          "packaging": "Packaging",
+          "minOrder": "Minimum quantity",
+          "certifications": "Certifications"
+        },
+        "errors": {
+          "required": "This field is required.",
+          "number": "Enter a number.",
+          "row": "Fill in the name and the value, without reusing a name.",
+          "toast": "Check the highlighted specifications.",
+          "tooMany": "Too many specifications: remove a few."
+        }
+      },
+      "pricing": {
+        "title": "Price and minimum order",
+        "hint": "What a buyer wants to know before asking for a quote.",
+        "unitLabel": "Selling unit",
+        "unitPlaceholder": "Choose a unit",
+        "unitNone": "None",
+        "priceLabel": "Unit price",
+        "priceLabelPer": "Price per {unit}",
+        "pricePlaceholder": "E.g. 4.50",
+        "currencyLabel": "Currency",
+        "minOrderLabel": "Minimum order quantity",
+        "minOrderPlaceholder": "E.g. 500",
+        "empty": "Leave these fields empty if the price is negotiated: the listing will show “Price on request”.",
+        "errors": {
+          "price": "Enter a valid price (for example 4.50).",
+          "minOrder": "Enter a minimum quantity greater than zero.",
+          "unit": "Choose the selling unit for this price or quantity."
+        }
+      }
     },
     "services": {
       "title": "Services",
@@ -647,6 +965,55 @@
       "inbox": "Inbox",
       "unread": "{count, plural, one {# message waiting} other {# messages waiting}}",
       "backToSite": "Back to site"
+    },
+    "getVerified": "Get verified",
+    "companiesPage": {
+      "subtitle": "{count, plural, one {# company} other {# companies}} in your space.",
+      "subtitleEmpty": "Register your first company to get started.",
+      "premium": "Premium",
+      "publicProfile": "Public profile",
+      "completeness": "Profile completed",
+      "complete": "Complete the profile",
+      "products": "Products",
+      "manageProducts": "Manage products",
+      "addProduct": "Add a product",
+      "visibility": "Visibility",
+      "visibilityOn": "Published",
+      "visibilityOff": "Not published",
+      "visibilityOnHint": "Visible in the directory and in search.",
+      "visibilityOffHint": "Published once the company is verified.",
+      "next": {
+        "pending_documents": {
+          "title": "Get your company verified",
+          "body": "Send your documents to publish the profile.",
+          "cta": "Get verified"
+        },
+        "pending": {
+          "title": "File under review",
+          "body": "You will be notified as soon as a decision is made.",
+          "cta": "View the file"
+        },
+        "more_info": {
+          "title": "More information is requested",
+          "body": "Add what was asked for, then send the file again.",
+          "cta": "Complete the file"
+        },
+        "rejected": {
+          "title": "The file was rejected",
+          "body": "Fix the documents, then send the file again.",
+          "cta": "Fix the file"
+        },
+        "verified": {
+          "title": "Company verified",
+          "body": "Your profile is published and carries the verified badge.",
+          "cta": "View the file"
+        }
+      },
+      "addAnother": {
+        "title": "Register another company",
+        "body": "Each company has its own profile and its own verification file."
+      },
+      "teamMessage": "Message from our team:"
     }
   },
   "Footer": {
@@ -1143,15 +1510,15 @@
     "notAuthorized": "You don't have access to that area.",
     "verifications": {
       "title": "Verification Queue",
-      "subtitle": "Review and approve company registrations",
+      "subtitle": "Files sent by companies, oldest first.",
       "review": "Review",
       "submitting": "Submitting decision...",
       "backToQueue": "Back to Queue",
       "loadError": "We couldn't load the verification queue. Please try again.",
       "tabs": {
-        "all": "All ({count})",
-        "new": "New ({count})",
-        "resubmitted": "Resubmitted ({count})"
+        "to_review": "To review ({count})",
+        "awaiting_owner": "Waiting on the company ({count})",
+        "all": "All ({count})"
       },
       "columns": {
         "company": "Company",
@@ -1159,14 +1526,26 @@
         "submitted": "Submitted",
         "documents": "Documents",
         "status": "Status",
-        "action": "Action"
+        "action": "Action",
+        "file": "File"
       },
       "badges": {
         "resubmitted": "RESUBMITTED"
       },
       "empty": {
-        "title": "All caught up!",
-        "subtitle": "No pending verifications at the moment."
+        "search": "No file matches this search.",
+        "to_review": {
+          "title": "Nothing to review",
+          "subtitle": "Every file sent has received a decision."
+        },
+        "awaiting_owner": {
+          "title": "No file waiting on a company",
+          "subtitle": "No request for more information is open."
+        },
+        "all": {
+          "title": "No file in progress",
+          "subtitle": "New files will appear here."
+        }
       },
       "decision": {
         "title": "Decision",
@@ -1178,7 +1557,18 @@
         "notesRequired": "Notes (required)",
         "notesOptional": "Notes (optional)",
         "notesPlaceholder": "Add review notes...",
-        "submit": "Submit Decision"
+        "submit": "Submit Decision",
+        "notesVisible": "This message is visible to the company in its space.",
+        "refusedWarning": "{count, plural, one {# document was refused} other {# documents were refused}} in this file.",
+        "incompleteTitle": "The file is incomplete",
+        "incompleteOverride": "I approve despite the missing items and take responsibility for it.",
+        "hint": {
+          "not_submitted": "The company has not sent its file yet. A decision is still possible.",
+          "to_review": "The file is waiting for your decision.",
+          "awaiting_owner": "More information was requested; the company has not sent the file back yet.",
+          "verified": "The company is verified. A new decision removes or changes its status.",
+          "rejected": "The file was rejected. The company can fix it and send it again."
+        }
       },
       "detail": {
         "companyInfo": "Company Information",
@@ -1188,7 +1578,41 @@
         "currentTier": "Current tier",
         "reviewHistory": "Review History",
         "noReviews": "No previous reviews.",
-        "submittedOn": "Submitted {date}"
+        "submittedOn": "Submitted {date}",
+        "createdOn": "Registered on {date}",
+        "notSubmitted": "File not sent by the company yet.",
+        "companySheet": "Company sheet",
+        "completeTitle": "File complete",
+        "completeBody": "The required documents and legal numbers are provided.",
+        "incompleteTitle": "File incomplete",
+        "missingDocument": "Missing document: {name}",
+        "missingLegal": "Missing number: {name}",
+        "legalTitle": "Declared legal identity",
+        "legalHint": "To be compared with the uploaded documents.",
+        "requiredMissing": "Required, not provided",
+        "notProvided": "Not provided",
+        "documentsHint": "Open each document, then accept it or refuse it with a reason.",
+        "intake": {
+          "profile": "Declared profile",
+          "profiles": {
+            "congolese": "Congolese company",
+            "international": "International company"
+          },
+          "headOffice": "Head office",
+          "interests": "Interests in the DRC",
+          "provinces": "Target provinces"
+        },
+        "card": {
+          "about": "About",
+          "noDescription": "No description provided.",
+          "contactTitle": "Company contact",
+          "ownerTitle": "Account holder",
+          "declaredTitle": "Declared at registration",
+          "address": "Address",
+          "registered": "Registered",
+          "tradingAs": "Trading as {name}",
+          "accountOwner": "Account owner"
+        }
       },
       "documents": {
         "empty": "No documents uploaded.",
@@ -1208,18 +1632,35 @@
           "pending": "Pending",
           "approved": "Approved",
           "rejected": "Rejected"
+        },
+        "requiredMissing": "required, not uploaded",
+        "accept": "Accept",
+        "refuse": "Refuse",
+        "reset": "Set back to pending",
+        "cancel": "Cancel",
+        "confirmRefuse": "Refuse the document",
+        "reasonLabel": "Reason:",
+        "reasonPrompt": "Reason for the refusal (visible to the company)",
+        "reasonPlaceholder": "E.g. unreadable document, expired date…",
+        "updateError": "The document could not be updated.",
+        "updated": {
+          "approved": "Document accepted.",
+          "rejected": "Document refused.",
+          "pending": "Document set back to pending."
         }
       },
       "statusValues": {
         "pending": "Pending",
         "verified": "Verified",
-        "rejected": "Rejected"
+        "rejected": "Rejected",
+        "pending_documents": "Documents to send"
       },
       "decisionValues": {
         "approved": "Approved",
         "rejected": "Rejected",
         "more_info_requested": "More info requested",
-        "resubmitted": "Resubmitted"
+        "resubmitted": "Resubmitted",
+        "submitted": "File sent"
       },
       "success": {
         "approved": "Company approved successfully.",
@@ -1233,7 +1674,46 @@
         "invalid_input": "Some details were invalid. Please review and try again.",
         "review_insert_failed": "Couldn't record the review. Please try again.",
         "company_update_failed": "Couldn't update the company. Please try again.",
-        "generic": "Failed to submit the decision. Please try again."
+        "generic": "Failed to submit the decision. Please try again.",
+        "missing_requirements": "The file is incomplete: tick the box to approve anyway.",
+        "company_not_found": "Company not found.",
+        "document_update_failed": "The document could not be updated."
+      },
+      "retry": "Retry",
+      "open": "Open",
+      "search": "Search a company or an e-mail",
+      "days": "{count, plural, =0 {today} one {# day} other {# days}}",
+      "waiting": "{count, plural, =0 {received today} one {waiting for # day} other {waiting for # days}}",
+      "lateSr": "past the target",
+      "kpi": {
+        "toReview": "To review",
+        "toReviewFoot": "files awaiting your decision",
+        "oldest": "Oldest file",
+        "late": "{count, plural, one {# file is} other {# files are}} past {days} days",
+        "onTime": "no file beyond {days} days",
+        "awaitingOwner": "Waiting on the company",
+        "awaitingOwnerFoot": "more information requested, not sent back yet",
+        "notSubmitted": "Not sent yet",
+        "notSubmittedFoot": "registered companies without a file"
+      },
+      "stage": {
+        "not_submitted": "Not sent yet",
+        "to_review": "To review",
+        "awaiting_owner": "Waiting on the company",
+        "verified": "Verified",
+        "rejected": "Rejected"
+      },
+      "file": {
+        "complete": "File complete",
+        "incomplete": "File incomplete",
+        "documents": "{done}/{total} required documents",
+        "legalMissing": "legal number missing"
+      },
+      "timeline": {
+        "byCompany": "Company",
+        "byStaff": "Team",
+        "tierOverride": "Tier changed manually",
+        "tierOverrideNote": "New tier: {tier}"
       }
     },
     "companies": {
@@ -1354,21 +1834,131 @@
       "selfActionError": "You cannot change the role of, or suspend, your own account."
     },
     "dashboard": {
-      "title": "Admin Dashboard",
-      "subtitle": "Platform activity, verification status and engagement",
-      "loadError": "Failed to load dashboard metrics",
+      "title": "Dashboard",
+      "subtitle": "What is waiting on the team and what the platform produced over the last {days} days.",
+      "loadError": "The indicators could not be loaded right now.",
+      "retry": "Retry",
+      "reviewCta": "Review verifications",
       "kpi": {
-        "total": "Total companies",
-        "pending": "Pending",
-        "verified": "Verified",
-        "rejected": "Rejected",
-        "views": "Profile views",
-        "contacts": "Contact requests"
+        "label": "Indicators for the period",
+        "companies": "New companies",
+        "companiesFoot": "{total} registered in total, {verified} verified",
+        "products": "Products added",
+        "productsFoot": "{published} live out of {total}",
+        "views": "Storefront views",
+        "viewsFoot": "{count, plural, =0 {No search appearances} one {# search appearance} other {# search appearances}}",
+        "connections": "Connections",
+        "connectionsFoot": "{conversations, plural, one {# conversation} other {# conversations}} · {responses, plural, one {# response} other {# responses}} to opportunities"
       },
-      "sectorTitle": "Companies by sector",
-      "sectorEmpty": "No sector data yet",
-      "topTitle": "Top companies by views",
-      "topEmpty": "No view activity yet"
+      "queue": {
+        "title": "To do",
+        "allClear": "Everything is up to date. Nothing is waiting on the team.",
+        "upToDate": "Up to date",
+        "oldest": "Oldest: {age}",
+        "oldestLate": "Late — oldest: {age}",
+        "items": {
+          "verifications": "Company verifications",
+          "opportunities": "Opportunities to moderate",
+          "requests": "New business requests",
+          "premium": "Premium requests",
+          "reports": "Reported messages"
+        }
+      },
+      "chart": {
+        "viewLabel": "Chart indicator",
+        "views": {
+          "traffic": "Traffic",
+          "signups": "Sign-ups",
+          "connections": "Connections"
+        },
+        "titles": {
+          "traffic": "Storefront views",
+          "signups": "Company sign-ups",
+          "connections": "Buyer–seller exchanges"
+        },
+        "totals": {
+          "traffic": "views over the period",
+          "signups": "companies registered",
+          "connections": "connections"
+        },
+        "activeDays": {
+          "traffic": "Days with views",
+          "signups": "Days with sign-ups",
+          "connections": "Days with exchanges"
+        },
+        "series": {
+          "profile_views": "Company profiles",
+          "product_views": "Product pages",
+          "companies_drc": "DRC",
+          "companies_intl": "International",
+          "conversations": "Conversations",
+          "responses": "Opportunity responses"
+        }
+      },
+      "funnel": {
+        "title": "Verification journey",
+        "subtitle": "All companies, to date",
+        "viewAll": "Verification queue",
+        "steps": {
+          "registered": "Registered",
+          "submitted": "File sent",
+          "verified": "Verified"
+        },
+        "ofPrevious": "{percent} of the previous step",
+        "stock": {
+          "to_review": "To review",
+          "awaiting_owner": "Waiting on the company",
+          "rejected": "Rejected"
+        },
+        "decisions": "Decisions over the period",
+        "decisionsValue": "{approved} approved · {rejected} rejected · {moreInfo} more info requested",
+        "medianDelay": "Median decision time",
+        "hours": "{value} h",
+        "days": "{value} d"
+      },
+      "categories": {
+        "title": "Opportunities by category",
+        "subtitle": "Currently published",
+        "empty": "No published opportunity yet.",
+        "viewAll": "All opportunities",
+        "pending": "{count} to moderate",
+        "responses": "{count, plural, =0 {No response} one {# response} other {# responses}} over the period"
+      },
+      "sectors": {
+        "title": "Companies by sector",
+        "subtitle": "Most represented sectors",
+        "empty": "No company has chosen a sector yet.",
+        "verified": "{count, plural, =0 {None verified} other {# verified}}"
+      },
+      "origin": {
+        "title": "Where companies come from",
+        "subtitle": "Congolese and international companies",
+        "empty": "No company registered yet.",
+        "drc": "DRC",
+        "intl": "International",
+        "provinces": "Top provinces",
+        "countries": "Top countries",
+        "noProvinces": "No province on file.",
+        "noIntl": "No international company yet."
+      },
+      "top": {
+        "title": "Most viewed companies",
+        "subtitle": "Profile views over the period",
+        "empty": "No profile view over the period.",
+        "viewAll": "All companies",
+        "views": "{count, plural, one {# view} other {# views}}",
+        "contacts": "{count, plural, =0 {no contact} one {# contact} other {# contacts}}"
+      },
+      "premium": {
+        "title": "Premium",
+        "subtitle": "Active subscriptions and approved amounts",
+        "viewAll": "Premium requests",
+        "active": "Active subscriptions",
+        "expiring": "Expiring within 30 days",
+        "revenue": "Approved over the period",
+        "revenueFoot": "{count, plural, =0 {No request approved} one {# request approved} other {# requests approved}} over the period",
+        "empty": "No active Premium subscription."
+      }
     },
     "settings": {
       "title": "Settings",
@@ -1419,7 +2009,7 @@
       }
     },
     "nav": {
-      "console": "Admin Console",
+      "console": "Staff console",
       "administrator": "Administrator",
       "signOut": "Sign Out",
       "navDashboard": "Dashboard",
@@ -1434,7 +2024,22 @@
       "navAnalytics": "Analytics",
       "navSettings": "Settings",
       "navRequests": "Requests",
-      "navPremium": "Premium"
+      "navPremium": "Premium",
+      "groups": {
+        "overview": "Overview",
+        "moderation": "Moderation",
+        "content": "Content",
+        "platform": "Platform"
+      },
+      "roleSuperAdmin": "Super Admin",
+      "roleModerator": "Moderator",
+      "openMenu": "Open menu",
+      "expandSidebar": "Expand sidebar",
+      "collapseSidebar": "Collapse sidebar",
+      "breadcrumb": "Breadcrumb",
+      "search": "Search…",
+      "backToSite": "Back to site",
+      "myAccount": "My account"
     },
     "analytics": {
       "title": "Platform Analytics",
@@ -2356,7 +2961,50 @@
     "colActions": "Actions",
     "placeholderNameTr": "Name (TR)",
     "placeholderNameZh": "Name (ZH)",
-    "placeholderNameEs": "Name (ES)"
+    "placeholderNameEs": "Name (ES)",
+    "specsHeading": "Specifications by category",
+    "specsDescription": "The fields companies fill in for a product of this category. They can always add their own lines.",
+    "specs": {
+      "category": "Category",
+      "chooseCategory": "Choose a category",
+      "pickFirst": "Choose a category to manage its specifications.",
+      "empty": "No specification defined for this category.",
+      "loading": "Loading…",
+      "add": "Add a field",
+      "newTitle": "New field",
+      "editTitle": "Edit field",
+      "labelEn": "Label (English)",
+      "labelFr": "Label (French)",
+      "type": "Value type",
+      "unit": "Unit",
+      "options": "Choices",
+      "optionsHint": "One choice per line, as \"English | French\". At least two choices.",
+      "required": "Required",
+      "requiredToggle": "Required to publish a product in this category",
+      "keyPreview": "Technical identifier (permanent):",
+      "types": {
+        "text": "Text",
+        "number": "Number",
+        "select": "List of choices",
+        "boolean": "Yes / No"
+      },
+      "save": "Save",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "moveUp": "Move up",
+      "moveDown": "Move down",
+      "saved": "Field saved.",
+      "deleted": "Field deleted.",
+      "confirmDelete": "Delete the field \"{name}\"? Values already entered on products will remain shown as free specifications.",
+      "errorLoad": "Loading failed.",
+      "errorSave": "Saving failed.",
+      "errorDelete": "Deleting failed.",
+      "errorLabels": "Fill in the label in both languages.",
+      "errorOptions": "A list of choices needs at least two choices.",
+      "errorKey": "The English label must contain at least one letter.",
+      "errorDuplicate": "A field with this name already exists in this category."
+    }
   },
   "Faq": {
     "title": "Frequently Asked Questions",
@@ -3053,7 +3701,7 @@
   },
   "AdminRequests": {
     "title": "Received Requests",
-    "subtitle": "Track leads, needs, assigned managers and request progress in real time.",
+    "subtitle": "Every request sent through the site: who asks, what for, who it is addressed to and where it stands.",
     "newRequestCta": "New Request",
     "filters": {
       "search": "Search...",
@@ -3062,7 +3710,11 @@
       "status": "Status",
       "owner": "Owner",
       "date": "Date",
-      "all": "All"
+      "all": "All",
+      "searchPlaceholder": "Search a name, a company, a reference…",
+      "allOf": "{label}: all",
+      "remove": "Remove the filter {label}",
+      "clear": "Clear the filters"
     },
     "stats": {
       "total": "Total Requests",
@@ -3070,7 +3722,13 @@
       "inProgress": "In Progress",
       "converted": "Converted",
       "pending": "Pending",
-      "responseRate": "Response Rate"
+      "responseRate": "Response Rate",
+      "toForward": "To forward",
+      "toForwardFoot": "Addressed to a company that has not received them yet",
+      "newFoot": "{total, plural, =0 {No request yet} one {Out of # request} other {Out of # requests}}",
+      "inProgressFoot": "{pending, plural, =0 {None on hold} one {# of them on hold} other {# of them on hold}}",
+      "done": "Handled",
+      "doneFoot": "{rate}% of requests have been taken in hand"
     },
     "table": {
       "name": "Name",
@@ -3081,7 +3739,11 @@
       "status": "Status",
       "date": "Date",
       "followUpOwner": "Follow-up Owner",
-      "actions": "Actions"
+      "actions": "Actions",
+      "target": "Addressed to",
+      "requester": "Requester",
+      "received": "Received",
+      "teamTarget": "TradeInDRC team"
     },
     "statusLabels": {
       "new": "New",
@@ -3111,8 +3773,8 @@
         "description": "Needs analysis, verification and prioritization."
       },
       "step3": {
-        "title": "Owner Assignment",
-        "description": "The request is assigned to the appropriate owner."
+        "title": "Forwarding or assignment",
+        "description": "A request addressed to a company is forwarded to it; the others get a follow-up owner."
       },
       "step4": {
         "title": "Follow-up & Conversion",
@@ -3127,7 +3789,32 @@
       "intent": "Intent",
       "promotionRequested": "Promotion package requested",
       "promotionGranted": "Premium granted — this application has been fulfilled.",
-      "grantPromotion": "Grant this package"
+      "grantPromotion": "Grant this package",
+      "open": "Open the request",
+      "phone": "Phone",
+      "target": "Addressed to",
+      "product": "Product",
+      "quantity": "Quantity",
+      "deliveryPlace": "Delivery place",
+      "deadline": "Deadline",
+      "interest": "Kind of relationship",
+      "noMessage": "The buyer left no message.",
+      "sections": {
+        "contact": "Contact details",
+        "request": "The request",
+        "followUp": "Follow-up"
+      },
+      "noteHint": "Internal note: the company never sees it.",
+      "saveNote": "Save the note",
+      "location": "Preferred location",
+      "timeline": "Timeline",
+      "need": "Stated need",
+      "volume": "Estimated volume",
+      "preferences": "Additional wishes",
+      "website": "Website",
+      "attachment": "Attached document",
+      "download": "Download",
+      "downloadError": "The document could not be opened."
     },
     "savingToast": "Saving…",
     "savedToast": "Saved.",
@@ -3162,7 +3849,28 @@
         "already_converted": "Already fulfilled.",
         "update_failed": "Could not grant premium. Please try again."
       }
-    }
+    },
+    "forward": {
+      "cta": "Forward to the supplier",
+      "hint": "The company will see the request in its dashboard, with the buyer's name, email and phone.",
+      "confirm": "Forward this request to {company}? The company will see the buyer's name, email and phone.",
+      "sending": "Forwarding…",
+      "sent": "Request forwarded to {company}.",
+      "error": "The request could not be forwarded.",
+      "done": "Forwarded to the supplier on {date}",
+      "stateDone": "Forwarded",
+      "stateTodo": "To forward"
+    },
+    "views": {
+      "label": "Quick views",
+      "all": "All",
+      "to_forward": "To forward",
+      "new": "New",
+      "in_progress": "In progress",
+      "pending": "On hold",
+      "done": "Handled"
+    },
+    "results": "{count, plural, =0 {No request} one {# request} other {# requests}}"
   },
   "AdminPremium": {
     "title": "Premium Requests",
@@ -3365,54 +4073,80 @@
     }
   },
   "VerifiedDirectory": {
-    "breadcrumbHome": "Home",
-    "breadcrumbLocalContacts": "Local Contacts Directory",
-    "breadcrumbCurrent": "Verified Companies Directory",
-    "heroTitle": "Verified Companies Directory",
-    "heroSubtitle1": "Connect with reviewed and verified business profiles in the DRC.",
-    "heroSubtitle2": "Every company listed here has been reviewed for legitimacy, credibility and business activity to help you build trusted partnerships with confidence.",
-    "badgesTitle": "Understanding Our Verification Badges",
-    "badgeRegisteredTitle": "Registered Company",
-    "badgeRegisteredDesc": "Company has registered on the platform and provided basic business information.",
-    "badgeRegisteredPill": "Basic Profile",
-    "badgeVerifiedTitle": "Verified Company",
-    "badgeVerifiedDesc": "Company has been reviewed and verified for legitimacy and business activity.",
-    "badgeVerifiedPill": "Verified",
-    "badgePremiumTitle": "Premium Verified Local Partner",
-    "badgePremiumDesc": "High-trust local partner with deeper verification and proven track record.",
-    "badgePremiumPill": "Premium Partner",
-    "filterSectorLabel": "Select a sector",
-    "filterAllSectors": "All Sectors",
-    "filterProvinceLabel": "Select a province",
-    "filterAllProvinces": "All Provinces",
-    "filterTypeLabel": "Type of partnership",
-    "filterAllTypes": "All Types",
-    "typeDistributor": "Distributor",
-    "typeSupplier": "Supplier",
-    "typeManufacturer": "Manufacturer",
-    "typeServiceProvider": "Service Provider",
-    "premiumOnly": "Premium Only",
-    "intlReady": "International Business Ready",
-    "searchCompanies": "Search Companies",
-    "showingResults": "Showing {from}-{to} of {total} verified companies",
-    "sortBy": "Sort by:",
-    "sortRecent": "Recently Added",
-    "sortNameAZ": "Name A-Z",
-    "verifiedPill": "Verified",
-    "premiumPill": "Premium Partner",
-    "viewProfile": "View Profile",
-    "noResults": "No verified companies match your filters.",
-    "approachTitle": "Our Verification Approach",
-    "step1Title": "Documents Submitted",
-    "step1Caption": "Company submits required documents and information.",
-    "step2Title": "Official Contact Confirmed",
-    "step2Caption": "We verify company contact via official communication.",
-    "step3Title": "Documentation Reviewed",
-    "step3Caption": "Our team reviews and validates business documentation.",
-    "step4Title": "Sector & Location Classified",
-    "step4Caption": "Company is classified by sector and operational location.",
-    "step5Title": "Profile Published",
-    "step5Caption": "Verified profile is published with appropriate badge."
+    "page": {
+      "crumb": "Companies",
+      "eyebrow": "Verified directory",
+      "title": "Find a verified partner in the DRC",
+      "subtitle": "Every company listed here sent its registration documents, and our team reviewed them before publication.",
+      "searchLabel": "Search a company by name",
+      "searchPlaceholder": "Company name…",
+      "searchButton": "Search",
+      "stats": {
+        "companies": "Verified companies",
+        "sectors": "Sectors",
+        "provinces": "Provinces",
+        "countries": "Countries"
+      },
+      "filters": {
+        "label": "Filter the directory",
+        "sector": "Sector",
+        "allSectors": "All sectors",
+        "country": "Country",
+        "allCountries": "All countries",
+        "province": "Province",
+        "allProvinces": "All provinces",
+        "tier": "Level",
+        "tierAll": "All",
+        "tierPremium": "Premium",
+        "sort": "Sort",
+        "sortRecent": "Recently added",
+        "sortAz": "Name A–Z",
+        "clear": "Clear all",
+        "active": "Active filters",
+        "remove": "Remove filter: {name}",
+        "query": "Search: {q}"
+      },
+      "results": "{total, plural, =0 {No company} one {# verified company} other {# verified companies}}",
+      "empty": {
+        "title": "No company matches these filters",
+        "body": "Try another sector or province, or clear the filters.",
+        "reset": "Clear the filters"
+      },
+      "card": {
+        "verified": "Verified",
+        "premium": "Premium",
+        "products": "{count, plural, one {# product} other {# products}}",
+        "founded": "Since {year}",
+        "view": "View profile",
+        "open": "View the profile of {name}"
+      },
+      "pagination": {
+        "label": "Pages of results",
+        "previous": "Previous",
+        "next": "Next",
+        "page": "Page {page}",
+        "status": "Page {page} of {pages}"
+      },
+      "trust": {
+        "title": "What the badges mean",
+        "verifiedTitle": "Verified company",
+        "verifiedBody": "Its legal identity and registration documents were reviewed by the Trade in DRC team.",
+        "premiumTitle": "Premium partner",
+        "premiumBody": "A verified company with a Premium subscription.",
+        "stepsTitle": "How a company gets listed",
+        "step1Title": "It sends its file",
+        "step1Body": "Legal identifiers and registration documents.",
+        "step2Title": "Our team reviews it",
+        "step2Body": "Each document is accepted or refused, with a reason.",
+        "step3Title": "The profile goes live",
+        "step3Body": "Only then do the company and its products become public."
+      },
+      "cta": {
+        "title": "Your company is not listed yet?",
+        "body": "Register it, send your documents, and reach buyers once it is verified.",
+        "button": "Register my company"
+      }
+    }
   },
   "BySector": {
     "breadcrumb": {
@@ -3573,6 +4307,85 @@
       "error": "Something went wrong. Please try again.",
       "errorRequired": "Please fill in all required fields.",
       "privacy": "We respect your privacy. Your information will only be used to facilitate this introduction."
+    },
+    "page": {
+      "share": "Share",
+      "linkCopied": "Link copied",
+      "website": "Website",
+      "requestContact": "Request contact",
+      "tradingAs": "Trading as {name}",
+      "verified": "Verified company",
+      "premium": "Premium verified partner",
+      "logoAlt": "{name} logo",
+      "nav": {
+        "label": "Sections of this page",
+        "about": "About",
+        "gallery": "Gallery",
+        "products": "Products",
+        "trade": "Trade capabilities",
+        "verification": "Verification",
+        "contact": "Contact"
+      },
+      "stats": {
+        "founded": "Founded",
+        "employees": "Employees",
+        "products": "Products",
+        "markets": "Markets served"
+      },
+      "about": {
+        "title": "About",
+        "empty": "This company has not written its presentation yet.",
+        "tags": "Specialities"
+      },
+      "gallery": {
+        "title": "Gallery",
+        "photoAlt": "{name} — photo {index}",
+        "open": "Enlarge photo {index}",
+        "previous": "Previous photo",
+        "next": "Next photo",
+        "counter": "{index} / {total}",
+        "viewer": "Photo viewer",
+        "documents": "Brochures and videos",
+        "brochure": "Brochure {index}",
+        "video": "Video {index}"
+      },
+      "products": {
+        "title": "Products",
+        "count": "{count, plural, one {# product} other {# products}}"
+      },
+      "trade": {
+        "title": "Trade capabilities",
+        "capacity": "Production capacity",
+        "moq": "Minimum order",
+        "leadTime": "Lead time",
+        "markets": "Markets served",
+        "languages": "Languages spoken",
+        "certifications": "Certifications",
+        "hsCodes": "Customs codes (HS)"
+      },
+      "facts": {
+        "title": "Company facts",
+        "sector": "Sector",
+        "legalForm": "Legal form",
+        "founded": "Founded",
+        "employees": "Employees",
+        "location": "Location",
+        "address": "Address",
+        "website": "Website",
+        "memberSince": "On Trade in DRC since"
+      },
+      "trust": {
+        "title": "Verification",
+        "verifiedOn": "Verified on {date}",
+        "verifiedNoDate": "Verified",
+        "by": "by the Trade in DRC team",
+        "point1": "Legal identity and registration documents reviewed by our team.",
+        "point2": "Contact details stay protected: introductions go through the platform."
+      },
+      "cta": {
+        "title": "Work with {name}",
+        "body": "Send a request: our team reviews it and passes it on to the company."
+      }
     }
   },
   "LocalContacts": {
@@ -3717,15 +4530,16 @@
       "current": "Find a Local Partner"
     },
     "hero": {
-      "title": "Find a Local Partner in the DRC",
-      "subtitle": "Tell us what your business needs, Trade in DRC will help identify suitable local companies, representatives, distributors or service providers aligned with your project.",
-      "submitCta": "Submit Your Need",
-      "browseCta": "Browse the Directory First"
+      "eyebrow": "Assisted introductions",
+      "title": "Find a local partner in the DRC",
+      "subtitle": "Describe your need in three steps. Our team identifies the companies, distributors, representatives or service providers that fit your project.",
+      "browseCta": "Browse the directory",
+      "trackCta": "Track a request"
     },
-    "step1": {
-      "title": "What do you need?",
-      "subtitle": "Select the type of partner or contact you are looking for.",
-      "footnote": "You can select only one primary need per request."
+    "trust": {
+      "free": "Free, no commitment",
+      "delay": "Reply within 2 to 3 business days",
+      "verified": "Companies verified by our team"
     },
     "needs": {
       "supplier": "Find a Supplier",
@@ -3736,58 +4550,6 @@
       "institutional": "Find an Institutional Contact",
       "enter_market": "Enter the DRC Market",
       "source_products": "Source Products from the DRC"
-    },
-    "step2": {
-      "title": "Tell us about your business need",
-      "subtitle": "Provide details so we can match you with the right local contacts."
-    },
-    "form": {
-      "companyName": "Company Name",
-      "companyNamePlaceholder": "Enter your company name",
-      "country": "Country",
-      "countryPlaceholder": "Select your country",
-      "countrySearch": "Search countries...",
-      "countryNoResults": "No countries found.",
-      "website": "Website",
-      "websitePlaceholder": "www.yourcompany.com",
-      "contactPerson": "Contact Person",
-      "contactPersonPlaceholder": "Full name",
-      "email": "Email",
-      "emailPlaceholder": "name@yourcompany.com",
-      "phone": "Phone",
-      "phonePlaceholder": "(555) 123-4567",
-      "sector": "Sector",
-      "selectPlaceholder": "Select an option",
-      "sectorPlaceholder": "Select your sector",
-      "contactType": "Type of Contact Needed",
-      "contactTypePlaceholder": "Select contact type",
-      "targetProvince": "Target Province in DRC",
-      "targetProvincePlaceholder": "Select target province",
-      "productService": "Product or Service of Interest",
-      "productServicePlaceholder": "Enter product or service",
-      "volume": "Estimated Business Volume (USD)",
-      "volumePlaceholder": "Select range",
-      "timeline": "Expected Timeline",
-      "timelinePlaceholder": "Select timeline",
-      "requirement": "Detailed Requirement",
-      "requirementPlaceholder": "Describe your project, needs, and any specific requirements...",
-      "uploadTitle": "Click to upload or drag and drop",
-      "uploadHint": "PDF, DOC, DOCX, PPTX (Max 10MB)",
-      "uploadLabel": "Upload Supporting Document (Optional)",
-      "submit": "Submit Request",
-      "submitting": "Submitting...",
-      "privacy": "Your information is secure and will only be used to match you with relevant local partners."
-    },
-    "contactTypes": {
-      "supplier": "Supplier",
-      "distributor": "Distributor",
-      "representative": "Local Representative",
-      "jv_partner": "Joint-Venture Partner",
-      "service_provider": "Professional Service Provider",
-      "institutional": "Institutional Contact",
-      "buyer": "Buyer",
-      "agent": "Commercial Agent",
-      "other": "Other"
     },
     "volumes": {
       "under_10k": "Under $10,000",
@@ -3806,31 +4568,109 @@
     "checkboxes": {
       "verified_only": "Verified companies only",
       "b2b_meetings": "Arrange B2B meetings",
-      "market_entry_support": "Market-entry support",
-      "sponsorship": "Sponsorship interest"
+      "market_entry_support": "Market entry support",
+      "sponsorship": "Interested in sponsorship"
     },
-    "step3": {
-      "title": "Request Submitted",
-      "subtitle": "Your request confirmation will appear here.",
-      "placeholder": "Your request confirmation will appear here after you submit.",
-      "thankYou": "Thank you! Your business request has been submitted.",
-      "requestId": "Request ID",
-      "info1": "Our team will review your request and identify suitable local contacts.",
-      "info2": "You will receive a confirmation email shortly.",
-      "info3": "We typically respond within 2-3 business days.",
-      "another": "Submit Another Request",
-      "browse": "Browse the Directory First"
+    "wizard": {
+      "steps": {
+        "need": "Your need",
+        "details": "The details",
+        "contact": "Your contact details"
+      },
+      "stepOf": "Step {current} of {total}",
+      "back": "Back",
+      "next": "Continue",
+      "submit": "Send the request",
+      "submitting": "Sending…",
+      "draftRestored": "We found what you had entered before.",
+      "draftDiscard": "Start over",
+      "needTitle": "What are you looking for?",
+      "needIntro": "Choose the main need of this request. You can send another one afterwards.",
+      "detailsTitle": "Tell us about your project",
+      "detailsIntro": "The more precise your description, the more relevant the contacts we suggest.",
+      "contactTitle": "How can we reach you?",
+      "contactIntro": "These details are only used to reply to you. They are never published.",
+      "optional": "optional",
+      "recapTitle": "Your request",
+      "recapEdit": "Edit",
+      "privacy": "Your information stays confidential and is only used to connect you with relevant partners.",
+      "errorSummary": "Fix the highlighted fields to continue.",
+      "errorServer": "The request could not be sent. Try again in a moment.",
+      "errorCaptcha": "The anti-robot check failed. Try again.",
+      "errorRate": "You have already sent several requests with this address. Try again in an hour."
     },
-    "toast": {
-      "loading": "Submitting your request...",
-      "success": "Your business request has been submitted.",
-      "error": "Something went wrong. Please try again."
+    "fields": {
+      "productService": "Product or service concerned",
+      "productServicePlaceholder": "E.g. cocoa beans, road transport, tax advice…",
+      "sector": "Sector",
+      "sectorPlaceholder": "Choose a sector",
+      "province": "Target province in the DRC",
+      "provinceAny": "Anywhere in the DRC / not decided yet",
+      "timeline": "Timeline",
+      "volume": "Estimated business volume (USD)",
+      "volumePlaceholder": "Choose a range",
+      "requirement": "Your need in detail",
+      "requirementPlaceholder": "Quantities, specifications, kind of partner expected, particular constraints…",
+      "requirementCount": "{count, plural, =0 {20 characters minimum} one {# character (20 minimum)} other {# characters (20 minimum)}}",
+      "preferences": "Additional wishes",
+      "attachment": "Supporting document",
+      "companyName": "Your company name",
+      "companyNamePlaceholder": "Registered name",
+      "contactPerson": "Your name",
+      "contactPersonPlaceholder": "First and last name",
+      "email": "Work email",
+      "emailPlaceholder": "name@company.com",
+      "phone": "Phone",
+      "country": "Country",
+      "countryPlaceholder": "Choose a country",
+      "countrySearch": "Search a country…",
+      "countryNoResults": "No country found.",
+      "website": "Website",
+      "websitePlaceholder": "www.company.com"
     },
-    "validation": {
-      "selectNeed": "Please select what you need first.",
-      "required": "Please complete all required fields.",
-      "fileTooLarge": "File is too large (max 10MB).",
-      "fileType": "Unsupported file type. Use PDF, DOC, DOCX or PPTX."
+    "errors": {
+      "required": "This field is required.",
+      "too_short": "Add a few details: 20 characters minimum.",
+      "too_long": "This text is too long.",
+      "email": "This email address is not valid.",
+      "phone": "This number is not valid. Check the country code and the number.",
+      "website": "This website address is not valid.",
+      "invalid": "This value is not accepted.",
+      "need": "Choose a need to continue."
+    },
+    "upload": {
+      "title": "Drop a file here or click to choose one",
+      "hint": "PDF, DOC, DOCX, PPTX, JPG or PNG — 10 MB maximum",
+      "uploading": "Uploading the file…",
+      "done": "File attached",
+      "remove": "Remove the file",
+      "too_large": "This file is larger than 10 MB.",
+      "bad_type": "This file type is not accepted.",
+      "server": "The file could not be uploaded. Try again."
+    },
+    "done": {
+      "title": "Request sent",
+      "body": "Thank you. Our team is reviewing your request and will get back to you within 2 to 3 business days.",
+      "referenceLabel": "Your reference",
+      "copy": "Copy",
+      "copied": "Reference copied.",
+      "emailSent": "A confirmation email has just been sent to {email}.",
+      "noEmail": "Keep this reference: together with your email address, it lets you track your request.",
+      "track": "Track my request",
+      "another": "Send another request",
+      "browse": "Browse the directory"
+    },
+    "aside": {
+      "howTitle": "How it works",
+      "how1Title": "You describe your need",
+      "how1Body": "Three steps, about three minutes.",
+      "how2Title": "Our team searches for you",
+      "how2Body": "We identify the companies that match your project.",
+      "how3Title": "We introduce you",
+      "how3Body": "You receive our suggestions by email.",
+      "trackTitle": "Already sent a request?",
+      "trackBody": "Follow its progress with your reference and your email address.",
+      "trackCta": "Track my request"
     }
   },
   "Premium": {
@@ -4311,15 +5151,28 @@
     },
     "success": {
       "title": "Your company has been created",
-      "body": "It is now in your dashboard. Complete its profile and add your documents there to get it verified.",
-      "cta": "Go to My Companies"
+      "body": "It is in your dashboard. Two steps remain before buyers can see it.",
+      "cta": "Send my documents",
+      "nextTitle": "What happens next?",
+      "next": {
+        "documents": {
+          "title": "Get the company verified",
+          "body": "Send your documents: the profile is published once the file is approved."
+        },
+        "product": {
+          "title": "Publish a first product",
+          "body": "To appear in the marketplace."
+        }
+      },
+      "dashboardCta": "Go to the dashboard"
     },
     "errors": {
       "required": "Please fill in all required fields.",
       "auth": "Please sign in to submit your company.",
       "server": "Something went wrong. Please try again.",
       "invalid": "Some fields are invalid. Please check and try again.",
-      "bannerTitle": "Please complete the following before submitting:"
+      "bannerTitle": "Please complete the following before submitting:",
+      "staff": "Trade in DRC team accounts cannot register a company."
     },
     "benefits": {
       "items": [
@@ -4536,12 +5389,27 @@
       },
       "fields": {
         "companyEmail": "Company contact e-mail",
-        "headOfficeCity": "Head office city"
+        "headOfficeCity": "Head office city",
+        "activity": "Your activity"
       },
       "hints": {
-        "companyEmail": "Shown on your public listing. Can differ from your sign-in e-mail."
+        "companyEmail": "Shown on your public listing. Can differ from your sign-in e-mail.",
+        "activity": "Optional. Two or three sentences are enough: this text appears on your public profile."
       },
-      "marketInterestIntro": "Optional — tell us what you're looking for in the DRC so we can suggest the right opportunities."
+      "marketInterestIntro": "Optional — tell us what you're looking for in the DRC so we can suggest the right opportunities.",
+      "ph": {
+        "activity": "E.g. producer and exporter of washed, sun-dried arabica coffee from Kivu."
+      }
+    },
+    "draft": {
+      "restored": "We picked up your form where you left off.",
+      "discard": "Start over",
+      "saved": "Draft saved on this device."
+    },
+    "dashboard": {
+      "back": "My companies",
+      "title": "Register a company",
+      "subtitle": "A few details to create the profile. Documents and the full profile come next."
     }
   },
   "Services": {
@@ -5152,7 +6020,10 @@
       "moq": "Min. quantity",
       "leadTime": "Lead time",
       "request": "Request a quote",
-      "illustrative": "Illustration"
+      "illustrative": "Illustration",
+      "yes": "Yes",
+      "no": "No",
+      "photos": "{count, plural, one {# photo} other {# photos}}"
     },
     "banner": {
       "title": "Can’t find your supplier?",
@@ -5209,7 +6080,12 @@
       "method": "Our method in detail",
       "progress": "{done} of {total} points verified",
       "done": "Verified",
-      "pending": "To do"
+      "pending": "To do",
+      "tax": {
+        "title": "Tax registration",
+        "ok": "Tax identification number checked against the supporting document.",
+        "todo": "Tax document not checked yet."
+      }
     },
     "terms": {
       "title": "Commercial terms",
@@ -5255,13 +6131,19 @@
       "supportCta": "See our support services",
       "responseTime": "Reply within 48 business hours",
       "stepNeed": "Your need",
-      "stepContact": "Your details"
+      "stepContact": "Your details",
+      "track": "Track my request"
     },
     "about": "About this offer",
     "supplier": {
       "title": "The supplier",
       "profile": "View profile",
       "report": "Verification report"
+    },
+    "preview": {
+      "hidden": "Preview — this product is hidden. It does not appear in the marketplace; only the seller and the Trade in DRC team see this page.",
+      "unverified": "Preview — this product will appear in the marketplace once the company is verified. For now, only the seller and the Trade in DRC team see this page.",
+      "manage": "Manage this product"
     }
   },
   "MarketChain": {
@@ -5729,6 +6611,17 @@
         "title": "Premium expired",
         "body": "{company} has lost its Premium benefits.",
         "cta": "Reactivate"
+      },
+      "verification_approved": {
+        "title": "{company} is verified",
+        "body": "{notes}",
+        "bodyDefault": "Its profile is now public and carries the verified badge.",
+        "cta": "View the file"
+      },
+      "requests_received": {
+        "title": "{count, plural, one {# new buyer request} other {# new buyer requests}}",
+        "body": "Checked and passed on by our team. Reply while the buyer is still looking.",
+        "cta": "See the requests"
       }
     },
     "missing": {
@@ -5836,33 +6729,6 @@
       "empty": "No market data published yet.",
       "latestReport": "Latest published report"
     },
-    "welcome": {
-      "title": "Welcome to Trade in DRC",
-      "subtitle": "A few steps to become visible to buyers and partners.",
-      "doneSr": "Done:",
-      "currentSr": "Current step:",
-      "start": "Start",
-      "statsTitle": "Your statistics will appear here",
-      "statsBody": "once your company is registered, verified and published.",
-      "steps": {
-        "account": {
-          "title": "Create your account",
-          "body": "Done."
-        },
-        "company": {
-          "title": "Register your company",
-          "body": "5 minutes: name, sector, country and contact."
-        },
-        "documents": {
-          "title": "Send your documents",
-          "body": "Trade register and tax ID to earn the verified badge."
-        },
-        "product": {
-          "title": "Publish your first product",
-          "body": "To appear in the marketplace."
-        }
-      }
-    },
     "greetingTime": {
       "morning": "Good morning, {name}",
       "afternoon": "Good afternoon, {name}",
@@ -5884,6 +6750,65 @@
       "bestWeek": "Best week",
       "share": "Share of “{label}”",
       "activeDays": "Days with views"
+    },
+    "onboarding": {
+      "eyebrow": "Getting started",
+      "title": "Welcome to Trade in DRC",
+      "subtitle": "Four steps to make your company visible to buyers and partners. You can stop and pick up again at any time.",
+      "ringCaption": "{done} of {total} steps completed",
+      "progressTitle": "Finish getting started",
+      "progressSub": "{done} of {total} steps completed",
+      "stepLabel": "Step {n}",
+      "stateDone": "Done",
+      "stateUpcoming": "Next",
+      "doneSr": "Done:",
+      "currentSr": "Current step:",
+      "upcomingSr": "Upcoming:",
+      "benefitsTitle": "What you get once you are live",
+      "benefits": {
+        "visible": {
+          "title": "A public profile",
+          "body": "Your company appears in the directory and in search."
+        },
+        "verified": {
+          "title": "The verified badge",
+          "body": "The trust signal buyers look at first."
+        },
+        "stats": {
+          "title": "Your statistics",
+          "body": "Views, searches and contact requests, tracked here."
+        }
+      },
+      "steps": {
+        "account": {
+          "title": "Create your account",
+          "body": "Your access to the company area.",
+          "done": "Account created and e-mail confirmed.",
+          "cta": "Create my account",
+          "time": "1 min"
+        },
+        "company": {
+          "title": "Register your company",
+          "body": "Name, sector, country and contact.",
+          "done": "Company registered.",
+          "cta": "Register my company",
+          "time": "About 5 min"
+        },
+        "documents": {
+          "title": "Get the company verified",
+          "body": "Send your documents to publish the profile.",
+          "done": "Documents sent.",
+          "cta": "Send my documents",
+          "time": "About 5 min"
+        },
+        "product": {
+          "title": "Publish a first product",
+          "body": "To appear in the marketplace.",
+          "done": "First product published.",
+          "cta": "Add a product",
+          "time": "About 3 min"
+        }
+      }
     }
   },
   "HomeChain": {
@@ -5901,5 +6826,344 @@
     "step": "Step",
     "cta": "Register my company",
     "secondary": "Our verification approach"
+  },
+  "CompanyVerification": {
+    "back": "My companies",
+    "title": "Get my company verified",
+    "subtitle": "Upload the documents for {company}, then send the file to our team.",
+    "notFound": "This company cannot be found or is not yours.",
+    "status": {
+      "pending_documents": "Documents to send",
+      "pending": "Under review",
+      "more_info": "More information requested",
+      "verified": "Verified",
+      "rejected": "File rejected"
+    },
+    "phases": {
+      "documents": {
+        "title": "Your documents",
+        "body": "You upload the files"
+      },
+      "review": {
+        "title": "Review by our team",
+        "body": "We check the file"
+      },
+      "published": {
+        "title": "Profile published",
+        "body": "Visible to buyers"
+      }
+    },
+    "docsTitle": "Documents in the file",
+    "formats": "PDF, JPG or PNG, 5 MB maximum per file.",
+    "requiredProgress": "Required documents: {done}/{total}",
+    "required": "Required",
+    "optional": "Optional",
+    "docs": {
+      "business_license": {
+        "title": "RCCM certificate",
+        "hint": "The extract from the Trade and Personal Property Credit Register.",
+        "titleIntl": "Certificate of incorporation",
+        "hintIntl": "The official registration document of the company in its country."
+      },
+      "tax_registration": {
+        "title": "NIF certificate",
+        "hint": "The document showing your tax identification number.",
+        "titleIntl": "Tax document",
+        "hintIntl": "A tax identification certificate from your country, if you have one."
+      },
+      "proof_of_address": {
+        "title": "Proof of address",
+        "hint": "Lease, invoice or certificate in the company's name."
+      },
+      "additional_document": {
+        "title": "Other document",
+        "hint": "Licence, certification or any document useful to the file."
+      }
+    },
+    "docStatus": {
+      "pending": "Received",
+      "approved": "Accepted",
+      "rejected": "Rejected"
+    },
+    "choose": "Choose a file",
+    "addAnother": "Add",
+    "view": "View",
+    "viewFile": "View {file}",
+    "remove": "Remove",
+    "removeFile": "Remove {file}",
+    "uploading": "Uploading {file}…",
+    "uploaded": "Document added.",
+    "uploadError": "The document could not be uploaded. Please try again.",
+    "removed": "Document removed.",
+    "removeError": "The document could not be removed.",
+    "viewError": "This document could not be opened.",
+    "loadError": "Your documents could not be loaded.",
+    "retry": "Retry",
+    "missing": "Still missing: {list}.",
+    "ready": "File complete, ready to send.",
+    "submit": "Send for verification",
+    "resubmit": "Send again for verification",
+    "submitting": "Sending the file…",
+    "submitted": "File sent. Our team will review it.",
+    "submitMissing": "A required document is still missing.",
+    "submitError": "The file could not be sent. Please try again.",
+    "notesLabel": "Message from our team:",
+    "banner": {
+      "pending": {
+        "title": "File under review",
+        "body": "You will be notified as soon as a decision is made.",
+        "cta": "Add a product in the meantime"
+      },
+      "verified": {
+        "title": "Company verified",
+        "body": "Your profile is published and carries the verified badge.",
+        "cta": "View the public profile"
+      },
+      "rejected": {
+        "title": "The file was rejected",
+        "body": "Fix the documents below, then send the file again."
+      },
+      "moreInfo": {
+        "title": "More information is requested",
+        "body": "Add what was asked for, then send the file again."
+      }
+    },
+    "aside": {
+      "title": "What verification unlocks",
+      "items": {
+        "public": {
+          "title": "Public profile",
+          "body": "Your company becomes visible in the directory and in search."
+        },
+        "badge": {
+          "title": "Verified badge",
+          "body": "A trust signal shown on your profile and your products."
+        },
+        "contact": {
+          "title": "Contact requests",
+          "body": "Buyers can write to you from your profile."
+        }
+      },
+      "delay": "The check happens after you send the file, by a member of our team.",
+      "privacy": "Your documents stay private: only you and our reviewers can access them."
+    },
+    "legal": {
+      "title": "Legal identity",
+      "subtitle": "The numbers shown on your documents. Our team checks them against the files you upload.",
+      "save": "Save",
+      "saving": "Saving…",
+      "saved": "Legal identity saved.",
+      "saveError": "Saving failed. Please try again.",
+      "unsaved": "Unsaved changes.",
+      "hint": "Fields marked with an asterisk are needed to send the file.",
+      "draft": {
+        "restored": "Your unsaved changes from last time have been restored. Save to keep them.",
+        "discard": "Discard these changes",
+        "kept": "They are kept on this device until you save."
+      }
+    },
+    "missingLegal": "Fill in and save the required legal identity numbers.",
+    "submitMissingLegal": "A required legal identity number is missing.",
+    "timeline": {
+      "title": "File tracking",
+      "empty": "No event yet.",
+      "events": {
+        "submitted": "File sent",
+        "resubmitted": "File sent again",
+        "approved": "Company verified",
+        "rejected": "File rejected",
+        "more_info_requested": "More information requested"
+      }
+    },
+    "docRefusedReason": "Reason for the refusal:",
+    "teamMessage": {
+      "title": "Message from our team"
+    }
+  },
+  "NotFound": {
+    "metaTitle": "Page not found",
+    "eyebrow": "Error 404",
+    "title": "This page cannot be found",
+    "body": "The address may be mistyped, or the page has been moved or removed. Search the site or pick a section below.",
+    "searchLabel": "Search the site",
+    "searchPlaceholder": "A company, a product, an opportunity…",
+    "searchButton": "Search",
+    "home": "Back to home",
+    "back": "Previous page",
+    "linksTitle": "Where to go from here",
+    "links": {
+      "market": {
+        "title": "Marketplace",
+        "body": "Products and offers from verified companies."
+      },
+      "companies": {
+        "title": "Companies",
+        "body": "The directory of verified companies."
+      },
+      "opportunities": {
+        "title": "Opportunities",
+        "body": "Requests and calls open right now."
+      },
+      "contact": {
+        "title": "Contact",
+        "body": "Tell us which page you were looking for."
+      }
+    }
+  },
+  "ReceivedRequests": {
+    "title": "Received requests",
+    "subtitle": "Quote and contact requests buyers sent to your company. Our team checks each one before passing it on to you.",
+    "checkedNote": "Every request below was checked by the TradeInDRC team before it reached you.",
+    "loadError": "Your requests could not be loaded. Reload the page.",
+    "mailSubject": "Your request {reference} on TradeInDRC — {subject}",
+    "kind": {
+      "quote": "Quote request",
+      "contact": "Contact request"
+    },
+    "empty": {
+      "title": "No request yet",
+      "body": "When a buyer asks for a quote on one of your products or contacts your company, our team checks the request and it appears here.",
+      "cta": "See my products",
+      "steps": {
+        "buyer": {
+          "title": "The buyer writes",
+          "body": "A quote request on one of your products, or a message to your company."
+        },
+        "team": {
+          "title": "Our team checks",
+          "body": "We make sure the request is serious before it reaches you."
+        },
+        "you": {
+          "title": "You reply",
+          "body": "The request appears here with the buyer's contact details."
+        }
+      }
+    },
+    "card": {
+      "new": "New",
+      "receivedOn": "Received on {date}",
+      "forCompany": "For {company}",
+      "productRemoved": "Product no longer listed",
+      "quantity": "Quantity",
+      "deliveryPlace": "Delivery place",
+      "deadline": "Deadline",
+      "message": "Buyer's message",
+      "noMessage": "The buyer left no message.",
+      "buyer": "Buyer",
+      "reply": "Reply by email",
+      "interestTitle": "Relationship sought: {interest}"
+    },
+    "views": {
+      "label": "Filter the requests",
+      "all": "All",
+      "new": "New",
+      "quote": "Quotes",
+      "contact": "Contact"
+    },
+    "searchPlaceholder": "Search a buyer, a product…",
+    "noMatch": "No request matches this search.",
+    "clear": "Clear the filters",
+    "detail": {
+      "back": "All requests",
+      "request": "The request",
+      "contact": "Buyer's contact details",
+      "call": "Call",
+      "copyEmail": "Copy the email address",
+      "emailCopied": "Email address copied.",
+      "copyFailed": "The address could not be copied.",
+      "viewProduct": "See the product",
+      "checked": "Checked by the TradeInDRC team before it was passed on to you."
+    }
+  },
+  "ProductPricing": {
+    "units": {
+      "kg": "kg",
+      "tonne": "tonne",
+      "litre": "litre",
+      "piece": "piece",
+      "bag": "bag",
+      "carton": "carton",
+      "pallet": "pallet",
+      "container": "container",
+      "m3": "m³",
+      "m2": "m²"
+    },
+    "quantity": {
+      "kg": "{count, plural, other {# kg}}",
+      "tonne": "{count, plural, one {# tonne} other {# tonnes}}",
+      "litre": "{count, plural, one {# litre} other {# litres}}",
+      "piece": "{count, plural, one {# piece} other {# pieces}}",
+      "bag": "{count, plural, one {# bag} other {# bags}}",
+      "carton": "{count, plural, one {# carton} other {# cartons}}",
+      "pallet": "{count, plural, one {# pallet} other {# pallets}}",
+      "container": "{count, plural, one {# container} other {# containers}}",
+      "m3": "{count, plural, other {# m³}}",
+      "m2": "{count, plural, other {# m²}}"
+    },
+    "price": "Price",
+    "minOrder": "Minimum order",
+    "perUnit": "/ {unit}",
+    "minShort": "Min. {quantity}",
+    "onRequest": "Price on request"
+  },
+  "RequestTracking": {
+    "metaTitle": "Track my request",
+    "title": "Track my request",
+    "subtitle": "Enter the reference you received after sending and the email address used in the form.",
+    "reference": "Reference",
+    "referencePlaceholder": "TIDRC-PR-2026-000000",
+    "email": "Email address",
+    "emailPlaceholder": "name@company.com",
+    "submit": "See the progress",
+    "searching": "Searching…",
+    "invalid": "Check the reference (TIDRC-PR-year-number) and the email address.",
+    "notFound": "No request matches this reference and this email address.",
+    "serverError": "Tracking is temporarily unavailable. Try again in a moment.",
+    "resultTitle": "Request {reference}",
+    "sentOn": "Sent on {date}",
+    "aboutProduct": "Product: {product}",
+    "aboutCompany": "Addressed to: {company}",
+    "steps": {
+      "received": {
+        "title": "Request received",
+        "body": "Your request is recorded."
+      },
+      "review": {
+        "title": "Review by our team",
+        "body": "We check your request and look for the right contacts."
+      },
+      "forwarded": {
+        "title": "Forwarded to the supplier",
+        "body": "The supplier has received your request and your contact details, and will reply to you directly.",
+        "pending": "Your request will be forwarded to the supplier as soon as our team has checked it."
+      },
+      "outcome": {
+        "title": "Request handled",
+        "body": "Our team has finished handling your request.",
+        "pending": "Your request is under way. This step will be ticked once it has been fully handled."
+      }
+    },
+    "declined": "Your request could not be taken forward. Our team has written or will write to you to explain why.",
+    "state": {
+      "done": "Done",
+      "current": "In progress",
+      "upcoming": "To come"
+    },
+    "another": "Track another request",
+    "newRequest": "Send a new request",
+    "help": "A question about your request?",
+    "contact": "Contact us"
+  },
+  "RequestEmail": {
+    "subject": "We have received your request {reference}",
+    "title": "We have received your request",
+    "greeting": "Hello {name},",
+    "received": "Thank you for using TradeInDRC. Your request is recorded and our team will review it.",
+    "next": "We will get back to you within 2 to 3 business days.",
+    "keepReference": "Keep your reference: together with this email address, it lets you track your request.",
+    "referenceLabel": "Reference",
+    "summaryLabel": "Your need",
+    "trackCta": "Track my request",
+    "signature": "The TradeInDRC team — this email follows a request sent from our website."
   }
 }

@@ -1,4 +1,5 @@
 import { cache } from "react";
+import { specEntries, toSpecFields } from "@/lib/products/specs";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -14,6 +15,7 @@ import {
   Check,
   ChevronRight,
   Clock,
+  EyeOff,
   Factory,
   FileCheck2,
   Globe2,
@@ -22,6 +24,7 @@ import {
   MapPin,
   MapPinned,
   Package,
+  Receipt,
   ShieldCheck,
   Timer,
   Users,
@@ -31,14 +34,15 @@ import { Link } from "@/i18n/routing";
 import type { Locale } from "@/config/locales";
 import { pickLocalized } from "@/lib/i18n/pick-localized";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
-import { parseVerificationSummary } from "@/lib/trust/verification-summary";
+import { toVerificationFacts } from "@/lib/marketplace/verification-facts";
+import { offerExcerpt } from "@/components/marketplace/products/offer-card-data";
+import { pricingDisplay, pricingOf } from "@/lib/products/pricing";
 import {
   cardFacts,
   initialsOf,
   offerVisual,
   originOf,
   placeOf,
-  specEntries,
   tierGroup,
 } from "@/lib/marketplace/offers";
 import { OfferCard, type OfferCardData } from "@/components/marketplace/products/offer-card";
@@ -54,6 +58,7 @@ const RELATED_COUNT = 4;
 
 const VERIFY_ICONS = {
   legal: Building2,
+  tax: Receipt,
   export: FileCheck2,
   references: Users,
   site: MapPinned,
@@ -73,6 +78,8 @@ interface CategoryRef {
   slug: string | null;
   name_en: string | null;
   name_fr: string | null;
+  /** The category's specification template (00055). */
+  category_spec_fields?: unknown;
 }
 
 interface CompanyDetail {
@@ -85,9 +92,9 @@ interface CompanyDetail {
   province: string | null;
   country: string | null;
   registration_profile: string | null;
+  status: string;
   verification_tier: string | null;
   verified_at: string | null;
-  verification_summary: unknown;
   created_at: string;
   moq: string | null;
   lead_time: string | null;
@@ -107,6 +114,8 @@ interface ProductDetail {
   description_fr: string | null;
   images: string[] | null;
   specs: unknown;
+  /** The seller's own switch (00057); false = hidden from the marketplace. */
+  is_published: boolean;
   company_id: string;
   categories: CategoryRef | null;
   companies: CompanyDetail | null;
@@ -117,6 +126,9 @@ interface RelatedRow {
   name: string;
   name_en: string | null;
   name_fr: string | null;
+  description: string | null;
+  description_en: string | null;
+  description_fr: string | null;
   images: string[] | null;
   specs: unknown;
   categories: CategoryRef | null;
@@ -129,7 +141,7 @@ const loadProduct = cache(async (id: string): Promise<ProductDetail | null> => {
   const { data } = await supabase
     .from("products")
     .select(
-      "id, name, name_en, name_fr, description, description_en, description_fr, images, specs, company_id, categories(id, slug, name_en, name_fr), companies(id, name, slug, logo_url, owner_id, city, province, country, registration_profile, verification_tier, verified_at, verification_summary, created_at, moq, lead_time, production_capacity, markets, spoken_languages, certifications)",
+      "id, name, name_en, name_fr, description, description_en, description_fr, images, specs, price, price_currency, sale_unit, min_order_quantity, is_published, company_id, categories(id, slug, name_en, name_fr, category_spec_fields(key, label_en, label_fr, field_type, unit, options, required, sort_order)), companies(id, name, slug, logo_url, owner_id, city, province, country, registration_profile, status, verification_tier, verified_at, created_at, moq, lead_time, production_capacity, markets, spoken_languages, certifications)",
     )
     .eq("id", id)
     .maybeSingle();
@@ -148,7 +160,13 @@ export async function generateMetadata({
   const description =
     (pickLocalized(p, "description", locale as Locale) || p.description || "").slice(0, 160) ||
     undefined;
-  return { title, description, openGraph: { title, description, type: "website" } };
+  // The seller's cover photo is what a shared link shows.
+  const cover = p.images?.[0];
+  return {
+    title,
+    description,
+    openGraph: { title, description, type: "website", ...(cover ? { images: [cover] } : {}) },
+  };
 }
 
 /**
@@ -169,24 +187,29 @@ export default async function OfferDetailPage({
 
   const t = await getTranslations({ locale, namespace: "OfferDetail" });
   const tCard = await getTranslations({ locale, namespace: "MarketProducts" });
+  const tPricing = await getTranslations({ locale, namespace: "ProductPricing" });
   const format = await getFormatter({ locale });
   const supabase = await createServerSupabaseClient();
   const c = product.companies;
   const loc = locale as Locale;
 
-  const [{ count: referenceCount }, { data: relatedData }] = await Promise.all([
-    supabase
-      .from("company_references")
-      .select("id", { count: "exact", head: true })
-      .eq("company_id", c.id)
-      .eq("status", "approved"),
+  // A product is public when it is published AND its company is verified (RLS,
+  // 00057). Whoever else gets this far is the owner or staff, previewing it.
+  const isPublic = product.is_published && c.status === "verified";
+
+  const [{ data: factsData }, { data: relatedData }, viewer] = await Promise.all([
+    supabase.rpc("company_public_verification", { p_company_id: c.id }),
     supabase
       .from("products")
-      .select("id, name, name_en, name_fr, images, specs, categories(id, slug, name_en, name_fr)")
+      .select("id, name, name_en, name_fr, description, description_en, description_fr, images, specs, price, price_currency, sale_unit, min_order_quantity, categories(id, slug, name_en, name_fr, category_spec_fields(key, label_en, label_fr, field_type, unit, options, required, sort_order))")
       .eq("company_id", c.id)
+      .eq("is_published", true)
       .neq("id", product.id)
+      .order("created_at", { ascending: false })
       .limit(RELATED_COUNT),
+    isPublic ? null : supabase.auth.getUser(),
   ]);
+  const viewerIsOwner = viewer?.data.user?.id === c.owner_id;
 
   const origin = originOf(c.registration_profile);
   const DirectionIcon = origin === "import" ? ArrowDownRight : ArrowUpRight;
@@ -195,35 +218,49 @@ export default async function OfferDetailPage({
   const description = pickLocalized(product, "description", loc) || product.description;
   const categoryName = product.categories ? pickLocalized(product.categories, "name", loc) : null;
   const location = [c.city, placeOf(c)].filter(Boolean).join(", ");
-  const specs = specEntries(product.specs);
+  const yesNo = { yes: tCard("card.yes"), no: tCard("card.no") };
+  const specs = specEntries(product.specs, {
+    fields: toSpecFields(product.categories?.category_spec_fields),
+    locale: loc,
+    ...yesNo,
+  });
   const images = product.images ?? [];
   const visual = offerVisual(images, product.categories?.slug ?? null);
   const memberSince = new Date(c.created_at).getFullYear();
 
-  // "What we verified": the four checks, read from the reviewer's structured
-  // summary and the approved references.
-  const checks = parseVerificationSummary(c.verification_summary)?.checks ?? [];
-  const passed = (key: string) => checks.some((k) => k.key === key && k.status === "passed");
-  const refs = referenceCount ?? 0;
+  // "What we verified": four points read from the real verification circuit
+  // (documents staff approved, approved references — 00063). A Congolese seller
+  // files a tax registration; an international one has no equivalent, so its
+  // second point is the trade licence instead.
+  const facts = toVerificationFacts(factsData);
+  const refs = facts.references;
+  const secondPoint =
+    origin === "export"
+      ? ({ key: "tax", ok: facts.tax, body: t(facts.tax ? "verify.tax.ok" : "verify.tax.todo") } as const)
+      : ({ key: "export", ok: facts.license, body: t(facts.license ? "verify.export.ok" : "verify.export.todo") } as const);
   const verifyItems = [
-    { key: "legal", ok: passed("kyb"), body: t(passed("kyb") ? "verify.legal.ok" : "verify.legal.todo") },
-    { key: "export", ok: passed("license"), body: t(passed("license") ? "verify.export.ok" : "verify.export.todo") },
+    { key: "legal", ok: facts.registration, body: t(facts.registration ? "verify.legal.ok" : "verify.legal.todo") },
+    secondPoint,
     { key: "references", ok: refs > 0, body: refs > 0 ? t("verify.references.ok", { count: refs }) : t("verify.references.todo") },
     {
       key: "site",
-      ok: passed("site_visit"),
-      body: passed("site_visit")
+      ok: facts.siteVisit,
+      body: facts.siteVisit
         ? t("verify.site.ok")
         : t(origin === "import" ? "verify.site.todoAbroad" : "verify.site.todo"),
     },
   ] as const;
   const verifiedCount = verifyItems.filter((v) => v.ok).length;
 
-  // Commercial terms the seller has actually filled in.
+  // The product's own price and minimum order (00064).
+  const pricing = pricingDisplay(product, tPricing, locale);
+
+  // Commercial terms the seller has actually filled in; the product's minimum
+  // order, when stated, replaces the company-wide one.
   const joinList = (v: string[] | null) => (v && v.length > 0 ? v.join(", ") : null);
   const terms = (
     [
-      { key: "moq", value: c.moq },
+      { key: "moq", value: pricing.minOrder ?? c.moq },
       { key: "leadTime", value: c.lead_time },
       { key: "capacity", value: c.production_capacity },
       { key: "languages", value: joinList(c.spoken_languages) },
@@ -235,6 +272,9 @@ export default async function OfferDetailPage({
   const related: OfferCardData[] = ((relatedData ?? []) as unknown as RelatedRow[]).map((r) => ({
     id: r.id,
     name: pickLocalized(r, "name", loc) || r.name,
+    excerpt: offerExcerpt(pickLocalized(r, "description", loc) || r.description),
+    photoCount: r.images?.length ?? 0,
+    pricing: pricingOf(r),
     category: r.categories ? pickLocalized(r.categories, "name", loc) : null,
     verified: fullyVerified,
     supplier: c.name,
@@ -242,7 +282,12 @@ export default async function OfferDetailPage({
     supplierInitials: initialsOf(c.name),
     location: location || null,
     visual: offerVisual(r.images, r.categories?.slug ?? null),
-    facts: cardFacts(c, r.specs, { moq: tCard("card.moq"), leadTime: tCard("card.leadTime") }),
+    facts: cardFacts(
+      pricingOf(r).min_order_quantity !== null ? { ...c, moq: null } : c,
+      r.specs,
+      { moq: tCard("card.moq"), leadTime: tCard("card.leadTime"), ...yesNo },
+      { fields: r.categories?.category_spec_fields, locale: loc },
+    ),
   }));
 
   const directionHref = `/products?origin=${origin}`;
@@ -274,7 +319,28 @@ export default async function OfferDetailPage({
 
   return (
     <div className="bg-slate-50 pb-20 lg:pb-0">
-      <OfferViewTracker productId={product.id} />
+      {isPublic ? (
+        <OfferViewTracker productId={product.id} />
+      ) : (
+        // Owner or staff previewing a product visitors cannot open yet.
+        <div role="status" className="border-b border-amber-200 bg-amber-50">
+          <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-2.5 md:px-6">
+            <p className="flex min-w-0 flex-1 basis-[260px] items-start gap-2 text-[13px] text-amber-900">
+              <EyeOff className="mt-0.5 h-4 w-4 flex-none" aria-hidden />
+              {t(c.status === "verified" ? "preview.hidden" : "preview.unverified")}
+            </p>
+            {viewerIsOwner && (
+              <Link
+                href={`/dashboard/products/${product.id}`}
+                className="inline-flex flex-none items-center gap-1 rounded-full bg-amber-900 px-3.5 py-1.5 text-xs font-semibold text-white transition-colors duration-150 ease-out hover:bg-amber-950"
+              >
+                {t("preview.manage")}
+                <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+              </Link>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Header band */}
       <section className="relative isolate overflow-hidden bg-market-navy text-white">
@@ -356,6 +422,29 @@ export default async function OfferDetailPage({
                 </p>
               </div>
             </div>
+
+            {/* Price and minimum order, as the seller stated them. */}
+            <dl className="mt-5 flex flex-wrap items-end gap-x-8 gap-y-3 border-t border-white/10 pt-4">
+              <div>
+                <dt className="text-[11px] font-medium uppercase tracking-wide text-white/55">{tPricing("price")}</dt>
+                <dd className="mt-0.5">
+                  {pricing.price ? (
+                    <>
+                      <span className="font-display text-2xl font-extrabold tabular-nums text-white">{pricing.price}</span>{" "}
+                      <span className="text-sm text-white/65">{tPricing("perUnit", { unit: pricing.unit ?? "" })}</span>
+                    </>
+                  ) : (
+                    <span className="font-display text-lg font-bold text-white">{tPricing("onRequest")}</span>
+                  )}
+                </dd>
+              </div>
+              {pricing.minOrder && (
+                <div>
+                  <dt className="text-[11px] font-medium uppercase tracking-wide text-white/55">{tPricing("minOrder")}</dt>
+                  <dd className="mt-0.5 font-display text-lg font-bold tabular-nums text-white">{pricing.minOrder}</dd>
+                </div>
+              )}
+            </dl>
           </div>
 
           {/* Visual: the product gallery, or the category's sector artwork. */}

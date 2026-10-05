@@ -1,335 +1,252 @@
 "use client";
 
 import * as React from "react";
-import { motion } from "framer-motion";
-import { useLocale, useTranslations } from "next-intl";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Skeleton } from "@/components/ui/skeleton";
+import { useFormatter, useTranslations } from "next-intl";
+import { Building2, Eye, Handshake, Package, ShieldCheck } from "lucide-react";
+import { Link } from "@/i18n/routing";
+import { ROUTES } from "@/constants/routes";
+import { cn } from "@/lib/utils";
+import { PageHeader } from "@/components/console/page-header";
+import { trendOf, type MetricSeries, type OverviewPeriod } from "@/lib/dashboard/overview/metrics";
 import {
-    Building2,
-    CheckCircle,
-    Clock,
-    XCircle,
-    Eye,
-    MessageSquare,
-    TrendingUp,
-    PieChart,
-} from "lucide-react";
-import { createClient } from "@/lib/supabase/client";
-import { PageHeader } from "@/components/design";
+    fetchConsoleDashboardMetrics,
+    sumMetrics,
+    type ConsoleDashboardMetrics,
+} from "@/lib/console/dashboard-metrics";
+import { PeriodSwitch } from "@/components/dashboard/overview/period-switch";
+import { KpiTile, KpiTileSkeleton, type KpiDelta } from "@/components/dashboard/overview/kpi-tile";
+import { CardSkeleton } from "@/components/dashboard/overview/overview-card";
+import { ActivityChart, type ChartSeries } from "@/components/dashboard/overview/activity-chart";
+import { ModerationQueue } from "@/components/console/dashboard/moderation-queue";
+import { VerificationFunnel } from "@/components/console/dashboard/verification-funnel";
+import {
+    CategoriesCard,
+    OriginCard,
+    PremiumCard,
+    SectorsCard,
+    TopCompaniesCard,
+} from "@/components/console/dashboard/insight-cards";
 
-const STATUS_BADGE_VARIANT: Record<
-    string,
-    "default" | "secondary" | "destructive" | "outline"
-> = {
-    verified: "default",
-    pending: "secondary",
-    rejected: "destructive",
-};
+/** The three readings of the activity chart: demand, supply, and the two meeting. */
+const CHART_VIEWS = ["traffic", "signups", "connections"] as const;
+type ChartView = (typeof CHART_VIEWS)[number];
 
-interface SectorSlice {
-    id: string;
-    name: string;
-    count: number;
-}
-
-interface TopCompany {
-    id: string;
-    name: string;
-    status: string;
-    views: number;
-}
-
-interface DashboardData {
-    totalCompanies: number;
-    pending: number;
-    verified: number;
-    rejected: number;
-    totalViews: number;
-    contactRequests: number;
-    sectorDistribution: SectorSlice[];
-    topCompanies: TopCompany[];
-}
-
-const EMPTY: DashboardData = {
-    totalCompanies: 0,
-    pending: 0,
-    verified: 0,
-    rejected: 0,
-    totalViews: 0,
-    contactRequests: 0,
-    sectorDistribution: [],
-    topCompanies: [],
-};
-
-export default function AdminDashboardPage() {
+/**
+ * Staff console home. Top to bottom: what waits on the team, what the platform
+ * produced over the period, then how the marketplace is made up.
+ */
+export default function ConsoleDashboardPage() {
     const t = useTranslations("Admin.dashboard");
-    const locale = useLocale();
-    const [data, setData] = React.useState<DashboardData>(EMPTY);
-    const [loading, setLoading] = React.useState(true);
+    const tOverview = useTranslations("DashboardOverview");
+    const format = useFormatter();
+    const [period, setPeriod] = React.useState<OverviewPeriod>(30);
+    const [view, setView] = React.useState<ChartView>("traffic");
+    const [data, setData] = React.useState<ConsoleDashboardMetrics | null>(null);
     const [error, setError] = React.useState(false);
+    const [attempt, setAttempt] = React.useState(0);
+    const [now] = React.useState(() => new Date());
 
     React.useEffect(() => {
-        const fetchData = async () => {
-            const supabase = createClient();
-            try {
-                const localizedSectorName =
-                    locale === "fr" ? "name_fr" : "name_en";
-
-                const [companiesRes, sectorsRes, eventsRes] = await Promise.all([
-                    supabase.from("companies").select("id, name, status, sector_id"),
-                    supabase
-                        .from("sectors")
-                        .select(`id, ${localizedSectorName}`),
-                    supabase
-                        .from("analytics_events")
-                        .select("entity_id, entity_type, event_type")
-                        .eq("entity_type", "company"),
-                ]);
-
-                if (companiesRes.error) throw companiesRes.error;
-                if (sectorsRes.error) throw sectorsRes.error;
-                if (eventsRes.error) throw eventsRes.error;
-
-                const companies = companiesRes.data ?? [];
-                const sectors = sectorsRes.data ?? [];
-                const events = eventsRes.data ?? [];
-
-                // Sector distribution.
-                const sectorNames = new Map<string, string>();
-                for (const s of sectors as Array<Record<string, string>>) {
-                    sectorNames.set(s.id, s[localizedSectorName]);
-                }
-                const sectorCounts = new Map<string, number>();
-                for (const c of companies) {
-                    if (!c.sector_id) continue;
-                    sectorCounts.set(
-                        c.sector_id,
-                        (sectorCounts.get(c.sector_id) ?? 0) + 1
-                    );
-                }
-                const sectorDistribution: SectorSlice[] = Array.from(
-                    sectorCounts.entries()
-                )
-                    .map(([id, count]) => ({
-                        id,
-                        name: sectorNames.get(id) ?? id,
-                        count,
-                    }))
-                    .sort((a, b) => b.count - a.count)
-                    .slice(0, 8);
-
-                // View / contact-request KPIs from analytics_events.
-                const viewsByCompany = new Map<string, number>();
-                let totalViews = 0;
-                let contactRequests = 0;
-                for (const e of events) {
-                    if (e.event_type === "view") {
-                        totalViews += 1;
-                        viewsByCompany.set(
-                            e.entity_id,
-                            (viewsByCompany.get(e.entity_id) ?? 0) + 1
-                        );
-                    } else if (e.event_type === "contact_request") {
-                        contactRequests += 1;
-                    }
-                }
-
-                const companyNames = new Map<string, { name: string; status: string }>();
-                for (const c of companies) {
-                    companyNames.set(c.id, { name: c.name, status: c.status });
-                }
-                const topCompanies: TopCompany[] = Array.from(viewsByCompany.entries())
-                    .map(([id, views]) => ({
-                        id,
-                        name: companyNames.get(id)?.name ?? "—",
-                        status: companyNames.get(id)?.status ?? "pending",
-                        views,
-                    }))
-                    .sort((a, b) => b.views - a.views)
-                    .slice(0, 5);
-
-                setData({
-                    totalCompanies: companies.length,
-                    pending: companies.filter((c) => c.status === "pending").length,
-                    verified: companies.filter((c) => c.status === "verified").length,
-                    rejected: companies.filter((c) => c.status === "rejected").length,
-                    totalViews,
-                    contactRequests,
-                    sectorDistribution,
-                    topCompanies,
-                });
-            } catch {
-                setError(true);
-            } finally {
-                setLoading(false);
-            }
+        let cancelled = false;
+        fetchConsoleDashboardMetrics(period)
+            .then((result) => {
+                if (cancelled) return;
+                setData(result);
+                setError(false);
+            })
+            .catch(() => {
+                if (!cancelled) setError(true);
+            });
+        return () => {
+            cancelled = true;
         };
+    }, [period, attempt]);
 
-        fetchData();
-    }, [locale]);
+    // While another period loads, the previous numbers stay on screen, dimmed.
+    const stale = data !== null && data.period_days !== period;
+    const n = (value: number) => format.number(value);
 
-    const statCards = [
-        { key: "total", value: data.totalCompanies, icon: Building2, color: "text-primary" },
-        { key: "pending", value: data.pending, icon: Clock, color: "text-amber-500" },
-        { key: "verified", value: data.verified, icon: CheckCircle, color: "text-green-500" },
-        { key: "rejected", value: data.rejected, icon: XCircle, color: "text-destructive" },
-        { key: "views", value: data.totalViews, icon: Eye, color: "text-blue-500" },
-        {
-            key: "contacts",
-            value: data.contactRequests,
-            icon: MessageSquare,
-            color: "text-violet-500",
-        },
-    ] as const;
+    const countDelta = (m: MetricSeries): KpiDelta => {
+        const trend = trendOf(m.current, m.previous);
+        return {
+            direction: trend.direction,
+            text:
+                trend.direction === "new"
+                    ? tOverview("deltaNew")
+                    : trend.direction === "flat"
+                      ? tOverview("deltaFlat")
+                      : format.number((trend.pct ?? 0) / 100, { style: "percent", maximumFractionDigits: 0 }),
+        };
+    };
 
-    const maxSectorCount = data.sectorDistribution[0]?.count ?? 1;
+    const renderKpis = (d: ConsoleDashboardMetrics) => {
+        const m = d.metrics;
+        const seriesOf = (s: MetricSeries) => ({ values: s.series, startDate: d.current_start });
+        const companies = sumMetrics(m.companies_drc, m.companies_intl);
+        const views = sumMetrics(m.profile_views, m.product_views);
+        const connections = sumMetrics(m.conversations, m.responses);
+        return (
+            <>
+                <KpiTile
+                    highlight
+                    icon={Building2}
+                    label={t("kpi.companies")}
+                    value={n(companies.current)}
+                    delta={countDelta(companies)}
+                    series={seriesOf(companies)}
+                    footnote={t("kpi.companiesFoot", { total: d.funnel.registered, verified: d.funnel.verified })}
+                />
+                <KpiTile
+                    icon={Package}
+                    label={t("kpi.products")}
+                    value={n(m.products.current)}
+                    delta={countDelta(m.products)}
+                    series={seriesOf(m.products)}
+                    footnote={t("kpi.productsFoot", { published: d.totals.products_published, total: d.totals.products })}
+                />
+                <KpiTile
+                    icon={Eye}
+                    label={t("kpi.views")}
+                    value={n(views.current)}
+                    delta={countDelta(views)}
+                    series={seriesOf(views)}
+                    footnote={t("kpi.viewsFoot", { count: m.search_appearances.current })}
+                />
+                <KpiTile
+                    icon={Handshake}
+                    label={t("kpi.connections")}
+                    value={n(connections.current)}
+                    delta={countDelta(connections)}
+                    series={seriesOf(connections)}
+                    footnote={t("kpi.connectionsFoot", {
+                        conversations: m.conversations.current,
+                        responses: m.responses.current,
+                    })}
+                />
+            </>
+        );
+    };
+
+    const chartSeries = (d: ConsoleDashboardMetrics): ChartSeries[] => {
+        const m = d.metrics;
+        const pair: Record<ChartView, [keyof typeof m, keyof typeof m]> = {
+            traffic: ["profile_views", "product_views"],
+            signups: ["companies_drc", "companies_intl"],
+            connections: ["conversations", "responses"],
+        };
+        const [first, second] = pair[view];
+        return [
+            { key: first, label: t(`chart.series.${first}`), color: "blue", values: m[first].series },
+            { key: second, label: t(`chart.series.${second}`), color: "gold", hatched: true, values: m[second].series },
+        ];
+    };
+
+    const viewSwitch = (
+        <div role="group" aria-label={t("chart.viewLabel")} className="inline-flex rounded-lg bg-slate-100 p-0.5">
+            {CHART_VIEWS.map((key) => (
+                <button
+                    key={key}
+                    type="button"
+                    aria-pressed={view === key}
+                    onClick={() => setView(key)}
+                    className={cn(
+                        "rounded-md px-3 py-1 text-xs transition-colors",
+                        view === key
+                            ? "bg-white font-semibold text-market-navy ring-1 ring-slate-200"
+                            : "text-slate-500 hover:text-market-navy"
+                    )}
+                >
+                    {t(`chart.views.${key}`)}
+                </button>
+            ))}
+        </div>
+    );
 
     return (
-        <div className="p-4">
-            <PageHeader title={t("title")} subtitle={t("subtitle")} />
+        <div className="space-y-4">
+            <PageHeader
+                title={t("title")}
+                subtitle={t("subtitle", { days: period })}
+                action={
+                    <div className="flex flex-wrap items-center gap-2">
+                        <PeriodSwitch value={period} onChange={setPeriod} />
+                        <Link
+                            href={ROUTES.CONSOLE_VERIFICATIONS}
+                            className="inline-flex items-center gap-1.5 rounded-full bg-market-navy px-4 py-2.5 text-[13px] font-semibold text-white transition-colors hover:bg-market-navy-deep"
+                        >
+                            <span className="grid h-5 w-5 place-items-center rounded-full bg-market-or text-market-navy">
+                                <ShieldCheck className="h-3.5 w-3.5" aria-hidden />
+                            </span>
+                            {t("reviewCta")}
+                        </Link>
+                    </div>
+                }
+            />
 
-            {error ? (
-                <Card className="border-destructive/30 bg-destructive/5">
-                    <CardContent className="py-6 text-center text-sm text-destructive">
-                        {t("loadError")}
-                    </CardContent>
-                </Card>
+            {error && (
+                <div role="alert" className="flex items-center justify-between gap-3 rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-800 ring-1 ring-red-200">
+                    {t("loadError")}
+                    <button type="button" onClick={() => setAttempt((a) => a + 1)} className="font-semibold underline">
+                        {t("retry")}
+                    </button>
+                </div>
+            )}
+
+            {!data ? (
+                !error && (
+                    <>
+                        <div className="grid grid-cols-1 gap-4 xl:grid-cols-12">
+                            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:col-span-7">
+                                {Array.from({ length: 4 }).map((_, i) => <KpiTileSkeleton key={i} />)}
+                            </div>
+                            <div className="xl:col-span-5"><CardSkeleton rows={6} /></div>
+                        </div>
+                        <CardSkeleton rows={8} />
+                    </>
+                )
             ) : (
-                <>
-                    {/* KPI cards */}
-                    <div className="mb-6 grid gap-3 md:grid-cols-3 lg:grid-cols-6">
-                        {statCards.map((card, index) => (
-                            <motion.div
-                                key={card.key}
-                                initial={{ opacity: 0, y: 8 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.04, duration: 0.25 }}
-                            >
-                                <Card className="rounded-xl border border-slate-200 bg-card">
-                                    <CardHeader className="flex flex-row items-center justify-between p-3 pb-1">
-                                        <CardTitle className="text-xs font-medium text-muted-foreground">
-                                            {t(`kpi.${card.key}`)}
-                                        </CardTitle>
-                                        <card.icon className={`h-4 w-4 ${card.color}`} />
-                                    </CardHeader>
-                                    <CardContent className="p-3 pt-0">
-                                        <div className="text-lg font-bold">
-                                            {loading ? (
-                                                <Skeleton className="h-6 w-10" />
-                                            ) : (
-                                                card.value.toLocaleString(locale)
-                                            )}
-                                        </div>
-                                    </CardContent>
-                                </Card>
-                            </motion.div>
-                        ))}
+                <div className={cn("space-y-4 transition-opacity duration-150", stale && "opacity-60")} aria-busy={stale}>
+                    <div className="grid grid-cols-1 gap-4 xl:grid-cols-12">
+                        <section aria-label={t("kpi.label")} className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 xl:col-span-7">
+                            {renderKpis(data)}
+                        </section>
+                        <div className="min-w-0 xl:col-span-5">
+                            <ModerationQueue queue={data.queue} now={now} />
+                        </div>
                     </div>
 
-                    <div className="grid gap-4 md:grid-cols-2">
-                        {/* Sector distribution */}
-                        <Card className="rounded-xl border border-slate-200 bg-card">
-                            <CardHeader className="p-4 pb-2">
-                                <CardTitle className="flex items-center gap-2 text-sm font-semibold">
-                                    <PieChart className="h-4 w-4 text-primary" />
-                                    {t("sectorTitle")}
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent className="p-4 pt-0">
-                                {loading ? (
-                                    <div className="space-y-2">
-                                        {Array.from({ length: 5 }).map((_, i) => (
-                                            <Skeleton key={i} className="h-5 w-full" />
-                                        ))}
-                                    </div>
-                                ) : data.sectorDistribution.length === 0 ? (
-                                    <p className="text-sm text-muted-foreground">
-                                        {t("sectorEmpty")}
-                                    </p>
-                                ) : (
-                                    <div className="space-y-2.5">
-                                        {data.sectorDistribution.map((slice) => (
-                                            <div key={slice.id}>
-                                                <div className="mb-1 flex items-center justify-between text-xs">
-                                                    <span className="truncate font-medium">
-                                                        {slice.name}
-                                                    </span>
-                                                    <span className="text-muted-foreground">
-                                                        {slice.count}
-                                                    </span>
-                                                </div>
-                                                <div className="h-1.5 overflow-hidden rounded-full bg-muted">
-                                                    <div
-                                                        className="h-full rounded-full bg-primary transition-[width] duration-300 ease-out"
-                                                        style={{
-                                                            width: `${Math.round(
-                                                                (slice.count / maxSectorCount) * 100
-                                                            )}%`,
-                                                        }}
-                                                    />
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </CardContent>
-                        </Card>
-
-                        {/* Top companies by views */}
-                        <Card className="rounded-xl border border-slate-200 bg-card">
-                            <CardHeader className="p-4 pb-2">
-                                <CardTitle className="flex items-center gap-2 text-sm font-semibold">
-                                    <TrendingUp className="h-4 w-4 text-green-500" />
-                                    {t("topTitle")}
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent className="p-4 pt-0">
-                                {loading ? (
-                                    <div className="space-y-2">
-                                        {Array.from({ length: 5 }).map((_, i) => (
-                                            <Skeleton key={i} className="h-6 w-full" />
-                                        ))}
-                                    </div>
-                                ) : data.topCompanies.length === 0 ? (
-                                    <p className="text-sm text-muted-foreground">{t("topEmpty")}</p>
-                                ) : (
-                                    <div className="space-y-1.5">
-                                        {data.topCompanies.map((company, i) => (
-                                            <div
-                                                key={company.id}
-                                                className="flex items-center justify-between py-1"
-                                            >
-                                                <div className="flex min-w-0 items-center gap-2">
-                                                    <span className="w-4 shrink-0 text-xs font-semibold text-muted-foreground">
-                                                        {i + 1}
-                                                    </span>
-                                                    <span className="truncate text-sm font-medium">
-                                                        {company.name}
-                                                    </span>
-                                                    <Badge
-                                                        variant={
-                                                            STATUS_BADGE_VARIANT[company.status] ??
-                                                            "outline"
-                                                        }
-                                                        className="shrink-0 text-[10px] capitalize"
-                                                    >
-                                                        {company.status}
-                                                    </Badge>
-                                                </div>
-                                                <span className="flex shrink-0 items-center gap-1 text-xs text-muted-foreground">
-                                                    <Eye className="h-3 w-3" />
-                                                    {company.views.toLocaleString(locale)}
-                                                </span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </CardContent>
-                        </Card>
+                    <div className="grid grid-cols-1 gap-4 xl:grid-cols-12">
+                        <div className="min-w-0 xl:col-span-8">
+                            <ActivityChart
+                                title={t(`chart.titles.${view}`)}
+                                subtitle={tOverview("periodCompare", { days: data.period_days })}
+                                startDate={data.current_start}
+                                series={chartSeries(data)}
+                                totalLabel={t(`chart.totals.${view}`)}
+                                activeDaysLabel={t(`chart.activeDays.${view}`)}
+                                controls={viewSwitch}
+                            />
+                        </div>
+                        <div className="min-w-0 xl:col-span-4">
+                            <VerificationFunnel funnel={data.funnel} reviews={data.reviews} />
+                        </div>
                     </div>
-                </>
+
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+                        <CategoriesCard categories={data.categories} />
+                        <SectorsCard sectors={data.sectors} />
+                        <OriginCard origin={data.origin} />
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-4 xl:grid-cols-12">
+                        <div className="min-w-0 xl:col-span-7">
+                            <TopCompaniesCard companies={data.top_companies} />
+                        </div>
+                        <div className="min-w-0 xl:col-span-5">
+                            <PremiumCard premium={data.premium} />
+                        </div>
+                    </div>
+                </div>
             )}
         </div>
     );

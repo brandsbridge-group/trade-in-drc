@@ -465,9 +465,9 @@ export function TaxonomyEditor({ type, sectors = [] }: TaxonomyEditorProps) {
             {items.length === 0 ? (
                 <p className="text-sm text-muted-foreground py-4 text-center">{t("empty")}</p>
             ) : (
-                <div className="border rounded-md overflow-hidden">
+                <div className="console-table-card">
                     <table className="w-full text-sm">
-                        <thead className="bg-muted/50">
+                        <thead>
                             <tr>
                                 {isHsCode && (
                                     <th className="text-left px-3 py-2 font-medium text-xs text-muted-foreground">{t("colCode")}</th>

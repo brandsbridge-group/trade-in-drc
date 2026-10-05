@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/table";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Search, Users, Ban, RotateCcw, History } from "lucide-react";
-import { PageHeader } from "@/components/design";
+import { PageHeader } from "@/components/console/page-header";
 import {
     listUsers,
     listUserAudit,
@@ -141,7 +141,7 @@ export default function AdminUsersPage() {
     });
 
     return (
-        <div className="p-4">
+        <div className="space-y-4">
             <PageHeader
                 title={loading ? t("title") : `${t("title")} (${users.length})`}
                 subtitle={t("subtitle")}

@@ -48,7 +48,43 @@
     },
     "language": "语言",
     "changeLanguage": "切换语言",
-    "publishOffer": "发布供应"
+    "publishNeed": "发布需求",
+    "account": {
+      "open": "打开账户菜单",
+      "menu": "账户菜单",
+      "roles": {
+        "super_admin": "超级管理员",
+        "moderator": "审核员",
+        "company": "企业账户",
+        "member": "会员账户"
+      },
+      "staffTitle": "团队控制台",
+      "staffBody": "认证、审核和网站设置",
+      "company": {
+        "more": "{count, plural, other {+ 另外 # 家企业}}",
+        "noneTitle": "注册您的企业",
+        "noneBody": "创建企业主页以发布报价并获得认证。",
+        "open": "打开 {name} 的控制面板"
+      },
+      "status": {
+        "verified": "已认证",
+        "pending": "审核中",
+        "pending_documents": "待提交文件",
+        "rejected": "已拒绝"
+      },
+      "links": {
+        "dashboard": "控制面板",
+        "companies": "我的企业",
+        "products": "我的产品",
+        "inbox": "消息",
+        "settings": "账户设置",
+        "console": "控制台首页",
+        "verifications": "认证",
+        "consoleCompanies": "企业",
+        "publicProfile": "查看公开主页"
+      },
+      "signout": "退出登录"
+    }
   },
   "Hero": {
     "badge": "经贸易部核验",
@@ -246,7 +282,9 @@
       "missingEmail": "没有可重新发送的邮箱地址。",
       "step1": "打开邮件",
       "step2": "点击链接",
-      "step3": "进入您的空间"
+      "step3": "进入您的空间",
+      "resendError": "邮件未能重新发送，请稍后再试。",
+      "resendRateLimited": "请求过于频繁，请等待一分钟后再试。"
     },
     "forgotPassword": {
       "title": "重置您的密码",
@@ -310,7 +348,8 @@
         "manage": "管理您的企业主页",
         "alerts": "接收新商机提醒"
       }
-    }
+    },
+    "termsNotice": "创建账户即表示您接受我们的<terms>使用条款</terms>和<privacy>隐私政策</privacy>。"
   },
   "Dashboard": {
     "title": "控制面板",
@@ -370,10 +409,11 @@
       "expandSidebar": "展开侧边栏",
       "collapseSidebar": "收起侧边栏",
       "services": "服务",
-      "openMenu": "打开菜单"
+      "openMenu": "打开菜单",
+      "requests": "收到的需求"
     },
     "editCompany": {
-      "title": "编辑企业资料",
+      "title": "企业资料",
       "backToDashboard": "返回控制面板",
       "saveChanges": "保存更改",
       "loadError": "加载企业数据失败",
@@ -406,7 +446,52 @@
       "hsCodeHint": "选择与您产品对应的 HS 编码。HS 编码由管理员管理。",
       "noHsCodesAvailable": "暂无可用 HS 编码。",
       "media": "媒体",
-      "mediaHint": "添加您的徽标、画廊照片、宣传册和产品视频。这些内容会显示在您的公开企业资料中。"
+      "mediaHint": "添加您的徽标、画廊照片、宣传册和产品视频。这些内容会显示在您的公开企业资料中。",
+      "backToCompanies": "我的企业",
+      "subtitle": "分块完善主页：每个板块单独保存。",
+      "save": "保存",
+      "sectionSaved": "板块已保存。",
+      "filled": "已填写 {done}/{total}",
+      "unsaved": "有未保存的更改。",
+      "upToDate": "已全部保存。",
+      "nameRequired": "企业名称为必填项。",
+      "website": "网站",
+      "websitePlaceholder": "www.yourcompany.cd",
+      "contactEmail": "联系邮箱",
+      "contactPhone": "联系电话",
+      "descriptionCount": "{count} 个字符，建议至少 {min} 个。",
+      "completeness": {
+        "title": "资料完成度 {percent}%",
+        "complete": "您的资料已完善。",
+        "lead": "还需添加："
+      },
+      "sections": {
+        "presentation": {
+          "title": "企业介绍",
+          "hint": "买家在您的主页上最先看到的内容。"
+        },
+        "commerce": {
+          "title": "贸易信息",
+          "hint": "您的产能、认证和市场。"
+        },
+        "contact": {
+          "title": "联系方式",
+          "hint": "显示在公开主页上的联系信息。"
+        },
+        "media": {
+          "title": "媒体"
+        },
+        "verification": {
+          "title": "法律身份与认证",
+          "hint": "注册号和官方文件在认证页面管理。",
+          "cta": "打开认证页面"
+        }
+      },
+      "draft": {
+        "restored": "已恢复您上次未保存的修改。请保存每个部分以保留它们。",
+        "discard": "放弃这些修改",
+        "kept": "在您保存之前，它们会保留在此设备上。"
+      }
     },
     "products": {
       "title": "产品",
@@ -421,8 +506,8 @@
       "colDescription": "描述",
       "colImages": "图片",
       "colCreated": "创建时间",
-      "emptyTitle": "暂无产品",
-      "emptyBody": "添加您的首件产品以开始。",
+      "emptyTitle": "您的产品目录是空的",
+      "emptyBody": "添加第一个产品：这正是买家在交易市场中寻找的。",
       "noDescription": "暂无描述",
       "deleteConfirm": "删除“{name}”？此操作无法撤销。",
       "deleting": "正在删除产品……",
@@ -431,22 +516,152 @@
       "backToProducts": "返回产品",
       "signInToAdd": "请登录以添加产品。",
       "editProduct": "编辑产品",
-      "loadError": "无法加载产品。",
-      "ownershipDenied": "您无权编辑此产品。"
+      "loadError": "无法加载您的产品。",
+      "ownershipDenied": "您无权编辑此产品。",
+      "addSubtitle": "描述您的产品；预览会随您的输入实时更新。",
+      "editSubtitle": "更新产品的信息和照片。",
+      "subtitle": "您的产品目录：已上线的、被浏览的，以及有待完善的。",
+      "retry": "重试",
+      "notFound": "找不到该产品，或它不属于您的企业。",
+      "noCategory": "无类别",
+      "noMatch": "没有符合条件的产品。",
+      "clearFilters": "清除筛选",
+      "viewsCount": "{count} 次浏览",
+      "colViews": "浏览量（{days} 天）",
+      "colQuality": "资料",
+      "colUpdated": "更新时间",
+      "colActions": "操作",
+      "stats": {
+        "total": "产品",
+        "live": "已上线",
+        "liveHint": "目录共 {total} 个",
+        "views": "浏览量（{days} 天）",
+        "viewsError": "统计数据暂不可用。",
+        "toImprove": "待完善的产品页",
+        "toImproveHint": "照片、描述或规格"
+      },
+      "unverified": {
+        "title": "买家暂时看不到您的产品",
+        "body": "产品已保存，{company} 通过认证后即会发布。",
+        "cta": "去认证企业"
+      },
+      "toolbar": {
+        "search": "搜索产品",
+        "category": "类别",
+        "allCategories": "所有类别",
+        "status": "状态",
+        "allStatuses": "所有状态",
+        "sort": "排序",
+        "sorts": {
+          "recent": "最新",
+          "name": "名称（A–Z）",
+          "views": "浏览最多",
+          "quality": "待完善的优先"
+        },
+        "view": "视图",
+        "views": {
+          "grid": "卡片",
+          "list": "列表"
+        },
+        "count": "共 {total} 个产品，显示 {shown} 个"
+      },
+      "visibility": {
+        "live": "已上线",
+        "awaiting": "等待认证",
+        "hidden": "已隐藏"
+      },
+      "actions": {
+        "menu": "{name} 的操作",
+        "details": "查看详情",
+        "edit": "编辑",
+        "duplicate": "复制",
+        "hide": "从交易市场隐藏",
+        "publish": "重新上线",
+        "delete": "删除",
+        "copySuffix": "（副本）",
+        "publishing": "正在上线…",
+        "hiding": "正在隐藏…",
+        "published": "产品已重新上线。",
+        "hidden": "产品已从交易市场隐藏。",
+        "duplicating": "正在复制…",
+        "duplicated": "副本已创建。在您发布之前它保持隐藏。",
+        "deleting": "正在删除…",
+        "deleted": "产品已删除。",
+        "error": "操作失败，请重试。",
+        "deleteTitle": "删除该产品？",
+        "deleteBody": "“{name}”及其页面和统计数据将被永久删除。",
+        "deleteHideInstead": "如只需暂时下架，请改为隐藏：您可以随时重新上线。",
+        "cancel": "取消",
+        "confirmDelete": "永久删除"
+      },
+      "addAnother": {
+        "title": "添加产品",
+        "body": "或复制现有产品，更快地创建变体。"
+      },
+      "detail": {
+        "publicPage": "公开页面",
+        "photos": "照片",
+        "photoCount": "{count, plural, =0 {暂无照片} other {# 张照片}}",
+        "noPhotos": "该产品还没有照片",
+        "addPhotos": "添加照片",
+        "photoAlt": "{name}，第 {index} 张照片",
+        "showPhoto": "显示第 {index} 张照片",
+        "description": "名称和描述",
+        "noTranslation": "该语言暂无内容。",
+        "noSpecs": "尚未填写规格。",
+        "addSpecs": "添加规格",
+        "searchAppearances": "搜索展示次数（{days} 天）",
+        "deltaNew": "新增",
+        "deltaFlat": "持平",
+        "visibility": {
+          "live": {
+            "title": "已在交易市场上线",
+            "body": "买家可以看到该产品并请求报价。"
+          },
+          "awaiting": {
+            "title": "已保存，尚不可见",
+            "body": "{company} 通过认证后即会发布。"
+          },
+          "hidden": {
+            "title": "已从交易市场隐藏",
+            "body": "只有您和我们的团队可以看到。可在操作菜单中重新上线。"
+          }
+        },
+        "quality": {
+          "title": "产品页质量",
+          "cta": "完善产品页",
+          "doneSr": "已完成：",
+          "todoSr": "待完成：",
+          "items": {
+            "photo": "至少一张照片",
+            "gallery": "{photos} 张或更多照片",
+            "description": "至少 {chars} 个字符的描述",
+            "category": "一个类别",
+            "specs": "{specs} 项或更多规格"
+          }
+        },
+        "info": {
+          "title": "信息",
+          "created": "创建时间",
+          "updated": "更新时间"
+        },
+        "noPricing": "未填写价格和最小起订量：产品页显示“价格面议”。",
+        "addPricing": "添加价格"
+      }
     },
     "productForm": {
       "nameLabel": "产品名称",
       "namePlaceholder": "例如 有机阿拉比卡咖啡豆",
       "descriptionLabel": "描述",
       "descriptionPlaceholder": "描述产品、产地、质量等级、认证……",
-      "categoryLabel": "类别 ID",
+      "categoryLabel": "类别",
       "optional": "（可选）",
-      "categoryPlaceholder": "类别标识符",
+      "categoryPlaceholder": "选择类别",
       "imagesLabel": "图片",
       "imageAlt": "产品图片 {index}",
       "removeImage": "移除图片",
       "addImages": "添加图片",
-      "imagesHint": "图片将在您保存产品时上传。",
+      "imagesHint": "照片会在保存产品时上传。",
       "saveChanges": "保存更改",
       "createProduct": "创建产品",
       "cancel": "取消",
@@ -471,7 +686,110 @@
       "categoryNone": "无类别",
       "invalidType": "{name} 不是受支持的图片类型。",
       "fileTooLarge": "{name} 超过 {max} MB 的限制。",
-      "maxImages": "您最多可以上传 {max} 张图片。"
+      "maxImages": "您最多可以上传 {max} 张图片。",
+      "sections": {
+        "info": {
+          "title": "基本信息",
+          "hint": "买家在交易市场中看到的内容。"
+        }
+      },
+      "lang": {
+        "label": "填写语言",
+        "fr": "Français",
+        "en": "English",
+        "complete": "已填写",
+        "incomplete": "待填写",
+        "hint": "只需填写一种语言。若无翻译，另一种语言将显示相同文本；您可以稍后补充。"
+      },
+      "photos": {
+        "title": "照片",
+        "hint": "最多 8 张照片，每张最大 {size} MB。第一张用作封面。",
+        "drop": "将照片拖到此处，或点击浏览",
+        "formats": "JPG、PNG、WebP 或 GIF",
+        "cover": "封面"
+      },
+      "visibility": {
+        "cta": "去认证企业",
+        "verified": {
+          "title": "保存后立即发布",
+          "body": "{company} 已通过认证：产品保存后即出现在交易市场中。"
+        },
+        "pending": {
+          "title": "认证后发布",
+          "body": "{company} 的资料正在审核。产品现在保存，企业通过认证后即发布。"
+        },
+        "pending_documents": {
+          "title": "已保存，但尚不可见",
+          "body": "{company} 尚未通过认证。您可以先准备产品；企业通过认证后将发布。"
+        },
+        "rejected": {
+          "title": "已保存，但不可见",
+          "body": "{company} 的资料被拒绝。请更正后，您的产品才会发布。"
+        }
+      },
+      "preview": {
+        "title": "预览",
+        "hint": "买家在列表中看到的样子。",
+        "namePlaceholder": "产品名称",
+        "descriptionPlaceholder": "描述将显示在这里。"
+      },
+      "tips": {
+        "title": "优质产品页的要点",
+        "name": "名称要具体：产品、品种、产地。",
+        "description": "质量、包装、数量和认证。",
+        "photos": "浅色背景下清晰的实物照片。"
+      },
+      "specs": {
+        "title": "产品规格",
+        "hint": "买家用来比较的技术数据：一项规格，一个数值。",
+        "templateTitle": "该类别专属",
+        "customTitle": "您的规格",
+        "customTitleMore": "其他规格",
+        "noCategory": "选择类别后可查看该类别的专属规格。您现在也可以在下方添加自己的规格。",
+        "noTemplate": "该类别尚无预设规格。请在下方添加您自己的规格。",
+        "choose": "请选择",
+        "yes": "是",
+        "no": "否",
+        "nameLabel": "规格",
+        "valueLabel": "数值",
+        "namePlaceholder": "规格（如：含水率）",
+        "valuePlaceholder": "数值（如：11%）",
+        "addRow": "添加规格",
+        "removeRow": "移除该规格",
+        "max": "已达到 {max} 项规格的上限。",
+        "suggestions": {
+          "origin": "产地",
+          "packaging": "包装",
+          "minOrder": "最小起订量",
+          "certifications": "认证"
+        },
+        "errors": {
+          "required": "此项为必填。",
+          "number": "请输入数字。",
+          "row": "请填写名称和数值，且名称不能重复。",
+          "toast": "请检查标出的规格。",
+          "tooMany": "规格过多：请删除几项。"
+        }
+      },
+      "pricing": {
+        "title": "价格与最小起订量",
+        "hint": "买家在询价前最想了解的信息。",
+        "unitLabel": "销售单位",
+        "unitPlaceholder": "选择单位",
+        "unitNone": "无",
+        "priceLabel": "单价",
+        "priceLabelPer": "每{unit}价格",
+        "pricePlaceholder": "例如 4.50",
+        "currencyLabel": "货币",
+        "minOrderLabel": "最小起订量",
+        "minOrderPlaceholder": "例如 500",
+        "empty": "如果价格需要协商，请留空：产品页将显示“价格面议”。",
+        "errors": {
+          "price": "请输入有效的价格（例如 4.50）。",
+          "minOrder": "请输入大于零的最小起订量。",
+          "unit": "请为该价格或数量选择销售单位。"
+        }
+      }
     },
     "services": {
       "title": "服务",
@@ -647,6 +965,55 @@
       "inbox": "消息",
       "unread": "{count} 条待回复消息",
       "backToSite": "返回网站"
+    },
+    "getVerified": "去认证",
+    "companiesPage": {
+      "subtitle": "您的空间中有 {count} 家企业。",
+      "subtitleEmpty": "注册您的第一家企业即可开始。",
+      "premium": "高级版",
+      "publicProfile": "公开主页",
+      "completeness": "资料完成度",
+      "complete": "完善资料",
+      "products": "产品",
+      "manageProducts": "管理产品",
+      "addProduct": "添加产品",
+      "visibility": "可见性",
+      "visibilityOn": "已发布",
+      "visibilityOff": "未发布",
+      "visibilityOnHint": "在名录和搜索中可见。",
+      "visibilityOffHint": "企业通过认证后发布。",
+      "next": {
+        "pending_documents": {
+          "title": "认证您的企业",
+          "body": "提交文件以发布企业主页。",
+          "cta": "去认证"
+        },
+        "pending": {
+          "title": "资料审核中",
+          "body": "一旦有结果，我们会通知您。",
+          "cta": "查看资料"
+        },
+        "more_info": {
+          "title": "需要补充资料",
+          "body": "请补充所需内容，然后重新提交资料。",
+          "cta": "补充资料"
+        },
+        "rejected": {
+          "title": "资料被拒绝",
+          "body": "请更正文件，然后重新提交资料。",
+          "cta": "更正资料"
+        },
+        "verified": {
+          "title": "企业已认证",
+          "body": "您的主页已发布并带有认证徽章。",
+          "cta": "查看资料"
+        }
+      },
+      "addAnother": {
+        "title": "注册另一家企业",
+        "body": "每家企业都有自己的主页和认证资料。"
+      },
+      "teamMessage": "我们团队的留言："
     }
   },
   "Footer": {
@@ -1143,15 +1510,15 @@
     "notAuthorized": "您无权访问该区域。",
     "verifications": {
       "title": "审核队列",
-      "subtitle": "审查并批准企业注册申请",
+      "subtitle": "企业提交的资料，按时间从早到晚排列。",
       "review": "审查",
       "submitting": "正在提交决定……",
       "backToQueue": "返回队列",
       "loadError": "无法加载审核队列。请重试。",
       "tabs": {
-        "all": "全部（{count}）",
-        "new": "新增（{count}）",
-        "resubmitted": "已重新提交（{count}）"
+        "to_review": "待审核（{count}）",
+        "awaiting_owner": "等待企业（{count}）",
+        "all": "全部（{count}）"
       },
       "columns": {
         "company": "企业",
@@ -1159,14 +1526,26 @@
         "submitted": "提交时间",
         "documents": "文件",
         "status": "状态",
-        "action": "操作"
+        "action": "操作",
+        "file": "资料"
       },
       "badges": {
         "resubmitted": "已重新提交"
       },
       "empty": {
-        "title": "全部处理完毕！",
-        "subtitle": "目前没有待审核的申请。"
+        "search": "没有符合搜索条件的资料。",
+        "to_review": {
+          "title": "没有待审核的资料",
+          "subtitle": "所有已提交的资料都已有结果。"
+        },
+        "awaiting_owner": {
+          "title": "没有等待企业的资料",
+          "subtitle": "目前没有待补充的请求。"
+        },
+        "all": {
+          "title": "没有进行中的资料",
+          "subtitle": "新的资料会显示在这里。"
+        }
       },
       "decision": {
         "title": "决定",
@@ -1178,7 +1557,18 @@
         "notesRequired": "备注（必填）",
         "notesOptional": "备注（选填）",
         "notesPlaceholder": "添加审查备注……",
-        "submit": "提交决定"
+        "submit": "提交决定",
+        "notesVisible": "企业可以在其空间中看到此留言。",
+        "refusedWarning": "该资料中有 {count} 份文件被拒绝。",
+        "incompleteTitle": "资料不完整",
+        "incompleteOverride": "尽管缺少内容，我仍批准并为此负责。",
+        "hint": {
+          "not_submitted": "企业尚未提交资料。仍可作出决定。",
+          "to_review": "该资料等待您的决定。",
+          "awaiting_owner": "已要求补充资料；企业尚未重新提交。",
+          "verified": "企业已认证。新的决定将撤销或更改其状态。",
+          "rejected": "资料已被拒绝。企业可以更正后重新提交。"
+        }
       },
       "detail": {
         "companyInfo": "企业信息",
@@ -1188,7 +1578,41 @@
         "currentTier": "当前等级",
         "reviewHistory": "审查记录",
         "noReviews": "暂无以往审查记录。",
-        "submittedOn": "提交于 {date}"
+        "submittedOn": "提交于 {date}",
+        "createdOn": "注册于 {date}",
+        "notSubmitted": "企业尚未提交资料。",
+        "companySheet": "企业详情",
+        "completeTitle": "资料齐全",
+        "completeBody": "必需文件和法定编号均已提供。",
+        "incompleteTitle": "资料不全",
+        "missingDocument": "缺少文件：{name}",
+        "missingLegal": "缺少编号：{name}",
+        "legalTitle": "申报的法律身份",
+        "legalHint": "请与上传的文件核对。",
+        "requiredMissing": "必填，未提供",
+        "notProvided": "未填写",
+        "documentsHint": "打开每份文件，然后接受或注明理由后拒绝。",
+        "intake": {
+          "profile": "申报类型",
+          "profiles": {
+            "congolese": "刚果企业",
+            "international": "国际企业"
+          },
+          "headOffice": "总部",
+          "interests": "在刚果（金）的意向",
+          "provinces": "目标省份"
+        },
+        "card": {
+          "about": "公司简介",
+          "noDescription": "未提供简介。",
+          "contactTitle": "公司联系方式",
+          "ownerTitle": "账户持有人",
+          "declaredTitle": "注册时申报的信息",
+          "address": "地址",
+          "registered": "注册时间",
+          "tradingAs": "商号：{name}",
+          "accountOwner": "账户所有者"
+        }
       },
       "documents": {
         "empty": "未上传任何文件。",
@@ -1208,18 +1632,35 @@
           "pending": "待处理",
           "approved": "已批准",
           "rejected": "已拒绝"
+        },
+        "requiredMissing": "必需，未上传",
+        "accept": "接受",
+        "refuse": "拒绝",
+        "reset": "恢复为待处理",
+        "cancel": "取消",
+        "confirmRefuse": "拒绝该文件",
+        "reasonLabel": "理由：",
+        "reasonPrompt": "拒绝理由（企业可见）",
+        "reasonPlaceholder": "例如：文件不清晰、日期已过期…",
+        "updateError": "无法更新该文件。",
+        "updated": {
+          "approved": "文件已接受。",
+          "rejected": "文件已拒绝。",
+          "pending": "文件已恢复为待处理。"
         }
       },
       "statusValues": {
         "pending": "待处理",
         "verified": "已认证",
-        "rejected": "已拒绝"
+        "rejected": "已拒绝",
+        "pending_documents": "待提交文件"
       },
       "decisionValues": {
         "approved": "已批准",
         "rejected": "已拒绝",
         "more_info_requested": "已要求补充信息",
-        "resubmitted": "已重新提交"
+        "resubmitted": "已重新提交",
+        "submitted": "资料已提交"
       },
       "success": {
         "approved": "企业已成功批准。",
@@ -1233,7 +1674,46 @@
         "invalid_input": "部分信息无效。请检查后重试。",
         "review_insert_failed": "无法记录审查。请重试。",
         "company_update_failed": "无法更新该企业。请重试。",
-        "generic": "提交决定失败。请重试。"
+        "generic": "提交决定失败。请重试。",
+        "missing_requirements": "资料不完整：如仍要批准，请勾选复选框。",
+        "company_not_found": "找不到该企业。",
+        "document_update_failed": "无法更新该文件。"
+      },
+      "retry": "重试",
+      "open": "打开",
+      "search": "搜索企业或邮箱",
+      "days": "{count, plural, =0 {今天} other {# 天}}",
+      "waiting": "{count, plural, =0 {今天收到} other {已等待 # 天}}",
+      "lateSr": "已超期",
+      "kpi": {
+        "toReview": "待审核",
+        "toReviewFoot": "等待您决定的资料",
+        "oldest": "最早的资料",
+        "late": "{count} 份资料已超过 {days} 天",
+        "onTime": "没有超过 {days} 天的资料",
+        "awaitingOwner": "等待企业",
+        "awaitingOwnerFoot": "已要求补充，尚未重新提交",
+        "notSubmitted": "尚未提交",
+        "notSubmittedFoot": "已注册但未提交资料的企业"
+      },
+      "stage": {
+        "not_submitted": "尚未提交",
+        "to_review": "待审核",
+        "awaiting_owner": "等待企业",
+        "verified": "已认证",
+        "rejected": "已拒绝"
+      },
+      "file": {
+        "complete": "资料齐全",
+        "incomplete": "资料不全",
+        "documents": "必需文件 {done}/{total}",
+        "legalMissing": "缺少法定编号"
+      },
+      "timeline": {
+        "byCompany": "企业",
+        "byStaff": "团队",
+        "tierOverride": "手动更改等级",
+        "tierOverrideNote": "新等级：{tier}"
       }
     },
     "companies": {
@@ -1354,21 +1834,131 @@
       "selfActionError": "您不能更改自己账户的角色，也不能暂停自己的账户。"
     },
     "dashboard": {
-      "title": "管理控制台",
-      "subtitle": "平台活动、认证状态与互动情况",
-      "loadError": "加载控制台指标失败",
+      "title": "控制台首页",
+      "subtitle": "团队待处理事项，以及平台最近 {days} 天的产出。",
+      "loadError": "暂时无法加载指标。",
+      "retry": "重试",
+      "reviewCta": "处理认证",
       "kpi": {
-        "total": "企业总数",
-        "pending": "待处理",
-        "verified": "已认证",
-        "rejected": "已拒绝",
-        "views": "档案浏览量",
-        "contacts": "联系请求"
+        "label": "本期指标",
+        "companies": "新增企业",
+        "companiesFoot": "累计注册 {total} 家，其中 {verified} 家已认证",
+        "products": "新增产品",
+        "productsFoot": "共 {total} 个，{published} 个已上线",
+        "views": "店铺浏览量",
+        "viewsFoot": "{count, plural, =0 {无搜索展示} other {# 次搜索展示}}",
+        "connections": "商务对接",
+        "connectionsFoot": "{conversations, plural, other {# 个会话}} · {responses, plural, other {# 条商机回复}}"
       },
-      "sectorTitle": "按行业划分的企业",
-      "sectorEmpty": "暂无行业数据",
-      "topTitle": "浏览量最高的企业",
-      "topEmpty": "暂无浏览活动"
+      "queue": {
+        "title": "待处理",
+        "allClear": "一切已处理完毕，没有等待团队的事项。",
+        "upToDate": "已处理完毕",
+        "oldest": "最早一项：{age}",
+        "oldestLate": "已逾期 — 最早一项：{age}",
+        "items": {
+          "verifications": "企业认证",
+          "opportunities": "待审核商机",
+          "requests": "新的商务请求",
+          "premium": "Premium 申请",
+          "reports": "被举报的消息"
+        }
+      },
+      "chart": {
+        "viewLabel": "图表指标",
+        "views": {
+          "traffic": "流量",
+          "signups": "注册",
+          "connections": "对接"
+        },
+        "titles": {
+          "traffic": "店铺浏览",
+          "signups": "企业注册",
+          "connections": "买卖双方交流"
+        },
+        "totals": {
+          "traffic": "本期浏览量",
+          "signups": "家企业注册",
+          "connections": "次对接"
+        },
+        "activeDays": {
+          "traffic": "有浏览的天数",
+          "signups": "有注册的天数",
+          "connections": "有交流的天数"
+        },
+        "series": {
+          "profile_views": "企业主页",
+          "product_views": "产品页面",
+          "companies_drc": "刚果（金）",
+          "companies_intl": "国际",
+          "conversations": "会话",
+          "responses": "商机回复"
+        }
+      },
+      "funnel": {
+        "title": "认证流程",
+        "subtitle": "截至目前的全部企业",
+        "viewAll": "认证队列",
+        "steps": {
+          "registered": "已注册",
+          "submitted": "已提交资料",
+          "verified": "已认证"
+        },
+        "ofPrevious": "上一步的 {percent}",
+        "stock": {
+          "to_review": "待审核",
+          "awaiting_owner": "等待企业补充",
+          "rejected": "已拒绝"
+        },
+        "decisions": "本期决定",
+        "decisionsValue": "通过 {approved} · 拒绝 {rejected} · 要求补充 {moreInfo}",
+        "medianDelay": "决定用时中位数",
+        "hours": "{value} 小时",
+        "days": "{value} 天"
+      },
+      "categories": {
+        "title": "按类别划分的商机",
+        "subtitle": "当前已发布",
+        "empty": "暂无已发布的商机。",
+        "viewAll": "全部商机",
+        "pending": "{count} 条待审核",
+        "responses": "{count, plural, =0 {本期无回复} other {本期 # 条回复}}"
+      },
+      "sectors": {
+        "title": "按行业划分的企业",
+        "subtitle": "企业最多的行业",
+        "empty": "尚无企业选择行业。",
+        "verified": "{count, plural, =0 {无已认证} other {# 家已认证}}"
+      },
+      "origin": {
+        "title": "企业来源",
+        "subtitle": "刚果（金）企业与国际企业",
+        "empty": "暂无注册企业。",
+        "drc": "刚果（金）",
+        "intl": "国际",
+        "provinces": "主要省份",
+        "countries": "主要国家",
+        "noProvinces": "未填写省份。",
+        "noIntl": "暂无国际企业。"
+      },
+      "top": {
+        "title": "浏览最多的企业",
+        "subtitle": "本期主页浏览量",
+        "empty": "本期没有主页浏览。",
+        "viewAll": "全部企业",
+        "views": "{count, plural, other {# 次浏览}}",
+        "contacts": "{count, plural, =0 {无联系} other {# 次联系}}"
+      },
+      "premium": {
+        "title": "Premium",
+        "subtitle": "有效订阅与已确认金额",
+        "viewAll": "Premium 申请",
+        "active": "有效订阅",
+        "expiring": "30 天内到期",
+        "revenue": "本期已确认",
+        "revenueFoot": "{count, plural, =0 {本期无获批申请} other {本期 # 项申请获批}}",
+        "empty": "暂无有效的 Premium 订阅。"
+      }
     },
     "settings": {
       "title": "设置",
@@ -1419,7 +2009,7 @@
       }
     },
     "nav": {
-      "console": "管理控制台",
+      "console": "团队控制台",
       "administrator": "管理员",
       "signOut": "退出登录",
       "navDashboard": "控制台",
@@ -1434,7 +2024,22 @@
       "navAnalytics": "分析",
       "navSettings": "设置",
       "navRequests": "请求管理",
-      "navPremium": "高级会员"
+      "navPremium": "高级会员",
+      "groups": {
+        "overview": "概览",
+        "moderation": "审核",
+        "content": "内容",
+        "platform": "平台"
+      },
+      "roleSuperAdmin": "超级管理员",
+      "roleModerator": "审核员",
+      "openMenu": "打开菜单",
+      "expandSidebar": "展开侧边栏",
+      "collapseSidebar": "收起侧边栏",
+      "breadcrumb": "面包屑导航",
+      "search": "搜索…",
+      "backToSite": "返回网站",
+      "myAccount": "我的账户"
     },
     "analytics": {
       "title": "平台分析",
@@ -2356,7 +2961,50 @@
     "colActions": "操作",
     "placeholderNameTr": "名称 (TR)",
     "placeholderNameZh": "名称 (ZH)",
-    "placeholderNameEs": "名称 (ES)"
+    "placeholderNameEs": "名称 (ES)",
+    "specsHeading": "按类别设置规格",
+    "specsDescription": "企业为该类别产品填写的字段。企业仍可添加自己的规格行。",
+    "specs": {
+      "category": "类别",
+      "chooseCategory": "选择类别",
+      "pickFirst": "选择一个类别以管理其规格。",
+      "empty": "该类别尚未定义规格。",
+      "loading": "加载中…",
+      "add": "添加字段",
+      "newTitle": "新字段",
+      "editTitle": "编辑字段",
+      "labelEn": "名称（英文）",
+      "labelFr": "名称（法文）",
+      "type": "数值类型",
+      "unit": "单位",
+      "options": "可选项",
+      "optionsHint": "每行一个选项，格式为“英文 | 法文”。至少两个选项。",
+      "required": "必填",
+      "requiredToggle": "发布该类别产品时必须填写",
+      "keyPreview": "技术标识（不可更改）：",
+      "types": {
+        "text": "文本",
+        "number": "数字",
+        "select": "选项列表",
+        "boolean": "是 / 否"
+      },
+      "save": "保存",
+      "cancel": "取消",
+      "edit": "编辑",
+      "delete": "删除",
+      "moveUp": "上移",
+      "moveDown": "下移",
+      "saved": "字段已保存。",
+      "deleted": "字段已删除。",
+      "confirmDelete": "删除字段“{name}”？产品上已填写的数值将继续作为自定义规格显示。",
+      "errorLoad": "加载失败。",
+      "errorSave": "保存失败。",
+      "errorDelete": "删除失败。",
+      "errorLabels": "请填写两种语言的名称。",
+      "errorOptions": "选项列表至少需要两个选项。",
+      "errorKey": "英文名称必须至少包含一个字母。",
+      "errorDuplicate": "该类别中已存在同名字段。"
+    }
   },
   "Faq": {
     "title": "常见问题",
@@ -3053,7 +3701,7 @@
   },
   "AdminRequests": {
     "title": "已收到的请求",
-    "subtitle": "实时跟踪潜在客户、需求、指派经理和请求进度。",
+    "subtitle": "通过网站提交的所有需求：谁提出、为了什么、发给谁、进展如何。",
     "newRequestCta": "新建请求",
     "filters": {
       "search": "搜索……",
@@ -3062,7 +3710,11 @@
       "status": "状态",
       "owner": "负责人",
       "date": "日期",
-      "all": "全部"
+      "all": "全部",
+      "searchPlaceholder": "搜索姓名、企业、编号…",
+      "allOf": "{label}：全部",
+      "remove": "移除筛选 {label}",
+      "clear": "清除筛选"
     },
     "stats": {
       "total": "请求总数",
@@ -3070,7 +3722,13 @@
       "inProgress": "进行中",
       "converted": "已转化",
       "pending": "待处理",
-      "responseRate": "响应率"
+      "responseRate": "响应率",
+      "toForward": "待转交",
+      "toForwardFoot": "发给尚未收到它们的企业",
+      "newFoot": "{total, plural, =0 {暂无需求} other {共 # 条需求}}",
+      "inProgressFoot": "{pending, plural, =0 {无等待中的需求} other {其中 # 条等待中}}",
+      "done": "已处理",
+      "doneFoot": "{rate}% 的需求已被跟进"
     },
     "table": {
       "name": "姓名",
@@ -3081,7 +3739,11 @@
       "status": "状态",
       "date": "日期",
       "followUpOwner": "跟进负责人",
-      "actions": "操作"
+      "actions": "操作",
+      "target": "收件企业",
+      "requester": "提交人",
+      "received": "收到日期",
+      "teamTarget": "TradeInDRC 团队"
     },
     "statusLabels": {
       "new": "新增",
@@ -3111,8 +3773,8 @@
         "description": "需求分析、核实和优先级排序。"
       },
       "step3": {
-        "title": "负责人指派",
-        "description": "请求被指派给合适的负责人。"
+        "title": "转交或指派",
+        "description": "发给某家企业的需求会转交给该企业；其他需求会指派一位跟进负责人。"
       },
       "step4": {
         "title": "跟进与转化",
@@ -3127,7 +3789,32 @@
       "intent": "请求意图",
       "promotionRequested": "申请的推广方案",
       "promotionGranted": "已授予高级权限 — 此申请已处理。",
-      "grantPromotion": "授予此方案"
+      "grantPromotion": "授予此方案",
+      "open": "打开需求",
+      "phone": "电话",
+      "target": "收件企业",
+      "product": "产品",
+      "quantity": "数量",
+      "deliveryPlace": "交货地点",
+      "deadline": "期限",
+      "interest": "合作类型",
+      "noMessage": "买家未留言。",
+      "sections": {
+        "contact": "联系方式",
+        "request": "需求内容",
+        "followUp": "跟进"
+      },
+      "noteHint": "内部备注：企业永远看不到。",
+      "saveNote": "保存备注",
+      "location": "首选地点",
+      "timeline": "时间安排",
+      "need": "提出的需求",
+      "volume": "预计规模",
+      "preferences": "其他意向",
+      "website": "网站",
+      "attachment": "附件",
+      "download": "下载",
+      "downloadError": "无法打开该文件。"
     },
     "savingToast": "正在保存…",
     "savedToast": "已保存。",
@@ -3162,7 +3849,28 @@
         "already_converted": "已处理。",
         "update_failed": "无法授予高级权限，请重试。"
       }
-    }
+    },
+    "forward": {
+      "cta": "转交给供应商",
+      "hint": "该企业将在其后台看到此需求，以及买家的姓名、邮箱和电话。",
+      "confirm": "将此需求转交给 {company}？该企业将看到买家的姓名、邮箱和电话。",
+      "sending": "正在转交…",
+      "sent": "需求已转交给 {company}。",
+      "error": "无法转交该需求。",
+      "done": "已于 {date} 转交给供应商",
+      "stateDone": "已转交",
+      "stateTodo": "待转交"
+    },
+    "views": {
+      "label": "快速视图",
+      "all": "全部",
+      "to_forward": "待转交",
+      "new": "新",
+      "in_progress": "处理中",
+      "pending": "等待中",
+      "done": "已处理"
+    },
+    "results": "{count, plural, =0 {没有需求} other {# 条需求}}"
   },
   "AdminPremium": {
     "title": "高级版申请",
@@ -3365,54 +4073,80 @@
     }
   },
   "VerifiedDirectory": {
-    "breadcrumbHome": "首页",
-    "breadcrumbLocalContacts": "本地联系人目录",
-    "breadcrumbCurrent": "已认证企业目录",
-    "heroTitle": "已认证企业目录",
-    "heroSubtitle1": "与刚果民主共和国经过审核和认证的企业档案建立联系。",
-    "heroSubtitle2": "此处列出的每家企业都经过合法性、可信度和业务活动的审核，帮助您放心建立值得信赖的合作伙伴关系。",
-    "badgesTitle": "了解我们的认证徽章",
-    "badgeRegisteredTitle": "已注册企业",
-    "badgeRegisteredDesc": "企业已在平台注册并提供了基本的业务信息。",
-    "badgeRegisteredPill": "基础档案",
-    "badgeVerifiedTitle": "已认证企业",
-    "badgeVerifiedDesc": "企业的合法性和业务活动已经过审核和认证。",
-    "badgeVerifiedPill": "已认证",
-    "badgePremiumTitle": "高级认证本地合作伙伴",
-    "badgePremiumDesc": "经过更深入认证且业绩可靠的高信任度本地合作伙伴。",
-    "badgePremiumPill": "高级合作伙伴",
-    "filterSectorLabel": "选择行业",
-    "filterAllSectors": "所有行业",
-    "filterProvinceLabel": "选择省份",
-    "filterAllProvinces": "所有省份",
-    "filterTypeLabel": "合作类型",
-    "filterAllTypes": "所有类型",
-    "typeDistributor": "分销商",
-    "typeSupplier": "供应商",
-    "typeManufacturer": "制造商",
-    "typeServiceProvider": "服务提供商",
-    "premiumOnly": "仅限高级",
-    "intlReady": "具备国际业务能力",
-    "searchCompanies": "搜索企业",
-    "showingResults": "显示 {total} 家已认证企业中的第 {from}-{to} 家",
-    "sortBy": "排序：",
-    "sortRecent": "最近添加",
-    "sortNameAZ": "名称 A-Z",
-    "verifiedPill": "已认证",
-    "premiumPill": "高级合作伙伴",
-    "viewProfile": "查看档案",
-    "noResults": "没有符合您筛选条件的已认证企业。",
-    "approachTitle": "我们的认证流程",
-    "step1Title": "提交文件",
-    "step1Caption": "企业提交所需的文件和信息。",
-    "step2Title": "确认官方联系方式",
-    "step2Caption": "我们通过官方渠道核实企业联系方式。",
-    "step3Title": "审核文件",
-    "step3Caption": "我们的团队审核并验证业务文件。",
-    "step4Title": "分类行业与地点",
-    "step4Caption": "企业按行业和运营地点进行分类。",
-    "step5Title": "发布档案",
-    "step5Caption": "已认证的档案将带有相应徽章发布。"
+    "page": {
+      "crumb": "企业",
+      "eyebrow": "认证企业名录",
+      "title": "在刚果（金）寻找已认证的合作伙伴",
+      "subtitle": "此处列出的每家企业都提交了注册文件，我们的团队在发布前进行了审核。",
+      "searchLabel": "按名称搜索企业",
+      "searchPlaceholder": "企业名称…",
+      "searchButton": "搜索",
+      "stats": {
+        "companies": "已认证企业",
+        "sectors": "行业",
+        "provinces": "省份",
+        "countries": "国家"
+      },
+      "filters": {
+        "label": "筛选名录",
+        "sector": "行业",
+        "allSectors": "所有行业",
+        "country": "国家",
+        "allCountries": "所有国家",
+        "province": "省份",
+        "allProvinces": "所有省份",
+        "tier": "级别",
+        "tierAll": "全部",
+        "tierPremium": "高级",
+        "sort": "排序",
+        "sortRecent": "最近添加",
+        "sortAz": "名称 A–Z",
+        "clear": "全部清除",
+        "active": "当前筛选",
+        "remove": "移除筛选：{name}",
+        "query": "搜索：{q}"
+      },
+      "results": "{total, plural, =0 {没有企业} other {# 家已认证企业}}",
+      "empty": {
+        "title": "没有符合这些筛选条件的企业",
+        "body": "请尝试其他行业或省份，或清除筛选条件。",
+        "reset": "清除筛选条件"
+      },
+      "card": {
+        "verified": "已认证",
+        "premium": "高级",
+        "products": "{count, plural, other {# 个产品}}",
+        "founded": "成立于 {year}",
+        "view": "查看主页",
+        "open": "查看 {name} 的主页"
+      },
+      "pagination": {
+        "label": "结果分页",
+        "previous": "上一页",
+        "next": "下一页",
+        "page": "第 {page} 页",
+        "status": "第 {page} 页，共 {pages} 页"
+      },
+      "trust": {
+        "title": "徽章的含义",
+        "verifiedTitle": "已认证企业",
+        "verifiedBody": "其法律身份和注册文件已由 Trade in DRC 团队审核。",
+        "premiumTitle": "高级合作伙伴",
+        "premiumBody": "拥有高级订阅的已认证企业。",
+        "stepsTitle": "企业如何进入名录",
+        "step1Title": "提交资料",
+        "step1Body": "法定编号和注册文件。",
+        "step2Title": "团队审核",
+        "step2Body": "每份文件都会被接受或拒绝，并说明理由。",
+        "step3Title": "主页发布",
+        "step3Body": "此后企业及其产品才会公开。"
+      },
+      "cta": {
+        "title": "您的企业还不在名录中？",
+        "body": "注册企业并提交文件，认证后即可触达买家。",
+        "button": "注册我的企业"
+      }
+    }
   },
   "BySector": {
     "breadcrumb": {
@@ -3573,6 +4307,85 @@
       "error": "出现问题，请重试。",
       "errorRequired": "请填写所有必填项。",
       "privacy": "我们尊重您的隐私。您的信息仅用于促成此次引荐。"
+    },
+    "page": {
+      "share": "分享",
+      "linkCopied": "链接已复制",
+      "website": "网站",
+      "requestContact": "请求联系",
+      "tradingAs": "商号：{name}",
+      "verified": "已认证企业",
+      "premium": "已认证高级合作伙伴",
+      "logoAlt": "{name} 标志",
+      "nav": {
+        "label": "本页各部分",
+        "about": "关于",
+        "gallery": "图库",
+        "products": "产品",
+        "trade": "贸易能力",
+        "verification": "认证",
+        "contact": "联系"
+      },
+      "stats": {
+        "founded": "成立年份",
+        "employees": "员工人数",
+        "products": "产品",
+        "markets": "服务市场"
+      },
+      "about": {
+        "title": "关于",
+        "empty": "该企业尚未填写简介。",
+        "tags": "专长"
+      },
+      "gallery": {
+        "title": "图库",
+        "photoAlt": "{name} — 照片 {index}",
+        "open": "放大照片 {index}",
+        "previous": "上一张",
+        "next": "下一张",
+        "counter": "{index} / {total}",
+        "viewer": "照片查看器",
+        "documents": "宣传册和视频",
+        "brochure": "宣传册 {index}",
+        "video": "视频 {index}"
+      },
+      "products": {
+        "title": "产品",
+        "count": "{count, plural, other {# 个产品}}"
+      },
+      "trade": {
+        "title": "贸易能力",
+        "capacity": "生产能力",
+        "moq": "最小起订量",
+        "leadTime": "交货期",
+        "markets": "服务市场",
+        "languages": "使用语言",
+        "certifications": "认证证书",
+        "hsCodes": "海关编码 (HS)"
+      },
+      "facts": {
+        "title": "企业信息",
+        "sector": "行业",
+        "legalForm": "法律形式",
+        "founded": "成立年份",
+        "employees": "员工人数",
+        "location": "所在地",
+        "address": "地址",
+        "website": "网站",
+        "memberSince": "加入 Trade in DRC 时间"
+      },
+      "trust": {
+        "title": "认证",
+        "verifiedOn": "认证日期：{date}",
+        "verifiedNoDate": "已认证",
+        "by": "由 Trade in DRC 团队认证",
+        "point1": "法律身份和注册文件已由我们的团队审核。",
+        "point2": "联系方式受到保护：通过平台进行引荐。"
+      },
+      "cta": {
+        "title": "与 {name} 合作",
+        "body": "发送请求：我们的团队审核后转交给该企业。"
+      }
     }
   },
   "LocalContacts": {
@@ -3717,15 +4530,16 @@
       "current": "寻找本地合作伙伴"
     },
     "hero": {
-      "title": "在刚果民主共和国寻找本地合作伙伴",
-      "subtitle": "告诉我们您的业务需求，Trade in DRC 将帮助您找到与您的项目相匹配的合适本地公司、代表、经销商或服务提供商。",
-      "submitCta": "提交您的需求",
-      "browseCta": "先浏览目录"
+      "eyebrow": "有专人协助的商务对接",
+      "title": "在刚果（金）寻找本地合作伙伴",
+      "subtitle": "分三步描述您的需求。我们的团队将为您找出适合您项目的企业、经销商、代表或服务商。",
+      "browseCta": "浏览企业名录",
+      "trackCta": "跟踪需求"
     },
-    "step1": {
-      "title": "您需要什么？",
-      "subtitle": "选择您正在寻找的合作伙伴或联系人类型。",
-      "footnote": "每个请求只能选择一个主要需求。"
+    "trust": {
+      "free": "免费，无任何义务",
+      "delay": "2 至 3 个工作日内回复",
+      "verified": "企业均经我们团队核实"
     },
     "needs": {
       "supplier": "寻找供应商",
@@ -3736,58 +4550,6 @@
       "institutional": "寻找机构联系人",
       "enter_market": "进入刚果民主共和国市场",
       "source_products": "从刚果民主共和国采购产品"
-    },
-    "step2": {
-      "title": "告诉我们您的业务需求",
-      "subtitle": "请提供详细信息，以便我们为您匹配合适的本地联系人。"
-    },
-    "form": {
-      "companyName": "公司名称",
-      "companyNamePlaceholder": "输入您的公司名称",
-      "country": "国家",
-      "countryPlaceholder": "选择您的国家",
-      "countrySearch": "搜索国家...",
-      "countryNoResults": "未找到国家。",
-      "website": "网站",
-      "websitePlaceholder": "www.yourcompany.com",
-      "contactPerson": "联系人",
-      "contactPersonPlaceholder": "全名",
-      "email": "电子邮件",
-      "emailPlaceholder": "name@yourcompany.com",
-      "phone": "电话",
-      "phonePlaceholder": "(555) 123-4567",
-      "sector": "行业",
-      "selectPlaceholder": "选择一个选项",
-      "sectorPlaceholder": "选择您的行业",
-      "contactType": "所需联系人类型",
-      "contactTypePlaceholder": "选择联系人类型",
-      "targetProvince": "刚果民主共和国目标省份",
-      "targetProvincePlaceholder": "选择目标省份",
-      "productService": "感兴趣的产品或服务",
-      "productServicePlaceholder": "输入产品或服务",
-      "volume": "预计业务量（美元）",
-      "volumePlaceholder": "选择范围",
-      "timeline": "预期时间表",
-      "timelinePlaceholder": "选择时间表",
-      "requirement": "详细需求",
-      "requirementPlaceholder": "描述您的项目、需求以及任何具体要求……",
-      "uploadTitle": "点击上传或拖放",
-      "uploadHint": "PDF、DOC、DOCX、PPTX（最大 10MB）",
-      "uploadLabel": "上传支持文件（可选）",
-      "submit": "提交请求",
-      "submitting": "提交中...",
-      "privacy": "您的信息是安全的，仅用于为您匹配相关的本地合作伙伴。"
-    },
-    "contactTypes": {
-      "supplier": "供应商",
-      "distributor": "经销商",
-      "representative": "本地代表",
-      "jv_partner": "合资伙伴",
-      "service_provider": "专业服务提供商",
-      "institutional": "机构联系人",
-      "buyer": "买家",
-      "agent": "商业代理",
-      "other": "其他"
     },
     "volumes": {
       "under_10k": "低于 $10,000",
@@ -3804,33 +4566,111 @@
       "flexible": "灵活"
     },
     "checkboxes": {
-      "verified_only": "仅限已验证公司",
-      "b2b_meetings": "安排 B2B 会议",
+      "verified_only": "仅限已认证企业",
+      "b2b_meetings": "安排 B2B 会面",
       "market_entry_support": "市场进入支持",
-      "sponsorship": "赞助意向"
+      "sponsorship": "有意赞助"
     },
-    "step3": {
-      "title": "请求已提交",
-      "subtitle": "您的请求确认将显示在此处。",
-      "placeholder": "提交后，您的请求确认将显示在此处。",
-      "thankYou": "谢谢！您的业务请求已提交。",
-      "requestId": "请求编号",
-      "info1": "我们的团队将审核您的请求并确定合适的本地联系人。",
-      "info2": "您将很快收到确认电子邮件。",
-      "info3": "我们通常在 2-3 个工作日内回复。",
-      "another": "提交另一个请求",
-      "browse": "先浏览目录"
+    "wizard": {
+      "steps": {
+        "need": "您的需求",
+        "details": "详细信息",
+        "contact": "您的联系方式"
+      },
+      "stepOf": "第 {current} 步，共 {total} 步",
+      "back": "上一步",
+      "next": "继续",
+      "submit": "提交需求",
+      "submitting": "正在提交…",
+      "draftRestored": "已为您恢复之前填写的内容。",
+      "draftDiscard": "重新开始",
+      "needTitle": "您在寻找什么？",
+      "needIntro": "请选择本次需求的主要类型。之后您可以再提交其他需求。",
+      "detailsTitle": "介绍一下您的项目",
+      "detailsIntro": "描述越具体，我们推荐的联系人就越合适。",
+      "contactTitle": "如何联系您？",
+      "contactIntro": "这些联系方式仅用于回复您，绝不会公开。",
+      "optional": "选填",
+      "recapTitle": "您的需求",
+      "recapEdit": "修改",
+      "privacy": "您的信息将被保密，仅用于为您对接合适的合作伙伴。",
+      "errorSummary": "请修改标出的字段后继续。",
+      "errorServer": "需求未能提交，请稍后重试。",
+      "errorCaptcha": "人机验证失败，请重试。",
+      "errorRate": "您已用此邮箱提交过多次需求，请一小时后再试。"
     },
-    "toast": {
-      "loading": "正在提交您的请求...",
-      "success": "您的业务请求已提交。",
-      "error": "出了点问题。请重试。"
+    "fields": {
+      "productService": "相关产品或服务",
+      "productServicePlaceholder": "例如：可可豆、公路运输、税务咨询…",
+      "sector": "行业",
+      "sectorPlaceholder": "选择行业",
+      "province": "刚果（金）目标省份",
+      "provinceAny": "全国 / 尚未确定",
+      "timeline": "时间安排",
+      "volume": "预计业务规模（美元）",
+      "volumePlaceholder": "选择范围",
+      "requirement": "详细需求",
+      "requirementPlaceholder": "数量、规格、期望的合作伙伴类型、特殊要求…",
+      "requirementCount": "{count, plural, =0 {至少 20 个字符} other {# 个字符（至少 20 个）}}",
+      "preferences": "其他意向",
+      "attachment": "补充文件",
+      "companyName": "贵公司名称",
+      "companyNamePlaceholder": "公司全称",
+      "contactPerson": "您的姓名",
+      "contactPersonPlaceholder": "姓名",
+      "email": "工作邮箱",
+      "emailPlaceholder": "name@company.com",
+      "phone": "电话",
+      "country": "国家",
+      "countryPlaceholder": "选择国家",
+      "countrySearch": "搜索国家…",
+      "countryNoResults": "未找到国家。",
+      "website": "网站",
+      "websitePlaceholder": "www.company.com"
     },
-    "validation": {
-      "selectNeed": "请先选择您的需求。",
-      "required": "请填写所有必填字段。",
-      "fileTooLarge": "文件太大（最大 10MB）。",
-      "fileType": "不支持的文件类型。请使用 PDF、DOC、DOCX 或 PPTX。"
+    "errors": {
+      "required": "此项为必填。",
+      "too_short": "请补充一些细节：至少 20 个字符。",
+      "too_long": "内容过长。",
+      "email": "邮箱地址无效。",
+      "phone": "号码无效，请检查区号和号码。",
+      "website": "网站地址无效。",
+      "invalid": "不接受此值。",
+      "need": "请选择一项需求后继续。"
+    },
+    "upload": {
+      "title": "将文件拖到此处，或点击选择",
+      "hint": "PDF、DOC、DOCX、PPTX、JPG 或 PNG — 最大 10 MB",
+      "uploading": "正在上传文件…",
+      "done": "文件已添加",
+      "remove": "移除文件",
+      "too_large": "文件超过 10 MB。",
+      "bad_type": "不接受此文件类型。",
+      "server": "文件未能上传，请重试。"
+    },
+    "done": {
+      "title": "需求已提交",
+      "body": "谢谢。我们的团队正在审核您的需求，将在 2 至 3 个工作日内回复您。",
+      "referenceLabel": "您的编号",
+      "copy": "复制",
+      "copied": "编号已复制。",
+      "emailSent": "确认邮件已发送至 {email}。",
+      "noEmail": "请保存此编号：凭它和您的邮箱地址即可跟踪您的需求。",
+      "track": "跟踪我的需求",
+      "another": "提交其他需求",
+      "browse": "浏览企业名录"
+    },
+    "aside": {
+      "howTitle": "流程说明",
+      "how1Title": "您描述需求",
+      "how1Body": "三步完成，约三分钟。",
+      "how2Title": "我们的团队为您寻找",
+      "how2Body": "我们找出符合您项目的企业。",
+      "how3Title": "我们为您对接",
+      "how3Body": "您将通过邮件收到我们的推荐。",
+      "trackTitle": "已经提交过需求？",
+      "trackBody": "凭编号和邮箱地址查看进度。",
+      "trackCta": "跟踪我的需求"
     }
   },
   "Premium": {
@@ -4311,15 +5151,28 @@
     },
     "success": {
       "title": "您的企业已创建",
-      "body": "企业已添加到您的控制台。请在控制台完善资料并上传文件以完成认证。",
-      "cta": "前往我的公司"
+      "body": "企业已在您的控制台中。还需两步，买家才能看到它。",
+      "cta": "提交我的文件",
+      "nextTitle": "接下来呢？",
+      "next": {
+        "documents": {
+          "title": "企业认证",
+          "body": "提交您的文件：资料通过后主页即发布。"
+        },
+        "product": {
+          "title": "发布第一个产品",
+          "body": "以便出现在交易市场中。"
+        }
+      },
+      "dashboardCta": "前往控制台"
     },
     "errors": {
       "required": "请填写所有必填字段。",
       "auth": "请登录以提交您的公司。",
       "server": "出现错误，请重试。",
       "invalid": "部分字段无效，请检查后重试。",
-      "bannerTitle": "请在提交前完成以下内容："
+      "bannerTitle": "请在提交前完成以下内容：",
+      "staff": "Trade in DRC 团队账户不能注册企业。"
     },
     "benefits": {
       "items": [
@@ -4536,12 +5389,27 @@
       },
       "fields": {
         "companyEmail": "企业联系邮箱",
-        "headOfficeCity": "总部所在城市"
+        "headOfficeCity": "总部所在城市",
+        "activity": "您的业务"
       },
       "hints": {
-        "companyEmail": "将显示在您的公开主页上，可与登录邮箱不同。"
+        "companyEmail": "将显示在您的公开主页上，可与登录邮箱不同。",
+        "activity": "可选。两三句话即可：这段文字将显示在您的公开主页上。"
       },
-      "marketInterestIntro": "选填——告诉我们您在刚果（金）寻找什么，以便为您推荐合适的商机。"
+      "marketInterestIntro": "选填——告诉我们您在刚果（金）寻找什么，以便为您推荐合适的商机。",
+      "ph": {
+        "activity": "例如：基伍地区水洗、日晒阿拉比卡咖啡的生产商和出口商。"
+      }
+    },
+    "draft": {
+      "restored": "我们已恢复您上次填写的内容。",
+      "discard": "重新开始",
+      "saved": "草稿已保存在此设备上。"
+    },
+    "dashboard": {
+      "back": "我的企业",
+      "title": "注册企业",
+      "subtitle": "填写几项信息即可创建主页，文件和完整资料稍后补充。"
     }
   },
   "Services": {
@@ -5152,7 +6020,10 @@
       "moq": "最小起订量",
       "leadTime": "交货期",
       "request": "询价",
-      "illustrative": "示意图"
+      "illustrative": "示意图",
+      "yes": "是",
+      "no": "否",
+      "photos": "{count, plural, other {# 张照片}}"
     },
     "banner": {
       "title": "找不到您的供应商？",
@@ -5209,7 +6080,12 @@
       "method": "详细了解我们的方法",
       "progress": "已核验 {done}/{total} 项",
       "done": "已核验",
-      "pending": "待完成"
+      "pending": "待完成",
+      "tax": {
+        "title": "税务登记",
+        "ok": "已根据证明文件核查纳税人识别号。",
+        "todo": "税务证明尚未核查。"
+      }
     },
     "terms": {
       "title": "商业条款",
@@ -5255,13 +6131,19 @@
       "supportCta": "查看配套服务",
       "responseTime": "48 个工作小时内回复",
       "stepNeed": "您的需求",
-      "stepContact": "您的联系方式"
+      "stepContact": "您的联系方式",
+      "track": "跟踪我的需求"
     },
     "about": "关于此供应",
     "supplier": {
       "title": "供应商",
       "profile": "查看简介",
       "report": "核验报告"
+    },
+    "preview": {
+      "hidden": "预览 — 该产品已隐藏，不会出现在市场中；只有卖家和 Trade in DRC 团队能看到此页面。",
+      "unverified": "预览 — 企业通过认证后，该产品才会出现在市场中。目前只有卖家和 Trade in DRC 团队能看到此页面。",
+      "manage": "管理该产品"
     }
   },
   "MarketChain": {
@@ -5729,6 +6611,17 @@
         "title": "高级会员已过期",
         "body": "{company} 已失去高级会员权益。",
         "cta": "重新开通"
+      },
+      "verification_approved": {
+        "title": "{company} 已通过认证",
+        "body": "{notes}",
+        "bodyDefault": "其主页现已公开，并带有认证徽章。",
+        "cta": "查看资料"
+      },
+      "requests_received": {
+        "title": "{count, plural, other {# 条新的买家需求}}",
+        "body": "已由我们的团队核实并转交。请趁买家仍在寻找时回复。",
+        "cta": "查看需求"
       }
     },
     "missing": {
@@ -5836,33 +6729,6 @@
       "empty": "暂无已发布的市场数据。",
       "latestReport": "最新发布的报告"
     },
-    "welcome": {
-      "title": "欢迎来到 Trade in DRC",
-      "subtitle": "只需几步，即可被买家和合作伙伴看到。",
-      "doneSr": "已完成：",
-      "currentSr": "当前步骤：",
-      "start": "开始",
-      "statsTitle": "您的统计数据将显示在这里",
-      "statsBody": "待您的企业完成注册、认证并发布后显示。",
-      "steps": {
-        "account": {
-          "title": "创建账户",
-          "body": "已完成。"
-        },
-        "company": {
-          "title": "注册企业",
-          "body": "5 分钟：名称、行业、国家和联系方式。"
-        },
-        "documents": {
-          "title": "提交文件",
-          "body": "提交营业执照和税号以获得认证标识。"
-        },
-        "product": {
-          "title": "发布第一个产品",
-          "body": "以便出现在交易市场中。"
-        }
-      }
-    },
     "greetingTime": {
       "morning": "早上好，{name}",
       "afternoon": "下午好，{name}",
@@ -5884,6 +6750,65 @@
       "bestWeek": "最佳周",
       "share": "「{label}」占比",
       "activeDays": "有浏览的天数"
+    },
+    "onboarding": {
+      "eyebrow": "入门指引",
+      "title": "欢迎使用 Trade in DRC",
+      "subtitle": "四个步骤，让您的企业被买家和合作伙伴看到。您可以随时暂停并继续。",
+      "ringCaption": "已完成 {done}/{total} 个步骤",
+      "progressTitle": "完成入门设置",
+      "progressSub": "已完成 {done}/{total} 个步骤",
+      "stepLabel": "第 {n} 步",
+      "stateDone": "已完成",
+      "stateUpcoming": "稍后",
+      "doneSr": "已完成：",
+      "currentSr": "当前步骤：",
+      "upcomingSr": "待办：",
+      "benefitsTitle": "上线后您将获得",
+      "benefits": {
+        "visible": {
+          "title": "公开主页",
+          "body": "您的企业将出现在名录和搜索中。"
+        },
+        "verified": {
+          "title": "认证徽章",
+          "body": "买家最先关注的信任标识。"
+        },
+        "stats": {
+          "title": "您的数据",
+          "body": "浏览量、搜索和联系请求都在这里跟踪。"
+        }
+      },
+      "steps": {
+        "account": {
+          "title": "创建账户",
+          "body": "进入企业空间的入口。",
+          "done": "账户已创建，邮箱已确认。",
+          "cta": "创建我的账户",
+          "time": "1 分钟"
+        },
+        "company": {
+          "title": "注册企业",
+          "body": "名称、行业、国家和联系方式。",
+          "done": "企业已注册。",
+          "cta": "注册我的企业",
+          "time": "约 5 分钟"
+        },
+        "documents": {
+          "title": "企业认证",
+          "body": "提交文件以发布企业主页。",
+          "done": "文件已提交。",
+          "cta": "提交我的文件",
+          "time": "约 5 分钟"
+        },
+        "product": {
+          "title": "发布第一个产品",
+          "body": "以便出现在交易市场中。",
+          "done": "第一个产品已发布。",
+          "cta": "添加产品",
+          "time": "约 3 分钟"
+        }
+      }
     }
   },
   "HomeChain": {
@@ -5901,5 +6826,344 @@
     "step": "步骤",
     "cta": "注册我的企业",
     "secondary": "我们的认证方式"
+  },
+  "CompanyVerification": {
+    "back": "我的企业",
+    "title": "认证我的企业",
+    "subtitle": "上传 {company} 的文件，然后将资料提交给我们的团队。",
+    "notFound": "找不到该企业，或它不属于您。",
+    "status": {
+      "pending_documents": "待提交文件",
+      "pending": "审核中",
+      "more_info": "需要补充资料",
+      "verified": "已认证",
+      "rejected": "资料被拒绝"
+    },
+    "phases": {
+      "documents": {
+        "title": "您的文件",
+        "body": "由您上传文件"
+      },
+      "review": {
+        "title": "团队审核",
+        "body": "我们核查资料"
+      },
+      "published": {
+        "title": "主页已发布",
+        "body": "买家可见"
+      }
+    },
+    "docsTitle": "资料中的文件",
+    "formats": "PDF、JPG 或 PNG，每个文件最大 5 MB。",
+    "requiredProgress": "必需文件：{done}/{total}",
+    "required": "必需",
+    "optional": "可选",
+    "docs": {
+      "business_license": {
+        "title": "RCCM 证书",
+        "hint": "商业及动产信贷登记册的摘录。",
+        "titleIntl": "公司注册证书",
+        "hintIntl": "公司在其所在国的官方注册文件。"
+      },
+      "tax_registration": {
+        "title": "NIF 证明",
+        "hint": "载有您税务识别号的文件。",
+        "titleIntl": "税务文件",
+        "hintIntl": "您所在国的税务识别证明（如有）。"
+      },
+      "proof_of_address": {
+        "title": "地址证明",
+        "hint": "以企业名义的租约、发票或证明。"
+      },
+      "additional_document": {
+        "title": "其他文件",
+        "hint": "许可证、认证或任何有助于审核的文件。"
+      }
+    },
+    "docStatus": {
+      "pending": "已收到",
+      "approved": "已接受",
+      "rejected": "已拒绝"
+    },
+    "choose": "选择文件",
+    "addAnother": "添加",
+    "view": "查看",
+    "viewFile": "查看 {file}",
+    "remove": "移除",
+    "removeFile": "移除 {file}",
+    "uploading": "正在上传 {file}…",
+    "uploaded": "文件已添加。",
+    "uploadError": "文件上传失败，请重试。",
+    "removed": "文件已移除。",
+    "removeError": "无法移除该文件。",
+    "viewError": "无法打开该文件。",
+    "loadError": "无法加载您的文件。",
+    "retry": "重试",
+    "missing": "还缺少：{list}。",
+    "ready": "资料齐全，可以提交。",
+    "submit": "提交认证",
+    "resubmit": "重新提交认证",
+    "submitting": "正在提交资料…",
+    "submitted": "资料已提交，我们的团队将进行审核。",
+    "submitMissing": "仍缺少一份必需文件。",
+    "submitError": "资料提交失败，请重试。",
+    "notesLabel": "团队留言：",
+    "banner": {
+      "pending": {
+        "title": "资料审核中",
+        "body": "一旦有结果，我们会通知您。",
+        "cta": "同时添加产品"
+      },
+      "verified": {
+        "title": "企业已认证",
+        "body": "您的主页已发布并带有认证徽章。",
+        "cta": "查看公开主页"
+      },
+      "rejected": {
+        "title": "资料被拒绝",
+        "body": "请更正下方文件，然后重新提交资料。"
+      },
+      "moreInfo": {
+        "title": "需要补充资料",
+        "body": "请补充所需内容，然后重新提交资料。"
+      }
+    },
+    "aside": {
+      "title": "认证带来的好处",
+      "items": {
+        "public": {
+          "title": "公开主页",
+          "body": "您的企业将在名录和搜索中可见。"
+        },
+        "badge": {
+          "title": "认证徽章",
+          "body": "显示在您的主页和产品上的信任标识。"
+        },
+        "contact": {
+          "title": "联系请求",
+          "body": "买家可以通过您的主页与您联系。"
+        }
+      },
+      "delay": "资料提交后，由我们团队的成员进行核查。",
+      "privacy": "您的文件保持私密：只有您和我们的审核人员可以访问。"
+    },
+    "legal": {
+      "title": "法律身份",
+      "subtitle": "您文件上的编号。我们的团队会将其与您上传的文件核对。",
+      "save": "保存",
+      "saving": "正在保存…",
+      "saved": "法律身份已保存。",
+      "saveError": "保存失败，请重试。",
+      "unsaved": "有未保存的更改。",
+      "hint": "带星号的字段是提交资料所必需的。",
+      "draft": {
+        "restored": "已恢复您上次未保存的修改。请保存以保留它们。",
+        "discard": "放弃这些修改",
+        "kept": "在您保存之前，它们会保留在此设备上。"
+      }
+    },
+    "missingLegal": "请填写并保存法律身份中的必填编号。",
+    "submitMissingLegal": "法律身份中缺少一个必填编号。",
+    "timeline": {
+      "title": "资料进度",
+      "empty": "暂无记录。",
+      "events": {
+        "submitted": "资料已提交",
+        "resubmitted": "资料已重新提交",
+        "approved": "企业已认证",
+        "rejected": "资料被拒绝",
+        "more_info_requested": "需要补充资料"
+      }
+    },
+    "docRefusedReason": "拒绝理由：",
+    "teamMessage": {
+      "title": "我们团队的留言"
+    }
+  },
+  "NotFound": {
+    "metaTitle": "页面未找到",
+    "eyebrow": "错误 404",
+    "title": "找不到此页面",
+    "body": "地址可能输入有误，或者页面已被移动或删除。请在网站内搜索，或从下方选择一个栏目。",
+    "searchLabel": "站内搜索",
+    "searchPlaceholder": "企业、产品、商机…",
+    "searchButton": "搜索",
+    "home": "返回首页",
+    "back": "上一页",
+    "linksTitle": "接下来去哪里",
+    "links": {
+      "market": {
+        "title": "市场",
+        "body": "已认证企业的产品和报价。"
+      },
+      "companies": {
+        "title": "企业",
+        "body": "已认证企业名录。"
+      },
+      "opportunities": {
+        "title": "商机",
+        "body": "当前开放的需求和招标。"
+      },
+      "contact": {
+        "title": "联系我们",
+        "body": "告诉我们您在找哪个页面。"
+      }
+    }
+  },
+  "ReceivedRequests": {
+    "title": "收到的需求",
+    "subtitle": "买家发给贵公司的询价和联系请求。我们的团队会逐一核实后再转交给您。",
+    "checkedNote": "以下每条需求在送达您之前均已由 TradeInDRC 团队核实。",
+    "loadError": "无法加载您的需求，请刷新页面。",
+    "mailSubject": "您在 TradeInDRC 的需求 {reference} — {subject}",
+    "kind": {
+      "quote": "询价请求",
+      "contact": "联系请求"
+    },
+    "empty": {
+      "title": "暂无需求",
+      "body": "当买家就您的某个产品询价或联系贵公司时，我们的团队会核实该需求，随后它会显示在这里。",
+      "cta": "查看我的产品",
+      "steps": {
+        "buyer": {
+          "title": "买家来信",
+          "body": "就您的某个产品询价，或给贵公司留言。"
+        },
+        "team": {
+          "title": "我们的团队核实",
+          "body": "在需求送达您之前，我们会确认其真实可靠。"
+        },
+        "you": {
+          "title": "您来回复",
+          "body": "需求连同买家的联系方式显示在这里。"
+        }
+      }
+    },
+    "card": {
+      "new": "新",
+      "receivedOn": "收到日期：{date}",
+      "forCompany": "发给 {company}",
+      "productRemoved": "产品已下架",
+      "quantity": "数量",
+      "deliveryPlace": "交货地点",
+      "deadline": "期限",
+      "message": "买家留言",
+      "noMessage": "买家未留言。",
+      "buyer": "买家",
+      "reply": "邮件回复",
+      "interestTitle": "寻求的合作：{interest}"
+    },
+    "views": {
+      "label": "筛选需求",
+      "all": "全部",
+      "new": "新",
+      "quote": "询价",
+      "contact": "联系"
+    },
+    "searchPlaceholder": "搜索买家、产品…",
+    "noMatch": "没有符合此搜索的需求。",
+    "clear": "清除筛选",
+    "detail": {
+      "back": "全部需求",
+      "request": "需求内容",
+      "contact": "买家联系方式",
+      "call": "致电",
+      "copyEmail": "复制邮箱地址",
+      "emailCopied": "邮箱地址已复制。",
+      "copyFailed": "无法复制该地址。",
+      "viewProduct": "查看产品页",
+      "checked": "转交给您之前已由 TradeInDRC 团队核实。"
+    }
+  },
+  "ProductPricing": {
+    "units": {
+      "kg": "千克",
+      "tonne": "吨",
+      "litre": "升",
+      "piece": "件",
+      "bag": "袋",
+      "carton": "箱",
+      "pallet": "托盘",
+      "container": "集装箱",
+      "m3": "立方米",
+      "m2": "平方米"
+    },
+    "quantity": {
+      "kg": "{count, plural, other {# 千克}}",
+      "tonne": "{count, plural, other {# 吨}}",
+      "litre": "{count, plural, other {# 升}}",
+      "piece": "{count, plural, other {# 件}}",
+      "bag": "{count, plural, other {# 袋}}",
+      "carton": "{count, plural, other {# 箱}}",
+      "pallet": "{count, plural, other {# 托盘}}",
+      "container": "{count, plural, other {# 个集装箱}}",
+      "m3": "{count, plural, other {# 立方米}}",
+      "m2": "{count, plural, other {# 平方米}}"
+    },
+    "price": "价格",
+    "minOrder": "最小起订量",
+    "perUnit": "/ {unit}",
+    "minShort": "起订 {quantity}",
+    "onRequest": "价格面议"
+  },
+  "RequestTracking": {
+    "metaTitle": "跟踪我的需求",
+    "title": "跟踪我的需求",
+    "subtitle": "请输入提交后收到的编号，以及表单中使用的邮箱地址。",
+    "reference": "编号",
+    "referencePlaceholder": "TIDRC-PR-2026-000000",
+    "email": "邮箱地址",
+    "emailPlaceholder": "name@company.com",
+    "submit": "查看进度",
+    "searching": "正在查询…",
+    "invalid": "请检查编号（TIDRC-PR-年份-序号）和邮箱地址。",
+    "notFound": "没有与此编号和邮箱地址匹配的需求。",
+    "serverError": "暂时无法查询，请稍后重试。",
+    "resultTitle": "需求 {reference}",
+    "sentOn": "提交日期：{date}",
+    "aboutProduct": "产品：{product}",
+    "aboutCompany": "发送给：{company}",
+    "steps": {
+      "received": {
+        "title": "已收到需求",
+        "body": "您的需求已登记。"
+      },
+      "review": {
+        "title": "团队审核",
+        "body": "我们正在核实您的需求并寻找合适的联系人。"
+      },
+      "forwarded": {
+        "title": "已转交供应商",
+        "body": "供应商已收到您的需求和联系方式，将直接回复您。",
+        "pending": "我们的团队核实后，将立即把您的需求转交给供应商。"
+      },
+      "outcome": {
+        "title": "需求已处理",
+        "body": "我们的团队已完成对您需求的处理。",
+        "pending": "您的需求正在处理中。处理完成后，此步骤将被标记为已完成。"
+      }
+    },
+    "declined": "您的需求未能被受理。我们的团队已经或将会写信向您说明原因。",
+    "state": {
+      "done": "已完成",
+      "current": "进行中",
+      "upcoming": "待进行"
+    },
+    "another": "跟踪其他需求",
+    "newRequest": "提交新需求",
+    "help": "对您的需求有疑问？",
+    "contact": "联系我们"
+  },
+  "RequestEmail": {
+    "subject": "我们已收到您的需求 {reference}",
+    "title": "我们已收到您的需求",
+    "greeting": "{name}，您好：",
+    "received": "感谢您使用 TradeInDRC。您的需求已登记，我们的团队将进行审核。",
+    "next": "我们将在 2 至 3 个工作日内回复您。",
+    "keepReference": "请保存您的编号：凭它和此邮箱地址即可跟踪您的需求。",
+    "referenceLabel": "编号",
+    "summaryLabel": "您的需求",
+    "trackCta": "跟踪我的需求",
+    "signature": "TradeInDRC 团队 — 本邮件是对您在我们网站提交的需求的回复。"
   }
 }

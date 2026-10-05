@@ -75,7 +75,7 @@ export function StepContact({ data, update, errors }: Props) {
             defaultCountry={isInternational(data) ? countryForDialCode(data.dialCode) : "CD"}
             placeholder={t("ph.phone")}
             invalid={has("phone")}
-            className="rounded-[0.5rem] border-slate-300 bg-white shadow-none focus-within:border-market-navy focus-within:ring-0"
+            className="rounded-xl border-slate-200 bg-white shadow-none focus-within:border-market-navy focus-within:ring-0"
           />
         </div>
       </div>

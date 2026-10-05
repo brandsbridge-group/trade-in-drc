@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { MarkdownView } from "@/components/content/markdown-view";
-import { PageHeader } from "@/components/design";
+import { PageHeader } from "@/components/console/page-header";
 import { CategoryBadge } from "@/components/opportunities/category-badge";
 import { ReviewActions } from "./review-actions";
 import type { Opportunity } from "@/lib/opportunities/types";

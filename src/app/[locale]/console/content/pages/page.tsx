@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
-import { PageHeader } from "@/components/design";
+import { PageHeader } from "@/components/console/page-header";
 import {
   fetchAllPageContent,
   PAGE_CONTENT_SLUGS,
@@ -21,8 +21,9 @@ export default async function PagesCmsListPage({
   return (
     <div className="space-y-4">
       <PageHeader title={t("pages.title")} />
+      <div className="console-table-card">
       <table className="w-full text-sm border-collapse">
-        <thead className="text-left text-xs text-muted-foreground border-b">
+        <thead className="text-left">
           <tr>
             <th className="py-2 font-medium">{t("columns.page")}</th>
             <th className="py-2 font-medium">{t("columns.status")}</th>
@@ -62,6 +63,7 @@ export default async function PagesCmsListPage({
           })}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

@@ -7,7 +7,7 @@ import { COUNTRIES, COUNTRY_DIAL_CODE, HOME_COUNTRY } from "@/config/geo";
 import { cn } from "@/lib/utils";
 import { FIELD_CLS } from "./constants";
 import { isInternational, type RegisterFormData, type SectorOption } from "./types";
-import { FieldLabel, SectionHeader, SelectField, TextField } from "./field-kit";
+import { FieldLabel, SectionHeader, SelectField, TextAreaField, TextField } from "./field-kit";
 
 interface Props {
   data: RegisterFormData;
@@ -35,16 +35,21 @@ export function StepCompany({ data, update, errors, sectors }: Props) {
     <div>
       <SectionHeader icon={Building2} title={t("quick.sections.company")} />
       <div className="grid gap-4 sm:grid-cols-2">
-        <div className="sm:col-span-2">
-          <TextField
-            label={t("fields.companyLegalName")}
-            required
-            value={data.companyLegalName}
-            onChange={(v) => update({ companyLegalName: v })}
-            placeholder={t("ph.companyLegalName")}
-            invalid={has("companyLegalName")}
-          />
-        </div>
+        {/* Legal name and trading name share the first row. */}
+        <TextField
+          label={t("fields.companyLegalName")}
+          required
+          value={data.companyLegalName}
+          onChange={(v) => update({ companyLegalName: v })}
+          placeholder={t("ph.companyLegalName")}
+          invalid={has("companyLegalName")}
+        />
+        <TextField
+          label={t("fields.tradingName")}
+          value={data.tradingName}
+          onChange={(v) => update({ tradingName: v })}
+          placeholder={t("ph.tradingName")}
+        />
 
         {international ? (
           <SelectField
@@ -110,6 +115,28 @@ export function StepCompany({ data, update, errors, sectors }: Props) {
             />
           </>
         )}
+
+        {/* Optional, but they are what makes the profile worth reading from day one. */}
+        {/* International: fills the cell next to the head-office city. Congolese: the
+            four fields above already pair up, so the website takes its own row. */}
+        <div className={cn(!international && "sm:col-span-2")}>
+          <TextField
+            label={t("fields.website")}
+            value={data.website}
+            onChange={(v) => update({ website: v })}
+            placeholder={t("ph.website")}
+          />
+        </div>
+        <div className="sm:col-span-2">
+          <TextAreaField
+            label={t("quick.fields.activity")}
+            value={data.productsServices}
+            onChange={(v) => update({ productsServices: v })}
+            placeholder={t("quick.ph.activity")}
+            rows={3}
+          />
+          <p className="mt-1 text-xs text-slate-500">{t("quick.hints.activity")}</p>
+        </div>
       </div>
     </div>
   );

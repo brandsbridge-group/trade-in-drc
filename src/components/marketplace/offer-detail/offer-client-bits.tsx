@@ -5,13 +5,13 @@ import { useTranslations } from "next-intl";
 import { MessageSquare } from "lucide-react";
 
 import { useAuth } from "@/lib/auth/auth-provider";
-import { trackEvent } from "@/lib/analytics/track-event";
+import { trackView } from "@/lib/analytics/track-view";
 import { ContactSupplierModal } from "@/components/messaging/contact-supplier-modal";
 
 /** Records one product view per mount (analytics, best-effort). */
 export function OfferViewTracker({ productId }: { productId: string }) {
   useEffect(() => {
-    void trackEvent("product", productId, "view");
+    trackView("product", productId);
   }, [productId]);
   return null;
 }

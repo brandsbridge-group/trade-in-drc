@@ -1,7 +1,7 @@
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { Link } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
-import { PageHeader } from "@/components/design";
+import { PageHeader } from "@/components/console/page-header";
 
 /**
  * Admin moderation queue for opportunities.
@@ -108,8 +108,9 @@ export default async function AdminOpportunitiesPage({
           <p className="text-sm font-medium text-destructive">{t("admin.loadError")}</p>
         </div>
       ) : (
+        <div className="console-table-card">
         <table className="w-full text-sm border-collapse">
-          <thead className="text-left text-xs text-muted-foreground border-b">
+          <thead className="text-left">
             <tr>
               <th className="py-2 pr-4">{t("fields.title")}</th>
               <th className="py-2 pr-4">{t("fields.category")}</th>
@@ -153,6 +154,7 @@ export default async function AdminOpportunitiesPage({
             )}
           </tbody>
         </table>
+        </div>
       )}
     </div>
   );

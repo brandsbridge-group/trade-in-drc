@@ -71,6 +71,16 @@ export default async function SignupPage({
         <Suspense fallback={null}>
           <SignupForm />
         </Suspense>
+        <p className="text-center text-xs leading-relaxed text-muted-foreground">
+          {t.rich("termsNotice", {
+            terms: (chunks) => (
+              <Link href="/terms" className="font-medium text-primary underline underline-offset-4">{chunks}</Link>
+            ),
+            privacy: (chunks) => (
+              <Link href="/privacy" className="font-medium text-primary underline underline-offset-4">{chunks}</Link>
+            ),
+          })}
+        </p>
         <p className="text-center text-sm text-muted-foreground">
           {t("hasAccount")}{" "}
           <Link href={loginHref} className="font-medium text-primary underline underline-offset-4">

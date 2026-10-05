@@ -152,7 +152,7 @@ export function PhoneField({
       <FieldLabel required={required}>{label}</FieldLabel>
       <div
         className={cn(
-          "flex h-10 items-center overflow-hidden rounded-[0.5rem] border border-slate-300 bg-white transition-colors duration-150 focus-within:border-market-navy",
+          "flex h-10 items-center overflow-hidden rounded-xl border border-slate-200 bg-white transition-colors duration-150 focus-within:border-market-navy",
           invalid && "border-market-red"
         )}
       >
@@ -224,7 +224,7 @@ export function TextAreaField({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         className={cn(
-          "w-full rounded-[0.5rem] border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 outline-none transition-colors duration-150 focus:border-market-navy placeholder:text-slate-400",
+          "w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 outline-none transition-colors duration-150 focus:border-market-navy placeholder:text-slate-400",
           invalid && "border-market-red"
         )}
       />
@@ -260,7 +260,7 @@ export function ChipGroup({
       <FieldLabel required={required}>{label}</FieldLabel>
       <div
         className={cn(
-          "flex flex-wrap gap-2 rounded-[0.5rem] border border-slate-300 p-2",
+          "flex flex-wrap gap-2 rounded-xl border border-slate-200 p-2",
           invalid && "border-market-red"
         )}
       >

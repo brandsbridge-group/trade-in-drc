@@ -10,7 +10,7 @@ import {
     ShieldCheck,
 } from "lucide-react";
 import { Link } from "@/i18n/routing";
-import { PageHeader } from "@/components/design";
+import { PageHeader } from "@/components/console/page-header";
 import { cn } from "@/lib/utils";
 import { DocumentViewer } from "@/components/admin/document-viewer";
 import { TierOverridePanel } from "@/components/admin/tier-override-panel";
@@ -55,7 +55,7 @@ function SectionCard({
     children: React.ReactNode;
 }) {
     return (
-        <div className="bg-card border border-slate-200 rounded-xl p-4">
+        <div className="rounded-2xl bg-white p-4 ring-1 ring-slate-200/70">
             <h2 className="text-sm font-semibold flex items-center gap-2 mb-3">
                 {icon}
                 {title}
@@ -74,10 +74,10 @@ export default async function AdminCompanyDetailPage({ params }: PageProps) {
 
     if (!company) {
         return (
-            <div className="p-4">
+            <div className="space-y-4">
                 <Link
                     href="/console/companies"
-                    className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground mb-4"
+                    className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
                 >
                     <ArrowLeft className="w-4 h-4" />
                     {t("backToCompanies")}
@@ -106,7 +106,7 @@ export default async function AdminCompanyDetailPage({ params }: PageProps) {
     ];
 
     return (
-        <div className="p-4 space-y-4">
+        <div className="space-y-4">
             <div>
                 <Link
                     href="/console/companies"

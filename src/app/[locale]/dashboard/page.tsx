@@ -1,5 +1,6 @@
 "use client";
 
+import { latestStaffMessage, sortEvents } from "@/lib/verifications/workflow";
 import * as React from "react";
 import { useFormatter, useLocale, useTranslations } from "next-intl";
 import { useQuery } from "@tanstack/react-query";
@@ -8,6 +9,7 @@ import { Link } from "@/i18n/routing";
 import { useAuth } from "@/lib/auth/auth-provider";
 import { useCompanies } from "@/hooks/use-companies";
 import { useAwaitingReplies } from "@/hooks/use-awaiting-replies";
+import { useReceivedRequests } from "@/hooks/use-received-requests";
 import { HOME_COUNTRY } from "@/config/geo";
 import { resolveSectorLabel } from "@/lib/dashboard/company-display";
 import type { Locale } from "@/config/locales";
@@ -39,7 +41,8 @@ import {
   SuppliersCard,
   TopProductsCard,
 } from "@/components/dashboard/overview/insight-cards";
-import { WelcomeOnboarding } from "@/components/dashboard/overview/welcome-onboarding";
+import { OnboardingGuide } from "@/components/dashboard/overview/onboarding-guide";
+import { buildOnboarding } from "@/lib/dashboard/overview/onboarding";
 import { ActivityChart } from "@/components/dashboard/overview/activity-chart";
 
 interface OverviewCompany {
@@ -77,9 +80,24 @@ function targetProvinces(companies: OverviewCompany[]): string[] {
   return Array.from(new Set(all));
 }
 
-function latestNotes(c: OverviewCompany): string | null {
+/** Status as the task list understands it: a pending file whose last event is a more-info request is the company's turn. */
+function taskStatus(c: OverviewCompany): string {
   const reviews = [...(c.verification_reviews ?? [])].sort((a, b) => b.created_at.localeCompare(a.created_at));
-  return reviews[0]?.notes ?? null;
+  return c.status === "pending" && reviews[0]?.decision === "more_info_requested" ? "more_info_requested" : c.status;
+}
+
+const reviewEvents = (c: OverviewCompany) =>
+  (c.verification_reviews ?? []).map((r) => ({ decision: r.decision, notes: r.notes, createdAt: r.created_at }));
+
+/** The team's message attached to its latest decision (not the owner's own sends). */
+function latestNotes(c: OverviewCompany): string | null {
+  return latestStaffMessage(reviewEvents(c))?.notes ?? null;
+}
+
+/** When the company was last approved, if that is its current state. */
+function approvedAt(c: OverviewCompany): string | null {
+  if (c.status !== "verified") return null;
+  return sortEvents(reviewEvents(c)).find((e) => e.decision === "approved")?.createdAt ?? null;
 }
 
 export default function DashboardPage() {
@@ -135,6 +153,7 @@ export default function DashboardPage() {
   });
 
   const awaitingReplies = useAwaitingReplies(user?.id);
+  const { unseenCount: newRequests } = useReceivedRequests(user?.id);
 
   const tasks = React.useMemo(() => {
     if (!hasCompanies) return [];
@@ -151,16 +170,27 @@ export default function DashboardPage() {
       companies: companies.map((c) => ({
         id: c.id,
         name: c.name,
-        status: c.status,
+        status: taskStatus(c),
         latestReviewNotes: latestNotes(c),
+        approvedAt: approvedAt(c),
         isPremium: c.is_premium,
         premiumExpiresAt: c.premium_expires_at,
       })),
       awaitingReplies,
+      newRequests,
       newResponses: myOpportunities.data?.newResponses ?? 0,
       completeness,
+      completenessCompanyId: primary?.id,
     });
-  }, [hasCompanies, primary, content.data, companies, awaitingReplies, myOpportunities.data, now]);
+  }, [hasCompanies, primary, content.data, companies, awaitingReplies, newRequests, myOpportunities.data, now]);
+
+  // Getting-started path; null until the product count is known, so a step never flashes as "to do".
+  const onboarding = React.useMemo(() => {
+    if (!hasCompanies) return buildOnboarding({ companies: [], productCount: 0 });
+    if (!content.data) return null;
+    const productCount = Object.values(content.data.productCountByCompany).reduce((a, b) => a + b, 0);
+    return buildOnboarding({ companies: companies.map((c) => ({ id: c.id, status: c.status })), productCount });
+  }, [hasCompanies, content.data, companies]);
 
   if (!user) {
     return <p className="py-10 text-center text-sm text-slate-500">{t("signInRequired")}</p>;
@@ -302,9 +332,11 @@ export default function DashboardPage() {
           {Array.from({ length: 4 }).map((_, i) => <KpiTileSkeleton key={i} />)}
         </div>
       ) : !hasCompanies ? (
-        <WelcomeOnboarding />
+        <OnboardingGuide model={onboarding!} variant="welcome" />
       ) : (
         <>
+          {onboarding && !onboarding.complete && <OnboardingGuide model={onboarding} variant="progress" />}
+
           <div className="grid grid-cols-1 gap-4 xl:grid-cols-12">
             <section aria-label={t(congolese ? "visibilityTitle" : "activityTitle")} className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 xl:col-span-7">
               {renderKpis()}

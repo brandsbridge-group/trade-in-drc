@@ -153,14 +153,17 @@ export const YEAR_OPTIONS: number[] = (() => {
 
 /** Shared input styling — mirrors the market surfaces (opp-need-form). */
 export const FIELD_CLS =
-  "h-10 w-full rounded-[0.5rem] border border-slate-300 bg-white px-3 text-sm text-slate-800 outline-none transition-colors duration-150 placeholder:text-slate-400 focus:border-market-navy";
+  "h-10 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-800 outline-none transition-colors duration-150 placeholder:text-slate-400 focus:border-market-navy";
 
-/** Route users are sent to when they submit while unauthenticated. */
-export const LOGIN_REDIRECT = "/login?redirect=/register-company";
+/** The company form: inside the dashboard, signed-in only (was the public /register-company). */
+export const COMPANY_FORM_ROUTE = "/dashboard/companies/new";
+
+/** Route users are sent to when their session expired before submit. */
+export const LOGIN_REDIRECT = `/login?redirect=${COMPANY_FORM_ROUTE}`;
 
 /**
  * Where a signed-out visitor goes from the profile gate: account creation
  * first, with `context=company` (account-benefits panel on /signup) and a
  * return here once their e-mail is confirmed.
  */
-export const SIGNUP_REDIRECT = "/signup?redirect=%2Fregister-company&context=company";
+export const SIGNUP_REDIRECT = `/signup?redirect=${encodeURIComponent(COMPANY_FORM_ROUTE)}&context=company`;

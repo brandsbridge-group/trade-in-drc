@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { useQueryClient } from "@tanstack/react-query";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { AlertCircle, ArrowLeft, ArrowRight, CheckCircle2, ChevronLeft, Send } from "lucide-react";
+import { AlertCircle, ArrowLeft, ArrowRight, Check, ChevronLeft, FileCheck2, Package, Send } from "lucide-react";
 import { isValidPhoneNumber, parsePhoneNumber } from "react-phone-number-input";
 import { companiesQueryKey } from "@/hooks/use-companies";
 import { Link, useRouter } from "@/i18n/routing";
@@ -36,7 +36,6 @@ import { ProfileGate } from "./profile-gate";
 import { StepCompany } from "./step-company";
 import { StepContact } from "./step-contact";
 import { StepMarketInterestOptional } from "./step-market-interest-optional";
-import { IntlStrips } from "./intl-strips";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -91,6 +90,40 @@ export function toSubmitData(data: RegisterFormData, skipOptional: boolean): Reg
   return out;
 }
 
+/** Draft of the form, kept in this browser so a reload or a detour loses nothing. */
+const draftKey = (accountId: string) => `tidrc:register-company:draft:v1:${accountId}`;
+
+interface WizardDraft {
+  data: RegisterFormData;
+  stepIndex: number;
+}
+
+/** Storage can be unavailable (private mode, blocked site data): never let it break the form. */
+export function readDraft(accountId: string): WizardDraft | null {
+  try {
+    const raw = window.localStorage.getItem(draftKey(accountId));
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as Partial<WizardDraft>;
+    if (!parsed.data || typeof parsed.data !== "object") return null;
+    // Only keys the form still knows, so an old draft cannot inject stale fields.
+    const known = Object.fromEntries(
+      Object.entries(parsed.data).filter(([key]) => key in EMPTY_FORM)
+    ) as Partial<RegisterFormData>;
+    return { data: { ...EMPTY_FORM, ...known }, stepIndex: Number(parsed.stepIndex) || 0 };
+  } catch {
+    return null;
+  }
+}
+
+function writeDraft(accountId: string, draft: WizardDraft | null) {
+  try {
+    if (draft) window.localStorage.setItem(draftKey(accountId), JSON.stringify(draft));
+    else window.localStorage.removeItem(draftKey(accountId));
+  } catch {
+    // Nothing to do: the form simply works without a draft.
+  }
+}
+
 function initialData(account: RegisterAccount | null): RegisterFormData {
   if (!account) return EMPTY_FORM;
   return {
@@ -119,8 +152,41 @@ export function RegisterWizard({
   const [errors, setErrors] = React.useState<Set<keyof RegisterFormData>>(new Set());
   const [submitting, setSubmitting] = React.useState(false);
   const [done, setDone] = React.useState(false);
+  const [createdId, setCreatedId] = React.useState<string | null>(null);
+  // Draft: restored once after mount (never during render — the server has no
+  // storage, so reading it there would break hydration), then saved on change.
+  const [draftRestored, setDraftRestored] = React.useState(false);
+  const draftReady = React.useRef(false);
   // P2-1: the profile choice and the step form never share a screen.
   const [phase, setPhase] = React.useState<"profile" | "form">("profile");
+
+  const accountId = account?.id;
+  React.useEffect(() => {
+    if (!accountId) return;
+    const draft = readDraft(accountId);
+    if (draft) {
+      setData(draft.data);
+      setStepIndex(draft.stepIndex);
+      setPhase("form");
+      setDraftRestored(true);
+    }
+    draftReady.current = true;
+  }, [accountId]);
+
+  React.useEffect(() => {
+    // Only once the form is open: the gate alone is not worth a draft.
+    if (!accountId || !draftReady.current || phase !== "form" || done) return;
+    writeDraft(accountId, { data, stepIndex });
+  }, [accountId, data, stepIndex, phase, done]);
+
+  const discardDraft = () => {
+    if (accountId) writeDraft(accountId, null);
+    setData(initialData(account));
+    setStepIndex(0);
+    setErrors(new Set());
+    setDraftRestored(false);
+    setPhase("profile");
+  };
 
   const scrollToTop = React.useCallback(() => {
     window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
@@ -130,7 +196,6 @@ export function RegisterWizard({
   const step = steps[Math.min(stepIndex, steps.length - 1)];
   const isLast = stepIndex === steps.length - 1;
   const isOptional = OPTIONAL_STEPS.includes(step);
-  const international = data.profile === "international";
 
   const update = (patch: Partial<RegisterFormData>) => {
     setData((prev) => ({ ...prev, ...patch }));
@@ -225,7 +290,11 @@ export function RegisterWizard({
     if (res.ok) {
       toast.success(t("success.title"), { id });
       // The dashboard's companies list must show the new company right away.
-      if (account) queryClient.invalidateQueries({ queryKey: companiesQueryKey(account.id) });
+      if (account) {
+        queryClient.invalidateQueries({ queryKey: companiesQueryKey(account.id) });
+        writeDraft(account.id, null);
+      }
+      setCreatedId(res.companyId ?? null);
       setDone(true);
       scrollToTop();
       return;
@@ -234,6 +303,10 @@ export function RegisterWizard({
       // Session expired between page load and submit.
       toast.error(t("errors.auth"), { id });
       router.push(LOGIN_REDIRECT);
+      return;
+    }
+    if (res.error === "staff") {
+      toast.error(t("errors.staff"), { id });
       return;
     }
     if (res.error === "invalid") {
@@ -249,19 +322,51 @@ export function RegisterWizard({
   };
 
   if (done) {
+    const nextSteps = [
+      { key: "documents", icon: FileCheck2 },
+      { key: "product", icon: Package },
+    ] as const;
     return (
-      <section className="mx-auto w-full max-w-[900px] px-4 py-16 text-center md:px-6">
-        <CheckCircle2 className="mx-auto size-14 text-market-navy" aria-hidden />
-        <h2 className="mt-4 font-display text-2xl font-bold text-market-navy">
-          {t("success.title")}
-        </h2>
-        <p className="mx-auto mt-2 max-w-md text-sm text-slate-600">{t("success.body")}</p>
-        <Link
-          href="/dashboard/companies"
-          className="mt-6 inline-flex h-11 items-center justify-center rounded-[0.5rem] bg-market-navy px-6 text-sm font-bold text-white transition-colors duration-150 hover:bg-market-navy-deep"
-        >
-          {t("success.cta")}
-        </Link>
+      <section className="mx-auto w-full max-w-[720px]">
+        <div className="relative overflow-hidden rounded-3xl bg-market-navy p-7 text-center text-white sm:p-9">
+          <span aria-hidden className="pointer-events-none absolute -right-16 -top-20 h-56 w-56 rounded-full bg-market-or/25 blur-3xl" />
+          <span className="relative mx-auto grid size-14 place-items-center rounded-full bg-market-or text-market-navy">
+            <Check className="size-7" aria-hidden />
+          </span>
+          <h2 className="relative mt-4 font-display text-2xl font-bold">{t("success.title")}</h2>
+          <p className="relative mx-auto mt-2 max-w-md text-sm leading-relaxed text-white/70">{t("success.body")}</p>
+        </div>
+
+        <div className="mt-4 rounded-2xl bg-white p-5 ring-1 ring-slate-200/70">
+          <p className="font-display text-base font-semibold text-market-navy">{t("success.nextTitle")}</p>
+          <ol className="mt-3 space-y-2.5">
+            {nextSteps.map(({ key, icon: Icon }) => (
+              <li key={key} className="flex items-start gap-3 rounded-xl bg-slate-50 p-3.5">
+                <span className="grid size-9 shrink-0 place-items-center rounded-full bg-white text-market-or-dark ring-1 ring-slate-200/70" aria-hidden>
+                  <Icon className="size-[17px]" />
+                </span>
+                <span className="min-w-0 text-left">
+                  <span className="block text-sm font-semibold text-market-navy">{t(`success.next.${key}.title`)}</span>
+                  <span className="block text-xs leading-relaxed text-slate-500">{t(`success.next.${key}.body`)}</span>
+                </span>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-5 flex flex-wrap items-center gap-3">
+            <Link
+              href={createdId ? `/dashboard/companies/${createdId}/verification` : "/dashboard"}
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-market-navy px-6 text-sm font-bold text-white transition-colors duration-150 hover:bg-market-navy-deep"
+            >
+              {t("success.cta")} <ArrowRight className="size-4" aria-hidden />
+            </Link>
+            <Link
+              href="/dashboard"
+              className="inline-flex h-11 items-center justify-center rounded-full px-5 text-sm font-semibold text-market-navy transition-colors duration-150 hover:bg-slate-100"
+            >
+              {t("success.dashboardCta")}
+            </Link>
+          </div>
+        </div>
       </section>
     );
   }
@@ -282,7 +387,7 @@ export function RegisterWizard({
       };
 
   const primaryBtn =
-    "inline-flex h-11 items-center gap-2 rounded-[0.5rem] bg-market-navy px-6 text-sm font-bold text-white transition-colors duration-150 hover:bg-market-navy-deep disabled:opacity-60";
+    "inline-flex h-11 items-center gap-2 rounded-full bg-market-navy px-6 text-[13px] font-semibold text-white transition-colors duration-150 hover:bg-market-navy-deep disabled:opacity-60";
 
   return (
     <AnimatePresence mode="wait" initial={false}>
@@ -297,7 +402,7 @@ export function RegisterWizard({
         </motion.div>
       ) : (
         <motion.div key="form" {...phaseMotionProps}>
-          <div className="mx-auto flex w-full max-w-[900px] items-center justify-between px-4 pt-6 md:px-6">
+          <div className="mb-3 flex items-center justify-between gap-3">
             <p className="text-sm font-medium text-slate-600">
               {t(`profileChooser.${data.profile}.title`)}
             </p>
@@ -305,7 +410,7 @@ export function RegisterWizard({
               type="button"
               onClick={backToGate}
               data-testid="profile-change-ghost"
-              className="inline-flex h-8 items-center gap-1 rounded-[0.5rem] px-2 text-sm font-semibold text-market-navy transition-colors duration-150 hover:bg-slate-100"
+              className="inline-flex h-8 items-center gap-1 rounded-full px-3 text-[13px] font-semibold text-market-navy transition-colors duration-150 hover:bg-white"
             >
               <ChevronLeft className="size-3.5" aria-hidden />
               {t("profileChooser.change")}
@@ -314,12 +419,26 @@ export function RegisterWizard({
 
           <Stepper current={stepIndex} profile={data.profile} onStepClick={goToStep} />
 
-          <section className="mx-auto w-full max-w-[900px] px-4 pb-14 md:px-6">
-            <div className="rounded-[0.5rem] border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+          <section className="mt-4">
+            <div className="rounded-2xl bg-white p-5 ring-1 ring-slate-200/70 md:p-7">
+              {draftRestored && (
+                <div className="mb-6 flex flex-wrap items-center justify-between gap-2 rounded-xl bg-market-cream px-4 py-3 text-[13px] text-market-navy">
+                  <p>{t("draft.restored")}</p>
+                  <button
+                    type="button"
+                    onClick={discardDraft}
+                    data-testid="draft-discard"
+                    className="font-semibold underline underline-offset-4"
+                  >
+                    {t("draft.discard")}
+                  </button>
+                </div>
+              )}
+
               {errors.size > 0 && (
                 <div
                   role="alert"
-                  className="mb-6 flex items-start gap-3 rounded-[0.5rem] border border-red-200 bg-red-50 p-4 text-sm text-red-800"
+                  className="mb-6 flex items-start gap-3 rounded-xl bg-red-50 p-4 text-sm text-red-800 ring-1 ring-red-200"
                 >
                   <AlertCircle className="mt-0.5 size-4 shrink-0 text-red-600" aria-hidden />
                   <div>
@@ -347,7 +466,7 @@ export function RegisterWizard({
                   onClick={goBack}
                   disabled={stepIndex === 0}
                   className={cn(
-                    "inline-flex h-11 items-center gap-2 rounded-[0.5rem] border border-slate-300 px-5 text-sm font-semibold text-slate-700 transition-colors duration-150 hover:bg-slate-50",
+                    "inline-flex h-11 items-center gap-2 rounded-full bg-slate-100 px-5 text-[13px] font-semibold text-market-navy transition-colors duration-150 hover:bg-slate-200",
                     stepIndex === 0 && "invisible"
                   )}
                 >
@@ -361,7 +480,7 @@ export function RegisterWizard({
                       onClick={() => submit(true)}
                       disabled={submitting}
                       data-testid="skip-optional"
-                      className="inline-flex h-11 items-center rounded-[0.5rem] px-4 text-sm font-semibold text-slate-600 transition-colors duration-150 hover:bg-slate-100 disabled:opacity-60"
+                      className="inline-flex h-11 items-center rounded-full px-4 text-[13px] font-semibold text-slate-600 transition-colors duration-150 hover:bg-slate-100 disabled:opacity-60"
                     >
                       {t("nav.skip")}
                     </button>
@@ -382,10 +501,10 @@ export function RegisterWizard({
                   )}
                 </div>
               </div>
+              <p className="mt-3 text-right text-xs text-slate-400">{t("draft.saved")}</p>
             </div>
           </section>
 
-          {international && <IntlStrips />}
         </motion.div>
       )}
     </AnimatePresence>

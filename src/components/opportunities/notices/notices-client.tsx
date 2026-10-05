@@ -167,7 +167,7 @@ export function SubmitNoticeDialog() {
       <DialogTrigger asChild>
         <button
           type="button"
-          className="inline-flex flex-none items-center gap-2 rounded-xl bg-market-or px-5 py-3 text-sm font-bold text-market-navy shadow-[inset_0_1px_0_rgba(255,255,255,0.35)] transition-colors duration-150 ease-out hover:bg-market-or-light"
+          className="inline-flex flex-none items-center gap-2 rounded-full bg-market-or px-5 py-3 text-sm font-bold text-market-navy transition-colors duration-150 ease-out hover:bg-market-or-light active:bg-market-or-dark"
         >
           <Megaphone className="h-4 w-4" aria-hidden />
           {t("cta")}

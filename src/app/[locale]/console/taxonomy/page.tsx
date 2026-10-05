@@ -4,8 +4,9 @@ import * as React from "react";
 import { useTranslations } from "next-intl";
 import { createClient } from "@/lib/supabase/client";
 import { TaxonomyEditor } from "@/components/admin/taxonomy-editor";
+import { SpecFieldsEditor } from "@/components/admin/spec-fields-editor";
 import { toast } from "sonner";
-import { PageHeader } from "@/components/design";
+import { PageHeader } from "@/components/console/page-header";
 
 interface Sector {
     id: string;
@@ -42,7 +43,7 @@ export default function TaxonomyPage() {
     }, [t]);
 
     return (
-        <div className="p-4 space-y-8 max-w-5xl">
+        <div className="max-w-5xl space-y-8">
             <PageHeader title={t("title")} subtitle={t("subtitle")} />
 
             <section className="space-y-3">
@@ -63,6 +64,15 @@ export default function TaxonomyPage() {
                 ) : (
                     <TaxonomyEditor type="categories" sectors={sectors} />
                 )}
+            </section>
+
+            {/* Specification template of each category: what sellers fill in the product form. */}
+            <section className="space-y-3">
+                <div className="border-b pb-2">
+                    <h2 className="text-base font-semibold">{t("specsHeading")}</h2>
+                    <p className="text-xs text-muted-foreground">{t("specsDescription")}</p>
+                </div>
+                <SpecFieldsEditor />
             </section>
 
             <section className="space-y-3">

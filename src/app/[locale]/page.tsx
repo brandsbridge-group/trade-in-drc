@@ -37,8 +37,8 @@ export async function generateMetadata({
  * Home page (redesigned 2026-09-30): the full-bleed gateway hero, then boxed
  * sections — commitments + entry paths, the live market, buyer requests,
  * verified suppliers, the service chain, why the DRC (full-width video band),
- * key sectors, three steps — and the closing pair (full-width statement +
- * join band). About / mission / values now live on /about (Nav → More); the
+ * key sectors, three steps — and the closing hero (full-bleed statement with
+ * the join CTA, on the gateway hero's container). About / mission / values now live on /about (Nav → More); the
  * old composition is preserved at /home-classic.
  */
 export default async function HomePage({

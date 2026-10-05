@@ -206,7 +206,7 @@ function PathCard({
               className={cn(
                 "flex h-10 w-10 items-center justify-center rounded-xl",
                 featured
-                  ? "bg-market-or text-market-navy shadow-[inset_0_1px_0_rgba(255,255,255,0.35)]"
+                  ? "bg-market-or text-market-navy"
                   : "bg-market-or/10 text-market-or-dark ring-1 ring-inset ring-market-or/25",
               )}
             >

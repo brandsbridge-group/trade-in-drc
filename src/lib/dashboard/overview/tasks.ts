@@ -13,6 +13,8 @@ export type TaskKind =
   | "verification_more_info"
   | "verification_rejected"
   | "verification_pending"
+  | "verification_approved"
+  | "requests_received"
   | "messages_awaiting"
   | "responses_new"
   | "profile_incomplete"
@@ -35,6 +37,8 @@ export interface TaskCompany {
   name: string;
   status: string;
   latestReviewNotes?: string | null;
+  /** ISO date of the approval, for a company that is verified now. */
+  approvedAt?: string | null;
   premiumExpiresAt?: string | null;
   isPremium?: boolean;
 }
@@ -44,15 +48,21 @@ export interface TaskInput {
   companies: TaskCompany[];
   /** Conversations whose latest message was sent by someone else. */
   awaitingReplies: { count: number; oldestAt: string | null };
+  /** Buyer requests forwarded by the team that the company has not opened yet. */
+  newRequests?: number;
   /** Responses received on the company's opportunities in the last 7 days. */
   newResponses: number;
   completeness: { percent: number; missing: CompletenessKey[] } | null;
+  /** Company `completeness` was computed for. */
+  completenessCompanyId?: string;
 }
 
 /** Visible cards on desktop; the rest is reachable from the list. */
 export const MAX_TASKS = 4;
 /** A Premium plan this close to expiry gets a renewal card. */
 export const PREMIUM_WARNING_DAYS = 30;
+/** A fresh approval stays on the home this long, with the team's message. */
+export const APPROVAL_NEWS_DAYS = 14;
 /** Below this, profile completion is worth a card. */
 export const COMPLETENESS_TARGET = 100;
 
@@ -92,6 +102,19 @@ export function buildDashboardTasks(input: TaskInput): DashboardTask[] {
       case "pending":
         tasks.push({ ...base, kind: "verification_pending", tone: "done", priority: 60 });
         break;
+      case "verified":
+        // Good news, not a chore: shown for a while so the owner sees the
+        // decision and what the team wrote with it.
+        if (c.approvedAt && daysBetween(new Date(c.approvedAt), input.now) <= APPROVAL_NEWS_DAYS) {
+          tasks.push({
+            ...base,
+            kind: "verification_approved",
+            tone: "done",
+            priority: 55,
+            values: c.latestReviewNotes ? { notes: c.latestReviewNotes } : undefined,
+          });
+        }
+        break;
     }
 
     if (c.isPremium && c.premiumExpiresAt) {
@@ -102,6 +125,11 @@ export function buildDashboardTasks(input: TaskInput): DashboardTask[] {
         tasks.push({ ...base, kind: "premium_expiring", tone: "subscription", priority: 40, values: { days } });
       }
     }
+  }
+
+  // A buyer asking for a quote is the hottest lead there is: first among opportunities.
+  if (input.newRequests && input.newRequests > 0) {
+    tasks.push({ kind: "requests_received", tone: "opportunity", priority: 19, values: { count: input.newRequests } });
   }
 
   if (input.awaitingReplies.count > 0) {
@@ -125,6 +153,8 @@ export function buildDashboardTasks(input: TaskInput): DashboardTask[] {
       kind: "profile_incomplete",
       tone: "improve",
       priority: 50,
+      // The company the score was computed for: lets the row link to its editor.
+      companyId: input.completenessCompanyId,
       values: {
         percent: input.completeness.percent,
         first: input.completeness.missing[0] ?? "",

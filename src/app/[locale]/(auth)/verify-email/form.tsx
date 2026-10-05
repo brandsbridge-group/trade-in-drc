@@ -29,6 +29,14 @@ function VerifyEmailContent() {
   const reduce = useReducedMotion();
   const search = useSearchParams();
   const email = search.get("email") ?? "";
+  // Carried from signup: where the visitor was headed (e.g. the company form).
+  // Dropping it here used to strand them on the default landing page.
+  const redirectTarget = search.get("redirect");
+  const withRedirect = (path: string) => {
+    if (!redirectTarget) return path;
+    const context = redirectTarget.includes("/companies/new") ? "&context=company" : "";
+    return `${path}?redirect=${encodeURIComponent(redirectTarget)}${context}`;
+  };
   const [sending, setSending] = useState(false);
   // Signup just sent the first e-mail, so start in cooldown.
   const [cooldown, setCooldown] = useState(RESEND_COOLDOWN_S);
@@ -48,7 +56,8 @@ function VerifyEmailContent() {
     const { error } = await createClient().auth.resend({ type: "signup", email });
     setSending(false);
     if (error) {
-      toast.error(error.message);
+      // Supabase answers in English; say it in the visitor's language.
+      toast.error(error.status === 429 || /security purposes|rate limit/i.test(error.message) ? t("resendRateLimited") : t("resendError"));
     } else {
       toast.success(t("resent"));
       setCooldown(RESEND_COOLDOWN_S);
@@ -120,13 +129,13 @@ function VerifyEmailContent() {
       <div className="mt-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 border-t border-slate-100 pt-3 text-xs text-muted-foreground">
         <p>
           {t("wrongEmail")}{" "}
-          <Link href="/signup" className="font-medium text-primary underline underline-offset-4">
+          <Link href={withRedirect("/signup")} className="font-medium text-primary underline underline-offset-4">
             {t("changeEmail")}
           </Link>
         </p>
         <span className="text-slate-300" aria-hidden>·</span>
         <p>
-          <Link href="/login" className="font-medium text-primary underline underline-offset-4">
+          <Link href={withRedirect("/login")} className="font-medium text-primary underline underline-offset-4">
             {t("backToLogin")}
           </Link>
         </p>

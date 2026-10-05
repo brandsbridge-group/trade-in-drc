@@ -23,13 +23,13 @@ export async function MarketCtaBand() {
         <div className="flex flex-wrap gap-3">
           <Link
             href="/dashboard/products/new"
-            className="rounded-lg border border-white/30 bg-white/5 px-4 py-2.5 text-[13px] font-bold text-white backdrop-blur-sm transition-colors duration-150 ease-out hover:bg-white/15"
+            className="rounded-full border border-white/30 bg-white/5 px-5 py-2.5 text-[13px] font-bold text-white backdrop-blur-sm transition-colors duration-150 ease-out hover:bg-white/15"
           >
             {t("publishOffer")}
           </Link>
           <Link
             href="/request"
-            className="rounded-lg bg-market-or px-4 py-2.5 text-[13px] font-bold text-[var(--color-landing-navy)] shadow-sm transition-colors duration-150 ease-out hover:bg-market-or-dark"
+            className="rounded-full bg-market-or px-5 py-2.5 text-[13px] font-bold text-[var(--color-landing-navy)] transition-colors duration-150 ease-out hover:bg-market-or-light active:bg-market-or-dark"
           >
             {t("publishNeed")}
           </Link>

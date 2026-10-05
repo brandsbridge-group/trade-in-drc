@@ -9,6 +9,7 @@ export async function countOffersByOrigin(supabase: Supabase): Promise<Record<Or
     supabase
       .from("products")
       .select("id, companies!inner(status, registration_profile)", { count: "exact", head: true })
+      .eq("is_published", true)
       .eq("companies.status", "verified")
       .eq("companies.registration_profile", profile);
   const [imp, exp] = await Promise.all([count("international"), count("congolese")]);

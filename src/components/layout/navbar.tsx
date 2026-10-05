@@ -7,15 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/ui/logo";
 import * as React from "react";
 import { useAuth } from "@/lib/auth/auth-provider";
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { LogOut, LayoutDashboard, Building2, Menu, Shield, ChevronRight, Plus } from "lucide-react";
+import { Menu, Shield, ChevronRight, Plus } from "lucide-react";
 import {
     Sheet,
     SheetContent,
@@ -28,6 +20,7 @@ import { createClient } from "@/lib/supabase/client";
 import { ROUTES } from "@/constants/routes";
 import { isAdmin } from "@/constants/roles";
 import { NavPills } from "./nav-pills";
+import { AccountMenu } from "./account-menu";
 
 /** True once the page has scrolled a little — the bar turns to glass. */
 function useScrolled(threshold = 8) {
@@ -125,60 +118,7 @@ export function Navbar() {
                     <LanguageSwitcher />
 
                     {user ? (
-                        <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" className="relative h-8 w-8 shrink-0 rounded-full p-0">
-                                    <Avatar className="h-8 w-8">
-                                        <AvatarFallback className="bg-primary text-primary-foreground text-[11px]">
-                                            {user.email?.substring(0, 2).toUpperCase()}
-                                        </AvatarFallback>
-                                    </Avatar>
-                                </Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent className="w-56" align="end">
-                                <div className="flex items-center gap-2 p-2">
-                                    <Avatar className="h-8 w-8">
-                                        <AvatarFallback className="bg-primary text-primary-foreground text-xs">
-                                            {user.email?.substring(0, 2).toUpperCase()}
-                                        </AvatarFallback>
-                                    </Avatar>
-                                    <div className="flex flex-col">
-                                        <p className="text-sm font-medium truncate max-w-[160px]">
-                                            {user.email}
-                                        </p>
-                                    </div>
-                                </div>
-                                <DropdownMenuSeparator />
-                                {isStaff ? (
-                                    <DropdownMenuItem asChild>
-                                        <Link href={ROUTES.CONSOLE} className="cursor-pointer">
-                                            <Shield className="mr-2 h-4 w-4" />
-                                            {t("adminPanel")}
-                                        </Link>
-                                    </DropdownMenuItem>
-                                ) : (
-                                    <>
-                                        <DropdownMenuItem asChild>
-                                            <Link href={ROUTES.DASHBOARD} className="cursor-pointer">
-                                                <LayoutDashboard className="mr-2 h-4 w-4" />
-                                                {t("dashboard")}
-                                            </Link>
-                                        </DropdownMenuItem>
-                                        <DropdownMenuItem asChild>
-                                            <Link href="/register-company" className="cursor-pointer">
-                                                <Building2 className="mr-2 h-4 w-4" />
-                                                {t("register")}
-                                            </Link>
-                                        </DropdownMenuItem>
-                                    </>
-                                )}
-                                <DropdownMenuSeparator />
-                                <DropdownMenuItem onClick={() => signOut()} className="cursor-pointer text-destructive">
-                                    <LogOut className="mr-2 h-4 w-4" />
-                                    {t("signout")}
-                                </DropdownMenuItem>
-                            </DropdownMenuContent>
-                        </DropdownMenu>
+                        <AccountMenu user={user} signOut={signOut} />
                     ) : (
                         <div className="hidden sm:flex items-center">
                             <Button asChild variant="ghost" size="sm" className="h-8 rounded-full px-3 text-[12px] font-medium text-white/80 hover:bg-white/10 hover:text-white">
@@ -187,15 +127,16 @@ export function Navbar() {
                         </div>
                     )}
 
-                    {/* Primary CTA — marketplace gold, lit top edge. Guests are sent to
-                        /login by the proxy and land back on the form afterwards. Hidden for
-                        staff: publishing is a company action. */}
+                    {/* Primary CTA — marketplace gold, lit top edge. It opens the public
+                        "post a need" form (/request): no account needed, so a visitor is
+                        never sent through /login first. Hidden for staff, who handle the
+                        needs in the console rather than post them. */}
                     {!isStaff && <Link
-                        href={ROUTES.DASHBOARD_PRODUCTS_NEW}
-                        className="group hidden h-8 shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full bg-market-or px-3.5 text-[12px] font-bold text-market-navy shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_4px_14px_-4px_rgba(203,161,78,0.55)] transition-colors duration-150 ease-out hover:bg-market-or-light sm:inline-flex"
+                        href={ROUTES.REQUEST}
+                        className="group hidden h-8 shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full bg-market-or px-3.5 text-[12px] font-bold text-market-navy transition-colors duration-150 ease-out hover:bg-market-or-light active:bg-market-or-dark sm:inline-flex"
                     >
                         <Plus className="h-3.5 w-3.5" aria-hidden />
-                        {t("publishOffer")}
+                        {t("publishNeed")}
                     </Link>}
 
                     {/* Mobile Menu */}
@@ -255,10 +196,10 @@ export function Navbar() {
                                         </SheetClose>
                                     ) : (
                                         <SheetClose asChild>
-                                            <Button asChild className="w-full rounded-xl bg-market-or font-bold text-market-navy hover:bg-market-or-light">
-                                                <Link href={ROUTES.DASHBOARD_PRODUCTS_NEW}>
+                                            <Button asChild className="w-full rounded-xl bg-market-or font-bold text-market-navy hover:bg-market-or-light active:bg-market-or-dark">
+                                                <Link href={ROUTES.REQUEST}>
                                                     <Plus className="h-4 w-4" aria-hidden />
-                                                    {t("publishOffer")}
+                                                    {t("publishNeed")}
                                                 </Link>
                                             </Button>
                                         </SheetClose>

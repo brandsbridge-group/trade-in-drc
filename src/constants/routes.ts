@@ -9,11 +9,14 @@ export const ROUTES = {
   RFQ: '/rfq',
 
   // Dashboard routes
+  /** "Find a local partner": the public form where anyone posts a need. */
+  REQUEST: '/request',
   DASHBOARD: '/dashboard',
   DASHBOARD_COMPANIES: '/dashboard/companies',
+  DASHBOARD_COMPANIES_NEW: '/dashboard/companies/new',
   DASHBOARD_PRODUCTS: '/dashboard/products',
   DASHBOARD_PRODUCTS_NEW: '/dashboard/products/new',
-  DASHBOARD_RFQ: '/dashboard/rfq',
+  DASHBOARD_REQUESTS: '/dashboard/requests',
   DASHBOARD_OPPORTUNITIES: '/dashboard/opportunities',
   DASHBOARD_INBOX: '/dashboard/inbox',
   DASHBOARD_ANALYTICS: '/dashboard/analytics',
@@ -23,6 +26,10 @@ export const ROUTES = {
   CONSOLE: '/console',
   CONSOLE_VERIFICATIONS: '/console/verifications',
   CONSOLE_COMPANIES: '/console/companies',
+  CONSOLE_OPPORTUNITIES: '/console/opportunities',
+  CONSOLE_REQUESTS: '/console/requests',
+  CONSOLE_PREMIUM: '/console/requests/premium',
+  CONSOLE_MESSAGES: '/console/messages',
   CONSOLE_USERS: '/console/users',
   CONSOLE_TAXONOMY: '/console/taxonomy',
   CONSOLE_ANALYTICS: '/console/analytics',

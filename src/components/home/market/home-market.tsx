@@ -39,6 +39,7 @@ export async function HomeMarket({ locale }: { locale: string }) {
     supabase
       .from("products")
       .select(OFFER_CARD_SELECT)
+      .eq("is_published", true)
       .eq("companies.status", "verified")
       .order("created_at", { ascending: false })
       .limit(500),
@@ -48,7 +49,7 @@ export async function HomeMarket({ locale }: { locale: string }) {
   const rows = ((productsRes.data ?? []) as unknown as OfferCardRow[]).filter(
     (p): p is OfferCardRow & { companies: NonNullable<OfferCardRow["companies"]> } => p.companies !== null,
   );
-  const factLabels = { moq: tProducts("card.moq"), leadTime: tProducts("card.leadTime") };
+  const factLabels = { moq: tProducts("card.moq"), leadTime: tProducts("card.leadTime"), yes: tProducts("card.yes"), no: tProducts("card.no") };
   const card = (p: (typeof rows)[number]) => toOfferCardData(p, loc, factLabels);
 
   // Categories present in the catalogue, with their product counts.
@@ -150,7 +151,7 @@ export async function HomeMarket({ locale }: { locale: string }) {
           </label>
           <button
             type="submit"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-market-or px-5 py-3 text-[13px] font-bold text-market-navy shadow-[inset_0_1px_0_rgba(255,255,255,0.35)] transition-colors duration-150 ease-out hover:bg-market-or-light"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-market-or px-5 py-3 text-[13px] font-bold text-market-navy transition-colors duration-150 ease-out hover:bg-market-or-light active:bg-market-or-dark"
           >
             <Search className="h-4 w-4" aria-hidden />
             {t("search.submit")}

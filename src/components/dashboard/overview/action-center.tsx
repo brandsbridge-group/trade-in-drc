@@ -5,12 +5,13 @@ import { useLocale, useTranslations } from "next-intl";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import type { LucideIcon } from "lucide-react";
-import {
+import { ShieldCheck,
   ArrowRight,
   CheckCircle2,
   Clock,
   Crown,
   FileWarning,
+  Inbox,
   MailWarning,
   MessageSquareReply,
   RefreshCw,
@@ -20,6 +21,7 @@ import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { companiesQueryKey } from "@/hooks/use-companies";
 import { resubmitCompanyVerification } from "@/lib/verifications/actions";
+import { completenessHref, type CompletenessKey } from "@/lib/dashboard/overview/profile-completeness";
 import { MAX_TASKS, type DashboardTask, type TaskKind, type TaskTone } from "@/lib/dashboard/overview/tasks";
 
 const TONE: Record<TaskTone, { icon: string; action: string }> = {
@@ -35,6 +37,8 @@ const ICON: Record<TaskKind, LucideIcon> = {
   verification_more_info: ShieldAlert,
   verification_rejected: ShieldAlert,
   verification_pending: Clock,
+  verification_approved: ShieldCheck,
+  requests_received: Inbox,
   messages_awaiting: MailWarning,
   responses_new: MessageSquareReply,
   profile_incomplete: CheckCircle2,
@@ -46,8 +50,15 @@ function taskHref(task: DashboardTask): string | null {
   switch (task.kind) {
     case "verification_documents":
     case "verification_more_info":
+    case "verification_approved":
+      return task.companyId ? `/dashboard/companies/${task.companyId}/verification` : "/dashboard/companies";
     case "profile_incomplete":
-      return task.companyId ? `/dashboard/companies/${task.companyId}/edit` : "/dashboard/companies";
+      // Straight to the section holding the first missing item, not the top of the form.
+      return task.companyId
+        ? completenessHref(task.companyId, task.values?.first as CompletenessKey | undefined)
+        : "/dashboard/companies";
+    case "requests_received":
+      return "/dashboard/requests";
     case "messages_awaiting":
       return "/dashboard/inbox";
     case "responses_new":
@@ -149,7 +160,9 @@ export function ActionCenter({ tasks, userId }: ActionCenterProps) {
             const body =
               task.kind === "profile_incomplete" && !task.values?.second
                 ? t("tasks.profile_incomplete.bodySingle", values)
-                : t(`tasks.${task.kind}.body`, values);
+                : task.kind === "verification_approved" && !task.values?.notes
+                  ? t("tasks.verification_approved.bodyDefault", values)
+                  : t(`tasks.${task.kind}.body`, values);
             const pill = cn(
               "ml-12 inline-flex shrink-0 items-center gap-1 rounded-full px-2.5 py-1 text-[11.5px] font-semibold transition-colors sm:ml-0",
               tone.action

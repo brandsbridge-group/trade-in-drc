@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useTranslations } from "next-intl";
-import { ChevronRight } from "lucide-react";
+import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { OPTIONAL_STEPS, stepsForProfile, type RegistrationProfile } from "./constants";
 
@@ -10,83 +10,72 @@ interface Props {
   current: number;
   /** Which path's steps to render — 2 for Congolese, 3 for international. */
   profile: RegistrationProfile;
-  /** P2-7: jump back to any already-completed step. Omitted step circles
-   *  render as plain (non-interactive) text — used for the current step and
-   *  every step still ahead, which the applicant hasn't validated yet. */
+  /** Jump back to any already-completed step. The current step and every
+   *  step still ahead (not validated yet) render as plain, non-interactive
+   *  segments. */
   onStepClick?: (index: number) => void;
 }
 
 /**
- * Numbered step circles with chevron separators, plus a "Step X of Y"
- * counter (P2-7 — the counter was previously implicit, readable only by
- * counting circles). The current step's circle is solid navy; completed
- * steps are also solid navy and clickable; upcoming steps are outlined gray.
+ * Step segments in the dashboard's visual language (same as the verification
+ * screen's phases): the current step is the navy segment, completed ones show
+ * a green check and are clickable, upcoming ones are muted. A "Step X of Y"
+ * counter sits above for screen readers and small screens alike.
  */
 export function Stepper({ current, profile, onStepClick }: Props) {
   const t = useTranslations("RegisterCompany");
   const steps = stepsForProfile(profile);
 
   return (
-    <nav
-      aria-label={t("stepper.aria")}
-      className="mx-auto w-full max-w-[1500px] px-4 py-6 md:px-6"
-    >
-      <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-slate-500">
-        {t("stepper.counter", { current: current + 1, total: steps.length })}
-      </p>
-      <ol className="flex flex-wrap items-center gap-y-3">
+    <nav aria-label={t("stepper.aria")} className="rounded-2xl bg-white p-3 ring-1 ring-slate-200/70">
+      <p className="sr-only">{t("stepper.counter", { current: current + 1, total: steps.length })}</p>
+      <ol className={cn("grid grid-cols-1 gap-2", steps.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2")}>
         {steps.map((step, i) => {
           const active = i === current;
           const done = i < current;
           const clickable = done && Boolean(onStepClick);
-          const circle = (
-            <span
-              className={cn(
-                "flex size-7 items-center justify-center rounded-full text-xs font-bold transition-colors duration-150",
-                active || done
-                  ? "bg-market-navy text-white"
-                  : "border border-slate-300 text-slate-400"
-              )}
-            >
-              {i + 1}
-            </span>
+          const content = (
+            <>
+              <span
+                className={cn(
+                  "grid size-8 shrink-0 place-items-center rounded-full text-xs font-bold",
+                  done && "bg-emerald-100 text-emerald-700",
+                  active && "bg-market-or text-market-navy",
+                  !done && !active && "bg-slate-100 text-slate-400"
+                )}
+                aria-hidden
+              >
+                {done ? <Check className="size-4" /> : i + 1}
+              </span>
+              <span className="min-w-0 text-left">
+                <span className={cn("block truncate text-[13px] font-semibold", !active && (done ? "text-market-navy" : "text-slate-500"))}>
+                  {t(`stepper.steps.${step}`)}
+                </span>
+                <span className={cn("block truncate text-[11.5px]", active ? "text-white/65" : "text-slate-400")}>
+                  {OPTIONAL_STEPS.includes(step)
+                    ? t("stepper.optional")
+                    : t("stepper.counter", { current: i + 1, total: steps.length })}
+                </span>
+              </span>
+            </>
           );
-          const label = (
-            <span
-              className={cn(
-                "text-sm font-medium",
-                active ? "text-market-navy" : "text-slate-500"
-              )}
-            >
-              {t(`stepper.steps.${step}`)}
-              {OPTIONAL_STEPS.includes(step) && (
-                <span className="ml-1 font-normal text-slate-400">({t("stepper.optional")})</span>
-              )}
-            </span>
+          const segment = cn(
+            "flex w-full min-w-0 items-center gap-3 rounded-xl px-3 py-2.5",
+            active && "bg-market-navy text-white"
           );
           return (
-            <li key={step} className="flex items-center">
+            <li key={step} aria-current={active ? "step" : undefined} className="min-w-0">
               {clickable ? (
                 <button
                   type="button"
                   onClick={() => onStepClick?.(i)}
                   aria-label={t("stepper.jumpTo", { step: t(`stepper.steps.${step}`) })}
-                  className="flex items-center gap-2 rounded-[0.5rem] transition-colors duration-150 hover:opacity-80"
+                  className={cn(segment, "transition-colors duration-150 hover:bg-slate-50")}
                 >
-                  {circle}
-                  {label}
+                  {content}
                 </button>
               ) : (
-                <div className="flex items-center gap-2">
-                  {circle}
-                  {label}
-                </div>
-              )}
-              {i < steps.length - 1 && (
-                <ChevronRight
-                  className="mx-3 size-4 text-slate-300"
-                  aria-hidden
-                />
+                <div className={segment}>{content}</div>
               )}
             </li>
           );

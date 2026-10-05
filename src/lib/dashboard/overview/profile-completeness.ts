@@ -59,3 +59,27 @@ export function profileCompleteness(input: CompletenessInput): CompletenessResul
   const percent = Math.round(((CRITERIA.length - missing.length) / CRITERIA.length) * 100);
   return { percent, missing };
 }
+
+/** Sections of the company editor (`/dashboard/companies/[id]/edit#section`). */
+export const EDITOR_SECTIONS = ["presentation", "commerce", "contact", "media"] as const;
+export type EditorSection = (typeof EDITOR_SECTIONS)[number];
+
+/** Where each criterion is filled in; `null` = not in the editor (a product is added on its own page). */
+export const COMPLETENESS_SECTION: Record<CompletenessKey, EditorSection | null> = {
+  logo: "media",
+  photos: "media",
+  description: "presentation",
+  location: "presentation",
+  website: "presentation",
+  contact: "contact",
+  certifications: "commerce",
+  markets: "commerce",
+  products: null,
+};
+
+/** Link that takes the owner straight to the place where a missing item is filled in. */
+export function completenessHref(companyId: string, key: CompletenessKey | undefined): string {
+  if (key === "products") return "/dashboard/products/new";
+  const section = key ? COMPLETENESS_SECTION[key] : null;
+  return `/dashboard/companies/${companyId}/edit${section ? `#${section}` : ""}`;
+}

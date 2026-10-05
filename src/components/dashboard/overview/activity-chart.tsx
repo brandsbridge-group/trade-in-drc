@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
  * raw brand navy #0B1F3A reads as near-black in a chart and fails the
  * lightness band, so it is kept for text and chrome only.
  */
-const SERIES_COLOR = { blue: "#24508F", gold: "#B68B3A" } as const;
+export const SERIES_COLOR = { blue: "#24508F", gold: "#B68B3A" } as const;
 
 export interface ChartSeries {
   key: string;
@@ -28,6 +28,12 @@ interface ActivityChartProps {
   series: ChartSeries[];
   /** ISO date of the first daily value. */
   startDate: string;
+  /** Unit after the big total; defaults to "views over the period". */
+  totalLabel?: string;
+  /** Label of the "days with activity" reading; defaults to "days with views". */
+  activeDaysLabel?: string;
+  /** Extra header control (e.g. a metric switch), shown above the legend. */
+  controls?: React.ReactNode;
 }
 
 const DAY_MS = 86_400_000;
@@ -89,7 +95,7 @@ function segmentStyle(s: ChartSeries): React.CSSProperties {
  * hover or keyboard focus, a legend when there are two series, and a visually
  * hidden table carrying the same numbers.
  */
-export function ActivityChart({ title, subtitle, series, startDate }: ActivityChartProps) {
+export function ActivityChart({ title, subtitle, series, startDate, totalLabel, activeDaysLabel, controls }: ActivityChartProps) {
   const t = useTranslations("DashboardOverview.chart");
   const format = useFormatter();
   const [active, setActive] = React.useState<number | null>(null);
@@ -114,19 +120,22 @@ export function ActivityChart({ title, subtitle, series, startDate }: ActivityCh
           {subtitle && <p className="text-xs text-slate-500">{subtitle}</p>}
           <p className="mt-2 font-display text-[26px] font-semibold leading-none tracking-tight text-market-navy tabular-nums">
             {format.number(total)}
-            <span className="ml-1.5 font-sans text-xs font-normal text-slate-500">{t("totalLabel")}</span>
+            <span className="ml-1.5 font-sans text-xs font-normal text-slate-500">{totalLabel ?? t("totalLabel")}</span>
           </p>
         </div>
-        {series.length > 1 && (
-          <ul className="flex flex-wrap gap-3 text-xs text-slate-600" aria-label={t("legend")}>
-            {series.map((s) => (
-              <li key={s.key} className="flex items-center gap-1.5">
-                <span className="h-2.5 w-2.5 rounded-[3px]" style={segmentStyle(s)} aria-hidden />
-                {s.label}
-              </li>
-            ))}
-          </ul>
-        )}
+        <div className="flex flex-col items-end gap-3">
+          {controls}
+          {series.length > 1 && (
+            <ul className="flex flex-wrap gap-3 text-xs text-slate-600" aria-label={t("legend")}>
+              {series.map((s) => (
+                <li key={s.key} className="flex items-center gap-1.5">
+                  <span className="h-2.5 w-2.5 rounded-[3px]" style={segmentStyle(s)} aria-hidden />
+                  {s.label}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
 
       <div className="mb-5 mt-5 flex gap-2">
@@ -244,7 +253,7 @@ export function ActivityChart({ title, subtitle, series, startDate }: ActivityCh
           </div>
         ) : (
           <div>
-            <dt className="text-[11px] text-slate-500">{t("activeDays")}</dt>
+            <dt className="text-[11px] text-slate-500">{activeDaysLabel ?? t("activeDays")}</dt>
             <dd className="mt-0.5 font-display text-lg font-semibold tabular-nums text-market-navy">
               {series[0]?.values.filter((v) => v > 0).length ?? 0}
               <span className="ml-1 font-sans text-xs font-normal text-slate-500">/ {days}</span>

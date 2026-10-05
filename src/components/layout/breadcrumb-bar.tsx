@@ -11,10 +11,10 @@ export interface Crumb {
  * global navbar. The last crumb is the current page (no link). Rendered at the
  * top of a page's content so it visually continues the navy navbar chrome.
  */
-export function BreadcrumbBar({ items }: { items: Crumb[] }) {
+export function BreadcrumbBar({ items, boxed = false }: { items: Crumb[]; /** Align with a boxed page (max-w-6xl) instead of the wide marketplace width. */ boxed?: boolean }) {
   return (
     <nav aria-label="Breadcrumb" className="border-t border-white/10 bg-market-navy text-white">
-      <div className="mx-auto flex w-full max-w-[1500px] items-center gap-2 px-4 py-2.5 text-xs md:px-6">
+      <div className={boxed ? "mx-auto flex w-full max-w-6xl items-center gap-2 px-4 py-2.5 text-xs" : "mx-auto flex w-full max-w-[1500px] items-center gap-2 px-4 py-2.5 text-xs md:px-6"}>
         {items.map((c, i) => {
           const last = i === items.length - 1;
           return (

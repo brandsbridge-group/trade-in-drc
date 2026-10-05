@@ -1,11 +1,11 @@
 "use client";
 
 import * as React from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/routing";
 import { toast } from "sonner";
 import { CheckCircle2, AlertCircle, XCircle } from "lucide-react";
-import { createClient } from "@/lib/supabase/client";
+import { saveTrustProfile } from "@/lib/verifications/actions";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -78,6 +78,7 @@ export function TrustProfileForm({
   const tStatus = useTranslations("Trust.report.status");
   const tBadge = useTranslations("Trust.badge");
   const router = useRouter();
+  const locale = useLocale();
 
   const [tier, setTier] = React.useState<VerificationTier>(initialTier ?? "none");
   const [checks, setChecks] = React.useState<Record<VerificationCheckKey, CheckState>>(
@@ -128,15 +129,11 @@ export function TrustProfileForm({
       }
       const summary = normalizeSummary(parsed.data);
 
-      const supabase = createClient();
-      const { error } = await supabase
-        .from("companies")
-        .update({
-          verification_tier: tier,
-          verification_summary: summary as never,
-        } as never)
-        .eq("id", companyId);
-      if (error) throw error;
+      // Server action: merges the checks into the existing summary (keeping the
+      // company's registration intake) and routes a tier change through the
+      // audited path. Writing the columns from the browser did neither.
+      const result = await saveTrustProfile({ companyId, tier, summary, locale });
+      if (!result.ok) throw new Error(t("saveFailed"));
 
       toast.success(t("saved"), { id: toastId });
       router.refresh();

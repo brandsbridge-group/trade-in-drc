@@ -2,6 +2,7 @@
 
 import { cookies } from "next/headers";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { viewDayStart } from "@/lib/analytics/view-day";
 import type {
   AnalyticsEntityType,
   AnalyticsEventType,
@@ -31,6 +32,23 @@ export async function trackEvent(
   }
 
   const supabase = createAdminClient();
+
+  // One view per visitor, per page, per calendar day: a reload or a second tab
+  // the same day is the same visitor looking at the same page, not a new view.
+  if (eventType === "view") {
+    const since = viewDayStart(new Date());
+    const { data: recent } = await supabase
+      .from("analytics_events")
+      .select("id")
+      .eq("entity_type", entityType)
+      .eq("entity_id", entityId)
+      .eq("event_type", "view")
+      .eq("visitor_id", visitorId)
+      .gte("created_at", since)
+      .limit(1);
+    if (recent && recent.length > 0) return { ok: true };
+  }
+
   const { error } = await supabase.from("analytics_events").insert({
     entity_type: entityType,
     entity_id: entityId,

@@ -1,12 +1,19 @@
 import Image from "next/image";
-import { useTranslations } from "next-intl";
-import { ArrowRight, BadgeCheck, Clock, MapPin } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import { ArrowRight, BadgeCheck, Clock, Images, MapPin } from "lucide-react";
 
 import { Link } from "@/i18n/routing";
+import { pricingDisplay, type ProductPricing } from "@/lib/products/pricing";
 
 export interface OfferCardData {
   id: string;
   name: string;
+  /** The seller's description, shortened; clamped to two lines on the card. */
+  excerpt?: string | null;
+  /** Photos the seller uploaded (0 when the visual is illustrative). */
+  photoCount?: number;
+  /** The product's own price and minimum order (00064); nothing is printed when neither is stated. */
+  pricing?: ProductPricing | null;
   category: string | null;
   verified: boolean;
   supplier: string;
@@ -26,6 +33,9 @@ export interface OfferCardData {
  */
 export function OfferCard({ offer }: { offer: OfferCardData }) {
   const t = useTranslations("MarketProducts.card");
+  const tPricing = useTranslations("ProductPricing");
+  const locale = useLocale();
+  const pricing = offer.pricing ? pricingDisplay(offer.pricing, tPricing, locale) : null;
   const href = `/products/${offer.id}`;
 
   return (
@@ -74,6 +84,12 @@ export function OfferCard({ offer }: { offer: OfferCardData }) {
             {t("illustrative")}
           </span>
         )}
+        {(offer.photoCount ?? 0) > 1 && (
+          <span className="absolute bottom-2 left-3 inline-flex items-center gap-1 rounded-full bg-slate-950/55 px-2 py-0.5 text-[10px] font-semibold text-white backdrop-blur-sm">
+            <Images className="h-3 w-3" aria-hidden />
+            {t("photos", { count: offer.photoCount ?? 0 })}
+          </span>
+        )}
       </div>
 
       <div className="flex flex-1 flex-col p-4">
@@ -112,6 +128,23 @@ export function OfferCard({ offer }: { offer: OfferCardData }) {
             {offer.name}
           </Link>
         </h3>
+
+        {pricing && (pricing.price || pricing.minOrder) && (
+          <p className="mt-1.5 flex flex-wrap items-baseline gap-x-1.5 text-xs text-slate-500">
+            {pricing.price && (
+              <span>
+                <span className="text-[15px] font-bold tabular-nums text-[var(--color-landing-navy)]">{pricing.price}</span>{" "}
+                {tPricing("perUnit", { unit: pricing.unit ?? "" })}
+              </span>
+            )}
+            {pricing.price && pricing.minOrder && <span aria-hidden>·</span>}
+            {pricing.minOrder && <span>{tPricing("minShort", { quantity: pricing.minOrder })}</span>}
+          </p>
+        )}
+
+        {offer.excerpt && (
+          <p className="mt-1.5 line-clamp-2 text-[12.5px] leading-relaxed text-slate-600">{offer.excerpt}</p>
+        )}
 
         {offer.facts.length > 0 && (
           <dl className="mt-3 grid grid-cols-3 gap-2 rounded-xl bg-slate-50 p-2.5">

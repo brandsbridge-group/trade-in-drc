@@ -19,6 +19,7 @@ export type CompanyDocumentType =
   | "additional_document";
 export type CompanyDocumentStatus = "pending" | "approved" | "rejected";
 export type VerificationDecision =
+  | "submitted"
   | "approved"
   | "rejected"
   | "more_info_requested"
@@ -168,6 +169,52 @@ export interface Database {
           name_fr?: string;
           slug?: string;
           parent_id?: string | null;
+        };
+        Relationships: [];
+      };
+      // 00055_category_spec_fields — specification template of a product category
+      category_spec_fields: {
+        Row: {
+          id: string;
+          category_id: string;
+          key: string;
+          label_en: string;
+          label_fr: string;
+          field_type: "text" | "number" | "select" | "boolean";
+          unit: string | null;
+          options: Json;
+          required: boolean;
+          sort_order: number;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          category_id: string;
+          key: string;
+          label_en: string;
+          label_fr: string;
+          field_type?: "text" | "number" | "select" | "boolean";
+          unit?: string | null;
+          options?: Json;
+          required?: boolean;
+          sort_order?: number;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          category_id?: string;
+          key?: string;
+          label_en?: string;
+          label_fr?: string;
+          field_type?: "text" | "number" | "select" | "boolean";
+          unit?: string | null;
+          options?: Json;
+          required?: boolean;
+          sort_order?: number;
+          created_at?: string;
+          updated_at?: string;
         };
         Relationships: [];
       };
@@ -338,6 +385,10 @@ export interface Database {
           file_url: string;
           file_name: string;
           status: CompanyDocumentStatus;
+          // 00058: per-document review
+          review_note: string | null;
+          reviewed_by: string | null;
+          reviewed_at: string | null;
           created_at: string;
         };
         Insert: {
@@ -347,6 +398,9 @@ export interface Database {
           file_url: string;
           file_name: string;
           status?: CompanyDocumentStatus;
+          review_note?: string | null;
+          reviewed_by?: string | null;
+          reviewed_at?: string | null;
           created_at?: string;
         };
         Update: {
@@ -356,6 +410,9 @@ export interface Database {
           file_url?: string;
           file_name?: string;
           status?: CompanyDocumentStatus;
+          review_note?: string | null;
+          reviewed_by?: string | null;
+          reviewed_at?: string | null;
           created_at?: string;
         };
         Relationships: [];
@@ -369,6 +426,13 @@ export interface Database {
           category_id: string | null;
           images: string[];
           specs: Json | null;
+          // 00057: seller's hide/show switch
+          is_published: boolean;
+          // 00064: price of one sale_unit and smallest order, both optional
+          price: number | null;
+          price_currency: "USD" | "EUR" | "CDF";
+          sale_unit: string | null;
+          min_order_quantity: number | null;
           // 00009_global_search
           search_en: string | null;
           search_fr: string | null;
@@ -389,6 +453,11 @@ export interface Database {
           category_id?: string | null;
           images?: string[];
           specs?: Json | null;
+          is_published?: boolean;
+          price?: number | null;
+          price_currency?: "USD" | "EUR" | "CDF";
+          sale_unit?: string | null;
+          min_order_quantity?: number | null;
           search_en?: string | null;
           search_fr?: string | null;
           name_en?: string | null;
@@ -407,6 +476,11 @@ export interface Database {
           category_id?: string | null;
           images?: string[];
           specs?: Json | null;
+          is_published?: boolean;
+          price?: number | null;
+          price_currency?: "USD" | "EUR" | "CDF";
+          sale_unit?: string | null;
+          min_order_quantity?: number | null;
           search_en?: string | null;
           search_fr?: string | null;
           name_en?: string | null;
@@ -1794,6 +1868,18 @@ export interface Database {
           admin_notes: string | null;
           // 00030_business_request_reference (DB default: TIDRC-PR-YYYY-NNNNNN)
           reference: string | null;
+          // 00062_forward_requests_to_supplier
+          target_company_id: string | null;
+          product_id: string | null;
+          quantity: string | null;
+          interest: string | null;
+          forwarded_at: string | null;
+          forwarded_by: string | null;
+          supplier_seen_at: string | null;
+          // 00065_partner_request_details
+          details: Json;
+          attachment_path: string | null;
+          attachment_name: string | null;
           created_at: string;
           updated_at: string;
         };
@@ -1816,6 +1902,16 @@ export interface Database {
           follow_up_owner?: string | null;
           admin_notes?: string | null;
           reference?: string | null;
+          target_company_id?: string | null;
+          product_id?: string | null;
+          quantity?: string | null;
+          interest?: string | null;
+          forwarded_at?: string | null;
+          forwarded_by?: string | null;
+          supplier_seen_at?: string | null;
+          details?: Json;
+          attachment_path?: string | null;
+          attachment_name?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -1839,6 +1935,16 @@ export interface Database {
           status?: BusinessRequestStatus;
           follow_up_owner?: string | null;
           admin_notes?: string | null;
+          target_company_id?: string | null;
+          product_id?: string | null;
+          quantity?: string | null;
+          interest?: string | null;
+          forwarded_at?: string | null;
+          forwarded_by?: string | null;
+          supplier_seen_at?: string | null;
+          details?: Json;
+          attachment_path?: string | null;
+          attachment_name?: string | null;
           created_at?: string;
           updated_at?: string;
         };

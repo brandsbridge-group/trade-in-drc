@@ -28,7 +28,6 @@ vi.mock("./register-company-actions", () => ({
 }));
 
 vi.mock("./stepper", () => ({ Stepper: () => <div data-testid="stepper" /> }));
-vi.mock("./intl-strips", () => ({ IntlStrips: () => <div data-testid="intl-strips" /> }));
 
 type StepProps = { update: (patch: Partial<RegisterFormData>) => void; data: RegisterFormData };
 
@@ -72,7 +71,7 @@ vi.mock("./step-market-interest-optional", () => ({
   ),
 }));
 
-import { RegisterWizard, toSubmitData, type RegisterAccount } from "./register-wizard";
+import { RegisterWizard, readDraft, toSubmitData, type RegisterAccount } from "./register-wizard";
 import { EMPTY_FORM } from "./types";
 
 const ACCOUNT: RegisterAccount = {
@@ -103,6 +102,7 @@ describe("RegisterWizard — signed out", () => {
   beforeEach(() => {
     pushMock.mockReset();
     registerCompanyMock.mockReset();
+    window.localStorage.clear();
   });
 
   it("sends the visitor to account creation instead of showing the form", () => {
@@ -117,6 +117,7 @@ describe("RegisterWizard — signed in", () => {
   beforeEach(() => {
     pushMock.mockReset();
     registerCompanyMock.mockReset();
+    window.localStorage.clear();
   });
 
   it("creates a Congolese company in two steps, as free, with the account's contact details", async () => {
@@ -194,6 +195,35 @@ describe("RegisterWizard — signed in", () => {
 
     await waitFor(() => expect(screen.getByTestId("step-company")).toBeTruthy());
     expect(screen.getByRole("alert").textContent).toContain("fields.city");
+  });
+});
+
+describe("RegisterWizard — draft", () => {
+  beforeEach(() => {
+    registerCompanyMock.mockReset();
+    window.localStorage.clear();
+  });
+
+  it("keeps what was typed across a reload, and drops it once the company exists", async () => {
+    registerCompanyMock.mockResolvedValue({ ok: true, companyId: "c1" });
+    const first = render(
+      <QueryClientProvider client={new QueryClient()}>
+        <RegisterWizard sectors={[]} account={ACCOUNT} />
+      </QueryClientProvider>
+    );
+    await walkToContact();
+    await screen.findByTestId("step-contact");
+    await waitFor(() => expect(readDraft(ACCOUNT.id)?.data.companyLegalName).toBe("Acme SARL"));
+    first.unmount();
+
+    // "Reload": a fresh mount resumes on the contact step, past the gate.
+    renderWizard(ACCOUNT);
+    expect(await screen.findByTestId("step-contact")).toBeTruthy();
+    expect(screen.getByText("draft.restored")).toBeTruthy();
+
+    fireEvent.click(screen.getByText("nav.submit"));
+    expect(await screen.findByText("success.title")).toBeTruthy();
+    expect(readDraft(ACCOUNT.id)).toBeNull();
   });
 });
 

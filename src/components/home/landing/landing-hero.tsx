@@ -47,7 +47,7 @@ export async function LandingHero({ locale }: { locale: string }) {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/market"
-              className="group inline-flex items-center gap-2 rounded-full bg-market-or px-6 py-3 text-sm font-bold text-market-navy shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_10px_30px_-10px_rgba(203,161,78,0.6)] transition-colors duration-150 ease-out hover:bg-market-or-light"
+              className="group inline-flex items-center gap-2 rounded-full bg-market-or px-6 py-3 text-sm font-bold text-market-navy transition-colors duration-150 ease-out hover:bg-market-or-light active:bg-market-or-dark"
             >
               {t("ctaMarket")}
               <ArrowRight

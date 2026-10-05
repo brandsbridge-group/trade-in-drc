@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
 import { Badge } from "@/components/ui/badge";
-import { PageHeader } from "@/components/design";
+import { PageHeader } from "@/components/console/page-header";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import type { MessageReportStatus } from "@/lib/supabase/types";
 import { ReportTriage } from "./report-triage";
@@ -141,8 +141,9 @@ export default async function AdminMessagesPage({
       <div className="grid gap-6 lg:grid-cols-[1fr_minmax(0,360px)]">
         {/* Moderation queue */}
         <div>
+          <div className="console-table-card">
           <table className="w-full text-sm border-collapse">
-            <thead className="text-left text-xs text-muted-foreground border-b">
+            <thead className="text-left">
               <tr>
                 <th className="py-2 pr-4">{t("columns.message")}</th>
                 <th className="py-2 pr-4">{t("columns.reason")}</th>
@@ -208,6 +209,7 @@ export default async function AdminMessagesPage({
               )}
             </tbody>
           </table>
+          </div>
         </div>
 
         {/* Read-only thread viewer */}

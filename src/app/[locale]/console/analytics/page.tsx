@@ -1,8 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
 import {
     Building2,
     CheckCircle,
@@ -11,9 +9,10 @@ import {
     Users,
     FileText,
 } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useFormatter, useTranslations } from "next-intl";
 import { createClient } from "@/lib/supabase/client";
-import { PageHeader } from "@/components/design";
+import { PageHeader } from "@/components/console/page-header";
+import { KpiTile, KpiTileSkeleton } from "@/components/dashboard/overview/kpi-tile";
 
 interface PlatformStats {
     totalCompanies: number;
@@ -29,42 +28,37 @@ const STAT_CARDS = [
         key: "totalCompanies" as const,
         labelKey: "totalCompanies" as const,
         icon: Building2,
-        color: "text-primary",
     },
     {
         key: "verifiedCompanies" as const,
         labelKey: "verifiedCompanies" as const,
         icon: CheckCircle,
-        color: "text-green-600",
     },
     {
         key: "pendingCompanies" as const,
         labelKey: "pendingCompanies" as const,
         icon: Clock,
-        color: "text-amber-500",
     },
     {
         key: "rejectedCompanies" as const,
         labelKey: "rejectedCompanies" as const,
         icon: XCircle,
-        color: "text-destructive",
     },
     {
         key: "registeredUsers" as const,
         labelKey: "registeredUsers" as const,
         icon: Users,
-        color: "text-blue-600",
     },
     {
         key: "activeRfqListings" as const,
         labelKey: "activeRfqListings" as const,
         icon: FileText,
-        color: "text-indigo-600",
     },
 ];
 
 export default function AdminAnalyticsPage() {
     const t = useTranslations("Admin.analytics");
+    const format = useFormatter();
     const [stats, setStats] = React.useState<PlatformStats | null>(null);
     const [loading, setLoading] = React.useState(true);
     const [error, setError] = React.useState<string | null>(null);
@@ -109,40 +103,29 @@ export default function AdminAnalyticsPage() {
     }, [t]);
 
     return (
-        <div className="p-4">
+        <div className="space-y-4">
             <PageHeader
                 title={t("title")}
                 subtitle={t("subtitle")}
             />
 
             {error ? (
-                <p className="text-sm text-destructive">{error}</p>
+                <p role="alert" className="rounded-2xl bg-red-50 px-5 py-6 text-center text-sm text-red-700">{error}</p>
             ) : (
-                <div className="grid grid-cols-3 gap-3">
-                    {STAT_CARDS.map((card) => (
-                        <Card key={card.key} className="p-0">
-                            <CardContent className="p-3">
-                                {loading ? (
-                                    <div className="space-y-2">
-                                        <Skeleton className="h-3 w-24" />
-                                        <Skeleton className="h-7 w-12" />
-                                    </div>
-                                ) : (
-                                    <>
-                                        <div className="flex items-center gap-1.5 mb-1">
-                                            <card.icon className={`w-3.5 h-3.5 ${card.color}`} />
-                                            <span className="text-xs uppercase tracking-wide text-muted-foreground font-medium">
-                                                {t(card.labelKey)}
-                                            </span>
-                                        </div>
-                                        <div className="text-2xl font-bold">
-                                            {stats?.[card.key] ?? 0}
-                                        </div>
-                                    </>
-                                )}
-                            </CardContent>
-                        </Card>
-                    ))}
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                    {STAT_CARDS.map((card, i) =>
+                        loading ? (
+                            <KpiTileSkeleton key={card.key} />
+                        ) : (
+                            <KpiTile
+                                key={card.key}
+                                highlight={i === 0}
+                                icon={card.icon}
+                                label={t(card.labelKey)}
+                                value={format.number(stats?.[card.key] ?? 0)}
+                            />
+                        )
+                    )}
                 </div>
             )}
         </div>

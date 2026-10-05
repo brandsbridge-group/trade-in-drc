@@ -62,6 +62,8 @@ export const VERIFICATION_TIERS = [
  * flow, not the admin decision panel.
  */
 export const VERIFICATION_DECISION = {
+  /** 00058 — the owner's first send (recorded by submitCompanyForReview). */
+  SUBMITTED: 'submitted',
   APPROVED: 'approved',
   REJECTED: 'rejected',
   MORE_INFO_REQUESTED: 'more_info_requested',

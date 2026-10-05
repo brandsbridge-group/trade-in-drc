@@ -1,3 +1,4 @@
+import { specEntries, toSpecFields } from "@/lib/products/specs";
 /**
  * Shared marketplace-offer helpers (listing page + offer detail page).
  *
@@ -48,17 +49,11 @@ export function placeOf(c: Pick<OfferCompanyFacts, "registration_profile" | "cou
   return c.registration_profile === "congolese" ? c.province : c.country;
 }
 
-export function humanizeKey(key: string): string {
-  const s = key.replace(/_/g, " ");
-  return s.charAt(0).toUpperCase() + s.slice(1);
-}
-
-/** Printable spec entries; nested objects and empty values are skipped. */
-export function specEntries(specs: unknown): { label: string; value: string }[] {
-  if (!specs || typeof specs !== "object" || Array.isArray(specs)) return [];
-  return Object.entries(specs as Record<string, unknown>)
-    .filter(([, v]) => (typeof v === "string" && v.trim() !== "") || typeof v === "number")
-    .map(([k, v]) => ({ label: humanizeKey(k), value: String(v) }));
+/** How a product's specs are read: its category's template (00055) and the reader's language. */
+export interface SpecContext {
+  /** Raw `category_spec_fields` rows embedded under the product's category. */
+  fields?: unknown;
+  locale?: string;
 }
 
 /**
@@ -68,12 +63,19 @@ export function specEntries(specs: unknown): { label: string; value: string }[] 
 export function cardFacts(
   company: Pick<OfferCompanyFacts, "moq" | "lead_time">,
   specs: unknown,
-  labels: { moq: string; leadTime: string },
+  labels: { moq: string; leadTime: string; yes?: string; no?: string },
+  spec: SpecContext = {},
 ): { label: string; value: string }[] {
   const facts: { label: string; value: string }[] = [];
   if (company.moq) facts.push({ label: labels.moq, value: company.moq });
   if (company.lead_time) facts.push({ label: labels.leadTime, value: company.lead_time });
-  for (const entry of specEntries(specs)) {
+  const entries = specEntries(specs, {
+    fields: toSpecFields(spec.fields),
+    locale: spec.locale,
+    yes: labels.yes,
+    no: labels.no,
+  });
+  for (const entry of entries) {
     if (facts.length >= 3) break;
     facts.push(entry);
   }

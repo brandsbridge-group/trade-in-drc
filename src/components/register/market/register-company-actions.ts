@@ -7,6 +7,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { COMPANY_STATUS, VERIFICATION_TIER } from "@/constants/status";
 import { HOME_COUNTRY } from "@/config/geo";
 import { toExternalHref } from "@/lib/url/external-href";
+import { isAdmin } from "@/constants/roles";
 import {
   REGISTRATION_PROFILES,
   DRC_INTERESTS,
@@ -93,24 +94,15 @@ const payloadSchema = z
   });
 
 /**
- * Compose a human-readable notes block appended to `description` so admins
- * scanning the pending company at /console/companies see the legal identity and
- * positioning at a glance (the structured copy lives in verification_summary).
+ * `description` is the PUBLIC pitch shown on the company profile, so it holds
+ * only what the owner wrote about their activity. It used to carry an
+ * "— Registration intake —" block (legal name, contact person, DRC interests)
+ * for reviewers: that leaked the contact's name onto the public page and made
+ * an empty profile look described. Reviewers read the same data, structured,
+ * from `verification_summary.registration_intake`.
  */
-function buildDescription(d: ParsedPayload["data"]): string {
-  const line = (label: string, value: string | undefined | null) =>
-    value?.trim() ? `${label}: ${value.trim()}` : null;
-  const lines = [
-    d.productsServices?.trim() || null,
-    "",
-    "— Registration intake —",
-    line("Legal name", d.companyLegalName),
-    line("Head office", d.headOffice),
-    line("Contact", d.contactPerson),
-    d.drcInterests.length ? `DRC interests: ${d.drcInterests.join(", ")}` : null,
-    line("Entry timeline", d.entryTimeline),
-  ].filter((l) => l !== null);
-  return lines.join("\n");
+function buildDescription(d: ParsedPayload["data"]): string | null {
+  return d.productsServices?.trim() || null;
 }
 
 /**
@@ -164,6 +156,15 @@ async function doRegisterCompany(
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) return { ok: false, error: "auth" };
+
+  // Staff accounts run the console; they never own a company (the page already
+  // redirects them — this is the gate that holds if it is bypassed).
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("account_type, staff_role, role")
+    .eq("id", user.id)
+    .maybeSingle();
+  if (isAdmin(profile)) return { ok: false, error: "staff" };
 
   const admin = createAdminClient();
   const { data: row, error } = await admin

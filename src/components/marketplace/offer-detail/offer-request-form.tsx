@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState, useTransition } from "react";
 import { useTranslations } from "next-intl";
-import { CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { Link } from "@/i18n/routing";
 
 import { useAuth } from "@/lib/auth/auth-provider";
 import { COUNTRIES } from "@/config/geo";
@@ -87,9 +88,19 @@ export function OfferRequestForm({ productId }: { productId: string }) {
         </p>
         <p className="mt-1 text-[13px] leading-relaxed text-slate-600">{t("doneBody")}</p>
         {reference && (
-          <p className="mt-3 rounded-lg bg-slate-50 px-3 py-2 text-[13px] text-slate-700">
-            {t("reference")} <span className="font-mono font-semibold">{reference}</span>
-          </p>
+          <>
+            <p className="mt-3 rounded-lg bg-slate-50 px-3 py-2 text-[13px] text-slate-700">
+              {t("reference")} <span className="font-mono font-semibold">{reference}</span>
+            </p>
+            {/* The reference alone is useless to the buyer: this is where it leads. */}
+            <Link
+              href={`/request/track?ref=${encodeURIComponent(reference)}`}
+              className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-semibold text-market-navy underline-offset-2 transition-colors hover:text-market-or-dark hover:underline"
+            >
+              {t("track")}
+              <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+            </Link>
+          </>
         )}
       </div>
     );

@@ -4,6 +4,7 @@ import { z } from "zod";
 import { dbId } from "@/lib/validation/db-id";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { recordContactRequest } from "@/lib/analytics/contact-request";
 
 const INTEREST_VALUES = [
   "distribution",
@@ -37,6 +38,9 @@ interface Result {
  * submitter_id set to the signed-in user or NULL for guests (migration 00028
  * makes the column nullable). The visitor never touches contact PII — this is a
  * one-way lead the Trade in DRC team triages before making an introduction.
+ *
+ * The company reads it only once staff has forwarded it (00062): the target,
+ * the kind of relationship and the visitor's own words each have their column.
  */
 export async function submitIntroRequest(input: IntroRequestInput): Promise<Result> {
   const parsed = introRequestSchema.safeParse(input);
@@ -48,28 +52,33 @@ export async function submitIntroRequest(input: IntroRequestInput): Promise<Resu
     data: { user },
   } = await supabase.auth.getUser();
 
-  const messageParts = [
-    `Introduction request for: ${d.companyName}`,
-    `Interest: ${d.interest}`,
-    d.message ? `Message: ${d.message}` : null,
-  ].filter(Boolean);
-
   const admin = createAdminClient();
+  // The target comes from the database, never from the form's company name.
+  const { data: company } = await admin
+    .from("companies")
+    .select("id")
+    .eq("id", d.companyId)
+    .maybeSingle();
+  if (!company) return { ok: false, error: "invalid" };
+
   const { error } = await admin.from("business_requests").insert({
     submitter_id: user?.id ?? null,
-    company_id: d.companyId,
+    company_id: company.id,
+    target_company_id: company.id,
+    interest: d.interest,
     kind: "business",
     intent: "find_partner",
     full_name: d.fullName,
     company_name: d.submitterCompany,
     email: d.email,
     phone: d.phone || null,
-    message: messageParts.join("\n"),
+    message: d.message || "",
   });
 
   if (error) {
     console.error("[submitIntroRequest]", error.code, error.message);
     return { ok: false, error: "server" };
   }
+  await recordContactRequest(company.id);
   return { ok: true };
 }

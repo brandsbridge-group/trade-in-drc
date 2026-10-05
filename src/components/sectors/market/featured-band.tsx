@@ -67,7 +67,7 @@ export async function FeaturedBand({ miniCards }: { miniCards: FeaturedMiniCard[
             <div className="mt-6 flex justify-end">
               <Link
                 href="/request"
-                className="inline-flex items-center gap-2 rounded-md bg-market-gold px-5 py-2.5 text-sm font-semibold text-market-navy transition-colors duration-150 hover:brightness-95"
+                className="inline-flex items-center gap-2 rounded-full bg-market-or px-5 py-2.5 text-sm font-semibold text-market-navy transition-colors duration-150 hover:bg-market-or-light active:bg-market-or-dark"
               >
                 <Handshake className="h-4 w-4" aria-hidden />
                 {t("cta")}

@@ -4,7 +4,7 @@ import * as React from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Settings, Images, Star } from "lucide-react";
-import { PageHeader } from "@/components/design";
+import { PageHeader } from "@/components/console/page-header";
 import { GeneralSettingsForm } from "./general-settings-form";
 import { CarouselManager } from "./carousel-manager";
 import { FeaturedCompaniesPicker } from "./featured-companies-picker";
@@ -14,7 +14,7 @@ export default function AdminSettingsPage() {
     const locale = useLocale();
 
     return (
-        <div className="p-4">
+        <div className="space-y-4">
             <PageHeader title={t("title")} subtitle={t("subtitle")} />
 
             <Tabs defaultValue="general" className="max-w-3xl">

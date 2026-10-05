@@ -48,7 +48,43 @@
     },
     "language": "Idioma",
     "changeLanguage": "Cambiar de idioma",
-    "publishOffer": "Publicar una oferta"
+    "publishNeed": "Publicar una necesidad",
+    "account": {
+      "open": "Abrir el menú de la cuenta",
+      "menu": "Menú de la cuenta",
+      "roles": {
+        "super_admin": "Super Admin",
+        "moderator": "Moderador",
+        "company": "Cuenta de empresa",
+        "member": "Cuenta de miembro"
+      },
+      "staffTitle": "Consola del equipo",
+      "staffBody": "Verificaciones, moderación y ajustes del sitio",
+      "company": {
+        "more": "{count, plural, one {+ # otra empresa} other {+ # otras empresas}}",
+        "noneTitle": "Registre su empresa",
+        "noneBody": "Cree su perfil para publicar ofertas y ser verificada.",
+        "open": "Abrir el panel de {name}"
+      },
+      "status": {
+        "verified": "Verificada",
+        "pending": "En revisión",
+        "pending_documents": "Documentos por enviar",
+        "rejected": "Rechazada"
+      },
+      "links": {
+        "dashboard": "Panel",
+        "companies": "Mis empresas",
+        "products": "Mis productos",
+        "inbox": "Mensajes",
+        "settings": "Ajustes de la cuenta",
+        "console": "Inicio de la consola",
+        "verifications": "Verificaciones",
+        "consoleCompanies": "Empresas",
+        "publicProfile": "Ver el perfil público"
+      },
+      "signout": "Cerrar sesión"
+    }
   },
   "Hero": {
     "badge": "Verificado por el Ministerio de Comercio",
@@ -246,7 +282,9 @@
       "missingEmail": "No hay dirección de correo a la que reenviar.",
       "step1": "Abra el correo",
       "step2": "Haga clic en el enlace",
-      "step3": "Acceda a su espacio"
+      "step3": "Acceda a su espacio",
+      "resendError": "No se pudo reenviar el correo. Inténtelo de nuevo en un momento.",
+      "resendRateLimited": "Demasiadas solicitudes. Espere un minuto antes de volver a intentarlo."
     },
     "forgotPassword": {
       "title": "Restablecer su contraseña",
@@ -310,7 +348,8 @@
         "manage": "Gestione la ficha de su empresa",
         "alerts": "Reciba alertas de nuevas oportunidades"
       }
-    }
+    },
+    "termsNotice": "Al crear una cuenta, acepta nuestras <terms>Condiciones de uso</terms> y nuestra <privacy>Política de privacidad</privacy>."
   },
   "Dashboard": {
     "title": "Panel de control",
@@ -370,10 +409,11 @@
       "expandSidebar": "Expandir barra lateral",
       "collapseSidebar": "Contraer barra lateral",
       "services": "Servicios",
-      "openMenu": "Abrir el menú"
+      "openMenu": "Abrir el menú",
+      "requests": "Solicitudes recibidas"
     },
     "editCompany": {
-      "title": "Editar perfil de la empresa",
+      "title": "Perfil de la empresa",
       "backToDashboard": "Volver al panel de control",
       "saveChanges": "Guardar cambios",
       "loadError": "No se pudieron cargar los datos de la empresa",
@@ -406,7 +446,52 @@
       "hsCodeHint": "Elija los códigos SA que correspondan a sus productos. Los códigos SA son gestionados por los administradores.",
       "noHsCodesAvailable": "Aún no hay códigos SA disponibles.",
       "media": "Multimedia",
-      "mediaHint": "Añada su logotipo, fotos de la galería, folletos y vídeos de productos. Aparecen en su perfil público de empresa."
+      "mediaHint": "Añada su logotipo, fotos de la galería, folletos y vídeos de productos. Aparecen en su perfil público de empresa.",
+      "backToCompanies": "Mis empresas",
+      "subtitle": "Complete la ficha bloque por bloque: cada bloque se guarda por separado.",
+      "save": "Guardar",
+      "sectionSaved": "Bloque guardado.",
+      "filled": "{done}/{total} completados",
+      "unsaved": "Cambios sin guardar.",
+      "upToDate": "Todo está guardado.",
+      "nameRequired": "El nombre de la empresa es obligatorio.",
+      "website": "Sitio web",
+      "websitePlaceholder": "www.suempresa.cd",
+      "contactEmail": "Correo de contacto",
+      "contactPhone": "Teléfono de contacto",
+      "descriptionCount": "{count} caracteres, se recomiendan al menos {min}.",
+      "completeness": {
+        "title": "Perfil completado al {percent} %",
+        "complete": "Su perfil está completo.",
+        "lead": "Falta añadir:"
+      },
+      "sections": {
+        "presentation": {
+          "title": "Presentación",
+          "hint": "Lo que los compradores leen primero en su ficha."
+        },
+        "commerce": {
+          "title": "Comercio",
+          "hint": "Sus capacidades, certificaciones y mercados."
+        },
+        "contact": {
+          "title": "Contacto",
+          "hint": "Los datos que se muestran en su ficha pública."
+        },
+        "media": {
+          "title": "Medios"
+        },
+        "verification": {
+          "title": "Identidad legal y verificación",
+          "hint": "Los números de registro y los documentos oficiales se gestionan en la pantalla de verificación.",
+          "cta": "Abrir la verificación"
+        }
+      },
+      "draft": {
+        "restored": "Se han restaurado sus cambios sin guardar de la última vez. Guarde cada bloque para conservarlos.",
+        "discard": "Descartar estos cambios",
+        "kept": "Se conservan en este dispositivo hasta que guarde."
+      }
     },
     "products": {
       "title": "Productos",
@@ -421,8 +506,8 @@
       "colDescription": "Descripción",
       "colImages": "Imágenes",
       "colCreated": "Creado",
-      "emptyTitle": "Aún no hay productos",
-      "emptyBody": "Añada su primer producto para comenzar.",
+      "emptyTitle": "Su catálogo está vacío",
+      "emptyBody": "Añada un primer producto: es lo que los compradores buscan en el marketplace.",
       "noDescription": "Sin descripción",
       "deleteConfirm": "¿Eliminar «{name}»? Esta acción no se puede deshacer.",
       "deleting": "Eliminando producto...",
@@ -431,22 +516,152 @@
       "backToProducts": "Volver a los productos",
       "signInToAdd": "Inicie sesión para añadir productos.",
       "editProduct": "Editar producto",
-      "loadError": "No se pudo cargar el producto.",
-      "ownershipDenied": "No tiene permiso para editar este producto."
+      "loadError": "No se pudieron cargar sus productos.",
+      "ownershipDenied": "No tiene permiso para editar este producto.",
+      "addSubtitle": "Describa su producto; la vista previa se actualiza mientras escribe.",
+      "editSubtitle": "Actualice la información y las fotos del producto.",
+      "subtitle": "Su catálogo: lo que está en línea, lo que se ve y lo que queda por mejorar.",
+      "retry": "Reintentar",
+      "notFound": "Este producto no existe o no pertenece a una de sus empresas.",
+      "noCategory": "Sin categoría",
+      "noMatch": "Ningún producto coincide con estos criterios.",
+      "clearFilters": "Borrar filtros",
+      "viewsCount": "{count} vistas",
+      "colViews": "Vistas ({days} d)",
+      "colQuality": "Ficha",
+      "colUpdated": "Modificado",
+      "colActions": "Acciones",
+      "stats": {
+        "total": "Productos",
+        "live": "En línea",
+        "liveHint": "de {total} en el catálogo",
+        "views": "Vistas ({days} d)",
+        "viewsError": "Estadísticas no disponibles.",
+        "toImprove": "Fichas por completar",
+        "toImproveHint": "fotos, descripción o características"
+      },
+      "unverified": {
+        "title": "Sus productos aún no son visibles para los compradores",
+        "body": "Están guardados y se publicarán en cuanto {company} esté verificada.",
+        "cta": "Verificar la empresa"
+      },
+      "toolbar": {
+        "search": "Buscar un producto",
+        "category": "Categoría",
+        "allCategories": "Todas las categorías",
+        "status": "Estado",
+        "allStatuses": "Todos los estados",
+        "sort": "Ordenar",
+        "sorts": {
+          "recent": "Más recientes",
+          "name": "Nombre (A–Z)",
+          "views": "Más vistos",
+          "quality": "Fichas por completar primero"
+        },
+        "view": "Vista",
+        "views": {
+          "grid": "Tarjetas",
+          "list": "Lista"
+        },
+        "count": "{shown} de {total} {total, plural, one {producto} other {productos}}"
+      },
+      "visibility": {
+        "live": "En línea",
+        "awaiting": "Pendiente de verificación",
+        "hidden": "Oculto"
+      },
+      "actions": {
+        "menu": "Acciones para {name}",
+        "details": "Ver el detalle",
+        "edit": "Editar",
+        "duplicate": "Duplicar",
+        "hide": "Ocultar del marketplace",
+        "publish": "Volver a publicar",
+        "delete": "Eliminar",
+        "copySuffix": "(copia)",
+        "publishing": "Publicando…",
+        "hiding": "Ocultando…",
+        "published": "Producto publicado de nuevo.",
+        "hidden": "Producto oculto del marketplace.",
+        "duplicating": "Duplicando…",
+        "duplicated": "Copia creada. Permanece oculta hasta que la publique.",
+        "deleting": "Eliminando…",
+        "deleted": "Producto eliminado.",
+        "error": "La acción falló. Inténtelo de nuevo.",
+        "deleteTitle": "¿Eliminar este producto?",
+        "deleteBody": "«{name}» se eliminará definitivamente, con su página y sus estadísticas.",
+        "deleteHideInstead": "Para retirarlo temporalmente, ocúltelo: podrá volver a publicarlo cuando quiera.",
+        "cancel": "Cancelar",
+        "confirmDelete": "Eliminar definitivamente"
+      },
+      "addAnother": {
+        "title": "Añadir un producto",
+        "body": "O duplique un producto existente para crear una variante más rápido."
+      },
+      "detail": {
+        "publicPage": "Página pública",
+        "photos": "Fotos",
+        "photoCount": "{count, plural, =0 {sin fotos} one {# foto} other {# fotos}}",
+        "noPhotos": "Este producto aún no tiene fotos",
+        "addPhotos": "Añadir fotos",
+        "photoAlt": "{name}, foto {index}",
+        "showPhoto": "Mostrar la foto {index}",
+        "description": "Nombre y descripción",
+        "noTranslation": "No hay texto en este idioma.",
+        "noSpecs": "No hay características indicadas.",
+        "addSpecs": "Añadir características",
+        "searchAppearances": "Apariciones en la búsqueda ({days} d)",
+        "deltaNew": "Nuevo",
+        "deltaFlat": "Estable",
+        "visibility": {
+          "live": {
+            "title": "En línea en el marketplace",
+            "body": "Los compradores pueden ver este producto y pedir un presupuesto."
+          },
+          "awaiting": {
+            "title": "Guardado, aún no visible",
+            "body": "Se publicará en cuanto {company} esté verificada."
+          },
+          "hidden": {
+            "title": "Oculto del marketplace",
+            "body": "Solo usted y nuestro equipo pueden verlo. Vuelva a publicarlo desde el menú de acciones."
+          }
+        },
+        "quality": {
+          "title": "Calidad de la ficha",
+          "cta": "Completar la ficha",
+          "doneSr": "Hecho:",
+          "todoSr": "Por hacer:",
+          "items": {
+            "photo": "Al menos una foto",
+            "gallery": "{photos} fotos o más",
+            "description": "Una descripción de al menos {chars} caracteres",
+            "category": "Una categoría",
+            "specs": "{specs} características o más"
+          }
+        },
+        "info": {
+          "title": "Información",
+          "created": "Creado",
+          "updated": "Modificado"
+        },
+        "noPricing": "Sin precio ni cantidad mínima: la ficha muestra «Precio a consultar».",
+        "addPricing": "Añadir un precio"
+      }
     },
     "productForm": {
       "nameLabel": "Nombre del producto",
       "namePlaceholder": "p. ej., Granos de café arábica orgánico",
       "descriptionLabel": "Descripción",
       "descriptionPlaceholder": "Describa el producto, su origen, su grado de calidad, sus certificaciones...",
-      "categoryLabel": "ID de categoría",
+      "categoryLabel": "Categoría",
       "optional": "(opcional)",
-      "categoryPlaceholder": "Identificador de categoría",
+      "categoryPlaceholder": "Elegir una categoría",
       "imagesLabel": "Imágenes",
       "imageAlt": "Imagen del producto {index}",
       "removeImage": "Quitar imagen",
       "addImages": "Añadir imágenes",
-      "imagesHint": "Las imágenes se cargan al guardar el producto.",
+      "imagesHint": "Las fotos se suben al guardar el producto.",
       "saveChanges": "Guardar cambios",
       "createProduct": "Crear producto",
       "cancel": "Cancelar",
@@ -471,7 +686,110 @@
       "categoryNone": "Sin categoría",
       "invalidType": "{name} no es un tipo de imagen admitido.",
       "fileTooLarge": "{name} supera el límite de {max} MB.",
-      "maxImages": "Puede cargar como máximo {max} imágenes."
+      "maxImages": "Puede cargar como máximo {max} imágenes.",
+      "sections": {
+        "info": {
+          "title": "Información",
+          "hint": "Lo que los compradores leen en el marketplace."
+        }
+      },
+      "lang": {
+        "label": "Idioma de redacción",
+        "fr": "Français",
+        "en": "English",
+        "complete": "completado",
+        "incomplete": "por completar",
+        "hint": "Basta con un idioma. Sin traducción, se muestra el mismo texto en el otro idioma; podrá completarlo más tarde."
+      },
+      "photos": {
+        "title": "Fotos",
+        "hint": "Hasta 8 fotos, {size} MB como máximo cada una. La primera es la portada.",
+        "drop": "Arrastre sus fotos aquí o haga clic para buscar",
+        "formats": "JPG, PNG, WebP o GIF",
+        "cover": "Portada"
+      },
+      "visibility": {
+        "cta": "Verificar la empresa",
+        "verified": {
+          "title": "Publicado al guardar",
+          "body": "{company} está verificada: el producto aparece en el marketplace en cuanto se guarda."
+        },
+        "pending": {
+          "title": "Publicado tras la verificación",
+          "body": "El expediente de {company} está en revisión. El producto se guarda ahora y se publica cuando la empresa esté verificada."
+        },
+        "pending_documents": {
+          "title": "Guardado, pero aún no visible",
+          "body": "{company} aún no está verificada. Puede preparar sus productos; se publicarán cuando la empresa esté verificada."
+        },
+        "rejected": {
+          "title": "Guardado, pero no visible",
+          "body": "El expediente de {company} fue rechazado. Corríjalo para que sus productos se publiquen."
+        }
+      },
+      "preview": {
+        "title": "Vista previa",
+        "hint": "Tal como lo verá el comprador en la lista.",
+        "namePlaceholder": "Nombre del producto",
+        "descriptionPlaceholder": "La descripción aparecerá aquí."
+      },
+      "tips": {
+        "title": "Para una buena ficha",
+        "name": "Un nombre preciso: producto, variedad, origen.",
+        "description": "Calidad, embalaje, cantidades y certificaciones.",
+        "photos": "Fotos nítidas del producto real, sobre fondo claro."
+      },
+      "specs": {
+        "title": "Características",
+        "hint": "Los datos técnicos que comparan los compradores: una característica, un valor.",
+        "templateTitle": "Propias de esta categoría",
+        "customTitle": "Sus características",
+        "customTitleMore": "Otras características",
+        "noCategory": "Elija una categoría para ver sus características propias. Ya puede añadir las suyas abajo.",
+        "noTemplate": "Esta categoría aún no tiene características predefinidas. Añada las suyas abajo.",
+        "choose": "Elegir",
+        "yes": "Sí",
+        "no": "No",
+        "nameLabel": "Característica",
+        "valueLabel": "Valor",
+        "namePlaceholder": "Característica (ej. Humedad)",
+        "valuePlaceholder": "Valor (ej. 11 %)",
+        "addRow": "Añadir una característica",
+        "removeRow": "Quitar esta característica",
+        "max": "Se alcanzó el máximo de {max} características.",
+        "suggestions": {
+          "origin": "Origen",
+          "packaging": "Embalaje",
+          "minOrder": "Cantidad mínima",
+          "certifications": "Certificaciones"
+        },
+        "errors": {
+          "required": "Este campo es obligatorio.",
+          "number": "Introduzca un número.",
+          "row": "Indique el nombre y el valor, sin repetir un nombre ya usado.",
+          "toast": "Revise las características señaladas.",
+          "tooMany": "Demasiadas características: quite algunas."
+        }
+      },
+      "pricing": {
+        "title": "Precio y cantidad mínima",
+        "hint": "Lo que un comprador quiere saber antes de pedir un presupuesto.",
+        "unitLabel": "Unidad de venta",
+        "unitPlaceholder": "Elegir una unidad",
+        "unitNone": "Ninguna",
+        "priceLabel": "Precio unitario",
+        "priceLabelPer": "Precio por {unit}",
+        "pricePlaceholder": "Ej. 4,50",
+        "currencyLabel": "Moneda",
+        "minOrderLabel": "Cantidad mínima de pedido",
+        "minOrderPlaceholder": "Ej. 500",
+        "empty": "Deje estos campos vacíos si el precio se negocia: la ficha mostrará «Precio a consultar».",
+        "errors": {
+          "price": "Indique un precio válido (por ejemplo 4,50).",
+          "minOrder": "Indique una cantidad mínima superior a cero.",
+          "unit": "Elija la unidad de venta para este precio o esta cantidad."
+        }
+      }
     },
     "services": {
       "title": "Servicios",
@@ -647,6 +965,55 @@
       "inbox": "Mensajes",
       "unread": "{count, plural, one {# mensaje en espera} other {# mensajes en espera}}",
       "backToSite": "Volver al sitio"
+    },
+    "getVerified": "Verificar",
+    "companiesPage": {
+      "subtitle": "{count, plural, one {# empresa} other {# empresas}} en su espacio.",
+      "subtitleEmpty": "Registre su primera empresa para empezar.",
+      "premium": "Premium",
+      "publicProfile": "Ficha pública",
+      "completeness": "Perfil completado",
+      "complete": "Completar el perfil",
+      "products": "Productos",
+      "manageProducts": "Gestionar productos",
+      "addProduct": "Añadir un producto",
+      "visibility": "Visibilidad",
+      "visibilityOn": "Publicada",
+      "visibilityOff": "No publicada",
+      "visibilityOnHint": "Visible en el directorio y en la búsqueda.",
+      "visibilityOffHint": "Se publica una vez verificada la empresa.",
+      "next": {
+        "pending_documents": {
+          "title": "Verifique su empresa",
+          "body": "Envíe sus documentos para publicar la ficha.",
+          "cta": "Verificar"
+        },
+        "pending": {
+          "title": "Expediente en revisión",
+          "body": "Le avisaremos en cuanto haya una decisión.",
+          "cta": "Ver el expediente"
+        },
+        "more_info": {
+          "title": "Se solicita más información",
+          "body": "Añada lo solicitado y vuelva a enviar el expediente.",
+          "cta": "Completar el expediente"
+        },
+        "rejected": {
+          "title": "El expediente fue rechazado",
+          "body": "Corrija los documentos y vuelva a enviar el expediente.",
+          "cta": "Corregir el expediente"
+        },
+        "verified": {
+          "title": "Empresa verificada",
+          "body": "Su ficha está publicada y lleva la insignia verificada.",
+          "cta": "Ver el expediente"
+        }
+      },
+      "addAnother": {
+        "title": "Registrar otra empresa",
+        "body": "Cada empresa tiene su propia ficha y su propio expediente de verificación."
+      },
+      "teamMessage": "Mensaje de nuestro equipo:"
     }
   },
   "Footer": {
@@ -1143,15 +1510,15 @@
     "notAuthorized": "No tienes acceso a esa área.",
     "verifications": {
       "title": "Cola de verificación",
-      "subtitle": "Revisa y aprueba los registros de empresas",
+      "subtitle": "Los expedientes enviados por las empresas, del más antiguo al más reciente.",
       "review": "Revisar",
       "submitting": "Enviando decisión...",
       "backToQueue": "Volver a la cola",
       "loadError": "No se pudo cargar la cola de verificación. Inténtalo de nuevo.",
       "tabs": {
-        "all": "Todas ({count})",
-        "new": "Nuevas ({count})",
-        "resubmitted": "Reenviadas ({count})"
+        "to_review": "Por revisar ({count})",
+        "awaiting_owner": "A la espera de la empresa ({count})",
+        "all": "Todos ({count})"
       },
       "columns": {
         "company": "Empresa",
@@ -1159,14 +1526,26 @@
         "submitted": "Enviado",
         "documents": "Documentos",
         "status": "Estado",
-        "action": "Acción"
+        "action": "Acción",
+        "file": "Expediente"
       },
       "badges": {
         "resubmitted": "REENVIADA"
       },
       "empty": {
-        "title": "¡Todo al día!",
-        "subtitle": "No hay verificaciones pendientes en este momento."
+        "search": "Ningún expediente coincide con esta búsqueda.",
+        "to_review": {
+          "title": "Nada por revisar",
+          "subtitle": "Todos los expedientes enviados han recibido una decisión."
+        },
+        "awaiting_owner": {
+          "title": "Ningún expediente a la espera de la empresa",
+          "subtitle": "No hay solicitudes de información abiertas."
+        },
+        "all": {
+          "title": "Ningún expediente en curso",
+          "subtitle": "Los nuevos expedientes aparecerán aquí."
+        }
       },
       "decision": {
         "title": "Decisión",
@@ -1178,7 +1557,18 @@
         "notesRequired": "Notas (obligatorias)",
         "notesOptional": "Notas (opcionales)",
         "notesPlaceholder": "Añade notas de revisión...",
-        "submit": "Enviar decisión"
+        "submit": "Enviar decisión",
+        "notesVisible": "Este mensaje es visible para la empresa en su espacio.",
+        "refusedWarning": "{count, plural, one {Se rechazó # documento} other {Se rechazaron # documentos}} en este expediente.",
+        "incompleteTitle": "El expediente está incompleto",
+        "incompleteOverride": "Apruebo a pesar de los elementos que faltan y asumo la responsabilidad.",
+        "hint": {
+          "not_submitted": "La empresa aún no ha enviado su expediente. Aun así es posible decidir.",
+          "to_review": "El expediente espera su decisión.",
+          "awaiting_owner": "Se solicitó más información; la empresa aún no ha reenviado el expediente.",
+          "verified": "La empresa está verificada. Una nueva decisión retira o cambia su estado.",
+          "rejected": "El expediente fue rechazado. La empresa puede corregirlo y reenviarlo."
+        }
       },
       "detail": {
         "companyInfo": "Información de la empresa",
@@ -1188,7 +1578,41 @@
         "currentTier": "Nivel actual",
         "reviewHistory": "Historial de revisiones",
         "noReviews": "No hay revisiones anteriores.",
-        "submittedOn": "Enviado el {date}"
+        "submittedOn": "Enviado el {date}",
+        "createdOn": "Registrada el {date}",
+        "notSubmitted": "Expediente aún no enviado por la empresa.",
+        "companySheet": "Ficha de la empresa",
+        "completeTitle": "Expediente completo",
+        "completeBody": "Se aportaron los documentos obligatorios y los números legales.",
+        "incompleteTitle": "Expediente incompleto",
+        "missingDocument": "Documento faltante: {name}",
+        "missingLegal": "Número faltante: {name}",
+        "legalTitle": "Identidad legal declarada",
+        "legalHint": "Para comparar con los documentos subidos.",
+        "requiredMissing": "Obligatorio, no aportado",
+        "notProvided": "No indicado",
+        "documentsHint": "Abra cada documento y acéptelo o rechácelo con un motivo.",
+        "intake": {
+          "profile": "Perfil declarado",
+          "profiles": {
+            "congolese": "Empresa congoleña",
+            "international": "Empresa internacional"
+          },
+          "headOffice": "Sede",
+          "interests": "Intereses en la RDC",
+          "provinces": "Provincias objetivo"
+        },
+        "card": {
+          "about": "Presentación",
+          "noDescription": "No se proporcionó ninguna presentación.",
+          "contactTitle": "Contacto de la empresa",
+          "ownerTitle": "Titular de la cuenta",
+          "declaredTitle": "Declarado en el registro",
+          "address": "Dirección",
+          "registered": "Registro",
+          "tradingAs": "Nombre comercial: {name}",
+          "accountOwner": "Propietario de la cuenta"
+        }
       },
       "documents": {
         "empty": "No se han subido documentos.",
@@ -1208,18 +1632,35 @@
           "pending": "Pendiente",
           "approved": "Aprobado",
           "rejected": "Rechazado"
+        },
+        "requiredMissing": "obligatorio, no subido",
+        "accept": "Aceptar",
+        "refuse": "Rechazar",
+        "reset": "Volver a pendiente",
+        "cancel": "Cancelar",
+        "confirmRefuse": "Rechazar el documento",
+        "reasonLabel": "Motivo:",
+        "reasonPrompt": "Motivo del rechazo (visible para la empresa)",
+        "reasonPlaceholder": "Ej.: documento ilegible, fecha vencida…",
+        "updateError": "No se pudo actualizar el documento.",
+        "updated": {
+          "approved": "Documento aceptado.",
+          "rejected": "Documento rechazado.",
+          "pending": "Documento devuelto a pendiente."
         }
       },
       "statusValues": {
         "pending": "Pendiente",
         "verified": "Verificada",
-        "rejected": "Rechazada"
+        "rejected": "Rechazada",
+        "pending_documents": "Documentos por enviar"
       },
       "decisionValues": {
         "approved": "Aprobada",
         "rejected": "Rechazada",
         "more_info_requested": "Se solicitó más información",
-        "resubmitted": "Reenviada"
+        "resubmitted": "Reenviada",
+        "submitted": "Expediente enviado"
       },
       "success": {
         "approved": "Empresa aprobada correctamente.",
@@ -1233,7 +1674,46 @@
         "invalid_input": "Algunos datos no eran válidos. Revísalos e inténtalo de nuevo.",
         "review_insert_failed": "No se pudo registrar la revisión. Inténtalo de nuevo.",
         "company_update_failed": "No se pudo actualizar la empresa. Inténtalo de nuevo.",
-        "generic": "No se pudo enviar la decisión. Inténtalo de nuevo."
+        "generic": "No se pudo enviar la decisión. Inténtalo de nuevo.",
+        "missing_requirements": "El expediente está incompleto: marque la casilla para aprobar de todos modos.",
+        "company_not_found": "Empresa no encontrada.",
+        "document_update_failed": "No se pudo actualizar el documento."
+      },
+      "retry": "Reintentar",
+      "open": "Abrir",
+      "search": "Buscar una empresa o un correo",
+      "days": "{count, plural, =0 {hoy} one {# día} other {# días}}",
+      "waiting": "{count, plural, =0 {recibido hoy} one {en espera desde hace # día} other {en espera desde hace # días}}",
+      "lateSr": "plazo superado",
+      "kpi": {
+        "toReview": "Por revisar",
+        "toReviewFoot": "expedientes a la espera de su decisión",
+        "oldest": "Expediente más antiguo",
+        "late": "{count, plural, one {# expediente supera} other {# expedientes superan}} los {days} días",
+        "onTime": "ningún expediente supera los {days} días",
+        "awaitingOwner": "A la espera de la empresa",
+        "awaitingOwnerFoot": "información solicitada, aún no reenviada",
+        "notSubmitted": "Aún no enviados",
+        "notSubmittedFoot": "empresas registradas sin expediente"
+      },
+      "stage": {
+        "not_submitted": "Aún no enviado",
+        "to_review": "Por revisar",
+        "awaiting_owner": "A la espera de la empresa",
+        "verified": "Verificada",
+        "rejected": "Rechazada"
+      },
+      "file": {
+        "complete": "Expediente completo",
+        "incomplete": "Expediente incompleto",
+        "documents": "{done}/{total} documentos obligatorios",
+        "legalMissing": "falta un número legal"
+      },
+      "timeline": {
+        "byCompany": "Empresa",
+        "byStaff": "Equipo",
+        "tierOverride": "Nivel cambiado manualmente",
+        "tierOverrideNote": "Nuevo nivel: {tier}"
       }
     },
     "companies": {
@@ -1354,21 +1834,131 @@
       "selfActionError": "No puede cambiar el rol de su propia cuenta ni suspenderla."
     },
     "dashboard": {
-      "title": "Panel de administración",
-      "subtitle": "Actividad de la plataforma, estado de verificación e interacción",
-      "loadError": "No se pudieron cargar las métricas del panel",
+      "title": "Panel",
+      "subtitle": "Lo que espera al equipo y lo que la plataforma ha generado en los últimos {days} días.",
+      "loadError": "No se pueden cargar los indicadores por el momento.",
+      "retry": "Reintentar",
+      "reviewCta": "Tratar las verificaciones",
       "kpi": {
-        "total": "Total de empresas",
-        "pending": "Pendientes",
-        "verified": "Verificadas",
-        "rejected": "Rechazadas",
-        "views": "Vistas de perfil",
-        "contacts": "Solicitudes de contacto"
+        "label": "Indicadores del período",
+        "companies": "Nuevas empresas",
+        "companiesFoot": "{total} registradas en total, {verified} verificadas",
+        "products": "Productos añadidos",
+        "productsFoot": "{published} en línea de {total}",
+        "views": "Vistas de las vitrinas",
+        "viewsFoot": "{count, plural, =0 {Ninguna aparición en búsquedas} one {# aparición en búsquedas} other {# apariciones en búsquedas}}",
+        "connections": "Contactos comerciales",
+        "connectionsFoot": "{conversations, plural, one {# conversación} other {# conversaciones}} · {responses, plural, one {# respuesta} other {# respuestas}} a oportunidades"
       },
-      "sectorTitle": "Empresas por sector",
-      "sectorEmpty": "Aún no hay datos por sector",
-      "topTitle": "Empresas más vistas",
-      "topEmpty": "Aún no hay actividad de vistas"
+      "queue": {
+        "title": "Por tratar",
+        "allClear": "Todo está al día. Nada espera al equipo.",
+        "upToDate": "Al día",
+        "oldest": "El más antiguo: {age}",
+        "oldestLate": "Con retraso — el más antiguo: {age}",
+        "items": {
+          "verifications": "Verificaciones de empresas",
+          "opportunities": "Oportunidades por moderar",
+          "requests": "Nuevas solicitudes de negocio",
+          "premium": "Solicitudes Premium",
+          "reports": "Mensajes denunciados"
+        }
+      },
+      "chart": {
+        "viewLabel": "Indicador del gráfico",
+        "views": {
+          "traffic": "Tráfico",
+          "signups": "Registros",
+          "connections": "Contactos"
+        },
+        "titles": {
+          "traffic": "Consultas de las vitrinas",
+          "signups": "Registros de empresas",
+          "connections": "Intercambios compradores–vendedores"
+        },
+        "totals": {
+          "traffic": "vistas en el período",
+          "signups": "empresas registradas",
+          "connections": "contactos"
+        },
+        "activeDays": {
+          "traffic": "Días con vistas",
+          "signups": "Días con registros",
+          "connections": "Días con intercambios"
+        },
+        "series": {
+          "profile_views": "Perfiles de empresa",
+          "product_views": "Fichas de producto",
+          "companies_drc": "RDC",
+          "companies_intl": "Internacional",
+          "conversations": "Conversaciones",
+          "responses": "Respuestas a oportunidades"
+        }
+      },
+      "funnel": {
+        "title": "Recorrido de verificación",
+        "subtitle": "Todas las empresas, hasta hoy",
+        "viewAll": "Cola de verificación",
+        "steps": {
+          "registered": "Registradas",
+          "submitted": "Expediente enviado",
+          "verified": "Verificadas"
+        },
+        "ofPrevious": "{percent} de la etapa anterior",
+        "stock": {
+          "to_review": "Por revisar",
+          "awaiting_owner": "A la espera de la empresa",
+          "rejected": "Rechazadas"
+        },
+        "decisions": "Decisiones en el período",
+        "decisionsValue": "{approved} aprobadas · {rejected} rechazadas · {moreInfo} con información solicitada",
+        "medianDelay": "Plazo mediano de decisión",
+        "hours": "{value} h",
+        "days": "{value} d"
+      },
+      "categories": {
+        "title": "Oportunidades por categoría",
+        "subtitle": "Publicadas actualmente",
+        "empty": "Ninguna oportunidad publicada por el momento.",
+        "viewAll": "Todas las oportunidades",
+        "pending": "{count} por moderar",
+        "responses": "{count, plural, =0 {Ninguna respuesta} one {# respuesta} other {# respuestas}} en el período"
+      },
+      "sectors": {
+        "title": "Empresas por sector",
+        "subtitle": "Sectores más representados",
+        "empty": "Ninguna empresa ha elegido un sector todavía.",
+        "verified": "{count, plural, =0 {Ninguna verificada} one {# verificada} other {# verificadas}}"
+      },
+      "origin": {
+        "title": "Origen de las empresas",
+        "subtitle": "Empresas congoleñas e internacionales",
+        "empty": "Ninguna empresa registrada por el momento.",
+        "drc": "RDC",
+        "intl": "Internacional",
+        "provinces": "Principales provincias",
+        "countries": "Principales países",
+        "noProvinces": "Ninguna provincia indicada.",
+        "noIntl": "Ninguna empresa internacional por el momento."
+      },
+      "top": {
+        "title": "Empresas más consultadas",
+        "subtitle": "Vistas de perfil en el período",
+        "empty": "Ninguna consulta de perfil en el período.",
+        "viewAll": "Todas las empresas",
+        "views": "{count, plural, one {# vista} other {# vistas}}",
+        "contacts": "{count, plural, =0 {ningún contacto} one {# contacto} other {# contactos}}"
+      },
+      "premium": {
+        "title": "Premium",
+        "subtitle": "Suscripciones activas e importes validados",
+        "viewAll": "Solicitudes Premium",
+        "active": "Suscripciones activas",
+        "expiring": "Vencen en 30 días",
+        "revenue": "Validado en el período",
+        "revenueFoot": "{count, plural, =0 {Ninguna solicitud aprobada} one {# solicitud aprobada} other {# solicitudes aprobadas}} en el período",
+        "empty": "Ninguna suscripción Premium activa."
+      }
     },
     "settings": {
       "title": "Configuración",
@@ -1419,7 +2009,7 @@
       }
     },
     "nav": {
-      "console": "Consola de administración",
+      "console": "Consola del equipo",
       "administrator": "Administrador",
       "signOut": "Cerrar sesión",
       "navDashboard": "Panel",
@@ -1434,7 +2024,22 @@
       "navAnalytics": "Analítica",
       "navSettings": "Configuración",
       "navRequests": "Solicitudes",
-      "navPremium": "Premium"
+      "navPremium": "Premium",
+      "groups": {
+        "overview": "Resumen",
+        "moderation": "Moderación",
+        "content": "Contenido",
+        "platform": "Plataforma"
+      },
+      "roleSuperAdmin": "Super Admin",
+      "roleModerator": "Moderador",
+      "openMenu": "Abrir el menú",
+      "expandSidebar": "Expandir barra lateral",
+      "collapseSidebar": "Contraer barra lateral",
+      "breadcrumb": "Ruta de navegación",
+      "search": "Buscar…",
+      "backToSite": "Volver al sitio",
+      "myAccount": "Mi cuenta"
     },
     "analytics": {
       "title": "Analítica de la plataforma",
@@ -2356,7 +2961,50 @@
     "colActions": "Acciones",
     "placeholderNameTr": "Nombre (TR)",
     "placeholderNameZh": "Nombre (ZH)",
-    "placeholderNameEs": "Nombre (ES)"
+    "placeholderNameEs": "Nombre (ES)",
+    "specsHeading": "Características por categoría",
+    "specsDescription": "Los campos que las empresas rellenan para un producto de esta categoría. Siempre pueden añadir sus propias líneas.",
+    "specs": {
+      "category": "Categoría",
+      "chooseCategory": "Elegir una categoría",
+      "pickFirst": "Elija una categoría para gestionar sus características.",
+      "empty": "No hay características definidas para esta categoría.",
+      "loading": "Cargando…",
+      "add": "Añadir un campo",
+      "newTitle": "Nuevo campo",
+      "editTitle": "Editar el campo",
+      "labelEn": "Etiqueta (inglés)",
+      "labelFr": "Etiqueta (francés)",
+      "type": "Tipo de valor",
+      "unit": "Unidad",
+      "options": "Opciones",
+      "optionsHint": "Una opción por línea, con el formato «Inglés | Francés». Dos opciones como mínimo.",
+      "required": "Obligatorio",
+      "requiredToggle": "Campo obligatorio para publicar un producto de esta categoría",
+      "keyPreview": "Identificador técnico (definitivo):",
+      "types": {
+        "text": "Texto",
+        "number": "Número",
+        "select": "Lista de opciones",
+        "boolean": "Sí / No"
+      },
+      "save": "Guardar",
+      "cancel": "Cancelar",
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "moveUp": "Subir",
+      "moveDown": "Bajar",
+      "saved": "Campo guardado.",
+      "deleted": "Campo eliminado.",
+      "confirmDelete": "¿Eliminar el campo «{name}»? Los valores ya introducidos en los productos seguirán mostrándose como características libres.",
+      "errorLoad": "Error al cargar.",
+      "errorSave": "Error al guardar.",
+      "errorDelete": "Error al eliminar.",
+      "errorLabels": "Indique la etiqueta en ambos idiomas.",
+      "errorOptions": "Una lista de opciones necesita al menos dos opciones.",
+      "errorKey": "La etiqueta en inglés debe contener al menos una letra.",
+      "errorDuplicate": "Ya existe un campo con ese nombre en esta categoría."
+    }
   },
   "Faq": {
     "title": "Preguntas frecuentes",
@@ -3053,7 +3701,7 @@
   },
   "AdminRequests": {
     "title": "Solicitudes recibidas",
-    "subtitle": "Haga seguimiento en tiempo real de clientes potenciales, necesidades, gestores asignados y progreso de las solicitudes.",
+    "subtitle": "Todas las solicitudes enviadas desde el sitio: quién pide, para qué, a quién va dirigida y en qué punto está.",
     "newRequestCta": "Nueva solicitud",
     "filters": {
       "search": "Buscar...",
@@ -3062,7 +3710,11 @@
       "status": "Estado",
       "owner": "Responsable",
       "date": "Fecha",
-      "all": "Todo"
+      "all": "Todo",
+      "searchPlaceholder": "Buscar un nombre, una empresa, una referencia…",
+      "allOf": "{label}: todos",
+      "remove": "Quitar el filtro {label}",
+      "clear": "Borrar los filtros"
     },
     "stats": {
       "total": "Total de solicitudes",
@@ -3070,7 +3722,13 @@
       "inProgress": "En curso",
       "converted": "Convertidas",
       "pending": "Pendientes",
-      "responseRate": "Tasa de respuesta"
+      "responseRate": "Tasa de respuesta",
+      "toForward": "Por transmitir",
+      "toForwardFoot": "Dirigidas a una empresa que aún no las ha recibido",
+      "newFoot": "{total, plural, =0 {Ninguna solicitud por ahora} one {De # solicitud} other {De # solicitudes}}",
+      "inProgressFoot": "{pending, plural, =0 {Ninguna en espera} one {# de ellas en espera} other {# de ellas en espera}}",
+      "done": "Tratadas",
+      "doneFoot": "El {rate} % de las solicitudes ha sido atendido"
     },
     "table": {
       "name": "Nombre",
@@ -3081,7 +3739,11 @@
       "status": "Estado",
       "date": "Fecha",
       "followUpOwner": "Responsable de seguimiento",
-      "actions": "Acciones"
+      "actions": "Acciones",
+      "target": "Destinatario",
+      "requester": "Solicitante",
+      "received": "Recibida el",
+      "teamTarget": "Equipo TradeInDRC"
     },
     "statusLabels": {
       "new": "Nueva",
@@ -3111,8 +3773,8 @@
         "description": "Análisis de necesidades, verificación y priorización."
       },
       "step3": {
-        "title": "Asignación de responsable",
-        "description": "La solicitud se asigna al responsable adecuado."
+        "title": "Transmisión o asignación",
+        "description": "Una solicitud dirigida a una empresa se le transmite; las demás reciben un responsable de seguimiento."
       },
       "step4": {
         "title": "Seguimiento y conversión",
@@ -3127,7 +3789,32 @@
       "intent": "Objeto",
       "promotionRequested": "Plan de promoción solicitado",
       "promotionGranted": "Premium concedido — esta solicitud ha sido atendida.",
-      "grantPromotion": "Conceder este plan"
+      "grantPromotion": "Conceder este plan",
+      "open": "Abrir la solicitud",
+      "phone": "Teléfono",
+      "target": "Empresa destinataria",
+      "product": "Producto",
+      "quantity": "Cantidad",
+      "deliveryPlace": "Lugar de entrega",
+      "deadline": "Plazo",
+      "interest": "Tipo de relación",
+      "noMessage": "El comprador no dejó ningún mensaje.",
+      "sections": {
+        "contact": "Datos de contacto",
+        "request": "La solicitud",
+        "followUp": "Seguimiento"
+      },
+      "noteHint": "Nota interna: la empresa nunca la ve.",
+      "saveNote": "Guardar la nota",
+      "location": "Lugar preferido",
+      "timeline": "Plazo",
+      "need": "Necesidad expresada",
+      "volume": "Volumen estimado",
+      "preferences": "Deseos adicionales",
+      "website": "Sitio web",
+      "attachment": "Documento adjunto",
+      "download": "Descargar",
+      "downloadError": "No se pudo abrir el documento."
     },
     "savingToast": "Guardando…",
     "savedToast": "Guardado.",
@@ -3162,7 +3849,28 @@
         "already_converted": "Ya atendida.",
         "update_failed": "No se pudo conceder Premium. Inténtelo de nuevo."
       }
-    }
+    },
+    "forward": {
+      "cta": "Transmitir al proveedor",
+      "hint": "La empresa verá la solicitud en su panel, con el nombre, el correo y el teléfono del comprador.",
+      "confirm": "¿Transmitir esta solicitud a {company}? La empresa verá el nombre, el correo y el teléfono del comprador.",
+      "sending": "Transmitiendo…",
+      "sent": "Solicitud transmitida a {company}.",
+      "error": "No se pudo transmitir la solicitud.",
+      "done": "Transmitida al proveedor el {date}",
+      "stateDone": "Transmitida",
+      "stateTodo": "Por transmitir"
+    },
+    "views": {
+      "label": "Vistas rápidas",
+      "all": "Todas",
+      "to_forward": "Por transmitir",
+      "new": "Nuevas",
+      "in_progress": "En curso",
+      "pending": "En espera",
+      "done": "Tratadas"
+    },
+    "results": "{count, plural, =0 {Ninguna solicitud} one {# solicitud} other {# solicitudes}}"
   },
   "AdminPremium": {
     "title": "Solicitudes Premium",
@@ -3365,54 +4073,80 @@
     }
   },
   "VerifiedDirectory": {
-    "breadcrumbHome": "Inicio",
-    "breadcrumbLocalContacts": "Directorio de contactos locales",
-    "breadcrumbCurrent": "Directorio de empresas verificadas",
-    "heroTitle": "Directorio de empresas verificadas",
-    "heroSubtitle1": "Conecte con perfiles de empresas revisados y verificados en la RDC.",
-    "heroSubtitle2": "Cada empresa listada aquí ha sido revisada por su legitimidad, credibilidad y actividad comercial para ayudarle a construir asociaciones de confianza con seguridad.",
-    "badgesTitle": "Comprender nuestras insignias de verificación",
-    "badgeRegisteredTitle": "Empresa registrada",
-    "badgeRegisteredDesc": "La empresa se ha registrado en la plataforma y ha proporcionado información comercial básica.",
-    "badgeRegisteredPill": "Perfil básico",
-    "badgeVerifiedTitle": "Empresa verificada",
-    "badgeVerifiedDesc": "La empresa ha sido revisada y verificada por su legitimidad y actividad comercial.",
-    "badgeVerifiedPill": "Verificada",
-    "badgePremiumTitle": "Socio local premium verificado",
-    "badgePremiumDesc": "Socio local de alta confianza con verificación más profunda y trayectoria comprobada.",
-    "badgePremiumPill": "Socio Premium",
-    "filterSectorLabel": "Seleccionar un sector",
-    "filterAllSectors": "Todos los sectores",
-    "filterProvinceLabel": "Seleccionar una provincia",
-    "filterAllProvinces": "Todas las provincias",
-    "filterTypeLabel": "Tipo de asociación",
-    "filterAllTypes": "Todos los tipos",
-    "typeDistributor": "Distribuidor",
-    "typeSupplier": "Proveedor",
-    "typeManufacturer": "Fabricante",
-    "typeServiceProvider": "Proveedor de servicios",
-    "premiumOnly": "Solo Premium",
-    "intlReady": "Listo para negocios internacionales",
-    "searchCompanies": "Buscar empresas",
-    "showingResults": "Mostrando {from}-{to} de {total} empresas verificadas",
-    "sortBy": "Ordenar por:",
-    "sortRecent": "Añadidas recientemente",
-    "sortNameAZ": "Nombre A-Z",
-    "verifiedPill": "Verificada",
-    "premiumPill": "Socio Premium",
-    "viewProfile": "Ver perfil",
-    "noResults": "Ninguna empresa verificada coincide con sus filtros.",
-    "approachTitle": "Nuestro enfoque de verificación",
-    "step1Title": "Documentos enviados",
-    "step1Caption": "La empresa envía los documentos e información requeridos.",
-    "step2Title": "Contacto oficial confirmado",
-    "step2Caption": "Verificamos el contacto de la empresa mediante comunicación oficial.",
-    "step3Title": "Documentación revisada",
-    "step3Caption": "Nuestro equipo revisa y valida la documentación comercial.",
-    "step4Title": "Sector y ubicación clasificados",
-    "step4Caption": "La empresa se clasifica por sector y ubicación operativa.",
-    "step5Title": "Perfil publicado",
-    "step5Caption": "El perfil verificado se publica con la insignia correspondiente."
+    "page": {
+      "crumb": "Empresas",
+      "eyebrow": "Directorio verificado",
+      "title": "Encuentre un socio verificado en la RDC",
+      "subtitle": "Cada empresa listada aquí envió sus documentos de registro, y nuestro equipo los revisó antes de publicarla.",
+      "searchLabel": "Buscar una empresa por su nombre",
+      "searchPlaceholder": "Nombre de la empresa…",
+      "searchButton": "Buscar",
+      "stats": {
+        "companies": "Empresas verificadas",
+        "sectors": "Sectores",
+        "provinces": "Provincias",
+        "countries": "Países"
+      },
+      "filters": {
+        "label": "Filtrar el directorio",
+        "sector": "Sector",
+        "allSectors": "Todos los sectores",
+        "country": "País",
+        "allCountries": "Todos los países",
+        "province": "Provincia",
+        "allProvinces": "Todas las provincias",
+        "tier": "Nivel",
+        "tierAll": "Todas",
+        "tierPremium": "Premium",
+        "sort": "Ordenar",
+        "sortRecent": "Añadidas recientemente",
+        "sortAz": "Nombre A–Z",
+        "clear": "Borrar todo",
+        "active": "Filtros activos",
+        "remove": "Quitar el filtro: {name}",
+        "query": "Búsqueda: {q}"
+      },
+      "results": "{total, plural, =0 {Ninguna empresa} one {# empresa verificada} other {# empresas verificadas}}",
+      "empty": {
+        "title": "Ninguna empresa coincide con estos filtros",
+        "body": "Pruebe otro sector u otra provincia, o borre los filtros.",
+        "reset": "Borrar los filtros"
+      },
+      "card": {
+        "verified": "Verificada",
+        "premium": "Premium",
+        "products": "{count, plural, one {# producto} other {# productos}}",
+        "founded": "Desde {year}",
+        "view": "Ver el perfil",
+        "open": "Ver el perfil de {name}"
+      },
+      "pagination": {
+        "label": "Páginas de resultados",
+        "previous": "Anterior",
+        "next": "Siguiente",
+        "page": "Página {page}",
+        "status": "Página {page} de {pages}"
+      },
+      "trust": {
+        "title": "Qué significan las insignias",
+        "verifiedTitle": "Empresa verificada",
+        "verifiedBody": "Su identidad legal y sus documentos de registro fueron revisados por el equipo de Trade in DRC.",
+        "premiumTitle": "Socio Premium",
+        "premiumBody": "Una empresa verificada con una suscripción Premium.",
+        "stepsTitle": "Cómo entra una empresa en el directorio",
+        "step1Title": "Envía su expediente",
+        "step1Body": "Números legales y documentos de registro.",
+        "step2Title": "Nuestro equipo lo revisa",
+        "step2Body": "Cada documento se acepta o se rechaza, con un motivo.",
+        "step3Title": "El perfil se publica",
+        "step3Body": "Solo entonces la empresa y sus productos pasan a ser públicos."
+      },
+      "cta": {
+        "title": "¿Su empresa aún no está en el directorio?",
+        "body": "Regístrela, envíe sus documentos y llegue a los compradores una vez verificada.",
+        "button": "Registrar mi empresa"
+      }
+    }
   },
   "BySector": {
     "breadcrumb": {
@@ -3573,6 +4307,85 @@
       "error": "Algo salió mal. Inténtalo de nuevo.",
       "errorRequired": "Completa todos los campos obligatorios.",
       "privacy": "Respetamos tu privacidad. Tu información solo se usará para facilitar esta presentación."
+    },
+    "page": {
+      "share": "Compartir",
+      "linkCopied": "Enlace copiado",
+      "website": "Sitio web",
+      "requestContact": "Solicitar contacto",
+      "tradingAs": "Nombre comercial: {name}",
+      "verified": "Empresa verificada",
+      "premium": "Socio Premium verificado",
+      "logoAlt": "Logotipo de {name}",
+      "nav": {
+        "label": "Secciones de esta página",
+        "about": "Acerca de",
+        "gallery": "Galería",
+        "products": "Productos",
+        "trade": "Capacidades comerciales",
+        "verification": "Verificación",
+        "contact": "Contacto"
+      },
+      "stats": {
+        "founded": "Fundación",
+        "employees": "Empleados",
+        "products": "Productos",
+        "markets": "Mercados atendidos"
+      },
+      "about": {
+        "title": "Acerca de",
+        "empty": "Esta empresa aún no ha redactado su presentación.",
+        "tags": "Especialidades"
+      },
+      "gallery": {
+        "title": "Galería",
+        "photoAlt": "{name} — foto {index}",
+        "open": "Ampliar la foto {index}",
+        "previous": "Foto anterior",
+        "next": "Foto siguiente",
+        "counter": "{index} / {total}",
+        "viewer": "Visor de fotos",
+        "documents": "Folletos y vídeos",
+        "brochure": "Folleto {index}",
+        "video": "Vídeo {index}"
+      },
+      "products": {
+        "title": "Productos",
+        "count": "{count, plural, one {# producto} other {# productos}}"
+      },
+      "trade": {
+        "title": "Capacidades comerciales",
+        "capacity": "Capacidad de producción",
+        "moq": "Pedido mínimo",
+        "leadTime": "Plazo de entrega",
+        "markets": "Mercados atendidos",
+        "languages": "Idiomas",
+        "certifications": "Certificaciones",
+        "hsCodes": "Códigos aduaneros (SA)"
+      },
+      "facts": {
+        "title": "Datos de la empresa",
+        "sector": "Sector",
+        "legalForm": "Forma jurídica",
+        "founded": "Año de fundación",
+        "employees": "Empleados",
+        "location": "Ubicación",
+        "address": "Dirección",
+        "website": "Sitio web",
+        "memberSince": "En Trade in DRC desde"
+      },
+      "trust": {
+        "title": "Verificación",
+        "verifiedOn": "Verificada el {date}",
+        "verifiedNoDate": "Verificada",
+        "by": "por el equipo de Trade in DRC",
+        "point1": "Identidad legal y documentos de registro revisados por nuestro equipo.",
+        "point2": "Los datos de contacto están protegidos: el contacto pasa por la plataforma."
+      },
+      "cta": {
+        "title": "Trabajar con {name}",
+        "body": "Envíe una solicitud: nuestro equipo la revisa y la transmite a la empresa."
+      }
     }
   },
   "LocalContacts": {
@@ -3717,15 +4530,16 @@
       "current": "Encontrar un socio local"
     },
     "hero": {
-      "title": "Encuentre un socio local en la RDC",
-      "subtitle": "Díganos qué necesita su empresa, Trade in DRC le ayudará a identificar empresas, representantes, distribuidores o proveedores de servicios locales adecuados para su proyecto.",
-      "submitCta": "Envíe su necesidad",
-      "browseCta": "Explorar primero el directorio"
+      "eyebrow": "Puesta en contacto acompañada",
+      "title": "Encontrar un socio local en la RDC",
+      "subtitle": "Describa su necesidad en tres pasos. Nuestro equipo identifica las empresas, distribuidores, representantes o proveedores de servicios adecuados para su proyecto.",
+      "browseCta": "Explorar el directorio",
+      "trackCta": "Seguir una solicitud"
     },
-    "step1": {
-      "title": "¿Qué necesita?",
-      "subtitle": "Seleccione el tipo de socio o contacto que está buscando.",
-      "footnote": "Solo puede seleccionar una necesidad principal por solicitud."
+    "trust": {
+      "free": "Gratis y sin compromiso",
+      "delay": "Respuesta en 2 a 3 días hábiles",
+      "verified": "Empresas verificadas por nuestro equipo"
     },
     "needs": {
       "supplier": "Encontrar un proveedor",
@@ -3736,58 +4550,6 @@
       "institutional": "Encontrar un contacto institucional",
       "enter_market": "Entrar en el mercado de la RDC",
       "source_products": "Abastecerse de productos de la RDC"
-    },
-    "step2": {
-      "title": "Cuéntenos sobre su necesidad comercial",
-      "subtitle": "Proporcione detalles para que podamos conectarlo con los contactos locales adecuados."
-    },
-    "form": {
-      "companyName": "Nombre de la empresa",
-      "companyNamePlaceholder": "Ingrese el nombre de su empresa",
-      "country": "País",
-      "countryPlaceholder": "Seleccione su país",
-      "countrySearch": "Buscar países...",
-      "countryNoResults": "No se encontraron países.",
-      "website": "Sitio web",
-      "websitePlaceholder": "www.suempresa.com",
-      "contactPerson": "Persona de contacto",
-      "contactPersonPlaceholder": "Nombre completo",
-      "email": "Correo electrónico",
-      "emailPlaceholder": "nombre@suempresa.com",
-      "phone": "Teléfono",
-      "phonePlaceholder": "(555) 123-4567",
-      "sector": "Sector",
-      "selectPlaceholder": "Seleccione una opción",
-      "sectorPlaceholder": "Seleccione su sector",
-      "contactType": "Tipo de contacto requerido",
-      "contactTypePlaceholder": "Seleccione el tipo de contacto",
-      "targetProvince": "Provincia objetivo en la RDC",
-      "targetProvincePlaceholder": "Seleccione la provincia objetivo",
-      "productService": "Producto o servicio de interés",
-      "productServicePlaceholder": "Ingrese el producto o servicio",
-      "volume": "Volumen comercial estimado (USD)",
-      "volumePlaceholder": "Seleccione un rango",
-      "timeline": "Plazo previsto",
-      "timelinePlaceholder": "Seleccione un plazo",
-      "requirement": "Requisito detallado",
-      "requirementPlaceholder": "Describa su proyecto, sus necesidades y cualquier requisito específico...",
-      "uploadTitle": "Haga clic para subir o arrastre y suelte",
-      "uploadHint": "PDF, DOC, DOCX, PPTX (máx. 10 MB)",
-      "uploadLabel": "Subir documento de apoyo (opcional)",
-      "submit": "Enviar solicitud",
-      "submitting": "Enviando...",
-      "privacy": "Su información es segura y solo se utilizará para conectarlo con socios locales relevantes."
-    },
-    "contactTypes": {
-      "supplier": "Proveedor",
-      "distributor": "Distribuidor",
-      "representative": "Representante local",
-      "jv_partner": "Socio de empresa conjunta",
-      "service_provider": "Proveedor de servicios profesionales",
-      "institutional": "Contacto institucional",
-      "buyer": "Comprador",
-      "agent": "Agente comercial",
-      "other": "Otro"
     },
     "volumes": {
       "under_10k": "Menos de $10,000",
@@ -3806,31 +4568,109 @@
     "checkboxes": {
       "verified_only": "Solo empresas verificadas",
       "b2b_meetings": "Organizar reuniones B2B",
-      "market_entry_support": "Apoyo para la entrada al mercado",
-      "sponsorship": "Interés en patrocinio"
+      "market_entry_support": "Acompañamiento para entrar en el mercado",
+      "sponsorship": "Interés en el patrocinio"
     },
-    "step3": {
+    "wizard": {
+      "steps": {
+        "need": "Su necesidad",
+        "details": "Los detalles",
+        "contact": "Sus datos de contacto"
+      },
+      "stepOf": "Paso {current} de {total}",
+      "back": "Atrás",
+      "next": "Continuar",
+      "submit": "Enviar la solicitud",
+      "submitting": "Enviando…",
+      "draftRestored": "Hemos recuperado lo que había escrito antes.",
+      "draftDiscard": "Empezar de nuevo",
+      "needTitle": "¿Qué busca?",
+      "needIntro": "Elija la necesidad principal de esta solicitud. Después podrá enviar otra.",
+      "detailsTitle": "Háblenos de su proyecto",
+      "detailsIntro": "Cuanto más precisa sea su descripción, más pertinentes serán los contactos propuestos.",
+      "contactTitle": "¿Cómo podemos contactarle?",
+      "contactIntro": "Estos datos solo sirven para responderle. Nunca se publican.",
+      "optional": "opcional",
+      "recapTitle": "Su solicitud",
+      "recapEdit": "Modificar",
+      "privacy": "Su información es confidencial y solo se usa para ponerle en contacto con socios pertinentes.",
+      "errorSummary": "Corrija los campos señalados para continuar.",
+      "errorServer": "No se pudo enviar la solicitud. Inténtelo de nuevo en un momento.",
+      "errorCaptcha": "La verificación antirrobot ha fallado. Inténtelo de nuevo.",
+      "errorRate": "Ya ha enviado varias solicitudes con esta dirección. Inténtelo de nuevo en una hora."
+    },
+    "fields": {
+      "productService": "Producto o servicio en cuestión",
+      "productServicePlaceholder": "Ej.: granos de cacao, transporte por carretera, asesoría fiscal…",
+      "sector": "Sector",
+      "sectorPlaceholder": "Elegir un sector",
+      "province": "Provincia objetivo en la RDC",
+      "provinceAny": "Toda la RDC / aún sin definir",
+      "timeline": "Plazo",
+      "volume": "Volumen de negocio estimado (USD)",
+      "volumePlaceholder": "Elegir un rango",
+      "requirement": "Su necesidad en detalle",
+      "requirementPlaceholder": "Cantidades, especificaciones, tipo de socio esperado, condiciones particulares…",
+      "requirementCount": "{count, plural, =0 {20 caracteres como mínimo} one {# carácter (mínimo 20)} other {# caracteres (mínimo 20)}}",
+      "preferences": "Deseos adicionales",
+      "attachment": "Documento de apoyo",
+      "companyName": "Nombre de su empresa",
+      "companyNamePlaceholder": "Razón social",
+      "contactPerson": "Su nombre",
+      "contactPersonPlaceholder": "Nombre y apellidos",
+      "email": "Correo profesional",
+      "emailPlaceholder": "nombre@empresa.com",
+      "phone": "Teléfono",
+      "country": "País",
+      "countryPlaceholder": "Elegir un país",
+      "countrySearch": "Buscar un país…",
+      "countryNoResults": "No se encontró ningún país.",
+      "website": "Sitio web",
+      "websitePlaceholder": "www.empresa.com"
+    },
+    "errors": {
+      "required": "Este campo es obligatorio.",
+      "too_short": "Añada algunos detalles: 20 caracteres como mínimo.",
+      "too_long": "Este texto es demasiado largo.",
+      "email": "Esta dirección de correo no es válida.",
+      "phone": "Este número no es válido. Compruebe el prefijo y el número.",
+      "website": "Esta dirección web no es válida.",
+      "invalid": "Este valor no se acepta.",
+      "need": "Elija una necesidad para continuar."
+    },
+    "upload": {
+      "title": "Suelte un archivo aquí o haga clic para elegirlo",
+      "hint": "PDF, DOC, DOCX, PPTX, JPG o PNG — 10 MB como máximo",
+      "uploading": "Enviando el archivo…",
+      "done": "Archivo adjunto",
+      "remove": "Quitar el archivo",
+      "too_large": "Este archivo supera los 10 MB.",
+      "bad_type": "Este tipo de archivo no se acepta.",
+      "server": "No se pudo enviar el archivo. Inténtelo de nuevo."
+    },
+    "done": {
       "title": "Solicitud enviada",
-      "subtitle": "La confirmación de su solicitud aparecerá aquí.",
-      "placeholder": "La confirmación de su solicitud aparecerá aquí después de enviarla.",
-      "thankYou": "¡Gracias! Su solicitud comercial ha sido enviada.",
-      "requestId": "ID de solicitud",
-      "info1": "Nuestro equipo revisará su solicitud e identificará los contactos locales adecuados.",
-      "info2": "Recibirá un correo de confirmación en breve.",
-      "info3": "Normalmente respondemos en un plazo de 2 a 3 días hábiles.",
+      "body": "Gracias. Nuestro equipo examina su solicitud y le responderá en 2 a 3 días hábiles.",
+      "referenceLabel": "Su referencia",
+      "copy": "Copiar",
+      "copied": "Referencia copiada.",
+      "emailSent": "Acabamos de enviar un correo de confirmación a {email}.",
+      "noEmail": "Conserve esta referencia: junto con su dirección de correo, le permite seguir su solicitud.",
+      "track": "Seguir mi solicitud",
       "another": "Enviar otra solicitud",
-      "browse": "Explorar primero el directorio"
+      "browse": "Explorar el directorio"
     },
-    "toast": {
-      "loading": "Enviando su solicitud...",
-      "success": "Su solicitud comercial ha sido enviada.",
-      "error": "Algo salió mal. Inténtelo de nuevo."
-    },
-    "validation": {
-      "selectNeed": "Primero seleccione lo que necesita.",
-      "required": "Complete todos los campos obligatorios.",
-      "fileTooLarge": "El archivo es demasiado grande (máx. 10 MB).",
-      "fileType": "Tipo de archivo no admitido. Use PDF, DOC, DOCX o PPTX."
+    "aside": {
+      "howTitle": "Cómo funciona",
+      "how1Title": "Usted describe su necesidad",
+      "how1Body": "Tres pasos, unos tres minutos.",
+      "how2Title": "Nuestro equipo busca por usted",
+      "how2Body": "Identificamos las empresas que corresponden a su proyecto.",
+      "how3Title": "Le ponemos en contacto",
+      "how3Body": "Recibe nuestras propuestas por correo.",
+      "trackTitle": "¿Ya envió una solicitud?",
+      "trackBody": "Siga su avance con su referencia y su dirección de correo.",
+      "trackCta": "Seguir mi solicitud"
     }
   },
   "Premium": {
@@ -4311,15 +5151,28 @@
     },
     "success": {
       "title": "Su empresa ha sido creada",
-      "body": "Ya está en su panel. Complete su perfil y añada sus documentos allí para verificarla.",
-      "cta": "Ir a mis empresas"
+      "body": "Ya está en su panel. Quedan dos pasos para que los compradores puedan verla.",
+      "cta": "Enviar mis documentos",
+      "nextTitle": "¿Y ahora?",
+      "next": {
+        "documents": {
+          "title": "Verificar la empresa",
+          "body": "Envíe sus documentos: la ficha se publica una vez aprobado el expediente."
+        },
+        "product": {
+          "title": "Publicar un primer producto",
+          "body": "Para aparecer en el marketplace."
+        }
+      },
+      "dashboardCta": "Ir al panel"
     },
     "errors": {
       "required": "Por favor, complete todos los campos obligatorios.",
       "auth": "Inicie sesión para enviar su empresa.",
       "server": "Algo salió mal. Inténtelo de nuevo.",
       "invalid": "Algunos campos no son válidos. Revíselos e inténtelo de nuevo.",
-      "bannerTitle": "Complete lo siguiente antes de enviar:"
+      "bannerTitle": "Complete lo siguiente antes de enviar:",
+      "staff": "Las cuentas del equipo de Trade in DRC no pueden registrar una empresa."
     },
     "benefits": {
       "items": [
@@ -4536,12 +5389,27 @@
       },
       "fields": {
         "companyEmail": "Correo de contacto de la empresa",
-        "headOfficeCity": "Ciudad de la sede"
+        "headOfficeCity": "Ciudad de la sede",
+        "activity": "Su actividad"
       },
       "hints": {
-        "companyEmail": "Se muestra en su ficha pública. Puede ser distinto de su correo de acceso."
+        "companyEmail": "Se muestra en su ficha pública. Puede ser distinto de su correo de acceso.",
+        "activity": "Opcional. Bastan dos o tres frases: este texto aparece en su ficha pública."
       },
-      "marketInterestIntro": "Opcional: díganos qué busca en la RDC para proponerle las oportunidades adecuadas."
+      "marketInterestIntro": "Opcional: díganos qué busca en la RDC para proponerle las oportunidades adecuadas.",
+      "ph": {
+        "activity": "Ej.: productor y exportador de café arábica de Kivu, lavado y secado al sol."
+      }
+    },
+    "draft": {
+      "restored": "Hemos recuperado su formulario donde lo dejó.",
+      "discard": "Empezar de cero",
+      "saved": "Borrador guardado en este dispositivo."
+    },
+    "dashboard": {
+      "back": "Mis empresas",
+      "title": "Registrar una empresa",
+      "subtitle": "Unos pocos datos para crear la ficha. Los documentos y el perfil completo vienen después."
     }
   },
   "Services": {
@@ -5152,7 +6020,10 @@
       "moq": "Cantidad mín.",
       "leadTime": "Plazo",
       "request": "Solicitar una cotización",
-      "illustrative": "Ilustración"
+      "illustrative": "Ilustración",
+      "yes": "Sí",
+      "no": "No",
+      "photos": "{count, plural, one {# foto} other {# fotos}}"
     },
     "banner": {
       "title": "¿No encuentra su proveedor?",
@@ -5209,7 +6080,12 @@
       "method": "Nuestro método en detalle",
       "progress": "{done} de {total} puntos verificados",
       "done": "Verificado",
-      "pending": "Pendiente"
+      "pending": "Pendiente",
+      "tax": {
+        "title": "Identificación fiscal",
+        "ok": "Número de identificación fiscal comprobado con justificante.",
+        "todo": "Justificante fiscal aún no comprobado."
+      }
     },
     "terms": {
       "title": "Condiciones comerciales",
@@ -5255,13 +6131,19 @@
       "supportCta": "Ver los servicios de acompañamiento",
       "responseTime": "Respuesta en 48 horas hábiles",
       "stepNeed": "Su necesidad",
-      "stepContact": "Sus datos"
+      "stepContact": "Sus datos",
+      "track": "Seguir mi solicitud"
     },
     "about": "Sobre la oferta",
     "supplier": {
       "title": "El proveedor",
       "profile": "Ver el perfil",
       "report": "Informe de verificación"
+    },
+    "preview": {
+      "hidden": "Vista previa: este producto está oculto. No aparece en el mercado; solo el vendedor y el equipo de Trade in DRC ven esta página.",
+      "unverified": "Vista previa: este producto aparecerá en el mercado cuando la empresa esté verificada. Por ahora, solo el vendedor y el equipo de Trade in DRC ven esta página.",
+      "manage": "Gestionar este producto"
     }
   },
   "MarketChain": {
@@ -5729,6 +6611,17 @@
         "title": "Premium vencido",
         "body": "{company} perdió sus ventajas Premium.",
         "cta": "Reactivar"
+      },
+      "verification_approved": {
+        "title": "{company} está verificada",
+        "body": "{notes}",
+        "bodyDefault": "Su perfil ya es público y lleva la insignia de verificación.",
+        "cta": "Ver el expediente"
+      },
+      "requests_received": {
+        "title": "{count, plural, one {# nueva solicitud de comprador} other {# nuevas solicitudes de compradores}}",
+        "body": "Verificadas y transmitidas por nuestro equipo. Responda mientras el comprador sigue buscando.",
+        "cta": "Ver las solicitudes"
       }
     },
     "missing": {
@@ -5836,33 +6729,6 @@
       "empty": "Aún no hay datos de mercado publicados.",
       "latestReport": "Último informe publicado"
     },
-    "welcome": {
-      "title": "Bienvenido a Trade in DRC",
-      "subtitle": "Unos pasos para ser visible ante compradores y socios.",
-      "doneSr": "Hecho:",
-      "currentSr": "Paso actual:",
-      "start": "Empezar",
-      "statsTitle": "Sus estadísticas aparecerán aquí",
-      "statsBody": "cuando su empresa esté registrada, verificada y publicada.",
-      "steps": {
-        "account": {
-          "title": "Crear su cuenta",
-          "body": "Hecho."
-        },
-        "company": {
-          "title": "Registrar su empresa",
-          "body": "5 minutos: nombre, sector, país y contacto."
-        },
-        "documents": {
-          "title": "Enviar sus documentos",
-          "body": "RCCM y NIF para obtener la insignia verificada."
-        },
-        "product": {
-          "title": "Publicar su primer producto",
-          "body": "Para aparecer en el marketplace."
-        }
-      }
-    },
     "greetingTime": {
       "morning": "Buenos días, {name}",
       "afternoon": "Buenas tardes, {name}",
@@ -5884,6 +6750,65 @@
       "bestWeek": "Mejor semana",
       "share": "Parte de «{label}»",
       "activeDays": "Días con visitas"
+    },
+    "onboarding": {
+      "eyebrow": "Primeros pasos",
+      "title": "Bienvenido a Trade in DRC",
+      "subtitle": "Cuatro pasos para que su empresa sea visible para compradores y socios. Puede detenerse y continuar en cualquier momento.",
+      "ringCaption": "{done, plural, one {# paso completado} other {# pasos completados}} de {total}",
+      "progressTitle": "Termine su puesta en marcha",
+      "progressSub": "{done, plural, one {# paso completado} other {# pasos completados}} de {total}",
+      "stepLabel": "Paso {n}",
+      "stateDone": "Hecho",
+      "stateUpcoming": "Después",
+      "doneSr": "Hecho:",
+      "currentSr": "Paso actual:",
+      "upcomingSr": "Próximo:",
+      "benefitsTitle": "Lo que obtiene una vez en línea",
+      "benefits": {
+        "visible": {
+          "title": "Una ficha pública",
+          "body": "Su empresa aparece en el directorio y en la búsqueda."
+        },
+        "verified": {
+          "title": "La insignia verificada",
+          "body": "La señal de confianza que los compradores miran primero."
+        },
+        "stats": {
+          "title": "Sus estadísticas",
+          "body": "Vistas, búsquedas y solicitudes de contacto, seguidas aquí."
+        }
+      },
+      "steps": {
+        "account": {
+          "title": "Crear su cuenta",
+          "body": "Su acceso al espacio de empresa.",
+          "done": "Cuenta creada y correo confirmado.",
+          "cta": "Crear mi cuenta",
+          "time": "1 min"
+        },
+        "company": {
+          "title": "Registrar su empresa",
+          "body": "Nombre, sector, país y contacto.",
+          "done": "Empresa registrada.",
+          "cta": "Registrar mi empresa",
+          "time": "Unos 5 min"
+        },
+        "documents": {
+          "title": "Verificar la empresa",
+          "body": "Envíe sus documentos para publicar la ficha.",
+          "done": "Documentos enviados.",
+          "cta": "Enviar mis documentos",
+          "time": "Unos 5 min"
+        },
+        "product": {
+          "title": "Publicar un primer producto",
+          "body": "Para aparecer en el marketplace.",
+          "done": "Primer producto publicado.",
+          "cta": "Añadir un producto",
+          "time": "Unos 3 min"
+        }
+      }
     }
   },
   "HomeChain": {
@@ -5901,5 +6826,344 @@
     "step": "Paso",
     "cta": "Registrar mi empresa",
     "secondary": "Nuestro enfoque de verificación"
+  },
+  "CompanyVerification": {
+    "back": "Mis empresas",
+    "title": "Verificar mi empresa",
+    "subtitle": "Suba los documentos de {company} y envíe el expediente a nuestro equipo.",
+    "notFound": "Esta empresa no existe o no le pertenece.",
+    "status": {
+      "pending_documents": "Documentos por enviar",
+      "pending": "En revisión",
+      "more_info": "Se solicita más información",
+      "verified": "Verificada",
+      "rejected": "Expediente rechazado"
+    },
+    "phases": {
+      "documents": {
+        "title": "Sus documentos",
+        "body": "Usted sube los archivos"
+      },
+      "review": {
+        "title": "Revisión de nuestro equipo",
+        "body": "Comprobamos el expediente"
+      },
+      "published": {
+        "title": "Ficha publicada",
+        "body": "Visible para los compradores"
+      }
+    },
+    "docsTitle": "Documentos del expediente",
+    "formats": "PDF, JPG o PNG, 5 MB como máximo por archivo.",
+    "requiredProgress": "Documentos obligatorios: {done}/{total}",
+    "required": "Obligatorio",
+    "optional": "Opcional",
+    "docs": {
+      "business_license": {
+        "title": "Certificado RCCM",
+        "hint": "El extracto del Registro de Comercio y de Crédito Mobiliario.",
+        "titleIntl": "Certificado de constitución",
+        "hintIntl": "El documento oficial de registro de la sociedad en su país."
+      },
+      "tax_registration": {
+        "title": "Certificado NIF",
+        "hint": "El documento con su número de identificación fiscal.",
+        "titleIntl": "Documento fiscal",
+        "hintIntl": "Un certificado de identificación fiscal de su país, si lo tiene."
+      },
+      "proof_of_address": {
+        "title": "Comprobante de domicilio",
+        "hint": "Contrato de alquiler, factura o certificado a nombre de la empresa."
+      },
+      "additional_document": {
+        "title": "Otro documento",
+        "hint": "Licencia, certificación o cualquier documento útil para el expediente."
+      }
+    },
+    "docStatus": {
+      "pending": "Recibido",
+      "approved": "Aceptado",
+      "rejected": "Rechazado"
+    },
+    "choose": "Elegir un archivo",
+    "addAnother": "Añadir",
+    "view": "Ver",
+    "viewFile": "Ver {file}",
+    "remove": "Quitar",
+    "removeFile": "Quitar {file}",
+    "uploading": "Subiendo {file}…",
+    "uploaded": "Documento añadido.",
+    "uploadError": "No se pudo subir el documento. Inténtelo de nuevo.",
+    "removed": "Documento quitado.",
+    "removeError": "No se pudo quitar el documento.",
+    "viewError": "No se pudo abrir este documento.",
+    "loadError": "No se pudieron cargar sus documentos.",
+    "retry": "Reintentar",
+    "missing": "Falta: {list}.",
+    "ready": "Expediente completo, listo para enviar.",
+    "submit": "Enviar para verificación",
+    "resubmit": "Volver a enviar para verificación",
+    "submitting": "Enviando el expediente…",
+    "submitted": "Expediente enviado. Nuestro equipo lo revisará.",
+    "submitMissing": "Aún falta un documento obligatorio.",
+    "submitError": "No se pudo enviar el expediente. Inténtelo de nuevo.",
+    "notesLabel": "Mensaje de nuestro equipo:",
+    "banner": {
+      "pending": {
+        "title": "Expediente en revisión",
+        "body": "Le avisaremos en cuanto haya una decisión.",
+        "cta": "Añadir un producto mientras tanto"
+      },
+      "verified": {
+        "title": "Empresa verificada",
+        "body": "Su ficha está publicada y lleva la insignia verificada.",
+        "cta": "Ver la ficha pública"
+      },
+      "rejected": {
+        "title": "El expediente fue rechazado",
+        "body": "Corrija los documentos de abajo y vuelva a enviar el expediente."
+      },
+      "moreInfo": {
+        "title": "Se solicita más información",
+        "body": "Añada lo solicitado y vuelva a enviar el expediente."
+      }
+    },
+    "aside": {
+      "title": "Lo que desbloquea la verificación",
+      "items": {
+        "public": {
+          "title": "Ficha pública",
+          "body": "Su empresa se hace visible en el directorio y en la búsqueda."
+        },
+        "badge": {
+          "title": "Insignia verificada",
+          "body": "Una señal de confianza en su ficha y sus productos."
+        },
+        "contact": {
+          "title": "Solicitudes de contacto",
+          "body": "Los compradores pueden escribirle desde su ficha."
+        }
+      },
+      "delay": "La comprobación la realiza un miembro de nuestro equipo tras el envío del expediente.",
+      "privacy": "Sus documentos son privados: solo usted y nuestros verificadores tienen acceso."
+    },
+    "legal": {
+      "title": "Identidad legal",
+      "subtitle": "Los números que figuran en sus documentos. Nuestro equipo los compara con los archivos subidos.",
+      "save": "Guardar",
+      "saving": "Guardando…",
+      "saved": "Identidad legal guardada.",
+      "saveError": "No se pudo guardar. Inténtelo de nuevo.",
+      "unsaved": "Cambios sin guardar.",
+      "hint": "Los campos marcados con asterisco son necesarios para enviar el expediente.",
+      "draft": {
+        "restored": "Se han restaurado sus cambios sin guardar de la última vez. Guarde para conservarlos.",
+        "discard": "Descartar estos cambios",
+        "kept": "Se conservan en este dispositivo hasta que guarde."
+      }
+    },
+    "missingLegal": "Complete y guarde los números obligatorios de la identidad legal.",
+    "submitMissingLegal": "Falta un número obligatorio en la identidad legal.",
+    "timeline": {
+      "title": "Seguimiento del expediente",
+      "empty": "Aún no hay eventos.",
+      "events": {
+        "submitted": "Expediente enviado",
+        "resubmitted": "Expediente reenviado",
+        "approved": "Empresa verificada",
+        "rejected": "Expediente rechazado",
+        "more_info_requested": "Se solicitó más información"
+      }
+    },
+    "docRefusedReason": "Motivo del rechazo:",
+    "teamMessage": {
+      "title": "Mensaje de nuestro equipo"
+    }
+  },
+  "NotFound": {
+    "metaTitle": "Página no encontrada",
+    "eyebrow": "Error 404",
+    "title": "No se encuentra esta página",
+    "body": "Puede que la dirección esté mal escrita, o que la página se haya movido o eliminado. Busque en el sitio o elija una sección abajo.",
+    "searchLabel": "Buscar en el sitio",
+    "searchPlaceholder": "Una empresa, un producto, una oportunidad…",
+    "searchButton": "Buscar",
+    "home": "Volver al inicio",
+    "back": "Página anterior",
+    "linksTitle": "Adónde ir ahora",
+    "links": {
+      "market": {
+        "title": "Mercado",
+        "body": "Productos y ofertas de empresas verificadas."
+      },
+      "companies": {
+        "title": "Empresas",
+        "body": "El directorio de empresas verificadas."
+      },
+      "opportunities": {
+        "title": "Oportunidades",
+        "body": "Solicitudes y convocatorias abiertas ahora."
+      },
+      "contact": {
+        "title": "Contacto",
+        "body": "Díganos qué página buscaba."
+      }
+    }
+  },
+  "ReceivedRequests": {
+    "title": "Solicitudes recibidas",
+    "subtitle": "Las solicitudes de presupuesto y de contacto que los compradores han dirigido a su empresa. Nuestro equipo verifica cada una antes de transmitírsela.",
+    "checkedNote": "Cada solicitud de abajo fue verificada por el equipo de TradeInDRC antes de llegarle.",
+    "loadError": "No se pudieron cargar sus solicitudes. Recargue la página.",
+    "mailSubject": "Su solicitud {reference} en TradeInDRC — {subject}",
+    "kind": {
+      "quote": "Solicitud de presupuesto",
+      "contact": "Solicitud de contacto"
+    },
+    "empty": {
+      "title": "Aún no hay solicitudes",
+      "body": "Cuando un comprador pide un presupuesto de uno de sus productos o contacta con su empresa, nuestro equipo verifica la solicitud y aparece aquí.",
+      "cta": "Ver mis productos",
+      "steps": {
+        "buyer": {
+          "title": "El comprador escribe",
+          "body": "Una solicitud de presupuesto de uno de sus productos, o un mensaje a su empresa."
+        },
+        "team": {
+          "title": "Nuestro equipo verifica",
+          "body": "Nos aseguramos de que la solicitud sea seria antes de que le llegue."
+        },
+        "you": {
+          "title": "Usted responde",
+          "body": "La solicitud aparece aquí con los datos de contacto del comprador."
+        }
+      }
+    },
+    "card": {
+      "new": "Nueva",
+      "receivedOn": "Recibida el {date}",
+      "forCompany": "Para {company}",
+      "productRemoved": "Producto retirado del catálogo",
+      "quantity": "Cantidad",
+      "deliveryPlace": "Lugar de entrega",
+      "deadline": "Plazo",
+      "message": "Mensaje del comprador",
+      "noMessage": "El comprador no dejó ningún mensaje.",
+      "buyer": "Comprador",
+      "reply": "Responder por correo",
+      "interestTitle": "Relación buscada: {interest}"
+    },
+    "views": {
+      "label": "Filtrar las solicitudes",
+      "all": "Todas",
+      "new": "Nuevas",
+      "quote": "Presupuestos",
+      "contact": "Contacto"
+    },
+    "searchPlaceholder": "Buscar un comprador, un producto…",
+    "noMatch": "Ninguna solicitud coincide con esta búsqueda.",
+    "clear": "Borrar los filtros",
+    "detail": {
+      "back": "Todas las solicitudes",
+      "request": "La solicitud",
+      "contact": "Datos de contacto del comprador",
+      "call": "Llamar",
+      "copyEmail": "Copiar la dirección de correo",
+      "emailCopied": "Dirección de correo copiada.",
+      "copyFailed": "No se pudo copiar la dirección.",
+      "viewProduct": "Ver la ficha del producto",
+      "checked": "Verificada por el equipo de TradeInDRC antes de transmitírsela."
+    }
+  },
+  "ProductPricing": {
+    "units": {
+      "kg": "kg",
+      "tonne": "tonelada",
+      "litre": "litro",
+      "piece": "pieza",
+      "bag": "saco",
+      "carton": "caja",
+      "pallet": "palé",
+      "container": "contenedor",
+      "m3": "m³",
+      "m2": "m²"
+    },
+    "quantity": {
+      "kg": "{count, plural, other {# kg}}",
+      "tonne": "{count, plural, one {# tonelada} other {# toneladas}}",
+      "litre": "{count, plural, one {# litro} other {# litros}}",
+      "piece": "{count, plural, one {# pieza} other {# piezas}}",
+      "bag": "{count, plural, one {# saco} other {# sacos}}",
+      "carton": "{count, plural, one {# caja} other {# cajas}}",
+      "pallet": "{count, plural, one {# palé} other {# palés}}",
+      "container": "{count, plural, one {# contenedor} other {# contenedores}}",
+      "m3": "{count, plural, other {# m³}}",
+      "m2": "{count, plural, other {# m²}}"
+    },
+    "price": "Precio",
+    "minOrder": "Pedido mínimo",
+    "perUnit": "/ {unit}",
+    "minShort": "Mín. {quantity}",
+    "onRequest": "Precio a consultar"
+  },
+  "RequestTracking": {
+    "metaTitle": "Seguir mi solicitud",
+    "title": "Seguir mi solicitud",
+    "subtitle": "Introduzca la referencia recibida tras el envío y la dirección de correo usada en el formulario.",
+    "reference": "Referencia",
+    "referencePlaceholder": "TIDRC-PR-2026-000000",
+    "email": "Dirección de correo",
+    "emailPlaceholder": "nombre@empresa.com",
+    "submit": "Ver el avance",
+    "searching": "Buscando…",
+    "invalid": "Compruebe la referencia (TIDRC-PR-año-número) y la dirección de correo.",
+    "notFound": "Ninguna solicitud corresponde a esta referencia y a esta dirección de correo.",
+    "serverError": "El seguimiento no está disponible por el momento. Inténtelo de nuevo en un momento.",
+    "resultTitle": "Solicitud {reference}",
+    "sentOn": "Enviada el {date}",
+    "aboutProduct": "Producto: {product}",
+    "aboutCompany": "Dirigida a: {company}",
+    "steps": {
+      "received": {
+        "title": "Solicitud recibida",
+        "body": "Su solicitud ha quedado registrada."
+      },
+      "review": {
+        "title": "Examen por nuestro equipo",
+        "body": "Verificamos su solicitud y buscamos los interlocutores adecuados."
+      },
+      "forwarded": {
+        "title": "Transmitida al proveedor",
+        "body": "El proveedor ha recibido su solicitud y sus datos de contacto. Le responderá directamente.",
+        "pending": "Su solicitud se transmitirá al proveedor en cuanto nuestro equipo la haya verificado."
+      },
+      "outcome": {
+        "title": "Solicitud tratada",
+        "body": "Nuestro equipo ha terminado de tratar su solicitud.",
+        "pending": "Su solicitud sigue su curso. Este paso se validará cuando termine su tratamiento."
+      }
+    },
+    "declined": "Su solicitud no ha podido ser aceptada. Nuestro equipo le ha escrito o le escribirá para explicarle el motivo.",
+    "state": {
+      "done": "Hecho",
+      "current": "En curso",
+      "upcoming": "Pendiente"
+    },
+    "another": "Seguir otra solicitud",
+    "newRequest": "Enviar una nueva solicitud",
+    "help": "¿Una pregunta sobre su solicitud?",
+    "contact": "Contactarnos"
+  },
+  "RequestEmail": {
+    "subject": "Hemos recibido su solicitud {reference}",
+    "title": "Hemos recibido su solicitud",
+    "greeting": "Hola, {name}:",
+    "received": "Gracias por recurrir a TradeInDRC. Su solicitud ha quedado registrada y nuestro equipo va a examinarla.",
+    "next": "Le responderemos en 2 a 3 días hábiles.",
+    "keepReference": "Conserve su referencia: junto con esta dirección de correo, le permite seguir su solicitud.",
+    "referenceLabel": "Referencia",
+    "summaryLabel": "Su necesidad",
+    "trackCta": "Seguir mi solicitud",
+    "signature": "El equipo de TradeInDRC — este correo responde a una solicitud enviada desde nuestro sitio."
   }
 }

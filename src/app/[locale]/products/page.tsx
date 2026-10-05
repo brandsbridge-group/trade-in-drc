@@ -108,6 +108,9 @@ export default async function ProductsPage({
   let q = supabase
     .from("products")
     .select(OFFER_CARD_SELECT)
+    // RLS already hides these from visitors; stated here so an owner or a staff
+    // member browsing the market sees exactly what the public sees.
+    .eq("is_published", true)
     .eq("companies.status", "verified");
   if (origin) {
     q = q.eq("companies.registration_profile", origin === "import" ? "international" : "congolese");
@@ -156,7 +159,7 @@ export default async function ProductsPage({
     tierLabel,
   );
 
-  const factLabels = { moq: t("card.moq"), leadTime: t("card.leadTime") };
+  const factLabels = { moq: t("card.moq"), leadTime: t("card.leadTime"), yes: t("card.yes"), no: t("card.no") };
   const offers: OfferCardData[] = rows.map((p) =>
     toOfferCardData({ ...p, companies: p.companies! }, loc, factLabels),
   );
@@ -460,7 +463,7 @@ export default async function ProductsPage({
             </div>
             <Link
               href="/request"
-              className="group inline-flex flex-none items-center gap-1.5 self-start rounded-lg bg-market-or px-4 py-2.5 text-[13px] font-bold text-[var(--color-landing-navy)] shadow-sm transition-colors duration-150 ease-out hover:bg-market-or-dark sm:self-auto"
+              className="group inline-flex flex-none items-center gap-1.5 self-start rounded-full bg-market-or px-5 py-2.5 text-[13px] font-bold text-[var(--color-landing-navy)] transition-colors duration-150 ease-out hover:bg-market-or-light active:bg-market-or-dark sm:self-auto"
             >
               {t("banner.cta")}
               <ArrowRight

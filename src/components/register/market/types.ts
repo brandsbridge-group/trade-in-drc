@@ -110,7 +110,7 @@ export interface RegisterSubmitPayload {
 export interface RegisterResult {
   ok: boolean;
   companyId?: string;
-  error?: "auth" | "invalid" | "server";
+  error?: "auth" | "invalid" | "server" | "staff";
   /**
    * `RegisterFormData` key names the server rejected (from `issue.path`,
    * never `issue.message` — raw Zod English text must never reach the FR

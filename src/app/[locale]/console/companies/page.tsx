@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { Badge } from "@/components/ui/badge";
 import {
     Table,
     TableBody,
@@ -17,7 +16,7 @@ import { ArrowRight, Building2, Search } from "lucide-react";
 import { toast } from "sonner";
 import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
-import { PageHeader } from "@/components/design";
+import { PageHeader } from "@/components/console/page-header";
 import { listCompaniesForAdmin, type AdminCompanyRow } from "./actions";
 
 type CompanyStatus = "all" | "pending_documents" | "pending" | "verified" | "rejected";
@@ -30,11 +29,11 @@ const STATUS_FILTER_TABS: { value: CompanyStatus; labelKey: string }[] = [
     { value: "rejected", labelKey: "statusValues.rejected" },
 ];
 
-const STATUS_BADGE_CLASSES: Record<string, string> = {
-    pending_documents: "bg-slate-50 text-slate-600 border-slate-200",
-    pending: "bg-amber-50 text-amber-700 border-amber-200",
-    verified: "bg-green-50 text-green-700 border-green-200",
-    rejected: "bg-red-50 text-red-700 border-red-200",
+const STATUS_PILL_CLASSES: Record<string, string> = {
+    pending_documents: "bg-slate-100 text-slate-600",
+    pending: "bg-amber-100 text-amber-800",
+    verified: "bg-emerald-50 text-emerald-700",
+    rejected: "bg-red-50 text-red-700",
 };
 
 const PAGE_SIZE = 20;
@@ -113,16 +112,16 @@ export default function AdminCompaniesPage() {
     }), [companies]);
 
     return (
-        <div className="p-4">
+        <div className="space-y-4">
             <PageHeader
                 title={loading ? t("listTitle") : `${t("listTitle")} (${companies.length})`}
                 subtitle={t("listSubtitle")}
             />
 
             {/* Controls */}
-            <div className="flex items-center gap-3 mb-4">
-                <div className="relative flex-1 max-w-xs">
-                    <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-muted-foreground" />
+            <div className="flex flex-wrap items-center gap-3">
+                <div className="relative w-full max-w-xs">
+                    <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                     <Input
                         value={search}
                         onChange={(e) => {
@@ -130,30 +129,32 @@ export default function AdminCompaniesPage() {
                             setVisibleCount(PAGE_SIZE);
                         }}
                         placeholder={t("searchPlaceholder")}
-                        className="h-9 text-sm pl-8"
+                        className="h-9 rounded-full border-0 bg-white pl-10 text-sm shadow-none ring-1 ring-slate-200"
                     />
                 </div>
 
                 {/* Status filter button group */}
-                <div className="flex items-center border border-slate-200 rounded-md overflow-hidden">
+                <div className="inline-flex max-w-full flex-wrap gap-0.5 rounded-xl bg-slate-200/70 p-1">
                     {STATUS_FILTER_TABS.map((tab) => (
                         <button
                             key={tab.value}
+                            type="button"
+                            aria-pressed={activeStatus === tab.value}
                             onClick={() => {
                                 setActiveStatus(tab.value);
                                 setVisibleCount(PAGE_SIZE);
                             }}
                             className={cn(
-                                "px-3 py-1.5 text-sm border-r last:border-r-0 transition-colors",
+                                "rounded-lg px-3 py-1.5 text-[13px] transition-colors",
                                 activeStatus === tab.value
-                                    ? "bg-foreground text-background"
-                                    : "bg-card text-muted-foreground hover:bg-muted/50"
+                                    ? "bg-white font-semibold text-market-navy ring-1 ring-slate-200"
+                                    : "text-slate-600 hover:text-market-navy"
                             )}
                         >
                             {t(tab.labelKey)}
                             <span className={cn(
-                                "ml-1.5 text-xs",
-                                activeStatus === tab.value ? "opacity-60" : "text-muted-foreground"
+                                "ml-1.5 text-xs tabular-nums",
+                                activeStatus === tab.value ? "text-slate-500" : "text-slate-400"
                             )}>
                                 {statusCounts[tab.value]}
                             </span>
@@ -163,7 +164,7 @@ export default function AdminCompaniesPage() {
             </div>
 
             {/* Table */}
-            <div className="bg-card border border-slate-200 rounded-2xl overflow-hidden">
+            <div className="console-table-card">
                 {loading ? (
                     <Table>
                         <TableHeader>
@@ -207,15 +208,15 @@ export default function AdminCompaniesPage() {
                                         {company.sectorName ?? "-"}
                                     </TableCell>
                                     <TableCell>
-                                        <Badge
-                                            variant="outline"
+                                        <span
                                             className={cn(
-                                                "text-xs",
-                                                STATUS_BADGE_CLASSES[company.status] ?? ""
+                                                "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11.5px] font-semibold",
+                                                STATUS_PILL_CLASSES[company.status] ?? "bg-slate-100 text-slate-600"
                                             )}
                                         >
+                                            <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden />
                                             {t(`statusValues.${company.status}`)}
-                                        </Badge>
+                                        </span>
                                     </TableCell>
                                     <TableCell className="text-sm text-muted-foreground">
                                         {company.ownerEmail ?? "-"}

@@ -3,7 +3,7 @@ import {
   BarChart3,
   Briefcase,
   Building2,
-  FileText,
+  Inbox,
   LayoutDashboard,
   MessageSquare,
   Package,
@@ -16,8 +16,8 @@ export interface DashboardNavItem {
   /** Key under the `Dashboard` namespace. */
   labelKey: string;
   icon: LucideIcon;
-  /** Shows the awaiting-replies count. */
-  badge?: "messages";
+  /** Shows the awaiting-replies count, or the buyer requests not opened yet. */
+  badge?: "messages" | "requests";
 }
 
 export interface DashboardNavGroup {
@@ -40,7 +40,9 @@ export const DASHBOARD_NAV: DashboardNavGroup[] = [
   {
     labelKey: "trade",
     items: [
-      { href: "/dashboard/rfq", labelKey: "nav.rfq", icon: FileText },
+      { href: "/dashboard/requests", labelKey: "nav.requests", icon: Inbox, badge: "requests" },
+      // No "quote requests" entry: a company publishes its offers and demands
+      // as opportunities (/dashboard/rfq redirects there).
       { href: "/dashboard/opportunities", labelKey: "nav.opportunities", icon: Briefcase },
       { href: "/dashboard/inbox", labelKey: "nav.inbox", icon: MessageSquare, badge: "messages" },
     ],

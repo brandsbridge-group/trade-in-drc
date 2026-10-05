@@ -78,7 +78,6 @@ export async function uploadRegistrationDocuments(
   companyId: string,
   files: RegistrationDocumentFiles
 ): Promise<UploadRegistrationDocumentsResult> {
-  const supabase = createClient();
   const uploaded: DocumentField[] = [];
   const failed: { field: DocumentField; reason: string }[] = [];
 
@@ -87,34 +86,45 @@ export async function uploadRegistrationDocuments(
   );
 
   for (const [field, file] of entries) {
-    const type = DOCUMENT_FIELD_TYPES[field];
-    const path = buildRegistrationDocumentPath(companyId, type, file.name);
-
-    const { error: uploadError } = await supabase.storage
-      .from(STORAGE_BUCKETS.COMPANY_DOCUMENTS)
-      .upload(path, file, { contentType: file.type, upsert: false });
-
-    if (uploadError) {
-      console.error("[uploadRegistrationDocuments] storage upload failed", field, uploadError.message);
-      failed.push({ field, reason: "upload" });
-      continue;
-    }
-
-    const { error: rowError } = await supabase.from("company_documents").insert({
-      company_id: companyId,
-      type,
-      file_url: path,
-      file_name: file.name,
-    });
-
-    if (rowError) {
-      console.error("[uploadRegistrationDocuments] row insert failed", field, rowError.message);
-      failed.push({ field, reason: "record" });
-      continue;
-    }
-
-    uploaded.push(field);
+    const result = await uploadCompanyDocument(companyId, DOCUMENT_FIELD_TYPES[field], file);
+    if (result.ok) uploaded.push(field);
+    else failed.push({ field, reason: result.reason });
   }
 
   return { uploaded, failed };
+}
+
+/**
+ * Uploads ONE document for an existing company and records it — the unit the
+ * registration batch above and the dashboard's "Get verified" screen share.
+ * Same constraints: browser client, authenticated owner, company row exists.
+ * Never throws.
+ */
+export async function uploadCompanyDocument(
+  companyId: string,
+  type: DocumentType,
+  file: File
+): Promise<{ ok: true } | { ok: false; reason: "upload" | "record" }> {
+  const supabase = createClient();
+  const path = buildRegistrationDocumentPath(companyId, type, file.name);
+
+  const { error: uploadError } = await supabase.storage
+    .from(STORAGE_BUCKETS.COMPANY_DOCUMENTS)
+    .upload(path, file, { contentType: file.type, upsert: false });
+  if (uploadError) {
+    console.error("[uploadCompanyDocument] storage upload failed", type, uploadError.message);
+    return { ok: false, reason: "upload" };
+  }
+
+  const { error: rowError } = await supabase.from("company_documents").insert({
+    company_id: companyId,
+    type,
+    file_url: path,
+    file_name: file.name,
+  });
+  if (rowError) {
+    console.error("[uploadCompanyDocument] row insert failed", type, rowError.message);
+    return { ok: false, reason: "record" };
+  }
+  return { ok: true };
 }

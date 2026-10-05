@@ -1,18 +1,9 @@
 import { getTranslations } from "next-intl/server";
-import {
-  ClipboardList,
-  Sparkles,
-  RefreshCw,
-  CheckCircle2,
-  Clock,
-  Target,
-  Inbox,
-  Search,
-  UserCheck,
-  ArrowRightLeft,
-} from "lucide-react";
-import type { ReactNode } from "react";
-import { PageHeader } from "@/components/design";
+import { Inbox, Search, Send, UserCheck } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { PageHeader } from "@/components/console/page-header";
+import { RequestKpis } from "@/components/admin/requests-table/request-kpis";
+import { handledRate, viewCounts } from "@/lib/requests/views";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import type {
   BusinessRequestStatus,
@@ -31,13 +22,17 @@ import {
  * status / follow_up_owner / admin_notes columns. Submitter display names are
  * resolved through a batched profiles lookup (Relationships are empty in the
  * generated types, so no PostgREST auto-embed).
+ *
+ * A request aimed at one company (quote request, contact request — 00062) also
+ * shows that company and the product, and can be forwarded to it.
  */
 
 const REQUEST_FETCH_LIMIT = 300;
 
 interface RawRequest {
   id: string;
-  submitter_id: string;
+  reference: string | null;
+  submitter_id: string | null;
   full_name: string;
   company_name: string | null;
   country: string | null;
@@ -54,6 +49,14 @@ interface RawRequest {
   created_at: string;
   promotion_plan: string | null;
   promotion_amount_usd: number | null;
+  target_company_id: string | null;
+  product_id: string | null;
+  quantity: string | null;
+  interest: string | null;
+  forwarded_at: string | null;
+  details: unknown;
+  attachment_path: string | null;
+  attachment_name: string | null;
 }
 
 export default async function AdminRequestsPage({
@@ -68,7 +71,7 @@ export default async function AdminRequestsPage({
   const { data } = await supabase
     .from("business_requests")
     .select(
-      "id, submitter_id, full_name, company_name, country, sector, intent, status, follow_up_owner, admin_notes, message, email, phone, preferred_location, timeline, created_at, promotion_plan, promotion_amount_usd"
+      "id, reference, submitter_id, full_name, company_name, country, sector, intent, status, follow_up_owner, admin_notes, message, email, phone, preferred_location, timeline, created_at, promotion_plan, promotion_amount_usd, target_company_id, product_id, quantity, interest, forwarded_at, details, attachment_path, attachment_name"
     )
     .order("created_at", { ascending: false })
     .limit(REQUEST_FETCH_LIMIT);
@@ -76,7 +79,9 @@ export default async function AdminRequestsPage({
   const raw = (data ?? []) as RawRequest[];
 
   // Resolve submitter display names in a single batched lookup.
-  const submitterIds = Array.from(new Set(raw.map((r) => r.submitter_id)));
+  const idsOf = (pick: (r: RawRequest) => string | null) =>
+    Array.from(new Set(raw.map(pick).filter((id): id is string => !!id)));
+  const submitterIds = idsOf((r) => r.submitter_id);
   const submitterNameById = new Map<string, string | null>();
   if (submitterIds.length > 0) {
     const { data: people } = await supabase
@@ -88,21 +93,36 @@ export default async function AdminRequestsPage({
     }
   }
 
-  const rows: AdminRequestRow[] = raw.map((r) => ({
+  // Same for the company a request is addressed to, and its product.
+  const targetIds = idsOf((r) => r.target_company_id);
+  const productIds = idsOf((r) => r.product_id);
+  const [targets, products] = await Promise.all([
+    targetIds.length > 0
+      ? supabase.from("companies").select("id, name").in("id", targetIds)
+      : null,
+    productIds.length > 0
+      ? supabase.from("products").select("id, name, name_en, name_fr").in("id", productIds)
+      : null,
+  ]);
+  const targetNameById = new Map((targets?.data ?? []).map((c) => [c.id, c.name]));
+  const productNameById = new Map(
+    (products?.data ?? []).map((p) => [
+      p.id,
+      (locale === "fr" ? p.name_fr : p.name_en) || p.name,
+    ])
+  );
+
+  const rows: AdminRequestRow[] = raw.map(({ attachment_path, ...r }) => ({
     ...r,
-    submitter_name: submitterNameById.get(r.submitter_id) ?? null,
+    // The path stays on the server: the panel asks for a short-lived link.
+    has_attachment: !!attachment_path,
+    submitter_name: r.submitter_id ? submitterNameById.get(r.submitter_id) ?? null : null,
+    target_company_name: r.target_company_id ? targetNameById.get(r.target_company_id) ?? null : null,
+    product_name: r.product_id ? productNameById.get(r.product_id) ?? null : null,
   }));
 
-  // Stats.
-  const total = rows.length;
-  const countBy = (s: BusinessRequestStatus) =>
-    rows.filter((r) => r.status === s).length;
-  const newCount = countBy("new");
-  const inProgress = countBy("in_progress");
-  const converted = countBy("converted");
-  const pending = countBy("pending");
-  const responseRate =
-    total === 0 ? 0 : Math.round(((total - newCount) / total) * 100);
+  // Indicators: the same counting rules as the table's quick views.
+  const counts = viewCounts(rows);
 
   // Distinct filter facets.
   const sectors = Array.from(
@@ -115,49 +135,18 @@ export default async function AdminRequestsPage({
     new Set(rows.map((r) => r.follow_up_owner).filter(Boolean) as string[])
   ).sort();
 
+  const steps: { key: "step1" | "step2" | "step3" | "step4"; icon: LucideIcon }[] = [
+    { key: "step1", icon: Inbox },
+    { key: "step2", icon: Search },
+    { key: "step3", icon: Send },
+    { key: "step4", icon: UserCheck },
+  ];
+
   return (
     <div className="space-y-4">
       <PageHeader title={t("title")} subtitle={t("subtitle")} />
 
-      {/* Stat cards */}
-      <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
-        <StatCard
-          icon={<ClipboardList className="size-4" />}
-          label={t("stats.total")}
-          value={total}
-          tone="text-primary"
-        />
-        <StatCard
-          icon={<Sparkles className="size-4" />}
-          label={t("stats.new")}
-          value={newCount}
-          tone="text-blue-600"
-        />
-        <StatCard
-          icon={<RefreshCw className="size-4" />}
-          label={t("stats.inProgress")}
-          value={inProgress}
-          tone="text-indigo-600"
-        />
-        <StatCard
-          icon={<CheckCircle2 className="size-4" />}
-          label={t("stats.converted")}
-          value={converted}
-          tone="text-green-600"
-        />
-        <StatCard
-          icon={<Clock className="size-4" />}
-          label={t("stats.pending")}
-          value={pending}
-          tone="text-amber-600"
-        />
-        <StatCard
-          icon={<Target className="size-4" />}
-          label={t("stats.responseRate")}
-          value={`${responseRate}%`}
-          tone="text-primary"
-        />
-      </div>
+      <RequestKpis counts={counts} handledRate={handledRate(rows)} />
 
       <RequestsTable
         rows={rows}
@@ -166,88 +155,27 @@ export default async function AdminRequestsPage({
         owners={owners}
       />
 
-      {/* How It Works */}
-      <section className="rounded-2xl border bg-card p-5">
-        <h2 className="mb-4 text-center text-sm font-semibold text-foreground">
+      {/* How a request travels, as one line of four steps. */}
+      <section aria-labelledby="requests-how" className="rounded-2xl bg-white p-5 ring-1 ring-slate-200/70">
+        <h2 id="requests-how" className="font-display text-base font-semibold text-market-navy">
           {t("howItWorks.heading")}
         </h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <HowItWorksStep
-            index={1}
-            icon={<Inbox className="size-4" />}
-            title={t("howItWorks.step1.title")}
-            description={t("howItWorks.step1.description")}
-          />
-          <HowItWorksStep
-            index={2}
-            icon={<Search className="size-4" />}
-            title={t("howItWorks.step2.title")}
-            description={t("howItWorks.step2.description")}
-          />
-          <HowItWorksStep
-            index={3}
-            icon={<UserCheck className="size-4" />}
-            title={t("howItWorks.step3.title")}
-            description={t("howItWorks.step3.description")}
-          />
-          <HowItWorksStep
-            index={4}
-            icon={<ArrowRightLeft className="size-4" />}
-            title={t("howItWorks.step4.title")}
-            description={t("howItWorks.step4.description")}
-          />
-        </div>
+        <ol className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {steps.map(({ key, icon: Icon }, index) => (
+            <li key={key} className="flex min-w-0 gap-3">
+              <span className="grid size-9 shrink-0 place-items-center rounded-full bg-slate-100 text-market-navy" aria-hidden>
+                <Icon className="size-4" />
+              </span>
+              <div className="min-w-0">
+                <p className="text-[13px] font-semibold text-market-navy">
+                  <span className="text-market-or-dark">{index + 1}.</span> {t(`howItWorks.${key}.title`)}
+                </p>
+                <p className="mt-0.5 text-xs leading-snug text-slate-500">{t(`howItWorks.${key}.description`)}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
       </section>
-    </div>
-  );
-}
-
-function StatCard({
-  icon,
-  label,
-  value,
-  tone,
-}: {
-  icon: ReactNode;
-  label: string;
-  value: ReactNode;
-  tone: string;
-}) {
-  return (
-    <div className="rounded-xl border bg-card p-3">
-      <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-        <span className={tone} aria-hidden>
-          {icon}
-        </span>
-        <span className="truncate">{label}</span>
-      </div>
-      <p className={`mt-1.5 text-2xl font-semibold ${tone}`}>{value}</p>
-    </div>
-  );
-}
-
-function HowItWorksStep({
-  index,
-  icon,
-  title,
-  description,
-}: {
-  index: number;
-  icon: ReactNode;
-  title: string;
-  description: string;
-}) {
-  return (
-    <div className="flex gap-3">
-      <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-        {icon}
-      </div>
-      <div>
-        <p className="text-sm font-medium text-foreground">
-          <span className="text-primary">{index}.</span> {title}
-        </p>
-        <p className="mt-0.5 text-xs text-muted-foreground">{description}</p>
-      </div>
     </div>
   );
 }

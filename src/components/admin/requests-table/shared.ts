@@ -5,6 +5,7 @@ import type {
 
 export interface AdminRequestRow {
   id: string;
+  reference: string | null;
   full_name: string;
   company_name: string | null;
   country: string | null;
@@ -23,6 +24,19 @@ export interface AdminRequestRow {
   /** Set when the request came from /pricing — which package was asked for. */
   promotion_plan: string | null;
   promotion_amount_usd: number | null;
+  /** Company the request is addressed to — only such a request can be forwarded. */
+  target_company_id: string | null;
+  target_company_name: string | null;
+  product_id: string | null;
+  product_name: string | null;
+  quantity: string | null;
+  interest: string | null;
+  /** When staff passed it on; from then the company reads it in its dashboard. */
+  forwarded_at: string | null;
+  /** Answers of the form that created the request (00065); read with `readPartnerRequestDetails`. */
+  details: unknown;
+  has_attachment: boolean;
+  attachment_name: string | null;
 }
 
 export const STATUSES: BusinessRequestStatus[] = [
@@ -36,12 +50,21 @@ export const STATUSES: BusinessRequestStatus[] = [
 
 export const ALL = "__all__";
 
-/** Tailwind classes per status badge. Light theme, brand-aligned. */
+/** Status pill: soft tinted surface + readable text; the dot carries the hue. */
 export const STATUS_BADGE_CLASS: Record<BusinessRequestStatus, string> = {
-  new: "bg-blue-50 text-blue-700 border-blue-200",
-  in_progress: "bg-indigo-50 text-indigo-700 border-indigo-200",
-  converted: "bg-green-50 text-green-700 border-green-200",
-  pending: "bg-amber-50 text-amber-700 border-amber-200",
-  closed: "bg-gray-100 text-gray-600 border-gray-200",
-  rejected: "bg-red-50 text-red-700 border-red-200",
+  new: "bg-blue-50 text-blue-700",
+  in_progress: "bg-indigo-50 text-indigo-700",
+  converted: "bg-emerald-50 text-emerald-700",
+  pending: "bg-amber-50 text-amber-700",
+  closed: "bg-slate-100 text-slate-600",
+  rejected: "bg-red-50 text-red-700",
+};
+
+export const STATUS_DOT_CLASS: Record<BusinessRequestStatus, string> = {
+  new: "bg-blue-500",
+  in_progress: "bg-indigo-500",
+  converted: "bg-emerald-500",
+  pending: "bg-amber-500",
+  closed: "bg-slate-400",
+  rejected: "bg-red-500",
 };

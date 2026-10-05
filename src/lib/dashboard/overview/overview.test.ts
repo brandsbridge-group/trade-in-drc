@@ -83,12 +83,39 @@ describe("buildDashboardTasks", () => {
     expect(tasks[2].values).toMatchObject({ percent: 72, first: "photos", second: "certifications" });
   });
 
+  it("lists new buyer requests before unanswered messages, and nothing when there is none", () => {
+    const tasks = buildDashboardTasks({
+      ...emptyInput,
+      awaitingReplies: { count: 1, oldestAt: "2026-09-30T09:00:00Z" },
+      newRequests: 2,
+    });
+    expect(tasks.map((t) => t.kind)).toEqual(["requests_received", "messages_awaiting"]);
+    expect(tasks[0]).toMatchObject({ tone: "opportunity", values: { count: 2 } });
+    expect(buildDashboardTasks({ ...emptyInput, newRequests: 0 })).toEqual([]);
+  });
+
   it("carries the reviewer's notes on a rejection", () => {
     const [task] = buildDashboardTasks({
       ...emptyInput,
       companies: [{ id: "c1", name: "Kivu", status: "rejected", latestReviewNotes: "Photos manquantes" }],
     });
     expect(task).toMatchObject({ kind: "verification_rejected", tone: "blocking", values: { notes: "Photos manquantes" } });
+  });
+
+  it("announces a fresh approval with the team's message, then lets it go", () => {
+    const company = { id: "c1", name: "Kivu", status: "verified", latestReviewNotes: "Dossier conforme." };
+    const day = 24 * 60 * 60 * 1000;
+    const at = (daysAgo: number) => new Date(emptyInput.now.getTime() - daysAgo * day).toISOString();
+
+    const [fresh] = buildDashboardTasks({ ...emptyInput, companies: [{ ...company, approvedAt: at(2) }] });
+    expect(fresh).toMatchObject({ kind: "verification_approved", tone: "done", values: { notes: "Dossier conforme." } });
+
+    // Without a message the card still announces the approval.
+    const [silent] = buildDashboardTasks({ ...emptyInput, companies: [{ ...company, latestReviewNotes: null, approvedAt: at(2) }] });
+    expect(silent).toMatchObject({ kind: "verification_approved", values: undefined });
+
+    expect(buildDashboardTasks({ ...emptyInput, companies: [{ ...company, approvedAt: at(15) }] })).toEqual([]);
+    expect(buildDashboardTasks({ ...emptyInput, companies: [{ ...company, approvedAt: null }] })).toEqual([]);
   });
 
   it("warns about Premium within 30 days and flags an expired plan", () => {

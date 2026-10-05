@@ -94,6 +94,7 @@ export async function loadEventsHubData(
     supabase
       .from("sectors")
       .select("id, name_en, name_fr, name_tr, name_zh, name_es")
+      .order("sort_order", { ascending: true })
       .order("name_en", { ascending: true }),
   ]);
 

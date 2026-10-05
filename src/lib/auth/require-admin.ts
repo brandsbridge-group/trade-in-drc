@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
-import { isAdmin, type RoleProfile } from "@/constants/roles";
+import { hasSuperAdminAccess, isAdmin, type RoleProfile } from "@/constants/roles";
 
 /**
  * PostgREST code for "no rows returned" from `.single()`. This is NOT an infra
@@ -10,7 +10,7 @@ import { isAdmin, type RoleProfile } from "@/constants/roles";
 const PGRST_NO_ROWS = "PGRST116";
 
 /**
- * Server-side admin guard for the `/admin` area.
+ * Server-side admin guard for the `/console` area.
  *
  * Authorization is ultimately enforced by RLS + the SQL `is_admin()` helper
  * (migration 00013); this guard is the UX layer that keeps the admin shell
@@ -25,6 +25,30 @@ const PGRST_NO_ROWS = "PGRST116";
  *    out legitimate admins whenever the profiles fetch hiccups).
  */
 export async function requireAdmin(locale: string) {
+  const { user } = await requireStaff(locale);
+  return user;
+}
+
+/**
+ * Super-admin guard for user/role management and platform settings.
+ *
+ * Runs the full {@link requireAdmin} check first, then bounces moderators back
+ * to the console home. Server actions that grant or revoke privilege MUST use
+ * this, not `requireAdmin` — otherwise a moderator could promote themselves.
+ */
+export async function requireSuperAdmin(locale: string) {
+  const { user, isSuperAdmin } = await requireStaff(locale);
+  if (!isSuperAdmin) {
+    redirect(`/${locale}/console?error=super_admin_only`);
+  }
+  return user;
+}
+
+/**
+ * Shared staff check behind both guards. Also reports whether the caller is a
+ * super-admin so the console shell can hide sections moderators can't open.
+ */
+export async function requireStaff(locale: string) {
   const supabase = await createServerSupabaseClient();
 
   const { data, error: authError } = await supabase.auth.getUser();
@@ -34,7 +58,7 @@ export async function requireAdmin(locale: string) {
     );
   }
   if (!data.user) {
-    redirect(`/${locale}/login?next=/admin`);
+    redirect(`/${locale}/login?next=/console`);
   }
 
   const { data: profile, error: profileError } = await supabase
@@ -55,9 +79,10 @@ export async function requireAdmin(locale: string) {
     );
   }
 
-  if (!isAdmin(profile as RoleProfile | null)) {
+  const roleProfile = profile as RoleProfile | null;
+  if (!isAdmin(roleProfile)) {
     redirect(`/${locale}?error=not_authorized`);
   }
 
-  return data.user;
+  return { user: data.user, isSuperAdmin: hasSuperAdminAccess(roleProfile) };
 }

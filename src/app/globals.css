@@ -7,7 +7,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-poppins);
   --font-mono: var(--font-geist-mono);
   --font-display: var(--font-display);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -66,6 +66,12 @@
   --color-market-red-dark: #B71C22;
   --color-market-gold: #F5B800;
   --color-market-cream: #FBF6EC;
+  /* Marketplace redesign accent (2026-09): muted premium gold, replaces DRC yellow
+     on /market, /products and the offer page. Dark = hover, light = gradient end.
+     Use the utilities (bg-market-or…) — @theme inline doesn't emit these as runtime vars. */
+  --color-market-or: #CBA14E;
+  --color-market-or-dark: #B68B3A;
+  --color-market-or-light: #E4C98A;
 }
 
 :root {
@@ -192,6 +198,14 @@
     }
   }
 
+  /* Marketplace ad carousel: the active indicator's fill IS the rotation timer
+     (MOTION.md §2.8). Never rendered under reduced motion, so the global rule
+     above can't collapse it into an instant auto-advance loop. */
+  @keyframes ad-progress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
   /* FAQ accordion — smooth height animation (progressive enhancement) */
   details {
     interpolate-size: allow-keywords;
@@ -202,6 +216,13 @@
   }
 
   /* Typography Scale - Government Professional */
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display), var(--font-poppins), system-ui, sans-serif;
+  }
+
   h1 {
     @apply text-3xl font-bold tracking-tight md:text-4xl;
   }
@@ -249,11 +270,72 @@
   /* Hide scrollbar while preserving scroll behaviour */
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { scrollbar-width: none; }
+
+  /* Slim, discreet scrollbar: a 6px pill that only shows its colour while the
+     area is hovered or focused. WebKit/Blink get the pseudo-elements; the
+     standard props are scoped to engines without them, because Chromium drops
+     the ::-webkit-scrollbar styling as soon as scrollbar-width is set. */
+  .scrollbar-slim::-webkit-scrollbar { width: 6px; height: 6px; }
+  .scrollbar-slim::-webkit-scrollbar-track { background: transparent; margin-block: 8px; }
+  .scrollbar-slim::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 9999px;
+  }
+  .scrollbar-slim:hover::-webkit-scrollbar-thumb,
+  .scrollbar-slim:focus-within::-webkit-scrollbar-thumb { background-color: rgb(203 213 225); }
+  .scrollbar-slim::-webkit-scrollbar-thumb:hover { background-color: rgb(148 163 184); }
+  @supports not selector(::-webkit-scrollbar) {
+    .scrollbar-slim { scrollbar-width: thin; scrollbar-color: transparent transparent; }
+    .scrollbar-slim:hover,
+    .scrollbar-slim:focus-within { scrollbar-color: rgb(203 213 225) transparent; }
+  }
 }
+
+/* Staff console surface: brings shadcn cards and tables to the dashboard's
+   visual language (white, rounded-2xl, hairline ring, no shadow; slate-50
+   rounded table header). Unlayered on purpose so it wins over the components'
+   own utilities without editing 30 pages; scoped to `.console-surface`. */
+.console-surface [data-slot="card"] {
+  border-width: 0;
+  border-radius: 1rem;
+  background-color: #fff;
+  box-shadow: 0 0 0 1px rgb(226 232 240 / 0.7);
+}
+.console-table-card {
+  overflow-x: auto;
+  border-radius: 1rem;
+  background-color: #fff;
+  padding: 0.5rem;
+  box-shadow: 0 0 0 1px rgb(226 232 240 / 0.7);
+}
+.console-table-card thead,
+.console-table-card thead tr {
+  border-bottom-width: 0;
+  background-color: transparent;
+}
+.console-table-card th {
+  background-color: rgb(248 250 252);
+  color: rgb(100 116 139);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding-inline: 0.75rem;
+}
+.console-table-card th:first-child { border-radius: 0.75rem 0 0 0.75rem; }
+.console-table-card th:last-child { border-radius: 0 0.75rem 0.75rem 0; }
+.console-table-card td { padding-inline: 0.75rem; }
+.console-table-card tbody tr { border-color: rgb(241 245 249); }
+.console-table-card tbody tr:last-child { border-bottom-width: 0; }
+
+/* Site footer: a breathing space above it on plain pages. A page that ends on
+   its own background (tinted canvas, closing band) puts data-page-end="flush"
+   on its wrapper, so that background runs into the footer instead of leaving
+   a white strip. */
+.site-footer { margin-top: 3rem; }
+body:has([data-page-end="flush"]) .site-footer { margin-top: 0; }
 
 /* Marketing surfaces (landing + about): Sora display headings */
 .marketing-surface :where(h1, h2, h3) {
-  font-family: var(--font-display), var(--font-geist-sans), system-ui, sans-serif;
+  font-family: var(--font-display), var(--font-poppins), system-ui, sans-serif;
   letter-spacing: -0.02em;
 }
 
@@ -263,4 +345,8 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+/* react-toastify: use the site body font (Poppins) */
+.Toastify {
+  --toastify-font-family: var(--font-poppins), system-ui, sans-serif;
 }

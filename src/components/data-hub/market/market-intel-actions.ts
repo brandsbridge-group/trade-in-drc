@@ -13,7 +13,7 @@ import type { Database } from "@/lib/supabase/types";
  * Anonymous-friendly: a signed-in visitor gets their `submitter_id` attached,
  * but a logged-out submission is still accepted, so the insert runs through the
  * service-role admin client (RLS bypassed). Every field is Zod-validated at this
- * boundary. Admins review the result at /admin/requests.
+ * boundary. Admins review the result at /console/requests.
  *
  * Returns the human-readable `reference` (migration 00030) so the confirmation
  * state can show the real Request ID.

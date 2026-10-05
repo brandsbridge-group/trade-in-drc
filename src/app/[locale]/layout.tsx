@@ -1,25 +1,28 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Sora } from "next/font/google";
+import { Poppins, Geist_Mono, Sora } from "next/font/google";
 import { Suspense } from "react";
 import "../globals.css";
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, getTranslations } from 'next-intl/server';
-import { notFound } from 'next/navigation';
-import { routing } from '@/i18n/routing';
-import { locales } from '@/config/locales';
-import { SITE_URL } from '@/app/sitemap';
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
+import { locales } from "@/config/locales";
+import { SITE_URL } from "@/app/sitemap";
 import { AuthProvider } from "@/lib/auth/auth-provider";
 import { Toaster } from "@/components/ui/sonner";
+import { ToastifyContainer } from "@/components/ui/toastify";
 import { QueryProvider } from "@/lib/providers/query-provider";
 import { SearchProvider } from "@/lib/search/search-context";
 import { LayoutShell } from "@/components/layout/layout-shell";
 import { SiteFooter } from "@/components/home/site-footer";
 import { AuthFlash } from "@/components/auth/auth-flash";
 import { CommandPalette } from "@/components/search/command-palette";
+import { Analytics } from "@vercel/analytics/next";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
@@ -72,7 +75,7 @@ export async function generateMetadata({
 
 export default async function RootLayout({
   children,
-  params
+  params,
 }: Readonly<{
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
@@ -95,19 +98,25 @@ export default async function RootLayout({
         // like `cz-shortcut-listen` onto <body> before React hydrates; ignore the
         // resulting attribute mismatch rather than logging a false hydration error.
         suppressHydrationWarning
-        className={`${geistSans.variable} ${geistMono.variable} ${sora.variable} antialiased`}
+        className={`${poppins.variable} ${geistMono.variable} ${sora.variable} font-sans antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
           <AuthProvider>
             <QueryProvider>
-            <SearchProvider>
-              <LayoutShell footer={<SiteFooter />}>
-                {children}
-              </LayoutShell>
-              <Toaster />
-              <Suspense fallback={null}><AuthFlash /></Suspense>
-              <Suspense fallback={null}><CommandPalette /></Suspense>
-            </SearchProvider>
+              <SearchProvider>
+                <LayoutShell footer={<SiteFooter />}>
+                  {children}
+                  <Analytics />
+                </LayoutShell>
+                <Toaster />
+                <ToastifyContainer />
+                <Suspense fallback={null}>
+                  <AuthFlash />
+                </Suspense>
+                <Suspense fallback={null}>
+                  <CommandPalette />
+                </Suspense>
+              </SearchProvider>
             </QueryProvider>
           </AuthProvider>
         </NextIntlClientProvider>

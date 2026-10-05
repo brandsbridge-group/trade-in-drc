@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { toast } from "sonner";
+import { toast } from "react-toastify";
 import { createClient } from "@/lib/supabase/client";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { authEmailRedirect } from "@/lib/auth/email-redirect";
+import { EmailField, SubmitButton } from "@/components/auth/auth-fields";
 
 export function ForgotPasswordForm() {
   const t = useTranslations("Auth.forgotPassword");
+  const tAuth = useTranslations("Auth");
   const locale = useLocale();
   const [email, setEmail] = useState("");
   const [sending, setSending] = useState(false);
@@ -16,9 +17,8 @@ export function ForgotPasswordForm() {
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     setSending(true);
-    const supabase = createClient();
-    const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/${locale}/callback?type=recovery`,
+    const { error } = await createClient().auth.resetPasswordForEmail(email, {
+      redirectTo: authEmailRedirect(window.location.origin, locale, "recovery"),
     });
     setSending(false);
     if (error) toast.error(error.message);
@@ -26,17 +26,15 @@ export function ForgotPasswordForm() {
   }
 
   return (
-    <form onSubmit={submit} className="space-y-4">
-      <Input
-        type="email"
-        required
+    <form onSubmit={submit} className="grid gap-3">
+      <EmailField
+        label={tAuth("email")}
+        placeholder={t("emailPlaceholder")}
+        disabled={sending}
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        placeholder={t("emailPlaceholder")}
       />
-      <Button type="submit" disabled={sending} className="w-full">
-        {t("submit")}
-      </Button>
+      <SubmitButton loading={sending}>{t("submit")}</SubmitButton>
     </form>
   );
 }

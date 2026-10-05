@@ -25,7 +25,7 @@ import {
 
 /**
  * The 7 services (design "Our Services"). Each maps to a valid
- * `business_requests.intent` so a submission is admin-visible at /admin/requests.
+ * `business_requests.intent` so a submission is admin-visible at /console/requests.
  */
 export const SERVICES: { key: string; intent: string; icon: LucideIcon }[] = [
   { key: "partnerSearch", intent: "partner_search", icon: UserSearch },

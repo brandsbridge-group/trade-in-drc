@@ -19,7 +19,7 @@ import {
  * company_id FK and an authenticated owner, whereas this apply flow must accept
  * signed-out visitors. The row is written via the service-role client with
  * `submitter_id = auth user when signed in, NULL otherwise` (migration 00028
- * made the column nullable). Admins triage the lead at /admin/requests.
+ * made the column nullable). Admins triage the lead at /console/requests.
  *
  * The DB generates a human-readable `reference` (TIDRC-PR-YYYY-NNNNNN,
  * migration 00030) which we return so the UI can show a confirmation code.

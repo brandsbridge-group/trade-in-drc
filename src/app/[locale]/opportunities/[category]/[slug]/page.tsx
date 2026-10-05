@@ -11,6 +11,7 @@ import { PageHeader } from "@/components/design";
 import { PageMeta } from "@/components/detail/page-meta";
 import { Sidecar } from "@/components/detail/sidecar";
 import { Breadcrumb } from "@/components/detail/breadcrumb";
+import { MESSAGING_ENABLED } from "@/config/features";
 
 export default async function OpportunityDetail({
   params,
@@ -65,26 +66,29 @@ export default async function OpportunityDetail({
           ]}
         />
       </div>
-      <div className="grid md:grid-cols-[1fr_280px] gap-6 mt-6">
+      {/* The side column only holds the two messaging actions: without them the notice takes the full width. */}
+      <div className={MESSAGING_ENABLED ? "grid md:grid-cols-[1fr_280px] gap-6 mt-6" : "mt-6"}>
         <div className="min-w-0">
           {body && <MarkdownView source={body} />}
         </div>
-        <Sidecar>
-          <div className="space-y-2">
-            {ownerId && (
-              <RespondDialog
+        {MESSAGING_ENABLED && (
+          <Sidecar>
+            <div className="space-y-2">
+              {ownerId && (
+                <RespondDialog
+                  opportunityId={op.id}
+                  opportunityTitle={title}
+                  ownerId={ownerId}
+                />
+              )}
+              <ContactButton
+                companyId={op.company_id}
+                subject={title}
                 opportunityId={op.id}
-                opportunityTitle={title}
-                ownerId={ownerId}
               />
-            )}
-            <ContactButton
-              companyId={op.company_id}
-              subject={title}
-              opportunityId={op.id}
-            />
-          </div>
-        </Sidecar>
+            </div>
+          </Sidecar>
+        )}
       </div>
     </div>
   );

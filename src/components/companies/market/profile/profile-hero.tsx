@@ -1,157 +1,153 @@
 "use client";
 
-import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { MapPin, Globe, FileCheck2, Globe2, CalendarClock, Heart, BadgeCheck, Gem } from "lucide-react";
-import { SkeletonImage } from "@/components/design";
-import { cn } from "@/lib/utils";
-import { toExternalHref, toDisplayHost } from "@/lib/url/external-href";
+import { toast } from "sonner";
+import { ArrowUpRight, BadgeCheck, Gem, MapPin, Send, Share2 } from "lucide-react";
+import { toExternalHref } from "@/lib/url/external-href";
 import { VERIFICATION_TIER } from "@/constants/status";
 import type { CompanyProfileData } from "./types";
 
-const FACILITY_FALLBACK = "/images/companies/profile-facility.jpg";
+export interface HeroStat {
+  label: string;
+  value: string;
+}
 
 interface ProfileHeroProps {
   company: CompanyProfileData;
-  subtitle: string | null;
-  onRequestIntro: () => void;
+  sectorLabel: string | null;
+  /** The company's own first gallery photo; a plain navy band when it has none. */
+  coverUrl: string | null;
+  stats: HeroStat[];
+  onRequestContact: () => void;
 }
 
 /**
- * Company hero card (design 5): logo tile · identity block · facility photo ·
- * vertical action stack. Premium companies get the gold "Premium Verified Local
- * Partner" pill; otherwise verified companies get a green "Verified Company"
- * pill. The "Available for International Partnerships" chip appears only when the
- * company declares export markets.
+ * Top of the public company page: cover, logo, identity, the two actions a
+ * buyer takes (ask for contact, visit the website) and the key figures. The
+ * cover is the company's own photo — never a stock image.
  */
-export function ProfileHero({ company, subtitle, onRequestIntro }: ProfileHeroProps) {
-  const t = useTranslations("CompanyProfile");
-  const [saved, setSaved] = useState(false);
+export function ProfileHero({ company, sectorLabel, coverUrl, stats, onRequestContact }: ProfileHeroProps) {
+  const t = useTranslations("CompanyProfile.page");
 
-  // Companies can be registered outside the DRC, so the country comes from the
-  // record rather than being assumed.
-  const location = [company.city, company.province, company.country]
-    .filter(Boolean)
-    .join(", ");
+  const location = [company.city, company.province, company.country].filter(Boolean).join(", ");
   const websiteHref = toExternalHref(company.website);
-  const isPremium =
-    company.is_premium || company.verification_tier === VERIFICATION_TIER.PREMIUM;
-  const isVerified =
-    company.verification_tier === VERIFICATION_TIER.VERIFIED ||
-    company.verification_tier === VERIFICATION_TIER.PREMIUM;
-  const initials = company.name.trim().charAt(0).toUpperCase() || "?";
+  const isPremium = company.is_premium || company.verification_tier === VERIFICATION_TIER.PREMIUM;
+  const initial = company.name.trim().charAt(0).toUpperCase() || "?";
+  const tradingName = company.facts.tradingName && company.facts.tradingName !== company.name ? company.facts.tradingName : null;
+
+  const share = async () => {
+    const url = window.location.href;
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: company.name, url });
+        return;
+      }
+      await navigator.clipboard.writeText(url);
+      toast.success(t("linkCopied"));
+    } catch {
+      // The visitor closed the share sheet, or the clipboard is unavailable: nothing to report.
+    }
+  };
 
   return (
-    <section className="rounded-lg border border-market-navy/10 bg-white p-4 shadow-sm sm:p-5">
-      <div className="flex flex-col gap-4 lg:flex-row lg:items-stretch">
-        {/* Logo tile */}
-        <div className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-md border border-market-navy/15 bg-white sm:h-28 sm:w-28">
-          {company.logo_url ? (
-            <SkeletonImage
-              src={company.logo_url}
-              alt={company.name}
-              wrapperClassName="h-full w-full"
-              className="object-contain"
-            />
-          ) : (
-            <span className="font-display text-3xl font-bold text-market-navy/70">{initials}</span>
-          )}
-        </div>
+    <header className="overflow-hidden rounded-3xl bg-white ring-1 ring-slate-200/70">
+      <div className="relative h-36 bg-market-navy sm:h-52">
+        {coverUrl ? (
+          <>
+            {/* eslint-disable-next-line @next/next/no-img-element -- owner-uploaded photo on Supabase storage */}
+            <img src={coverUrl} alt="" className="h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-market-navy/70 via-market-navy/20 to-transparent" aria-hidden />
+          </>
+        ) : (
+          <div className="absolute -right-10 -top-16 h-56 w-56 rounded-full bg-market-or/25 blur-3xl" aria-hidden />
+        )}
+      </div>
 
-        {/* Identity block */}
-        <div className="min-w-0 flex-1">
-          {isPremium ? (
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-market-gold/50 bg-market-gold/10 px-2.5 py-1 text-[11px] font-semibold text-market-navy">
-              <Gem className="h-3.5 w-3.5 text-market-gold" />
-              {t("hero.premiumBadge")}
-            </span>
-          ) : isVerified ? (
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/40 bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold text-emerald-700">
-              <BadgeCheck className="h-3.5 w-3.5" />
-              {t("hero.verifiedBadge")}
-            </span>
-          ) : null}
+      <div className="px-5 pb-5 sm:px-7 sm:pb-6">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-end sm:gap-5">
+            <div className="relative -mt-12 grid h-24 w-24 shrink-0 place-items-center overflow-hidden rounded-2xl bg-white ring-4 ring-white sm:-mt-14 sm:h-28 sm:w-28">
+              {company.logo_url ? (
+                // eslint-disable-next-line @next/next/no-img-element -- owner-uploaded logo on Supabase storage
+                <img src={company.logo_url} alt={t("logoAlt", { name: company.name })} className="h-full w-full object-contain p-2" />
+              ) : (
+                <span className="grid h-full w-full place-items-center bg-market-navy font-display text-3xl font-semibold text-market-or-light" aria-hidden>
+                  {initial}
+                </span>
+              )}
+            </div>
 
-          <h1 className="mt-2 font-display text-2xl font-bold leading-tight text-market-navy sm:text-[1.7rem]">
-            {company.name}
-          </h1>
-          {subtitle && (
-            <p className="mt-0.5 text-sm font-semibold text-market-navy/70">{subtitle}</p>
-          )}
-
-          <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-market-navy/70">
-            {location && (
-              <span className="inline-flex items-center gap-1">
-                <MapPin className="h-3.5 w-3.5 text-market-red" />
-                {location}
+            <div className="min-w-0 sm:pb-1 sm:pt-4">
+              <span
+                className={
+                  isPremium
+                    ? "inline-flex items-center gap-1.5 rounded-full bg-market-or/15 px-2.5 py-1 text-[11.5px] font-semibold text-market-or-dark"
+                    : "inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-[11.5px] font-semibold text-emerald-700"
+                }
+              >
+                {isPremium ? <Gem className="h-3.5 w-3.5" aria-hidden /> : <BadgeCheck className="h-3.5 w-3.5" aria-hidden />}
+                {t(isPremium ? "premium" : "verified")}
               </span>
-            )}
+              <h1 className="mt-1.5 break-words font-display text-2xl font-semibold leading-tight tracking-tight text-market-navy sm:text-[32px]">
+                {company.name}
+              </h1>
+              {tradingName && <p className="mt-0.5 text-sm text-slate-500">{t("tradingAs", { name: tradingName })}</p>}
+              <p className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-slate-600">
+                {sectorLabel && <span className="font-medium text-market-navy">{sectorLabel}</span>}
+                {sectorLabel && location && <span className="text-slate-300" aria-hidden>·</span>}
+                {location && (
+                  <span className="inline-flex items-center gap-1">
+                    <MapPin className="h-3.5 w-3.5 text-slate-400" aria-hidden />
+                    {location}
+                  </span>
+                )}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex shrink-0 flex-wrap items-center gap-2">
+            <button
+              type="button"
+              onClick={onRequestContact}
+              className="inline-flex items-center gap-2 rounded-full bg-market-navy px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-market-navy-deep"
+            >
+              <Send className="h-4 w-4" aria-hidden />
+              {t("requestContact")}
+            </button>
             {websiteHref && (
               <a
                 href={websiteHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-market-navy underline-offset-2 transition-colors duration-150 hover:text-market-red hover:underline"
+                className="inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-market-navy ring-1 ring-slate-200 transition-colors hover:bg-slate-50"
               >
-                <Globe className="h-3.5 w-3.5" />
-                {toDisplayHost(company.website)}
+                {t("website")}
+                <ArrowUpRight className="h-4 w-4" aria-hidden />
               </a>
             )}
-          </div>
-
-          <div className="mt-3 flex flex-wrap gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-md border border-market-navy/20 bg-market-navy/5 px-2 py-1 text-[11px] font-medium text-market-navy">
-              <FileCheck2 className="h-3.5 w-3.5" />
-              {t("hero.docsReviewed")}
-            </span>
-            {company.markets.length > 0 && (
-              <span className="inline-flex items-center gap-1.5 rounded-md border border-emerald-500/30 bg-emerald-50 px-2 py-1 text-[11px] font-medium text-emerald-700">
-                <Globe2 className="h-3.5 w-3.5" />
-                {t("hero.availableIntl")}
-              </span>
-            )}
+            <button
+              type="button"
+              onClick={share}
+              aria-label={t("share")}
+              title={t("share")}
+              className="grid h-10 w-10 place-items-center rounded-full bg-white text-market-navy ring-1 ring-slate-200 transition-colors hover:bg-slate-50"
+            >
+              <Share2 className="h-4 w-4" aria-hidden />
+            </button>
           </div>
         </div>
 
-        {/* Facility photo */}
-        <div className="hidden h-32 w-56 shrink-0 overflow-hidden rounded-md border border-market-navy/10 xl:block">
-          <SkeletonImage
-            src={FACILITY_FALLBACK}
-            alt={t("hero.facilityAlt")}
-            wrapperClassName="h-full w-full"
-            className="object-cover"
-          />
-        </div>
-
-        {/* Action stack */}
-        <div className="flex shrink-0 flex-col gap-2 lg:w-52">
-          <button
-            type="button"
-            onClick={onRequestIntro}
-            className="inline-flex items-center justify-center gap-2 rounded-md bg-market-gold px-3 py-2.5 text-sm font-semibold text-market-navy shadow-sm transition-colors duration-150 hover:bg-market-gold/90"
-          >
-            <Gem className="h-4 w-4" />
-            {t("hero.requestIntro")}
-          </button>
-          <button
-            type="button"
-            onClick={onRequestIntro}
-            className="inline-flex items-center justify-center gap-2 rounded-md border border-market-navy/20 bg-white px-3 py-2.5 text-sm font-medium text-market-navy transition-colors duration-150 hover:bg-market-navy/5"
-          >
-            <CalendarClock className="h-4 w-4" />
-            {t("hero.scheduleMeeting")}
-          </button>
-          <button
-            type="button"
-            aria-pressed={saved}
-            onClick={() => setSaved((s) => !s)}
-            className="inline-flex items-center justify-center gap-2 rounded-md border border-market-navy/20 bg-white px-3 py-2.5 text-sm font-medium text-market-navy transition-colors duration-150 hover:bg-market-navy/5"
-          >
-            <Heart className={cn("h-4 w-4", saved && "fill-market-red text-market-red")} />
-            {saved ? t("hero.saved") : t("hero.saveCompany")}
-          </button>
-        </div>
+        {stats.length > 0 && (
+          <dl className="mt-5 flex flex-wrap gap-2">
+            {stats.map((stat) => (
+              <div key={stat.label} className="min-w-[8.5rem] rounded-2xl bg-slate-50 px-4 py-3 ring-1 ring-slate-200/70">
+                <dt className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">{stat.label}</dt>
+                <dd className="mt-0.5 truncate font-display text-lg font-semibold text-market-navy">{stat.value}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
       </div>
-    </section>
+    </header>
   );
 }

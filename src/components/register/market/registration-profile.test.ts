@@ -3,6 +3,7 @@ import {
   stepsForProfile,
   CONGOLESE_STEPS,
   INTERNATIONAL_STEPS,
+  OPTIONAL_STEPS,
 } from "./constants";
 import {
   EMPTY_FORM,
@@ -21,39 +22,21 @@ const form = (patch: Partial<RegisterFormData> = {}): RegisterFormData => ({
 });
 
 describe("stepsForProfile", () => {
-  // P2-2: a "plan" step was inserted (Congolese 5 -> 6 steps) so the pricing
-  // panel can never again just disappear when someone switches to the
-  // international profile (P1-4) — it's a validated step, not a
-  // conditionally-rendered panel above the wizard.
-  it("gives the Congolese path six steps, ending in plan then review", () => {
-    expect(stepsForProfile("congolese")).toEqual(CONGOLESE_STEPS);
-    expect(stepsForProfile("congolese")).toHaveLength(6);
-    expect(CONGOLESE_STEPS.slice(-2)).toEqual(["plan", "review"]);
+  // Brief v2: the short, signed-in-only form. Verification, profile details
+  // and the plan moved to dashboard actions.
+  it("gives the Congolese path two steps: company, then contact", () => {
+    expect(stepsForProfile("congolese")).toEqual(["company", "contact"]);
   });
 
-  it("gives international applicants the seven-step market-entry form", () => {
-    expect(stepsForProfile("international")).toEqual(INTERNATIONAL_STEPS);
-    expect(stepsForProfile("international")).toHaveLength(7);
+  it("gives the international path a third, optional DRC-interest step", () => {
+    expect(stepsForProfile("international")).toEqual(["company", "contact", "market_interest"]);
+    expect(OPTIONAL_STEPS).toEqual(["market_interest"]);
   });
 
-  it("orders the international steps as the customer design does, with plan moved second-to-last", () => {
-    // P2-2: "plan" (formerly "profile_plan", step 5 of 7) now sits right
-    // before Review — the same relative position as the Congolese path —
-    // instead of ahead of Documents.
-    expect(INTERNATIONAL_STEPS).toEqual([
-      "company_info",
-      "business_profile",
-      "market_interest",
-      "contact_person",
-      "documents",
-      "plan",
-      "review",
-    ]);
-  });
-
-  it("puts the plan step in the same relative position (second-to-last) on both paths", () => {
-    expect(CONGOLESE_STEPS.at(-2)).toBe("plan");
-    expect(INTERNATIONAL_STEPS.at(-2)).toBe("plan");
+  it("never includes a plan, documents or review step", () => {
+    for (const step of [...CONGOLESE_STEPS, ...INTERNATIONAL_STEPS]) {
+      expect(["plan", "documents", "review"]).not.toContain(step);
+    }
   });
 });
 
@@ -63,130 +46,75 @@ describe("requiredForStep", () => {
     expect(isInternational(EMPTY_FORM)).toBe(false);
   });
 
-  it("demands the Congolese registries on the legal step", () => {
-    const req = requiredForStep("legal", form());
-    expect(req).toContain("rccmNumber");
-    expect(req).toContain("nationalId");
-    expect(req).toContain("nif");
+  it("asks a Congolese company for name, country, sector, province and city", () => {
+    expect(requiredForStep("company", form())).toEqual([
+      "companyLegalName",
+      "country",
+      "sectorId",
+      "province",
+      "city",
+    ]);
   });
 
-  it("drops the DRC-only registries for an international applicant", () => {
-    // The DECLARED PROFILE decides this — not the country field.
-    const req = requiredForStep(
-      "legal",
-      form({ profile: "international", country: "Turkey" })
-    );
-    expect(req).toContain("rccmNumber"); // every jurisdiction has one
-    expect(req).not.toContain("nationalId");
-    expect(req).not.toContain("nif");
-  });
-
-  /**
-   * Regression guard. Requirements used to key off `country`, so an
-   * international applicant who selected the DRC as their country of
-   * registration — a foreign group's Congolese subsidiary, which migration
-   * 00038 calls out as legitimate — was hard-blocked on the Documents step by a
-   * Congolese NIF document they cannot possess.
-   */
-  it("never demands the Congolese NIF document from an international applicant", () => {
-    const drcSubsidiary = form({
-      profile: "international",
-      country: "Democratic Republic of the Congo",
-    });
-    expect(requiredForStep("documents", drcSubsidiary)).not.toContain("nifDocName");
-    expect(requiredForStep("legal", drcSubsidiary)).not.toContain("nif");
-    // …while a Congolese applicant still must supply it.
-    expect(requiredForStep("documents", form())).toContain("nifDocName");
-  });
-
-  it("requires province only for DRC companies", () => {
-    expect(requiredForStep("professional", form())).toContain("province");
-    expect(
-      requiredForStep("professional", form({ country: "Italy" }))
-    ).not.toContain("province");
-  });
-
-  it("asks international applicants what they want in the DRC", () => {
-    const data = form({ profile: "international", country: "Turkey" });
-    const req = requiredForStep("market_interest", data);
-    expect(req).toEqual(["drcInterests", "entryTimeline", "marketInterestNotes"]);
-  });
-
-  it("requires a head office on the international company step", () => {
-    const req = requiredForStep("company_info", form({ profile: "international" }));
-    expect(req).toContain("headOffice");
-    expect(req).toContain("country");
-    // Congolese-only registries never appear on the international path.
-    expect(req).not.toContain("nationalId");
+  it("asks an international company for its head-office city instead of a province", () => {
+    const req = requiredForStep("company", form({ profile: "international", country: "Turkey" }));
+    expect(req).toEqual(["companyLegalName", "country", "sectorId", "city"]);
     expect(req).not.toContain("province");
   });
 
-  it("never blocks the plan step — a plan is always selected", () => {
-    expect(requiredForStep("plan", form({ profile: "international" }))).toEqual([]);
-    expect(requiredForStep("plan", form())).toEqual([]);
+  it("requires the company e-mail, a contact person and a phone on both paths", () => {
+    const expected = ["officialEmail", "contactPerson", "phone"];
+    expect(requiredForStep("contact", form())).toEqual(expected);
+    expect(requiredForStep("contact", form({ profile: "international" }))).toEqual(expected);
   });
 
-  it("returns a required set for every step of both paths", () => {
-    for (const step of CONGOLESE_STEPS) {
-      expect(Array.isArray(requiredForStep(step, form()))).toBe(true);
-    }
+  it("never blocks on the optional DRC-interest step, even once touched", () => {
+    const touched = form({ profile: "international", drcInterests: ["investment"] });
+    expect(requiredForStep("market_interest", touched)).toEqual([]);
+  });
+
+  it("no longer requires any verification or profile field at creation", () => {
+    const all = new Set<keyof RegisterFormData>();
     const intl = form({ profile: "international", country: "Turkey" });
-    for (const step of INTERNATIONAL_STEPS) {
-      expect(Array.isArray(requiredForStep(step, intl))).toBe(true);
+    for (const step of CONGOLESE_STEPS) requiredForStep(step, form()).forEach((f) => all.add(f));
+    for (const step of INTERNATIONAL_STEPS) requiredForStep(step, intl).forEach((f) => all.add(f));
+    for (const moved of [
+      "rccmNumber",
+      "nationalId",
+      "nif",
+      "yearEstablished",
+      "legalForm",
+      "employees",
+      "jobTitle",
+      "languages",
+      "rccmCertName",
+      "nifDocName",
+    ] as const) {
+      expect(all.has(moved)).toBe(false);
     }
   });
 });
 
 // P0-5: when the server rejects fields the client-side pass missed, the
-// wizard must jump to the step that actually collects the first offending
-// field — never leave the applicant stuck on Review with nothing outlined.
+// wizard jumps to the step that collects the first offending field.
 describe("stepForInvalidFields", () => {
-  it("picks the first Congolese step whose requiredForStep list contains a rejected field", () => {
-    // "nif" is required on "legal"; "rccmCertName" on "documents". "legal"
-    // comes first in CONGOLESE_STEPS, so it must win even though the fields
-    // array lists the documents-step field first.
-    const step = stepForInvalidFields(
-      "congolese",
-      ["rccmCertName", "nif"],
-      form()
-    );
-    expect(step).toBe("legal");
+  it("picks the first step, in the profile's order, that collects a rejected field", () => {
+    expect(stepForInvalidFields("congolese", ["phone", "city"], form())).toBe("company");
+    expect(stepForInvalidFields("congolese", ["officialEmail"], form())).toBe("contact");
   });
 
-  it("picks the first international step whose requiredForStep list contains a rejected field", () => {
+  it("maps the international head-office city to the company step", () => {
     const intl = form({ profile: "international", country: "Turkey" });
-    // "drcInterests" only appears on "market_interest"; nothing before it
-    // in INTERNATIONAL_STEPS collects that field.
-    const step = stepForInvalidFields("international", ["drcInterests"], intl);
-    expect(step).toBe("market_interest");
+    expect(stepForInvalidFields("international", ["city"], intl)).toBe("company");
   });
 
-  it("respects each profile's own step order, not the other profile's", () => {
-    // "officialEmail" is collected on "professional" (Congolese) but on
-    // "company_info" (international) — the same field name maps to a
-    // different step depending on which path is running.
-    expect(
-      stepForInvalidFields("congolese", ["officialEmail"], form())
-    ).toBe("professional");
-    expect(
-      stepForInvalidFields(
-        "international",
-        ["officialEmail"],
-        form({ profile: "international", country: "Turkey" })
-      )
-    ).toBe("company_info");
+  it("returns null when no rejected field maps to any step", () => {
+    expect(stepForInvalidFields("congolese", ["ownerId"], form())).toBeNull();
+    expect(stepForInvalidFields("congolese", ["drcInterests"], form())).toBeNull();
   });
 
-  it("falls back to review when no rejected field maps to any step", () => {
-    // e.g. a DB-level rejection (unique constraint, etc.) with no field name
-    // the wizard collects — still land somewhere sane with the generic toast.
-    expect(stepForInvalidFields("congolese", ["ownerId"], form())).toBe(
-      "review"
-    );
-  });
-
-  it("falls back to review when the server sent no fields at all", () => {
-    expect(stepForInvalidFields("congolese", [], form())).toBe("review");
+  it("returns null when the server sent no fields at all", () => {
+    expect(stepForInvalidFields("congolese", [], form())).toBeNull();
   });
 });
 

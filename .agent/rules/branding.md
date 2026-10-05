@@ -21,7 +21,7 @@ The palette is derived from the DRC flag, adapted for a modern digital interface
 - **Borders**: `#E2E8F0` (Slate-200).
 
 ## Typography
-**Primary Font**: `Geist Sans` (or `Inter`)
+**Primary Font**: `Poppins`
 - **Characteristics**: Clean, Neo-grotesque, highly legible, modern.
 - **Weights**:
   - **Bold (700)**: Headings, Buttons.

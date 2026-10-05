@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Building2, FileText, Inbox, Send, Sparkles } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { useAuth } from "@/lib/auth/auth-provider";
+import { MESSAGING_ENABLED } from "@/config/features";
 import { Link } from "@/i18n/routing";
 import type { User } from "@supabase/supabase-js";
 
@@ -22,7 +23,8 @@ const QUICK_ACTIONS: QuickAction[] = [
   { labelKey: "myCompanies", href: "/dashboard/companies", icon: Building2 },
   { labelKey: "submitRequest", href: "/request", icon: Send },
   { labelKey: "myRequests", href: "/dashboard", icon: FileText },
-  { labelKey: "inbox", href: "/dashboard/inbox", icon: Inbox },
+  // Direct messaging is switched off for now (src/config/features.ts).
+  ...(MESSAGING_ENABLED ? [{ labelKey: "inbox", href: "/dashboard/inbox", icon: Inbox }] : []),
   { labelKey: "getPremium", href: "/pricing", icon: Sparkles },
 ];
 
@@ -53,7 +55,7 @@ export function SignedInQuickActions() {
       aria-label={greeting}
     >
       <p className="mb-3 text-lg font-semibold text-foreground">{greeting}</p>
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
+      <div className={`grid grid-cols-2 gap-2 sm:grid-cols-3 ${QUICK_ACTIONS.length === 5 ? "lg:grid-cols-5" : "lg:grid-cols-4"}`}>
         {QUICK_ACTIONS.map(({ labelKey, href, icon: Icon }) => (
           <Link
             key={labelKey}

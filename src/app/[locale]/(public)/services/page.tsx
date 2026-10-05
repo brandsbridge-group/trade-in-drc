@@ -37,7 +37,7 @@ export default async function ServicesPage({
   const sectors = rawSectors.map((s) => ({ id: s.id, label: pickLocalized(s, "name", locale as Locale) }));
 
   return (
-    <div className="bg-slate-50">
+    <div data-page-end="flush" className="bg-slate-50">
       <ServicesHero />
       <ServiceCards />
       <div className="mx-auto grid w-full max-w-[1400px] gap-4 px-4 py-4 md:px-6 lg:grid-cols-[1fr_360px]">

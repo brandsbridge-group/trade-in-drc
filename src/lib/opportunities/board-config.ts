@@ -11,17 +11,32 @@ import {
 } from "lucide-react";
 
 /**
- * Board tabs (customer design 2). Each tab maps to one or more real
- * `opportunities.category` values. `all` applies no category filter.
+ * The notices board lists tenders, partnership calls and investment
+ * opportunities. Trade demands / offers / quotations live on the marketplace
+ * ("Demandes en cours"); they only appear here through an explicit
+ * `?category=` link.
  */
+export const NOTICE_CATEGORIES: OpportunityCategory[] = [
+  "tender",
+  "ppp",
+  "partner_search",
+  "investment_call",
+  "project_launch",
+];
+
+/** Board tabs (2026-09 redesign) → the `opportunities.category` values each covers. */
 export const OPPORTUNITY_TABS = [
-  { key: "all", categories: [] as OpportunityCategory[] },
+  { key: "all", categories: NOTICE_CATEGORIES },
   { key: "tenders", categories: ["tender"] as OpportunityCategory[] },
   { key: "partnership", categories: ["partner_search", "ppp"] as OpportunityCategory[] },
   { key: "investment", categories: ["investment_call", "project_launch"] as OpportunityCategory[] },
-  { key: "supply", categories: ["demand", "quotation"] as OpportunityCategory[] },
-  { key: "export", categories: ["offer"] as OpportunityCategory[] },
 ] as const;
+
+/** Which tab a category belongs to (drives the card's type badge colour). */
+export function tabOfCategory(category: OpportunityCategory): Exclude<OpportunityTab, "all"> | null {
+  const tab = OPPORTUNITY_TABS.find((t) => t.key !== "all" && t.categories.includes(category));
+  return (tab?.key as Exclude<OpportunityTab, "all">) ?? null;
+}
 
 export type OpportunityTab = (typeof OPPORTUNITY_TABS)[number]["key"];
 

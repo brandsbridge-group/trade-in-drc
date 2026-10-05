@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { Button } from "@/components/ui/button";
 import {
     Select,
     SelectContent,
@@ -61,39 +60,36 @@ export function TierOverridePanel({
     };
 
     return (
-        <div className="space-y-2">
-            <div className="flex items-center gap-3">
-                <Select
-                    value={tier}
-                    onValueChange={(v) => setTier(v as VerificationTier)}
-                    disabled={saving}
-                >
-                    <SelectTrigger className="h-8 text-sm w-44">
-                        <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                        {VERIFICATION_TIERS.map((tierOption) => (
-                            <SelectItem
-                                key={tierOption}
-                                value={tierOption}
-                                className="text-sm"
-                            >
-                                {tBadge(tierOption)}
-                            </SelectItem>
-                        ))}
-                    </SelectContent>
-                </Select>
-                <Button
-                    size="sm"
-                    className="h-8 text-sm"
-                    onClick={handleSave}
-                    disabled={saving || tier === initialTier}
-                >
-                    {saving ? <Loader2 className="w-4 h-4 mr-1 animate-spin" /> : null}
-                    {t("tier.save")}
-                </Button>
-            </div>
-            <p className="text-[11px] text-muted-foreground">{t("tier.hint")}</p>
+        <div className="flex flex-wrap items-center gap-2">
+            <Select
+                value={tier}
+                onValueChange={(v) => setTier(v as VerificationTier)}
+                disabled={saving}
+            >
+                <SelectTrigger className="h-9 min-w-0 flex-1 basis-[150px] rounded-full border-slate-200 bg-white px-3.5 text-[13px] shadow-none" aria-label={t("tier.title")}>
+                    <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                    {VERIFICATION_TIERS.map((tierOption) => (
+                        <SelectItem
+                            key={tierOption}
+                            value={tierOption}
+                            className="text-sm"
+                        >
+                            {tBadge(tierOption)}
+                        </SelectItem>
+                    ))}
+                </SelectContent>
+            </Select>
+            <button
+                type="button"
+                onClick={handleSave}
+                disabled={saving || tier === initialTier}
+                className="inline-flex h-9 items-center gap-1.5 rounded-full bg-market-navy px-4 text-[13px] font-semibold text-white transition-colors hover:bg-market-navy-deep disabled:opacity-40"
+            >
+                {saving ? <Loader2 className="size-4 animate-spin" aria-hidden /> : null}
+                {t("tier.save")}
+            </button>
         </div>
     );
 }

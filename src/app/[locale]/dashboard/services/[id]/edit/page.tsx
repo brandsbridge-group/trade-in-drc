@@ -1,12 +1,12 @@
 "use client";
 
 import * as React from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { ArrowLeft, Loader2 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
-import { Link } from "@/i18n/routing";
+import { Link, useRouter } from "@/i18n/routing";
 import { PageHeader } from "@/components/design";
 import {
   ServiceForm,

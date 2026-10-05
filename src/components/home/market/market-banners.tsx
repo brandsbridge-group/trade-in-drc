@@ -16,7 +16,7 @@ export async function MarketBanners() {
           <p className="mt-1 text-xs text-white/80">{t("buyersBody")}</p>
           <Link
             href="/products"
-            className="mt-3 inline-flex items-center gap-1.5 rounded-md bg-market-gold px-3.5 py-2 text-xs font-bold text-market-navy transition-colors duration-150 hover:bg-yellow-400"
+            className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-market-or px-4 py-2 text-xs font-bold text-market-navy transition-colors duration-150 hover:bg-market-or-light active:bg-market-or-dark"
           >
             {t("buyersCta")} <ArrowRight className="h-3.5 w-3.5" aria-hidden />
           </Link>

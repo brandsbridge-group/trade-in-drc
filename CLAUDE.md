@@ -30,7 +30,7 @@ Folder CLAUDE.md files maintained in this repo:
 
 | Folder | Concerns |
 |---|---|
-| `src/app/[locale]/admin/` | Admin route guard, RLS reminders, never expose service-role key client-side |
+| `src/app/[locale]/console/` | Staff console guards (staff vs super-admin), RLS reminders, never expose service-role key client-side |
 | `src/app/[locale]/dashboard/` | Auth state assumptions, Zustand store conventions |
 | `src/lib/supabase/` | Which client variant to use where (browser/server/middleware/admin) |
 | `supabase/migrations/` | Migration numbering, RLS-by-default, naming, bilingual columns |
@@ -104,7 +104,11 @@ All routes live under `src/app/[locale]/`. Supported locales: `en` (default), `f
 
 - **Public pages**: homepage, about/[slug], products, companies/[id], opportunities, news, events, contact, FAQ, blog, sectors, legal pages (terms, privacy, cookies)
 - **Dashboard** (`/dashboard`): authenticated user area — company management, inbox, analytics
-- **Admin** (`/admin`): sidebar layout with verifications, companies, users, taxonomy, analytics, settings
+- **Staff console** (`/console`, formerly `/admin`): Super Admin + Moderator back-office — verifications, companies, users, taxonomy, analytics, settings
+
+### Roles & access (read before touching auth, the proxy or either area)
+
+Three roles: **Super Admin** and **Moderator** (TradeInDRC staff, `/console`) and **Admin** = a company owner (`/dashboard`, account type derived from the company's country). The full model — DB columns, proxy matrix, guards, redirects, known gaps — is in `docs/context/roles-and-access.md`.
 
 # context-mode — MANDATORY routing rules
 

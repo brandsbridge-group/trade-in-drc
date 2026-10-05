@@ -54,3 +54,4 @@ supabase/apply_new_migrations_*.sql
 
 # Large design source binaries (kept on disk, not in git)
 latest-designs/*.ai
+supabase/templates/preview/

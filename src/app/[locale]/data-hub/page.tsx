@@ -184,7 +184,7 @@ export default async function DataHubPage({
   };
 
   return (
-    <div className="bg-slate-50">
+    <div data-page-end="flush" className="bg-slate-50">
       <HeroSearch
         sectors={sectors}
         defaults={{

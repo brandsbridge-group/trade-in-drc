@@ -134,6 +134,33 @@ viewport — the exiting phase fully unmounts before the entering one mounts.
 Reduced motion collapses to a flat 0.15s opacity fade on both enter and
 exit (see §4.2) — no translate, no blur.
 
+### 2.8 Full-bleed photo carousel (Jakub, justified overage) — auth panel
+
+For `CongoAuthCarousel`: crossfade + settle-in scale (`scale 1.04 → 1`,
+opacity) at **900 ms**, ease `[0.22, 1, 0.36, 1]`. Exceeds the 500 ms
+marketing cap on purpose — a full-bleed photo swap faster than ~0.8 s reads as
+a jump cut. Active indicator shows a linear `scaleX 0 → 1` progress fill over
+the rotation interval (a timer readout, not a transition). Autoplay pauses on
+hover; reduced motion disables autoplay, scale and fill.
+
+### 2.9 Sliding nav highlight (Emil) — navbar pill group
+
+One shared highlight pill that glides to the hovered item (framer-motion
+`layoutId`), settling back on the active page when the pointer leaves. It
+moves via `layout` (transform), never `left`/`width`.
+
+```tsx
+<motion.span
+  layoutId="nav-highlight"
+  className="absolute inset-0 -z-10 rounded-full bg-white/[0.1]"
+  transition={reduce ? { duration: 0 } : { type: "spring", duration: 0.3, bounce: 0 }}
+/>
+```
+
+Spring duration 0.3 s, **no bounce** (workhorse UI). Rendered only inside the
+item the pointer is on (or the active one), so there is exactly one pill.
+Reduced motion: the pill jumps instantly.
+
 ---
 
 ## 3. Forbidden patterns
@@ -197,6 +224,22 @@ The Tailwind global rule covers 90% of cases. Per-component is for framer-only a
 - `src/components/design/brand-logo-carousel.tsx` — grayscale-to-color hover ✓
 - `src/components/design/filter-sidebar.tsx` — chevron rotate on group toggle ✓
 - `src/components/design/hero-search.tsx` — tab transition ✓
+- `src/components/marketplace/landing/market-ad-carousel.tsx` — marketplace hero ad carousel (landscape deck), §2.8 recipe (900 ms photo crossfade + 1.04 settle; the caption, set straight on a bottom gradient, follows with a §2.2-style 350 ms enter, 150 ms delay; the active story segment's `ad-progress` fill in `globals.css` is the 6.5 s rotation timer; pauses on hover/focus/pause button; not rendered under reduced motion). Deck cards behind the active slide shift with a 300 ms transform transition ✓
+- `src/components/marketplace/landing/market-directions.tsx` — direction-card photo hover scale (§2.6) ✓
+- `src/components/marketplace/chain/chain-client-bits.tsx` — "My operation" floating bar enter/exit (§2.2, 250 ms, opacity-only under reduced motion) ✓
+- `src/components/layout/nav-pills.tsx` — sliding hover/active highlight (§2.9); `navbar.tsx` glass-on-scroll background/border (§2.1, 200 ms colour) ✓
+- `src/components/dashboard/sidebar.tsx` + `topbar.tsx` — company-dashboard shell: sidebar width on collapse (200 ms), nav/button/row colour hovers (§2.1, 150 ms); the phone drawer is the shadcn `Sheet` ✓
+- `src/components/dashboard/overview/activity-chart.tsx` — hovered bar stays solid while the others dim (§2.1, 150 ms opacity); the tooltip appears instantly, no enter animation ✓
+- `src/components/home/why/home-why.tsx` — homepage "Why the DRC" full-width band: ambient Congo River video loop (motion-safe only; still poster under reduced motion) and a §2.2 content enter ✓
+- `src/components/home/closing/home-closing.tsx` — homepage closing bands: §2.2 enters; join link colour + arrow nudge on hover (§2.1, 150 ms) ✓
+- `src/components/home/steps/home-steps.tsx` — homepage three-step cards: §2.2 enters only (static cards); CTA colour + arrow nudge on hover (§2.1, 150 ms) ✓
+- `src/components/home/sectors/home-sectors.tsx` — homepage key-sector portrait cards: 1.04 photo settle (§2.6), gold ring + shadow and arrow-chip fill on hover (§2.1, 150 ms) ✓
+- `src/components/home/chain/home-chain.tsx` — homepage service-chain cards: shadow/ring hover, icon tile tint and arrow nudge (§2.1, 150 ms) ✓
+- `src/components/home/suppliers/home-suppliers.tsx` — homepage verified-supplier cards: shadow/ring hover (§2.1, 150 ms) and a 1.03 photo settle (§2.6) ✓
+- `src/components/home/demands/home-demands-board.tsx` — homepage requests / tenders tabs: table swap with the §2.4 recipe (150 ms, instant under reduced motion); row tint and "Respond" pill hovers per §2.1 ✓
+- `src/components/home/market/home-market-grid.tsx` — homepage live-market sector tabs: grid swap with the §2.4 recipe (150 ms, instant under reduced motion); tab pill colour and offer-card hovers per §2.1 / §2.6 ✓
+- `src/components/home/start/home-start.tsx` — homepage commitments band + entry paths: §2.2 section enters, arrow nudges and CTA colour hovers (§2.1, 150 ms) ✓
+- `src/components/home/landing/hero-dashboard-panel.tsx` — homepage dashboard showcase: tab swap (§2.4 with a §2.2 staggered enter), sliding sidebar highlight (§2.9), count-up numbers and bars growing in with `scaleX` (500 ms marketing-surface enter, 50 ms stagger; instant under reduced motion) ✓
 - `sonner` toasts — built-in animations
 
 ### Motion gaps to fix (audit will plan these)

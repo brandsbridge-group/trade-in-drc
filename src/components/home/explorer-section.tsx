@@ -45,6 +45,7 @@ export async function ExplorerSection({ locale }: { locale: string }) {
       supabase
         .from("sectors")
         .select("id, name_en, name_fr, name_tr, name_zh, name_es, slug")
+        .order("sort_order", { ascending: true })
         .order("name_en")
         .limit(10) as PromiseLike<{ data: unknown[] | null }>
     ),

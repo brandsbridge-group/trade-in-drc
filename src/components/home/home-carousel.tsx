@@ -21,6 +21,7 @@ export async function HomeCarousel({ locale }: { locale: string }) {
       "id, title_en, title_fr, subtitle_en, subtitle_fr, image_url, cta_label_en, cta_label_fr, cta_href, sort_order"
     )
     .eq("active", true)
+    .eq("placement", "home")
     .order("sort_order", { ascending: true });
 
   const isFr = locale === "fr";

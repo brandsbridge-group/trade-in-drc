@@ -111,12 +111,86 @@ export async function listSectorOptions(
   const { data, error } = await supabase
     .from("sectors")
     .select("id, name_en, name_fr, name_tr, name_zh, name_es")
+    .order("sort_order", { ascending: true })
     .order("name_en", { ascending: true });
   if (error) {
     console.error("[opportunities.listSectorOptions]", error.code, error.message);
     return [];
   }
   return (data ?? []) as unknown as SectorOption[];
+}
+
+/** A notice on the redesigned board = opportunity + its issuing company. */
+export interface NoticeRow extends Opportunity {
+  company: { name: string; verification_tier: string | null; status: string | null } | null;
+}
+
+export interface NoticeFilters {
+  categories: OpportunityCategory[];
+  sectorId?: string;
+  region?: string;
+  keyword?: string;
+  deadline?: DeadlineWindow;
+}
+
+/**
+ * Open notices (published, deadline not passed or open-ended), soonest
+ * deadline first, open-ended last. Also returns the per-category counts under
+ * the same non-category filters, so the tab chips can show live numbers.
+ */
+export async function listOpenNotices(
+  supabase: SupabaseClient,
+  opts: NoticeFilters & { countCategories: OpportunityCategory[]; limit?: number }
+): Promise<{ data: NoticeRow[]; countsByCategory: Record<string, number>; error: string | null }> {
+  const nowIso = new Date().toISOString();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const withFilters = (q: any) => {
+    let r = q
+      .eq("status", "published")
+      .or(`deadline_at.is.null,deadline_at.gte.${nowIso}`);
+    if (opts.sectorId) r = r.eq("sector_id", opts.sectorId);
+    if (opts.region) r = r.eq("region", opts.region);
+    if (opts.deadline && opts.deadline !== "all") {
+      const until = new Date(Date.now() + DEADLINE_WINDOW_DAYS[opts.deadline] * 86_400_000).toISOString();
+      r = r.lte("deadline_at", until);
+    }
+    if (opts.keyword) {
+      const kw = opts.keyword.replace(/[%,()]/g, " ").trim();
+      if (kw) {
+        r = r.or(
+          ["en", "fr", "es", "tr", "zh"]
+            .flatMap((l) => [`title_${l}.ilike.%${kw}%`, `summary_${l}.ilike.%${kw}%`])
+            .join(",")
+        );
+      }
+    }
+    return r;
+  };
+
+  const [list, counts] = await Promise.all([
+    withFilters(
+      supabase
+        .from("opportunities")
+        .select("*, company:companies(name, verification_tier, status)")
+        .in("category", opts.categories)
+    )
+      .order("deadline_at", { ascending: true, nullsFirst: false })
+      .limit(opts.limit ?? 60),
+    withFilters(
+      supabase.from("opportunities").select("category").in("category", opts.countCategories)
+    ),
+  ]);
+
+  const error = list.error ?? counts.error;
+  if (error) {
+    console.error("[opportunities.listOpenNotices]", error.code, error.message);
+    return { data: [], countsByCategory: {}, error: error.message };
+  }
+  const countsByCategory: Record<string, number> = {};
+  for (const r of (counts.data ?? []) as { category: string }[]) {
+    countsByCategory[r.category] = (countsByCategory[r.category] ?? 0) + 1;
+  }
+  return { data: (list.data ?? []) as unknown as NoticeRow[], countsByCategory, error: null };
 }
 
 /** A board row = opportunity + its (optionally verified) owning company. */

@@ -5,6 +5,7 @@ import { z } from "zod";
 import { dbId } from "@/lib/validation/db-id";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { MESSAGING_ENABLED } from "@/config/features";
 import { verifyCaptchaToken } from "./captcha";
 import { ensureThreadAndPostMessage } from "./threads";
 
@@ -174,6 +175,10 @@ async function trackContactRequest(companyId: string): Promise<void> {
 export async function startConversation(
   input: StartConversationInput
 ): Promise<StartConversationResult> {
+  // Switched off: the screens hide it, the server refuses it.
+  if (!MESSAGING_ENABLED) {
+    return { success: false, errorCode: "send_failed" };
+  }
   const parsed = startConversationSchema.safeParse(input);
   if (!parsed.success) {
     return { success: false, errorCode: "validation_failed" };
@@ -232,6 +237,9 @@ export async function startConversation(
 export async function sendMessage(
   input: SendMessageInput
 ): Promise<SendMessageResult> {
+  if (!MESSAGING_ENABLED) {
+    return { success: false, errorCode: "send_failed" };
+  }
   const parsed = sendMessageSchema.safeParse(input);
   if (!parsed.success) {
     return { success: false, errorCode: "validation_failed" };

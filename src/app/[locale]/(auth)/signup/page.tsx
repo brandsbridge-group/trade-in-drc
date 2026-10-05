@@ -1,53 +1,93 @@
 import { Suspense } from "react";
+import { Check } from "lucide-react";
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
+import { resolvePostAuthRedirect } from "@/lib/auth/redirect-guard";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { AuthShell } from "@/components/auth-design/auth-shell";
-import { AuthFormCard } from "@/components/auth-design/auth-form-card";
-import { UserAuthForm } from "@/components/auth/user-auth-form";
+import { AuthPageHeading } from "@/components/auth-design/auth-page-heading";
+import { SignupForm } from "@/components/auth/signup-form";
 
 /**
  * Account creation.
  *
  * This route exists because there was previously NO way to create an account:
  * the login page linked "Sign up" to /register, which redirected unauthenticated
- * visitors straight back to /login — a loop. UserAuthForm already implemented
- * signup; nothing rendered it for a logged-out visitor.
+ * visitors straight back to /login — a loop. SignupForm is rendered here
+ * for logged-out visitors.
  *
  * Company registration is a separate, later step at /register-company.
  */
 export default async function SignupPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ redirect?: string; context?: string }>;
 }) {
   const { locale } = await params;
+  const { redirect: redirectTarget, context } = await searchParams;
   const t = await getTranslations({ locale, namespace: "Auth" });
 
-  // Already signed in? There is nothing to create.
+  // Already signed in? Nothing to create — go where they were headed (e.g.
+  // /register-company) through the same guard as login and /callback.
   const supabase = await createServerSupabaseClient();
   const { data: auth } = await supabase.auth.getUser();
-  if (auth.user) redirect(`/${locale}/dashboard`);
+  if (auth.user) {
+    const headerList = await headers();
+    const host = headerList.get("x-forwarded-host") ?? headerList.get("host");
+    const proto = headerList.get("x-forwarded-proto") ?? "https";
+    redirect(resolvePostAuthRedirect(redirectTarget, locale, `${proto}://${host}`));
+  }
+
+  // Mirror the same `?redirect=` carry-through as the /login page, so hopping
+  // back and forth between the two (e.g. a visitor unsure whether they
+  // already have an account) never drops the original destination.
+  const loginHref = redirectTarget
+    ? `/login?redirect=${encodeURIComponent(redirectTarget)}`
+    : "/login";
 
   return (
-    <AuthShell locale={locale}>
-      <AuthFormCard
-        title={t("registerTitle")}
-        subtitle={t("registerDesc")}
-        footer={
-          <span>
-            {t("hasAccount")}{" "}
-            <Link href="/login" className="text-primary underline">
-              {t("signIn")}
-            </Link>
-          </span>
-        }
-      >
+    <AuthShell locale={locale} boxed>
+      <div className="space-y-5">
+        <AuthPageHeading title={t("registerTitle")} subtitle={t("registerDesc")} />
+        {/* Arriving from "Register my company": sell the ACCOUNT, not the
+            platform — the company form comes right after e-mail confirmation. */}
+        {context === "company" && (
+          <div className="rounded-lg border border-primary/15 bg-primary/5 px-4 py-3">
+            <p className="text-sm font-semibold text-foreground">{t("signupContext.company.title")}</p>
+            <ul className="mt-2 grid gap-1">
+              {(["track", "manage", "alerts"] as const).map((k) => (
+                <li key={k} className="flex items-start gap-2 text-xs text-muted-foreground">
+                  <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" aria-hidden />
+                  {t(`signupContext.company.${k}`)}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         <Suspense fallback={null}>
-          <UserAuthForm mode="signup" />
+          <SignupForm />
         </Suspense>
-      </AuthFormCard>
+        <p className="text-center text-xs leading-relaxed text-muted-foreground">
+          {t.rich("termsNotice", {
+            terms: (chunks) => (
+              <Link href="/terms" className="font-medium text-primary underline underline-offset-4">{chunks}</Link>
+            ),
+            privacy: (chunks) => (
+              <Link href="/privacy" className="font-medium text-primary underline underline-offset-4">{chunks}</Link>
+            ),
+          })}
+        </p>
+        <p className="text-center text-sm text-muted-foreground">
+          {t("hasAccount")}{" "}
+          <Link href={loginHref} className="font-medium text-primary underline underline-offset-4">
+            {t("signIn")}
+          </Link>
+        </p>
+      </div>
     </AuthShell>
   );
 }

@@ -6,7 +6,8 @@ export type Json = string | number | boolean | null | { [key: string]: Json | un
 export type ProfileRole = "user" | "admin";
 export type AccountType = "congolese_company" | "international_business";
 export type StaffRole = "moderator" | "super_admin";
-export type CompanyStatus = "pending" | "verified" | "rejected";
+// 00047: pending_documents = created by the short form, not yet in admin review.
+export type CompanyStatus = "pending_documents" | "pending" | "verified" | "rejected";
 export type VerificationTier = "none" | "basic" | "verified" | "premium";
 export type ContactVisibility = "direct" | "obfuscated" | "login_required";
 export type CompanyDocumentType =
@@ -18,11 +19,13 @@ export type CompanyDocumentType =
   | "additional_document";
 export type CompanyDocumentStatus = "pending" | "approved" | "rejected";
 export type VerificationDecision =
+  | "submitted"
   | "approved"
   | "rejected"
   | "more_info_requested"
   | "resubmitted";
 export type RfqType = "supply" | "demand";
+export type CarouselPlacement = "home" | "market";
 export type RfqStatus = "active" | "expired" | "closed";
 export type AnalyticsEntityType = "company" | "product" | "rfq";
 export type AnalyticsEventType =
@@ -116,6 +119,8 @@ export interface Database {
           // 00013_rbac_roles
           account_type: AccountType | null;
           staff_role: StaffRole | null;
+          // 00046_profiles_phone
+          phone: string | null;
           created_at: string;
           updated_at: string;
         };
@@ -126,6 +131,7 @@ export interface Database {
           avatar_url?: string | null;
           account_type?: AccountType | null;
           staff_role?: StaffRole | null;
+          phone?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -136,6 +142,7 @@ export interface Database {
           avatar_url?: string | null;
           account_type?: AccountType | null;
           staff_role?: StaffRole | null;
+          phone?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -148,6 +155,11 @@ export interface Database {
           name_fr: string;
           slug: string;
           parent_id: string | null;
+          name_es: string | null;
+          name_tr: string | null;
+          name_zh: string | null;
+          // 00066_taxonomy_safeguards
+          sort_order: number;
         };
         Insert: {
           id?: string;
@@ -155,6 +167,11 @@ export interface Database {
           name_fr: string;
           slug: string;
           parent_id?: string | null;
+          name_es?: string | null;
+          name_tr?: string | null;
+          name_zh?: string | null;
+          // 00066_taxonomy_safeguards
+          sort_order?: number;
         };
         Update: {
           id?: string;
@@ -162,6 +179,57 @@ export interface Database {
           name_fr?: string;
           slug?: string;
           parent_id?: string | null;
+          name_es?: string | null;
+          name_tr?: string | null;
+          name_zh?: string | null;
+          // 00066_taxonomy_safeguards
+          sort_order?: number;
+        };
+        Relationships: [];
+      };
+      // 00055_category_spec_fields — specification template of a product category
+      category_spec_fields: {
+        Row: {
+          id: string;
+          category_id: string;
+          key: string;
+          label_en: string;
+          label_fr: string;
+          field_type: "text" | "number" | "select" | "boolean";
+          unit: string | null;
+          options: Json;
+          required: boolean;
+          sort_order: number;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          category_id: string;
+          key: string;
+          label_en: string;
+          label_fr: string;
+          field_type?: "text" | "number" | "select" | "boolean";
+          unit?: string | null;
+          options?: Json;
+          required?: boolean;
+          sort_order?: number;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          category_id?: string;
+          key?: string;
+          label_en?: string;
+          label_fr?: string;
+          field_type?: "text" | "number" | "select" | "boolean";
+          unit?: string | null;
+          options?: Json;
+          required?: boolean;
+          sort_order?: number;
+          created_at?: string;
+          updated_at?: string;
         };
         Relationships: [];
       };
@@ -172,6 +240,11 @@ export interface Database {
           name_fr: string;
           slug: string;
           sector_id: string;
+          name_es: string | null;
+          name_tr: string | null;
+          name_zh: string | null;
+          // 00066_taxonomy_safeguards
+          sort_order: number;
         };
         Insert: {
           id?: string;
@@ -179,6 +252,11 @@ export interface Database {
           name_fr: string;
           slug: string;
           sector_id: string;
+          name_es?: string | null;
+          name_tr?: string | null;
+          name_zh?: string | null;
+          // 00066_taxonomy_safeguards
+          sort_order?: number;
         };
         Update: {
           id?: string;
@@ -186,6 +264,11 @@ export interface Database {
           name_fr?: string;
           slug?: string;
           sector_id?: string;
+          name_es?: string | null;
+          name_tr?: string | null;
+          name_zh?: string | null;
+          // 00066_taxonomy_safeguards
+          sort_order?: number;
         };
         Relationships: [];
       };
@@ -332,6 +415,10 @@ export interface Database {
           file_url: string;
           file_name: string;
           status: CompanyDocumentStatus;
+          // 00058: per-document review
+          review_note: string | null;
+          reviewed_by: string | null;
+          reviewed_at: string | null;
           created_at: string;
         };
         Insert: {
@@ -341,6 +428,9 @@ export interface Database {
           file_url: string;
           file_name: string;
           status?: CompanyDocumentStatus;
+          review_note?: string | null;
+          reviewed_by?: string | null;
+          reviewed_at?: string | null;
           created_at?: string;
         };
         Update: {
@@ -350,6 +440,9 @@ export interface Database {
           file_url?: string;
           file_name?: string;
           status?: CompanyDocumentStatus;
+          review_note?: string | null;
+          reviewed_by?: string | null;
+          reviewed_at?: string | null;
           created_at?: string;
         };
         Relationships: [];
@@ -363,6 +456,13 @@ export interface Database {
           category_id: string | null;
           images: string[];
           specs: Json | null;
+          // 00057: seller's hide/show switch
+          is_published: boolean;
+          // 00064: price of one sale_unit and smallest order, both optional
+          price: number | null;
+          price_currency: "USD" | "EUR" | "CDF";
+          sale_unit: string | null;
+          min_order_quantity: number | null;
           // 00009_global_search
           search_en: string | null;
           search_fr: string | null;
@@ -383,6 +483,11 @@ export interface Database {
           category_id?: string | null;
           images?: string[];
           specs?: Json | null;
+          is_published?: boolean;
+          price?: number | null;
+          price_currency?: "USD" | "EUR" | "CDF";
+          sale_unit?: string | null;
+          min_order_quantity?: number | null;
           search_en?: string | null;
           search_fr?: string | null;
           name_en?: string | null;
@@ -401,6 +506,11 @@ export interface Database {
           category_id?: string | null;
           images?: string[];
           specs?: Json | null;
+          is_published?: boolean;
+          price?: number | null;
+          price_currency?: "USD" | "EUR" | "CDF";
+          sale_unit?: string | null;
+          min_order_quantity?: number | null;
           search_en?: string | null;
           search_fr?: string | null;
           name_en?: string | null;
@@ -809,16 +919,23 @@ export interface Database {
           company_id: string;
           segment_key: SegmentKey;
           created_at: string;
+          // 00049_chain_provider_profiles
+          specialties: string[];
+          attributes: Json;
         };
         Insert: {
           company_id: string;
           segment_key: SegmentKey;
           created_at?: string;
+          specialties?: string[];
+          attributes?: Json;
         };
         Update: {
           company_id?: string;
           segment_key?: SegmentKey;
           created_at?: string;
+          specialties?: string[];
+          attributes?: Json;
         };
         Relationships: [];
       };
@@ -902,6 +1019,10 @@ export interface Database {
           status: OpportunityStatus;
           rejected_reason: string | null;
           published_at: string | null;
+          // 00050_opportunity_sources_and_alerts
+          source_name: string | null;
+          source_url: string | null;
+          document_url: string | null;
           // 00009_global_search
           search_en: string | null;
           search_fr: string | null;
@@ -928,6 +1049,9 @@ export interface Database {
           status?: OpportunityStatus;
           rejected_reason?: string | null;
           published_at?: string | null;
+          source_name?: string | null;
+          source_url?: string | null;
+          document_url?: string | null;
           search_en?: string | null;
           search_fr?: string | null;
           created_at?: string;
@@ -953,8 +1077,45 @@ export interface Database {
           status?: OpportunityStatus;
           rejected_reason?: string | null;
           published_at?: string | null;
+          source_name?: string | null;
+          source_url?: string | null;
+          document_url?: string | null;
           search_en?: string | null;
           search_fr?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
+      // -- 00050_opportunity_sources_and_alerts ---------------------------
+      opportunity_alerts: {
+        Row: {
+          id: string;
+          email: string;
+          sector_ids: string[];
+          provinces: string[];
+          locale: string;
+          unsubscribed_at: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          email: string;
+          sector_ids?: string[];
+          provinces?: string[];
+          locale?: string;
+          unsubscribed_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          email?: string;
+          sector_ids?: string[];
+          provinces?: string[];
+          locale?: string;
+          unsubscribed_at?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -1131,6 +1292,9 @@ export interface Database {
           name_fr: string;
           parent_code: string | null;
           sector_id: string | null;
+          name_es: string | null;
+          name_tr: string | null;
+          name_zh: string | null;
           created_at: string;
           updated_at: string;
         };
@@ -1141,6 +1305,9 @@ export interface Database {
           name_fr: string;
           parent_code?: string | null;
           sector_id?: string | null;
+          name_es?: string | null;
+          name_tr?: string | null;
+          name_zh?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -1151,6 +1318,9 @@ export interface Database {
           name_fr?: string;
           parent_code?: string | null;
           sector_id?: string | null;
+          name_es?: string | null;
+          name_tr?: string | null;
+          name_zh?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -1162,6 +1332,9 @@ export interface Database {
           slug: string;
           name_en: string;
           name_fr: string;
+          name_es: string | null;
+          name_tr: string | null;
+          name_zh: string | null;
           created_at: string;
           updated_at: string;
         };
@@ -1170,6 +1343,9 @@ export interface Database {
           slug: string;
           name_en: string;
           name_fr: string;
+          name_es?: string | null;
+          name_tr?: string | null;
+          name_zh?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -1178,6 +1354,9 @@ export interface Database {
           slug?: string;
           name_en?: string;
           name_fr?: string;
+          name_es?: string | null;
+          name_tr?: string | null;
+          name_zh?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -1306,6 +1485,8 @@ export interface Database {
           cta_href: string | null;
           sort_order: number;
           active: boolean;
+          // 00048_carousel_slides_placement
+          placement: CarouselPlacement;
           created_at: string;
           updated_at: string;
         };
@@ -1321,6 +1502,7 @@ export interface Database {
           cta_href?: string | null;
           sort_order?: number;
           active?: boolean;
+          placement?: CarouselPlacement;
           created_at?: string;
           updated_at?: string;
         };
@@ -1336,6 +1518,7 @@ export interface Database {
           cta_href?: string | null;
           sort_order?: number;
           active?: boolean;
+          placement?: CarouselPlacement;
           created_at?: string;
           updated_at?: string;
         };
@@ -1731,6 +1914,20 @@ export interface Database {
           status: BusinessRequestStatus;
           follow_up_owner: string | null;
           admin_notes: string | null;
+          // 00030_business_request_reference (DB default: TIDRC-PR-YYYY-NNNNNN)
+          reference: string | null;
+          // 00062_forward_requests_to_supplier
+          target_company_id: string | null;
+          product_id: string | null;
+          quantity: string | null;
+          interest: string | null;
+          forwarded_at: string | null;
+          forwarded_by: string | null;
+          supplier_seen_at: string | null;
+          // 00065_partner_request_details
+          details: Json;
+          attachment_path: string | null;
+          attachment_name: string | null;
           created_at: string;
           updated_at: string;
         };
@@ -1752,6 +1949,17 @@ export interface Database {
           status?: BusinessRequestStatus;
           follow_up_owner?: string | null;
           admin_notes?: string | null;
+          reference?: string | null;
+          target_company_id?: string | null;
+          product_id?: string | null;
+          quantity?: string | null;
+          interest?: string | null;
+          forwarded_at?: string | null;
+          forwarded_by?: string | null;
+          supplier_seen_at?: string | null;
+          details?: Json;
+          attachment_path?: string | null;
+          attachment_name?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -1775,6 +1983,16 @@ export interface Database {
           status?: BusinessRequestStatus;
           follow_up_owner?: string | null;
           admin_notes?: string | null;
+          target_company_id?: string | null;
+          product_id?: string | null;
+          quantity?: string | null;
+          interest?: string | null;
+          forwarded_at?: string | null;
+          forwarded_by?: string | null;
+          supplier_seen_at?: string | null;
+          details?: Json;
+          attachment_path?: string | null;
+          attachment_name?: string | null;
           created_at?: string;
           updated_at?: string;
         };

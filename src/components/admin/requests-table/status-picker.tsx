@@ -7,11 +7,11 @@ import {
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
 } from "@/components/ui/select";
 import type { BusinessRequestStatus } from "@/lib/supabase/types";
-import { STATUSES, STATUS_BADGE_CLASS } from "./shared";
+import { STATUSES, STATUS_BADGE_CLASS, STATUS_DOT_CLASS } from "./shared";
 
+/** Status as a coloured dot + label pill that opens the list of statuses. */
 export function StatusPicker({
   status,
   disabled,
@@ -31,16 +31,19 @@ export function StatusPicker({
       disabled={disabled}
     >
       <SelectTrigger
+        aria-label={t("table.status")}
         className={cn(
-          "h-7 w-auto gap-1.5 rounded-full border px-2.5 text-xs font-medium",
+          "h-7 w-auto gap-1.5 rounded-full border-0 px-2.5 text-xs font-semibold shadow-none",
           STATUS_BADGE_CLASS[status]
         )}
       >
-        <SelectValue />
+        <span className={cn("size-1.5 rounded-full", STATUS_DOT_CLASS[status])} aria-hidden />
+        {t(`statusLabels.${status}` as `statusLabels.${BusinessRequestStatus}`)}
       </SelectTrigger>
       <SelectContent>
         {STATUSES.map((s) => (
           <SelectItem key={s} value={s} className="text-xs">
+            <span className={cn("size-1.5 rounded-full", STATUS_DOT_CLASS[s])} aria-hidden />
             {t(`statusLabels.${s}` as `statusLabels.${BusinessRequestStatus}`)}
           </SelectItem>
         ))}

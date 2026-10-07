@@ -307,7 +307,7 @@ if (PREVIEW) {
       .replaceAll("{{ $l }}", PREVIEW)
       .replaceAll("{{ .Email }}", "jean@exemple.com")
       .replaceAll("{{ $url }}", `https://tradeindrc.net/${PREVIEW}/callback?redirect=%2F${PREVIEW}%2Fdashboard&token_hash=0123abcd&type=${t.otpType}`)
-      .replaceAll("{{ .SiteURL }}", "http://localhost:3000");
+      .replaceAll("{{ .SiteURL }}", "https://tradeindrc.net");
     const out = path.join(previewDir, file.replace(".html", `.${PREVIEW}.html`));
     fs.writeFileSync(out, html);
     console.log(`preview: ${path.relative(process.cwd(), out)}`);

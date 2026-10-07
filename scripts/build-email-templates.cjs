@@ -234,7 +234,7 @@ function renderNavyGold(t) {
   <!-- Logo on navy, above the card -->
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;">
     <tr><td align="center" style="padding:0 0 28px;">
-      <img src="{{ .SiteURL }}/images/brand/logo-mark.png" alt="Trade in DRC" width="228" height="50" style="display:block;width:228px;height:50px;border:0;">
+      <img src="{{ .SiteURL }}/images/brand/logo-color.png" alt="Trade in DRC" width="228" height="50" style="display:block;width:228px;height:50px;border:0;">
     </td></tr>
   </table>
 

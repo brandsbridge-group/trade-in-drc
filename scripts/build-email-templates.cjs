@@ -3,10 +3,8 @@
  *
  *   node scripts/build-email-templates.cjs
  *
- * CAUTION (2026-10-05): the two committed templates were retouched by hand
- * after they were generated, so running this script OVERWRITES that work with
- * a slightly different design. To change only the copy or the link, edit the
- * .html files and mirror the change here; regenerate only on purpose.
+ * The committed HTML files are generated from this source. Make design, copy,
+ * or link changes here, then run this script to keep both templates in sync.
  *
  * Supabase templates are single-language Go templates, so each string is
  * emitted as an if/else chain on the user's `locale` metadata (sent by the
@@ -164,22 +162,21 @@ function render(t) {
 <meta name="color-scheme" content="light">
 <title>${tr(t.subject)}</title>
 </head>
-<body style="margin:0;padding:0;background:#EEF2F8;font-family:'Poppins',Segoe UI,Helvetica,Arial,sans-serif;color:#334155;">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#EEF2F8;padding:40px 16px;">
+<body style="margin:0;padding:0;background:#F3F6FA;font-family:Arial,Helvetica,sans-serif;color:#334155;-webkit-font-smoothing:antialiased;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F3F6FA;padding:36px 16px;">
 <tr><td align="center">
 
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#FFFFFF;border-radius:16px;overflow:hidden;box-shadow:0 12px 32px -12px rgba(11,27,51,0.18);">
-    <!-- Navy header with gold rule -->
-    <tr><td style="background:#0B1B33;padding:28px 40px;" align="center">
-      <img src="{{ .SiteURL }}/images/brand/logo-mark.png" alt="Trade in DRC" height="40" style="display:block;height:40px;width:auto;border:0;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background:#FFFFFF;border:1px solid #E4EAF2;border-radius:18px;overflow:hidden;">
+    <tr><td style="background:#FFFFFF;padding:24px 36px;border-bottom:1px solid #E8EDF4;" align="left">
+      <img src="{{ .SiteURL }}/images/brand/logo-color.png" alt="TradeInDRC" width="184" style="display:block;width:184px;max-width:100%;height:auto;border:0;">
     </td></tr>
-    <tr><td style="height:3px;line-height:3px;font-size:0;background:linear-gradient(90deg,#E7C173,#D9A441,#C8941F);background-color:#D9A441;">&nbsp;</td></tr>
+    <tr><td style="height:3px;line-height:3px;font-size:0;background:#1384C8;">&nbsp;</td></tr>
 
-    <tr><td style="padding:40px 40px 8px;" align="center">
+    <tr><td style="padding:36px 40px 8px;" align="center">
       <table role="presentation" cellpadding="0" cellspacing="0"><tr>
-        <td align="center" valign="middle" style="width:64px;height:64px;border-radius:32px;background:#E8EFFA;font-size:30px;line-height:64px;">&#9993;</td>
+        <td align="center" valign="middle" style="width:56px;height:56px;border-radius:16px;background:#EAF4FC;font-size:26px;line-height:56px;color:#0878C9;">${t.icon}</td>
       </tr></table>
-      <h1 style="margin:24px 0 0;font-size:24px;line-height:1.3;font-weight:700;color:#0B1B33;">${tr(t.title)}</h1>
+      <h1 style="margin:20px 0 0;font-size:25px;line-height:1.3;font-weight:700;color:#0B1B33;">${tr(t.title)}</h1>
     </td></tr>
 
     <tr><td style="padding:16px 40px 0;font-size:15px;line-height:1.65;color:#475569;">
@@ -189,8 +186,8 @@ function render(t) {
 
     <tr><td style="padding:32px 40px;" align="center">
       <table role="presentation" cellpadding="0" cellspacing="0"><tr>
-        <td align="center" style="border-radius:10px;background:#0047AB;box-shadow:0 6px 16px -6px rgba(0,71,171,0.5);">
-          <a href="{{ $url }}" style="display:inline-block;padding:14px 32px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:10px;">${tr(t.cta)}</a>
+        <td align="center" style="border-radius:10px;background:#0878C9;">
+          <a href="{{ $url }}" style="display:inline-block;padding:15px 32px;font-size:15px;font-weight:700;color:#FFFFFF;text-decoration:none;border-radius:10px;">${tr(t.cta)}</a>
         </td>
       </tr></table>
     </td></tr>
@@ -200,7 +197,7 @@ function render(t) {
       <p style="margin:0;word-break:break-all;"><a href="{{ $url }}" style="color:#0047AB;">{{ $url }}</a></p>
     </td></tr>
 
-    <tr><td style="padding:20px 40px;background:#F8FAFC;border-top:1px solid #E2E8F0;font-size:12px;line-height:1.6;color:#64748B;" align="center">
+    <tr><td style="padding:20px 40px;background:#F7F9FC;border-top:1px solid #E8EDF4;font-size:12px;line-height:1.6;color:#64748B;" align="center">
       <p style="margin:0 0 8px;">${tr(t.note)}</p>
       <p style="margin:0;color:#94A3B8;">${tr(COMMON.footer)}</p>
     </td></tr>
@@ -297,7 +294,7 @@ function renderNavyGold(t) {
 `;
 }
 
-const RENDERERS = { default: render, "navy-gold": renderNavyGold };
+const RENDERERS = { default: render, "navy-gold": render };
 
 const outDir = path.join(__dirname, "..", "supabase", "templates");
 

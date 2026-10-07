@@ -1,7 +1,9 @@
 import "server-only";
 
 const BRAND_NAVY = "#0B1F3A";
-const BRAND_GOLD = "#CBA14E";
+const BRAND_BLUE = "#0878C9";
+const SITE_ORIGIN = (process.env.NEXT_PUBLIC_SITE_URL || "https://tradeindrc.net").replace(/\/+$/, "");
+const BRAND_LOGO_URL = `${SITE_ORIGIN}/images/brand/logo-color.png`;
 
 interface EmailContent {
   to: string;
@@ -56,7 +58,7 @@ function emailLayout(input: {
         .join("")}</table>`
     : "";
   const cta = input.cta
-    ? `<p style="margin:24px 0"><a href="${escapeHtml(input.cta.href)}" style="display:inline-block;background:${BRAND_GOLD};color:${BRAND_NAVY};font-weight:700;text-decoration:none;padding:13px 20px;border-radius:5px">${escapeHtml(input.cta.label)}</a></p>`
+    ? `<table role="presentation" cellpadding="0" cellspacing="0" style="margin:26px 0"><tr><td style="border-radius:9px;background:${BRAND_BLUE}"><a href="${escapeHtml(input.cta.href)}" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;font-weight:700;text-decoration:none;padding:14px 22px;border-radius:9px;font-size:14px">${escapeHtml(input.cta.label)}</a></td></tr></table>`
     : "";
   const unsubscribe = input.unsubscribeUrl
     ? `<p style="margin:18px 0 0;font-size:11px;line-height:1.6;color:#94a3b8">${input.locale === "fr" ? "Vous recevez cet e-mail car vous avez confirmé votre inscription à la newsletter TradeInDRC." : "You are receiving this email because you confirmed your TradeInDRC newsletter subscription."}<br><a href="${escapeHtml(input.unsubscribeUrl)}" style="color:#64748b">${input.locale === "fr" ? "Se désabonner" : "Unsubscribe"}</a></p>`
@@ -68,7 +70,7 @@ function emailLayout(input: {
 
   return {
     text,
-    html: `<!doctype html><html lang="${input.locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(input.heading)}</title></head><body style="margin:0;background:#f1f5f9;font-family:Arial,Helvetica,sans-serif;color:${BRAND_NAVY}"><div style="display:none;max-height:0;overflow:hidden;opacity:0">${preheader}</div><table role="presentation" style="width:100%;border-collapse:collapse;background:#f1f5f9"><tr><td align="center" style="padding:32px 12px"><table role="presentation" style="width:100%;max-width:640px;border-collapse:collapse;background:#ffffff;border:1px solid #e2e8f0"><tr><td style="background:${BRAND_NAVY};padding:23px 30px;border-bottom:4px solid ${BRAND_GOLD}"><div style="font-size:19px;line-height:1.2;font-weight:700;letter-spacing:.3px;color:#ffffff">TradeInDRC</div><div style="margin-top:5px;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:#cbd5e1">Trade. Connect. Grow.</div></td></tr><tr><td style="padding:32px 30px 24px"><h1 style="margin:0 0 20px;font-size:23px;line-height:1.3;color:${BRAND_NAVY}">${escapeHtml(input.heading)}</h1>${paragraphs}${details}${cta}${unsubscribe}</td></tr><tr><td style="padding:17px 30px;background:#f8fafc;border-top:1px solid #e2e8f0;color:#94a3b8;font-size:11px;line-height:1.6">${escapeHtml(legal)}<br>TradeInDRC</td></tr></table></td></tr></table></body></html>`,
+    html: `<!doctype html><html lang="${input.locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>${escapeHtml(input.heading)}</title></head><body style="margin:0;background:#f3f6fa;font-family:Arial,Helvetica,sans-serif;color:${BRAND_NAVY};-webkit-font-smoothing:antialiased"><div style="display:none;max-height:0;overflow:hidden;opacity:0">${preheader}</div><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;background:#f3f6fa"><tr><td align="center" style="padding:36px 14px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;max-width:600px;border-collapse:separate;border-spacing:0;background:#ffffff;border:1px solid #e4eaf2;border-radius:16px;overflow:hidden"><tr><td style="padding:22px 30px;background:#ffffff;border-bottom:1px solid #e8edf4"><img src="${escapeHtml(BRAND_LOGO_URL)}" alt="TradeInDRC" width="176" style="display:block;width:176px;max-width:100%;height:auto;border:0"></td></tr><tr><td style="height:3px;line-height:3px;font-size:0;background:${BRAND_BLUE}">&nbsp;</td></tr><tr><td style="padding:34px 34px 30px"><h1 style="margin:0 0 20px;font-size:24px;line-height:1.3;font-weight:700;color:${BRAND_NAVY}">${escapeHtml(input.heading)}</h1>${paragraphs}${details}${cta}${unsubscribe}</td></tr><tr><td style="padding:18px 30px;background:#f7f9fc;border-top:1px solid #e8edf4;color:#718096;font-size:11px;line-height:1.65">${escapeHtml(legal)}<br><span style="color:#9aa8b8">TradeInDRC</span></td></tr></table></td></tr></table></body></html>`,
   };
 }
 

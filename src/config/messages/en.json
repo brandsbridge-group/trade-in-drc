@@ -2241,7 +2241,7 @@
           "super_admin": "Super admin",
           "moderator": "Moderator"
         }
-      },
+      }
     },
     "newsletter": {
       "title": "Newsletter campaigns",

@@ -22,8 +22,8 @@ export async function SectorCards({ sectors }: { sectors: SectorCardData[] }) {
   const byKey = new Map(sectors.map((s) => [s.key, s]));
 
   return (
-    <section className="bg-white py-10 md:py-12">
-      <div className="mx-auto grid w-full max-w-[1500px] grid-cols-1 gap-5 px-4 md:grid-cols-2 md:px-6 lg:grid-cols-3">
+    <section className="bg-white py-5 md:py-7">
+      <div className="mx-auto grid w-full max-w-[1500px] grid-cols-1 gap-px border-y border-slate-200 bg-slate-200 px-4 md:grid-cols-2 md:border-x md:px-6 lg:grid-cols-3">
         {SECTOR_BLUEPRINTS.map((bp) => {
           const data = byKey.get(bp.key);
           const href = data?.sectorId ? `/companies?sector=${data.sectorId}` : "/companies";
@@ -31,33 +31,33 @@ export async function SectorCards({ sectors }: { sectors: SectorCardData[] }) {
           return (
             <article
               key={bp.key}
-              className="flex flex-col rounded-lg border border-slate-200 bg-white p-5 shadow-sm"
+              className="group flex flex-col bg-white p-5 sm:p-6"
             >
               <div className="flex items-start gap-3">
-                <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-lg ${bp.iconBg}`}>
-                  <Icon className={`h-6 w-6 ${bp.iconColor}`} aria-hidden />
+                <span className={`flex h-10 w-10 shrink-0 items-center justify-center ${bp.iconBg}`}>
+                  <Icon className={`h-5 w-5 ${bp.iconColor}`} aria-hidden />
                 </span>
-                <h3 className="pt-1 font-display text-lg font-bold leading-snug text-market-navy">
+                <h3 className="pt-1 font-display text-base font-bold leading-snug text-market-navy sm:text-lg">
                   {t(`sectors.${bp.key}.name`)}
                 </h3>
               </div>
 
-              <p className="mt-3 text-sm leading-relaxed text-slate-600">
+              <p className="mt-4 min-h-12 text-sm leading-relaxed text-slate-600">
                 {t(`sectors.${bp.key}.desc`)}
               </p>
 
-              <div className="mt-4 flex items-center gap-6">
+              <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-slate-100 pt-3">
                 <div className="flex items-center gap-2">
-                  <BadgeCheck className="h-4 w-4 text-market-navy" aria-hidden />
-                  <span className="text-sm text-slate-700">
-                    <span className="font-semibold text-market-navy">{data?.companies ?? 0}</span>{" "}
+                  <BadgeCheck className="h-4 w-4 text-blue-700" aria-hidden />
+                  <span className="text-xs text-slate-600">
+                    <span className="font-semibold tabular-nums text-market-navy">{data?.companies ?? 0}</span>{" "}
                     {t("stats.companies")}
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <ShieldCheck className="h-4 w-4 text-market-navy" aria-hidden />
-                  <span className="text-sm text-slate-700">
-                    <span className="font-semibold text-market-navy">{data?.verifiedPartners ?? 0}</span>{" "}
+                  <ShieldCheck className="h-4 w-4 text-emerald-700" aria-hidden />
+                  <span className="text-xs text-slate-600">
+                    <span className="font-semibold tabular-nums text-market-navy">{data?.verifiedPartners ?? 0}</span>{" "}
                     {t("stats.verifiedPartners")}
                   </span>
                 </div>
@@ -65,7 +65,7 @@ export async function SectorCards({ sectors }: { sectors: SectorCardData[] }) {
 
               <Link
                 href={href}
-                className="mt-5 inline-flex items-center justify-center gap-2 rounded-md bg-market-navy px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-market-navy-deep"
+                className="mt-5 inline-flex w-fit items-center gap-2 text-sm font-semibold text-blue-800 group-hover:text-blue-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-700"
               >
                 {t("exploreSector")}
                 <ArrowRight className="h-4 w-4" aria-hidden />

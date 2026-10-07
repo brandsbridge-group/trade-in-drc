@@ -30,7 +30,11 @@
  * {{ .RedirectTo }} with the Site URL; the template detects it and falls back
  * to the Site URL's /[locale]/confirm route.
  */
+
+// This file is intentionally CommonJS so it can run directly with Node.
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const fs = require("fs");
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const path = require("path");
 
 const LOCALES = ["fr", "es", "tr", "zh"]; // + "en" as the fallback

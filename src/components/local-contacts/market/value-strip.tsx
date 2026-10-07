@@ -18,14 +18,17 @@ export async function ValueStrip() {
   const t = await getTranslations("LocalContacts.value");
 
   return (
-    <section className="bg-slate-50 py-8 md:py-6">
-      <div className="mx-auto grid w-full max-w-[1500px] grid-cols-1 gap-6 px-4 md:grid-cols-3 md:px-6">
+    <section className="bg-transparent py-8 md:py-6">
+      <div className="mx-auto grid w-full max-w-[1500px] grid-cols-1 gap-5 px-4 md:grid-cols-3 md:px-6">
         {VALUE_ITEMS.map((item) => {
           const Icon = item.icon;
           return (
-            <div key={item.key} className="flex items-start gap-4">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-market-navy/5">
-                <Icon className="h-6 w-6 text-market-navy" strokeWidth={1.75} aria-hidden />
+            <div
+              key={item.key}
+              className="flex items-start gap-4 rounded-[24px] border border-slate-200/80 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] p-5 shadow-[0_20px_40px_-38px_rgba(15,23,42,0.7)]"
+            >
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-market-navy/5 text-market-navy">
+                <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
               </span>
               <div>
                 <h3 className="font-display text-base font-bold text-market-navy">

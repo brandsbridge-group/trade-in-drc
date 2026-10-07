@@ -5,6 +5,7 @@ import { dbId } from "@/lib/validation/db-id";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { slugify } from "@/lib/content/slug";
 import { EVENT_TYPES } from "./event-constants";
+import { sendEventReceiptEmail } from "@/lib/email/resend";
 
 const submitEventSchema = z.object({
   eventName: z.string().trim().min(2).max(200),
@@ -14,6 +15,8 @@ const submitEventSchema = z.object({
   location: z.string().trim().min(2).max(160),
   organizer: z.string().trim().min(2).max(160),
   email: z.string().trim().email().max(200),
+  eventTypeLabel: z.string().trim().max(100).optional(),
+  locale: z.enum(["en", "fr"]).default("en"),
 });
 
 export type SubmitEventInput = z.infer<typeof submitEventSchema>;
@@ -21,6 +24,7 @@ export type SubmitEventInput = z.infer<typeof submitEventSchema>;
 interface Result {
   ok: boolean;
   error?: "invalid" | "server";
+  notificationSent?: boolean;
 }
 
 /**
@@ -78,5 +82,24 @@ export async function submitEvent(input: SubmitEventInput): Promise<Result> {
     console.error("[submitEvent]", error.code, error.message);
     return { ok: false, error: "server" };
   }
-  return { ok: true };
+
+  let notificationSent = false;
+  try {
+    await sendEventReceiptEmail(
+      d.email,
+      {
+        eventName: d.eventName,
+        eventType: d.eventTypeLabel || d.eventType,
+        date: d.date,
+        location: d.location,
+        organizer: d.organizer,
+      },
+      d.locale
+    );
+    notificationSent = true;
+  } catch (emailError) {
+    console.error("[submitEvent] receipt email failed", emailError);
+  }
+
+  return { ok: true, notificationSent };
 }

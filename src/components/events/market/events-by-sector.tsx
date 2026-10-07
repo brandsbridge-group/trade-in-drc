@@ -25,11 +25,13 @@ export async function EventsBySector({
             <Link
               key={key}
               href={href}
-              className="flex flex-col items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-5 text-center shadow-sm transition-colors duration-150 hover:border-market-navy"
+              className="group relative flex min-h-[152px] flex-col items-center justify-center gap-2.5 overflow-hidden rounded-2xl border border-slate-200/90 bg-white px-3 py-5 text-center shadow-[0_14px_34px_-28px_rgba(15,23,42,0.5)] transition-all duration-150 hover:-translate-y-0.5 hover:border-market-navy/30 hover:shadow-[0_20px_38px_-26px_rgba(15,23,42,0.55)]"
             >
-              <Icon className="h-7 w-7 text-market-navy" strokeWidth={1.6} aria-hidden />
-              <span className="text-sm font-bold text-market-navy">{t(`tiles.${key}`)}</span>
-              <span className="text-xs text-slate-500">
+              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-slate-50 text-market-navy transition-colors duration-150 group-hover:bg-market-navy group-hover:text-white">
+                <Icon className="h-6 w-6" strokeWidth={1.6} aria-hidden />
+              </span>
+              <span className="text-sm font-bold leading-snug text-market-navy">{t(`tiles.${key}`)}</span>
+              <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-medium text-slate-600">
                 {entry.count} {t("eventsSuffix")}
               </span>
             </Link>

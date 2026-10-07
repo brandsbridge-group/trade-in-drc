@@ -4,23 +4,27 @@ import { Link } from "@/i18n/routing";
 
 export async function LandingJoinCta({ locale }: { locale: string }) {
   const t = await getTranslations({ locale, namespace: "Landing.join" });
+
   return (
-    <section className="bg-white">
-      <div className="mx-auto max-w-7xl px-4 pb-16 pt-4">
-        <div className="grid overflow-hidden rounded-2xl md:grid-cols-2">
-          <Link
-            href="/register-company"
-            className="group flex items-center justify-between gap-4 bg-landing-gold px-7 py-7 text-[var(--color-landing-navy)] transition-colors duration-150 ease-out hover:bg-[var(--color-landing-gold-soft)]"
-          >
-            <span className="flex items-center gap-3 text-xl font-extrabold">
-              <Users className="h-6 w-6" />
-              {t("cta")}
-            </span>
-            <ArrowRight className="h-6 w-6 transition-transform duration-150 ease-out group-hover:translate-x-1" />
-          </Link>
-          <div className="flex items-center justify-between gap-4 bg-[var(--color-landing-navy)] px-7 py-7 text-white">
-            <span className="text-lg font-semibold">{t("tagline")}</span>
-            <Globe2 className="h-7 w-7 shrink-0 text-landing-gold" />
+    <section className="relative">
+      <div className="mx-auto max-w-7xl px-4 pb-16 pt-2">
+        <div className="overflow-hidden rounded-[28px] border border-slate-200 bg-slate-50 shadow-[0_28px_70px_-42px_rgba(15,23,42,0.55)]">
+          <div className="grid md:grid-cols-[1.2fr_0.8fr]">
+            <Link
+              href="/register-company"
+              className="group flex items-center justify-between gap-4 bg-[linear-gradient(135deg,#f0c76a_0%,#d9b05a_100%)] px-7 py-7 text-[var(--color-landing-navy)] transition-all duration-200 ease-out hover:brightness-[0.98]"
+            >
+              <span className="flex items-center gap-3 text-xl font-extrabold">
+                <Users className="h-6 w-6" />
+                {t("cta")}
+              </span>
+              <ArrowRight className="h-6 w-6 transition-transform duration-150 ease-out group-hover:translate-x-1" />
+            </Link>
+
+            <div className="flex items-center justify-between gap-4 bg-[linear-gradient(135deg,#0d1d38_0%,#153b6d_100%)] px-7 py-7 text-white">
+              <span className="text-lg font-semibold">{t("tagline")}</span>
+              <Globe2 className="h-7 w-7 shrink-0 text-landing-gold" />
+            </div>
           </div>
         </div>
       </div>

@@ -2063,6 +2063,7 @@
       "navSettings": "设置",
       "navRequests": "请求管理",
       "navPremium": "高级会员",
+      "navNewsletter": "新闻通讯",
       "groups": {
         "overview": "概览",
         "moderation": "审核",
@@ -2241,6 +2242,33 @@
           "moderator": "审核员"
         }
       }
+      },
+    "newsletter": {
+      "title": "新闻通讯活动",
+      "subtitle": "创建双语草稿并发送给已确认邮箱的订阅者。",
+      "campaigns": "近期活动",
+      "editorTitle": "活动编辑器",
+      "editorHint": "订阅者将以确认时选择的语言收到内容，并附带安全的退订链接。",
+      "newCampaign": "新建活动",
+      "cancel": "取消",
+      "empty": "暂无活动。",
+      "subjectEn": "主题（英语）",
+      "bodyEn": "内容（英语）",
+      "subjectFr": "主题（法语）",
+      "bodyFr": "内容（法语）",
+      "saveDraft": "保存草稿",
+      "saving": "正在保存…",
+      "saved": "活动草稿已保存。",
+      "saveError": "无法保存活动，请检查字段后重试。",
+      "send": "发送活动",
+      "retry": "重试失败的收件人",
+      "confirmSend": "确定将此活动发送给所有已确认的订阅者吗？",
+      "alreadySending": "此活动正在发送或已经发送。",
+      "recipientLimit": "此活动超出当前收件人数安全限制。",
+      "sendError": "无法启动活动发送，请重试。",
+      "sendSummary": "已发送：{sent}；失败：{failed}。",
+      "deliveryStats": "已发送 {sent}/{total} · 失败 {failed}",
+      "status": { "draft": "草稿", "sending": "发送中", "sent": "已发送", "failed": "需要重试" }
     }
   },
   "Trust": {
@@ -2606,7 +2634,10 @@
       "headline": "保持关注",
       "body": "每月获取来自刚果民主共和国的贸易洞察，直接发送至您的邮箱。",
       "consent": "我同意接收来自 TradeInDRC 的电子邮件，并已阅读{privacyLink}。",
-      "privacy": "隐私政策"
+      "privacy": "隐私政策",
+      "success": "请查看邮箱并确认您的订阅。",
+      "error": "暂时无法处理您的订阅，请稍后重试。",
+      "alreadySubscribed": "此邮箱已订阅新闻通讯。"
     },
     "hero": {
       "tabs": {
@@ -6172,6 +6203,7 @@
         "button": "提交活动",
         "submitting": "正在提交您的活动…",
         "success": "活动已提交，我们的团队将尽快审核。",
+        "savedEmailFailed": "活动已保存，但确认邮件未能发送。请检查邮箱地址或与我们联系。",
         "error": "出现问题，请重试。",
         "invalid": "请检查标注的字段。"
       },
@@ -6191,7 +6223,10 @@
         "body": "及时了解即将举行的活动和商业机会。",
         "placeholder": "输入您的邮箱",
         "subscribe": "订阅",
-        "success": "订阅成功，请留意您的收件箱。"
+        "consent": "我同意接收 TradeInDRC 新闻通讯邮件。",
+        "success": "请查看邮箱并确认您的新闻通讯订阅。",
+        "error": "暂时无法处理您的订阅，请稍后重试。",
+        "alreadySubscribed": "此邮箱已订阅新闻通讯。"
       }
     }
   },

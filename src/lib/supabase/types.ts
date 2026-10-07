@@ -2043,6 +2043,139 @@ export interface Database {
         };
         Relationships: [];
       };
+      // -- 00053_newsletter_and_email_campaigns -----------------------------
+      newsletter_subscribers: {
+        Row: {
+          id: string;
+          email: string;
+          locale: "en" | "fr";
+          status: "pending" | "active" | "unsubscribed";
+          confirmation_token_hash: string | null;
+          confirmation_expires_at: string | null;
+          unsubscribe_token_hash: string | null;
+          subscribed_at: string;
+          confirmed_at: string | null;
+          unsubscribed_at: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          email: string;
+          locale?: "en" | "fr";
+          status?: "pending" | "active" | "unsubscribed";
+          confirmation_token_hash?: string | null;
+          confirmation_expires_at?: string | null;
+          unsubscribe_token_hash?: string | null;
+          subscribed_at?: string;
+          confirmed_at?: string | null;
+          unsubscribed_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          email?: string;
+          locale?: "en" | "fr";
+          status?: "pending" | "active" | "unsubscribed";
+          confirmation_token_hash?: string | null;
+          confirmation_expires_at?: string | null;
+          unsubscribe_token_hash?: string | null;
+          subscribed_at?: string;
+          confirmed_at?: string | null;
+          unsubscribed_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
+      newsletter_campaigns: {
+        Row: {
+          id: string;
+          subject_en: string;
+          subject_fr: string;
+          body_en: string;
+          body_fr: string;
+          status: "draft" | "sending" | "sent" | "failed";
+          created_by: string | null;
+          recipient_count: number;
+          sent_count: number;
+          failed_count: number;
+          sent_at: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          subject_en: string;
+          subject_fr: string;
+          body_en: string;
+          body_fr: string;
+          status?: "draft" | "sending" | "sent" | "failed";
+          created_by?: string | null;
+          recipient_count?: number;
+          sent_count?: number;
+          failed_count?: number;
+          sent_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          subject_en?: string;
+          subject_fr?: string;
+          body_en?: string;
+          body_fr?: string;
+          status?: "draft" | "sending" | "sent" | "failed";
+          created_by?: string | null;
+          recipient_count?: number;
+          sent_count?: number;
+          failed_count?: number;
+          sent_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
+      newsletter_campaign_deliveries: {
+        Row: {
+          id: string;
+          campaign_id: string;
+          subscriber_id: string | null;
+          recipient_email: string;
+          status: "pending" | "sent" | "failed";
+          resend_email_id: string | null;
+          error_message: string | null;
+          sent_at: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          campaign_id: string;
+          subscriber_id?: string | null;
+          recipient_email: string;
+          status?: "pending" | "sent" | "failed";
+          resend_email_id?: string | null;
+          error_message?: string | null;
+          sent_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          campaign_id?: string;
+          subscriber_id?: string | null;
+          recipient_email?: string;
+          status?: "pending" | "sent" | "failed";
+          resend_email_id?: string | null;
+          error_message?: string | null;
+          sent_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
     };
     Views: {
       // -- 00012_message_reports_and_rls (PII-masked, status='verified' only)

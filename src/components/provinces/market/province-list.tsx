@@ -18,9 +18,9 @@ export async function ProvinceList({ locale, countByProvince }: ProvinceListProp
   return (
     <section
       aria-label={t("keyProvincesTitle")}
-      className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+      className="border border-slate-200 bg-white p-4 sm:p-5"
     >
-      <h2 className="mb-2 font-display text-base font-bold text-market-navy">
+      <h2 className="mb-2 border-b border-slate-200 pb-3 font-display text-base font-bold text-market-navy">
         {t("keyProvincesTitle")}
       </h2>
 
@@ -28,14 +28,14 @@ export async function ProvinceList({ locale, countByProvince }: ProvinceListProp
         {KEY_PROVINCES.map((p) => (
           <div
             key={p.value}
-            className="grid grid-cols-[56px_1fr_auto] items-center gap-3 py-2 transition-colors duration-150 lg:grid-cols-[56px_1fr_auto_auto]"
+            className="grid grid-cols-[48px_minmax(0,1fr)_auto] items-center gap-2.5 py-3 transition-colors duration-150 hover:bg-slate-50/80 sm:grid-cols-[56px_minmax(0,1fr)_auto] sm:gap-3 lg:grid-cols-[56px_minmax(0,1fr)_auto_auto]"
           >
-            <div className="relative h-11 w-14 flex-none overflow-hidden rounded-sm bg-slate-100">
+            <div className="relative h-10 w-12 flex-none overflow-hidden bg-slate-100 sm:h-11 sm:w-14">
               <Image src={p.thumb} alt="" fill sizes="56px" className="object-cover" />
             </div>
 
             <div className="min-w-0">
-              <div className="truncate font-bold leading-tight text-market-navy">
+              <div className="truncate text-sm font-bold leading-tight text-market-navy">
                 {p.displayName}
               </div>
               <div className="mt-0.5 flex items-center gap-1 text-xs text-slate-500">
@@ -58,8 +58,8 @@ export async function ProvinceList({ locale, countByProvince }: ProvinceListProp
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
-              <div className="whitespace-nowrap font-display text-sm font-bold text-market-navy">
+            <div className="flex flex-col items-end gap-2 sm:flex-row sm:items-center sm:gap-3">
+              <div className="whitespace-nowrap font-display text-sm font-bold tabular-nums text-market-navy">
                 {fmt(countByProvince.get(p.value) ?? 0)}{" "}
                 <span className="font-sans text-xs font-normal text-slate-500">
                   {t("companiesUnit")}
@@ -67,7 +67,7 @@ export async function ProvinceList({ locale, countByProvince }: ProvinceListProp
               </div>
               <Link
                 href={{ pathname: "/companies", query: { region: p.value } }}
-                className="flex items-center gap-1.5 whitespace-nowrap rounded-md bg-market-navy px-3 py-1.5 text-xs font-semibold text-white transition-colors duration-150 hover:bg-market-navy-deep"
+                className="flex items-center gap-1 whitespace-nowrap bg-market-navy px-2 py-1.5 text-[0.68rem] font-semibold text-white transition-colors duration-150 hover:bg-market-navy-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:gap-1.5 sm:px-3 sm:text-xs"
               >
                 {t("exploreProvince")}
                 <ArrowRight className="h-3.5 w-3.5" aria-hidden />

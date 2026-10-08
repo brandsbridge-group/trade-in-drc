@@ -789,6 +789,10 @@
           "minOrder": "Sıfırdan büyük bir minimum miktar girin.",
           "unit": "Bu fiyat veya miktar için satış birimini seçin."
         }
+      },
+      "draft": {
+        "restored": "Geçen sefer yazdıklarınız geri yüklendi. Eklediğiniz fotoğraflar saklanmaz: kaydetmeden önce yeniden ekleyin.",
+        "discard": "Bu değişiklikleri iptal et"
       }
     },
     "services": {
@@ -1014,6 +1018,13 @@
         "body": "Her şirketin kendi profili ve kendi doğrulama dosyası vardır."
       },
       "teamMessage": "Ekibimizin mesajı:"
+    },
+    "error": {
+      "title": "Bu sayfada bir sorun oluştu",
+      "body": "Kaydettiğiniz veriler güvende. Tekrar deneyin; sorun devam ederse aşağıdaki referansı belirterek bize ulaşın.",
+      "retry": "Tekrar dene",
+      "home": "Panele dön",
+      "reference": "Referans: {code}"
     }
   },
   "Footer": {
@@ -2244,31 +2255,163 @@
       }
       },
     "newsletter": {
-      "title": "Bülten kampanyaları",
-      "subtitle": "İki dilli taslaklar oluşturun ve e-postasını doğrulamış abonelere gönderin.",
-      "campaigns": "Son kampanyalar",
-      "editorTitle": "Kampanya düzenleyici",
-      "editorHint": "Her abone içeriği onayladığı dilde alır ve güvenli bir abonelikten çıkma bağlantısı içerir.",
+      "title": "Bülten",
+      "subtitle": "İki dilli kampanyalar yazın ve adresini doğrulamış abonelere gönderin.",
       "newCampaign": "Yeni kampanya",
-      "cancel": "İptal",
-      "empty": "Henüz kampanya yok.",
-      "subjectEn": "Konu (İngilizce)",
-      "bodyEn": "Mesaj (İngilizce)",
-      "subjectFr": "Konu (Fransızca)",
-      "bodyFr": "Mesaj (Fransızca)",
-      "saveDraft": "Taslağı kaydet",
-      "saving": "Kaydediliyor…",
-      "saved": "Kampanya taslağı kaydedildi.",
-      "saveError": "Kampanya kaydedilemedi. Alanları kontrol edip tekrar deneyin.",
-      "send": "Kampanyayı gönder",
-      "retry": "Başarısız alıcıları yeniden dene",
-      "confirmSend": "Bu kampanya doğrulanmış tüm bülten abonelerine gönderilsin mi?",
-      "alreadySending": "Bu kampanya zaten gönderiliyor veya gönderildi.",
-      "recipientLimit": "Kampanya mevcut alıcı güvenlik sınırını aşıyor.",
-      "sendError": "Kampanya başlatılamadı. Lütfen tekrar deneyin.",
-      "sendSummary": "Gönderildi: {sent}; başarısız: {failed}.",
-      "deliveryStats": "{sent}/{total} gönderildi · {failed} başarısız",
-      "status": { "draft": "Taslak", "sending": "Gönderiliyor", "sent": "Gönderildi", "failed": "Yeniden denenmeli" }
+      "notReady": {
+        "email_not_configured": "E-posta gönderimi henüz yapılandırılmadı (sağlayıcı anahtarı ve gönderen adresi). Kampanya yazabilirsiniz ancak gönderemezsiniz.",
+        "site_url_missing": "Sitenin genel adresi yapılandırılmadı: e-postalardaki bağlantılar oluşturulamıyor. Kampanya yazabilirsiniz ancak gönderemezsiniz."
+      },
+      "stats": {
+        "active": "Doğrulanmış aboneler",
+        "activeFoot": "{en} İngilizce · {fr} Fransızca",
+        "pending": "Doğrulama bekleyenler",
+        "pendingFoot": "Kaydoldu, doğrulama bağlantısına henüz tıklamadı",
+        "unsubscribed": "Abonelikten çıkanlar",
+        "unsubscribedFoot": "Doğrulamış olanların {rate} kadarı",
+        "sent": "Gönderilen kampanyalar",
+        "sentFoot": "{count, plural, =0 {Henüz teslim edilen e-posta yok} other {# e-posta teslim edildi}}"
+      },
+      "views": {
+        "all": "Tümü",
+        "draft": "Taslaklar",
+        "sending": "Gönderiliyor",
+        "sent": "Gönderildi",
+        "failed": "Yeniden denenecek"
+      },
+      "searchPlaceholder": "Konu ara",
+      "status": {
+        "draft": "Taslak",
+        "sending": "Gönderiliyor",
+        "sent": "Gönderildi",
+        "failed": "Yeniden denenecek"
+      },
+      "list": {
+        "campaign": "Kampanya",
+        "status": "Durum",
+        "delivery": "Teslimat",
+        "date": "Tarih",
+        "actionsColumn": "İşlemler",
+        "noMatch": "Bu görünümde kampanya yok.",
+        "empty": "Henüz kampanya yok",
+        "emptyBody": "İlk kampanyanızı yazın: her dilde bir konu ve bir mesaj, ardından abonelerinize gönderin.",
+        "untitled": "Başlıksız taslak",
+        "audience": "{count, plural, =0 {Henüz yazılacak abone yok} other {# aboneye ulaşır}}",
+        "delivered": "{total} içinden {sent} teslim edildi",
+        "failedCount": "{count} başarısız",
+        "edit": "Düzenle",
+        "report": "Raporu görüntüle",
+        "duplicate": "Çoğalt",
+        "delete": "Sil",
+        "actions": "{subject} için işlemler",
+        "duplicated": "Yeni bir taslağa kopyalandı.",
+        "duplicateError": "Kampanya çoğaltılamadı. Tekrar deneyin.",
+        "deleted": "Taslak silindi.",
+        "deleteError": "Taslak silinemedi. Tekrar deneyin."
+      },
+      "delivery": {
+        "sending": "Gönderiliyor: {total} içinden {sent} teslim edildi",
+        "waiting": "E-posta sağlayıcısı meşgul. Birazdan yeniden denenecek.",
+        "stalled": "Gönderim duraklatıldı.",
+        "resume": "Gönderimi sürdür",
+        "retry": "Başarısızları yeniden dene",
+        "done": "{count, plural, other {Kampanya # aboneye teslim edildi.}}",
+        "doneWithFailures": "{sent} teslim edildi, {failed} başarısız. Başarısız alıcıları yeniden deneyebilirsiniz.",
+        "keepOpen": "Bu sayfa veya kampanya listesi açık olduğu sürece gönderim devam eder."
+      },
+      "deleteDialog": {
+        "title": "Bu taslak silinsin mi?",
+        "body": "“{subject}” kalıcı olarak silinecek. Bu işlem geri alınamaz.",
+        "cancel": "İptal",
+        "confirm": "Taslağı sil"
+      },
+      "composer": {
+        "back": "Tüm kampanyalar",
+        "newTitle": "Yeni kampanya",
+        "editTitle": "Taslağı düzenle",
+        "subtitle": "Her abone, kayıt olurken seçtiği dilde yazılmış sürümü alır.",
+        "unsaved": "Kaydedilmemiş değişiklikler",
+        "savedState": "Taslak kaydedildi",
+        "sendTest": "Bana test gönder",
+        "saveDraft": "Taslağı kaydet",
+        "review": "Gözden geçir ve gönder",
+        "saved": "Taslak kaydedildi.",
+        "saveError": "Taslak kaydedilemedi. Tekrar deneyin.",
+        "notEditable": "Bu kampanya zaten gönderildi ve artık düzenlenemez.",
+        "testSent": "Test ({language}) {email} adresine gönderildi.",
+        "testErrors": {
+          "invalid": "Test göndermeden önce bir konu ve bir mesaj yazın.",
+          "email_not_configured": "E-posta gönderimi henüz yapılandırılmadı.",
+          "site_url_missing": "Sitenin genel adresi yapılandırılmadı.",
+          "no_address": "Hesabınızda testin gönderileceği bir e-posta adresi yok.",
+          "send_failed": "Test gönderilemedi. Tekrar deneyin."
+        },
+        "languageTabs": "Yazılan dil",
+        "languageReady": "Bu dil tamamlandı",
+        "languageMissing": "Bu dil henüz tamamlanmadı",
+        "bothReady": "İki dil de tamamlandı",
+        "subject": "Konu",
+        "subjectPlaceholder": "Bu e-posta ne hakkında, birkaç kelimeyle",
+        "subjectHint": "Abonelerin gelen kutusunda okuduğu satır. Aynı zamanda e-postanın başlığıdır.",
+        "body": "Mesaj",
+        "bodyPlaceholder": "Mesajınızı buraya yazın…",
+        "bodyHint": "Düz metin. İki paragraf arasında boş bir satır bırakın.",
+        "bodyTooShort": "En az {min} karakter yazın."
+      },
+      "preview": {
+        "title": "Önizleme",
+        "language": {
+          "en": "İngilizce",
+          "fr": "Fransızca"
+        },
+        "desktop": "Bilgisayar görünümü",
+        "mobile": "Telefon görünümü",
+        "subjectEmpty": "(henüz konu yok)",
+        "bodyEmpty": "Mesajınız yazdıkça burada görünür.",
+        "frameTitle": "E-posta önizlemesi, {language}",
+        "note": "Logo, alt bilgi ve abonelikten çıkma bağlantısı her e-postaya otomatik olarak eklenir."
+      },
+      "review": {
+        "title": "Bu kampanya gönderilsin mi?",
+        "body": "Gönderim başladıktan sonra kampanya düzenlenemez ve geri çekilemez.",
+        "retryTitle": "Başarısız alıcılar yeniden denensin mi?",
+        "retryBody": "Yalnızca kampanyayı almamış alıcılara yeniden yazılır. Kimse iki kez almaz.",
+        "recipients": "Alıcılar",
+        "recipientsValue": "{count, plural, =0 {Doğrulanmış abone yok} other {# doğrulanmış abone}}",
+        "retryRecipients": "{count, plural, other {Yeniden denenecek # alıcı}}",
+        "byLanguage": "{en} İngilizce · {fr} Fransızca",
+        "sender": "Gönderen",
+        "noSender": "Yapılandırılmadı",
+        "subjectEn": "Konu (İngilizce)",
+        "subjectFr": "Konu (Fransızca)",
+        "cancel": "İptal",
+        "confirm": "{count, plural, =0 {Gönder} other {# aboneye gönder}}",
+        "started": "{count, plural, other {# alıcı için gönderim başladı.}}",
+        "errors": {
+          "invalid": "Bu kampanya gönderilemez.",
+          "incomplete": "Göndermeden önce konuyu ve mesajı iki dilde de tamamlayın.",
+          "not_sendable": "Bu kampanya zaten gönderiliyor veya gönderildi.",
+          "no_recipients": "Henüz yazılacak kimse yok: hiçbir abone adresini doğrulamadı.",
+          "email_not_configured": "E-posta gönderimi henüz yapılandırılmadı (sağlayıcı anahtarı ve gönderen adresi).",
+          "site_url_missing": "Sitenin genel adresi yapılandırılmadı: e-postalardaki bağlantılar oluşturulamıyor.",
+          "server": "Gönderim başlatılamadı. Tekrar deneyin."
+        }
+      },
+      "report": {
+        "sentOn": "Gönderilme tarihi: {date}",
+        "createdOn": "Oluşturulma tarihi: {date}",
+        "duplicate": "Taslak olarak çoğalt",
+        "delivered": "Teslim edilen",
+        "deliveredFoot": "{total} alıcı içinden",
+        "recipients": "Alıcılar",
+        "recipientsFoot": "Gönderim anındaki doğrulanmış aboneler",
+        "failed": "Başarısız",
+        "failedFoot": "“Başarısızları yeniden dene” ile tekrar gönderilebilir",
+        "noFailure": "Başarısız teslimat yok",
+        "rate": "Teslimat oranı",
+        "rateFoot": "Sağlayıcının kabul ettiği e-postalar",
+        "content": "Gönderilen içerik"
+      }
     }
   },
   "Trust": {

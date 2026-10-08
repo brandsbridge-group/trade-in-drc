@@ -31,16 +31,16 @@ export async function PastHighlights({
             <Link
               key={event.id}
               href={`/events/${event.slug}`}
-              className="flex gap-3 overflow-hidden rounded-lg border border-slate-200 bg-white p-3 shadow-sm transition-shadow duration-150 hover:shadow-md"
+              className="group flex gap-3 overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-3 shadow-[0_14px_34px_-28px_rgba(15,23,42,0.55)] transition-all duration-150 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-[0_20px_38px_-26px_rgba(15,23,42,0.5)]"
             >
-              <div className="relative h-20 w-28 shrink-0 overflow-hidden rounded-md bg-slate-100">
+              <div className="relative h-24 w-28 shrink-0 overflow-hidden rounded-xl bg-[linear-gradient(135deg,#e8edf4,#f8fafc)]">
                 {event.cover_url && (
-                  <Image src={event.cover_url} alt={title} fill sizes="112px" className="object-cover" />
+                  <Image src={event.cover_url} alt={title} fill sizes="112px" className="object-cover transition-transform duration-200 group-hover:scale-[1.03]" />
                 )}
               </div>
-              <div className="min-w-0">
+              <div className="min-w-0 py-1">
                 <h3 className="font-display text-sm font-bold leading-snug text-market-navy">{title}</h3>
-                {excerpt && <p className="mt-1 line-clamp-3 text-xs text-slate-600">{excerpt}</p>}
+                {excerpt && <p className="mt-1.5 line-clamp-3 text-xs leading-relaxed text-slate-600">{excerpt}</p>}
               </div>
             </Link>
           );

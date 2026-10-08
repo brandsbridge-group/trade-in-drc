@@ -789,6 +789,10 @@
           "minOrder": "Indique una cantidad mínima superior a cero.",
           "unit": "Elija la unidad de venta para este precio o esta cantidad."
         }
+      },
+      "draft": {
+        "restored": "Se ha restaurado lo que escribió la última vez. Las fotos añadidas no se conservan: vuelva a añadirlas antes de guardar.",
+        "discard": "Descartar estos cambios"
       }
     },
     "services": {
@@ -1014,6 +1018,13 @@
         "body": "Cada empresa tiene su propia ficha y su propio expediente de verificación."
       },
       "teamMessage": "Mensaje de nuestro equipo:"
+    },
+    "error": {
+      "title": "Se ha producido un problema en esta página",
+      "body": "Sus datos guardados están intactos. Inténtelo de nuevo; si el problema continúa, contáctenos indicando la referencia de abajo.",
+      "retry": "Reintentar",
+      "home": "Volver al panel",
+      "reference": "Referencia: {code}"
     }
   },
   "Footer": {
@@ -2063,6 +2074,7 @@
       "navSettings": "Configuración",
       "navRequests": "Solicitudes",
       "navPremium": "Premium",
+      "navNewsletter": "Boletín",
       "groups": {
         "overview": "Resumen",
         "moderation": "Moderación",
@@ -2240,6 +2252,165 @@
           "super_admin": "Superadministrador",
           "moderator": "Moderador"
         }
+      }
+      },
+    "newsletter": {
+      "title": "Boletín",
+      "subtitle": "Redacte campañas bilingües y envíelas a los suscriptores que confirmaron su dirección.",
+      "newCampaign": "Nueva campaña",
+      "notReady": {
+        "email_not_configured": "El envío de correos aún no está configurado (clave del proveedor y dirección del remitente). Puede redactar campañas, pero no enviarlas.",
+        "site_url_missing": "La dirección pública del sitio no está configurada: no se pueden crear los enlaces de los correos. Puede redactar campañas, pero no enviarlas."
+      },
+      "stats": {
+        "active": "Suscriptores confirmados",
+        "activeFoot": "{en} en inglés · {fr} en francés",
+        "pending": "Pendientes de confirmación",
+        "pendingFoot": "Inscritos, enlace de confirmación aún sin pulsar",
+        "unsubscribed": "Bajas",
+        "unsubscribedFoot": "{rate} de quienes habían confirmado",
+        "sent": "Campañas enviadas",
+        "sentFoot": "{count, plural, =0 {Ningún correo entregado todavía} one {# correo entregado} other {# correos entregados}}"
+      },
+      "views": {
+        "all": "Todas",
+        "draft": "Borradores",
+        "sending": "En envío",
+        "sent": "Enviadas",
+        "failed": "Por reintentar"
+      },
+      "searchPlaceholder": "Buscar un asunto",
+      "status": {
+        "draft": "Borrador",
+        "sending": "Enviando",
+        "sent": "Enviada",
+        "failed": "Por reintentar"
+      },
+      "list": {
+        "campaign": "Campaña",
+        "status": "Estado",
+        "delivery": "Entrega",
+        "date": "Fecha",
+        "actionsColumn": "Acciones",
+        "noMatch": "No hay campañas en esta vista.",
+        "empty": "Todavía no hay campañas",
+        "emptyBody": "Redacte su primera campaña: un asunto y un mensaje en cada idioma, y envíela a sus suscriptores.",
+        "untitled": "Borrador sin título",
+        "audience": "{count, plural, =0 {Aún no hay suscriptores a quienes escribir} one {Llegaría a # suscriptor} other {Llegaría a # suscriptores}}",
+        "delivered": "{sent} de {total} entregados",
+        "failedCount": "{count, plural, one {# fallo} other {# fallos}}",
+        "edit": "Editar",
+        "report": "Ver el informe",
+        "duplicate": "Duplicar",
+        "delete": "Eliminar",
+        "actions": "Acciones para {subject}",
+        "duplicated": "Copiada en un nuevo borrador.",
+        "duplicateError": "No se pudo duplicar la campaña. Inténtelo de nuevo.",
+        "deleted": "Borrador eliminado.",
+        "deleteError": "No se pudo eliminar el borrador. Inténtelo de nuevo."
+      },
+      "delivery": {
+        "sending": "Enviando: {sent} de {total} entregados",
+        "waiting": "El proveedor de correo está ocupado. Nuevo intento en un momento.",
+        "stalled": "El envío está en pausa.",
+        "resume": "Reanudar el envío",
+        "retry": "Reintentar los fallos",
+        "done": "{count, plural, one {Campaña entregada a # suscriptor.} other {Campaña entregada a # suscriptores.}}",
+        "doneWithFailures": "{sent} entregados, {failed} con fallo. Puede reintentar los destinatarios con fallo.",
+        "keepOpen": "El envío continúa mientras esta página o la lista de campañas esté abierta."
+      },
+      "deleteDialog": {
+        "title": "¿Eliminar este borrador?",
+        "body": "«{subject}» se eliminará definitivamente. Esta acción no se puede deshacer.",
+        "cancel": "Cancelar",
+        "confirm": "Eliminar el borrador"
+      },
+      "composer": {
+        "back": "Todas las campañas",
+        "newTitle": "Nueva campaña",
+        "editTitle": "Editar el borrador",
+        "subtitle": "Cada suscriptor recibe la versión redactada en el idioma que eligió al inscribirse.",
+        "unsaved": "Cambios sin guardar",
+        "savedState": "Borrador guardado",
+        "sendTest": "Enviarme una prueba",
+        "saveDraft": "Guardar borrador",
+        "review": "Revisar y enviar",
+        "saved": "Borrador guardado.",
+        "saveError": "No se pudo guardar el borrador. Inténtelo de nuevo.",
+        "notEditable": "Esta campaña ya se envió y no se puede modificar.",
+        "testSent": "Prueba ({language}) enviada a {email}.",
+        "testErrors": {
+          "invalid": "Redacte un asunto y un mensaje antes de enviar una prueba.",
+          "email_not_configured": "El envío de correos aún no está configurado.",
+          "site_url_missing": "La dirección pública del sitio no está configurada.",
+          "no_address": "Su cuenta no tiene una dirección de correo a la que enviar la prueba.",
+          "send_failed": "No se pudo enviar la prueba. Inténtelo de nuevo."
+        },
+        "languageTabs": "Idioma que se está redactando",
+        "languageReady": "Este idioma está completo",
+        "languageMissing": "Este idioma aún no está completo",
+        "bothReady": "Los dos idiomas están completos",
+        "subject": "Asunto",
+        "subjectPlaceholder": "De qué trata este correo, en pocas palabras",
+        "subjectHint": "La línea que los suscriptores leen en su bandeja de entrada. También es el título del correo.",
+        "body": "Mensaje",
+        "bodyPlaceholder": "Redacte su mensaje aquí…",
+        "bodyHint": "Texto simple. Deje una línea en blanco entre dos párrafos.",
+        "bodyTooShort": "Escriba al menos {min} caracteres."
+      },
+      "preview": {
+        "title": "Vista previa",
+        "language": {
+          "en": "Inglés",
+          "fr": "Francés"
+        },
+        "desktop": "Vista de ordenador",
+        "mobile": "Vista de teléfono",
+        "subjectEmpty": "(todavía sin asunto)",
+        "bodyEmpty": "Su mensaje aparece aquí a medida que lo escribe.",
+        "frameTitle": "Vista previa del correo, {language}",
+        "note": "El logotipo, el pie y el enlace de baja se añaden automáticamente a cada correo."
+      },
+      "review": {
+        "title": "¿Enviar esta campaña?",
+        "body": "Una vez iniciado el envío, la campaña ya no se puede modificar ni retirar.",
+        "retryTitle": "¿Reintentar los destinatarios con fallo?",
+        "retryBody": "Solo se vuelve a escribir a quienes no recibieron la campaña. Nadie la recibe dos veces.",
+        "recipients": "Destinatarios",
+        "recipientsValue": "{count, plural, =0 {Ningún suscriptor confirmado} one {# suscriptor confirmado} other {# suscriptores confirmados}}",
+        "retryRecipients": "{count, plural, one {# destinatario por reintentar} other {# destinatarios por reintentar}}",
+        "byLanguage": "{en} en inglés · {fr} en francés",
+        "sender": "Remitente",
+        "noSender": "Sin configurar",
+        "subjectEn": "Asunto (inglés)",
+        "subjectFr": "Asunto (francés)",
+        "cancel": "Cancelar",
+        "confirm": "{count, plural, =0 {Enviar} one {Enviar a # suscriptor} other {Enviar a # suscriptores}}",
+        "started": "{count, plural, one {Envío iniciado para # destinatario.} other {Envío iniciado para # destinatarios.}}",
+        "errors": {
+          "invalid": "Esta campaña no se puede enviar.",
+          "incomplete": "Complete el asunto y el mensaje en los dos idiomas antes de enviar.",
+          "not_sendable": "Esta campaña ya se está enviando o ya fue enviada.",
+          "no_recipients": "Todavía no hay nadie a quien escribir: ningún suscriptor ha confirmado su dirección.",
+          "email_not_configured": "El envío de correos aún no está configurado (clave del proveedor y dirección del remitente).",
+          "site_url_missing": "La dirección pública del sitio no está configurada: no se pueden crear los enlaces de los correos.",
+          "server": "No se pudo iniciar el envío. Inténtelo de nuevo."
+        }
+      },
+      "report": {
+        "sentOn": "Enviada el {date}",
+        "createdOn": "Creada el {date}",
+        "duplicate": "Duplicar como borrador",
+        "delivered": "Entregados",
+        "deliveredFoot": "de {total} destinatarios",
+        "recipients": "Destinatarios",
+        "recipientsFoot": "Suscriptores confirmados en el momento del envío",
+        "failed": "Fallos",
+        "failedFoot": "Se pueden reenviar con «Reintentar los fallos»",
+        "noFailure": "Ninguna entrega falló",
+        "rate": "Tasa de entrega",
+        "rateFoot": "Correos aceptados por el proveedor",
+        "content": "Contenido enviado"
       }
     }
   },
@@ -2606,7 +2777,10 @@
       "headline": "Manténgase informado",
       "body": "Reciba cada mes información sobre el comercio en la RDC directamente en su bandeja de entrada.",
       "consent": "Acepto recibir correos electrónicos de TradeInDRC y he leído la {privacyLink}.",
-      "privacy": "Política de privacidad"
+      "privacy": "Política de privacidad",
+      "success": "Revise su correo para confirmar su suscripción.",
+      "error": "No pudimos procesar su suscripción. Inténtelo de nuevo más tarde.",
+      "alreadySubscribed": "Esta dirección ya está suscrita al boletín."
     },
     "hero": {
       "tabs": {
@@ -6172,6 +6346,7 @@
         "button": "Enviar evento",
         "submitting": "Enviando su evento…",
         "success": "Evento enviado. Nuestro equipo lo revisará pronto.",
+        "savedEmailFailed": "Su evento se guardó, pero no pudimos enviar el correo de confirmación. Compruebe su dirección o contáctenos.",
         "error": "Algo salió mal. Inténtelo de nuevo.",
         "invalid": "Revise los campos indicados."
       },
@@ -6191,7 +6366,10 @@
         "body": "Manténgase al día sobre próximos eventos y oportunidades de negocio.",
         "placeholder": "Ingrese su correo",
         "subscribe": "Suscribirse",
-        "success": "Suscripción confirmada. Revise su bandeja de entrada."
+        "consent": "Acepto recibir correos del boletín de TradeInDRC.",
+        "success": "Revise su correo para confirmar su suscripción al boletín.",
+        "error": "No pudimos procesar su suscripción. Inténtelo de nuevo más tarde.",
+        "alreadySubscribed": "Esta dirección ya está suscrita al boletín."
       }
     }
   },

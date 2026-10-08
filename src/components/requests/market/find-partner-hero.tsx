@@ -30,9 +30,9 @@ export async function FindPartnerHero() {
       </div>
       <span className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-market-or/15 blur-3xl" aria-hidden />
 
-      <div className="relative mx-auto w-full max-w-6xl px-4 py-12 md:py-16">
-        <nav aria-label="Breadcrumb" className="mb-5 flex items-center gap-1.5 text-xs">
-          <Link href="/" className="text-white/60 transition-colors hover:text-white">
+      <div className="relative mx-auto w-full max-w-[1500px] px-4 py-12 md:px-6 md:py-16">
+        <nav aria-label="Breadcrumb" className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3 py-1.5 text-xs text-white/75 backdrop-blur-sm">
+          <Link href="/" className="font-semibold text-market-gold transition-colors duration-150 hover:text-market-gold/80">
             {t("breadcrumb.home")}
           </Link>
           <ChevronRight className="h-3 w-3 text-white/40" aria-hidden />

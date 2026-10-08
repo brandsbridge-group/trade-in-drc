@@ -789,6 +789,10 @@
           "minOrder": "Indiquez une quantité minimale supérieure à zéro.",
           "unit": "Choisissez l’unité de vente pour ce prix ou cette quantité."
         }
+      },
+      "draft": {
+        "restored": "Ce que vous aviez saisi la dernière fois a été rétabli. Les photos ajoutées ne sont pas conservées : ajoutez-les à nouveau avant d'enregistrer.",
+        "discard": "Annuler ces modifications"
       }
     },
     "services": {
@@ -1014,6 +1018,13 @@
         "body": "Chaque entreprise a sa propre fiche et son propre dossier de vérification."
       },
       "teamMessage": "Message de notre équipe :"
+    },
+    "error": {
+      "title": "Un problème est survenu sur cette page",
+      "body": "Vos données enregistrées sont intactes. Réessayez ; si le problème persiste, contactez-nous en indiquant la référence ci-dessous.",
+      "retry": "Réessayer",
+      "home": "Retour au tableau de bord",
+      "reference": "Référence : {code}"
     }
   },
   "Footer": {
@@ -2063,6 +2074,7 @@
       "navSettings": "Paramètres",
       "navRequests": "Demandes",
       "navPremium": "Premium",
+      "navNewsletter": "Newsletter",
       "groups": {
         "overview": "Vue d'ensemble",
         "moderation": "Modération",
@@ -2240,6 +2252,165 @@
           "super_admin": "Super-administrateur",
           "moderator": "Modérateur"
         }
+      }
+      },
+    "newsletter": {
+      "title": "Newsletter",
+      "subtitle": "Rédigez des campagnes bilingues et envoyez-les aux abonnés qui ont confirmé leur adresse.",
+      "newCampaign": "Nouvelle campagne",
+      "notReady": {
+        "email_not_configured": "L'envoi d'e-mails n'est pas encore configuré (clé du fournisseur et adresse d'expéditeur). Vous pouvez rédiger des campagnes, mais pas les envoyer.",
+        "site_url_missing": "L'adresse publique du site n'est pas configurée : les liens des e-mails ne peuvent pas être créés. Vous pouvez rédiger des campagnes, mais pas les envoyer."
+      },
+      "stats": {
+        "active": "Abonnés confirmés",
+        "activeFoot": "{en} en anglais · {fr} en français",
+        "pending": "En attente de confirmation",
+        "pendingFoot": "Inscrits, lien de confirmation pas encore cliqué",
+        "unsubscribed": "Désabonnés",
+        "unsubscribedFoot": "{rate} de ceux qui avaient confirmé",
+        "sent": "Campagnes envoyées",
+        "sentFoot": "{count, plural, =0 {Aucun e-mail remis pour l'instant} one {# e-mail remis} other {# e-mails remis}}"
+      },
+      "views": {
+        "all": "Toutes",
+        "draft": "Brouillons",
+        "sending": "En cours d'envoi",
+        "sent": "Envoyées",
+        "failed": "À relancer"
+      },
+      "searchPlaceholder": "Rechercher un objet",
+      "status": {
+        "draft": "Brouillon",
+        "sending": "Envoi en cours",
+        "sent": "Envoyée",
+        "failed": "À relancer"
+      },
+      "list": {
+        "campaign": "Campagne",
+        "status": "Statut",
+        "delivery": "Remise",
+        "date": "Date",
+        "actionsColumn": "Actions",
+        "noMatch": "Aucune campagne dans cette vue.",
+        "empty": "Aucune campagne pour l'instant",
+        "emptyBody": "Rédigez votre première campagne : un objet et un message dans chaque langue, puis envoyez-la à vos abonnés.",
+        "untitled": "Brouillon sans titre",
+        "audience": "{count, plural, =0 {Aucun abonné à qui écrire pour l'instant} one {Atteindrait # abonné} other {Atteindrait # abonnés}}",
+        "delivered": "{sent} sur {total} remis",
+        "failedCount": "{count, plural, one {# échec} other {# échecs}}",
+        "edit": "Modifier",
+        "report": "Voir le rapport",
+        "duplicate": "Dupliquer",
+        "delete": "Supprimer",
+        "actions": "Actions pour {subject}",
+        "duplicated": "Copiée dans un nouveau brouillon.",
+        "duplicateError": "La campagne n'a pas pu être dupliquée. Réessayez.",
+        "deleted": "Brouillon supprimé.",
+        "deleteError": "Le brouillon n'a pas pu être supprimé. Réessayez."
+      },
+      "delivery": {
+        "sending": "Envoi en cours : {sent} sur {total} remis",
+        "waiting": "Le fournisseur d'e-mails est occupé. Nouvelle tentative dans un instant.",
+        "stalled": "L'envoi est en pause.",
+        "resume": "Reprendre l'envoi",
+        "retry": "Relancer les échecs",
+        "done": "{count, plural, one {Campagne remise à # abonné.} other {Campagne remise à # abonnés.}}",
+        "doneWithFailures": "{sent} remis, {failed} en échec. Vous pouvez relancer les destinataires en échec.",
+        "keepOpen": "L'envoi se poursuit tant que cette page ou la liste des campagnes est ouverte."
+      },
+      "deleteDialog": {
+        "title": "Supprimer ce brouillon ?",
+        "body": "« {subject} » sera supprimé définitivement. Cette action est irréversible.",
+        "cancel": "Annuler",
+        "confirm": "Supprimer le brouillon"
+      },
+      "composer": {
+        "back": "Toutes les campagnes",
+        "newTitle": "Nouvelle campagne",
+        "editTitle": "Modifier le brouillon",
+        "subtitle": "Chaque abonné reçoit la version rédigée dans la langue choisie à l'inscription.",
+        "unsaved": "Modifications non enregistrées",
+        "savedState": "Brouillon enregistré",
+        "sendTest": "M'envoyer un test",
+        "saveDraft": "Enregistrer le brouillon",
+        "review": "Vérifier et envoyer",
+        "saved": "Brouillon enregistré.",
+        "saveError": "Le brouillon n'a pas pu être enregistré. Réessayez.",
+        "notEditable": "Cette campagne a déjà été envoyée et ne peut plus être modifiée.",
+        "testSent": "Test ({language}) envoyé à {email}.",
+        "testErrors": {
+          "invalid": "Rédigez un objet et un message avant d'envoyer un test.",
+          "email_not_configured": "L'envoi d'e-mails n'est pas encore configuré.",
+          "site_url_missing": "L'adresse publique du site n'est pas configurée.",
+          "no_address": "Votre compte n'a pas d'adresse e-mail à laquelle envoyer le test.",
+          "send_failed": "Le test n'a pas pu être envoyé. Réessayez."
+        },
+        "languageTabs": "Langue en cours de rédaction",
+        "languageReady": "Cette langue est complète",
+        "languageMissing": "Cette langue n'est pas encore complète",
+        "bothReady": "Les deux langues sont complètes",
+        "subject": "Objet",
+        "subjectPlaceholder": "De quoi parle cet e-mail, en quelques mots",
+        "subjectHint": "La ligne que les abonnés lisent dans leur boîte de réception. C'est aussi le titre de l'e-mail.",
+        "body": "Message",
+        "bodyPlaceholder": "Rédigez votre message ici…",
+        "bodyHint": "Texte simple. Laissez une ligne vide entre deux paragraphes.",
+        "bodyTooShort": "Rédigez au moins {min} caractères."
+      },
+      "preview": {
+        "title": "Aperçu",
+        "language": {
+          "en": "Anglais",
+          "fr": "Français"
+        },
+        "desktop": "Vue ordinateur",
+        "mobile": "Vue téléphone",
+        "subjectEmpty": "(pas encore d'objet)",
+        "bodyEmpty": "Votre message apparaît ici au fil de la rédaction.",
+        "frameTitle": "Aperçu de l'e-mail, {language}",
+        "note": "Le logo, le pied de page et le lien de désinscription sont ajoutés automatiquement à chaque e-mail."
+      },
+      "review": {
+        "title": "Envoyer cette campagne ?",
+        "body": "Une fois l'envoi lancé, la campagne ne peut plus être modifiée ni rappelée.",
+        "retryTitle": "Relancer les destinataires en échec ?",
+        "retryBody": "Seuls les destinataires qui n'ont pas reçu la campagne sont contactés à nouveau. Personne ne la reçoit deux fois.",
+        "recipients": "Destinataires",
+        "recipientsValue": "{count, plural, =0 {Aucun abonné confirmé} one {# abonné confirmé} other {# abonnés confirmés}}",
+        "retryRecipients": "{count, plural, one {# destinataire à relancer} other {# destinataires à relancer}}",
+        "byLanguage": "{en} en anglais · {fr} en français",
+        "sender": "Expéditeur",
+        "noSender": "Non configuré",
+        "subjectEn": "Objet (anglais)",
+        "subjectFr": "Objet (français)",
+        "cancel": "Annuler",
+        "confirm": "{count, plural, =0 {Envoyer} one {Envoyer à # abonné} other {Envoyer à # abonnés}}",
+        "started": "{count, plural, one {Envoi lancé pour # destinataire.} other {Envoi lancé pour # destinataires.}}",
+        "errors": {
+          "invalid": "Cette campagne ne peut pas être envoyée.",
+          "incomplete": "Complétez l'objet et le message dans les deux langues avant d'envoyer.",
+          "not_sendable": "Cette campagne est déjà en cours d'envoi ou a déjà été envoyée.",
+          "no_recipients": "Il n'y a encore personne à qui écrire : aucun abonné n'a confirmé son adresse.",
+          "email_not_configured": "L'envoi d'e-mails n'est pas encore configuré (clé du fournisseur et adresse d'expéditeur).",
+          "site_url_missing": "L'adresse publique du site n'est pas configurée : les liens des e-mails ne peuvent pas être créés.",
+          "server": "L'envoi n'a pas pu être lancé. Réessayez."
+        }
+      },
+      "report": {
+        "sentOn": "Envoyée le {date}",
+        "createdOn": "Créée le {date}",
+        "duplicate": "Dupliquer en brouillon",
+        "delivered": "Remis",
+        "deliveredFoot": "sur {total} destinataires",
+        "recipients": "Destinataires",
+        "recipientsFoot": "Abonnés confirmés au moment de l'envoi",
+        "failed": "Échecs",
+        "failedFoot": "À renvoyer avec « Relancer les échecs »",
+        "noFailure": "Aucun échec de remise",
+        "rate": "Taux de remise",
+        "rateFoot": "E-mails acceptés par le fournisseur",
+        "content": "Contenu envoyé"
       }
     }
   },
@@ -2606,7 +2777,10 @@
       "headline": "Restez informé",
       "body": "Recevez chaque mois des informations sur le commerce en RDC dans votre boîte mail.",
       "consent": "J'accepte de recevoir des e-mails de TradeInDRC et j'ai lu la {privacyLink}.",
-      "privacy": "Politique de confidentialité"
+      "privacy": "Politique de confidentialité",
+      "success": "Consultez votre boîte mail pour confirmer votre inscription.",
+      "error": "Votre inscription n'a pas pu être traitée. Veuillez réessayer plus tard.",
+      "alreadySubscribed": "Cette adresse est déjà inscrite à la newsletter."
     },
     "hero": {
       "tabs": {
@@ -6172,6 +6346,7 @@
         "button": "Soumettre l'événement",
         "submitting": "Envoi de votre événement…",
         "success": "Événement soumis. Notre équipe l'examinera prochainement.",
+        "savedEmailFailed": "Votre événement a bien été enregistré, mais l'e-mail de confirmation n'a pas pu être envoyé. Vérifiez votre adresse ou contactez-nous.",
         "error": "Une erreur s'est produite. Veuillez réessayer.",
         "invalid": "Veuillez vérifier les champs indiqués."
       },
@@ -6191,7 +6366,10 @@
         "body": "Restez informé des événements à venir et des opportunités d'affaires.",
         "placeholder": "Entrez votre e-mail",
         "subscribe": "S'abonner",
-        "success": "Inscription confirmée. Surveillez votre boîte de réception."
+        "consent": "J'accepte de recevoir les e-mails de la newsletter TradeInDRC.",
+        "success": "Consultez votre boîte mail pour confirmer votre inscription à la newsletter.",
+        "error": "Votre inscription n'a pas pu être traitée. Veuillez réessayer plus tard.",
+        "alreadySubscribed": "Cette adresse est déjà inscrite à la newsletter."
       }
     }
   },

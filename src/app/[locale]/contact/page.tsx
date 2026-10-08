@@ -73,80 +73,87 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <div className="bg-primary text-primary-foreground py-8">
-        <div className="container mx-auto px-4 text-center">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(19,38,75,0.1),transparent_42%)] text-slate-900">
+      <section className="relative isolate overflow-hidden bg-market-navy text-white">
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute -left-28 -top-24 h-[360px] w-[360px] rounded-full bg-primary/35 blur-[110px]" />
+          <div className="absolute -bottom-24 right-[-8%] h-[340px] w-[340px] rounded-full bg-market-or/10 blur-[120px]" />
+        </div>
+
+        <div className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 md:py-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: reduce ? 0 : 0.25 }}
+            className="mx-auto max-w-3xl text-center"
           >
-            <h1 className="text-2xl md:text-3xl font-bold mb-2">{t("title")}</h1>
-            <p className="text-sm opacity-90 max-w-xl mx-auto">{t("subtitle")}</p>
+            <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.22em] text-market-or">{t("title")}</p>
+            <h1 className="text-3xl font-display font-extrabold leading-[1.08] tracking-tight md:text-5xl">
+              {t("title")}
+            </h1>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-white/75 md:text-base">
+              {t("subtitle")}
+            </p>
           </motion.div>
         </div>
-      </div>
+      </section>
 
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {/* Contact Info */}
-          <div>
-            <h2 className="text-lg font-bold mb-4">{tc("getInTouch")}</h2>
-            <p className="text-muted-foreground mb-6 text-sm">{tc("getInTouchBody")}</p>
+      <div className="mx-auto w-full max-w-6xl px-4 py-8 md:px-6 md:py-10">
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_26px_70px_-36px_rgba(15,23,42,0.35)] md:p-8">
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-market-or-dark">{tc("getInTouch")}</p>
+            <h2 className="mt-3 text-2xl font-display font-bold tracking-tight text-market-navy">{tc("getInTouch")}</h2>
+            <p className="mt-3 text-sm leading-relaxed text-slate-600">{tc("getInTouchBody")}</p>
 
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-primary/10 flex items-center justify-center shrink-0 rounded-md">
-                  <Mail className="w-5 h-5 text-primary" />
+            <div className="mt-8 space-y-6">
+              <div className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-slate-50/80 p-4">
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-market-or/12 text-market-or-dark ring-1 ring-market-or/20">
+                  <Mail className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="font-medium">{t("email")}</h3>
-                  {/* Values come from config/contact.ts, not the locale files —
-                      they are proper nouns and must not drift per language. */}
+                  <h3 className="font-display text-base font-bold text-market-navy">{t("email")}</h3>
                   <a
                     href={CONTACT_EMAIL_HREF}
-                    className="text-muted-foreground underline-offset-2 transition-colors duration-150 hover:text-primary hover:underline"
+                    className="mt-1 block text-sm text-slate-600 underline-offset-2 transition-colors duration-150 hover:text-market-navy hover:underline"
                   >
                     {CONTACT.email}
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-primary/10 flex items-center justify-center shrink-0 rounded-md">
-                  <Phone className="w-5 h-5 text-primary" />
+              <div className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-slate-50/80 p-4">
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-market-or/12 text-market-or-dark ring-1 ring-market-or/20">
+                  <Phone className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="font-medium">{tc("phone")}</h3>
+                  <h3 className="font-display text-base font-bold text-market-navy">{tc("phone")}</h3>
                   <a
                     href={CONTACT_PHONE_HREF}
-                    className="text-muted-foreground underline-offset-2 transition-colors duration-150 hover:text-primary hover:underline"
+                    className="mt-1 block text-sm text-slate-600 underline-offset-2 transition-colors duration-150 hover:text-market-navy hover:underline"
                   >
                     {CONTACT.phone}
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-primary/10 flex items-center justify-center shrink-0 rounded-md">
-                  <MapPin className="w-5 h-5 text-primary" />
+              <div className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-slate-50/80 p-4">
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-market-or/12 text-market-or-dark ring-1 ring-market-or/20">
+                  <MapPin className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="font-medium">{tc("address")}</h3>
-                  <p className="text-muted-foreground whitespace-pre-line">{CONTACT_ADDRESS}</p>
+                  <h3 className="font-display text-base font-bold text-market-navy">{tc("address")}</h3>
+                  <p className="mt-1 whitespace-pre-line text-sm leading-relaxed text-slate-600">{CONTACT_ADDRESS}</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="bg-card border border-slate-200 rounded-2xl p-4">
-            <h2 className="text-lg font-bold mb-4">{t("sendMessage")}</h2>
-            <form onSubmit={handleSubmit} className="space-y-4" noValidate>
-              <div className="grid md:grid-cols-2 gap-4">
+          <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_26px_70px_-36px_rgba(15,23,42,0.35)] md:p-8">
+            <h2 className="text-2xl font-display font-bold tracking-tight text-market-navy">{t("sendMessage")}</h2>
+            <form onSubmit={handleSubmit} className="mt-6 space-y-4" noValidate>
+              <div className="grid gap-4 md:grid-cols-2">
                 <div className="space-y-2">
-                  <Label htmlFor="name">{t("name")}</Label>
+                  <Label htmlFor="name" className="text-sm font-semibold text-slate-700">{t("name")}</Label>
                   <Input
                     id="name"
                     value={formData.name}
@@ -154,13 +161,12 @@ export default function ContactPage() {
                     placeholder={tc("namePlaceholder")}
                     aria-invalid={Boolean(fieldErrors.name)}
                     required
+                    className="h-11 rounded-xl border-slate-200 bg-slate-50/80 text-sm text-slate-900 placeholder:text-slate-400 focus-visible:ring-2 focus-visible:ring-primary/35"
                   />
-                  {fieldErrors.name && (
-                    <p className="text-xs text-destructive">{tc("nameError")}</p>
-                  )}
+                  {fieldErrors.name && <p className="text-xs text-destructive">{tc("nameError")}</p>}
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">{t("email")}</Label>
+                  <Label htmlFor="email" className="text-sm font-semibold text-slate-700">{t("email")}</Label>
                   <Input
                     id="email"
                     type="email"
@@ -169,25 +175,25 @@ export default function ContactPage() {
                     placeholder={tc("emailPlaceholder")}
                     aria-invalid={Boolean(fieldErrors.email)}
                     required
+                    className="h-11 rounded-xl border-slate-200 bg-slate-50/80 text-sm text-slate-900 placeholder:text-slate-400 focus-visible:ring-2 focus-visible:ring-primary/35"
                   />
-                  {fieldErrors.email && (
-                    <p className="text-xs text-destructive">{tc("emailError")}</p>
-                  )}
+                  {fieldErrors.email && <p className="text-xs text-destructive">{tc("emailError")}</p>}
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="subject">{t("subject")}</Label>
+                <Label htmlFor="subject" className="text-sm font-semibold text-slate-700">{t("subject")}</Label>
                 <Input
                   id="subject"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                   placeholder={tc("subjectPlaceholder")}
+                  className="h-11 rounded-xl border-slate-200 bg-slate-50/80 text-sm text-slate-900 placeholder:text-slate-400 focus-visible:ring-2 focus-visible:ring-primary/35"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message">{t("message")}</Label>
+                <Label htmlFor="message" className="text-sm font-semibold text-slate-700">{t("message")}</Label>
                 <Textarea
                   id="message"
                   value={formData.message}
@@ -196,17 +202,11 @@ export default function ContactPage() {
                   rows={5}
                   aria-invalid={Boolean(fieldErrors.message)}
                   required
+                  className="rounded-xl border-slate-200 bg-slate-50/80 text-sm text-slate-900 placeholder:text-slate-400 focus-visible:ring-2 focus-visible:ring-primary/35"
                 />
-                {fieldErrors.message && (
-                  <p className="text-xs text-destructive">{tc("messageError")}</p>
-                )}
+                {fieldErrors.message && <p className="text-xs text-destructive">{tc("messageError")}</p>}
               </div>
 
-              {/*
-                Honeypot field — visually hidden and off the tab order. Genuine
-                users never see or fill it; bots that auto-fill every input trip
-                it and the submission is silently discarded server-side.
-              */}
               <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
                 <label htmlFor="company">{tc("honeypotLabel")}</label>
                 <input
@@ -220,11 +220,15 @@ export default function ContactPage() {
                 />
               </div>
 
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
+              <Button
+                type="submit"
+                className="h-11 w-full rounded-xl bg-market-navy text-sm font-semibold text-white shadow-lg shadow-market-navy/20 transition-colors duration-150 hover:bg-market-navy/90"
+                disabled={isSubmitting}
+              >
                 {isSubmitting ? (
-                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 ) : (
-                  <Send className="w-4 h-4 mr-2" />
+                  <Send className="mr-2 h-4 w-4" />
                 )}
                 {t("send")}
               </Button>

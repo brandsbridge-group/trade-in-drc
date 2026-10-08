@@ -15,13 +15,24 @@ export default async function AboutPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+
   return (
-    <div className="marketing-surface bg-white">
-      <AboutHero locale={locale} />
-      <LandingMissionBanner locale={locale} />
-      <LandingValueCards locale={locale} />
-      <LandingTransformBanner locale={locale} />
-      <LandingJoinCta locale={locale} />
+    <div className="relative overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(16,37,76,0.14),transparent_52%)] text-slate-900">
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-[radial-gradient(circle_at_top,_rgba(13,29,62,0.14),transparent_60%)]" />
+
+      <div className="relative">
+        <AboutHero locale={locale} />
+
+        <div className="mx-auto -mt-10 w-full max-w-7xl px-4 pb-1 md:px-6">
+          <LandingMissionBanner locale={locale} />
+        </div>
+
+        <div className="mx-auto w-full max-w-7xl space-y-6 px-4 py-8 md:px-6 md:py-10">
+          <LandingValueCards locale={locale} />
+          <LandingTransformBanner locale={locale} />
+          <LandingJoinCta locale={locale} />
+        </div>
+      </div>
     </div>
   );
 }

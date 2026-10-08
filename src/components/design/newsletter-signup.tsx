@@ -1,28 +1,37 @@
 "use client";
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { subscribeToNewsletter } from "@/lib/newsletter/actions";
 
 export function NewsletterSignup() {
   const t = useTranslations("Design.newsletter");
   const td = useTranslations("Design");
+  const locale: "en" | "fr" = useLocale() === "fr" ? "fr" : "en";
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
   const [busy, setBusy] = useState(false);
 
-  async function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!consent) return;
     setBusy(true);
-    // Endpoint TBD in a future slice; for now just simulate.
-    setTimeout(() => {
-      setBusy(false);
+    try {
+      const result = await subscribeToNewsletter({ email, locale, consent: true });
+      if (!result.ok) {
+        toast.error(t("error"));
+        return;
+      }
       setEmail("");
       setConsent(false);
-      toast.success(td("subscribe"));
-    }, 400);
+      toast.success(result.alreadySubscribed ? t("alreadySubscribed") : t("success"));
+    } catch {
+      toast.error(t("error"));
+    } finally {
+      setBusy(false);
+    }
   }
 
   return (

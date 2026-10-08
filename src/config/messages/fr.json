@@ -789,6 +789,10 @@
           "minOrder": "Indiquez une quantité minimale supérieure à zéro.",
           "unit": "Choisissez l’unité de vente pour ce prix ou cette quantité."
         }
+      },
+      "draft": {
+        "restored": "Ce que vous aviez saisi la dernière fois a été rétabli. Les photos ajoutées ne sont pas conservées : ajoutez-les à nouveau avant d'enregistrer.",
+        "discard": "Annuler ces modifications"
       }
     },
     "services": {
@@ -1014,6 +1018,13 @@
         "body": "Chaque entreprise a sa propre fiche et son propre dossier de vérification."
       },
       "teamMessage": "Message de notre équipe :"
+    },
+    "error": {
+      "title": "Un problème est survenu sur cette page",
+      "body": "Vos données enregistrées sont intactes. Réessayez ; si le problème persiste, contactez-nous en indiquant la référence ci-dessous.",
+      "retry": "Réessayer",
+      "home": "Retour au tableau de bord",
+      "reference": "Référence : {code}"
     }
   },
   "Footer": {

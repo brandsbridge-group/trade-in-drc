@@ -29,10 +29,21 @@ import {
   type SpecField,
   type TemplateValues,
 } from "@/lib/products/specs";
+import { applyDraft, changedFields, readLocalDraft, writeLocalDraft } from "@/lib/drafts/local-draft";
 import {
+  isEmptySpecs,
+  parseDraftSpecs,
+  productDraftKey,
+  restoreDraftSpecs,
+  type ProductDraft,
+  type ProductDraftFields,
+} from "@/lib/dashboard/product-draft";
+import {
+  DEFAULT_CURRENCY,
   PRICE_CURRENCIES,
   SALE_UNITS,
   buildPricing,
+  isCurrency,
   pricingDisplay,
   pricingOf,
   pricingToForm,
@@ -110,6 +121,38 @@ function visibilityOf(status: string | undefined): Visibility {
   return "pending_documents";
 }
 
+/** The stored product as the text inputs hold it — what a draft is compared against. */
+function savedFieldsOf(product: ExistingProduct | undefined): ProductDraftFields {
+  const pricing = pricingToForm(pricingOf(product));
+  return {
+    // Prefer bilingual columns; fall back to legacy name/description for
+    // rows created before the 00018 migration.
+    name_en: product?.name_en ?? product?.name ?? "",
+    name_fr: product?.name_fr ?? "",
+    description_en: product?.description_en ?? product?.description ?? "",
+    description_fr: product?.description_fr ?? "",
+    categoryId: product?.category_id ?? "",
+    price: pricing.price,
+    currency: pricing.currency,
+    unit: pricing.unit,
+    minOrder: pricing.minOrder,
+  };
+}
+
+const textsOf = (fields: ProductDraftFields): ProductTexts => ({
+  name_en: fields.name_en,
+  name_fr: fields.name_fr,
+  description_en: fields.description_en,
+  description_fr: fields.description_fr,
+});
+
+const pricingFormOf = (fields: ProductDraftFields): PricingForm => ({
+  price: fields.price,
+  currency: isCurrency(fields.currency) ? fields.currency : DEFAULT_CURRENCY,
+  unit: fields.unit,
+  minOrder: fields.minOrder,
+});
+
 const VISIBILITY_TONE: Record<Visibility, { card: string; icon: string; Icon: typeof Check }> = {
   verified: { card: "bg-emerald-50 ring-emerald-100", icon: "text-emerald-700", Icon: ShieldCheck },
   pending: { card: "bg-blue-50 ring-blue-100", icon: "text-blue-700", Icon: Clock },
@@ -132,16 +175,26 @@ export function ProductForm({ companyId, company, product }: ProductFormProps) {
   const createProduct = useCreateProduct();
   const updateProduct = useUpdateProduct();
 
-  const [texts, setTexts] = React.useState<ProductTexts>({
-    // Prefer bilingual columns; fall back to legacy name/description for
-    // rows created before the 00018 migration.
-    name_en: product?.name_en ?? product?.name ?? "",
-    name_fr: product?.name_fr ?? "",
-    description_en: product?.description_en ?? product?.description ?? "",
-    description_fr: product?.description_fr ?? "",
+  // Unsaved edits are kept in this browser (see product-draft.ts): a reload, a
+  // closed tab or a page error loses nothing but the photos. The draft is read
+  // while the state is created, not in an effect, so the category's template
+  // is loaded once, for the restored category. That is safe here: this form
+  // only mounts in the browser, once the company (or the product) is loaded.
+  const draftKey = productDraftKey(companyId, product?.id);
+  const saved = React.useMemo(() => savedFieldsOf(product), [product]);
+  const [initial] = React.useState(() => {
+    const draft = readLocalDraft<ProductDraft>(draftKey);
+    const fields = applyDraft(saved, draft?.fields);
+    const specs = parseDraftSpecs(draft?.specs);
+    return { fields, specs, restored: changedFields(fields, saved) !== null || specs !== null };
   });
+  const [draftRestored, setDraftRestored] = React.useState(initial.restored);
+  // Set once the product is saved: the draft is removed and must not be written again.
+  const draftClosed = React.useRef(false);
+
+  const [texts, setTexts] = React.useState<ProductTexts>(() => textsOf(initial.fields));
   const [lang, setLang] = React.useState<ProductLang>(locale === "fr" ? "fr" : "en");
-  const [categoryId, setCategoryId] = React.useState(product?.category_id ?? "");
+  const [categoryId, setCategoryId] = React.useState(initial.fields.categoryId);
   const [categories, setCategories] = React.useState<CategoryOption[]>([]);
   const [imageFiles, setImageFiles] = React.useState<File[]>([]);
   const [imagePreviews, setImagePreviews] = React.useState<string[]>(
@@ -152,7 +205,7 @@ export function ProductForm({ companyId, company, product }: ProductFormProps) {
   );
   const [errors, setErrors] = React.useState<Set<"name" | "description">>(new Set());
   // Price and minimum order, as typed; both optional (empty = "price on request").
-  const [pricing, setPricing] = React.useState<PricingForm>(() => pricingToForm(pricingOf(product)));
+  const [pricing, setPricing] = React.useState<PricingForm>(() => pricingFormOf(initial.fields));
   const [pricingErrors, setPricingErrors] = React.useState<Set<PricingField>>(new Set());
   const setPricingField = <K extends keyof PricingForm>(key: K, value: PricingForm[K]) => {
     setPricing((prev) => ({ ...prev, [key]: value }));
@@ -166,6 +219,11 @@ export function ProductForm({ companyId, company, product }: ProductFormProps) {
   // The stored specs are split against the template once, on the first load;
   // later category changes carry over what is currently typed instead.
   const specsInitialized = React.useRef(false);
+  // A draft's characteristics replace the stored ones on that first load.
+  const pendingDraftSpecs = React.useRef(initial.specs);
+  // The draft keeps the characteristics only once the seller has touched them.
+  const [specsTouched, setSpecsTouched] = React.useState(initial.specs !== null);
+  const [specsReady, setSpecsReady] = React.useState(false);
   const specState = React.useRef({ fields: specFields, values: specValues, custom: customSpecs });
   React.useEffect(() => {
     specState.current = { fields: specFields, values: specValues, custom: customSpecs };
@@ -204,12 +262,16 @@ export function ProductForm({ companyId, company, product }: ProductFormProps) {
       const current = specState.current;
       const next = specsInitialized.current
         ? rebaseSpecs({ previousFields: current.fields, nextFields, values: current.values, custom: current.custom, locale })
-        : splitSpecs(product?.specs, nextFields);
+        : pendingDraftSpecs.current
+          ? restoreDraftSpecs(pendingDraftSpecs.current, nextFields)
+          : splitSpecs(product?.specs, nextFields);
+      pendingDraftSpecs.current = null;
       specsInitialized.current = true;
       setSpecFields(nextFields);
       setSpecValues(next.values);
       setCustomSpecs(next.custom);
       setSpecErrors({ fields: new Set(), rows: new Set() });
+      setSpecsReady(true);
     };
     loadTemplate();
     return () => {
@@ -219,7 +281,42 @@ export function ProductForm({ companyId, company, product }: ProductFormProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categoryId]);
 
-  const setText = (key: keyof ProductTexts, value: string) => {
+  // Write the draft as the seller types. Not before the characteristics are in
+  // place: until then the list is empty and would wipe the ones the draft holds.
+  React.useEffect(() => {
+    if (!specsReady || draftClosed.current) return;
+    const fields = changedFields<ProductDraftFields>(
+      { ...texts, categoryId, price: pricing.price, currency: pricing.currency, unit: pricing.unit, minOrder: pricing.minOrder },
+      saved
+    );
+    const typedSpecs = { values: specValues, custom: customSpecs };
+    // A product not created yet has no stored characteristics: an empty list is not a change.
+    const specs = specsTouched && (product || !isEmptySpecs(typedSpecs)) ? typedSpecs : null;
+    const draft: ProductDraft | null = fields || specs ? { ...(fields ? { fields } : {}), ...(specs ? { specs } : {}) } : null;
+    writeLocalDraft(draftKey, draft);
+  }, [draftKey, saved, product, specsReady, texts, categoryId, pricing, specsTouched, specValues, customSpecs]);
+
+  /** Back to the stored product (an empty form for a new one); the effect above then removes the draft. */
+  const discardDraft = () => {
+    setTexts(textsOf(saved));
+    setPricing(pricingFormOf(saved));
+    setErrors(new Set());
+    setPricingErrors(new Set());
+    setSpecsTouched(false);
+    if (categoryId === saved.categoryId) {
+      const stored = splitSpecs(product?.specs, specFields);
+      setSpecValues(stored.values);
+      setCustomSpecs(stored.custom);
+      setSpecErrors({ fields: new Set(), rows: new Set() });
+    } else {
+      // The template effect reads the stored characteristics again, for the stored category.
+      specsInitialized.current = false;
+      setCategoryId(saved.categoryId);
+    }
+    setDraftRestored(false);
+  };
+
+  const setText =(key: keyof ProductTexts, value: string) => {
     setTexts((prev) => ({ ...prev, [key]: value }));
     setErrors((prev) => {
       const field = key.startsWith("name") ? "name" : "description";
@@ -351,6 +448,9 @@ export function ProductForm({ companyId, company, product }: ProductFormProps) {
         toast.success(t("createSuccess"), { id: toastId });
       }
 
+      // Saved: nothing is left to restore.
+      draftClosed.current = true;
+      writeLocalDraft(draftKey, null);
       router.push("/dashboard/products");
     } catch (err) {
       const message = err instanceof Error ? err.message : t("genericError");
@@ -387,6 +487,19 @@ export function ProductForm({ companyId, company, product }: ProductFormProps) {
   return (
     <form onSubmit={onSubmit} className="grid grid-cols-1 gap-4 xl:grid-cols-12">
       <div className="min-w-0 space-y-4 xl:col-span-8">
+        {draftRestored && (
+          <div role="status" className="flex flex-wrap items-center justify-between gap-3 rounded-xl bg-amber-50 px-3.5 py-2.5 text-[13px] text-amber-900 ring-1 ring-amber-200">
+            <p className="min-w-0 flex-1 basis-[240px]">{t("draft.restored")}</p>
+            <button
+              type="button"
+              onClick={discardDraft}
+              className="shrink-0 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-amber-900 ring-1 ring-amber-200 transition-colors hover:bg-amber-100"
+            >
+              {t("draft.discard")}
+            </button>
+          </div>
+        )}
+
         <section aria-labelledby="product-info" className={CARD}>
           <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
             <div className="min-w-0">
@@ -585,8 +698,14 @@ export function ProductForm({ companyId, company, product }: ProductFormProps) {
             fields={specFields}
             values={specValues}
             custom={customSpecs}
-            onValuesChange={setSpecValues}
-            onCustomChange={setCustomSpecs}
+            onValuesChange={(values) => {
+              setSpecValues(values);
+              setSpecsTouched(true);
+            }}
+            onCustomChange={(custom) => {
+              setCustomSpecs(custom);
+              setSpecsTouched(true);
+            }}
             errors={specErrors}
             locale={locale}
             hasCategory={!!categoryId}

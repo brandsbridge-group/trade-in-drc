@@ -789,6 +789,10 @@
           "minOrder": "Sıfırdan büyük bir minimum miktar girin.",
           "unit": "Bu fiyat veya miktar için satış birimini seçin."
         }
+      },
+      "draft": {
+        "restored": "Geçen sefer yazdıklarınız geri yüklendi. Eklediğiniz fotoğraflar saklanmaz: kaydetmeden önce yeniden ekleyin.",
+        "discard": "Bu değişiklikleri iptal et"
       }
     },
     "services": {
@@ -1014,6 +1018,13 @@
         "body": "Her şirketin kendi profili ve kendi doğrulama dosyası vardır."
       },
       "teamMessage": "Ekibimizin mesajı:"
+    },
+    "error": {
+      "title": "Bu sayfada bir sorun oluştu",
+      "body": "Kaydettiğiniz veriler güvende. Tekrar deneyin; sorun devam ederse aşağıdaki referansı belirterek bize ulaşın.",
+      "retry": "Tekrar dene",
+      "home": "Panele dön",
+      "reference": "Referans: {code}"
     }
   },
   "Footer": {

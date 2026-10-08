@@ -789,6 +789,10 @@
           "minOrder": "Enter a minimum quantity greater than zero.",
           "unit": "Choose the selling unit for this price or quantity."
         }
+      },
+      "draft": {
+        "restored": "What you typed last time has been restored. Photos you had added are not kept: add them again before saving.",
+        "discard": "Discard these changes"
       }
     },
     "services": {
@@ -1014,6 +1018,13 @@
         "body": "Each company has its own profile and its own verification file."
       },
       "teamMessage": "Message from our team:"
+    },
+    "error": {
+      "title": "Something went wrong on this page",
+      "body": "Your saved data is safe. Try again — if the problem continues, contact us and quote the reference below.",
+      "retry": "Try again",
+      "home": "Back to the dashboard",
+      "reference": "Reference: {code}"
     }
   },
   "Footer": {

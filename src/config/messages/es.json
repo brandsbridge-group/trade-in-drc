@@ -789,6 +789,10 @@
           "minOrder": "Indique una cantidad mínima superior a cero.",
           "unit": "Elija la unidad de venta para este precio o esta cantidad."
         }
+      },
+      "draft": {
+        "restored": "Se ha restaurado lo que escribió la última vez. Las fotos añadidas no se conservan: vuelva a añadirlas antes de guardar.",
+        "discard": "Descartar estos cambios"
       }
     },
     "services": {
@@ -1014,6 +1018,13 @@
         "body": "Cada empresa tiene su propia ficha y su propio expediente de verificación."
       },
       "teamMessage": "Mensaje de nuestro equipo:"
+    },
+    "error": {
+      "title": "Se ha producido un problema en esta página",
+      "body": "Sus datos guardados están intactos. Inténtelo de nuevo; si el problema continúa, contáctenos indicando la referencia de abajo.",
+      "retry": "Reintentar",
+      "home": "Volver al panel",
+      "reference": "Referencia: {code}"
     }
   },
   "Footer": {

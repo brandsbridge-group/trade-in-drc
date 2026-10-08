@@ -2043,7 +2043,7 @@ export interface Database {
         };
         Relationships: [];
       };
-      // -- 00053_newsletter_and_email_campaigns -----------------------------
+      // -- 00068_newsletter_and_email_campaigns, 00069_newsletter_send_queue --
       newsletter_subscribers: {
         Row: {
           id: string;
@@ -2143,7 +2143,10 @@ export interface Database {
           campaign_id: string;
           subscriber_id: string | null;
           recipient_email: string;
-          status: "pending" | "sent" | "failed";
+          batch_no: number;
+          attempt: number;
+          claimed_at: string | null;
+          status: "pending" | "sending" | "sent" | "failed" | "skipped";
           resend_email_id: string | null;
           error_message: string | null;
           sent_at: string | null;
@@ -2155,7 +2158,10 @@ export interface Database {
           campaign_id: string;
           subscriber_id?: string | null;
           recipient_email: string;
-          status?: "pending" | "sent" | "failed";
+          batch_no?: number;
+          attempt?: number;
+          claimed_at?: string | null;
+          status?: "pending" | "sending" | "sent" | "failed" | "skipped";
           resend_email_id?: string | null;
           error_message?: string | null;
           sent_at?: string | null;
@@ -2167,7 +2173,10 @@ export interface Database {
           campaign_id?: string;
           subscriber_id?: string | null;
           recipient_email?: string;
-          status?: "pending" | "sent" | "failed";
+          batch_no?: number;
+          attempt?: number;
+          claimed_at?: string | null;
+          status?: "pending" | "sending" | "sent" | "failed" | "skipped";
           resend_email_id?: string | null;
           error_message?: string | null;
           sent_at?: string | null;

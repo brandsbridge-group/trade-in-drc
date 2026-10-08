@@ -5,7 +5,7 @@ import { dbId } from "@/lib/validation/db-id";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { slugify } from "@/lib/content/slug";
 import { EVENT_TYPES } from "./event-constants";
-import { sendEventReceiptEmail } from "@/lib/email/resend";
+import { sendEventReceiptEmail } from "@/lib/email/event-receipt";
 
 const submitEventSchema = z.object({
   eventName: z.string().trim().min(2).max(200),

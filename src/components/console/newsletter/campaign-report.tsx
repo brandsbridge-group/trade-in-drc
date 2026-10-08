@@ -13,7 +13,8 @@ import { duplicateNewsletterCampaign, type NewsletterOverview } from "@/lib/news
 import { CAMPAIGN_LANGUAGES, campaignText, type CampaignLanguage, type NewsletterCampaign } from "@/lib/newsletter/campaign-email";
 import { EmailPreview } from "./email-preview";
 import { SendReviewDialog } from "./send-review-dialog";
-import { CampaignStatusPill, DeliveryBar, GHOST_PILL, NAVY_PILL, campaignPath, campaignSubject } from "./shared";
+import { GHOST_PILL, NAVY_PILL, campaignPath, campaignSubject } from "./constants";
+import { CampaignStatusPill, DeliveryBar } from "./shared";
 import { useCampaignDelivery } from "./use-campaign-delivery";
 
 /**

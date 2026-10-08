@@ -2096,6 +2096,8 @@ export interface Database {
           subject_fr: string;
           body_en: string;
           body_fr: string;
+          link_url: string;
+          photo_url: string;
           status: "draft" | "sending" | "sent" | "failed";
           created_by: string | null;
           recipient_count: number;
@@ -2111,6 +2113,8 @@ export interface Database {
           subject_fr: string;
           body_en: string;
           body_fr: string;
+          link_url?: string;
+          photo_url?: string;
           status?: "draft" | "sending" | "sent" | "failed";
           created_by?: string | null;
           recipient_count?: number;
@@ -2126,6 +2130,8 @@ export interface Database {
           subject_fr?: string;
           body_en?: string;
           body_fr?: string;
+          link_url?: string;
+          photo_url?: string;
           status?: "draft" | "sending" | "sent" | "failed";
           created_by?: string | null;
           recipient_count?: number;

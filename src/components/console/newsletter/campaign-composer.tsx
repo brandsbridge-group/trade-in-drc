@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
-import { ArrowLeft, Check, FlaskConical, Loader2, Save, Send, TriangleAlert } from "lucide-react";
+import { ArrowLeft, Check, FlaskConical, ImagePlus, Link as LinkIcon, Loader2, Save, Send, TriangleAlert } from "lucide-react";
 import { Link, useRouter } from "@/i18n/routing";
 import { ROUTES } from "@/constants/routes";
 import { cn } from "@/lib/utils";
@@ -15,6 +15,7 @@ import {
   CAMPAIGN_LANGUAGES,
   CAMPAIGN_LIMITS,
   EMPTY_CAMPAIGN,
+  areCampaignUrlsValid,
   campaignText,
   isCampaignReady,
   isLanguageReady,
@@ -28,12 +29,12 @@ import { GHOST_PILL, NAVY_PILL, campaignPath } from "./constants";
 
 function contentOf(campaign: NewsletterCampaign | null): CampaignContent {
   if (!campaign) return EMPTY_CAMPAIGN;
-  const { subject_en, subject_fr, body_en, body_fr } = campaign;
-  return { subject_en, subject_fr, body_en, body_fr };
+  const { subject_en, subject_fr, body_en, body_fr, link_url, photo_url } = campaign;
+  return { subject_en, subject_fr, body_en, body_fr, link_url, photo_url };
 }
 
 function sameContent(a: CampaignContent, b: CampaignContent): boolean {
-  return a.subject_en === b.subject_en && a.subject_fr === b.subject_fr && a.body_en === b.body_en && a.body_fr === b.body_fr;
+  return a.subject_en === b.subject_en && a.subject_fr === b.subject_fr && a.body_en === b.body_en && a.body_fr === b.body_fr && a.link_url === b.link_url && a.photo_url === b.photo_url;
 }
 
 /**
@@ -62,6 +63,10 @@ export function CampaignComposer({
   const dirty = !sameContent(content, saved);
   const empty = Object.values(content).every((value) => value.trim() === "");
   const ready = isCampaignReady(content);
+  const bothLanguagesReady = CAMPAIGN_LANGUAGES.every((option) => isLanguageReady(content, option));
+  const fallbackLanguage = ready && !bothLanguagesReady
+    ? CAMPAIGN_LANGUAGES.find((option) => isLanguageReady(content, option))
+    : undefined;
   const { subject, body } = campaignText(content, language);
 
   // Leaving with unsaved text: the browser asks first.
@@ -120,7 +125,7 @@ export function CampaignComposer({
     if (id) setReviewing(true);
   }
 
-  const languageDone = isLanguageReady(content, language);
+  const urlsValid = areCampaignUrlsValid(content);
   const subjectLength = subject.trim().length;
   const bodyLength = body.trim().length;
 
@@ -154,7 +159,7 @@ export function CampaignComposer({
             {busy === "save" ? <Loader2 className="size-4 animate-spin" aria-hidden /> : <Save className="size-4" aria-hidden />}
             {t("composer.saveDraft")}
           </button>
-          <button type="button" onClick={review} disabled={busy !== null || !ready} className={NAVY_PILL}>
+          <button type="button" onClick={review} disabled={busy !== null} aria-describedby="campaign-readiness" className={NAVY_PILL}>
             <Send className="size-4" aria-hidden />
             {t("composer.review")}
           </button>
@@ -196,8 +201,14 @@ export function CampaignComposer({
                 );
               })}
             </div>
-            <p className={cn("text-xs", languageDone ? "text-emerald-700" : "text-slate-500")}>
-              {t(ready ? "composer.bothReady" : languageDone ? "composer.languageReady" : "composer.languageMissing")}
+            <p id="campaign-readiness" className={cn("text-xs", ready ? "text-emerald-700" : "text-slate-500")} aria-live="polite">
+              {!urlsValid
+                ? t("composer.invalidUrl")
+                : bothLanguagesReady
+                  ? t("composer.bothReady")
+                  : fallbackLanguage
+                    ? t("composer.fallbackWillBeUsed", { language: t(`preview.language.${fallbackLanguage}`) })
+                    : t("composer.languageMissing")}
             </p>
           </div>
 
@@ -220,6 +231,39 @@ export function CampaignComposer({
               className="mt-1.5"
             />
             <p className="mt-1.5 text-xs text-slate-500">{t("composer.subjectHint")}</p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label htmlFor="campaign-link-url" className="flex items-center gap-1.5 text-[13px] font-semibold text-market-navy">
+                <LinkIcon className="size-3.5" aria-hidden />
+                {t("composer.linkUrl")}
+              </label>
+              <Input
+                id="campaign-link-url"
+                type="url"
+                value={content.link_url}
+                onChange={(event) => setContent((current) => ({ ...current, link_url: event.target.value }))}
+                placeholder="https://example.com"
+                className="mt-1.5"
+              />
+              <p className="mt-1.5 text-xs text-slate-500">{t("composer.linkUrlHint")}</p>
+            </div>
+            <div>
+              <label htmlFor="campaign-photo-url" className="flex items-center gap-1.5 text-[13px] font-semibold text-market-navy">
+                <ImagePlus className="size-3.5" aria-hidden />
+                {t("composer.photoUrl")}
+              </label>
+              <Input
+                id="campaign-photo-url"
+                type="url"
+                value={content.photo_url}
+                onChange={(event) => setContent((current) => ({ ...current, photo_url: event.target.value }))}
+                placeholder="https://example.com/photo.jpg"
+                className="mt-1.5"
+              />
+              <p className="mt-1.5 text-xs text-slate-500">{t("composer.photoUrlHint")}</p>
+            </div>
           </div>
 
           <div>
@@ -250,14 +294,24 @@ export function CampaignComposer({
         </section>
 
         <div className="xl:sticky xl:top-4">
-          <EmailPreview language={language} subject={subject} body={body} sender={overview.sender} />
+          <EmailPreview language={language} subject={subject} body={body} linkUrl={content.link_url} photoUrl={content.photo_url} sender={overview.sender} />
         </div>
       </div>
 
       {reviewing && campaignId && (
         <SendReviewDialog
           locale={locale}
-          campaign={{ id: campaignId, status: "draft", failed_count: 0, subject_en: content.subject_en, subject_fr: content.subject_fr }}
+          campaign={{
+            id: campaignId,
+            status: "draft",
+            failed_count: 0,
+            subject_en: content.subject_en,
+            subject_fr: content.subject_fr,
+            body_en: content.body_en,
+            body_fr: content.body_fr,
+            link_url: content.link_url,
+            photo_url: content.photo_url,
+          }}
           overview={overview}
           onClose={() => setReviewing(false)}
           onStarted={() => router.push(ROUTES.CONSOLE_NEWSLETTER)}

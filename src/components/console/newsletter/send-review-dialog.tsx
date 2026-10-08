@@ -6,10 +6,10 @@ import { toast } from "sonner";
 import { Loader2, Send, TriangleAlert } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { startNewsletterCampaign, type NewsletterOverview } from "@/lib/newsletter/campaign-actions";
-import type { NewsletterCampaign } from "@/lib/newsletter/campaign-email";
+import { campaignTextForRecipient, isLanguageReady, type NewsletterCampaign } from "@/lib/newsletter/campaign-email";
 import { GHOST_PILL, NAVY_PILL } from "./constants";
 
-type Reviewed = Pick<NewsletterCampaign, "id" | "status" | "subject_en" | "subject_fr" | "failed_count">;
+type Reviewed = Pick<NewsletterCampaign, "id" | "status" | "subject_en" | "subject_fr" | "body_en" | "body_fr" | "link_url" | "photo_url" | "failed_count">;
 
 /**
  * The last look before a campaign leaves: who receives it, from whom, under
@@ -37,6 +37,17 @@ export function SendReviewDialog({
   const { active, activeEn, activeFr } = overview.subscribers;
   const recipients = retry ? campaign.failed_count : active;
   const blocked = overview.blocker !== null || recipients === 0;
+  const content = {
+    subject_en: campaign.subject_en,
+    subject_fr: campaign.subject_fr,
+    body_en: campaign.body_en,
+    body_fr: campaign.body_fr,
+    link_url: campaign.link_url,
+    photo_url: campaign.photo_url,
+  };
+  const englishReady = isLanguageReady(content, "en");
+  const frenchReady = isLanguageReady(content, "fr");
+  const fallbackLanguage = englishReady === frenchReady ? undefined : englishReady ? "en" : "fr";
 
   async function confirm() {
     setBusy(true);
@@ -62,8 +73,8 @@ export function SendReviewDialog({
       retry ? undefined : t("byLanguage", { en: format.number(activeEn), fr: format.number(activeFr) }),
     ],
     [t("sender"), overview.sender ?? t("noSender")],
-    [t("subjectEn"), campaign.subject_en],
-    [t("subjectFr"), campaign.subject_fr],
+    [t("subjectEn"), campaignTextForRecipient(content, "en").subject],
+    [t("subjectFr"), campaignTextForRecipient(content, "fr").subject],
   ];
 
   return (
@@ -75,6 +86,12 @@ export function SendReviewDialog({
             {t(retry ? "retryBody" : "body")}
           </DialogDescription>
         </DialogHeader>
+
+          {fallbackLanguage && (
+            <p role="note" className="rounded-xl bg-amber-50 px-3 py-2.5 text-xs leading-relaxed text-amber-900 ring-1 ring-amber-200/70">
+              {t("fallbackWarning")}
+            </p>
+          )}
 
         <dl className="divide-y divide-slate-100 rounded-xl bg-slate-50 px-3 text-[13px]">
           {rows.map(([label, value, detail]) => (

@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+import { redirect } from "@/i18n/routing";
 
 export default async function ContentIndex({
   params,
@@ -6,5 +6,5 @@ export default async function ContentIndex({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  redirect(`/${locale}/console/content/news`);
+  redirect({ href: "/console/content/news", locale });
 }

@@ -21,11 +21,15 @@ export function EmailPreview({
   language,
   subject,
   body,
+  linkUrl,
+  photoUrl,
   sender,
 }: {
   language: CampaignLanguage;
   subject: string;
   body: string;
+  linkUrl: string;
+  photoUrl: string;
   sender: string | null;
 }) {
   const t = useTranslations("Admin.newsletter.preview");
@@ -40,11 +44,13 @@ export function EmailPreview({
         language,
         subject: shownSubject,
         body: deferredBody.trim() || emptyBody,
+        linkUrl,
+        photoUrl,
         // Site-relative logo, and an unsubscribe link that leads nowhere: this is not a real send.
         origin: "",
         unsubscribeUrl: "#",
       }).html,
-    [language, shownSubject, deferredBody, emptyBody]
+    [language, shownSubject, deferredBody, linkUrl, photoUrl, emptyBody]
   );
 
   // "TradeInDRC <news@…>" → the name an inbox shows.

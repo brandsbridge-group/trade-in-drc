@@ -4,7 +4,7 @@ import { Link } from "@/i18n/routing";
 import { PageHeader } from "@/components/console/page-header";
 import { CampaignList } from "@/components/console/newsletter/campaign-list";
 import { NewsletterKpis } from "@/components/console/newsletter/newsletter-kpis";
-import { NAVY_PILL, NEW_CAMPAIGN_PATH } from "@/components/console/newsletter/shared";
+import { NAVY_PILL, NEW_CAMPAIGN_PATH } from "@/components/console/newsletter/constants";
 import { getNewsletterOverview, listNewsletterCampaigns } from "@/lib/newsletter/campaign-actions";
 
 /**

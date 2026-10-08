@@ -23,16 +23,8 @@ import {
 import type { NewsletterCampaign } from "@/lib/newsletter/campaign-email";
 import type { CampaignProgress } from "@/lib/newsletter/send-queue";
 import { SendReviewDialog } from "./send-review-dialog";
-import {
-  CampaignStatusPill,
-  DeliveryBar,
-  GHOST_PILL,
-  NAVY_PILL,
-  NEW_CAMPAIGN_PATH,
-  campaignPath,
-  campaignSubject,
-  type CampaignStatus,
-} from "./shared";
+import { GHOST_PILL, NAVY_PILL, NEW_CAMPAIGN_PATH, campaignPath, campaignSubject } from "./constants";
+import { CampaignStatusPill, DeliveryBar, type CampaignStatus } from "./shared";
 import { useCampaignDelivery } from "./use-campaign-delivery";
 
 type View = "all" | CampaignStatus;

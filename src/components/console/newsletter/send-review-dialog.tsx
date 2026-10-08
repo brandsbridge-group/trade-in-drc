@@ -7,7 +7,7 @@ import { Loader2, Send, TriangleAlert } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { startNewsletterCampaign, type NewsletterOverview } from "@/lib/newsletter/campaign-actions";
 import type { NewsletterCampaign } from "@/lib/newsletter/campaign-email";
-import { GHOST_PILL, NAVY_PILL } from "./shared";
+import { GHOST_PILL, NAVY_PILL } from "./constants";
 
 type Reviewed = Pick<NewsletterCampaign, "id" | "status" | "subject_en" | "subject_fr" | "failed_count">;
 

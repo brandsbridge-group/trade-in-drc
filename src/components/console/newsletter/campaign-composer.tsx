@@ -24,7 +24,7 @@ import {
 } from "@/lib/newsletter/campaign-email";
 import { EmailPreview } from "./email-preview";
 import { SendReviewDialog } from "./send-review-dialog";
-import { GHOST_PILL, NAVY_PILL, campaignPath } from "./shared";
+import { GHOST_PILL, NAVY_PILL, campaignPath } from "./constants";
 
 function contentOf(campaign: NewsletterCampaign | null): CampaignContent {
   if (!campaign) return EMPTY_CAMPAIGN;

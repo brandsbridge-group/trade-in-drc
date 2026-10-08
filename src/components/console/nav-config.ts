@@ -9,12 +9,13 @@ import {
   FileText,
   Inbox,
   LayoutDashboard,
+  Mail,
   MessageSquareWarning,
   Settings,
   Tag,
   Users,
 } from "lucide-react";
-import { SUPER_ADMIN_ROUTES } from "@/constants/routes";
+import { ROUTES, SUPER_ADMIN_ROUTES } from "@/constants/routes";
 
 export interface ConsoleNavItem {
   href: string;
@@ -62,6 +63,7 @@ export const CONSOLE_NAV: ConsoleNavGroup[] = [
     items: [
       { href: "/console/users", labelKey: "navUsers", icon: Users },
       { href: "/console/settings", labelKey: "navSettings", icon: Settings },
+      { href: ROUTES.CONSOLE_NEWSLETTER, labelKey: "navNewsletter", icon: Mail },
     ],
   },
 ];

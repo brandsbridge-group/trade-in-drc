@@ -1,8 +1,9 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
     ArrowRight,
     CalendarDays,
@@ -39,6 +40,12 @@ const MORE: { key: string; href: string; Icon: LucideIcon }[] = [
     { key: "contact", href: "/contact", Icon: Mail },
 ];
 
+const PROMOTION_IMAGES = [
+    "/images/hero/hero-marketplace.jpg",
+    "/images/hero/hero-pricing.jpg",
+    "/images/hero/hero-boardroom-wide.jpg",
+] as const;
+
 /**
  * Desktop nav — frameless links with one highlight pill that glides to the
  * hovered item and rests on the active page (MOTION.md §2.9). "More" opens a panel:
@@ -58,6 +65,19 @@ export function NavPills({
     const reduce = useReducedMotion();
     const [hovered, setHovered] = React.useState<string | null>(null);
     const [moreOpen, setMoreOpen] = React.useState(false);
+    const [promotionIndex, setPromotionIndex] = React.useState(0);
+    const [promotionHovered, setPromotionHovered] = React.useState(false);
+    const [promotionFocused, setPromotionFocused] = React.useState(false);
+
+    React.useEffect(() => {
+        if (reduce || !moreOpen || promotionHovered || promotionFocused) return;
+
+        const timer = window.setInterval(() => {
+            setPromotionIndex((index) => (index + 1) % PROMOTION_IMAGES.length);
+        }, 6500);
+
+        return () => window.clearInterval(timer);
+    }, [reduce, moreOpen, promotionHovered, promotionFocused]);
 
     const resting = links.find((l) => l.active)?.href ?? (moreActive ? "more" : null);
     const highlighted = moreOpen ? "more" : (hovered ?? resting);
@@ -155,18 +175,52 @@ export function NavPills({
                     <DropdownMenuItem asChild className="p-0 focus:bg-transparent">
                         <Link
                             href="/pricing"
-                            className="group relative isolate flex cursor-pointer flex-col items-start justify-end gap-0 overflow-hidden rounded-xl bg-market-navy p-4 text-white"
+                            onMouseEnter={() => setPromotionHovered(true)}
+                            onMouseLeave={() => setPromotionHovered(false)}
+                            onFocus={() => setPromotionFocused(true)}
+                            onBlur={() => setPromotionFocused(false)}
+                            aria-label={`${t("promote")}. ${t("featured.body")}`}
+                            className="group relative isolate flex min-h-[300px] cursor-pointer flex-col items-start justify-end gap-0 overflow-hidden rounded-xl bg-market-navy p-4 text-white"
                         >
-                            <span
-                                aria-hidden
-                                className="absolute -right-10 -top-10 -z-10 h-36 w-36 rounded-full bg-market-or/25 blur-2xl"
-                            />
-                            <span
-                                aria-hidden
-                                className="absolute -bottom-12 -left-8 -z-10 h-32 w-32 rounded-full bg-primary/40 blur-2xl"
-                            />
-                            <Megaphone className="mb-auto h-5 w-5 text-market-or" aria-hidden />
-                            <span className="mt-8 block font-display text-[15px] font-bold leading-snug">
+                            <span className="absolute inset-0 -z-20">
+                                <AnimatePresence initial={false} mode="sync">
+                                    <motion.span
+                                        key={PROMOTION_IMAGES[promotionIndex]}
+                                        className="absolute inset-0"
+                                        initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 1.04 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        transition={{ duration: reduce ? 0.15 : 0.9, ease: [0.22, 1, 0.36, 1] }}
+                                    >
+                                        <Image
+                                            src={PROMOTION_IMAGES[promotionIndex]}
+                                            alt=""
+                                            fill
+                                            sizes="220px"
+                                            className="object-cover"
+                                        />
+                                    </motion.span>
+                                </AnimatePresence>
+                            </span>
+                            <span aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-slate-950/95 via-slate-950/55 to-slate-950/20" />
+
+                            <span className="absolute inset-x-4 top-4 flex items-center justify-between">
+                                <span className="grid h-9 w-9 place-items-center rounded-full border border-white/25 bg-slate-950/30 text-market-or backdrop-blur-sm">
+                                    <Megaphone className="h-4 w-4" aria-hidden />
+                                </span>
+                                <span className="flex items-center gap-1.5" aria-hidden>
+                                    {PROMOTION_IMAGES.map((image, index) => (
+                                        <span
+                                            key={image}
+                                            className={`h-1.5 rounded-full transition-[width,background-color] duration-150 ${
+                                                index === promotionIndex ? "w-5 bg-market-or" : "w-1.5 bg-white/65"
+                                            }`}
+                                        />
+                                    ))}
+                                </span>
+                            </span>
+
+                            <span className="block font-display text-[15px] font-bold leading-snug">
                                 {t("promote")}
                             </span>
                             <span className="mt-1 block text-[12px] leading-snug text-white/65">

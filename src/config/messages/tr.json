@@ -2074,6 +2074,7 @@
       "navSettings": "Ayarlar",
       "navRequests": "Talepler",
       "navPremium": "Premium",
+      "navNewsletter": "Bülten",
       "groups": {
         "overview": "Genel bakış",
         "moderation": "Moderasyon",
@@ -2252,6 +2253,33 @@
           "moderator": "Moderatör"
         }
       }
+      },
+    "newsletter": {
+      "title": "Bülten kampanyaları",
+      "subtitle": "İki dilli taslaklar oluşturun ve e-postasını doğrulamış abonelere gönderin.",
+      "campaigns": "Son kampanyalar",
+      "editorTitle": "Kampanya düzenleyici",
+      "editorHint": "Her abone içeriği onayladığı dilde alır ve güvenli bir abonelikten çıkma bağlantısı içerir.",
+      "newCampaign": "Yeni kampanya",
+      "cancel": "İptal",
+      "empty": "Henüz kampanya yok.",
+      "subjectEn": "Konu (İngilizce)",
+      "bodyEn": "Mesaj (İngilizce)",
+      "subjectFr": "Konu (Fransızca)",
+      "bodyFr": "Mesaj (Fransızca)",
+      "saveDraft": "Taslağı kaydet",
+      "saving": "Kaydediliyor…",
+      "saved": "Kampanya taslağı kaydedildi.",
+      "saveError": "Kampanya kaydedilemedi. Alanları kontrol edip tekrar deneyin.",
+      "send": "Kampanyayı gönder",
+      "retry": "Başarısız alıcıları yeniden dene",
+      "confirmSend": "Bu kampanya doğrulanmış tüm bülten abonelerine gönderilsin mi?",
+      "alreadySending": "Bu kampanya zaten gönderiliyor veya gönderildi.",
+      "recipientLimit": "Kampanya mevcut alıcı güvenlik sınırını aşıyor.",
+      "sendError": "Kampanya başlatılamadı. Lütfen tekrar deneyin.",
+      "sendSummary": "Gönderildi: {sent}; başarısız: {failed}.",
+      "deliveryStats": "{sent}/{total} gönderildi · {failed} başarısız",
+      "status": { "draft": "Taslak", "sending": "Gönderiliyor", "sent": "Gönderildi", "failed": "Yeniden denenmeli" }
     }
   },
   "Trust": {
@@ -2617,7 +2645,10 @@
       "headline": "Güncel kalın",
       "body": "DRC'den aylık ticaret içgörülerini doğrudan e-posta kutunuza alın.",
       "consent": "TradeInDRC'den e-posta almayı kabul ediyorum ve {privacyLink} okudum.",
-      "privacy": "Gizlilik Politikası"
+      "privacy": "Gizlilik Politikası",
+      "success": "Aboneliğinizi onaylamak için gelen kutunuzu kontrol edin.",
+      "error": "Aboneliğiniz işlenemedi. Lütfen daha sonra tekrar deneyin.",
+      "alreadySubscribed": "Bu adres bültene zaten abone."
     },
     "hero": {
       "tabs": {
@@ -6183,6 +6214,7 @@
         "button": "Etkinliği Gönder",
         "submitting": "Etkinliğiniz gönderiliyor…",
         "success": "Etkinlik gönderildi. Ekibimiz kısa süre içinde inceleyecek.",
+        "savedEmailFailed": "Etkinliğiniz kaydedildi ancak onay e-postası gönderilemedi. E-posta adresinizi kontrol edin veya bizimle iletişime geçin.",
         "error": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
         "invalid": "Lütfen işaretli alanları kontrol edin."
       },
@@ -6202,7 +6234,10 @@
         "body": "Yaklaşan etkinlikler ve iş fırsatlarından haberdar olun.",
         "placeholder": "E-postanızı girin",
         "subscribe": "Abone Ol",
-        "success": "Abone oldunuz. Gelen kutunuzu takip edin."
+        "consent": "TradeInDRC bülten e-postalarını almayı kabul ediyorum.",
+        "success": "Bülten aboneliğinizi onaylamak için gelen kutunuzu kontrol edin.",
+        "error": "Aboneliğiniz işlenemedi. Lütfen daha sonra tekrar deneyin.",
+        "alreadySubscribed": "Bu adres bültene zaten abone."
       }
     }
   },

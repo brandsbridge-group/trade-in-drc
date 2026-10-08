@@ -7,23 +7,27 @@ import Image from "next/image";
  */
 export function SectorHero({ title, subtitle }: { title: string; subtitle: string }) {
   return (
-    <section className="relative overflow-hidden bg-market-navy text-white">
-      <Image
-        src="/images/directory/skyline.jpg"
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-right"
-      />
-      {/* Left-weighted navy overlay so the heading stays legible over the photo. */}
-      <div className="absolute inset-0 bg-gradient-to-r from-market-navy via-market-navy/85 to-market-navy/20" />
+    <section className="bg-white px-4 pb-5 pt-3 md:px-6">
+      <div className="mx-auto grid w-full max-w-[1500px] overflow-hidden border border-slate-200 bg-market-navy text-white md:grid-cols-[1.1fr_0.9fr]">
+        <div className="flex flex-col justify-center px-5 py-8 sm:px-8 md:px-10 md:py-10">
+          <span aria-hidden className="mb-5 h-1 w-12 bg-market-gold" />
+          <h1 className="max-w-2xl font-display text-2xl font-bold leading-tight md:text-[2rem]">
+            {title}
+          </h1>
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/80">{subtitle}</p>
+        </div>
 
-      <div className="relative mx-auto flex w-full max-w-[1500px] flex-col justify-center px-4 py-12 md:px-6 md:py-14">
-        <h1 className="max-w-2xl font-display text-2xl font-bold tracking-tight md:text-[2rem]">
-          {title}
-        </h1>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/85">{subtitle}</p>
+        <div className="relative min-h-[190px] md:min-h-[300px]">
+          <Image
+            src="/images/directory/skyline.jpg"
+            alt=""
+            fill
+            priority
+            sizes="(min-width: 768px) 45vw, 100vw"
+            className="object-cover object-right"
+          />
+          <div aria-hidden className="absolute inset-0 bg-market-navy/10" />
+        </div>
       </div>
     </section>
   );

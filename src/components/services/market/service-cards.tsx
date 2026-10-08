@@ -13,14 +13,13 @@ export async function ServiceCards() {
 
   return (
     <section id="services" className="mx-auto w-full max-w-[1400px] space-y-4 px-4 py-6 md:px-6">
-      {/* Top row — 4 vertical cards */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {top.map(({ key, icon: Icon }, i) => (
           <div
             key={key}
-            className="flex h-full flex-col items-center rounded-xl border border-slate-200 bg-white p-6 text-center shadow-sm transition-shadow duration-150 hover:shadow-md"
+            className="group flex h-full flex-col items-center rounded-[24px] border border-slate-200/80 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] p-6 text-center shadow-[0_18px_45px_-36px_rgba(15,23,42,0.7)] transition-all duration-200 hover:-translate-y-1 hover:border-market-navy/30 hover:shadow-[0_28px_60px_-38px_rgba(15,23,42,0.7)]"
           >
-            <span className="grid h-14 w-14 place-items-center rounded-full bg-slate-100 text-market-navy">
+            <span className="grid h-14 w-14 place-items-center rounded-2xl bg-slate-100 text-market-navy transition-colors duration-200 group-hover:bg-market-navy group-hover:text-white">
               <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden />
             </span>
             <h3 className="mt-4 font-display text-sm font-bold text-market-navy">
@@ -31,14 +30,13 @@ export async function ServiceCards() {
         ))}
       </div>
 
-      {/* Bottom row — 3 wider horizontal cards (icon left) */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {bottom.map(({ key, icon: Icon }, i) => (
           <div
             key={key}
-            className="flex h-full items-start gap-4 rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow duration-150 hover:shadow-md"
+            className="group flex h-full items-start gap-4 rounded-[24px] border border-slate-200/80 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] p-6 shadow-[0_18px_45px_-36px_rgba(15,23,42,0.7)] transition-all duration-200 hover:-translate-y-1 hover:border-market-navy/30 hover:shadow-[0_28px_60px_-38px_rgba(15,23,42,0.7)]"
           >
-            <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-slate-100 text-market-navy">
+            <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-slate-100 text-market-navy transition-colors duration-200 group-hover:bg-market-navy group-hover:text-white">
               <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden />
             </span>
             <div>

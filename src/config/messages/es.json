@@ -2074,6 +2074,7 @@
       "navSettings": "Configuración",
       "navRequests": "Solicitudes",
       "navPremium": "Premium",
+      "navNewsletter": "Boletín",
       "groups": {
         "overview": "Resumen",
         "moderation": "Moderación",
@@ -2252,6 +2253,33 @@
           "moderator": "Moderador"
         }
       }
+      },
+    "newsletter": {
+      "title": "Campañas del boletín",
+      "subtitle": "Cree borradores bilingües y envíelos a suscriptores con correo confirmado.",
+      "campaigns": "Campañas recientes",
+      "editorTitle": "Editor de campañas",
+      "editorHint": "Cada suscriptor recibe el contenido en su idioma confirmado e incluye un enlace seguro para darse de baja.",
+      "newCampaign": "Nueva campaña",
+      "cancel": "Cancelar",
+      "empty": "Todavía no hay campañas.",
+      "subjectEn": "Asunto (inglés)",
+      "bodyEn": "Mensaje (inglés)",
+      "subjectFr": "Asunto (francés)",
+      "bodyFr": "Mensaje (francés)",
+      "saveDraft": "Guardar borrador",
+      "saving": "Guardando…",
+      "saved": "Borrador guardado.",
+      "saveError": "No se pudo guardar la campaña. Revise los campos e inténtelo de nuevo.",
+      "send": "Enviar campaña",
+      "retry": "Reintentar destinatarios fallidos",
+      "confirmSend": "¿Enviar esta campaña a todos los suscriptores confirmados?",
+      "alreadySending": "Esta campaña ya se está enviando o ya fue enviada.",
+      "recipientLimit": "La campaña supera el límite de seguridad actual de destinatarios.",
+      "sendError": "No se pudo iniciar la campaña. Inténtelo de nuevo.",
+      "sendSummary": "Enviados: {sent}; fallidos: {failed}.",
+      "deliveryStats": "{sent}/{total} enviados · {failed} fallidos",
+      "status": { "draft": "Borrador", "sending": "Enviando", "sent": "Enviada", "failed": "Requiere reintento" }
     }
   },
   "Trust": {
@@ -2617,7 +2645,10 @@
       "headline": "Manténgase informado",
       "body": "Reciba cada mes información sobre el comercio en la RDC directamente en su bandeja de entrada.",
       "consent": "Acepto recibir correos electrónicos de TradeInDRC y he leído la {privacyLink}.",
-      "privacy": "Política de privacidad"
+      "privacy": "Política de privacidad",
+      "success": "Revise su correo para confirmar su suscripción.",
+      "error": "No pudimos procesar su suscripción. Inténtelo de nuevo más tarde.",
+      "alreadySubscribed": "Esta dirección ya está suscrita al boletín."
     },
     "hero": {
       "tabs": {
@@ -6183,6 +6214,7 @@
         "button": "Enviar evento",
         "submitting": "Enviando su evento…",
         "success": "Evento enviado. Nuestro equipo lo revisará pronto.",
+        "savedEmailFailed": "Su evento se guardó, pero no pudimos enviar el correo de confirmación. Compruebe su dirección o contáctenos.",
         "error": "Algo salió mal. Inténtelo de nuevo.",
         "invalid": "Revise los campos indicados."
       },
@@ -6202,7 +6234,10 @@
         "body": "Manténgase al día sobre próximos eventos y oportunidades de negocio.",
         "placeholder": "Ingrese su correo",
         "subscribe": "Suscribirse",
-        "success": "Suscripción confirmada. Revise su bandeja de entrada."
+        "consent": "Acepto recibir correos del boletín de TradeInDRC.",
+        "success": "Revise su correo para confirmar su suscripción al boletín.",
+        "error": "No pudimos procesar su suscripción. Inténtelo de nuevo más tarde.",
+        "alreadySubscribed": "Esta dirección ya está suscrita al boletín."
       }
     }
   },

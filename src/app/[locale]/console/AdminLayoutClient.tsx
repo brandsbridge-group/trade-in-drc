@@ -3,6 +3,46 @@
 import * as React from "react";
 import { ConsoleSidebar, MobileConsoleBar } from "@/components/console/sidebar";
 import { ConsoleTopbar } from "@/components/console/topbar";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
+import { usePathname } from "next/navigation";
+import { useAuth } from "@/lib/auth/auth-provider";
+import { cn } from "@/lib/utils";
+import { SUPER_ADMIN_ROUTES } from "@/constants/routes";
+import {
+    LayoutDashboard,
+    Building2,
+    Users,
+    CheckCircle,
+    FileText,
+    Tag,
+    BarChart3,
+    Settings,
+    LogOut,
+    Briefcase,
+    MessageSquareWarning,
+    Inbox,
+    Crown,
+    Mail,
+} from "lucide-react";
+import { ROUTES } from "@/constants/routes";
+
+const sidebarLinks = [
+    { href: "/console", labelKey: "navDashboard", icon: LayoutDashboard },
+    { href: "/console/verifications", labelKey: "navVerifications", icon: CheckCircle },
+    { href: "/console/content", labelKey: "navContent", icon: FileText },
+    { href: "/console/opportunities", labelKey: "navOpportunities", icon: Briefcase },
+    { href: "/console/requests", labelKey: "navRequests", icon: Inbox },
+    { href: "/console/requests/premium", labelKey: "navPremium", icon: Crown },
+    { href: "/console/data-hub", labelKey: "navDataHub", icon: BarChart3 },
+    { href: "/console/companies", labelKey: "navCompanies", icon: Building2 },
+    { href: "/console/users", labelKey: "navUsers", icon: Users },
+    { href: "/console/messages", labelKey: "navMessages", icon: MessageSquareWarning },
+    { href: "/console/taxonomy", labelKey: "navTaxonomy", icon: Tag },
+    { href: "/console/analytics", labelKey: "navAnalytics", icon: BarChart3 },
+    { href: "/console/settings", labelKey: "navSettings", icon: Settings },
+    { href: ROUTES.CONSOLE_NEWSLETTER, labelKey: "navNewsletter", icon: Mail },
+] as const;
 
 export default function AdminLayoutClient({
     children,

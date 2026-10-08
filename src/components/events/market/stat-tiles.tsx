@@ -32,18 +32,18 @@ export async function EventStatTiles({
       {tiles.map(({ Icon, value, label, gold }) => (
         <div
           key={label}
-          className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white px-4 py-4 shadow-sm"
+          className="group flex items-center gap-3.5 rounded-2xl border border-slate-200/80 bg-white px-4 py-4 shadow-[0_16px_36px_-30px_rgba(15,23,42,0.55)] transition-colors duration-150 hover:border-market-navy/20"
         >
           <span
-            className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${
-              gold ? "bg-market-gold text-market-navy" : "bg-market-navy text-white"
+            className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${
+              gold ? "bg-market-or text-market-navy" : "bg-market-navy text-white"
             }`}
           >
             <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
           </span>
           <div>
-            <div className="font-display text-xl font-bold leading-tight text-market-navy">{value}</div>
-            <div className="text-xs text-slate-500">{label}</div>
+            <div className="font-display text-2xl font-bold leading-tight text-market-navy">{value}</div>
+            <div className="mt-0.5 text-xs font-medium text-slate-500">{label}</div>
           </div>
         </div>
       ))}

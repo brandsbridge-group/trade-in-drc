@@ -9,7 +9,6 @@ import {
   FileText,
   Inbox,
   LayoutDashboard,
-  Mail,
   MessageSquareWarning,
   Settings,
   Tag,
@@ -22,6 +21,8 @@ export interface ConsoleNavItem {
   /** Key under the `Admin.nav` namespace. */
   labelKey: string;
   icon: LucideIcon;
+  /** Sections reached from this item's own tabs: they keep it lit in the sidebar. */
+  also?: string[];
 }
 
 export interface ConsoleNavGroup {
@@ -53,7 +54,8 @@ export const CONSOLE_NAV: ConsoleNavGroup[] = [
   {
     labelKey: "content",
     items: [
-      { href: "/console/content", labelKey: "navContent", icon: FileText },
+      // The newsletter is a tab of Content (between News and Events), not an entry of its own.
+      { href: "/console/content", labelKey: "navContent", icon: FileText, also: [ROUTES.CONSOLE_NEWSLETTER] },
       { href: "/console/data-hub", labelKey: "navDataHub", icon: Database },
       { href: "/console/taxonomy", labelKey: "navTaxonomy", icon: Tag },
     ],
@@ -63,7 +65,6 @@ export const CONSOLE_NAV: ConsoleNavGroup[] = [
     items: [
       { href: "/console/users", labelKey: "navUsers", icon: Users },
       { href: "/console/settings", labelKey: "navSettings", icon: Settings },
-      { href: ROUTES.CONSOLE_NEWSLETTER, labelKey: "navNewsletter", icon: Mail },
     ],
   },
 ];
@@ -77,16 +78,19 @@ export function visibleConsoleNav(isSuperAdmin: boolean): ConsoleNavGroup[] {
   })).filter((group) => group.items.length > 0);
 }
 
-const CONSOLE_NAV_ITEMS = CONSOLE_NAV.flatMap((g) => g.items);
+// Every route an item answers for, paired with the item.
+const CONSOLE_NAV_ROUTES = CONSOLE_NAV.flatMap((group) =>
+  group.items.flatMap((item) => [item.href, ...(item.also ?? [])].map((route) => ({ route, item })))
+);
 
 /**
  * The nav item the current page belongs to: the longest matching href, so
  * `/console/requests/premium` lights up "Premium" and not "Requests" too.
  */
 export function activeConsoleItem(pathname: string): ConsoleNavItem | undefined {
-  return [...CONSOLE_NAV_ITEMS]
-    .sort((a, b) => b.href.length - a.href.length)
-    .find((item) =>
-      item.href === "/console" ? pathname === "/console" : pathname === item.href || pathname.startsWith(`${item.href}/`)
-    );
+  return [...CONSOLE_NAV_ROUTES]
+    .sort((a, b) => b.route.length - a.route.length)
+    .find(({ route }) =>
+      route === "/console" ? pathname === "/console" : pathname === route || pathname.startsWith(`${route}/`)
+    )?.item;
 }

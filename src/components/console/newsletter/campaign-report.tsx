@@ -156,7 +156,14 @@ export function CampaignReport({
         </section>
 
         <div className="xl:sticky xl:top-4">
-          <EmailPreview language={language} subject={subject} body={body} sender={overview.sender} />
+          <EmailPreview
+            language={language}
+            subject={subject}
+            body={body}
+            linkUrl={campaign.link_url}
+            photoUrl={campaign.photo_url}
+            sender={overview.sender}
+          />
         </div>
       </div>
 

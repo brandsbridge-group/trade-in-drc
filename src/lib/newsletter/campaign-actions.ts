@@ -10,7 +10,10 @@ import { ROUTES } from "@/constants/routes";
 import {
   CAMPAIGN_LANGUAGES,
   CAMPAIGN_LIMITS,
+  areCampaignUrlsValid,
   campaignText,
+  isHttpUrl,
+  isHttpsUrl,
   isCampaignReady,
   renderCampaignEmail,
   type NewsletterCampaign,
@@ -27,8 +30,10 @@ import { processCampaignBatch, type CampaignProgress } from "./send-queue";
 // upper limits apply here. Completeness is checked when it is sent.
 const subject = z.string().trim().max(CAMPAIGN_LIMITS.subjectMax);
 const body = z.string().trim().max(CAMPAIGN_LIMITS.bodyMax);
+const linkUrl = z.string().trim().max(2048).refine((value) => !value || isHttpUrl(value));
+const photoUrl = z.string().trim().max(2048).refine((value) => !value || isHttpsUrl(value));
 const campaignSchema = z
-  .object({ subject_en: subject, subject_fr: subject, body_en: body, body_fr: body })
+  .object({ subject_en: subject, subject_fr: subject, body_en: body, body_fr: body, link_url: linkUrl, photo_url: photoUrl })
   .refine((content) => Object.values(content).some((value) => value.length > 0));
 const uuid = z.string().uuid();
 
@@ -153,7 +158,7 @@ export async function duplicateNewsletterCampaign(
   const admin = createAdminClient();
   const { data: source } = await admin
     .from("newsletter_campaigns")
-    .select("subject_en, subject_fr, body_en, body_fr")
+    .select("subject_en, subject_fr, body_en, body_fr, link_url, photo_url")
     .eq("id", id.data)
     .maybeSingle();
   if (!source) return { ok: false };
@@ -224,7 +229,7 @@ export async function sendNewsletterTest(
 export async function startNewsletterCampaign(
   locale: string,
   campaignId: string
-): Promise<{ ok: true; queued: number } | { ok: false; error: "invalid" | "incomplete" | "not_sendable" | "no_recipients" | "email_not_configured" | "site_url_missing" | "server" }> {
+): Promise<{ ok: true; queued: number } | { ok: false; error: "invalid" | "incomplete" | "invalid_urls" | "not_sendable" | "no_recipients" | "email_not_configured" | "site_url_missing" | "server" }> {
   await requireSuperAdmin(locale);
   const id = uuid.safeParse(campaignId);
   if (!id.success) return { ok: false, error: "invalid" };
@@ -234,11 +239,12 @@ export async function startNewsletterCampaign(
   const admin = createAdminClient();
   const { data: campaign } = await admin
     .from("newsletter_campaigns")
-    .select("subject_en, subject_fr, body_en, body_fr")
+    .select("subject_en, subject_fr, body_en, body_fr, link_url, photo_url")
     .eq("id", id.data)
     .maybeSingle();
   if (!campaign) return { ok: false, error: "not_sendable" };
   if (!isCampaignReady(campaign)) return { ok: false, error: "incomplete" };
+  if (!areCampaignUrlsValid(campaign)) return { ok: false, error: "invalid_urls" };
 
   const { data, error } = await admin.rpc("newsletter_enqueue_campaign", {
     p_campaign_id: id.data,

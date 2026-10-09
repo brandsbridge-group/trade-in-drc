@@ -3,7 +3,7 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { sendEmailBatch, type EmailMessage } from "@/lib/email/send";
 import { siteOrigin } from "@/lib/site-url";
 import type { Database } from "@/lib/supabase/types";
-import { renderCampaignEmail, type NewsletterCampaign } from "./campaign-email";
+import { campaignTextForRecipient, renderCampaignEmail, type NewsletterCampaign } from "./campaign-email";
 import { unsubscribeUrl } from "./tokens";
 
 /**
@@ -96,16 +96,17 @@ export async function processCampaignBatch(admin: Admin, campaignId: string): Pr
   }
 
   const messages: EmailMessage[] = batch.map((delivery) => {
-    const french = delivery.locale === "fr";
     const unsubscribe = unsubscribeUrl(origin, delivery.subscriber_id, delivery.locale);
-    const subject = french ? campaign.subject_fr : campaign.subject_en;
+    const { subject, body } = campaignTextForRecipient(campaign, delivery.locale);
     return {
       to: delivery.recipient_email,
       subject,
       ...renderCampaignEmail({
         language: delivery.locale,
         subject,
-        body: french ? campaign.body_fr : campaign.body_en,
+        body,
+        linkUrl: campaign.link_url,
+        photoUrl: campaign.photo_url,
         origin,
         unsubscribeUrl: unsubscribe,
       }),

@@ -43,8 +43,9 @@
       "contact": "A question? Let’s talk."
     },
     "featured": {
-      "body": "Get in front of international buyers.",
-      "cta": "See the plans"
+      "title": "Go Premium",
+      "body": "Explore Premium plans and benefits.",
+      "cta": "Go Premium"
     },
     "language": "Language",
     "changeLanguage": "Change language",
@@ -2350,6 +2351,12 @@
         "languageReady": "This language is complete",
         "languageMissing": "This language is not complete yet",
         "bothReady": "Both languages are complete",
+        "fallbackWillBeUsed": "The {language} version will be sent to subscribers in both languages.",
+        "invalidUrl": "Use a valid web link and an HTTPS image URL.",
+        "linkUrl": "Link URL",
+        "linkUrlHint": "Adds a button to the email.",
+        "photoUrl": "Photo URL",
+        "photoUrlHint": "Shows this image above the message. HTTPS required.",
         "subject": "Subject",
         "subjectPlaceholder": "What this email is about, in a few words",
         "subjectHint": "The line subscribers read in their inbox. It is also the title of the email.",
@@ -2384,12 +2391,14 @@
         "noSender": "Not configured",
         "subjectEn": "Subject (English)",
         "subjectFr": "Subject (French)",
+        "fallbackWarning": "The version you wrote will also be sent to subscribers who chose the other language.",
         "cancel": "Cancel",
         "confirm": "{count, plural, =0 {Send} one {Send to # subscriber} other {Send to # subscribers}}",
         "started": "{count, plural, one {Sending started for # recipient.} other {Sending started for # recipients.}}",
         "errors": {
           "invalid": "This campaign cannot be sent.",
-          "incomplete": "Complete the subject and the message in both languages before sending.",
+          "incomplete": "Complete the subject and the message in at least one language before sending.",
+          "invalid_urls": "Check the link URL (HTTP or HTTPS) and photo URL (HTTPS).",
           "not_sendable": "This campaign is already being sent or has already been sent.",
           "no_recipients": "There is nobody to send to yet: no subscriber has confirmed their address.",
           "email_not_configured": "Email sending is not configured yet (provider key and sender address).",

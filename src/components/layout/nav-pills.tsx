@@ -8,11 +8,11 @@ import {
     ArrowRight,
     CalendarDays,
     ChevronDown,
+    Crown,
     Handshake,
     Info,
     Mail,
     MapPinned,
-    Megaphone,
     type LucideIcon,
 } from "lucide-react";
 
@@ -50,7 +50,11 @@ const PROMOTION_IMAGES = [
  * Desktop nav — frameless links with one highlight pill that glides to the
  * hovered item and rests on the active page (MOTION.md §2.9). "More" opens a panel:
  * five destinations with icons + one-line descriptions, and a featured
- * "Promote your company" card.
+ * five destinations with icons + one-line descriptions, and a featured
+ * Premium card.
+                                    <Crown className="h-4 w-4" aria-hidden />
+                                {t("featured.title")}
+                                {t("featured.cta")}
  */
 export function NavPills({
     links,
@@ -171,7 +175,7 @@ export function NavPills({
                         })}
                     </div>
 
-                    {/* Featured: promote */}
+                    {/* Featured Premium destination */}
                     <DropdownMenuItem asChild className="p-0 focus:bg-transparent">
                         <Link
                             href="/pricing"
@@ -179,7 +183,7 @@ export function NavPills({
                             onMouseLeave={() => setPromotionHovered(false)}
                             onFocus={() => setPromotionFocused(true)}
                             onBlur={() => setPromotionFocused(false)}
-                            aria-label={`${t("promote")}. ${t("featured.body")}`}
+                            aria-label={`${t("featured.title")}. ${t("featured.body")}`}
                             className="group relative isolate flex min-h-[300px] cursor-pointer flex-col items-start justify-end gap-0 overflow-hidden rounded-xl bg-market-navy p-4 text-white"
                         >
                             <span className="absolute inset-0 -z-20">
@@ -206,7 +210,7 @@ export function NavPills({
 
                             <span className="absolute inset-x-4 top-4 flex items-center justify-between">
                                 <span className="grid h-9 w-9 place-items-center rounded-full border border-white/25 bg-slate-950/30 text-market-or backdrop-blur-sm">
-                                    <Megaphone className="h-4 w-4" aria-hidden />
+                                    <Crown className="h-4 w-4 text-market-or-light" aria-hidden />
                                 </span>
                                 <span className="flex items-center gap-1.5" aria-hidden>
                                     {PROMOTION_IMAGES.map((image, index) => (
@@ -221,7 +225,7 @@ export function NavPills({
                             </span>
 
                             <span className="block font-display text-[15px] font-bold leading-snug">
-                                {t("promote")}
+                                {t("featured.title")}
                             </span>
                             <span className="mt-1 block text-[12px] leading-snug text-white/65">
                                 {t("featured.body")}

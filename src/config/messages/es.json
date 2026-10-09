@@ -43,8 +43,9 @@
       "contact": "¿Una pregunta? Hablemos."
     },
     "featured": {
-      "body": "Gane visibilidad ante compradores internacionales.",
-      "cta": "Ver los planes"
+      "title": "Ir a Premium",
+      "body": "Descubra las ofertas y ventajas Premium.",
+      "cta": "Ir a Premium"
     },
     "language": "Idioma",
     "changeLanguage": "Cambiar de idioma",

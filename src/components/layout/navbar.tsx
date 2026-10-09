@@ -71,7 +71,7 @@ export function Navbar() {
     { href: "/local-contacts", label: t("contactPoints") },
     { href: "/services", label: t("services") },
     { href: "/events", label: t("events") },
-    { href: "/pricing", label: t("promote") },
+    { href: "/pricing", label: t("featured.title") },
     { href: "/contact", label: t("contact") },
   ];
   const navLinks = [...primaryLinks, ...overflowLinks];

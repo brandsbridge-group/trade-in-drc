@@ -24,6 +24,7 @@ export interface EmailLayoutInput {
   heading: string;
   paragraphs: string[];
   details?: Array<[string, string]>;
+  image?: { src: string; href?: string; alt: string };
   cta?: { label: string; href: string };
   unsubscribeUrl?: string;
 }
@@ -55,6 +56,9 @@ export function renderEmailLayout(input: EmailLayoutInput): RenderedEmail {
   const logoUrl = `${input.origin}${LOGO_PATH}`;
   const preheader = escapeHtml(input.preheader);
   const paragraphs = input.paragraphs.map(paragraphHtml).join("");
+  const image = input.image
+    ? `<div style="margin:0 0 24px">${input.image.href ? `<a href="${escapeHtml(input.image.href)}" style="display:block">` : ""}<img src="${escapeHtml(input.image.src)}" alt="${escapeHtml(input.image.alt)}" style="display:block;width:100%;height:auto;border:0;border-radius:10px">${input.image.href ? "</a>" : ""}</div>`
+    : "";
   const details = input.details?.length
     ? `<table role="presentation" style="width:100%;border-collapse:collapse;margin:22px 0;background:#f8fafc;border:1px solid #e2e8f0">${input.details
         .map(([label, value]) => `<tr><td style="padding:11px 14px;border-bottom:1px solid #e2e8f0;color:#64748b;font-size:13px;width:34%">${escapeHtml(label)}</td><td style="padding:11px 14px;border-bottom:1px solid #e2e8f0;color:${BRAND_NAVY};font-size:13px;font-weight:600">${escapeHtml(value)}</td></tr>`)
@@ -74,6 +78,7 @@ export function renderEmailLayout(input: EmailLayoutInput): RenderedEmail {
     input.heading,
     ...input.paragraphs,
     ...(input.details ?? []).map(([label, value]) => `${label}: ${value}`),
+    ...(input.image ? [input.image.src] : []),
     ...(input.cta ? [`${input.cta.label}: ${input.cta.href}`] : []),
     ...(input.unsubscribeUrl ? [`${fr ? "Se désabonner" : "Unsubscribe"}: ${input.unsubscribeUrl}`] : []),
     legal,
@@ -81,6 +86,6 @@ export function renderEmailLayout(input: EmailLayoutInput): RenderedEmail {
 
   return {
     text,
-    html: `<!doctype html><html lang="${input.locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>${escapeHtml(input.heading)}</title></head><body style="margin:0;background:#f3f6fa;font-family:Arial,Helvetica,sans-serif;color:${BRAND_NAVY};-webkit-font-smoothing:antialiased"><div style="display:none;max-height:0;overflow:hidden;opacity:0">${preheader}</div><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;background:#f3f6fa"><tr><td align="center" style="padding:36px 14px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;max-width:600px;border-collapse:separate;border-spacing:0;background:#ffffff;border:1px solid #e4eaf2;border-radius:16px;overflow:hidden"><tr><td style="padding:22px 30px;background:#ffffff;border-bottom:1px solid #e8edf4"><img src="${escapeHtml(logoUrl)}" alt="TradeInDRC" width="176" style="display:block;width:176px;max-width:100%;height:auto;border:0"></td></tr><tr><td style="height:3px;line-height:3px;font-size:0;background:${BRAND_BLUE}">&nbsp;</td></tr><tr><td style="padding:34px 34px 30px"><h1 style="margin:0 0 20px;font-size:24px;line-height:1.3;font-weight:700;color:${BRAND_NAVY}">${escapeHtml(input.heading)}</h1>${paragraphs}${details}${cta}${unsubscribe}</td></tr><tr><td style="padding:18px 30px;background:#f7f9fc;border-top:1px solid #e8edf4;color:#718096;font-size:11px;line-height:1.65">${escapeHtml(legal)}<br><span style="color:#9aa8b8">TradeInDRC</span></td></tr></table></td></tr></table></body></html>`,
+    html: `<!doctype html><html lang="${input.locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>${escapeHtml(input.heading)}</title></head><body style="margin:0;background:#f3f6fa;font-family:Arial,Helvetica,sans-serif;color:${BRAND_NAVY};-webkit-font-smoothing:antialiased"><div style="display:none;max-height:0;overflow:hidden;opacity:0">${preheader}</div><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;background:#f3f6fa"><tr><td align="center" style="padding:36px 14px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;max-width:600px;border-collapse:separate;border-spacing:0;background:#ffffff;border:1px solid #e4eaf2;border-radius:16px;overflow:hidden"><tr><td style="padding:22px 30px;background:#ffffff;border-bottom:1px solid #e8edf4"><img src="${escapeHtml(logoUrl)}" alt="TradeInDRC" width="176" style="display:block;width:176px;max-width:100%;height:auto;border:0"></td></tr><tr><td style="height:3px;line-height:3px;font-size:0;background:${BRAND_BLUE}">&nbsp;</td></tr><tr><td style="padding:34px 34px 30px"><h1 style="margin:0 0 20px;font-size:24px;line-height:1.3;font-weight:700;color:${BRAND_NAVY}">${escapeHtml(input.heading)}</h1>${image}${paragraphs}${details}${cta}${unsubscribe}</td></tr><tr><td style="padding:18px 30px;background:#f7f9fc;border-top:1px solid #e8edf4;color:#718096;font-size:11px;line-height:1.65">${escapeHtml(legal)}<br><span style="color:#9aa8b8">TradeInDRC</span></td></tr></table></td></tr></table></body></html>`,
   };
 }

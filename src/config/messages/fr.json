@@ -43,8 +43,9 @@
       "contact": "Une question ? Parlons-en."
     },
     "featured": {
-      "body": "Gagnez en visibilité auprès des acheteurs internationaux.",
-      "cta": "Voir les offres"
+      "title": "Aller Premium",
+      "body": "Découvrez les offres et avantages Premium.",
+      "cta": "Aller Premium"
     },
     "language": "Langue",
     "changeLanguage": "Changer de langue",
@@ -2350,6 +2351,12 @@
         "languageReady": "Cette langue est complète",
         "languageMissing": "Cette langue n'est pas encore complète",
         "bothReady": "Les deux langues sont complètes",
+        "fallbackWillBeUsed": "La version {language} sera envoyée aux abonnés des deux langues.",
+        "invalidUrl": "Saisissez un lien web valide et une URL d'image HTTPS.",
+        "linkUrl": "URL du lien",
+        "linkUrlHint": "Ajoute un bouton dans l'e-mail.",
+        "photoUrl": "URL de la photo",
+        "photoUrlHint": "Affiche cette image au-dessus du message. HTTPS requis.",
         "subject": "Objet",
         "subjectPlaceholder": "De quoi parle cet e-mail, en quelques mots",
         "subjectHint": "La ligne que les abonnés lisent dans leur boîte de réception. C'est aussi le titre de l'e-mail.",
@@ -2384,12 +2391,14 @@
         "noSender": "Non configuré",
         "subjectEn": "Objet (anglais)",
         "subjectFr": "Objet (français)",
+        "fallbackWarning": "La version rédigée sera aussi envoyée aux abonnés ayant choisi l'autre langue.",
         "cancel": "Annuler",
         "confirm": "{count, plural, =0 {Envoyer} one {Envoyer à # abonné} other {Envoyer à # abonnés}}",
         "started": "{count, plural, one {Envoi lancé pour # destinataire.} other {Envoi lancé pour # destinataires.}}",
         "errors": {
           "invalid": "Cette campagne ne peut pas être envoyée.",
-          "incomplete": "Complétez l'objet et le message dans les deux langues avant d'envoyer.",
+          "incomplete": "Complétez l'objet et le message dans au moins une langue avant d'envoyer.",
+          "invalid_urls": "Vérifiez l'URL du lien (HTTP ou HTTPS) et l'URL de la photo (HTTPS).",
           "not_sendable": "Cette campagne est déjà en cours d'envoi ou a déjà été envoyée.",
           "no_recipients": "Il n'y a encore personne à qui écrire : aucun abonné n'a confirmé son adresse.",
           "email_not_configured": "L'envoi d'e-mails n'est pas encore configuré (clé du fournisseur et adresse d'expéditeur).",

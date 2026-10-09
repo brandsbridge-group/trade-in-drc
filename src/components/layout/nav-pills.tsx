@@ -210,7 +210,7 @@ export function NavPills({
 
                             <span className="absolute inset-x-4 top-4 flex items-center justify-between">
                                 <span className="grid h-9 w-9 place-items-center rounded-full border border-white/25 bg-slate-950/30 text-market-or backdrop-blur-sm">
-                                    <Crown className="h-4 w-4" aria-hidden />
+                                    <Crown className="h-4 w-4 text-market-or-light" aria-hidden />
                                 </span>
                                 <span className="flex items-center gap-1.5" aria-hidden>
                                     {PROMOTION_IMAGES.map((image, index) => (

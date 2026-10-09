@@ -43,8 +43,9 @@
       "contact": "有问题？欢迎联系。"
     },
     "featured": {
-      "body": "让国际买家看到您的企业。",
-      "cta": "查看方案"
+      "title": "前往高级版",
+      "body": "了解高级版的优惠与权益。",
+      "cta": "前往高级版"
     },
     "language": "语言",
     "changeLanguage": "切换语言",

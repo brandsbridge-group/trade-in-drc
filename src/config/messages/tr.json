@@ -43,8 +43,9 @@
       "contact": "Bir sorunuz mu var? Konuşalım."
     },
     "featured": {
-      "body": "Uluslararası alıcıların gözüne girin.",
-      "cta": "Planları görün"
+      "title": "Premium'a git",
+      "body": "Premium teklifleri ve avantajlarını keşfedin.",
+      "cta": "Premium'a git"
     },
     "language": "Dil",
     "changeLanguage": "Dili değiştir",
